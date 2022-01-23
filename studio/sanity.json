@@ -1,0 +1,68 @@
+{
+  "root": true,
+  "project": {
+    "name": "Daren CMS"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/code-input",
+    "@sanity/color-input",
+    "@sanity/components",
+    "@sanity/dashboard",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/production-preview",
+    "asset-source-unsplash",
+    "better-slug",
+    "color-list",
+    "dashboard-widget-document-list",
+    "dashboard-widget-netlify",
+    "dashboard-widget-structure-menu",
+    "documents-pane",
+    "intl-input",
+    "media-library",
+    "note-field",
+    "table",
+    "visual-options",
+    "seo-pane",
+    "icon-picker"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schemas"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./parts/logo.tsx"
+    },
+    {
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "path": "./utils/get-preview-url"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./desk-structure"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboard-config"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "./parts/resolve-actions"
+    },
+    {
+      "implements": "part:@sanity/base/absolutes",
+      "path": "./parts/bundleChecker"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.prose ul.list-none > li {
+  padding-left: unset;
+}
+
+.prose ul.list-none > li::before {
+  content: unset;
+}
+
+.prose pre {
+  padding-left: 75px !important;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}

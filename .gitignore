@@ -1,0 +1,43 @@
+# dependencies
+/node_modules
+
+# misc
+.vscode/
+.DS_Store
+*.pem
+.history
+tsconfig.tsbuildinfo
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# netlify
+.netlify
+
+# backups
+*.tar.gz
+
+
+.cache
+build
+server-build
+public/build
+coverage
+tmp
+
+app/styles/**/*.css
+other/postcss.ignored
+
+cypress/videos
+cypress/screenshots
+*.local.*
+

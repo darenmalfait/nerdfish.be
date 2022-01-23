@@ -1,0 +1,46 @@
+name: Release Studio Workflow
+
+on:
+  push:
+    paths:
+      - "studio/**"
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: 📥 Download deps
+        run: |
+          cd studio
+          npm install
+
+      - name: 🔬 Validate
+        run: |
+          cd studio
+          npm run validate
+
+      - name: 🚀 Deploy Sanity
+        run: |
+          cd studio
+          set -e
+
+          cat << EOF > .env.production
+          SANITY_STUDIO_PREVIEW_TOKEN=${{ secrets.SANITY_STUDIO_PREVIEW_TOKEN }}
+          SANITY_STUDIO_PROJECT_URL=${{ secrets.SANITY_STUDIO_PROJECT_URL }}
+          SANITY_STUDIO_API_PROJECT_ID=${{ secrets.SANITY_STUDIO_API_PROJECT_ID }}
+          SANITY_STUDIO_API_DATASET=${{ secrets.SANITY_STUDIO_API_DATASET }}
+          EOF
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npm run deploy
