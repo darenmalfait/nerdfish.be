@@ -3,10 +3,5 @@ import { GoSettings } from 'react-icons/go'
 
 export default S.listItem()
   .title('Site Settings')
-  .child(
-    S.document()
-      .id('siteSettings')
-      .schemaType('siteSettings')
-      .documentId('siteSettings'),
-  )
+  .child(S.document().schemaType('siteSettings').documentId('siteSettings'))
   .icon(GoSettings)

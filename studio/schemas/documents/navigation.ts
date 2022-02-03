@@ -9,6 +9,7 @@ export const navigation: Document = {
   type: 'document',
   name: 'navigation',
   title: 'Navigation',
+  __experimental_actions: ['update', 'publish'], // disable for initial publish
   icon: AiOutlineMenuFold,
   initialValue: {
     i18n_lang: defaultLanguage()?.code,

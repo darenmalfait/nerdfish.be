@@ -3,10 +3,5 @@ import { MdBusiness } from 'react-icons/md'
 
 export default S.listItem()
   .title('Company Info')
-  .child(
-    S.document()
-      .id('companyInfo')
-      .schemaType('companyInfo')
-      .documentId('companyInfo'),
-  )
+  .child(S.document().schemaType('companyInfo').documentId('companyInfo'))
   .icon(MdBusiness)

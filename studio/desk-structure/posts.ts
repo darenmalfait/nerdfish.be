@@ -16,6 +16,7 @@ export default S.listItem()
       .params({
         lang: defaultLanguage()?.code,
         type: 'post',
-      }),
+      })
+      .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
   )
   .icon(MdDescription)

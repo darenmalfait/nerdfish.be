@@ -6,7 +6,6 @@ export default S.listItem()
   .schemaType('tag')
   .child(
     S.documentList()
-      .id('tag')
       .title('Tags')
       .schemaType('tag')
       .filter('_type == $type')

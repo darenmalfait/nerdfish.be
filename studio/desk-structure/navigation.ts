@@ -8,7 +8,6 @@ export default S.listItem()
   .schemaType('navigation')
   .child(
     S.documentList()
-      .id('navigation')
       .title('Menus')
       .schemaType('navigation')
       .filter('i18n_lang == $lang && _type == $type')

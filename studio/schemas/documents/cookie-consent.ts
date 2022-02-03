@@ -6,7 +6,7 @@ export const cookieConsent: Document = {
   name: 'cookieConsent',
   title: 'Cookie Consent',
   type: 'document',
-  // __experimental_actions: ['update', 'publish'], // disable for initial publish
+  __experimental_actions: ['update', 'publish'], // disable for initial publish
   icon: BiCookie,
   initialValue: {
     enabled: true,

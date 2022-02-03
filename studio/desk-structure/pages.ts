@@ -8,7 +8,6 @@ export default S.listItem()
   .schemaType('page')
   .child(
     S.documentList()
-      .id('page')
       .title('Pages')
       .schemaType('page')
       .filter('i18n_lang == $lang && _type == $type')

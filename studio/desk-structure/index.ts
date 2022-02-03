@@ -2,7 +2,6 @@ import S from '@sanity/desk-tool/structure-builder'
 import { BsEye } from 'react-icons/bs'
 import DocumentsPane from 'sanity-plugin-documents-pane'
 import * as Structure from 'sanity-plugin-intl-input/lib/structure'
-import SeoPane from 'sanity-plugin-seo-pane'
 
 import authors from './authors'
 import companyInfo from './company-info'
@@ -15,7 +14,6 @@ import socials from './socials'
 import tags from './tags'
 
 import { JSONPreview, PagePreview } from '../components/previews'
-import getPreviewUrl from '../utils/get-preview-url'
 
 // Hide document types that we already have a specific structure definition for
 const hiddenDocTypes = (listItem: any) =>
@@ -36,7 +34,6 @@ function deskStructure(): any {
   const items = Structure.getFilteredDocumentTypeListItems()
 
   return S.list()
-    .id('__root__')
     .title('Content')
     .items([
       pages,
@@ -55,36 +52,13 @@ function deskStructure(): any {
 
 export default deskStructure
 
-export function getDefaultDocumentNode({ schemaType }: any): any {
-  if (schemaType === 'page') {
-    return S.document().views([
-      ...Structure.getDocumentNodeViewsForSchemaType('page'),
-      S.view.component(PagePreview).icon(BsEye).title('Preview'),
-      S.view
-        .component(SeoPane)
-        .options({
-          // Retrieve the keywords and synonyms at the given dot-notated strings
-          keywords: `seo.keywords`,
-          synonyms: `seo.synonyms`,
-          url: (doc: any) => getPreviewUrl(doc),
-        })
-        .title('SEO'),
-    ])
-  }
+const previewable = ['page', 'post']
 
-  if (schemaType === 'post') {
+export function getDefaultDocumentNode({ schemaType }: any): any {
+  if (previewable.includes(schemaType)) {
     return S.document().views([
-      ...Structure.getDocumentNodeViewsForSchemaType('post'),
+      ...Structure.getDocumentNodeViewsForSchemaType(schemaType),
       S.view.component(PagePreview).icon(BsEye).title('Preview'),
-      S.view
-        .component(SeoPane)
-        .options({
-          // Retrieve the keywords and synonyms at the given dot-notated strings
-          keywords: `seo.keywords`,
-          synonyms: `seo.synonyms`,
-          url: (doc: any) => getPreviewUrl(doc),
-        })
-        .title('SEO'),
     ])
   }
 

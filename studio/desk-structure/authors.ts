@@ -6,7 +6,6 @@ export default S.listItem()
   .schemaType('author')
   .child(
     S.documentList()
-      .id('author')
       .title('Authors')
       .schemaType('author')
       .filter('_type == $type')

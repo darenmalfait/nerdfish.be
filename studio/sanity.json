@@ -8,7 +8,6 @@
     "@sanity/code-input",
     "@sanity/color-input",
     "@sanity/components",
-    "@sanity/dashboard",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
@@ -16,16 +15,12 @@
     "asset-source-unsplash",
     "better-slug",
     "color-list",
-    "dashboard-widget-document-list",
-    "dashboard-widget-netlify",
-    "dashboard-widget-structure-menu",
     "documents-pane",
     "intl-input",
     "media-library",
     "note-field",
     "table",
     "visual-options",
-    "seo-pane",
     "icon-picker"
   ],
   "env": {
@@ -51,10 +46,6 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./desk-structure"
-    },
-    {
-      "implements": "part:@sanity/dashboard/config",
-      "path": "./dashboard-config"
     },
     {
       "implements": "part:@sanity/base/document-actions/resolver",

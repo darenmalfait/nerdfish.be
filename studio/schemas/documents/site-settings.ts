@@ -8,7 +8,7 @@ export const siteSettings: Document = {
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
-  // __experimental_actions: ['update', 'publish'], // disable for initial publish
+  __experimental_actions: ['update', 'publish'], // disable for initial publish
   groups: [
     { name: 'global', title: 'Global', default: true },
     { name: 'navigation', title: 'Navigation' },
