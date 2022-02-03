@@ -42,6 +42,10 @@ const sanityClient = new PicoSanity(config)
 // Authenticated client for fetching draft documents
 const previewClient = new PicoSanity({
   ...config,
+  token:
+    typeof window === 'undefined' && process
+      ? process.env.SANITY_API_TOKEN
+      : ``,
   useCdn: false,
 })
 

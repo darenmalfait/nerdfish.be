@@ -34,6 +34,6 @@ export function getSiteConfig(): string {
 
 export function getDocByType(docType: string, key: string = docType) {
   return groq`
-    "${key}": *[_type == "${docType}" && !(_id in path("drafts.**"))]
+    "${key}": *[_type == "${docType}"]
   `
 }
