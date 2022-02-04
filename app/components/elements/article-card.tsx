@@ -12,7 +12,7 @@ import {
 import { OptimizedImage } from '../elements/optimized-image'
 
 import { getBlogSlug, getRoute } from '~/lib/routes'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 import { PageType, LanguageCode } from '~/types/languages'
 import type { SanityPost } from '~/types/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
@@ -44,7 +44,7 @@ function ArticleCard({
         {image ? (
           <div className="rounded-lg aspect-w-3 aspect-h-4">
             <OptimizedImage
-              src={urlFor(image).url()}
+              {...image}
               blurDataUrl={getLowQualityUrlFor(image)}
               className={clsx(
                 'object-contain absolute inset-0 w-full h-full rounded-lg focus-ring',

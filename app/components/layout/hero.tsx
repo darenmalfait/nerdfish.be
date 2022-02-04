@@ -5,7 +5,7 @@ import * as React from 'react'
 import { OptimizedImage } from '../elements/optimized-image'
 import { Container } from '../layout'
 
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 
 import type { SanityImage } from '~/types/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
@@ -70,7 +70,7 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
                 <OptimizedImage src={image} className="rounded-xl" />
               ) : (
                 <OptimizedImage
-                  src={urlFor(image).url()}
+                  {...image}
                   blurDataUrl={getLowQualityUrlFor(image)}
                   alt={image.alt}
                   className="rounded-xl"

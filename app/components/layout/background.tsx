@@ -7,7 +7,7 @@ import { OptimizedImage } from '../elements'
 
 import { Section } from '../layout'
 
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 import type {
   SanityBackground,
   SanityBlockLayout,
@@ -123,7 +123,7 @@ function Background({
             />
           ) : (
             <OptimizedImage
-              src={image && urlFor(image).url()}
+              {...image}
               blurDataUrl={image && getLowQualityUrlFor(image)}
               responsive={getResponsiveImageSizes('medium')}
               alt="background image"

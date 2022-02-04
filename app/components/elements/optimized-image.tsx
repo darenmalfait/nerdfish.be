@@ -1,21 +1,24 @@
 import { ProgressiveImage } from '@daren/ui-components'
 import clsx from 'clsx'
 import * as React from 'react'
-import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import { Controlled } from 'react-medium-image-zoom'
 import { useResponsiveImage } from 'remix-image'
 
-import type { SanityImage } from '~/types'
+import { useResponsiveSanityImage } from '~/lib/sanity'
+
+import type { SanityImage, SanityImageAsset } from '~/types'
 
 export type ResponsiveProps = {
   maxWidth?: number
   size: { width: number; height?: number }
 }
 
-type ImageProps = Pick<SanityImage, 'zoom' | 'shadow'>
+type ImageProps = Pick<SanityImage, 'zoom' | 'shadow'> & {
+  responsive?: ResponsiveProps[]
+  asset?: SanityImageAsset
+}
 
-function OptimizedImage({
-  optimizerUrl = '/resources/image',
-  responsive = [],
+function Image({
   alt,
   className,
   blurDataUrl,
@@ -23,13 +26,9 @@ function OptimizedImage({
   shadow,
   ...imgProps
 }: JSX.IntrinsicElements['img'] & {
-  optimizerUrl?: string
   blurDataUrl?: string
-  responsive?: ResponsiveProps[]
 } & ImageProps) {
-  const responsiveProps = useResponsiveImage(imgProps, optimizerUrl, responsive)
   const [isZoomed, setIsZoomed] = React.useState(false)
-  const Wrapper = zoom ? ControlledZoom : 'div'
 
   const handleZoomChange = React.useCallback(shouldZoom => {
     setIsZoomed(shouldZoom)
@@ -45,19 +44,63 @@ function OptimizedImage({
         className,
       )}
     >
-      <Wrapper
-        isZoomed={isZoomed}
-        onZoomChange={handleZoomChange}
-        zoomMargin={zoom ? 40 : undefined}
-      >
-        <ProgressiveImage
-          className={className}
-          placeholder={blurDataUrl}
-          img={<img {...imgProps} {...responsiveProps} alt={alt} />}
-        />
-      </Wrapper>
+      {zoom ? (
+        <Controlled
+          isZoomed={isZoomed}
+          onZoomChange={handleZoomChange}
+          zoomMargin={40}
+        >
+          <ProgressiveImage
+            className={className}
+            placeholder={blurDataUrl}
+            img={<img {...imgProps} alt={alt} />}
+          />
+        </Controlled>
+      ) : (
+        <div>
+          <ProgressiveImage
+            className={className}
+            placeholder={blurDataUrl}
+            img={<img {...imgProps} alt={alt} />}
+          />
+        </div>
+      )}
     </div>
   )
+}
+
+function OptimizedSanityImage({ responsive, ...image }: ImageProps) {
+  const responsiveProps = useResponsiveSanityImage(image, responsive)
+  // we don't need asset here, but we need to pass it to useResponsiveImage
+  const { asset, ...imgProps } = image
+
+  return <Image {...imgProps} {...responsiveProps} />
+}
+
+function OptimizedDefaultImage({
+  optimizerUrl = '/resources/image',
+  responsive = [],
+  ...imgProps
+}: JSX.IntrinsicElements['img'] & {
+  optimizerUrl?: string
+  blurDataUrl?: string
+} & ImageProps) {
+  const responsiveProps = useResponsiveImage(imgProps, optimizerUrl, responsive)
+
+  return <Image {...imgProps} {...responsiveProps} />
+}
+
+function OptimizedImage(
+  props: JSX.IntrinsicElements['img'] & {
+    optimizerUrl?: string
+    blurDataUrl?: string
+  } & ImageProps,
+) {
+  if (props.asset) {
+    return <OptimizedSanityImage {...props} />
+  }
+
+  return <OptimizedDefaultImage {...props} />
 }
 
 export { OptimizedImage }

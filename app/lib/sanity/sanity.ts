@@ -3,6 +3,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { default as query } from 'groq'
 import PicoSanity from 'picosanity'
 
+import type { ResponsiveProps } from '~/components/elements'
+
 import type { SanityImage } from '~/types'
 
 const SANITY_STUDIO_API_PROJECT_ID = isBrowser
@@ -57,6 +59,7 @@ function getClient(usePreview = false) {
 function groq(strings: TemplateStringsArray, ...keys: any[]) {
   return query(strings, ...keys)
 
+  // TODO: find a fix
   // this makes the query crash in safari
   // .replace(
   //   /(?<!\[\()\s(?![\w\s$&"=.!_*()/,[]*[\])])/g,
@@ -78,6 +81,64 @@ const getLowQualityUrlFor = (source: SanityImage): string => {
   return imageUrlBuilder(config).image(source).width(25).url()
 }
 
+export type ResponsiveSanityImageProps = {
+  src: string
+  srcSet?: string
+  sizes?: string
+}
+
+const useResponsiveSanityImage = (
+  image: SanityImage,
+  responsive: ResponsiveProps[] = [],
+): ResponsiveSanityImageProps => {
+  const imageBuilder = urlFor(image)
+
+  const result = responsive.reduce(
+    (accum, { size, maxWidth }) => {
+      let responsiveImage = imageBuilder
+
+      if (size.width) {
+        responsiveImage = imageBuilder.width(size.width)
+      }
+
+      if (size.height) {
+        responsiveImage = imageBuilder.height(size.height)
+      }
+
+      const srcSetUrl = responsiveImage.url()
+
+      accum.srcSet.push(srcSetUrl)
+
+      if (maxWidth) {
+        accum.sizes.push(`(max-width: ${maxWidth}px) ${size.width}px`)
+      }
+
+      if (size.width > accum.largestWidth) {
+        accum.largestWidth = size.width
+        accum.src = srcSetUrl
+      }
+
+      return accum
+    },
+    {
+      src: imageBuilder.url() || '',
+      srcSet: [] as string[],
+      sizes: [] as string[],
+      largestWidth: 0,
+    },
+  )
+
+  return {
+    src: result.src,
+    ...(result.srcSet.length && {
+      srcSet: result.srcSet.join(', '),
+    }),
+    ...(result.sizes.length && {
+      sizes: result.sizes.join(', '),
+    }),
+  }
+}
+
 export {
   getClient,
   previewClient,
@@ -85,4 +146,5 @@ export {
   groq,
   urlFor,
   getLowQualityUrlFor,
+  useResponsiveSanityImage,
 }

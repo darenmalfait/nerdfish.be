@@ -26,6 +26,5 @@ export function getResponsiveImageSizes(size: SizeValue | number = 'default') {
           maxWidth: sizeMap[key],
         },
     )
-    .filter(Boolean)
-    .reverse() as ResponsiveProps[]
+    .filter(Boolean) as ResponsiveProps[]
 }

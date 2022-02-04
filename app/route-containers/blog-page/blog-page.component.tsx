@@ -12,7 +12,7 @@ import { OptimizedImage } from '~/components/elements'
 import { Container, Section } from '~/components/layout'
 import { Preview } from '~/components/utils/preview'
 import { useTranslations } from '~/context/translations-provider'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
 import { blogMeta } from '~/utils/seo'
 
@@ -69,7 +69,7 @@ export default function BlogPage() {
             <Container size="medium">
               {image && (
                 <OptimizedImage
-                  src={urlFor(image).url()}
+                  {...image}
                   blurDataUrl={getLowQualityUrlFor(image)}
                   responsive={getResponsiveImageSizes('full')}
                   alt={title}

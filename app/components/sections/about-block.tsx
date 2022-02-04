@@ -7,7 +7,7 @@ import { OptimizedImage } from '../elements/optimized-image'
 import { CtaLink } from '~/components/buttons'
 import { PortableText } from '~/components/common'
 import { Section } from '~/components/layout'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 import type { SanityBlock, SanityCta, SanityImage } from '~/types/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
 
@@ -28,7 +28,7 @@ export function AboutBlock({
             <div className="aspect-w-4 aspect-h-3">
               {image && (
                 <OptimizedImage
-                  src={urlFor(image).url()}
+                  {...image}
                   blurDataUrl={getLowQualityUrlFor(image)}
                   alt={image.alt}
                   className="rounded-xl"

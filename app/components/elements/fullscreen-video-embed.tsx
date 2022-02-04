@@ -6,7 +6,7 @@ import * as React from 'react'
 import playIcon from '~/assets/images/icons/play-icon.svg'
 import { OptimizedImage } from '~/components/elements/optimized-image'
 import { Placeholder } from '~/components/layout/'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 
 import type { SanityFile, SanityImage } from '~/types/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
@@ -121,7 +121,7 @@ function FullscreenVideoEmbed({
         >
           {placeholder && (
             <OptimizedImage
-              src={urlFor(placeholder).url()}
+              {...placeholder}
               blurDataUrl={getLowQualityUrlFor(placeholder)}
               alt="Watch the video"
               className="rounded-xl"
