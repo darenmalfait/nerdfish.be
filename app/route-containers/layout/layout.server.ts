@@ -1,4 +1,4 @@
-import { json } from 'remix'
+import { json, redirect } from 'remix'
 import type { LoaderFunction } from 'remix'
 
 import type { Theme } from '~/context/theme-provider'
@@ -34,6 +34,26 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   if (pathedRoutes[new URL(request.url).pathname]) {
     return new Response()
   }
+
+  // I feel like this should be default https://github.com/remix-run/remix/issues/420
+  const url = new URL(request.url)
+  const hostname = url.hostname
+  const proto = request.headers.get('X-Forwarded-Proto') ?? url.protocol
+
+  url.host =
+    request.headers.get('X-Forwarded-Host') ??
+    request.headers.get('host') ??
+    url.host
+  url.protocol = 'https:'
+
+  if (proto === 'http' && hostname !== 'localhost') {
+    return redirect(url.toString(), {
+      headers: {
+        'X-Forwarded-Proto': 'https',
+      },
+    })
+  }
+
   const ENV = getEnv()
   const session = await getSession(request, params)
   const { getTheme } = await getThemeSession(request)
