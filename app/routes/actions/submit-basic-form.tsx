@@ -3,7 +3,10 @@ import { ActionFunction, json, LoaderFunction, redirect } from 'remix'
 
 import type { ValidationTranslationKey } from '~/types'
 
-import { handleFormSubmission } from '~/utils/actions.server'
+import {
+  getErrorForRecaptcha,
+  handleFormSubmission,
+} from '~/utils/actions.server'
 import { sendEmail } from '~/utils/send-email.server'
 
 function getErrorForName(name: string | null): ValidationTranslationKey {
@@ -34,12 +37,14 @@ export type ActionData = {
     name?: string | null
     email?: string | null
     message?: string | null
+    recaptchaResponse?: string | null
   }
   errors: {
     generalError?: string
     name?: ValidationTranslationKey
     email?: ValidationTranslationKey
     message?: ValidationTranslationKey
+    recaptchaResponse?: ValidationTranslationKey
   }
 }
 
@@ -50,6 +55,7 @@ export const action: ActionFunction = async ({ request }) => {
       name: getErrorForName,
       email: getErrorForEmail,
       message: getErrorForMessage,
+      recaptchaResponse: getErrorForRecaptcha,
     },
     handleFormValues: async fields => {
       const { name, email, message } = fields

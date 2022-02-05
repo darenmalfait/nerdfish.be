@@ -15,6 +15,14 @@ const translation = {
     en: 'That is not an email address',
     nl: 'Dat is geen emailadres.',
   },
+  'recaptcha-validation-required': {
+    en: 'You did not fill in the reCAPTCHA',
+    nl: 'Je hebt de reCAPTCHA niet ingevuld.',
+  },
+  'recaptcha-validation-invalid': {
+    en: 'That is not a valid reCAPTCHA',
+    nl: 'Dat is geen geldige reCAPTCHA.',
+  },
   'send-error': {
     en: 'There was an error sending your message. Please try again later.',
     nl: 'Er is een fout opgetreden bij het versturen van je bericht. Probeer het later opnieuw.',

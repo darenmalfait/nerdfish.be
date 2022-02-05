@@ -2,7 +2,7 @@ import { json } from 'remix'
 
 import { getErrorMessage, getNonNull } from './misc'
 
-import type { NonNullProperties } from '~/types'
+import type { NonNullProperties, ValidationTranslationKey } from '~/types'
 
 type ErrorMessage = string
 type NoError = null
@@ -86,4 +86,22 @@ async function handleFormSubmission<
   }
 }
 
-export { handleFormSubmission }
+async function getErrorForRecaptcha(
+  recaptcha: string | null,
+): Promise<ValidationTranslationKey> {
+  if (!recaptcha) return 'recaptcha-validation-required'
+
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${recaptcha}`
+
+  const recaptchaRes = await fetch(verifyUrl, { method: 'POST' })
+
+  const recaptchaJson = await recaptchaRes.json()
+
+  if (!recaptchaJson.success) {
+    return 'recaptcha-validation-invalid'
+  }
+
+  return null
+}
+
+export { handleFormSubmission, getErrorForRecaptcha }
