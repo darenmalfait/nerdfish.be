@@ -1,10 +1,10 @@
-import sendgrid from '@sendgrid/mail'
 import * as React from 'react'
 import { ActionFunction, json, LoaderFunction, redirect } from 'remix'
 
 import type { ValidationTranslationKey } from '~/types'
 
 import { handleFormSubmission } from '~/utils/actions.server'
+import { sendEmail } from '~/utils/send-email.server'
 
 function getErrorForName(name: string | null): ValidationTranslationKey {
   if (!name) return 'name-validation-required'
@@ -28,7 +28,7 @@ function getErrorForMessage(message: string | null): ValidationTranslationKey {
   return null
 }
 
-export type BasicFormActionData = {
+export type ActionData = {
   status: 'success' | 'error'
   fields: {
     name?: string | null
@@ -44,7 +44,7 @@ export type BasicFormActionData = {
 }
 
 export const action: ActionFunction = async ({ request }) => {
-  return handleFormSubmission<BasicFormActionData>({
+  return handleFormSubmission<ActionData>({
     request,
     validators: {
       name: getErrorForName,
@@ -54,32 +54,23 @@ export const action: ActionFunction = async ({ request }) => {
     handleFormValues: async fields => {
       const { name, email, message } = fields
 
-      sendgrid.setApiKey(process.env.SENDGRID_API_KEY as string)
-
       const html = `
-      name: ${name} /n
-      email: ${email} /n
+      name: ${name}
+      email: ${email}
       message: ${message}
       `
 
-      const msg = {
+      await sendEmail({
         to: `"Daren Malfait" <me@daren.be>`,
         from: 'me@daren.be',
         subject: 'Form submission from daren.be',
         html,
-      }
+      })
 
-      const actionData: BasicFormActionData = {
+      const actionData: ActionData = {
         fields,
         status: 'success',
         errors: {},
-      }
-
-      try {
-        await sendgrid.send(msg)
-      } catch (error) {
-        actionData.errors.generalError =
-          'Something went wrong, please try again later.'
       }
 
       return json(actionData)
