@@ -1,5 +1,34 @@
 import * as React from 'react'
 
+/**
+ * Function to clean the recaptcha_[language] script injected by the recaptcha.js
+ */
+function cleanGstaticRecaptchaScript() {
+  const script = document.querySelector(
+    `script[src^='https://www.gstatic.com/recaptcha/releases']`,
+  )
+
+  if (script) {
+    script.remove()
+  }
+}
+
+function cleanGoogleRecaptcha(scriptId: string) {
+  // remove badge
+  const nodeBadge = document.querySelector('.grecaptcha-badge')
+  if (nodeBadge && nodeBadge.parentNode) {
+    document.body.removeChild(nodeBadge.parentNode)
+  }
+
+  // remove script
+  const script = document.querySelector(`#${scriptId}`)
+  if (script) {
+    script.remove()
+  }
+
+  cleanGstaticRecaptchaScript()
+}
+
 interface RecaptchaProps {
   execute: any
 }
@@ -37,11 +66,17 @@ export function useRecaptcha(): RecaptchaProps {
       }
     }
 
+    const scriptId = 'recaptcha-key'
+    // load the script by passing the URL
     // load the script by passing the URL
     loadScriptByURL(
-      'recaptcha-key',
+      scriptId,
       `https://www.google.com/recaptcha/api.js?render=${window?.ENV?.RECAPTCHA_SITEKEY}`,
     )
+
+    return () => {
+      cleanGoogleRecaptcha(scriptId)
+    }
   }, [])
 
   const execute = React.useCallback(async () => {
