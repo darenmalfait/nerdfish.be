@@ -6,7 +6,7 @@ import { OptimizedImage } from './optimized-image'
 
 import { ArrowLink, Link } from '~/components/buttons'
 import { CategoryIndicator, getCategoryColors } from '~/components/common'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/sanity'
 
 import type { SanityImage } from '~/types/sanity'
 import { getResponsiveImageSizes } from '~/utils/image'
@@ -77,7 +77,7 @@ function HighlightCard({
           {image && (
             <OptimizedImage
               blurDataUrl={getLowQualityUrlFor(image)}
-              src={urlFor(image).url()}
+              {...image}
               responsive={getResponsiveImageSizes('small')}
               className="object-cover absolute inset-0"
               alt={title}
