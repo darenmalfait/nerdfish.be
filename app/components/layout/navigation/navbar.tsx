@@ -116,7 +116,15 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
       </div>
       <MobileNav
         rootPath={rootPath}
-        actions={actions}
+        actions={React.Children.map(actions, child => {
+          if (React.isValidElement(child)) {
+            return React.cloneElement(child, {
+              onClick: onToggle,
+            })
+          }
+
+          return child
+        })}
         onClose={onToggle}
         open={open}
       >
