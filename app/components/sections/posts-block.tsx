@@ -194,7 +194,9 @@ export function PostsBlock({
             title={title}
             subTitle={subTitle}
             cta={t('see-all-articles')}
-            ctaUrl={localizeSlug(link?.slug as string, currentLanguage)}
+            ctaUrl={
+              link?.slug && localizeSlug(link?.slug as string, currentLanguage)
+            }
           />
           <Spacer size="2xs" />
         </Section>
@@ -244,7 +246,7 @@ export function PostsBlock({
               variant="secondary"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
-              <span>Load more articles</span>{' '}
+              <span>{t('blog-load-more')}</span>{' '}
               <PlusIcon width="20px" height="20px" />
             </Button>
           </div>

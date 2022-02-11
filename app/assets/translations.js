@@ -139,6 +139,10 @@ const translation = {
     en: 'All blogposts',
     nl: 'Alle blogberichten',
   },
+  'blog-load-more': {
+    en: 'Load more articles',
+    nl: 'Laad meer artikelen',
+  },
   'read-time': {
     en: 'min read',
     nl: 'min lezen',
