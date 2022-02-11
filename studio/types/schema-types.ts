@@ -73,7 +73,7 @@ export interface BlockField extends CommonFieldProps {
   marks?: {
     decorators?: { title: string; value: string }[]
     annotations?: (ObjectField & {
-      blockEditor: { icon: React.ReactNode } | React.ReactNode
+      blockEditor?: { icon: React.ReactNode } | React.ReactNode
     })[]
   }
   lists?: { title: string; value: string }[]

@@ -1,7 +1,5 @@
-import { ImageIcon, CodeIcon } from '@sanity/icons'
 import { BsFileRichtext } from 'react-icons/bs'
 
-import * as Renderers from '../../components/block-renderers'
 import type { ArrayField } from '../../types/schema-types'
 
 /**
@@ -22,6 +20,10 @@ export const portableText: ArrayField = {
     {
       title: 'Block',
       type: 'block',
+      // Styles let you set what your user can mark up blocks with. These
+      // corrensponds with HTML tags, but you can set any title or value
+      // you want and decide how you want to deal with it where you want to
+      // use your content.
       styles: [
         { title: 'Normal', value: 'normal' },
         { title: 'H1', value: 'h1' },
@@ -30,78 +32,31 @@ export const portableText: ArrayField = {
         { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' },
       ],
-      lists: [
-        { title: 'Bullet', value: 'bullet' },
-        { title: 'Number', value: 'number' },
-      ],
+      lists: [{ title: 'Bullet', value: 'bullet' }],
+      // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Code', value: 'code' },
-          { title: 'Strike', value: 'strike-through' },
+          { title: 'code', value: 'code' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            blockEditor: {
-              render: Renderers.Button,
-            },
-            title: 'Link',
             name: 'link',
             type: 'object',
+            title: 'URL',
             fields: [
               {
-                title: '(A) Internal Page',
-                name: 'page',
-                type: 'reference',
-                to: [{ type: 'page' }],
-              },
-              {
-                title: '(B) External URL',
+                title: 'URL',
                 name: 'href',
                 type: 'url',
                 validation: Rule =>
                   Rule.uri({
-                    allowRelative: true,
-                    scheme: ['https', 'http', 'mailto', 'tel'],
+                    scheme: ['http', 'https', 'mailto', 'tel'],
                   }),
-              },
-              {
-                title: 'Style as Button?',
-                name: 'isButton',
-                type: 'boolean',
-              },
-              {
-                name: 'styles',
-                type: 'object',
-                fields: [
-                  {
-                    title: 'Button Style',
-                    name: 'style',
-                    type: 'string',
-                    options: {
-                      list: [
-                        { title: 'Default', value: '' },
-                        { title: 'Inverted', value: 'inverted' },
-                      ],
-                      layout: 'radio',
-                    },
-                  },
-                  {
-                    title: 'Full Width',
-                    name: 'isBlock',
-                    type: 'boolean',
-                    options: {
-                      layout: 'checkbox',
-                    },
-                  },
-                ],
-                hidden: ({ parent }: any): boolean => {
-                  return !parent.isButton
-                },
               },
             ],
           },
@@ -111,21 +66,23 @@ export const portableText: ArrayField = {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    { type: 'figureWithOptions', icon: ImageIcon },
+    {
+      type: 'button',
+    },
     {
       type: 'code',
-      icon: CodeIcon,
-      options: {
-        theme: 'monokai',
-        options: {
-          language: 'typescript',
-        },
-      },
     },
-    { type: 'videoEmbed' },
     {
+      title: 'Figure',
+      type: 'figureWithOptions',
+    },
+    {
+      title: 'Contact info',
       type: 'reference',
       to: [{ type: 'companyInfo' }],
+    },
+    {
+      type: 'videoEmbed',
     },
     {
       type: 'contactForm',

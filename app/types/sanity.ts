@@ -9,7 +9,7 @@ export type SanityProps<T = any, Q extends ParsedUrlQuery = ParsedUrlQuery> = {
 import type { CodeBlockLanguage } from '@daren/ui-components'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 
-import type { LanguageCode } from '.'
+import type { LanguageCode, PageType } from '.'
 
 import type { CtaProps } from '~/components/buttons'
 
@@ -151,6 +151,7 @@ export interface SanityI18NRefsObject {
 }
 
 export interface SanityPage extends SanityDocument {
+  _type?: PageType
   title?: string
   slug?: string
   body?: any
@@ -166,6 +167,7 @@ export interface SanityAuthor extends SanityDocument {
 }
 
 export interface SanityPost extends SanityDocument {
+  _type?: PageType
   title?: string
   slug?: string
   body?: any

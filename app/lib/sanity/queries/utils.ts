@@ -12,19 +12,17 @@ export const portableText: any = groq`
   ...,
   markDefs[]{
     ...,
-    _type == "link" => {
-      ...,
-      page->{"type": _type, "slug": slug.current, "lang": i18n_lang}
-    }
   },
-  _type == "cta" => {
-    _type,
-    title,
-    kind,
-    link,
-    internalPage->{
-      "slug": slug.current
-    }
+  _type == "button" => {
+    ...,
+    link{
+      ...,
+      reference->{
+        "lang": i18n_lang,
+        "slug": slug.current,
+        publishedAt,
+      }
+    },
   },
   _type == "reference" => @->
 `

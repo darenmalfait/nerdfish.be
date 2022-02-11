@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import { MarkLink } from './mark-link'
 
+import { PortableButton } from './portable-button'
 import { PortableCode } from './portable-code'
 import { PortableContactForm } from './portable-contact-form'
 import { PortableContactInfo } from './portable-contact-info'
@@ -19,6 +20,7 @@ const portableTextSerializers: any = {
   types: {
     advancedTable: PortableTable,
     code: PortableCode,
+    button: PortableButton,
     companyInfo: PortableContactInfo,
     contactForm: PortableContactForm,
     figure: PortableImg,

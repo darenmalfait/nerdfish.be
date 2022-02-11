@@ -10,10 +10,12 @@
 // url
 
 export * from './advanced-table'
+export * from './button'
 export * from './cookie'
 export * from './cta'
 export * from './figure'
 export * from './i18n-refs-object'
 export * from './internal-page'
+export * from './link'
 export * from './portable-text'
 export * from './video-embed'
