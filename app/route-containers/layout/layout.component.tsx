@@ -1,6 +1,11 @@
 import darenStyles from '@daren/theme/dist/darenui.css'
 import clsx from 'clsx'
-import { LazyMotion, domAnimation } from 'framer-motion'
+import {
+  LazyMotion,
+  domAnimation,
+  AnimatePresence,
+  motion,
+} from 'framer-motion'
 import * as React from 'react'
 import type { ReactNode } from 'react'
 import TagManager from 'react-gtm-module'
@@ -15,7 +20,9 @@ import {
   ShouldReloadFunction,
   useLoaderData,
   useMatches,
+  useTransition,
 } from 'remix'
+import { useSpinDelay } from 'spin-delay'
 
 import type { LoaderData } from './layout.server'
 
@@ -23,7 +30,9 @@ import { GenericCatchBoundary } from '../boundaries/generic-catch-boundary'
 
 import { GenericErrorBoundary } from '../boundaries/generic-error-boundary'
 
+import { NotificationMessage } from '~/components/common'
 import { Cookiebar } from '~/components/common/cookiebar'
+import { SpinnerIcon } from '~/components/icons/spinner-icon'
 import { Footer, Navigation } from '~/components/layout'
 import { AppProviders } from '~/context/app-providers'
 
@@ -92,6 +101,91 @@ export const unstable_shouldReload: ShouldReloadFunction = ({ submission }) => {
   return submission?.method.toLowerCase() === 'post'
 }
 
+const LOADER_WORDS = [
+  'loading',
+  'checking cdn',
+  'checking cache',
+  'fetching from db',
+  'compiling mdx',
+  'updating cache',
+  'transfer',
+]
+
+const ACTION_WORDS = [
+  'packaging',
+  'zapping',
+  'validating',
+  'processing',
+  'calculating',
+  'computing',
+  'computering',
+]
+
+let firstRender = true
+
+function PageLoadingMessage() {
+  const transition = useTransition()
+  const [words, setWords] = React.useState<Array<string>>([])
+  const [pendingPath, setPendingPath] = React.useState('')
+  const showLoader = useSpinDelay(Boolean(transition.state !== 'idle'), {
+    delay: 400,
+    minDuration: 1000,
+  })
+
+  React.useEffect(() => {
+    if (firstRender) return
+    if (transition.state === 'idle') return
+    if (transition.state === 'loading') setWords(LOADER_WORDS)
+    if (transition.state === 'submitting') setWords(ACTION_WORDS)
+
+    const interval = setInterval(() => {
+      setWords(([first, ...rest]) => [...rest, first] as Array<string>)
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [pendingPath, transition.state])
+
+  React.useEffect(() => {
+    if (firstRender) return
+    if (transition.state === 'idle') return
+    setPendingPath(transition.location.pathname)
+  }, [transition])
+
+  React.useEffect(() => {
+    firstRender = false
+  }, [])
+
+  const action = words[0]
+
+  return (
+    <NotificationMessage position="bottom-right" visible={showLoader}>
+      <div className="flex items-center w-64">
+        <div>
+          <SpinnerIcon className="w-10 h-10" />
+          {/* <TeamCircle size={48} team="UNKNOWN" /> */}
+        </div>
+        <div className="inline-grid ml-4">
+          <AnimatePresence>
+            <div className="flex overflow-hidden col-start-1 row-start-1">
+              <motion.span
+                key={action}
+                initial={{ y: 15, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -15, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="flex-none"
+              >
+                {action}
+              </motion.span>
+            </div>
+          </AnimatePresence>
+          <span className="truncate text-secondary">path: {pendingPath}</span>
+        </div>
+      </div>
+    </NotificationMessage>
+  )
+}
+
 export function Document({ children }: { children: ReactNode }) {
   const {
     lang = getDefaultLanguage().code,
@@ -124,6 +218,7 @@ export function Document({ children }: { children: ReactNode }) {
         <PreventFlashOnWrongTheme ssrTheme={Boolean(ssrTheme)} />
       </head>
       <body className="flex flex-col min-h-screen bg-primary">
+        <PageLoadingMessage />
         {/*  m is used in the exact same way as motion, but unlike motion, the m component doesn't come preloaded with features like exit animations or drag. Instead, we load these in manually via the LazyMotion component. This lets you choose which features you load in, and whether you load them synchronously or asynchronously. */}
         <LazyMotion features={domAnimation}>
           {siteInfo && (
