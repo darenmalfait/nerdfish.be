@@ -94,16 +94,17 @@ function NotificationMessage({
           exit={{ y: initialY, opacity: 0 }}
           transition={{ ease: 'easeInOut', duration: 0.3 }}
           className={clsx(
-            'fixed inset-x-0 z-50 font-sans pointer-events-none',
+            'fixed inset-x-0 z-50 w-full font-sans pointer-events-none',
             {
-              'bottom-8': position === 'bottom-right',
-              'top-8': position === 'top-center',
+              'bottom-8 sm:right-8 sm:left-auto 2xl:right-0':
+                position === 'bottom-right',
+              'top-8 sm:left-8': position === 'top-center',
             },
           )}
         >
           <div
             className={clsx('flex mx-auto w-full max-w-8xl', {
-              'justify-end': position === 'bottom-right',
+              'justify-center sm:justify-end': position === 'bottom-right',
               'justify-center': position === 'top-center',
             })}
           >
