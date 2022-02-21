@@ -1,5 +1,4 @@
 export * from './accordion'
-export * from './alert'
 export * from './article-card'
 export * from './avatar'
 export * from './blockquote'
