@@ -41,7 +41,13 @@ The website is built using Remix. It uses Sanity headless CMS to provide data.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-Run `cp .env.example .env` file in the project folder.
+Run run following in the project folder.
+
+```bash
+cp .env.example .env
+echo ENCRYPTION_KEY=$(openssl rand -hex 32) >> .env
+echo SANITY_STUDIO_PREVIEW_SECRET=$(openssl rand -hex 32) >> .env
+```
 
   - `SANITY_STUDIO_PROJECT_URL` project url with no trailing slash
   - `SANITY_API_TOKEN` token with read rights - from sanity
