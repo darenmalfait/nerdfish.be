@@ -5,6 +5,8 @@ import { ArrowLink } from './arrow-link'
 import { ButtonLink, ButtonProps } from './button'
 import { Link } from './link'
 
+import { DoubleLabelLink } from '.'
+
 import type { SanityCta } from '~/types/sanity'
 import { localizeSlug } from '~/utils/i18n'
 
@@ -34,7 +36,8 @@ function CtaLink({
   )
 }
 export interface CtaProps extends ButtonProps {
-  layout?: 'button' | 'link' | 'arrow'
+  description?: SanityCta['description']
+  layout?: 'button' | 'link' | 'arrow' | 'double-label'
 }
 
 function Cta({
@@ -46,11 +49,27 @@ function Cta({
   }
 
   if (layout === 'arrow') {
-    return <ArrowLink href={props.href}>{props.children}</ArrowLink>
+    return (
+      <ArrowLink href={props.href} className={props.className}>
+        {props.children}
+      </ArrowLink>
+    )
   }
 
   if (layout === 'link') {
     return <Link {...props} />
+  }
+
+  if (layout === 'double-label') {
+    return (
+      <DoubleLabelLink
+        href={props.href}
+        description={props.description}
+        className={props.className}
+      >
+        {props.children}
+      </DoubleLabelLink>
+    )
   }
 
   return <ButtonLink {...props} />

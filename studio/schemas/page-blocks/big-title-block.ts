@@ -17,6 +17,11 @@ export const bigTitleBlockContent: ObjectField = {
       name: 'title',
       type: 'string',
     },
+    {
+      title: 'Action',
+      type: 'cta',
+      name: 'action',
+    },
   ],
 }
 

@@ -127,6 +127,7 @@ export interface SanityCta {
   internalPage?: SanityPage
   link?: string
   kind?: CtaProps['layout']
+  description?: string
   lang?: LanguageCode
 }
 

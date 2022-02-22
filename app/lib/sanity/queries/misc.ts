@@ -71,6 +71,7 @@ export const pageRefs = groq`
 export const cta = groq`
   title,
   kind,
+  description,
   internalPage->{
     _id,
     ${pageData}

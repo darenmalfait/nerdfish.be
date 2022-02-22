@@ -71,6 +71,26 @@ export const postsBlock = groq`
   }
 `
 
+export const bigTitleBlock: any = groq`
+  _type == 'bigTitleBlock' => {
+    _type,
+    content {
+      ...,
+      action {
+        title,
+        kind,
+        description,
+        internalPage->{
+          _id,
+          "slug": slug.current,
+          "lang": i18n_lang
+        },
+        link
+      },
+    }
+  }
+`
+
 export const aboutBlock: any = groq`
   _type == 'aboutBlock' => {
     _type,
@@ -82,6 +102,7 @@ export const aboutBlock: any = groq`
       action {
         title,
         kind,
+        description,
         internalPage->{
           _id,
           "slug": slug.current,
@@ -105,6 +126,7 @@ export const carouselBlock: any = groq`
         action {
           title,
           kind,
+          description,
           internalPage->{
             _id,
             "slug": slug.current,
@@ -119,12 +141,13 @@ export const carouselBlock: any = groq`
 
 export const blocks = groq`
   ...,
-  ${heroBlock},
-  ${longcopyBlock},
-  ${referencesBlock},
-  ${postsBlock},
   ${aboutBlock},
   ${carouselBlock},
+  ${heroBlock},
+  ${longcopyBlock},
+  ${postsBlock},
+  ${referencesBlock},
+  ${bigTitleBlock},
   layout {
     ${background}
   }

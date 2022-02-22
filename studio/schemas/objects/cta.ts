@@ -40,8 +40,14 @@ export const cta: ObjectField = {
       type: 'string',
       options: {
         layout: 'radio',
-        list: ['button', 'link', 'arrow'],
+        list: ['button', 'link', 'arrow', 'double-label'],
       },
+    },
+    {
+      title: 'Description',
+      name: 'description',
+      type: 'string',
+      hidden: ({ parent }) => parent.kind !== 'double-label',
     },
   ],
   preview: {
