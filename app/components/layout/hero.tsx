@@ -27,9 +27,9 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
   return (
     <Grid as={as} className="items-start pt-24 h-auto lg:pb-12 lg:my-12">
       <Container size="medium">
-        <div className="flex flex-col justify-between items-center lg:flex-row lg:space-x-8">
+        <div className="relative pt-6 pb-8 w-full text-center lg:py-8 lg:text-left">
           <motion.div
-            className="flex flex-col flex-auto justify-start max-w-screen-sm lg:mt-36"
+            className="flex flex-col flex-auto justify-start lg:w-1/2 xl:pr-16"
             initial="initial"
             animate="visible"
             variants={{
@@ -37,7 +37,7 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
               visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
             }}
           >
-            <motion.div variants={childVariants}>
+            <motion.div variants={childVariants} className="space-y-6">
               <H2 className="font-black">{title}</H2>
             </motion.div>
 
@@ -64,7 +64,7 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
               initial={{ scale: 1.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.75 }}
-              className="w-full max-w-md lg:-mt-36"
+              className="flex relative items-center w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
             >
               {typeof image === 'string' ? (
                 <OptimizedImage src={image} className="rounded-xl" />
@@ -73,7 +73,7 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
                   {...image}
                   blurDataUrl={getLowQualityUrlFor(image)}
                   alt={image.alt}
-                  className="rounded-xl"
+                  className="mb-12 rounded-xl"
                   responsive={getResponsiveImageSizes('medium')}
                 />
               )}
