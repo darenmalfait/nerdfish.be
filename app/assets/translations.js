@@ -91,6 +91,30 @@ const translation = {
     en: 'is not a page on this site.',
     nl: 'is geen pagina op deze site.',
   },
+  'not-found-back-button': {
+    en: 'Or go back home',
+    nl: 'Of ga terug naar de homepagina',
+  },
+  'not-found-popular-pages': {
+    en: 'Popular pages',
+    nl: "Populaire pagina's",
+  },
+  'not-found-popular-pages-blog': {
+    en: 'Blog',
+    nl: 'Blog',
+  },
+  'not-found-popular-pages-blog-description': {
+    en: 'Read the latest news and articles.',
+    nl: 'Lees het laatste nieuws en artikelen.',
+  },
+  'not-found-popular-pages-contact': {
+    en: 'Contact',
+    nl: 'Contact',
+  },
+  'not-found-popular-pages-contact-description': {
+    en: 'Get in touch with me.',
+    nl: 'Neem contact op met mij.',
+  },
   'accept-all-cookies': {
     en: 'Accept all',
     nl: 'Accepteer alles',

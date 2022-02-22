@@ -1,10 +1,17 @@
-import { H2, H6 } from '@daren/ui-components'
+import { Grid, H1, H2, H6, Paragraph } from '@daren/ui-components'
+import {
+  BookmarkAltIcon,
+  ChevronRightIcon,
+  RssIcon,
+} from '@heroicons/react/solid'
 import clsx from 'clsx'
 import errorStack from 'error-stack-parser'
 import * as React from 'react'
 import { useMatches } from 'remix'
 
-import { Hero, HeroProps } from '../layout'
+import { ArrowLink } from '../buttons'
+import { OptimizedImage } from '../elements'
+import { Container } from '../layout'
 
 import notFoundImage from '~/assets/images/cat-on-box.png'
 import { useTranslations } from '~/context/translations-provider'
@@ -52,17 +59,114 @@ function RedBox({ error }: { error: Error }) {
 
 function ErrorPage({
   error,
-  heroProps,
+  title,
+  subTitle,
+  image,
 }: {
   error?: Error
-  heroProps: HeroProps
+  title?: string
+  subTitle?: string
+  image?: string
 }) {
+  const { t, currentLanguage } = useTranslations()
+
+  const links = [
+    {
+      title: t('not-found-popular-pages-blog'),
+      description: t('not-found-popular-pages-blog-description'),
+      icon: RssIcon,
+      href: `${currentLanguage}/blog`,
+    },
+    {
+      title: t('not-found-popular-pages-contact'),
+      description: t('not-found-popular-pages-contact-description'),
+      icon: BookmarkAltIcon,
+      href: `${currentLanguage}/contact`,
+    },
+  ]
+
   return (
     <main className="relative">
       {error && process.env.NODE_ENV === 'development' ? (
         <RedBox error={error} />
       ) : null}
-      <Hero {...heroProps} />
+      <Grid>
+        <Container size="full">
+          <div className="relative pt-6 pb-8 w-full text-center lg:py-8 lg:text-left">
+            <div className="flex flex-col flex-auto justify-start lg:w-1/2 xl:pr-16">
+              <div className="py-16 mx-auto max-w-xl sm:py-24">
+                <div className="text-center lg:text-left">
+                  <H1>{title}</H1>
+                  <Paragraph className="mt-2 text-lg text-secondary">
+                    {subTitle}
+                  </Paragraph>
+                </div>
+                <div className="mt-12">
+                  <h2 className="text-sm font-semibold tracking-wide uppercase text-secondary">
+                    {t('not-found-popular-pages')}
+                  </h2>
+                  <ul className="mt-4 border-y border-gray-200 divide-y divide-gray-200">
+                    {links.map((link, i) => (
+                      <li
+                        key={i}
+                        className="group flex relative items-start py-6 space-x-4"
+                      >
+                        <div className="shrink-0">
+                          <span className="flex justify-center items-center w-12 h-12 rounded-lg bg-inverse">
+                            <link.icon
+                              className="w-6 h-6 text-inverse"
+                              aria-hidden="true"
+                            />
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-base font-medium text-primary">
+                            <span className="rounded-sm focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2">
+                              <a
+                                href={link.href}
+                                className="focus:outline-none"
+                              >
+                                <span
+                                  className="absolute inset-0"
+                                  aria-hidden="true"
+                                />
+                                {link.title}
+                              </a>
+                            </span>
+                          </h3>
+                          <p className="text-base text-secondary">
+                            {link.description}
+                          </p>
+                        </div>
+                        <div className="shrink-0 self-center">
+                          <ChevronRightIcon
+                            className="w-5 h-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8">
+                    <ArrowLink href={`/${currentLanguage}`}>
+                      {t('not-found-back-button')}
+                    </ArrowLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {image && (
+              <div className="flex relative items-center mx-auto w-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+                <OptimizedImage
+                  className="mx-auto w-full max-w-96"
+                  src={image}
+                  alt="not found"
+                />
+              </div>
+            )}
+          </div>
+        </Container>
+      </Grid>
     </main>
   )
 }
@@ -83,11 +187,9 @@ function FourOhFour({
 
   return (
     <ErrorPage
-      heroProps={{
-        title: title || t('not-found'),
-        subTitle: subTitle || `"${pathname}" ${t('not-found-message')}`,
-        image: image || notFoundImage,
-      }}
+      title={title || t('not-found')}
+      subTitle={subTitle || `"${pathname}" ${t('not-found-message')}`}
+      image={image || notFoundImage}
     />
   )
 }
@@ -100,10 +202,8 @@ function ServerError({ error }: { error?: Error }) {
   return (
     <ErrorPage
       error={error}
-      heroProps={{
-        title: '500 - Oh no, something went wrong!',
-        subTitle: `"${pathname}" is currently not available.`,
-      }}
+      title="500 - Oh no, something went wrong!"
+      subTitle={`"${pathname}" is currently not available.`}
     />
   )
 }
