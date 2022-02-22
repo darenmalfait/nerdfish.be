@@ -52,7 +52,7 @@ function Image({
         >
           <ProgressiveImage
             className={className}
-            placeholder={blurDataUrl}
+            placeholder={blurDataUrl || imgProps.src}
             img={<img {...imgProps} alt={alt} />}
           />
         </Controlled>
@@ -60,7 +60,7 @@ function Image({
         <div>
           <ProgressiveImage
             className={className}
-            placeholder={blurDataUrl}
+            placeholder={blurDataUrl || imgProps.src}
             img={<img {...imgProps} alt={alt} />}
           />
         </div>
