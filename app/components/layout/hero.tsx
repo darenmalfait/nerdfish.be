@@ -64,7 +64,7 @@ function Hero({ action, as = 'header', title, subTitle, image }: HeroProps) {
               initial={{ scale: 1.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.75 }}
-              className="flex relative items-center w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
+              className="flex relative items-center mx-auto w-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
             >
               {typeof image === 'string' ? (
                 <OptimizedImage src={image} className="rounded-xl" />
