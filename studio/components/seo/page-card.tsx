@@ -1,5 +1,4 @@
-import { H1, Paragraph, ThemeProvider } from '@daren/ui-components'
-import React from 'react'
+import * as React from 'react'
 
 import logo from '../../assets/logo.svg'
 import type { EditorLayout } from '../types'
@@ -11,17 +10,19 @@ interface LayoutProps {
 
 function Component({ title, description }: LayoutProps) {
   return (
-    <ThemeProvider>
-      <div className="dark flex justify-center items-center p-4 h-full font-sans text-center bg-[#212123]">
-        <div className="space-y-8 w-full max-w-[800px]">
-          <div className="block mx-auto w-32">
-            <img src={logo} alt="logo" />
-          </div>
-          <H1 className="font-title font-black">{title || 'Title'}</H1>
-          {description && <Paragraph>{description}</Paragraph>}
+    <div className="dark flex justify-center items-center p-4 h-full font-sans text-center bg-[#212123]">
+      <div className="space-y-8 w-full max-w-[800px]">
+        <div className="block mx-auto w-32">
+          <img src={logo} alt="logo" />
         </div>
+        <h1 className="font-title text-4xl font-black leading-tight text-white md:text-5xl">
+          {title || 'Title'}
+        </h1>
+        {description && (
+          <p className="max-w-full text-lg text-white">{description}</p>
+        )}
       </div>
-    </ThemeProvider>
+    </div>
   )
 }
 

@@ -32,15 +32,8 @@ jobs:
           cd studio
           npm run validate
 
-      - name: 🚀 Deploy Sanity
+      - name: 🚀 Deploy Sanity Studio
         run: |
-          cd studio
           set -e
-
-          cat << EOF > .env.production
-          SANITY_STUDIO_PREVIEW_TOKEN=${{ secrets.SANITY_STUDIO_PREVIEW_TOKEN }}
-          SANITY_STUDIO_PROJECT_URL=${{ secrets.SANITY_STUDIO_PROJECT_URL }}
-          SANITY_STUDIO_API_PROJECT_ID=${{ secrets.SANITY_STUDIO_API_PROJECT_ID }}
-          SANITY_STUDIO_API_DATASET=${{ secrets.SANITY_STUDIO_API_DATASET }}
-          EOF
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npm run deploy
+          cd studio
+          SANITY_STUDIO_PREVIEW_SECRET=${{ secrets.SANITY_STUDIO_PREVIEW_SECRET }} SANITY_STUDIO_PROJECT_URL=${{ secrets.SANITY_STUDIO_PROJECT_URL }} SANITY_STUDIO_API_PROJECT_ID=${{ secrets.SANITY_STUDIO_API_PROJECT_ID }} SANITY_STUDIO_API_DATASET=${{ secrets.SANITY_STUDIO_API_DATASET }} SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npx sanity deploy

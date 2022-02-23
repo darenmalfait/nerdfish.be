@@ -167,7 +167,7 @@ If you set the `.env` secrets [into github](https://github.com/darenmalfait/dare
 
   - `FLY_API_TOKEN` deploy token from fly.io
   - `SANITY_AUTH_TOKEN` deploy token from sanity.io
-  - `SANITY_STUDIO_PREVIEW_TOKEN` same as production .env
+  - `SANITY_STUDIO_PREVIEW_SECRET` same as production .env
   - `SANITY_STUDIO_PROJECT_URL` same as production .env
   - `SANITY_STUDIO_API_PROJECT_ID` same as production .env
   - `SANITY_STUDIO_API_DATASET` same as production .env
