@@ -22,6 +22,15 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext,
 ) {
+  const isGet = request.method.toLowerCase() === 'get'
+  const purpose =
+    request.headers.get('Purpose') ||
+    request.headers.get('X-Purpose') ||
+    request.headers.get('Sec-Purpose') ||
+    request.headers.get('Sec-Fetch-Purpose') ||
+    request.headers.get('Moz-Purpose')
+  const isPrefetch = purpose === 'prefetch'
+
   for (const handler of otherRoutes) {
     // eslint-disable-next-line no-await-in-loop
     const otherRouteResponse = await handler(request, remixContext)
@@ -31,6 +40,11 @@ export default async function handleRequest(
   const markup = ReactDOMServer.renderToString(
     <Remix context={remixContext} url={request.url} />,
   )
+
+  if (isGet && isPrefetch && !responseHeaders.has('Cache-Control')) {
+    // we will cache for 10 seconds only on the browser
+    responseHeaders.set('Cache-Control', 'private, max-age=10')
+  }
 
   if (process.env.NODE_ENV !== 'production') {
     responseHeaders.set('Cache-Control', 'no-store')
