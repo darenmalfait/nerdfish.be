@@ -10,6 +10,9 @@ import { ArticleCard, HighlightCard, Tag } from '~/components/elements'
 import { Section, Container, Header, Spacer } from '~/components/layout'
 import { useTranslations } from '~/context/translations-provider'
 import { getBlogSlug, getRoute } from '~/lib/routes'
+import { filterPosts } from '~/lib/utils/blog'
+import { localizeSlug } from '~/lib/utils/i18n'
+import { useUpdateQueryStringValueWithoutNavigation } from '~/lib/utils/misc'
 import { PageType } from '~/types/languages'
 import type {
   SanityBlock,
@@ -17,9 +20,6 @@ import type {
   SanityPost,
   SanityTag,
 } from '~/types/sanity'
-import { filterPosts } from '~/utils/blog'
-import { localizeSlug } from '~/utils/i18n'
-import { useUpdateQueryStringValueWithoutNavigation } from '~/utils/misc'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6

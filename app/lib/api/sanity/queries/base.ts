@@ -1,6 +1,6 @@
 import * as query from './misc'
 
-import { groq } from '~/lib/sanity'
+import { groq } from '~/lib/api/sanity'
 import { PageType } from '~/types/languages'
 
 export function getDoc(doc = PageType.page, hasLanguages = true): string {

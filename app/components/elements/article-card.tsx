@@ -11,11 +11,11 @@ import {
 } from '../common/category-indicator'
 import { OptimizedImage } from '../elements/optimized-image'
 
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
 import { getBlogSlug, getRoute } from '~/lib/routes'
-import { getLowQualityUrlFor } from '~/lib/sanity'
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import { PageType, LanguageCode } from '~/types/languages'
 import type { SanityPost } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 function ArticleCard({
   slug,

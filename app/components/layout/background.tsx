@@ -7,15 +7,15 @@ import { OptimizedImage } from '../elements'
 
 import { Section } from '../layout'
 
-import { getLowQualityUrlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
+import { invertColor } from '~/lib/utils/color'
+
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type {
   SanityBackground,
   SanityBlockLayout,
   SanityImageBackground,
 } from '~/types/sanity'
-import { invertColor } from '~/utils/color'
-
-import { getResponsiveImageSizes } from '~/utils/image'
 
 function getBackgroundColor(background?: SanityBackground): string {
   const { backgroundType } = background || {}

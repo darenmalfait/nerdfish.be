@@ -1,8 +1,8 @@
 import { redirect } from 'remix'
 import type { ActionFunction, LoaderFunction } from 'remix'
 
-import { getSession } from '~/session.server'
-import { validateLanguage } from '~/utils/i18n'
+import { validateLanguage } from '~/lib/utils/i18n'
+import { getSession } from '~/lib/utils/session.server'
 
 export const action: ActionFunction = async ({ request, params }) => {
   const [session, body] = await Promise.all([

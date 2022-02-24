@@ -37,12 +37,12 @@ import { Footer, Navigation } from '~/components/layout'
 import { AppProviders } from '~/context/app-providers'
 
 import { PreventFlashOnWrongTheme, useTheme } from '~/context/theme-provider'
+import { getDefaultLanguage } from '~/lib/utils/i18n'
 import appStyles from '~/styles/app.css'
 import globalStyles from '~/styles/global.css'
 import proseStyles from '~/styles/prose.css'
 import tailwindStyles from '~/styles/tailwind.css'
 import vendorStyles from '~/styles/vendors.css'
-import { getDefaultLanguage } from '~/utils/i18n'
 
 /**
  * The `links` export is a function that returns an array of objects that map to

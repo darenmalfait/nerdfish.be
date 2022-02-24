@@ -5,8 +5,8 @@ import { useFetcher } from 'remix'
 import { Button } from '../buttons'
 
 import { useTranslations } from '~/context/translations-provider'
+import { useRecaptcha } from '~/lib/utils/recaptcha'
 import type { ActionData } from '~/routes/actions/submit-basic-form'
-import { useRecaptcha } from '~/utils/recaptcha'
 
 function BasicForm() {
   const { execute } = useRecaptcha()

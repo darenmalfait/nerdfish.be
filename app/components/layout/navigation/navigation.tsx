@@ -3,8 +3,8 @@ import * as React from 'react'
 import { Navbar } from './navbar'
 
 import { useTranslations } from '~/context/translations-provider'
+import { localizeSlug } from '~/lib/utils/i18n'
 import type { SanityCta, SiteNavigation } from '~/types/sanity'
-import { localizeSlug } from '~/utils/i18n'
 
 interface NavigationProps {
   multilang?: boolean

@@ -11,8 +11,8 @@ import { TwitterIcon } from '../icons/twitter-icon'
 
 import { Disclaimer, Logo } from '~/components/common'
 import { useTranslations } from '~/context/translations-provider'
+import { localizeSlug } from '~/lib/utils/i18n'
 import type { SanitySocial, SiteNavigation } from '~/types'
-import { localizeSlug } from '~/utils/i18n'
 
 interface FooterProps {
   multilang?: boolean

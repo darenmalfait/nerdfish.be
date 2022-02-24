@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { ActionFunction, json, LoaderFunction, redirect } from 'remix'
 
-import type { ValidationTranslationKey } from '~/types'
-
+import { sendEmail } from '~/lib/services/send-email.server'
 import {
   getErrorForRecaptcha,
   handleFormSubmission,
-} from '~/utils/actions.server'
-import { sendEmail } from '~/utils/send-email.server'
+} from '~/lib/utils/actions.server'
+import type { ValidationTranslationKey } from '~/types'
 
 function getErrorForName(name: string | null): ValidationTranslationKey {
   if (!name) return 'name-validation-required'

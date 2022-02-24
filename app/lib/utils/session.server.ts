@@ -1,8 +1,9 @@
 import type { Params } from 'react-router-dom'
 import { createCookieSessionStorage } from 'remix'
 
-import type { LanguageCode } from './types'
-import { validateLanguage } from './utils/i18n'
+import { validateLanguage } from './i18n'
+
+import type { LanguageCode } from '~/types'
 
 if (!process.env.ENCRYPTION_KEY) {
   throw new Error('ENCRYPTION_KEY environment variable is not set')

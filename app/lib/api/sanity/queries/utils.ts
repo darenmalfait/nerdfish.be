@@ -1,4 +1,4 @@
-import { groq } from '~/lib/sanity'
+import { groq } from '~/lib/api/sanity'
 
 export const imageMeta = groq`
   alt,

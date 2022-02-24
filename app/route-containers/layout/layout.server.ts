@@ -3,8 +3,10 @@ import type { LoaderFunction } from 'remix'
 
 import type { Theme } from '~/context/theme-provider'
 import { getSiteInfo } from '~/lib/api'
+import { ENV, getEnv } from '~/lib/utils/get-env'
+import { getDomainUrl } from '~/lib/utils/misc'
+import { getSession } from '~/lib/utils/session.server'
 import { pathedRoutes } from '~/other-routes.server'
-import { getSession } from '~/session.server'
 import { getThemeSession } from '~/theme.server'
 import {
   getTranslations,
@@ -13,8 +15,6 @@ import {
   Translations,
 } from '~/translations.server'
 import type { LanguageCode, SiteInfo } from '~/types'
-import { ENV, getEnv } from '~/utils/get-env'
-import { getDomainUrl } from '~/utils/misc'
 
 export type LoaderData = {
   lang: LanguageCode

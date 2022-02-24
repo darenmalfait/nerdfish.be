@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Controlled } from 'react-medium-image-zoom'
 import { useResponsiveImage } from 'remix-image'
 
-import { useResponsiveSanityImage } from '~/lib/sanity'
+import { useResponsiveSanityImage } from '~/lib/api/sanity'
 
 import type { SanityImage, SanityImageAsset } from '~/types'
 

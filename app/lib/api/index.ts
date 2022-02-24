@@ -1,6 +1,7 @@
 import { getClient, groq } from './sanity'
 import { getDoc, getDocByType, getSiteConfig, pageData } from './sanity/queries'
 
+import { getDefaultLanguage } from '~/lib/utils/i18n'
 import type { LanguageCode } from '~/types'
 import { PageType } from '~/types/languages'
 import type { DefaultPageProps } from '~/types/misc'
@@ -11,7 +12,6 @@ import type {
   SiteInfo,
   SiteNavigation,
 } from '~/types/sanity'
-import { getDefaultLanguage } from '~/utils/i18n'
 
 export interface PageProps extends DefaultPageProps<SiteInfo> {
   page: SanityPage

@@ -3,13 +3,13 @@ import { json } from 'remix'
 import type { LoaderFunction } from 'remix'
 
 import { getAllPosts, getBlogPost } from '~/lib/api'
-import { groq } from '~/lib/sanity'
-import { getDoc } from '~/lib/sanity/queries'
-import { getSession } from '~/session.server'
+import { groq } from '~/lib/api/sanity'
+import { getDoc } from '~/lib/api/sanity/queries'
+import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
+import { getDomainUrl } from '~/lib/utils/misc'
+import { getSession } from '~/lib/utils/session.server'
+import { removeTrailingSlash } from '~/lib/utils/string'
 import { Handle, PageType, RouteLoader, SanityPost } from '~/types'
-import { getDefaultLanguage, localizeSlug } from '~/utils/i18n'
-import { getDomainUrl } from '~/utils/misc'
-import { removeTrailingSlash } from '~/utils/string'
 
 export type LoaderData = RouteLoader<SanityPost>
 

@@ -5,8 +5,8 @@ import type { Serialized } from './serializers.types'
 import { Cta, CtaProps } from '~/components/buttons'
 import { Container } from '~/components/layout'
 import { getBlogSlug } from '~/lib/routes'
+import { localizeSlug } from '~/lib/utils/i18n'
 import { LanguageCode, PageType, SanityPage, SanityPost } from '~/types'
-import { localizeSlug } from '~/utils/i18n'
 
 interface PortableButtonProps {
   link: {

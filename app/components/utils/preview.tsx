@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { usePreviewSubscription } from '~/lib/sanity/use-preview-subscription'
+import { usePreviewSubscription } from '~/lib/api/sanity/use-preview-subscription'
 
 function Preview({
   data,

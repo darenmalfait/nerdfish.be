@@ -5,10 +5,9 @@ import * as React from 'react'
 import { OptimizedImage } from '../elements/optimized-image'
 import { Container } from '../layout'
 
-import { getLowQualityUrlFor } from '~/lib/sanity'
-
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityImage } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 export interface HeroProps {
   title?: string

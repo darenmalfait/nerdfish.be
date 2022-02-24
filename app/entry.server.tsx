@@ -3,8 +3,8 @@ import ReactDOMServer from 'react-dom/server'
 import type { EntryContext } from 'remix'
 import { RemixServer as Remix } from 'remix'
 
+import { getEnv } from './lib/utils/get-env'
 import { routes as otherRoutes } from './other-routes.server'
-import { getEnv } from './utils/get-env'
 
 if (process.env.NODE_ENV === 'development') {
   try {

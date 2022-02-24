@@ -12,9 +12,9 @@ import { OptimizedImage } from '~/components/elements'
 import { Container, Section } from '~/components/layout'
 import { Preview } from '~/components/utils/preview'
 import { useTranslations } from '~/context/translations-provider'
-import { getLowQualityUrlFor } from '~/lib/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
-import { blogMeta } from '~/utils/seo'
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
+import { getResponsiveImageSizes } from '~/lib/utils/image'
+import { blogMeta } from '~/lib/utils/seo'
 
 export const meta = blogMeta
 

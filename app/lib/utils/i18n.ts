@@ -1,5 +1,5 @@
-import languages from '../../config/languages'
-import { Language, LanguageCode, PageType } from '../types/languages'
+import languages from '../../../config/languages'
+import { Language, LanguageCode, PageType } from '../../types/languages'
 
 import { getRoute } from '~/lib/routes'
 

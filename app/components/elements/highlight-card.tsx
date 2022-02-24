@@ -6,10 +6,10 @@ import { OptimizedImage } from './optimized-image'
 
 import { ArrowLink, Link } from '~/components/buttons'
 import { CategoryIndicator, getCategoryColors } from '~/components/common'
-import { getLowQualityUrlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
 
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityImage } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 interface HighlightCardProps {
   title?: string

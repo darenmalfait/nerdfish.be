@@ -6,10 +6,10 @@ import * as React from 'react'
 import playIcon from '~/assets/images/icons/play-icon.svg'
 import { OptimizedImage } from '~/components/elements/optimized-image'
 import { Placeholder } from '~/components/layout/'
-import { getLowQualityUrlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
 
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityFile, SanityImage } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 interface VideoEmbedProps {
   url?: string

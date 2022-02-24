@@ -5,7 +5,7 @@ import type { LoaderData } from './generic-page.server'
 
 import { FourOhFour, PageBuilder } from '~/components/common'
 import { Preview } from '~/components/utils/preview'
-import { pageMeta } from '~/utils/seo'
+import { pageMeta } from '~/lib/utils/seo'
 
 export const meta = pageMeta
 

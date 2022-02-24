@@ -7,8 +7,8 @@ import { Link } from './link'
 
 import { DoubleLabelLink } from '.'
 
+import { localizeSlug } from '~/lib/utils/i18n'
 import type { SanityCta } from '~/types/sanity'
-import { localizeSlug } from '~/utils/i18n'
 
 function CtaLink({
   kind,

@@ -2,7 +2,7 @@ import type { HtmlMetaDescriptor } from 'remix'
 
 import { removeTrailingSlash } from './string'
 
-import { urlFor } from '~/lib/sanity'
+import { urlFor } from '~/lib/api/sanity'
 import type { LoaderData as RootLoaderData } from '~/route-containers/layout/layout.server'
 
 import type { SanityPage, SanityPost } from '~/types'

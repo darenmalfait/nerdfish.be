@@ -7,9 +7,9 @@ import { OptimizedImage } from '../elements/optimized-image'
 import { CtaLink } from '~/components/buttons'
 import { PortableText } from '~/components/common'
 import { Section } from '~/components/layout'
-import { getLowQualityUrlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor } from '~/lib/api/sanity'
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityBlock, SanityCta, SanityImage } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 interface ContentProps {
   image?: SanityImage

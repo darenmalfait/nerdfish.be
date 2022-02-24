@@ -1,8 +1,8 @@
 import formatDate from 'date-fns/format'
 
+import { getDefaultLanguage } from '~/lib/utils/i18n'
+import { stripPreSlash } from '~/lib/utils/string'
 import { PageType } from '~/types/languages'
-import { getDefaultLanguage } from '~/utils/i18n'
-import { stripPreSlash } from '~/utils/string'
 
 export function getDynamicRoute(type: string = PageType.page): string | false {
   switch (type) {

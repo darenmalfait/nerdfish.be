@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 
 import { OptimizedImage } from '~/components/elements/'
-import { getLowQualityUrlFor, urlFor } from '~/lib/sanity'
+import { getLowQualityUrlFor, urlFor } from '~/lib/api/sanity'
+import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityImage } from '~/types/sanity'
-import { getResponsiveImageSizes } from '~/utils/image'
 
 export enum GalleryType {
   Wicked = 'wicked',
