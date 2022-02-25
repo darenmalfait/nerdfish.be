@@ -8,8 +8,8 @@
 
 The website is built using Remix. It uses Sanity headless CMS to provide data.
 
-[![Deploy](https://github.com/darenmalfait/daren.be/actions/workflows/deploy-fly.yml/badge.svg)](https://github.com/darenmalfait/daren.be/actions/workflows/deploy-fly.yml)
-[![Studio Deploy](https://github.com/darenmalfait/daren.be/actions/workflows/release-studio.yml/badge.svg)](https://github.com/darenmalfait/daren.be/actions/workflows/release-studio.yml)
+[![Deploy][fly-deploy-badge]][fly-deploy-action]
+[![Studio Deploy][release-studio-badge]][release-studio-badge]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -48,6 +48,10 @@ cp .env.example .env
 echo ENCRYPTION_KEY=$(openssl rand -hex 32) >> .env
 echo SANITY_STUDIO_PREVIEW_SECRET=$(openssl rand -hex 32) >> .env
 ```
+
+>  If you don't have openssl installed, you can also use [1password][generate_password] to generate a random secret, just replace `$(openssl rand -hex 32)` with the generated secret.
+>
+
 
   - `SANITY_STUDIO_PROJECT_URL` project url with no trailing slash
   - `SANITY_API_TOKEN` token with read rights - from sanity
@@ -97,7 +101,7 @@ Blocks are elements that contain content and have a layout assigned to them. The
 
 See how a minor change to your commit message style can make you a better programmer.
 
-A better read for this can be found at [https://daren.be/en/blog/2022/02/writing-the-perfect-git-commit-message/](https://daren.be/en/blog/2022/02/writing-the-perfect-git-commit-message/)
+A better read for this can be found at [one of my blog posts][conventional_commits_blog]
 
 TLDR (please read the article):
 
@@ -163,11 +167,21 @@ or if you're building locally you can re-use your docker cache
 
 ### Continuous deployment
 
-If you set the `.env` secrets [into github](https://github.com/darenmalfait/daren.be/settings/secrets/actions), github actions wil make sure everything gets deployed to the right places.
+If you set the `.env` secrets [into github][github-action-secrets], github actions wil make sure everything gets deployed to the right places.
 
-  - `FLY_API_TOKEN` deploy token from fly.io
+  - `FLY_API_TOKEN` deploy [token][fly_new_access_token] from fly.io
   - `SANITY_AUTH_TOKEN` deploy token from sanity.io
   - `SANITY_STUDIO_PREVIEW_SECRET` same as production .env
   - `SANITY_STUDIO_PROJECT_URL` same as production .env
   - `SANITY_STUDIO_API_PROJECT_ID` same as production .env
   - `SANITY_STUDIO_API_DATASET` same as production .env
+
+
+[fly-deploy-badge]: https://github.com/darenmalfait/daren.be/actions/workflows/deploy-fly.yml/badge.svg
+[fly-deploy-action]: https://github.com/darenmalfait/daren.be/actions/workflows/deploy-fly.yml
+[release-studio-badge]: https://github.com/darenmalfait/daren.be/actions/workflows/release-studio.yml/badge.svg
+[release-studio-action]: https://github.com/darenmalfait/daren.be/actions/workflows/release-studio.yml
+[conventional_commits_blog]: https://daren.be/en/blog/2022/02/writing-the-perfect-git-commit-message
+[github-action-secrets]: https://github.com/darenmalfait/daren.be/settings/secrets/actions
+[fly_new_access_token]: https://web.fly.io/user/personal_access_tokens/new
+[generate_password]: https://1password.com/generate-password
