@@ -23,5 +23,10 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
+      - name: 📥 Download sanity deps
+        run: |
+          cd studio
+          npm install
+
       - name: 🔬 Validate
         run: npm run validate
