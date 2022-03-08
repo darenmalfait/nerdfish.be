@@ -140,3 +140,5 @@ export async function getAllPosts(): Promise<SanityPost[]> {
 
   return filteredPosts
 }
+
+export * from './wiki.server'

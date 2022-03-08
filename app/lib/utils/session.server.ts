@@ -1,7 +1,7 @@
 import type { Params } from 'react-router-dom'
 import { createCookieSessionStorage } from 'remix'
 
-import { validateLanguage } from './i18n'
+import { getDefaultLanguage, validateLanguage } from './i18n'
 
 import type { LanguageCode } from '~/types'
 
@@ -34,11 +34,11 @@ export async function getSession(
       return sessionStorage.commitSession(session)
     },
     getLanguage(): LanguageCode {
-      if (validateLanguage(params.lang)) {
+      if (params.lang && validateLanguage(params.lang)) {
         return params.lang
       }
 
-      return session.get(langSessionKey) || 'en'
+      return session.get(langSessionKey) || getDefaultLanguage().code
     },
     setLanguage(language: LanguageCode) {
       session.set(langSessionKey, language)
