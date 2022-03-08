@@ -1,7 +1,7 @@
 ---
 title: Activating SSH and adding Wi-fi to your raspberry pi (headless)
 date: 2022-03-07
-description: Guidline how to deploy an app with a postgress db to fly.io
+description: Removing the need to attach a screen and keyboard to your pi from the get go.
 tags:
   - raspberry pi
   - ssh
