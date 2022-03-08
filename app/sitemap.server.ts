@@ -25,6 +25,7 @@ async function getSitemapXml(request: Request, remixContext: EntryContext) {
       Object.entries(remixContext.routeModules).map(async ([id, mod]) => {
         if (id === 'root') return
         if (id.startsWith('routes/_')) return
+        if (id.startsWith('routes/actions')) return
         if (id.startsWith('__test_routes__')) return
 
         const handle = mod.handle as Handle | undefined
