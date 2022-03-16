@@ -35,9 +35,9 @@ const Link = React.forwardRef<
   }
 
   if (!shouldUserRegularAnchor && typeof to === 'object') {
-    toUrl = `${to.pathname ?? ''}${to.hash ? `#${to.hash}` : ''}${
-      to.search ? `?${to.search}` : ''
-    }`
+    const hash = to.hash ? `#${to.hash}` : ''
+    const queryString = to.search ? `?${to.search}` : ''
+    toUrl = `${to.pathname ?? ''}${hash}${queryString}`
     shouldUserRegularAnchor = to.pathname?.startsWith('http')
   }
 

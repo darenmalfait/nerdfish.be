@@ -36,7 +36,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
   const data = await getBlogPost({
     // home is the slug that is used in the studio for the home page
-    slug: params.slug as string,
+    slug: params.slug,
     preview,
     lang,
   })

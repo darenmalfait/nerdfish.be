@@ -24,7 +24,7 @@ function BasicForm() {
       const token = await execute()
       form.append('recaptchaResponse', token)
 
-      return await submit(form, {
+      return submit(form, {
         method: 'post',
         action: '/actions/submit-basic-form',
       })
@@ -53,7 +53,7 @@ function BasicForm() {
           />
           <Field
             type="textarea"
-            label={t('message-label') as string}
+            label={t('message-label')}
             name="message"
             id="message"
             error={data?.errors.message && t(data?.errors.message)}

@@ -27,8 +27,8 @@ function ArticleCard({
   category,
 }: SanityPost) {
   const href = getRoute(
-    PageType.blog,
     getBlogSlug(publishedAt, slug as string),
+    PageType.blog,
     lang as LanguageCode,
   )
 

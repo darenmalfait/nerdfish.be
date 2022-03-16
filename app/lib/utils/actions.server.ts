@@ -76,10 +76,9 @@ async function handleFormSubmission<
 
     const nonNullFields = getNonNull(actionData.fields)
     // not sure why, but it wasn't happy without the type cast 🤷‍♂️
-    const response = await handleFormValues(
+    return handleFormValues(
       nonNullFields as NonNullProperties<ActionData['fields']>,
     )
-    return response
   } catch (error: unknown) {
     actionData.errors.generalError = getErrorMessage(error)
     return json(actionData, 500)

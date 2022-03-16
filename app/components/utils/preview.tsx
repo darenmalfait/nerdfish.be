@@ -1,5 +1,4 @@
 import { LogoutIcon } from '@heroicons/react/solid'
-import { useEffect } from 'react'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -24,7 +23,7 @@ function Preview({
     enabled: true,
   })
 
-  useEffect(() => setData(previewData), [previewData, setData])
+  React.useEffect(() => setData(previewData), [previewData, setData])
 
   return (
     <div className="flex fixed inset-0 z-50 justify-end items-end p-6 pointer-events-none md:justify-start">

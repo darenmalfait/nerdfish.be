@@ -9,7 +9,7 @@ export function validateLanguage(language: any): language is LanguageCode {
 
 export function getDefaultLanguage(): Language {
   return (
-    (languages as Language[]).find(({ isDefault }) => isDefault == true) ||
+    (languages as Language[]).find(({ isDefault }) => isDefault === true) ||
     (languages[0] as Language)
   )
 }
@@ -23,5 +23,5 @@ export function localizeSlug(
   lang = getDefaultLanguage().code,
   type: PageType = PageType.page,
 ) {
-  return getRoute(type, slug, lang)
+  return getRoute(slug, type, lang)
 }

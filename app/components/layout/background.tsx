@@ -20,35 +20,31 @@ import type {
 function getBackgroundColor(background?: SanityBackground): string {
   const { backgroundType } = background || {}
 
-  switch (backgroundType) {
-    case `backgroundImage`: {
-      return colors?.background ? (colors?.background[100] as string) : ''
-    }
-    default: {
-      const { static: staticBackground } = background || {}
-      if (staticBackground) {
-        const { imageColor, color } = staticBackground
+  if (backgroundType === 'backgroundImage')
+    return colors?.background ? (colors?.background[100] as string) : ''
 
-        if (imageColor) {
-          if (imageColor?.asset?.metadata) {
-            const { palette } = imageColor.asset.metadata
+  const { static: staticBackground } = background || {}
 
-            return (
-              palette?.dominant?.background ||
-              (colors?.background ? (colors?.background[500] as string) : '')
-            )
-          }
-        }
+  if (staticBackground) {
+    const { imageColor, color } = staticBackground
 
-        if (color) {
-          const { value } = color
+    if (imageColor) {
+      if (imageColor?.asset?.metadata) {
+        const { palette } = imageColor.asset.metadata
 
-          return (
-            value ||
-            (colors?.background ? (colors.background[500] as string) : '')
-          )
-        }
+        return (
+          palette?.dominant?.background ||
+          (colors?.background ? (colors?.background[500] as string) : '')
+        )
       }
+    }
+
+    if (color) {
+      const { value } = color
+
+      return (
+        value || (colors?.background ? (colors.background[500] as string) : '')
+      )
     }
   }
 
