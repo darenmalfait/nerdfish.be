@@ -84,14 +84,9 @@ export function useRecaptcha(): RecaptchaProps {
       console.error('Error: grecaptcha is not defined')
     }
 
-    const token = await greCaptchaInstance?.execute(
-      window?.ENV?.RECAPTCHA_SITEKEY,
-      {
-        action: 'submit',
-      },
-    )
-
-    return token
+    return greCaptchaInstance?.execute(window?.ENV?.RECAPTCHA_SITEKEY, {
+      action: 'submit',
+    })
   }, [greCaptchaInstance])
 
   return { execute }

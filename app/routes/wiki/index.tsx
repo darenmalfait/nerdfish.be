@@ -37,7 +37,7 @@ export const loader: LoaderFunction = async () => {
 
   return json<LoaderData>({
     wikiPages:
-      wikiPages.sort((a, b) => {
+      [...wikiPages].sort((a, b) => {
         return new Date(a.date) < new Date(b.date) ? 1 : -1
       }) || [],
     tags: [],
@@ -149,7 +149,7 @@ export default function WikiOverviewPage() {
             <Container size="small">
               <div className="flex flex-wrap col-span-full justify-center -mr-4 -mb-4 lg:col-span-10">
                 {allTags.map(tag => {
-                  if (!tag || !tag) {
+                  if (!tag) {
                     return null
                   }
 

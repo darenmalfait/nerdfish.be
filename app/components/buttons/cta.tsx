@@ -31,7 +31,7 @@ function CtaLink({
       href={path || link || ''}
       {...props}
     >
-      {title && title}
+      {title}
     </Cta>
   )
 }

@@ -163,7 +163,7 @@ export function PostsBlock({
                 <Container size="full">
                   <div className="flex flex-wrap col-span-full justify-center -mr-4 -mb-4 lg:col-span-10">
                     {allTags.map(tag => {
-                      if (!tag || !tag) {
+                      if (!tag) {
                         return null
                       }
 
@@ -194,9 +194,7 @@ export function PostsBlock({
             title={title}
             subTitle={subTitle}
             cta={t('see-all-articles')}
-            ctaUrl={
-              link?.slug && localizeSlug(link?.slug as string, currentLanguage)
-            }
+            ctaUrl={link?.slug && localizeSlug(link?.slug, currentLanguage)}
           />
           <Spacer size="2xs" />
         </Section>
@@ -207,8 +205,8 @@ export function PostsBlock({
           <HighlightCard
             category={featured.category}
             href={getRoute(
-              PageType.blog,
               getBlogSlug(featured.publishedAt, featured.slug as string),
+              PageType.blog,
               currentLanguage,
             )}
             title={featured.title}

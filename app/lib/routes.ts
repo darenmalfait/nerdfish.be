@@ -5,17 +5,14 @@ import { stripPreSlash } from '~/lib/utils/string'
 import { PageType } from '~/types/languages'
 
 export function getDynamicRoute(type: string = PageType.page): string | false {
-  switch (type) {
-    case PageType.blog:
-      return 'blog'
-    default:
-      return false
-  }
+  if (type === PageType.blog) return 'blog'
+
+  return false
 }
 
 export function getRoute(
-  type: string = PageType.page,
   slug: string,
+  type: string = PageType.page,
   lang = getDefaultLanguage().code,
 ): string {
   if (slug === 'home') {

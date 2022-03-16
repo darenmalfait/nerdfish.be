@@ -1,8 +1,9 @@
 import * as React from 'react'
 import type { ReactNode } from 'react'
 
-function ClientOnly({ children }: { children: ReactNode }): JSX.Element | null {
+function ClientOnly({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = React.useState(false)
+
   React.useEffect(() => {
     setMounted(true)
   }, [])
