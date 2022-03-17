@@ -68,7 +68,7 @@ function groq(strings: TemplateStringsArray, ...keys: any[]) {
 }
 
 const urlFor = (source: SanityImage, maxWidth = 1200) => {
-  const builder = imageUrlBuilder(config).image(source).format('png')
+  const builder = imageUrlBuilder(config).image(source).format('webp')
 
   if (maxWidth) {
     return builder.maxWidth(maxWidth)
@@ -78,7 +78,7 @@ const urlFor = (source: SanityImage, maxWidth = 1200) => {
 }
 
 const getLowQualityUrlFor = (source: SanityImage): string => {
-  return imageUrlBuilder(config).image(source).width(25).url()
+  return imageUrlBuilder(config).image(source).width(25).format('webp').url()
 }
 
 export type ResponsiveSanityImageProps = {
