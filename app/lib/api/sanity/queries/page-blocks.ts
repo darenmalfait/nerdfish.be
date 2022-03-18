@@ -141,6 +141,7 @@ export const carouselBlock: any = groq`
 
 export const blocks = groq`
   ...,
+  ${portableText},
   ${aboutBlock},
   ${carouselBlock},
   ${heroBlock},
