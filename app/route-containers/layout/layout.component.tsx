@@ -39,6 +39,7 @@ import { AppProviders } from '~/context/app-providers'
 import { PreventFlashOnWrongTheme, useTheme } from '~/context/theme-provider'
 import { getDefaultLanguage } from '~/lib/utils/i18n'
 import appStyles from '~/styles/app.css'
+import componentStyles from '~/styles/components.css'
 import globalStyles from '~/styles/global.css'
 import proseStyles from '~/styles/prose.css'
 import tailwindStyles from '~/styles/tailwind.css'
@@ -92,6 +93,7 @@ export const links: LinksFunction = () => {
     { rel: 'stylesheet', href: proseStyles },
     { rel: 'stylesheet', href: tailwindStyles },
     { rel: 'stylesheet', href: vendorStyles },
+    { rel: 'stylesheet', href: componentStyles },
   ]
 }
 
