@@ -6,8 +6,27 @@ const env = {
 module.exports = {
   apps: [
     {
+      name: 'Server Build',
+      script: 'npm run build:server -- --watch',
+      ignore_watch: ['.'],
+      env,
+    },
+    {
       name: 'Server',
-      script: 'dotenv -- remix dev',
+      script: [
+        'node',
+        '--inspect',
+        '--require ./node_modules/dotenv/config',
+        './build/server.js',
+      ]
+        .filter(Boolean)
+        .join(' '),
+      watch: ['./mocks/**/*.ts', './build/server.js', './.env'],
+      env,
+    },
+    {
+      name: 'Remix',
+      script: 'cross-env NODE_ENV=development remix watch',
       ignore_watch: ['.'],
       env,
     },
