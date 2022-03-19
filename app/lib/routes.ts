@@ -27,5 +27,5 @@ export function getRoute(
 
 export function getBlogSlug(publishedAt: string, slug: string) {
   const dateSegment = formatDate(new Date(publishedAt), 'yyyy/MM')
-  return `/${dateSegment}/${slug || ''}/`
+  return `/${dateSegment}/${slug || ''}`
 }
