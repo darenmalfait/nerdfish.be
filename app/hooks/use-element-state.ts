@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, RefCallback, useCallback } from 'react'
+import { useRef, useEffect, useState, Ref, useCallback } from 'react'
 
 export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 
@@ -6,7 +6,7 @@ export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 // but it's so much more now. The variants in framer motion support hover, focus
 // and tap, while this effect also listens to the keypress, so that `Enter`
 // results in an active state as well.
-function useElementState(): [RefCallback<HTMLElement>, ElementState] {
+function useElementState(): [Ref<HTMLElement | SVGElement>, ElementState] {
   const ref = useRef<HTMLElement | null>(null)
   const [state, setState] = useState({
     focus: false,
@@ -14,7 +14,7 @@ function useElementState(): [RefCallback<HTMLElement>, ElementState] {
     active: false,
   })
 
-  const setRef: RefCallback<HTMLElement> = useCallback(element => {
+  const setRef: Ref<HTMLElement | SVGElement> = useCallback(element => {
     ref.current = element
   }, [])
 
