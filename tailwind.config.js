@@ -28,7 +28,7 @@ module.exports = {
           unknown: 'var(--color-blog-unknown)',
           technical: 'var(--color-blog-technical)',
           project: 'var(--color-blog-project)',
-          snippet: 'var(--color-blog-snippet)',
+          wiki: 'var(--color-blog-wiki)',
           coaching: 'var(--color-blog-coaching)',
           blog: 'var(--color-blog-blog)',
         },
