@@ -11,7 +11,9 @@ export default S.listItem()
       .id('post')
       .title('Blog posts')
       .schemaType('post')
-      .filter('i18n_lang == $lang && _type == $type')
+      .filter(
+        '(!defined(publishedAt) && _type == $type) || (i18n_lang == $lang && _type == $type)',
+      )
       // .filter('_type == $type')
       .params({
         lang: defaultLanguage()?.code,
