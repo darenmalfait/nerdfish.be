@@ -39,7 +39,7 @@ export const post: Document = {
       group: 'content',
       options: {
         list: [
-          { title: 'Snippet', value: 'snippet' },
+          { title: 'Wiki', value: 'wiki' },
           { title: 'Technical', value: 'technical' },
           { title: 'Coaching', value: 'coaching' },
           { title: 'Project', value: 'project' },

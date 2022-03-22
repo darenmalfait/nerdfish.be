@@ -12,7 +12,7 @@
   --color-blog-unknown: #818890;
   --color-blog-technical: #10b981;
   --color-blog-project: #3b82f6;
-  --color-blog-snippet: #8b5cf6;
+  --color-blog-wiki: #8b5cf6;
   /* yellow in light mode is... hard */
   --color-blog-coaching: #f59e0b;
   --color-blog-blog: #6b7280;
@@ -43,9 +43,9 @@
   --colors-accent-100: var(--color-blog-unknown);
 }
 
-.set-color-blog-current-snippet {
-  --colors-accent-500: var(--color-blog-snippet);
-  --colors-accent-100: var(--color-blog-snippet);
+.set-color-blog-current-wiki {
+  --colors-accent-500: var(--color-blog-wiki);
+  --colors-accent-100: var(--color-blog-wiki);
 }
 
 .set-color-blog-current-blog {

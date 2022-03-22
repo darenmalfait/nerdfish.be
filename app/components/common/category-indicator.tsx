@@ -7,7 +7,7 @@ type categoryKey = SanityPost['category']
 
 const colorMap: Record<SanityPost['category'], string> = {
   unknown: 'set-color-blog-current-unknown',
-  snippet: 'set-color-blog-current-snippet',
+  wiki: 'set-color-blog-current-wiki',
   technical: 'set-color-blog-current-technical',
   coaching: 'set-color-blog-current-coaching',
   project: 'set-color-blog-current-project',
