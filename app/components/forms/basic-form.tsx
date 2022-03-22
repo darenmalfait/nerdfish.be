@@ -1,4 +1,10 @@
-import { Alert, Field, FormHelperText } from '@daren/ui-components'
+import {
+  Alert,
+  Field,
+  FormHelperText,
+  Label,
+  RadioGroup,
+} from '@daren/ui-components'
 import * as React from 'react'
 import { useFetcher } from 'remix'
 
@@ -8,7 +14,29 @@ import { useTranslations } from '~/context/translations-provider'
 import { useRecaptcha } from '~/lib/utils/recaptcha'
 import type { ActionData } from '~/routes/actions/submit-basic-form'
 
-function BasicForm() {
+function ProjectField() {
+  const { t } = useTranslations()
+  const [project, setProject] = React.useState<string>('website')
+  return (
+    <RadioGroup
+      name="projectType"
+      value={project}
+      onChange={setProject}
+      label={t('contact-project-label')}
+      aria-label={t('contact-project-label-alt')}
+    >
+      <RadioGroup.Option value="website" label={t('contact-project-website')} />
+      <RadioGroup.Option
+        value="application"
+        label={t('contact-project-application')}
+      />
+      <RadioGroup.Option value="event" label={t('contact-project-event')} />
+      <RadioGroup.Option value="other" label={t('contact-project-other')} />
+    </RadioGroup>
+  )
+}
+
+function BasicForm({ withProject }: { withProject?: boolean }) {
   const { execute } = useRecaptcha()
   const [submitError, setSubmitError] = React.useState<string | null>(null)
   const { Form, state, data, type, submit } = useFetcher<ActionData>()
@@ -51,6 +79,12 @@ function BasicForm() {
             id="email"
             error={data?.errors.email && t(data?.errors.email)}
           />
+          {withProject && (
+            <div className="space-y-3 not-prose">
+              <Label>{t('contact-project-title')}</Label>
+              <ProjectField />
+            </div>
+          )}
           <Field
             type="textarea"
             label={t('message-label')}

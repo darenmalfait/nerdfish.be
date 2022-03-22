@@ -79,9 +79,61 @@ const translation = {
     en: 'Go back',
     nl: 'Ga terug',
   },
+  'contact-title': {
+    en: "Let's",
+    nl: 'Laat ons',
+  },
+  'contact-option-project': {
+    en: 'talk about a project',
+    nl: 'jouw project bespreken',
+  },
+  'contact-option-basic': {
+    en: 'talk about the weather',
+    nl: 'het weer bespreken',
+  },
+  'contact-option-coffee': {
+    en: 'grab a coffee',
+    nl: 'een koffie drinken',
+  },
+  'contact-option-coffee-title': {
+    nl: 'Over wat wil je praten bij onze',
+    en: 'What do you want to talk about with our',
+  },
+  'contact-project-label': {
+    en: 'Make an appointment for:',
+    nl: 'Maak een afspraak voor:',
+  },
+  'contact-project-label-alt': {
+    en: 'The type of project',
+    nl: 'Het type project',
+  },
+  'contact-project-website': {
+    en: 'a website',
+    nl: 'een website',
+  },
+  'contact-project-title': {
+    en: 'What kind of project do you want to talk about?',
+    nl: 'Wat voor project wil je bespreken?',
+  },
+  'contact-project-application': {
+    en: 'a web application',
+    nl: 'een web applicatie',
+  },
+  'contact-project-event': {
+    en: 'talk on an event',
+    nl: 'over een evenement',
+  },
+  'contact-project-other': {
+    en: 'something else',
+    nl: 'iets anders',
+  },
   'contact-us': {
     en: 'Contact us',
     nl: 'Neem contact op',
+  },
+  coffee: {
+    en: 'Coffee',
+    nl: 'Koffie',
   },
   'not-found': {
     en: "404 - Oh no, it's gone!",

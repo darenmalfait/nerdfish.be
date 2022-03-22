@@ -36,6 +36,7 @@ export type ActionData = {
     name?: string | null
     email?: string | null
     message?: string | null
+    projectType?: string | null
     recaptchaResponse?: string | null
   }
   errors: {
@@ -57,11 +58,12 @@ export const action: ActionFunction = async ({ request }) => {
       recaptchaResponse: getErrorForRecaptcha,
     },
     handleFormValues: async fields => {
-      const { name, email, message } = fields
+      const { name, email, message, projectType } = fields
 
       const html = `
       name: ${name}
       email: ${email}
+      projectType: ${projectType}
       message: ${message}
       `
 
