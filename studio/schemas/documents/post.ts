@@ -153,12 +153,17 @@ export const post: Document = {
       media: 'image',
     },
     prepare({ title = 'No title', publishedAt, slug = {}, media }) {
-      const dateSegment = formatDate(new Date(publishedAt), 'yyyy/MM')
-      const path = `/${dateSegment}/${slug.current || ''}/`
+      let subtitle = 'Missing publishing date'
+
+      if (publishedAt) {
+        const dateSegment = formatDate(new Date(publishedAt), 'yyyy/MM')
+        subtitle = `/${dateSegment}/${slug.current || ''}/`
+      }
+
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date',
+        subtitle,
       }
     },
   },
