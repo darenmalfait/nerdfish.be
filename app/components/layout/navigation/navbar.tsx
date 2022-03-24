@@ -63,7 +63,7 @@ function MobileNav({
       <nav>
         <div className="flex flex-col pt-8 mobile-nav-links">
           {children}
-          {actions && actions}
+          {actions}
         </div>
       </nav>
     </div>
@@ -83,6 +83,18 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
   const onToggle = React.useCallback(() => {
     setOpen(current => !current)
   }, [setOpen])
+
+  function navItems(items: React.ReactNode) {
+    return React.Children.map(items, child => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, {
+          onClick: onToggle,
+        })
+      }
+
+      return child
+    })
+  }
 
   return (
     <div className="w-full">
@@ -105,8 +117,10 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
               className="p-2 rounded-full focus-ring"
               target="_blank"
               href={`/${currentLanguage}/blog/rss.xml`}
+              aria-label="rss feed"
               rel="noreferrer"
             >
+              <span className="sr-only">RSS feed</span>
               <RssIcon className="w-5" />
             </a>
             {actions}
@@ -116,27 +130,11 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
       </div>
       <MobileNav
         rootPath={rootPath}
-        actions={React.Children.map(actions, child => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              onClick: onToggle,
-            })
-          }
-
-          return child
-        })}
+        actions={navItems(actions)}
         onClose={onToggle}
         open={open}
       >
-        {React.Children.map(children, child => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              onClick: onToggle,
-            })
-          }
-
-          return child
-        })}
+        {navItems(children)}
       </MobileNav>
       <Overlay open={open} />
     </div>
