@@ -40,6 +40,7 @@ function Footer({ multilang, company, navigation, socials }: FooterProps) {
         <div>
           <Link
             className="flex flex-initial items-center font-bold md:mr-24"
+            aria-label="home page"
             to={root}
           >
             <Logo className="w-14 h-14" />
