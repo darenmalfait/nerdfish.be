@@ -11,13 +11,13 @@ Closes # <!-- Github issue # here -->
 
 > Add a brief description
 
-## ⛳️ Current behavior (updates)
+## ⛳️ Current behaviour (updates)
 
-> Please describe the current behavior that you are modifying
+> Please describe the current behaviour that you are modifying
 
-## 🚀 New behavior
+## 🚀 New behaviour
 
-> Please describe the behavior or changes this PR adds
+> Please describe the behaviour or changes this PR adds
 
 ## 💣 Is this a breaking change (Yes/No):
 
