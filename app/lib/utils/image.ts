@@ -2,10 +2,10 @@ import type { ResponsiveProps } from '~/components/elements/optimized-image.js'
 import type { SizeValue } from '~/components/layout'
 
 const sizeMap: Record<SizeValue, number> = {
-  small: 600,
-  default: 850,
-  medium: 1100,
   full: 1300,
+  medium: 1100,
+  default: 850,
+  small: 600,
 }
 
 export function getResponsiveImageSizes(size: SizeValue | number = 'default') {
@@ -19,11 +19,11 @@ export function getResponsiveImageSizes(size: SizeValue | number = 'default') {
   return sizeKeys
     .map(
       (key, index) =>
-        sizeIndex >= index && {
+        sizeIndex <= index && {
           size: {
             width: sizeMap[key],
           },
-          maxWidth: sizeMap[key],
+          minWidth: sizeMap[key],
         },
     )
     .filter(Boolean) as ResponsiveProps[]
