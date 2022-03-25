@@ -67,11 +67,11 @@ function groq(strings: TemplateStringsArray, ...keys: any[]) {
   // )
 }
 
-const urlFor = (source: SanityImage, maxWidth = 1200) => {
+const urlFor = (source: SanityImage, minWidth = 1200) => {
   const builder = imageUrlBuilder(config).image(source).format('webp')
 
-  if (maxWidth) {
-    return builder.maxWidth(maxWidth)
+  if (minWidth) {
+    return builder.minWidth(minWidth)
   }
 
   return builder
@@ -94,7 +94,7 @@ const useResponsiveSanityImage = (
   const imageBuilder = urlFor(image)
 
   const result = responsive.reduce(
-    (accum, { size, maxWidth }) => {
+    (accum, { size, minWidth }) => {
       let responsiveImage = imageBuilder
 
       if (size.width) {
@@ -107,14 +107,14 @@ const useResponsiveSanityImage = (
 
       const srcSetUrl = responsiveImage.url()
 
-      accum.srcSet.push(srcSetUrl)
+      accum.srcSet.push(`${srcSetUrl} ${size.width}w`)
 
-      if (maxWidth) {
-        accum.sizes.push(`(max-width: ${maxWidth}px) ${size.width}px`)
+      if (minWidth) {
+        accum.sizes.push(`(min-width: ${minWidth}px) ${size.width}px`)
       }
 
-      if (size.width > accum.largestWidth) {
-        accum.largestWidth = size.width
+      if (size.width < accum.smallestWidth) {
+        accum.smallestWidth = size.width
         accum.src = srcSetUrl
       }
 
@@ -124,7 +124,7 @@ const useResponsiveSanityImage = (
       src: imageBuilder.url() || '',
       srcSet: [] as string[],
       sizes: [] as string[],
-      largestWidth: 0,
+      smallestWidth: 0,
     },
   )
 

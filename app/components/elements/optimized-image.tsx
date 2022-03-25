@@ -9,7 +9,7 @@ import { useResponsiveSanityImage } from '~/lib/api/sanity'
 import type { SanityImage, SanityImageAsset } from '~/types'
 
 export type ResponsiveProps = {
-  maxWidth?: number
+  minWidth?: number
   size: { width: number; height?: number }
 }
 
