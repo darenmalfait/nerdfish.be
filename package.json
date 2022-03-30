@@ -12,14 +12,19 @@
     "prebuild": "npm run clean",
     "build": "run-s build:*",
     "clean": "rimraf ./node_modules/.cache ./server/dist ./build ./public/build \"./app/styles/**/*.css\" && echo All clean ✨",
-    "dev": "npm run generate:css && pm2-dev ./other/pm2.config.js",
+    "dev": "run-p dev:*",
+    "dev:server": "cross-env NODE_ENV=development node --inspect --require ./node_modules/dotenv/config --require ./build/server.js",
+    "dev:build": "cross-env NODE_ENV=development npm run build:server -- --watch",
+    "dev:remix": "cross-env NODE_ENV=development remix watch",
+    "dev:studio": "cd studio && npm run dev",
+    "dev:css": "cross-env NODE_ENV=development npm run generate:css -- --watch",
     "lint:src": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:studio": "cd studio && npm run validate",
     "lint:types": "tsc --noEmit",
     "postinstall": "remix setup node",
     "prepare": "husky install",
     "start": "cross-env NODE_ENV=production node ./build/server.js",
-    "validate": "run-s lint:*"
+    "validate": "run-p lint:*"
   },
   "dependencies": {
     "@daren/theme": "^2.0.2",
@@ -94,7 +99,6 @@
     "eslint-config-daren": "^3.5.1",
     "husky": "^7.0.4",
     "npm-run-all": "^4.1.5",
-    "pm2": "^5.2.0",
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.1.0",
     "typescript": "^4.6.3"
