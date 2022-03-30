@@ -5,9 +5,10 @@ export const loader: LoaderFunction = async ({ request }) => {
     request.headers.get('X-Forwarded-Host') ?? request.headers.get('host')
 
   try {
-    // if we can  a HEAD request to ourselves, then we're good.
+    const url = new URL('/', `http://${host}`)
+    // if we can make  a HEAD request to ourselves, then we're good.
     await Promise.all([
-      fetch(`http://${host}`, { method: 'HEAD' }).then(r => {
+      fetch(url.toString(), { method: 'HEAD' }).then(r => {
         if (!r.ok) return Promise.reject(r)
       }),
     ])
