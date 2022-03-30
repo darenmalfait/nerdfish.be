@@ -10,7 +10,7 @@ interface ImageProps {
 }
 
 function Image(props: ImageProps) {
-  if (!props.image?.asset?._ref) {
+  if (!props.image?.asset._ref) {
     return null
   }
   const src = imageBuilder

@@ -36,10 +36,9 @@ export const loader: LoaderFunction = async () => {
   const wikiPages = await getWikiPages()
 
   return json<LoaderData>({
-    wikiPages:
-      [...wikiPages].sort((a, b) => {
-        return new Date(a.date) < new Date(b.date) ? 1 : -1
-      }) || [],
+    wikiPages: [...wikiPages].sort((a, b) => {
+      return new Date(a.date) < new Date(b.date) ? 1 : -1
+    }),
     tags: [],
   })
 }
@@ -73,9 +72,7 @@ export default function WikiOverviewPage() {
 
   const allTags = [
     ...new Set(
-      filteredWikiPages?.flatMap(wikipage =>
-        wikipage.tags?.map(value => value),
-      ),
+      filteredWikiPages.flatMap(wikipage => wikipage.tags?.map(value => value)),
     ),
   ]
 

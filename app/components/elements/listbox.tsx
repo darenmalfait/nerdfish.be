@@ -85,11 +85,9 @@ function ListboxButton({
       <Button {...props} variant="secondary">
         <div className="flex relative text-left">
           {children}
-          {Icon && (
-            <span className="flex items-center pl-2 pointer-events-none">
-              <Icon className="w-6 h-6" aria-hidden="true" />
-            </span>
-          )}
+          <span className="flex items-center pl-2 pointer-events-none">
+            <Icon className="w-6 h-6" aria-hidden="true" />
+          </span>
         </div>
       </Button>
     </HeadlessListbox.Button>

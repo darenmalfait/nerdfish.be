@@ -44,7 +44,7 @@ async function handleFormSubmission<
 )): Promise<Response> {
   try {
     if (!form) {
-      const requestText = await request!.text()
+      const requestText = await request.text()
       form = new URLSearchParams(requestText)
     }
 

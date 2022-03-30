@@ -11,7 +11,7 @@ interface MarkLinkProps {
 }
 
 function MarkLink({ mark: { href }, children }: MarkLinkProps) {
-  const title = children ? children[0] : ''
+  const title = children.length > 0 ? children[0] : ''
 
   return (
     <Cta

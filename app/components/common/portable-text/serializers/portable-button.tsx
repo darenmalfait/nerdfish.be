@@ -42,7 +42,7 @@ function PortableButton({
   let slug = reference?.slug ?? ''
 
   if (reference?._type === PageType.blog) {
-    slug = getBlogSlug((reference as SanityPost)?.publishedAt, slug)
+    slug = getBlogSlug((reference as SanityPost).publishedAt, slug)
   }
 
   const path = localizeSlug(

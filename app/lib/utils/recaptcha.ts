@@ -51,7 +51,7 @@ export function useRecaptcha(): RecaptchaProps {
         document.body.appendChild(script)
 
         script.onload = () => {
-          if (!window || !(window as any).grecaptcha) {
+          if (!(window as any).grecaptcha) {
             console.error('Error: grecaptcha is not defined')
 
             return
@@ -71,7 +71,7 @@ export function useRecaptcha(): RecaptchaProps {
     // load the script by passing the URL
     loadScriptByURL(
       scriptId,
-      `https://www.google.com/recaptcha/api.js?render=${window?.ENV?.RECAPTCHA_SITEKEY}`,
+      `https://www.google.com/recaptcha/api.js?render=${window.ENV?.RECAPTCHA_SITEKEY}`,
     )
 
     return () => {
@@ -84,7 +84,7 @@ export function useRecaptcha(): RecaptchaProps {
       console.error('Error: grecaptcha is not defined')
     }
 
-    return greCaptchaInstance?.execute(window?.ENV?.RECAPTCHA_SITEKEY, {
+    return greCaptchaInstance?.execute(window.ENV?.RECAPTCHA_SITEKEY, {
       action: 'submit',
     })
   }, [greCaptchaInstance])

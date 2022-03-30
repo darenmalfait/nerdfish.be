@@ -19,12 +19,9 @@ function Navigation({
   const { currentLanguage } = useTranslations()
 
   const actionItems = React.useMemo(() => {
-    return (
-      actions &&
-      actions.items?.map((cta: SanityCta, i: number) => {
-        return <Navbar.Link {...cta} key={i} />
-      })
-    )
+    return actions.items?.map((cta: SanityCta, i: number) => {
+      return <Navbar.Link {...cta} key={i} />
+    })
   }, [actions])
 
   return (
@@ -33,10 +30,9 @@ function Navigation({
       rootPath={localizeSlug('/', currentLanguage)}
       actions={actionItems}
     >
-      {main &&
-        main.items?.map((cta: SanityCta, i: number) => {
-          return <Navbar.Link {...cta} key={i} />
-        })}
+      {main.items?.map((cta: SanityCta, i: number) => {
+        return <Navbar.Link {...cta} key={i} />
+      })}
     </Navbar>
   )
 }

@@ -17,9 +17,9 @@ const query = groq`${getDoc(PageType.blog, true)}`
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const session = await getSession(request, params)
-  const lang = session.getLanguage() || getDefaultLanguage().code
+  const lang = session.getLanguage()
 
-  const requestUrl = new URL(request?.url)
+  const requestUrl = new URL(request.url)
 
   const headers = {
     'Cache-Control': 'private, max-age=3600',
@@ -31,7 +31,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
 
   const preview =
-    requestUrl?.searchParams?.get('preview') ===
+    requestUrl.searchParams.get('preview') ===
     process.env.SANITY_STUDIO_PREVIEW_SECRET
 
   const data = await getBlogPost({
@@ -42,10 +42,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   })
 
   // if there is no blogpost with the current settings, return a 404
-  if (
-    !data.post ||
-    (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code)
-  ) {
+  if (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code) {
     throw json('Page not found', { status: 404, headers })
   }
 
@@ -53,7 +50,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     data.post.seo?.canonical ??
     removeTrailingSlash(
       `${getDomainUrl(request)}${localizeSlug(
-        data?.post?.slug || '',
+        data.post.slug || '',
         lang,
         PageType.blog,
       )}`,

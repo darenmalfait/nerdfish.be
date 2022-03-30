@@ -72,6 +72,7 @@ export const action: ActionFunction = async ({ request }) => {
         from: 'me@daren.be',
         subject: 'Form submission from daren.be',
         html,
+        replyTo: `${name} <${email}>`,
       })
 
       const actionData: ActionData = {

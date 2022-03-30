@@ -28,7 +28,7 @@ export default function GenericPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData.slug])
 
-  const { body } = data || {}
+  const { body } = data
 
   return (
     <>

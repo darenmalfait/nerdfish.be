@@ -8,12 +8,12 @@ import type { ResponsiveProps } from '~/components/elements'
 import type { SanityImage } from '~/types'
 
 const SANITY_STUDIO_API_PROJECT_ID = isBrowser
-  ? (window?.ENV.SANITY_STUDIO_API_PROJECT_ID as string)
-  : process?.env.SANITY_STUDIO_API_PROJECT_ID
+  ? (window.ENV.SANITY_STUDIO_API_PROJECT_ID as string)
+  : process.env.SANITY_STUDIO_API_PROJECT_ID
 
 const SANITY_STUDIO_API_DATASET = isBrowser
-  ? (window?.ENV.SANITY_STUDIO_API_DATASET as string)
-  : process?.env.SANITY_STUDIO_API_DATASET
+  ? (window.ENV.SANITY_STUDIO_API_DATASET as string)
+  : process.env.SANITY_STUDIO_API_DATASET
 
 if (!SANITY_STUDIO_API_PROJECT_ID) {
   throw new Error("Couldn't find env var SANITY_STUDIO_API_PROJECT_ID!")
@@ -44,10 +44,7 @@ const sanityClient = new PicoSanity(config)
 // Authenticated client for fetching draft documents
 const previewClient = new PicoSanity({
   ...config,
-  token:
-    typeof window === 'undefined' && process
-      ? process.env.SANITY_API_TOKEN
-      : ``,
+  token: typeof window === 'undefined' ? process.env.SANITY_API_TOKEN : ``,
   useCdn: false,
 })
 

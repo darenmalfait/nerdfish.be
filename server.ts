@@ -89,7 +89,7 @@ app.all(
           build: require(BUILD_DIR),
           mode: MODE,
         })
-        return requestHandler(...args)
+        requestHandler(...args)
       },
 )
 

@@ -2,7 +2,7 @@ import type { LoaderFunction } from 'remix'
 
 import { getAllPosts, getSiteInfo } from '~/lib/api'
 
-import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
+import { localizeSlug } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { getSession } from '~/lib/utils/session.server'
 import { removeTrailingSlash } from '~/lib/utils/string'
@@ -10,7 +10,7 @@ import { PageType } from '~/types'
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const session = await getSession(request, params)
-  const lang = session.getLanguage() || getDefaultLanguage().code
+  const lang = session.getLanguage()
 
   const posts = await getAllPosts()
 
@@ -21,7 +21,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       post.seo?.canonical ??
       removeTrailingSlash(
         `${getDomainUrl(request)}${localizeSlug(
-          post?.slug || '',
+          post.slug || '',
           lang,
           PageType.blog,
         )}`,
@@ -29,9 +29,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
     return [
       `<item>`,
-      `<title>${post?.title}</title>`,
-      `<pubDate>${post?.publishedAt}</pubDate>`,
-      `<description><![CDATA[${post?.excerpt}]]></description>`,
+      `<title>${post.title}</title>`,
+      `<pubDate>${post.publishedAt}</pubDate>`,
+      `<description><![CDATA[${post.excerpt}]]></description>`,
       // TODO: Add full HTML of article
       // `<content:encoded><![CDATA[${html}]]></content:encoded>`,
       `<link>${canonical}</link>`,
