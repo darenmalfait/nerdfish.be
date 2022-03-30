@@ -3,11 +3,11 @@
   "include": [
     "remix.env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
-    "./generate",
-    "./studio"
+    "./studio",
+    "./generate"
   ],
   "compilerOptions": {
     "paths": {

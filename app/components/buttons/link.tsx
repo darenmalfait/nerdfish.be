@@ -42,13 +42,13 @@ const Link = React.forwardRef<
   }
 
   if (shouldUserRegularAnchor) {
-    return <a {...rest} download={download} href={href ?? toUrl} ref={ref} />
+    return <a {...rest} download={download} href={href || toUrl} ref={ref} />
   } else {
     return (
       <RemixLink
         prefetch={prefetch}
         {...rest}
-        to={to ?? href ?? ''}
+        to={to || href || ''}
         ref={ref}
       />
     )

@@ -20,9 +20,6 @@ function Table({ children, table, title, cta }: TableProps) {
   }
 
   const { rows = [] } = table
-  if (!rows) {
-    return null
-  }
 
   const headerCells = rows[0]?.cells || []
   const itemRows = [...rows.slice(1)]
@@ -62,12 +59,11 @@ function Table({ children, table, title, cta }: TableProps) {
 
               return (
                 <tr className={clsx(row, 'px-2 border-y')} key={key}>
-                  {cells &&
-                    cells.map((value, j) => (
-                      <td className={cell} key={j}>
-                        {value}
-                      </td>
-                    ))}
+                  {cells.map((value, j) => (
+                    <td className={cell} key={j}>
+                      {value}
+                    </td>
+                  ))}
                 </tr>
               )
             })}

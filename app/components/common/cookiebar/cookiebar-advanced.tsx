@@ -108,7 +108,7 @@ function CookiebarAdvanced({
               </ConsentItem>
             ),
             message:
-              tracking.message && tracking?.message[lang as string]?.value,
+              tracking.message && tracking.message[lang as string]?.value,
           },
         ]
       : []),

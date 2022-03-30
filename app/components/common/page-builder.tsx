@@ -42,7 +42,7 @@ function PageBlock<T extends keyof typeof components>({
     return <Component {...(props as any)} />
   }
 
-  return type ? <Placeholder componentName={type} /> : null
+  return <Placeholder componentName={type} />
 }
 
 interface PageBuilderProps {
@@ -50,10 +50,6 @@ interface PageBuilderProps {
 }
 
 function PageBuilder({ items }: PageBuilderProps) {
-  if (!items) {
-    return null
-  }
-
   return (
     <>
       {items.map(item => (

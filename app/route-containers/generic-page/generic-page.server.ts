@@ -20,9 +20,9 @@ const query = groq`${getDoc(PageType.page, true)}`
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const session = await getSession(request, params)
-  const lang = session.getLanguage() || getDefaultLanguage().code
+  const lang = session.getLanguage()
 
-  const requestUrl = new URL(request?.url)
+  const requestUrl = new URL(request.url)
   const preview =
     requestUrl.searchParams.get(`preview`) ===
     process.env.SANITY_STUDIO_PREVIEW_SECRET
@@ -44,18 +44,15 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     lang,
   })
 
-  // if there is no page with the current settings, return a 404
-  if (
-    !data.page ||
-    (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code)
-  ) {
+  // if there is no blogpost with the current settings, return a 404
+  if (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code) {
     throw json('Page not found', { status: 404, headers })
   }
 
   const canonical =
     data.page.seo?.canonical ??
     removeTrailingSlash(
-      `${getDomainUrl(request)}${localizeSlug(data?.page?.slug || '', lang)}`,
+      `${getDomainUrl(request)}${localizeSlug(data.page.slug || '', lang)}`,
     )
 
   return json<LoaderData>(

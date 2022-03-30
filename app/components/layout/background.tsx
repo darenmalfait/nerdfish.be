@@ -21,7 +21,7 @@ function getBackgroundColor(background?: SanityBackground): string {
   const { backgroundType } = background || {}
 
   if (backgroundType === 'backgroundImage')
-    return colors?.background ? (colors?.background[100] as string) : ''
+    return colors.background ? (colors.background[100] as string) : ''
 
   const { static: staticBackground } = background || {}
 
@@ -29,12 +29,12 @@ function getBackgroundColor(background?: SanityBackground): string {
     const { imageColor, color } = staticBackground
 
     if (imageColor) {
-      if (imageColor?.asset?.metadata) {
+      if (imageColor.asset?.metadata) {
         const { palette } = imageColor.asset.metadata
 
         return (
           palette?.dominant?.background ||
-          (colors?.background ? (colors?.background[500] as string) : '')
+          (colors.background ? (colors.background[500] as string) : '')
         )
       }
     }
@@ -43,7 +43,7 @@ function getBackgroundColor(background?: SanityBackground): string {
       const { value } = color
 
       return (
-        value || (colors?.background ? (colors.background[500] as string) : '')
+        value || (colors.background ? (colors.background[500] as string) : '')
       )
     }
   }
@@ -52,7 +52,7 @@ function getBackgroundColor(background?: SanityBackground): string {
 }
 
 function useBackground(layout: SanityBlockLayout) {
-  const background = layout?.background
+  const background = layout.background
 
   if (!background?.static && !background?.imageBackground) {
     return null
@@ -60,13 +60,13 @@ function useBackground(layout: SanityBlockLayout) {
 
   const backgroundColor = getBackgroundColor(background)
 
-  const { imageBackground, backgroundType } = background || { asset: {} }
+  const { imageBackground, backgroundType } = background
 
   let foreground
 
   if (backgroundType === 'backgroundImage' && imageBackground) {
     foreground = invertColor(
-      imageBackground?.image?.asset?.metadata?.palette?.dominant?.background ||
+      imageBackground.image?.asset?.metadata?.palette?.dominant?.background ||
         '#fff',
       true,
     )
@@ -144,7 +144,7 @@ function BackgroundContainer({
 
   return (
     <Section className="relative">
-      {layout?.background && (
+      {layout.background && (
         <Background color={backgroundColor} image={imageBackground?.image} />
       )}
       <Grid className={themeClass} nested>

@@ -194,7 +194,7 @@ export function PostsBlock({
             title={title}
             subTitle={subTitle}
             cta={t('see-all-articles')}
-            ctaUrl={link?.slug && localizeSlug(link?.slug, currentLanguage)}
+            ctaUrl={link?.slug && localizeSlug(link.slug, currentLanguage)}
           />
           <Spacer size="2xs" />
         </Section>
@@ -213,7 +213,7 @@ export function PostsBlock({
             subTitle={
               featured.publishedAt
                 ? `${formatDate(parseISO(featured.publishedAt), 'PPP')} — ${
-                    `${featured.readingTime} ${t('read-time')}` ??
+                    `${featured.readingTime} ${t('read-time')}` ||
                     t('quick-read')
                   }`
                 : 'TBA'

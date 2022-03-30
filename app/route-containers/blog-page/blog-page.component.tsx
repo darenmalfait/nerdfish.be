@@ -39,7 +39,7 @@ export default function BlogPage() {
     setData(initialData)
   }, [initialData])
 
-  const { body, title, publishedAt, image } = data || {}
+  const { body, title, publishedAt, image } = data
 
   return (
     <>

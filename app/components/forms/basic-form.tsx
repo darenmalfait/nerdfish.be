@@ -42,26 +42,27 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
   const { Form, state, data, type, submit } = useFetcher<ActionData>()
   const { t } = useTranslations()
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSubmitError(null)
 
     const form = new FormData(event.currentTarget)
 
-    try {
-      const token = await execute()
-      form.append('recaptchaResponse', token)
+    execute()
+      .then((token: string) => {
+        form.append('recaptchaResponse', token)
 
-      return submit(form, {
-        method: 'post',
-        action: '/actions/submit-basic-form',
+        submit(form, {
+          method: 'post',
+          action: '/actions/submit-basic-form',
+        })
       })
-    } catch (error: any) {
-      setSubmitError(error.message)
-    }
+      .catch((error: any) => {
+        setSubmitError(error.message)
+      })
   }
 
-  const emailSuccessfullySent = type === 'done' && data?.status === 'success'
+  const emailSuccessfullySent = type === 'done' && data.status === 'success'
 
   return (
     <Form noValidate onSubmit={onSubmit}>
@@ -71,13 +72,13 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
             label={t('name-label')}
             name="name"
             id="name"
-            error={data?.errors.name && t(data?.errors.name)}
+            error={data?.errors.name && t(data.errors.name)}
           />
           <Field
             label={t('email-label')}
             name="email"
             id="email"
-            error={data?.errors.email && t(data?.errors.email)}
+            error={data?.errors.email && t(data.errors.email)}
           />
           {withProject && (
             <div className="space-y-3 not-prose">
@@ -90,7 +91,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
             label={t('message-label')}
             name="message"
             id="message"
-            error={data?.errors.message && t(data?.errors.message)}
+            error={data?.errors.message && t(data.errors.message)}
           />
           <FormHelperText>{t('gdpr-message')}</FormHelperText>
           {emailSuccessfullySent ? (

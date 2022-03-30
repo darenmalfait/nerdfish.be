@@ -19,7 +19,7 @@ function CtaLink({
   ...props
 }: SanityCta & React.ComponentPropsWithoutRef<typeof Link>) {
   const path =
-    internalPage && localizeSlug(internalPage?.slug || ``, internalPage?.lang)
+    internalPage && localizeSlug(internalPage.slug || ``, internalPage.lang)
 
   return (
     <Cta

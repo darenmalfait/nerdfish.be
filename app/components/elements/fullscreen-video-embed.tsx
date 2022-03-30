@@ -14,7 +14,7 @@ import type { SanityFile, SanityImage } from '~/types/sanity'
 interface VideoEmbedProps {
   url?: string
   file?: SanityFile
-  videoType: 'url' | 'file'
+  videoType?: 'url' | 'file'
   onCloseClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
@@ -24,14 +24,14 @@ function VideoEmbed({ onCloseClick, url, file, videoType }: VideoEmbedProps) {
       return file?.asset?.url || undefined
     }
 
-    if (videoType === 'url' || !videoType) {
+    if (videoType === 'url') {
       const videoId = url ? getVideoId(url) : ''
 
       if (!videoId) {
         return undefined
       }
 
-      const { service, id } = videoId || {}
+      const { service, id } = videoId
 
       switch (service) {
         case 'youtube': {
@@ -119,15 +119,13 @@ function FullscreenVideoEmbed({
           className="group block relative py-8 m-0 mx-auto w-full lg:py-16"
           onClick={showPlayer}
         >
-          {placeholder && (
-            <OptimizedImage
-              {...placeholder}
-              blurDataUrl={getLowQualityUrlFor(placeholder)}
-              alt="Watch the video"
-              className="rounded-xl"
-              responsive={getResponsiveImageSizes('medium')}
-            />
-          )}
+          <OptimizedImage
+            {...placeholder}
+            blurDataUrl={getLowQualityUrlFor(placeholder)}
+            alt="Watch the video"
+            className="rounded-xl"
+            responsive={getResponsiveImageSizes('medium')}
+          />
           <span className="absolute top-0 left-0 w-full h-full">
             <span className="flex justify-center items-center w-full h-full">
               <span className="opacity-70 group-hover:opacity-100 group-focus:opacity-100 transition-all group-hover:scale-110 group-focus:scale-110 group-active:scale-125">

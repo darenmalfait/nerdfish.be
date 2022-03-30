@@ -198,14 +198,14 @@ export function Document({ children }: { children: ReactNode }) {
   const [theme] = useTheme()
 
   const matches = useMatches()
-  const match = matches.find(match => match.data && match.data.canonical)
+  const match = matches.find(match => match.data.canonical)
   const canonical = match?.data.canonical
 
   React.useEffect(() => {
-    if (ENV?.GTM_ID) {
+    if (ENV.GTM_ID) {
       TagManager.initialize({ gtmId: ENV.GTM_ID })
     }
-  }, [ENV?.GTM_ID])
+  }, [ENV.GTM_ID])
 
   const isMultilang = siteInfo?.site?.multilang || false
 
@@ -225,10 +225,10 @@ export function Document({ children }: { children: ReactNode }) {
         <LazyMotion features={domAnimation}>
           {siteInfo && (
             <>
-              <Cookiebar {...siteInfo?.site?.cookieConsent} />
+              <Cookiebar {...siteInfo.site?.cookieConsent} />
               <Navigation
                 multilang={isMultilang}
-                items={siteInfo?.navigation || {}}
+                items={siteInfo.navigation || {}}
               />
             </>
           )}

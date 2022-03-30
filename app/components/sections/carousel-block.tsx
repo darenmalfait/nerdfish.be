@@ -99,21 +99,22 @@ export function CarouselBlock({
       >
         <div className="overflow-auto order-1 col-span-full col-start-1 lg:overflow-hidden lg:order-3 lg:col-span-5">
           <TabList className="inline-flex flex-row space-x-8 text-xl leading-snug text-white bg-transparent lg:flex-col lg:space-y-6 lg:space-x-0 lg:text-5xl 2xl:text-7xl">
-            {items && items.map(({ title }) => <Tab key={title}>{title}</Tab>)}
+            {items.map(({ title }) => (
+              <Tab key={title}>{title}</Tab>
+            ))}
           </TabList>
         </div>
 
         <TabPanels className="grid order-4 col-span-full mt-16 lg:col-span-5 lg:col-start-7 lg:mt-0">
-          {items &&
-            items.map(({ title, body, action }, idx) => {
-              return (
-                <ContentPanel active={activeTabIndex === idx} key={title}>
-                  <H2>{title}</H2>
-                  {body && <PortableText blocks={body} />}
-                  {action && <CtaLink {...action} />}
-                </ContentPanel>
-              )
-            })}
+          {items.map(({ title, body, action }, idx) => {
+            return (
+              <ContentPanel active={activeTabIndex === idx} key={title}>
+                <H2>{title}</H2>
+                {body && <PortableText blocks={body} />}
+                {action && <CtaLink {...action} />}
+              </ContentPanel>
+            )
+          })}
         </TabPanels>
       </Tabs>
     </Section>

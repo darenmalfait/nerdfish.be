@@ -14,7 +14,7 @@ interface VideoEmbedPreviewProps {
 
 function VideoEmbedPreview({ value }: VideoEmbedPreviewProps) {
   const embedCode = React.useMemo(() => {
-    const videoId = value && value.url ? getVideoId(value.url) : ''
+    const videoId = value.url ? getVideoId(value.url) : ''
 
     if (!videoId) {
       return <span />

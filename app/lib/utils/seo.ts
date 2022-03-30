@@ -61,7 +61,7 @@ function pageMeta({
     page?.seo?.description || siteInfo?.site?.seo?.description || ''
 
   const image = page?.seo?.image
-    ? urlFor(page?.seo?.image).width(1200).height(630).url()
+    ? urlFor(page.seo.image).width(1200).height(630).url()
     : null
 
   return {
@@ -91,7 +91,7 @@ function blogMeta({
   const keywords = post?.tags?.map(tag => tag.value).join(', ') || ''
 
   const image = post?.seo?.image
-    ? urlFor(post?.seo?.image).width(1200).height(630).url()
+    ? urlFor(post.seo.image).width(1200).height(630).url()
     : null
 
   return {

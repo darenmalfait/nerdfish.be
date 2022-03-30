@@ -13,6 +13,7 @@ type MailMessage = {
   from: string
   subject: string
   html: string
+  replyTo?: string
 }
 
 async function sendEmail(msg: MailMessage) {
