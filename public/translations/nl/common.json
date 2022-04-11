@@ -1,0 +1,53 @@
+{
+  "blog": {
+    "load-more": "Meer laden",
+    "no-results": "Geen resultaten gevonden",
+    "quick-read": "Kort artikel",
+    "read-time": "min lezen",
+    "see-all": "Bekijk alle artikelen"
+  },
+  "change-language": "Verander taal",
+  "cookies": {
+    "accept-all": "Accepteer alle cookies",
+    "advertisement": "Advertenties",
+    "always-on": "Altijd aan",
+    "customize": "Aanpassen",
+    "save-preferences": "Voorkeuren opslaan",
+    "strictly-necessary": {
+      "description": "Deze cookies zijn nodig om de website te kunnen laten werken.",
+      "title": "Strikt nodig"
+    },
+    "title": "Cookies",
+    "tracking": "Tracking"
+  },
+  "errors": {
+    "not-found": {
+      "back-button": "Terug",
+      "message": "{{pathname}} is geen pagina op deze website.",
+      "popular-pages": {
+        "blog": {
+          "description": "Lees ons laatste nieuws over deze website.",
+          "title": "Blog"
+        },
+        "contact": {
+          "description": "Neem contact met ons op.",
+          "title": "Contact"
+        },
+        "title": "Populaire pagina's"
+      },
+      "title": "Pagina niet gevonden"
+    },
+    "server-error": {
+      "message": "{{pathname}} is momenteel niet beschikbaar. Probeer het later nog eens.",
+      "title": "Serverfout"
+    }
+  },
+  "language": {
+    "errors": {
+      "language": {
+        "invalid": "De taal die je geslecteerd hebt is niet beschikbaar.",
+        "required": "Selecteer een taal."
+      }
+    }
+  }
+}

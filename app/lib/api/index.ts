@@ -2,9 +2,8 @@ import { getClient, groq } from './sanity'
 import { getDoc, getDocByType, getSiteConfig, pageData } from './sanity/queries'
 
 import { getDefaultLanguage } from '~/lib/utils/i18n'
-import type { LanguageCode } from '~/types'
 import { PageType } from '~/types/languages'
-import type { DefaultPageProps } from '~/types/misc'
+import type { DefaultDocumentProps } from '~/types/misc'
 import type {
   SanityPage,
   SanityPost,
@@ -13,11 +12,11 @@ import type {
   SiteNavigation,
 } from '~/types/sanity'
 
-export interface PageProps extends DefaultPageProps<SiteInfo> {
-  page: SanityPage
+interface DocumentProps extends DefaultDocumentProps<SiteInfo> {
+  page?: SanityPage
 }
 
-export async function getAllPages(): Promise<SanityPage[]> {
+async function getAllPages(): Promise<SanityPage[]> {
   const query = groq`{
     ${getDocByType(PageType.page, 'pages')} { ${pageData} },
     ${getSiteConfig()}
@@ -42,10 +41,10 @@ export async function getAllPages(): Promise<SanityPage[]> {
   return filteredPages
 }
 
-export async function getSiteInfo({
+async function getSiteInfo({
   lang = getDefaultLanguage().code,
 }: {
-  lang?: LanguageCode
+  lang?: string
 }): Promise<SiteInfo> {
   const query = groq`{
     ${getSiteConfig()}
@@ -60,42 +59,45 @@ export async function getSiteInfo({
   return siteConfig
 }
 
-export async function getPage({
+async function getPage({
   slug,
   preview,
   lang = getDefaultLanguage().code,
 }: {
   slug: string
-  lang?: LanguageCode
+  lang?: string
   preview?: boolean
-}): Promise<PageProps> {
+}): Promise<DocumentProps> {
   const query = groq`{
     ${`"${PageType.page}":${getDoc(PageType.page, true)}`},
     ${getSiteConfig()}
   }`
 
-  const data: PageProps = await getClient(preview).fetch(query, { lang, slug })
+  const data: DocumentProps = await getClient(preview).fetch(query, {
+    lang,
+    slug,
+  })
 
   return {
     ...data,
   }
 }
 
-export interface BlogPageProps
-  extends DefaultPageProps<{
+interface BlogPageProps
+  extends DefaultDocumentProps<{
     site?: SiteConfig
     navigation?: SiteNavigation
   }> {
   post: SanityPost
 }
 
-export async function getBlogPost({
+async function getBlogPost({
   slug,
   preview,
   lang = getDefaultLanguage().code,
 }: {
   slug: string
-  lang?: LanguageCode
+  lang?: string
   preview?: boolean
 }): Promise<BlogPageProps> {
   const query = groq`{
@@ -113,7 +115,7 @@ export async function getBlogPost({
   }
 }
 
-export async function getAllPosts(): Promise<SanityPost[]> {
+async function getAllPosts(): Promise<SanityPost[]> {
   const query = groq`{
      ${getDocByType(
        PageType.blog,
@@ -142,3 +144,5 @@ export async function getAllPosts(): Promise<SanityPost[]> {
 }
 
 export * from './wiki.server'
+export type { DocumentProps, BlogPageProps }
+export { getAllPages, getPage, getBlogPost, getAllPosts, getSiteInfo }

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'remix'
 
 import { CtaLink } from '../buttons'
@@ -10,7 +11,6 @@ import { GithubIcon } from '../icons/github-icon'
 import { TwitterIcon } from '../icons/twitter-icon'
 
 import { Disclaimer, Logo } from '~/components/common'
-import { useTranslations } from '~/context/translations-provider'
 import { localizeSlug } from '~/lib/utils/i18n'
 import type { SanitySocial, SiteNavigation } from '~/types'
 
@@ -22,8 +22,8 @@ interface FooterProps {
 }
 
 function Footer({ multilang, company, navigation, socials }: FooterProps) {
-  const { currentLanguage } = useTranslations()
-  const root = localizeSlug('home', currentLanguage)
+  const { i18n } = useTranslation()
+  const root = localizeSlug('home', i18n.language)
 
   const items = [
     ...(navigation?.main?.items || []),

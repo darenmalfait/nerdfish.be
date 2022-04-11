@@ -6,32 +6,35 @@ import {
   RadioGroup,
 } from '@daren/ui-components'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useFetcher } from 'remix'
 
 import { Button } from '../buttons'
 
-import { useTranslations } from '~/context/translations-provider'
 import { useRecaptcha } from '~/lib/utils/recaptcha'
 import type { ActionData } from '~/routes/actions/submit-basic-form'
 
 function ProjectField() {
-  const { t } = useTranslations()
+  const { t } = useTranslation()
   const [project, setProject] = React.useState<string>('website')
   return (
     <RadioGroup
       name="projectType"
       value={project}
       onChange={setProject}
-      label={t('contact-project-label')}
-      aria-label={t('contact-project-label-alt')}
+      label={t('basic-form:project.label')}
+      aria-label={t('basic-form:project.label-alt')}
     >
-      <RadioGroup.Option value="website" label={t('contact-project-website')} />
+      <RadioGroup.Option
+        value="website"
+        label={t('basic-form:project.website')}
+      />
       <RadioGroup.Option
         value="application"
-        label={t('contact-project-application')}
+        label={t('basic-form:project.application')}
       />
-      <RadioGroup.Option value="event" label={t('contact-project-event')} />
-      <RadioGroup.Option value="other" label={t('contact-project-other')} />
+      <RadioGroup.Option value="event" label={t('basic-form:project.event')} />
+      <RadioGroup.Option value="other" label={t('basic-form:project.other')} />
     </RadioGroup>
   )
 }
@@ -40,7 +43,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
   const { execute } = useRecaptcha()
   const [submitError, setSubmitError] = React.useState<string | null>(null)
   const { Form, state, data, type, submit } = useFetcher<ActionData>()
-  const { t } = useTranslations()
+  const { t } = useTranslation()
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -69,37 +72,37 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
       <fieldset>
         <div className="mb-8 space-y-8">
           <Field
-            label={t('name-label')}
+            label={t('basic-form:fields.name')}
             name="name"
             id="name"
-            error={data?.errors.name && t(data.errors.name)}
+            error={data?.errors.name}
           />
           <Field
-            label={t('email-label')}
+            label={t('basic-form:fields.email')}
             name="email"
             id="email"
-            error={data?.errors.email && t(data.errors.email)}
+            error={data?.errors.email}
           />
           {withProject && (
             <div className="space-y-3 not-prose">
-              <Label>{t('contact-project-title')}</Label>
+              <Label>{t('basic-form:project')}</Label>
               <ProjectField />
             </div>
           )}
           <Field
             type="textarea"
-            label={t('message-label')}
+            label={t('basic-form:fields.message')}
             name="message"
             id="message"
-            error={data?.errors.message && t(data.errors.message)}
+            error={data?.errors.message}
           />
-          <FormHelperText>{t('gdpr-message')}</FormHelperText>
+          <FormHelperText>{t('basic-form:gdpr-message')}</FormHelperText>
           {emailSuccessfullySent ? (
             <Alert
               type="success"
               description={
                 <p className="p-0 m-0">
-                  {t('send-success')}{' '}
+                  {t('basic-form:success')}{' '}
                   <span role="img" aria-label="party popper emoji">
                     🎉
                   </span>
@@ -108,7 +111,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
             />
           ) : (
             <Button disabled={state !== 'idle'} type="submit" variant="primary">
-              {t('send-button')}
+              {t('basic-form:send-button')}
             </Button>
           )}
         </div>
@@ -116,10 +119,13 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
           <Alert type="danger" description={data.errors.generalError} />
         ) : null}
         {data?.errors.recaptchaResponse ? (
-          <Alert type="danger" description={t(data.errors.recaptchaResponse)} />
+          <Alert type="danger" description={data.errors.recaptchaResponse} />
         ) : null}
         {submitError ? (
-          <Alert type="danger" description={t('send-error')} />
+          <Alert
+            type="danger"
+            description={t('basic-form:errors.submit-error')}
+          />
         ) : null}
       </fieldset>
     </Form>

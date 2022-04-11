@@ -3,7 +3,7 @@ import { json, redirect } from 'remix'
 import type { ActionFunction, LoaderFunction } from 'remix'
 
 import { isTheme } from '~/context/theme-provider'
-import { getThemeSession } from '~/theme.server'
+import { getThemeSession } from '~/lib/services/theme.server'
 
 export const action: ActionFunction = async ({ request }) => {
   const themeSession = await getThemeSession(request)

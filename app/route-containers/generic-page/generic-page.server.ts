@@ -1,16 +1,16 @@
-import { json } from 'remix'
+import { json, redirect } from 'remix'
 import type { LoaderFunction } from 'remix'
 
 import { getAllPages, getPage } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
 import { getDoc } from '~/lib/api/sanity/queries'
+import { i18next } from '~/lib/services/i18n.server'
 import {
   getDefaultLanguage,
   localizeSlug,
   validateLanguage,
 } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
-import { getSession } from '~/lib/utils/session.server'
 import { removeTrailingSlash } from '~/lib/utils/string'
 import { Handle, PageType, RouteLoader, SanityPage } from '~/types'
 
@@ -19,8 +19,11 @@ export type LoaderData = RouteLoader<SanityPage>
 const query = groq`${getDoc(PageType.page, true)}`
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const session = await getSession(request, params)
-  const lang = session.getLanguage()
+  const lang = await i18next.getLocale(request)
+
+  if (params.lang !== lang && lang !== getDefaultLanguage().code) {
+    return redirect(`/${lang}/`)
+  }
 
   const requestUrl = new URL(request.url)
   const preview =
@@ -37,14 +40,17 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
 
   const slug = params.slug ?? 'home'
-  const data = await getPage({
-    // home is the slug that is used in the studio for the home page
-    slug,
-    preview,
-    lang,
-  })
+
+  const [data, i18n] = await Promise.all([
+    getPage({ slug, preview, lang }),
+    i18next.getTranslations(request, ['common', 'basic-form']),
+  ])
 
   // if there is no blogpost with the current settings, return a 404
+  if (!data.page) {
+    throw json('Page not found', { status: 404, headers })
+  }
+
   if (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code) {
     throw json('Page not found', { status: 404, headers })
   }
@@ -62,6 +68,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       canonical,
       query: preview ? query : ``,
       params: preview ? { slug, lang, type: PageType.page } : {},
+      i18n,
     },
     { status: 200, headers },
   )

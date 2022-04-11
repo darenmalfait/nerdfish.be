@@ -1,13 +1,13 @@
 import { RssIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'remix'
 
 import { CtaLink, Hamburger } from '~/components/buttons'
 import { Logo } from '~/components/common'
 import { ThemeToggle } from '~/components/common/theme-toggle'
 import { Overlay } from '~/components/layout'
-import { useTranslations } from '~/context/translations-provider'
 import { useClickOutside } from '~/hooks/use-click-outside'
 
 interface MobileNavProps {
@@ -77,7 +77,7 @@ interface NavbarProps {
 }
 
 function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
-  const { currentLanguage } = useTranslations()
+  const { i18n } = useTranslation()
   const [open, setOpen] = React.useState(false)
 
   const onToggle = React.useCallback(() => {
@@ -116,7 +116,7 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
             <a
               className="p-2 rounded-full focus-ring"
               target="_blank"
-              href={`/${currentLanguage}/blog/rss.xml`}
+              href={`/${i18n.language}/blog/rss.xml`}
               aria-label="rss feed"
               rel="noreferrer"
             >

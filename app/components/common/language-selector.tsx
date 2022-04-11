@@ -3,14 +3,13 @@ import { ChevronUpIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import * as React from 'react'
 
+import { useTranslation } from 'react-i18next'
 import { Form, useLocation } from 'remix'
 
 import languages from '../../../config/languages'
 
-import { useTranslations } from '~/context/translations-provider'
-
 function LanguageSelector() {
-  const { currentLanguage } = useTranslations()
+  const { t, i18n } = useTranslation()
   const location = useLocation()
 
   return (
@@ -33,8 +32,8 @@ function LanguageSelector() {
             data-testid="language-selector"
             className="inline-flex items-center p-2 px-3 rounded-lg border border-primary-200 transition-colors hover:border-primary focus:border-primary"
           >
-            <span className="sr-only">Change language</span>
-            {currentLanguage}
+            <span className="sr-only">{t('change-language')}</span>
+            {i18n.language}
             <ChevronUpIcon
               className={clsx(
                 'ml-2 w-6 h-6 transition-transform',

@@ -3,22 +3,15 @@ import type { LoaderFunction } from 'remix'
 
 import type { Theme } from '~/context/theme-provider'
 import { getSiteInfo } from '~/lib/api'
+import { i18next } from '~/lib/services/i18n.server'
+import { getThemeSession } from '~/lib/services/theme.server'
 import { ENV, getEnv } from '~/lib/utils/get-env'
 import { getDomainUrl } from '~/lib/utils/misc'
-import { getSession } from '~/lib/utils/session.server'
 import { pathedRoutes } from '~/other-routes.server'
-import { getThemeSession } from '~/theme.server'
-import {
-  getTranslations,
-  PickTranslations,
-  translations as allTranslations,
-  Translations,
-} from '~/translations.server'
-import type { LanguageCode, SiteInfo } from '~/types'
+import type { SiteInfo } from '~/types'
 
 export type LoaderData = {
-  lang: LanguageCode
-  translations?: PickTranslations<keyof Translations>
+  language: string
   siteInfo?: SiteInfo
   ENV: ENV
   theme: Theme | null
@@ -28,7 +21,7 @@ export type LoaderData = {
   }
 }
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const loader: LoaderFunction = async ({ request }) => {
   // because this is called for every route, we'll do an early return for anything
   // that has a other route setup. The response will be handled there.
   if (pathedRoutes[new URL(request.url).pathname]) {
@@ -36,20 +29,16 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
 
   const ENV = getEnv()
-  const session = await getSession(request, params)
-  const { getTheme } = await getThemeSession(request)
-  const lang = session.getLanguage()
 
-  const siteInfo = await getSiteInfo({ lang })
+  const [{ getTheme }, language] = await Promise.all([
+    getThemeSession(request),
+    i18next.getLocale(request),
+  ])
 
-  const translations = getTranslations(
-    lang,
-    Object.keys(allTranslations) as (keyof Translations)[],
-  )
+  const siteInfo = await getSiteInfo({ lang: language })
 
   return json<LoaderData>({
-    lang,
-    translations,
+    language,
     siteInfo,
     ENV,
     theme: getTheme(),

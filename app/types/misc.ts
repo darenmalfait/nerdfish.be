@@ -1,28 +1,30 @@
 import type { LoaderFunction } from 'remix'
+import type { Language } from 'remix-i18next'
 
-import type { Translations } from '~/translations.server'
+type Translations = Record<string, Language>
 
-export type RouteLoader<T> = {
+type RouteLoader<T> = {
   preview?: boolean
   data: T
   canonical: string
   query?: string
   params?: Record<string, unknown>
+  i18n: Translations
 }
 
-export type LoaderType<
+type LoaderType<
   Params extends Record<string, unknown> = Record<string, unknown>,
 > = (
   args: Omit<Parameters<LoaderFunction>['0'], 'params'> & { params: Params },
 ) => ReturnType<LoaderFunction>
 
-export interface DefaultPageProps<T> {
+interface DefaultDocumentProps<T> {
   siteConfig?: T
   query?: string | null
   queryParams?: Record<string, unknown>
 }
 
-export type SitemapEntry = {
+type SitemapEntry = {
   route: string
   lastmod?: string
   changefreq?:
@@ -36,7 +38,7 @@ export type SitemapEntry = {
   priority?: 0.0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0
 }
 
-export interface Handle {
+interface Handle {
   /** this just allows us to identify routes more directly rather than relying on pathnames */
   id?: string
   /** this is here to allow us to disable scroll restoration until Remix gives us better control */
@@ -49,8 +51,16 @@ export interface Handle {
     | null
 }
 
-export type NonNullProperties<Type> = {
+type NonNullProperties<Type> = {
   [Key in keyof Type]-?: Exclude<Type[Key], null | undefined>
 }
 
-export type ValidationTranslationKey = keyof Translations | null
+export type {
+  Translations,
+  RouteLoader,
+  LoaderType,
+  NonNullProperties,
+  Handle,
+  SitemapEntry,
+  DefaultDocumentProps,
+}

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import type { NonNullProperties } from '~/types'
 
-export function getDomainUrl(request: Request) {
+function getDomainUrl(request: Request) {
   const host =
     request.headers.get('X-Forwarded-Host') ?? request.headers.get('host')
   if (!host) {
@@ -12,7 +12,7 @@ export function getDomainUrl(request: Request) {
   return `${protocol}://${host}`
 }
 
-export function useUpdateQueryStringValueWithoutNavigation(
+function useUpdateQueryStringValueWithoutNavigation(
   queryKey: string,
   queryValue: string,
 ) {
@@ -34,21 +34,21 @@ export function useUpdateQueryStringValueWithoutNavigation(
   }, [queryKey, queryValue])
 }
 
-export function typedBoolean<T>(
+function typedBoolean<T>(
   value: T,
 ): value is Exclude<T, '' | 0 | false | null | undefined> {
   return Boolean(value)
 }
 
-export function getErrorMessage(error: unknown) {
+function getErrorMessage(error: unknown) {
   if (typeof error === 'string') return error
   if (error instanceof Error) return error.message
   return 'Unknown Error'
 }
 
-export function getNonNull<
-  Type extends Record<string, null | undefined | unknown>,
->(obj: Type): NonNullProperties<Type> {
+function getNonNull<Type extends Record<string, null | undefined | unknown>>(
+  obj: Type,
+): NonNullProperties<Type> {
   for (const [key, val] of Object.entries(obj)) {
     assertNonNull(val, `The value of ${key} is null but it should not be.`)
   }
@@ -60,4 +60,13 @@ function assertNonNull<PossibleNullType>(
   errorMessage: string,
 ): asserts possibleNull is Exclude<PossibleNullType, null | undefined> {
   if (possibleNull == null) throw new Error(errorMessage)
+}
+
+export {
+  assertNonNull,
+  getDomainUrl,
+  getErrorMessage,
+  getNonNull,
+  typedBoolean,
+  useUpdateQueryStringValueWithoutNavigation,
 }

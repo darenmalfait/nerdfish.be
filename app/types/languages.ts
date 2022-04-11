@@ -1,7 +1,7 @@
 export type LanguageCode = 'en' | 'nl'
 
 export interface Language {
-  code: LanguageCode
+  code: string
   isDefault?: boolean
   name?: string
 }

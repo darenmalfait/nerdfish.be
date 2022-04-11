@@ -7,6 +7,7 @@ import {
 import clsx from 'clsx'
 import errorStack from 'error-stack-parser'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useMatches } from 'remix'
 
 import { ArrowLink } from '../buttons'
@@ -14,7 +15,6 @@ import { OptimizedImage } from '../elements'
 import { Container } from '../layout'
 
 import notFoundImage from '~/assets/images/cat-on-box.png'
-import { useTranslations } from '~/context/translations-provider'
 
 function RedBox({ error }: { error: Error }) {
   const [isVisible, setIsVisible] = React.useState(true)
@@ -68,20 +68,20 @@ function ErrorPage({
   subTitle?: string
   image?: string
 }) {
-  const { t, currentLanguage } = useTranslations()
+  const { t, i18n } = useTranslation()
 
   const links = [
     {
-      title: t('not-found-popular-pages-blog'),
-      description: t('not-found-popular-pages-blog-description'),
+      title: t('errors.not-found.popular-pages.blog.title'),
+      description: t('errors.not-found.popular-pages.blog.description'),
       icon: RssIcon,
-      href: `${currentLanguage}/blog`,
+      href: `${i18n.language}/blog`,
     },
     {
-      title: t('not-found-popular-pages-contact'),
-      description: t('not-found-popular-pages-contact-description'),
+      title: t('errors.not-found.popular-pages.contact.title'),
+      description: t('errors.not-found.popular-pages.contact.description'),
       icon: BookmarkAltIcon,
-      href: `${currentLanguage}/contact`,
+      href: `${i18n.language}/contact`,
     },
   ]
 
@@ -103,7 +103,7 @@ function ErrorPage({
                 </div>
                 <div className="mt-12">
                   <h2 className="text-sm font-semibold tracking-wide uppercase text-secondary">
-                    {t('not-found-popular-pages')}
+                    {t('errors.not-found.popular-pages.title')}
                   </h2>
                   <ul className="mt-4 border-y border-gray-200 divide-y divide-gray-200">
                     {links.map((link, i) => (
@@ -148,8 +148,8 @@ function ErrorPage({
                     ))}
                   </ul>
                   <div className="mt-8">
-                    <ArrowLink href={`/${currentLanguage}`}>
-                      {t('not-found-back-button')}
+                    <ArrowLink href={`/${i18n.language}`}>
+                      {t('errors.not-found.back-button')}
                     </ArrowLink>
                   </div>
                 </div>
@@ -180,15 +180,15 @@ function FourOhFour({
   subTitle?: string
   image?: string
 }) {
-  const { t } = useTranslations()
+  const { t } = useTranslation()
   const matches = useMatches()
   const last = matches[matches.length - 1]
   const pathname = last?.pathname
 
   return (
     <ErrorPage
-      title={title || t('not-found')}
-      subTitle={subTitle || `"${pathname}" ${t('not-found-message')}`}
+      title={title || t('errors.not-found.title')}
+      subTitle={subTitle || `${pathname} ${t('errors.not-found.message')}`}
       image={image || notFoundImage}
     />
   )
@@ -198,12 +198,13 @@ function ServerError({ error }: { error?: Error }) {
   const matches = useMatches()
   const last = matches[matches.length - 1]
   const pathname = last?.pathname
+  const { t } = useTranslation()
 
   return (
     <ErrorPage
       error={error}
-      title="500 - Oh no, something went wrong!"
-      subTitle={`"${pathname}" is currently not available.`}
+      title={t('errors.server-error.title')}
+      subTitle={`${pathname} ${t('errors.server-error.message')}`}
     />
   )
 }

@@ -1,6 +1,7 @@
 import { Grid, H2, H6 } from '@daren/ui-components'
 import formatDate from 'date-fns/format'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useLoaderData } from 'remix'
 
 import type { LoaderData } from './blog-page.server'
@@ -11,7 +12,6 @@ import { PortableText, FourOhFour } from '~/components/common'
 import { OptimizedImage } from '~/components/elements'
 import { Container, Section } from '~/components/layout'
 import { Preview } from '~/components/utils/preview'
-import { useTranslations } from '~/context/translations-provider'
 import { getLowQualityUrlFor } from '~/lib/api/sanity'
 import { getResponsiveImageSizes } from '~/lib/utils/image'
 import { blogMeta } from '~/lib/utils/seo'
@@ -23,8 +23,7 @@ export function CatchBoundary() {
 }
 
 export default function BlogPage() {
-  const { currentLanguage } = useTranslations()
-
+  const { i18n } = useTranslation()
   const {
     data: initialData,
     preview,
@@ -50,7 +49,7 @@ export default function BlogPage() {
         <Section>
           <Grid className="mt-24 mb-14 lg:mb-24">
             <div className="flex col-span-full justify-between lg:col-span-8 lg:col-start-3">
-              <BackLink href={`/${currentLanguage}/blog/`}>All posts</BackLink>
+              <BackLink href={`/${i18n.language}/blog/`}>All posts</BackLink>
             </div>
           </Grid>
 

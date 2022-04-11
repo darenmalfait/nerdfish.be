@@ -1,8 +1,9 @@
 import * as React from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 import { Navbar } from './navbar'
 
-import { useTranslations } from '~/context/translations-provider'
 import { localizeSlug } from '~/lib/utils/i18n'
 import type { SanityCta, SiteNavigation } from '~/types/sanity'
 
@@ -16,7 +17,7 @@ function Navigation({
   items: { main = {}, actions = {} },
   ...props
 }: NavigationProps) {
-  const { currentLanguage } = useTranslations()
+  const { i18n } = useTranslation()
 
   const actionItems = React.useMemo(() => {
     return actions.items?.map((cta: SanityCta, i: number) => {
@@ -27,7 +28,7 @@ function Navigation({
   return (
     <Navbar
       {...props}
-      rootPath={localizeSlug('/', currentLanguage)}
+      rootPath={localizeSlug('/', i18n.language)}
       actions={actionItems}
     >
       {main.items?.map((cta: SanityCta, i: number) => {

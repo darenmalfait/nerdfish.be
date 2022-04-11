@@ -1,0 +1,53 @@
+{
+  "blog": {
+    "load-more": "Load more",
+    "no-results": "No results",
+    "quick-read": "Quick read",
+    "read-time": "min read",
+    "see-all": "See all articles"
+  },
+  "change-language": "Change language",
+  "cookies": {
+    "accept-all": "Accept all",
+    "advertisement": "Advertisement",
+    "always-on": "Always on",
+    "customize": "Customize",
+    "save-preferences": "Save preferences",
+    "strictly-necessary": {
+      "description": "These cookies are strictly necessary for the website to function properly.",
+      "title": "Strictly necessary"
+    },
+    "title": "Cookies",
+    "tracking": "Tracking"
+  },
+  "errors": {
+    "not-found": {
+      "back-button": "Back to all articles",
+      "message": " is not a page on this website.",
+      "popular-pages": {
+        "blog": {
+          "description": "Read about our latest news and articles.",
+          "title": "Blog"
+        },
+        "contact": {
+          "description": "Get in touch with us.",
+          "title": "Contact"
+        },
+        "title": "Popular pages"
+      },
+      "title": "Page not found"
+    },
+    "server-error": {
+      "message": "{{pathname}} is temporarily unavailable. Please try again later.",
+      "title": "Server error"
+    }
+  },
+  "language": {
+    "errors": {
+      "language": {
+        "invalid": "The language you selected is not available.",
+        "required": "Please select a language."
+      }
+    }
+  }
+}
