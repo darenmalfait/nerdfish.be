@@ -26,7 +26,7 @@ export default function GenericPage() {
     setData(initialData)
     // on page change we need to update the data
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialData.slug])
+  }, [initialData.slug, initialData.lang])
 
   const { body } = data
 

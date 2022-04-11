@@ -22,6 +22,7 @@ import {
   useMatches,
   useTransition,
 } from 'remix'
+import { useSetupTranslations } from 'remix-i18next'
 import { useSpinDelay } from 'spin-delay'
 
 import type { LoaderData } from './layout.server'
@@ -190,7 +191,7 @@ function PageLoadingMessage() {
 
 export function Document({ children }: { children: ReactNode }) {
   const {
-    lang = getDefaultLanguage().code,
+    language = getDefaultLanguage().code,
     siteInfo,
     ENV,
     theme: ssrTheme,
@@ -210,7 +211,7 @@ export function Document({ children }: { children: ReactNode }) {
   const isMultilang = siteInfo?.site?.multilang || false
 
   return (
-    <html lang={lang} className={clsx(theme)}>
+    <html lang={language} className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -272,6 +273,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 
 export default function Root() {
   const loaderData = useLoaderData<LoaderData>()
+  useSetupTranslations(loaderData.language)
 
   return (
     <AppProviders {...loaderData}>

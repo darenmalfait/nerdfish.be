@@ -1,10 +1,10 @@
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '~/components/buttons'
 import { PortableText } from '~/components/common/'
 import { CookieIcon } from '~/components/icons/cookie-icon'
-import { useTranslations } from '~/context/translations-provider'
 
 interface CookiebarBasicProps {
   onCustomize?(): void
@@ -17,7 +17,7 @@ function CookiebarBasic({
   onAccept,
   message,
 }: CookiebarBasicProps) {
-  const { t } = useTranslations()
+  const { t } = useTranslation()
 
   return (
     <div className="flex flex-col items-center space-y-4 text-center md:flex-row md:space-y-0 md:space-x-8 md:text-left">
@@ -27,10 +27,10 @@ function CookiebarBasic({
       {message && <PortableText blocks={message} />}
       <div className="flex flex-col space-y-4 w-full md:flex-row md:justify-end md:space-y-0 md:space-x-2 md:w-full md:max-w-[300px]">
         <Button onClick={onCustomize} variant="secondary" size="small">
-          {t('cookies-customize-title')}
+          {t('cookies.customize')}
         </Button>
         <Button onClick={onAccept} size="small">
-          {t('accept-all-cookies')}
+          {t('cookies.accept-all')}
         </Button>
       </div>
     </div>

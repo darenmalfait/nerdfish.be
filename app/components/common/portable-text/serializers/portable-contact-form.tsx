@@ -1,12 +1,12 @@
 import { H2, RadioGroup } from '@daren/ui-components'
 
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '~/components/buttons'
 
 import { BasicForm } from '~/components/forms'
 import { Container } from '~/components/layout'
-import { useTranslations } from '~/context/translations-provider'
 
 type FormType = 'basic' | 'project' | 'coffee'
 
@@ -15,7 +15,7 @@ interface FormChoiseProps {
 }
 
 function FormSelector({ onSubmit }: FormChoiseProps) {
-  const { t } = useTranslations()
+  const { t } = useTranslation()
   const [selected, setSelected] = React.useState<FormType>('project')
 
   const onChange = React.useCallback(val => {
@@ -28,14 +28,20 @@ function FormSelector({ onSubmit }: FormChoiseProps) {
 
   return (
     <div className="space-y-8 max-w-2xl not-prose">
-      <H2>{t('contact-title')}</H2>
+      <H2>{t('basic-form:title')}</H2>
       <RadioGroup name="form-selector" value={selected} onChange={onChange}>
         <RadioGroup.Option
           value="project"
-          label={t('contact-option-project')}
+          label={t('basic-form:options.project.label')}
         />
-        <RadioGroup.Option value="basic" label={t('contact-option-basic')} />
-        <RadioGroup.Option value="coffee" label={t('contact-option-coffee')} />
+        <RadioGroup.Option
+          value="basic"
+          label={t('basic-form:options.basic-label')}
+        />
+        <RadioGroup.Option
+          value="coffee"
+          label={t('basic-form:options.coffee.label')}
+        />
       </RadioGroup>
       <Button type="button" name="set-form-type" onClick={onClick}>
         Volgende
@@ -45,7 +51,7 @@ function FormSelector({ onSubmit }: FormChoiseProps) {
 }
 
 function PortableContactForm() {
-  const { t } = useTranslations()
+  const { t } = useTranslation()
   const [selectedForm, setSelectedForm] = React.useState<FormType | null>(null)
 
   const onFormChoice = React.useCallback(choice => {
@@ -59,8 +65,8 @@ function PortableContactForm() {
         <div>
           {selectedForm === 'coffee' && (
             <H2>
-              {t('contact-option-coffee-title')}{' '}
-              <span role="img" aria-label={t('coffee')}>
+              {t('basic-form:options.coffee.title')}{' '}
+              <span role="img" aria-label={t('basic-form:coffee')}>
                 ☕
               </span>
               ?

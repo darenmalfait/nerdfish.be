@@ -1,0 +1,42 @@
+{
+  "coffee": "Coffee",
+  "errors": {
+    "captcha": {
+      "required": "Captcha is required"
+    },
+    "email": {
+      "invalid": "Email is invalid",
+      "required": "Email is required"
+    },
+    "message": {
+      "long": "Message is too long",
+      "required": "Message is required",
+      "short": "Message is too short"
+    },
+    "name": {
+      "long": "Name is too long",
+      "required": "Name is required"
+    },
+    "submit-error": "There was an error submitting your form. Please try again."
+  },
+  "fields": {
+    "email": "Email",
+    "message": "Message",
+    "name": "Name"
+  },
+  "gdpr-message": "We only use your data to get in touch with you.",
+  "options": {
+    "basic-label": "talk about the weather",
+    "coffee": {
+      "label": "grab a coffee",
+      "title": "What do you want to talk about with our "
+    },
+    "project": {
+      "label": "talk about a project"
+    }
+  },
+  "project": "",
+  "send-button": "Send Message",
+  "success": "Your message has been sent successfully.",
+  "title": "Get in touch"
+}

@@ -1,0 +1,42 @@
+{
+  "coffee": "Koffie",
+  "errors": {
+    "captcha": {
+      "required": "Captcha is verplicht"
+    },
+    "email": {
+      "invalid": "Ongeldig emailadres",
+      "required": "Email is verplicht"
+    },
+    "message": {
+      "long": "Uw bericht is te lang",
+      "required": "Bericht is verplicht",
+      "short": "Uw bericht is te kort"
+    },
+    "name": {
+      "long": "Uw naam is te lang",
+      "required": "Naam is verplicht"
+    },
+    "submit-error": "Er is een fout opgetreden. Probeer het later opnieuw."
+  },
+  "fields": {
+    "email": "Email",
+    "message": "Bericht",
+    "name": "Naam"
+  },
+  "gdpr-message": "Uw gegevens worden gebruikt om uw vraag te beantwoorden.",
+  "options": {
+    "basic-label": "over het weer praten",
+    "coffee": {
+      "label": "een samen een koffie drinken",
+      "title": "Waarover wil je praten tijdens onze "
+    },
+    "project": {
+      "label": "over een project praten"
+    }
+  },
+  "project": "Project",
+  "send-button": "Verstuur",
+  "success": "Bedankt voor uw bericht!",
+  "title": "Neem contact op"
+}

@@ -1,8 +1,8 @@
 import { isEqual } from 'lodash'
 import type { EntryContext } from 'remix'
 
-import { getDomainUrl, typedBoolean } from './lib/utils/misc'
-import { removeTrailingSlash } from './lib/utils/string'
+import { getDomainUrl, typedBoolean } from '~/lib/utils/misc'
+import { removeTrailingSlash } from '~/lib/utils/string'
 
 import type { Handle, SitemapEntry } from '~/types'
 

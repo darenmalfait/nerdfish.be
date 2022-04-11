@@ -3,12 +3,12 @@ import { PlusIcon, SearchIcon } from '@heroicons/react/solid'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'remix'
 
 import { Button } from '~/components/buttons'
 import { ArticleCard, HighlightCard, Tag } from '~/components/elements'
 import { Section, Container, Header, Spacer } from '~/components/layout'
-import { useTranslations } from '~/context/translations-provider'
 import { getBlogSlug, getRoute } from '~/lib/routes'
 import { filterPosts } from '~/lib/utils/blog'
 import { localizeSlug } from '~/lib/utils/i18n'
@@ -47,7 +47,7 @@ export function PostsBlock({
     title,
   } = {},
 }: SanityBlock<ContentProps>) {
-  const { t, currentLanguage } = useTranslations()
+  const { t, i18n } = useTranslation()
   const [searchParams] = useSearchParams()
 
   const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
@@ -193,8 +193,8 @@ export function PostsBlock({
           <Header
             title={title}
             subTitle={subTitle}
-            cta={t('see-all-articles')}
-            ctaUrl={link?.slug && localizeSlug(link.slug, currentLanguage)}
+            cta={t('blog.see-all')}
+            ctaUrl={link?.slug && localizeSlug(link.slug, i18n.language)}
           />
           <Spacer size="2xs" />
         </Section>
@@ -207,14 +207,14 @@ export function PostsBlock({
             href={getRoute(
               getBlogSlug(featured.publishedAt, featured.slug as string),
               PageType.blog,
-              currentLanguage,
+              i18n.language,
             )}
             title={featured.title}
             subTitle={
               featured.publishedAt
                 ? `${formatDate(parseISO(featured.publishedAt), 'PPP')} — ${
-                    `${featured.readingTime} ${t('read-time')}` ||
-                    t('quick-read')
+                    `${featured.readingTime} ${t('blog.read-time')}` ||
+                    t('blog.quick-read')
                   }`
                 : 'TBA'
             }
@@ -227,7 +227,7 @@ export function PostsBlock({
           {matchingPosts.length === 0 ? (
             <div className="flex flex-col col-span-full">
               <H3 as="p" variant="secondary" className="mt-24 max-w-lg">
-                {t('blog-no-results')}
+                {t('blog.no-results')}
               </H3>
             </div>
           ) : (
@@ -244,7 +244,7 @@ export function PostsBlock({
               variant="secondary"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
-              <span>{t('blog-load-more')}</span>{' '}
+              <span>{t('blog.load-more')}</span>{' '}
               <PlusIcon width="20px" height="20px" />
             </Button>
           </div>

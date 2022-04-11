@@ -1,6 +1,6 @@
 import { createCookieSessionStorage } from 'remix'
 
-import { isTheme, Theme } from './context/theme-provider'
+import { isTheme, Theme } from '~/context/theme-provider'
 
 const sessionSecret = process.env.ENCRYPTION_KEY
 

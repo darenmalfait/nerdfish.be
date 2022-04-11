@@ -1,9 +1,9 @@
 import languages from '../../../config/languages'
-import { Language, LanguageCode, PageType } from '../../types/languages'
 
 import { getRoute } from '~/lib/routes'
+import { Language, PageType } from '~/types/languages'
 
-export function validateLanguage(language: any): language is LanguageCode {
+export function validateLanguage(language: any): boolean {
   return (languages as Language[]).map(({ code }) => code).includes(language)
 }
 
@@ -23,5 +23,5 @@ export function localizeSlug(
   lang = getDefaultLanguage().code,
   type: PageType = PageType.page,
 ) {
-  return getRoute(slug, type, lang)
+  return getRoute(type, slug, lang)
 }

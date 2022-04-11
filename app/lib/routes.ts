@@ -11,8 +11,8 @@ export function getDynamicRoute(type: string = PageType.page): string | false {
 }
 
 export function getRoute(
-  slug: string,
   type: string = PageType.page,
+  slug: string,
   lang = getDefaultLanguage().code,
 ): string {
   if (slug === 'home') {

@@ -1,8 +1,9 @@
+import type { TFunction } from 'i18next'
 import { json } from 'remix'
 
 import { getErrorMessage, getNonNull } from './misc'
 
-import type { NonNullProperties, ValidationTranslationKey } from '~/types'
+import type { NonNullProperties } from '~/types'
 
 type ErrorMessage = string
 type NoError = null
@@ -10,7 +11,7 @@ type FormValue = string | null
 
 async function handleFormSubmission<
   ActionData extends {
-    status: 'success' | 'error'
+    status: 'success' | 'error' | string
     fields: { [field: string]: FormValue }
     errors: { [field: string]: ErrorMessage | NoError }
   },
@@ -21,21 +22,24 @@ async function handleFormSubmission<
   // @ts-expect-error ts(2322) 🤷‍♂️
   actionData = { fields: {}, errors: {} },
   handleFormValues,
+  translate,
 }: {
   validators: {
     [Key in keyof ActionData['errors']]: (
       formValue: FormValue,
+      translate: TFunction,
       fields: ActionData['fields'],
     ) => Promise<ErrorMessage | NoError> | ErrorMessage | NoError
   }
   actionData?: ActionData
+  translate?: TFunction
   handleFormValues: (
     formValues: NonNullProperties<ActionData['fields']>,
   ) => Response | Promise<Response>
 } & (
   | {
       form: URLSearchParams
-      request?: never
+      request?: Request
     }
   | {
       form?: never
@@ -65,6 +69,10 @@ async function handleFormSubmission<
         // for optional values.
         actionData.errors[fieldName] = await validator(
           formValue,
+          translate ||
+            ((value: any) => {
+              return value
+            }),
           actionData.fields,
         )
       }),
@@ -87,8 +95,9 @@ async function handleFormSubmission<
 
 async function getErrorForRecaptcha(
   recaptcha: string | null,
-): Promise<ValidationTranslationKey> {
-  if (!recaptcha) return 'recaptcha-validation-required'
+  t: TFunction,
+): Promise<string | null> {
+  if (!recaptcha) return t('basic-form:errors.captcha.required')
 
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${recaptcha}`
 

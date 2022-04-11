@@ -1,37 +1,51 @@
-import { redirect } from 'remix'
+import type { TFunction } from 'i18next'
+import { createCookie, redirect } from 'remix'
 import type { ActionFunction, LoaderFunction } from 'remix'
 
+import { i18next } from '~/lib/services/i18n.server'
+import { handleFormSubmission } from '~/lib/utils/actions.server'
 import { validateLanguage } from '~/lib/utils/i18n'
-import { getSession } from '~/lib/utils/session.server'
 
-export const action: ActionFunction = async ({ request, params }) => {
-  const [session, body] = await Promise.all([
-    getSession(request, params),
-    request.text(),
-  ])
+function getErrorForLanguage(
+  language: string | null,
+  t: TFunction,
+): string | null {
+  if (!language) return t('common:language.errors.language.required')
+  if (!validateLanguage(language))
+    return t('common:language.errors.language.invalid')
 
-  const formData = new URLSearchParams(body)
-  const lang = formData.get('lang')
-  let redirectTo = formData.get('redirect')
+  return null
+}
 
-  if (!redirectTo?.startsWith('/')) {
-    redirectTo = '/'
+type ActionData = {
+  status: 'success' | 'error'
+  fields: {
+    lang?: string | null
   }
-
-  if (validateLanguage(lang)) {
-    session.setLanguage(lang)
-
-    const [, urlLang] = redirectTo.split('/', 2)
-    if (validateLanguage(urlLang)) {
-      redirectTo = redirectTo.replace(`/${urlLang}`, `/${lang}`)
-    } else {
-      redirectTo = `/${lang}${redirectTo}`
-    }
+  errors: {
+    generalError?: string | null
+    lang?: string | null
   }
+}
 
-  return redirect(redirectTo, {
-    headers: {
-      'Set-Cookie': await session.commitSession(),
+export const action: ActionFunction = async ({ request }) => {
+  const form = new URLSearchParams(await request.text())
+  const translate = await i18next.getFixedT(request, 'common')
+
+  return handleFormSubmission<ActionData>({
+    form,
+    translate,
+    validators: {
+      lang: getErrorForLanguage,
+    },
+    handleFormValues: async ({ lang }) => {
+      const redirectTo = `/${lang}/`
+
+      return redirect(redirectTo, {
+        headers: {
+          'Set-Cookie': await createCookie('language').serialize(lang),
+        },
+      })
     },
   })
 }

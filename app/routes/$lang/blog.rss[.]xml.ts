@@ -2,15 +2,13 @@ import type { LoaderFunction } from 'remix'
 
 import { getAllPosts, getSiteInfo } from '~/lib/api'
 
-import { localizeSlug } from '~/lib/utils/i18n'
+import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
-import { getSession } from '~/lib/utils/session.server'
 import { removeTrailingSlash } from '~/lib/utils/string'
 import { PageType } from '~/types'
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const session = await getSession(request, params)
-  const lang = session.getLanguage()
+  const lang = params.lang || getDefaultLanguage().code
 
   const posts = await getAllPosts()
 
