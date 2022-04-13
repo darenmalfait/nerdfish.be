@@ -205,8 +205,8 @@ export function PostsBlock({
           <HighlightCard
             category={featured.category}
             href={getRoute(
-              getBlogSlug(featured.publishedAt, featured.slug as string),
               PageType.blog,
+              getBlogSlug(featured.publishedAt, featured.slug as string),
               i18n.language,
             )}
             title={featured.title}
