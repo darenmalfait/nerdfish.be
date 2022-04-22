@@ -2,7 +2,7 @@ import type { TFunction } from 'i18next'
 import * as React from 'react'
 import { ActionFunction, json, LoaderFunction, redirect } from 'remix'
 
-import { i18next } from '~/lib/services/i18n.server'
+import { i18n } from '~/lib/services/i18n.server'
 
 import { sendEmail } from '~/lib/services/send-email.server'
 import {
@@ -54,7 +54,7 @@ export type ActionData = {
 }
 
 export const action: ActionFunction = async ({ request }) => {
-  const translate = await i18next.getFixedT(request, 'basic-form')
+  const translate = await i18n.getFixedT(request, 'basic-form')
 
   return handleFormSubmission<ActionData>({
     request,

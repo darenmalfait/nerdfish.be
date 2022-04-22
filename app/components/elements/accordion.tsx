@@ -25,8 +25,8 @@ function Accordion({ items }: AccordionProps) {
     null,
   )
 
-  const onToggle = React.useCallback((id, status) => {
-    setActiveAccordion(status ? id : null)
+  const onToggle = React.useCallback((id: number, isOpen: boolean) => {
+    setActiveAccordion(isOpen ? id : null)
   }, [])
 
   return (

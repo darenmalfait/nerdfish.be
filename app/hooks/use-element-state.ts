@@ -14,7 +14,7 @@ function useElementState(): [Ref<HTMLElement | SVGElement>, ElementState] {
     active: false,
   })
 
-  const setRef: Ref<HTMLElement | SVGElement> = useCallback(element => {
+  const setRef: Ref<HTMLElement | SVGElement> = useCallback((element: any) => {
     ref.current = element
   }, [])
 

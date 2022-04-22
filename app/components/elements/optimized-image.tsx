@@ -30,7 +30,7 @@ function Image({
 } & ImageProps) {
   const [isZoomed, setIsZoomed] = React.useState(false)
 
-  const handleZoomChange = React.useCallback(shouldZoom => {
+  const handleZoomChange = React.useCallback((shouldZoom: boolean) => {
     setIsZoomed(shouldZoom)
   }, [])
 

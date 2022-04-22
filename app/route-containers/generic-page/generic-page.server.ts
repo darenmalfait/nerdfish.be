@@ -4,7 +4,7 @@ import type { LoaderFunction } from 'remix'
 import { getAllPages, getPage } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
 import { getDoc } from '~/lib/api/sanity/queries'
-import { i18next } from '~/lib/services/i18n.server'
+import { i18n } from '~/lib/services/i18n.server'
 import {
   getDefaultLanguage,
   localizeSlug,
@@ -19,7 +19,7 @@ export type LoaderData = RouteLoader<SanityPage>
 const query = groq`${getDoc(PageType.page, true)}`
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const lang = await i18next.getLocale(request)
+  const lang = await i18n.getLocale(request)
 
   if (params.lang !== lang && lang !== getDefaultLanguage().code) {
     return redirect(`/${lang}/`)
@@ -41,10 +41,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
   const slug = params.slug ?? 'home'
 
-  const [data, i18n] = await Promise.all([
-    getPage({ slug, preview, lang }),
-    i18next.getTranslations(request, ['common', 'basic-form']),
-  ])
+  const data = await getPage({ slug, preview, lang })
 
   // if there is no blogpost with the current settings, return a 404
   if (!data.page) {
@@ -68,7 +65,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       canonical,
       query: preview ? query : ``,
       params: preview ? { slug, lang, type: PageType.page } : {},
-      i18n,
     },
     { status: 200, headers },
   )

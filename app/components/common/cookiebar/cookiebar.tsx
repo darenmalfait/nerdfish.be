@@ -72,7 +72,7 @@ function Cookiebar({
   }, [advertisement?.enabled, setAcceptedConsent, tracking?.enabled])
 
   const onSave = React.useCallback(
-    consents => {
+    (consents: { [key in CookieType]?: boolean }) => {
       setAcceptedConsent(JSON.stringify(consents), { days: 365 })
       track('accepted-consent')
     },

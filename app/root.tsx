@@ -3,7 +3,7 @@ import Root, {
   CatchBoundary,
   links,
 } from '~/route-containers/layout/layout.component'
-import { loader } from '~/route-containers/layout/layout.server'
+import { loader, handle } from '~/route-containers/layout/layout.server'
 
 export default Root
-export { ErrorBoundary, CatchBoundary, loader, links }
+export { ErrorBoundary, CatchBoundary, loader, links, handle }

@@ -7,7 +7,6 @@ import {
   motion,
 } from 'framer-motion'
 import * as React from 'react'
-import type { ReactNode } from 'react'
 import TagManager from 'react-gtm-module'
 import {
   Links,
@@ -22,7 +21,7 @@ import {
   useMatches,
   useTransition,
 } from 'remix'
-import { useSetupTranslations } from 'remix-i18next'
+import { useChangeLanguage } from 'remix-i18next'
 import { useSpinDelay } from 'spin-delay'
 
 import type { LoaderData } from './layout.server'
@@ -189,13 +188,16 @@ function PageLoadingMessage() {
   )
 }
 
-export function Document({ children }: { children: ReactNode }) {
-  const {
-    language = getDefaultLanguage().code,
-    siteInfo,
-    ENV,
-    theme: ssrTheme,
-  } = useLoaderData<LoaderData>()
+export function Document({
+  children,
+  locale = getDefaultLanguage().code,
+  siteInfo,
+  ENV,
+  theme: ssrTheme,
+}: Partial<LoaderData> & {
+  children: React.ReactNode
+  language?: string
+}) {
   const [theme] = useTheme()
 
   const matches = useMatches()
@@ -203,15 +205,15 @@ export function Document({ children }: { children: ReactNode }) {
   const canonical = match?.data.canonical
 
   React.useEffect(() => {
-    if (ENV.GTM_ID) {
+    if (ENV?.GTM_ID) {
       TagManager.initialize({ gtmId: ENV.GTM_ID })
     }
-  }, [ENV.GTM_ID])
+  }, [ENV?.GTM_ID])
 
   const isMultilang = siteInfo?.site?.multilang || false
 
   return (
-    <html lang={language} className={clsx(theme)}>
+    <html lang={locale} className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -273,11 +275,11 @@ export function ErrorBoundary({ error }: { error: Error }) {
 
 export default function Root() {
   const loaderData = useLoaderData<LoaderData>()
-  useSetupTranslations(loaderData.language)
+  useChangeLanguage(loaderData.locale)
 
   return (
     <AppProviders {...loaderData}>
-      <Document>
+      <Document {...loaderData}>
         <Outlet />
       </Document>
     </AppProviders>

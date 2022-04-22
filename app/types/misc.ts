@@ -1,7 +1,4 @@
 import type { LoaderFunction } from 'remix'
-import type { Language } from 'remix-i18next'
-
-type Translations = Record<string, Language>
 
 type RouteLoader<T> = {
   preview?: boolean
@@ -9,7 +6,6 @@ type RouteLoader<T> = {
   canonical: string
   query?: string
   params?: Record<string, unknown>
-  i18n: Translations
 }
 
 type LoaderType<
@@ -49,6 +45,7 @@ interface Handle {
     | Promise<Array<SitemapEntry | null> | null>
     | Array<SitemapEntry | null>
     | null
+  i18n?: string | string[]
 }
 
 type NonNullProperties<Type> = {
@@ -56,11 +53,10 @@ type NonNullProperties<Type> = {
 }
 
 export type {
-  Translations,
+  Handle,
   RouteLoader,
   LoaderType,
   NonNullProperties,
-  Handle,
   SitemapEntry,
   DefaultDocumentProps,
 }

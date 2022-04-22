@@ -5,7 +5,7 @@ import type { LoaderFunction } from 'remix'
 import { getAllPosts, getBlogPost } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
 import { getDoc } from '~/lib/api/sanity/queries'
-import { i18next } from '~/lib/services/i18n.server'
+import { i18n } from '~/lib/services/i18n.server'
 import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { removeTrailingSlash } from '~/lib/utils/string'
@@ -16,7 +16,7 @@ export type LoaderData = RouteLoader<SanityPost>
 const query = groq`${getDoc(PageType.blog, true)}`
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const lang = await i18next.getLocale(request)
+  const lang = await i18n.getLocale(request)
 
   const requestUrl = new URL(request.url)
 
@@ -33,15 +33,12 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     requestUrl.searchParams.get('preview') ===
     process.env.SANITY_STUDIO_PREVIEW_SECRET
 
-  const [data, i18n] = await Promise.all([
-    getBlogPost({
-      // home is the slug that is used in the studio for the home page
-      slug: params.slug,
-      preview,
-      lang,
-    }),
-    i18next.getTranslations(request, ['common', 'blog']),
-  ])
+  const data = await getBlogPost({
+    // home is the slug that is used in the studio for the home page
+    slug: params.slug,
+    preview,
+    lang,
+  })
 
   // if there is no blogpost with the current settings, return a 404
   if (!data.siteConfig?.site?.multilang && lang !== getDefaultLanguage().code) {
@@ -67,7 +64,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       params: preview
         ? { slug: data.post.slug, lang, type: PageType.page }
         : {},
-      i18n,
     },
     { status: 200, headers },
   )

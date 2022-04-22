@@ -18,7 +18,7 @@ function FormSelector({ onSubmit }: FormChoiseProps) {
   const { t } = useTranslation()
   const [selected, setSelected] = React.useState<FormType>('project')
 
-  const onChange = React.useCallback(val => {
+  const onChange = React.useCallback((val: any) => {
     setSelected(val)
   }, [])
 
@@ -54,7 +54,7 @@ function PortableContactForm() {
   const { t } = useTranslation()
   const [selectedForm, setSelectedForm] = React.useState<FormType | null>(null)
 
-  const onFormChoice = React.useCallback(choice => {
+  const onFormChoice = React.useCallback((choice: FormType) => {
     setSelectedForm(choice)
   }, [])
 
