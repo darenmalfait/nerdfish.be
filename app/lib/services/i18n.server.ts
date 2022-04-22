@@ -1,15 +1,24 @@
-import { createCookie } from 'remix'
-import { RemixI18Next, FileSystemBackend } from 'remix-i18next'
+import { resolve } from 'node:path'
+
+import { createCookie } from '@remix-run/node'
+import Backend from 'i18next-fs-backend'
+import { RemixI18Next } from 'remix-i18next'
 
 import { i18nextOptions } from '~/i18n.config'
-const { fallbackLng, supportedLanguages } = i18nextOptions
+const { fallbackLng: fallbackLanguage, supportedLanguages } = i18nextOptions
 
-const backend = new FileSystemBackend('./public/translations')
-
-const i18next = new RemixI18Next(backend, {
-  fallbackLng,
-  supportedLanguages,
-  cookie: createCookie('language'),
+const i18n = new RemixI18Next({
+  detection: {
+    supportedLanguages,
+    fallbackLanguage,
+    cookie: createCookie('language'),
+  },
+  i18next: {
+    backend: {
+      loadPath: resolve('./public/translations/{{lng}}/{{ns}}.json'),
+    },
+  },
+  backend: Backend,
 })
 
 function getSupportedLanguages() {
@@ -17,7 +26,7 @@ function getSupportedLanguages() {
 }
 
 function getFallbackLanguage() {
-  return fallbackLng
+  return fallbackLanguage
 }
 
-export { i18next, getSupportedLanguages, getFallbackLanguage }
+export { i18n, getSupportedLanguages, getFallbackLanguage }

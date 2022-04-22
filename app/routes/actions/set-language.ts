@@ -2,7 +2,7 @@ import type { TFunction } from 'i18next'
 import { createCookie, redirect } from 'remix'
 import type { ActionFunction, LoaderFunction } from 'remix'
 
-import { i18next } from '~/lib/services/i18n.server'
+import { i18n } from '~/lib/services/i18n.server'
 import { handleFormSubmission } from '~/lib/utils/actions.server'
 import { validateLanguage } from '~/lib/utils/i18n'
 
@@ -30,7 +30,7 @@ type ActionData = {
 
 export const action: ActionFunction = async ({ request }) => {
   const form = new URLSearchParams(await request.text())
-  const translate = await i18next.getFixedT(request, 'common')
+  const translate = await i18n.getFixedT(request, 'common')
 
   return handleFormSubmission<ActionData>({
     form,
