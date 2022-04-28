@@ -85,7 +85,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
           />
           {withProject && (
             <div className="space-y-3 not-prose">
-              <Label>{t('basic-form:project')}</Label>
+              <Label>{t('basic-form:project.label')}</Label>
               <ProjectField />
             </div>
           )}

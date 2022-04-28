@@ -35,7 +35,14 @@
       "label": "over een project praten"
     }
   },
-  "project": "Project",
+  "project": {
+    "application": "Applicatie",
+    "event": "Event",
+    "label": "Project",
+    "label-alt": "Project",
+    "other": "Andere",
+    "website": "Website"
+  },
   "send-button": "Verstuur",
   "success": "Bedankt voor uw bericht!",
   "title": "Neem contact op"
