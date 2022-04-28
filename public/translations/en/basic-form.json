@@ -35,7 +35,14 @@
       "label": "talk about a project"
     }
   },
-  "project": "",
+  "project": {
+    "application": "Application",
+    "event": "Event",
+    "label": "Project",
+    "label-alt": "Project",
+    "other": "Other",
+    "website": "Website"
+  },
   "send-button": "Send Message",
   "success": "Your message has been sent successfully.",
   "title": "Get in touch"

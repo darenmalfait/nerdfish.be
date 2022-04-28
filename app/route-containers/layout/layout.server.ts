@@ -9,11 +9,7 @@ import { ENV, getEnv } from '~/lib/utils/get-env'
 import { getDefaultLanguage } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { pathedRoutes } from '~/other-routes.server'
-import type { Handle, SiteInfo } from '~/types'
-
-export const handle: Handle = {
-  i18n: ['basic-form', 'blog', 'common'],
-}
+import type { SiteInfo } from '~/types'
 
 export type LoaderData = {
   locale: string

@@ -8,6 +8,7 @@ import {
 } from 'framer-motion'
 import * as React from 'react'
 import TagManager from 'react-gtm-module'
+import { useTranslation } from 'react-i18next'
 import {
   Links,
   LinksFunction,
@@ -44,6 +45,7 @@ import globalStyles from '~/styles/global.css'
 import proseStyles from '~/styles/prose.css'
 import tailwindStyles from '~/styles/tailwind.css'
 import vendorStyles from '~/styles/vendors.css'
+import type { Handle } from '~/types'
 
 /**
  * The `links` export is a function that returns an array of objects that map to
@@ -95,6 +97,10 @@ export const links: LinksFunction = () => {
     { rel: 'stylesheet', href: vendorStyles },
     { rel: 'stylesheet', href: componentStyles },
   ]
+}
+
+export const handle: Handle = {
+  i18n: ['basic-form', 'blog', 'common'],
 }
 
 // unstable_shouldReload's api is temporary and will most likely change
@@ -198,6 +204,7 @@ export function Document({
   children: React.ReactNode
   language?: string
 }) {
+  const { i18n } = useTranslation()
   const [theme] = useTheme()
 
   const matches = useMatches()
@@ -213,7 +220,7 @@ export function Document({
   const isMultilang = siteInfo?.site?.multilang || false
 
   return (
-    <html lang={locale} className={clsx(theme)}>
+    <html lang={locale} dir={i18n.dir()} className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
