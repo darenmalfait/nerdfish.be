@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import * as React from 'react'
 
 import { Cta } from '~/components/buttons'
 import type { SanityCta, SanityTable } from '~/types/sanity'

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Cta } from '~/components/buttons'
 
 interface MarkLinkProps {

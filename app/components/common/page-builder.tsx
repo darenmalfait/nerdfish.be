@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { AboutBlock } from '../sections/about-block'
 import { BigtitleBlock } from '../sections/big-title-block'
 import { CarouselBlock } from '../sections/carousel-block'

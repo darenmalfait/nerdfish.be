@@ -2,8 +2,6 @@ import { Listbox as HeadlessListbox } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 
-import * as React from 'react'
-
 import { Button } from '~/components/buttons'
 
 export function Options({
@@ -94,8 +92,12 @@ function ListboxButton({
   )
 }
 
-type ListboxProps = React.ComponentPropsWithRef<typeof HeadlessListbox> & {
+type ListboxProps = {
+  [key in keyof typeof HeadlessListbox]?: typeof HeadlessListbox[key]
+} & {
   children: React.ReactNode
+  onChange: (value: any) => void
+  value?: any
 }
 
 function Listbox({ value, onChange, children, ...props }: ListboxProps) {

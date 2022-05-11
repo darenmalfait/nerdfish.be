@@ -1,7 +1,6 @@
 import { colors } from '@daren/theme'
 import { Grid } from '@daren/ui-components'
 import clsx from 'clsx'
-import * as React from 'react'
 
 import { OptimizedImage } from '../elements'
 

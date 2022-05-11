@@ -1,5 +1,4 @@
 import { ThemeProvider as DarenThemeProvider } from '@daren/theme'
-import * as React from 'react'
 
 import { ThemeProvider } from './theme-provider'
 

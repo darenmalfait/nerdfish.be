@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { motion, Variant } from 'framer-motion'
-import * as React from 'react'
 
 import { Link } from './link'
 

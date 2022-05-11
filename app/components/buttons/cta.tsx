@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { ArrowLink } from './arrow-link'
 
 import { ButtonLink, ButtonProps } from './button'
