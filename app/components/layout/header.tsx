@@ -1,6 +1,5 @@
 import { Grid, H2 } from '@daren/ui-components'
 import clsx from 'clsx'
-import * as React from 'react'
 
 import { ArrowLink } from '~/components/buttons'
 

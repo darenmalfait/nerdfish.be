@@ -1,8 +1,6 @@
 import { Switch } from '@headlessui/react'
 import clsx from 'clsx'
 
-import * as React from 'react'
-
 import { useControllableState } from '~/hooks/use-controllable-state'
 
 interface ToggleProps {

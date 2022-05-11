@@ -1,6 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
-import * as React from 'react'
 
 import { Link } from './link'
 

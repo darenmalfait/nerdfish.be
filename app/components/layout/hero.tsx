@@ -1,6 +1,5 @@
 import { Grid, H2 } from '@daren/ui-components'
 import { motion } from 'framer-motion'
-import * as React from 'react'
 
 import { OptimizedImage } from '../elements/optimized-image'
 import { Container } from '../layout'
