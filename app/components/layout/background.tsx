@@ -82,7 +82,7 @@ interface BackgroundProps extends SanityImageBackground {
   color?: string
   id?: string
   className?: string
-  staticImage?: string
+  staticImage?: any
 }
 
 function Background({
