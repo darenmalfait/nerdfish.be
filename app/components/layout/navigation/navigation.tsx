@@ -32,7 +32,13 @@ function Navigation({
       actions={actionItems}
     >
       {main.items?.map((cta: SanityCta, i: number) => {
-        return <Navbar.Link {...cta} key={i} />
+        return (
+          <Navbar.Link
+            className="block relative py-2 px-3 transition leading-0"
+            {...cta}
+            key={i}
+          />
+        )
       })}
     </Navbar>
   )

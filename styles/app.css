@@ -53,10 +53,6 @@
   --colors-accent-500: var(--color-blog-blog);
 }
 
-body {
-  overflow-x: hidden;
-}
-
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -66,8 +62,8 @@ body {
   pointer-events: none;
 }
 
-[data-rmiz-wrap="visible"],
-[data-rmiz-wrap="hidden"] {
+[data-rmiz-wrap='visible'],
+[data-rmiz-wrap='hidden'] {
   width: 100%;
   height: 100%;
   display: block !important;
