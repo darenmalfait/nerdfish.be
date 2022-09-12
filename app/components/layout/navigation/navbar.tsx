@@ -1,3 +1,4 @@
+import { Container, Grid } from '@daren/ui-components'
 import { RssIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import * as React from 'react'
@@ -98,35 +99,45 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
 
   return (
     <div className="w-full">
-      <div className="py-9 px-5vw lg:py-12">
-        <div className="flex justify-between items-center mx-auto max-w-8xl text-primary">
-          <nav className="hidden flex-wrap items-center text-base md:flex md:ml-auto md:space-x-4 lg:w-2/5">
-            {children}
-          </nav>
-          <Link
-            prefetch="intent"
-            className="flex order-first items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:justify-center lg:items-center lg:w-1/5"
-            aria-label="home page"
-            to={rootPath}
-          >
-            <Logo className="w-10 h-10 transition-transform hover:scale-105" />
-          </Link>
-          <nav className="inline-flex items-center ml-5 space-x-4 lg:justify-end lg:ml-0 lg:space-y-0 lg:w-2/5">
-            <ThemeToggle />
-            <a
-              className="p-2 rounded-full focus-ring"
-              target="_blank"
-              href={`/${i18n.language}/blog/rss.xml`}
-              aria-label="rss feed"
-              rel="noreferrer"
-            >
-              <span className="sr-only">RSS feed</span>
-              <RssIcon className="w-5" />
-            </a>
-            {actions}
-            <Hamburger open={open} onClick={onToggle} />
-          </nav>
-        </div>
+      <div className="py-9 lg:py-12">
+        <Grid className="mx-auto text-primary">
+          <Container size="full">
+            <div className="flex relative gap-4">
+              <div className="flex flex-1">
+                <Link
+                  prefetch="intent"
+                  className="flex order-first items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:justify-start lg:items-center lg:w-1/5"
+                  aria-label="home page"
+                  to={rootPath}
+                >
+                  <Logo className="w-10 h-10 transition-transform hover:scale-105" />
+                </Link>
+              </div>
+              <div className="hidden flex-1 justify-end md:justify-center lg:flex">
+                <nav className="flex px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200 bg-white/90 dark:bg-zinc-800/90 rounded-full ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg shadow-zinc-800/5 backdrop-blur">
+                  {children}
+                </nav>
+              </div>
+              <div className="flex justify-end md:flex-1">
+                <nav className="inline-flex items-center ml-5 space-x-4 lg:justify-end lg:ml-0 lg:space-y-0 lg:w-2/5">
+                  <ThemeToggle />
+                  <a
+                    className="hidden p-2 rounded-full xsm:block focus-ring"
+                    target="_blank"
+                    href={`/${i18n.language}/blog/rss.xml`}
+                    aria-label="rss feed"
+                    rel="noreferrer"
+                  >
+                    <span className="sr-only">RSS feed</span>
+                    <RssIcon className="w-5" />
+                  </a>
+                  <div className="hidden space-x-3 sm:flex">{actions}</div>
+                  <Hamburger open={open} onClick={onToggle} />
+                </nav>
+              </div>
+            </div>
+          </Container>
+        </Grid>
       </div>
       <MobileNav
         rootPath={rootPath}

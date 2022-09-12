@@ -37,13 +37,14 @@ function ButtonInner({
       />
       <div
         className={clsx(
-          'flex relative justify-center items-center py-4 px-8 space-x-3 w-full h-full whitespace-nowrap',
+          'flex relative justify-center items-center space-x-3 w-full h-full whitespace-nowrap',
           {
             '!text-inverse': variant === 'primary',
             '!text-primary': variant === 'secondary',
             '!text-danger': variant === 'danger',
-            'py-2 px-6 space-x-3': size === 'small',
+            'py-2 px-4 space-x-3 text-sm': size === 'small',
             'py-6 px-11 space-x-5': size === 'large',
+            'py-4 px-8': size === 'medium',
           },
         )}
       >

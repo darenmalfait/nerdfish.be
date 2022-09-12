@@ -10,7 +10,7 @@ function ThemeToggle() {
   return (
     <button
       type="button"
-      className="flex justify-center items-center p-2 w-auto h-full rounded-full focus-ring"
+      className="flex justify-center items-center p-2 rounded-full focus-ring"
       onClick={() =>
         setTheme(prev => (prev === Theme.DARK ? Theme.LIGHT : Theme.DARK))
       }
