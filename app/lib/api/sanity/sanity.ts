@@ -1,4 +1,5 @@
 import { isBrowser } from '@daren/utils'
+import type { SerializeFrom } from '@remix-run/node'
 import imageUrlBuilder from '@sanity/image-url'
 import { default as query } from 'groq'
 import PicoSanity from 'picosanity'
@@ -64,7 +65,7 @@ function groq(strings: TemplateStringsArray, ...keys: any[]) {
   // )
 }
 
-const urlFor = (source: SanityImage, minWidth = 1200) => {
+const urlFor = (source: SerializeFrom<SanityImage>, minWidth = 1200) => {
   const builder = imageUrlBuilder(config).image(source).format('webp')
 
   if (minWidth) {
@@ -74,7 +75,7 @@ const urlFor = (source: SanityImage, minWidth = 1200) => {
   return builder
 }
 
-const getLowQualityUrlFor = (source: SanityImage): string => {
+const getLowQualityUrlFor = (source: SerializeFrom<SanityImage>): string => {
   return imageUrlBuilder(config).image(source).width(25).format('webp').url()
 }
 
@@ -85,7 +86,7 @@ export type ResponsiveSanityImageProps = {
 }
 
 const useResponsiveSanityImage = (
-  image: SanityImage,
+  image: SerializeFrom<SanityImage>,
   responsive: ResponsiveProps[] = [],
 ): ResponsiveSanityImageProps => {
   const imageBuilder = urlFor(image)

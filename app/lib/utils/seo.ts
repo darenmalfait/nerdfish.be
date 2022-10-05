@@ -1,9 +1,9 @@
-import type { HtmlMetaDescriptor } from 'remix'
+import type { HtmlMetaDescriptor, SerializeFrom } from '@remix-run/node'
 
 import { removeTrailingSlash } from './string'
 
 import { urlFor } from '~/lib/api/sanity'
-import type { LoaderData as RootLoaderData } from '~/route-containers/layout/layout.server'
+import type { LoaderType } from '~/route-containers/layout/layout.server'
 
 import type { SanityPage, SanityPost } from '~/types'
 
@@ -48,8 +48,8 @@ function pageMeta({
   data,
   parentsData,
 }: {
-  data: { data: SanityPage | null } | null
-  parentsData: { root: RootLoaderData }
+  data: { data: SerializeFrom<SanityPage> | null } | null
+  parentsData: { root: SerializeFrom<LoaderType> }
 }): HtmlMetaDescriptor {
   const { requestInfo, siteInfo } = parentsData.root
   const page = data?.data
@@ -73,8 +73,8 @@ function blogMeta({
   data,
   parentsData,
 }: {
-  data: { data: SanityPost | null } | null
-  parentsData: { root: RootLoaderData }
+  data: { data: SerializeFrom<SanityPost> | null } | null
+  parentsData: { root: SerializeFrom<LoaderType> }
 }): HtmlMetaDescriptor {
   const { requestInfo, siteInfo } = parentsData.root
   const post = data?.data

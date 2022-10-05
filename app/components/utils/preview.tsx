@@ -1,4 +1,4 @@
-import { LogoutIcon } from '@heroicons/react/solid'
+import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/solid'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -33,7 +33,7 @@ function Preview({
           href={pathname}
           className="flex gap-x-1 items-center p-2 px-3 hover:bg-pink-600 rounded pointer-events-auto"
         >
-          <LogoutIcon className="w-4 h-auto" /> Exit
+          <ArrowLeftOnRectangleIcon className="w-4 h-auto" /> Exit
         </a>
       </div>
     </div>

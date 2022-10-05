@@ -1,5 +1,5 @@
 import { H2 } from '@daren/ui-components'
-import * as Icons from '@heroicons/react/solid'
+import * as Icons from '@heroicons/react/24/solid'
 import * as React from 'react'
 
 export interface FeatureCardProps {

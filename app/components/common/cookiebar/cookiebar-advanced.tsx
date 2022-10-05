@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from '@heroicons/react/solid'
+import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
 

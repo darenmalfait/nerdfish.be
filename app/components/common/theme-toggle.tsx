@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/solid'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import * as React from 'react'
 
 import { Theme, useTheme } from '~/context/theme-provider'

@@ -1,10 +1,10 @@
 import { Popover, Transition } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/solid'
+import { ChevronUpIcon } from '@heroicons/react/24/solid'
+import { Form, useLocation } from '@remix-run/react'
 import clsx from 'clsx'
 import * as React from 'react'
 
 import { useTranslation } from 'react-i18next'
-import { Form, useLocation } from 'remix'
 
 import languages from '../../../config/languages'
 

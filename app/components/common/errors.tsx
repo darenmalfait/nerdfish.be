@@ -1,14 +1,14 @@
 import { Grid, H1, H2, H6, Paragraph } from '@daren/ui-components'
 import {
-  BookmarkAltIcon,
+  BookmarkIcon,
   ChevronRightIcon,
   RssIcon,
-} from '@heroicons/react/solid'
+} from '@heroicons/react/24/solid'
+import { useMatches } from '@remix-run/react'
 import clsx from 'clsx'
 import errorStack from 'error-stack-parser'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useMatches } from 'remix'
 
 import { ArrowLink } from '../buttons'
 import { OptimizedImage } from '../elements'
@@ -80,7 +80,7 @@ function ErrorPage({
     {
       title: t('errors.not-found.popular-pages.contact.title'),
       description: t('errors.not-found.popular-pages.contact.description'),
-      icon: BookmarkAltIcon,
+      icon: BookmarkIcon,
       href: `${i18n.language}/contact`,
     },
   ]

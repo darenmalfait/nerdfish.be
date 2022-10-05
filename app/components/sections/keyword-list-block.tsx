@@ -22,7 +22,7 @@ export function KeywordlistBlock({
             </H1>
             <div className="grid grid-cols-2 gap-8 w-full md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
               {items.map(item => (
-                <span className="block text-lg text-primary" key={item}>
+                <span key={item} className="block text-lg text-primary">
                   {item}
                 </span>
               ))}

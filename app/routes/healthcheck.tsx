@@ -1,6 +1,6 @@
-import type { LoaderFunction } from 'remix'
+import type { LoaderArgs } from '@remix-run/node'
 
-export const loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
   const host =
     request.headers.get('X-Forwarded-Host') ?? request.headers.get('host')
 

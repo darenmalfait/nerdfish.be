@@ -1,4 +1,5 @@
 import { H3 } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
@@ -25,7 +26,7 @@ function ArticleCard({
   readingTime,
   lang,
   category,
-}: SanityPost) {
+}: SerializeFrom<SanityPost>) {
   const href = getRoute(
     PageType.blog,
     getBlogSlug(publishedAt, slug as string),

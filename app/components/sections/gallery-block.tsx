@@ -1,4 +1,5 @@
 import { Grid } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import * as React from 'react'
 
 import { Gallery, GalleryType } from '~/components/elements'
@@ -7,7 +8,7 @@ import { Container, Section } from '~/components/layout'
 import type { SanityBlock, SanityImage } from '~/types/sanity'
 
 interface GalleryBlockProps {
-  images?: SanityImage[]
+  images?: SerializeFrom<SanityImage>[]
   display?: string
   zoom?: boolean
 }
@@ -32,7 +33,10 @@ function GalleryBlock({
     <Section>
       <Grid>
         <Container className="py-24 mb-14" size="full">
-          <Component images={images as SanityImage[]} zoom={zoom as boolean} />
+          <Component
+            images={images as SerializeFrom<SanityImage>[]}
+            zoom={zoom as boolean}
+          />
         </Container>
       </Grid>
     </Section>

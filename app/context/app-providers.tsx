@@ -1,10 +1,12 @@
 import { ThemeProvider as DarenThemeProvider } from '@daren/theme'
 
+import type { SerializeFrom } from '@remix-run/node'
+
 import { ThemeProvider } from './theme-provider'
 
-import type { LoaderData } from '~/route-containers/layout/layout.server'
+import type { LoaderType } from '~/route-containers/layout/layout.server'
 
-interface AppProvidersProps extends Pick<LoaderData, 'theme'> {
+interface AppProvidersProps extends Pick<SerializeFrom<LoaderType>, 'theme'> {
   children: React.ReactNode
 }
 

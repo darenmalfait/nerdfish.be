@@ -8,5 +8,6 @@ module.exports = {
     '@headlessui/react',
     'remix-image',
     'remix-image/server',
+    'react-medium-image-zoom',
   ],
 }

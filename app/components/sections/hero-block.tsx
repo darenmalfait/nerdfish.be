@@ -1,3 +1,4 @@
+import type { SerializeFrom } from '@remix-run/node'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
 
@@ -7,7 +8,7 @@ import type { SanityBlock, SanityImage } from '~/types/sanity'
 
 interface HeroBlockProps {
   title?: string
-  image?: SanityImage
+  image?: SerializeFrom<SanityImage>
   text?: PortableTextEntry[]
 }
 

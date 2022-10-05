@@ -1,5 +1,5 @@
+import { useCatch } from '@remix-run/react'
 import * as React from 'react'
-import { useCatch } from 'remix'
 
 import { FourOhFour } from '~/components/common'
 

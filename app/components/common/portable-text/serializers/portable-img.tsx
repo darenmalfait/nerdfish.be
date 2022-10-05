@@ -1,3 +1,4 @@
+import type { SerializeFrom } from '@remix-run/node'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -9,7 +10,7 @@ import { getLowQualityUrlFor, urlFor } from '~/lib/api/sanity'
 import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityImage } from '~/types/sanity'
 
-function PortableImg({ node }: Serialized<SanityImage>) {
+function PortableImg({ node }: SerializeFrom<Serialized<SanityImage>>) {
   const size = node.size || 'medium'
 
   const responsive = getResponsiveImageSizes(size)

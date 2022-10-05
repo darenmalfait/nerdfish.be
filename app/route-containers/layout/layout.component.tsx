@@ -1,4 +1,17 @@
 import darenStyles from '@daren/theme/dist/darenui.css'
+import type { SerializeFrom } from '@remix-run/node'
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  ShouldReloadFunction,
+  useLoaderData,
+  useMatches,
+  useTransition,
+} from '@remix-run/react'
 import clsx from 'clsx'
 import {
   LazyMotion,
@@ -9,23 +22,11 @@ import {
 import * as React from 'react'
 import TagManager from 'react-gtm-module'
 import { useTranslation } from 'react-i18next'
-import {
-  Links,
-  LinksFunction,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  ShouldReloadFunction,
-  useLoaderData,
-  useMatches,
-  useTransition,
-} from 'remix'
+
 import { useChangeLanguage } from 'remix-i18next'
 import { useSpinDelay } from 'spin-delay'
 
-import type { LoaderData } from './layout.server'
+import type { LoaderType } from './layout.server'
 
 import { GenericCatchBoundary } from '../boundaries/generic-catch-boundary'
 
@@ -63,7 +64,7 @@ const fonts = [
   '/fonts/lora/lora-regular.woff2',
 ]
 
-export const links: LinksFunction = () => {
+export function links() {
   // TODO: update site manifest
   // TODO: update favicon
   // Generate favicon with https://realfavicongenerator.net/
@@ -200,7 +201,7 @@ export function Document({
   siteInfo,
   ENV,
   theme: ssrTheme,
-}: Partial<LoaderData> & {
+}: Partial<SerializeFrom<LoaderType>> & {
   children: React.ReactNode
   language?: string
 }) {
@@ -258,7 +259,7 @@ export function Document({
             __html: `window.ENV = ${JSON.stringify(ENV)}`,
           }}
         />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        {ENV?.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>
   )
@@ -281,7 +282,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 }
 
 export default function Root() {
-  const loaderData = useLoaderData<LoaderData>()
+  const loaderData = useLoaderData<LoaderType>()
   useChangeLanguage(loaderData.locale)
 
   return (

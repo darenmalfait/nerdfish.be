@@ -1,10 +1,10 @@
 import { Grid, H2, H6 } from '@daren/ui-components'
+import { useLoaderData } from '@remix-run/react'
 import formatDate from 'date-fns/format'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useLoaderData } from 'remix'
 
-import type { LoaderData } from './blog-page.server'
+import type { LoaderType } from './blog-page.server'
 
 import notFoundImage from '~/assets/images/404.png'
 import { BackLink } from '~/components/buttons'
@@ -29,7 +29,7 @@ export default function BlogPage() {
     preview,
     query,
     params,
-  } = useLoaderData<LoaderData>()
+  } = useLoaderData<LoaderType>()
 
   const [data, setData] = React.useState(initialData)
 

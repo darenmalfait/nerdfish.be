@@ -1,4 +1,5 @@
 import { Grid } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
 
@@ -12,7 +13,7 @@ import { getResponsiveImageSizes } from '~/lib/utils/image'
 import type { SanityBlock, SanityCta, SanityImage } from '~/types/sanity'
 
 interface ContentProps {
-  image?: SanityImage
+  image?: SerializeFrom<SanityImage>
   body?: PortableTextEntry[]
   action?: SanityCta
 }

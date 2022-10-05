@@ -44,8 +44,8 @@ function Table({ children, table, title, cta }: TableProps) {
             <tr className={clsx(row, 'w-full border-b-2')}>
               {headerCells.map((title, i) => (
                 <th
-                  className={clsx(cell, 'font-bold align-middle text-primary')}
                   key={i}
+                  className={clsx(cell, 'font-bold align-middle text-primary')}
                 >
                   {title || 'headercol'}
                 </th>
@@ -57,9 +57,9 @@ function Table({ children, table, title, cta }: TableProps) {
               const { cells = [], _key: key } = row
 
               return (
-                <tr className={clsx(row, 'px-2 border-y')} key={key}>
+                <tr key={key} className={clsx(row, 'px-2 border-y')}>
                   {cells.map((value, j) => (
-                    <td className={cell} key={j}>
+                    <td key={j} className={cell}>
                       {value}
                     </td>
                   ))}
