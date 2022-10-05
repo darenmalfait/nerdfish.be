@@ -115,11 +115,94 @@ async function getBlogPost({
   }
 }
 
+async function getWikiPages({
+  lang = getDefaultLanguage().code,
+}: {
+  lang?: string
+}): Promise<
+  | ({
+      posts: SanityPost[]
+    } & DefaultDocumentProps<{
+      site?: SiteConfig
+      navigation?: SiteNavigation
+    }>[])
+  | undefined
+> {
+  const query = groq`{
+    ${`"posts": *[_type == "${PageType.blog}" && i18n_lang == $lang && category == "wiki"]  | order(dateTime(publishedAt) desc) {
+        ...,
+        "slug": slug.current,
+        "lang": i18n_lang,
+        excerpt,
+        author->,
+        tags[]->,
+        "readingTime": round(length(pt::text(body)) / 5 / 180 )
+      }`},
+    ${getSiteConfig()}
+  }`
+
+  try {
+    const data: {
+      posts: SanityPost[]
+    } & DefaultDocumentProps<{
+      site?: SiteConfig
+      navigation?: SiteNavigation
+    }>[] = await getClient().fetch(query, {
+      lang,
+    })
+
+    return {
+      ...data,
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 async function getAllPosts(): Promise<SanityPost[]> {
   const query = groq`{
-    "${PageType.blog}": *[_type == "${
-    PageType.blog
-  }" && category != 'wiki'] | order(publishedAt desc)  { "slug": slug.current, publishedAt, "lang": i18n_lang, title, publishedAt, excerpt },
+    ${`"posts": *[_type == "${PageType.blog}" && category != "wiki"]  | order(dateTime(publishedAt) desc) {
+        ...,
+        "slug": slug.current,
+        "lang": i18n_lang,
+        excerpt,
+        author->,
+        tags[]->,
+        "readingTime": round(length(pt::text(body)) / 5 / 180 )
+      }`},
+    ${getSiteConfig()}
+  }`
+
+  const defaultLanguage = getDefaultLanguage().code
+
+  const {
+    siteConfig,
+    posts,
+  }: {
+    siteConfig: { site: SiteConfig }
+    posts: SanityPost[]
+  } = await getClient().fetch(query, { lang: defaultLanguage })
+
+  let filteredPosts: SanityPost[] = posts
+
+  if (!siteConfig.site.multilang) {
+    filteredPosts = posts.filter(({ lang }: any) => lang === defaultLanguage)
+  }
+
+  return filteredPosts
+}
+
+async function getAllWikiPages(): Promise<SanityPost[]> {
+  const query = groq`{
+    ${`"posts": *[_type == "${PageType.blog}" && category == "wiki"]  | order(dateTime(publishedAt) desc) {
+        ...,
+        "slug": slug.current,
+        "lang": i18n_lang,
+        excerpt,
+        author->,
+        tags[]->,
+        "readingTime": round(length(pt::text(body)) / 5 / 180 )
+      }`},
     ${getSiteConfig()}
   }`
 
@@ -143,4 +226,12 @@ async function getAllPosts(): Promise<SanityPost[]> {
 }
 
 export type { DocumentProps, BlogPageProps }
-export { getAllPages, getPage, getBlogPost, getAllPosts, getSiteInfo }
+export {
+  getAllPages,
+  getPage,
+  getBlogPost,
+  getAllPosts,
+  getAllWikiPages,
+  getSiteInfo,
+  getWikiPages,
+}

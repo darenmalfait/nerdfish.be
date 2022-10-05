@@ -9,4 +9,5 @@ export interface Language {
 export enum PageType {
   page = 'page',
   blog = 'post',
+  wiki = 'wiki',
 }

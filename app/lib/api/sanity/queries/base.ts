@@ -21,6 +21,22 @@ export function getDoc(doc = PageType.page, hasLanguages = true): string {
   `
 }
 
+export function getBlogs(): string {
+  return groq`
+    *[_type == "${PageType.blog}" && slug.current == $slug && i18n_lang == $lang && category != "wiki"] | order(_updatedAt desc)[0] {
+      ${query.pageData},
+      ${query.pageRefs}
+    }`
+}
+
+export function getWikis(): string {
+  return groq`
+    *[_type == "${PageType.blog}" && slug.current == $slug && i18n_lang == $lang && category == "wiki"] | order(_updatedAt desc)[0] {
+      ${query.pageData},
+      ${query.pageRefs}
+    }`
+}
+
 export function getSiteConfig(): string {
   return groq`
     "siteConfig": {
