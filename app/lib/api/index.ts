@@ -117,10 +117,9 @@ async function getBlogPost({
 
 async function getAllPosts(): Promise<SanityPost[]> {
   const query = groq`{
-     ${getDocByType(
-       PageType.blog,
-       'posts',
-     )} | order(publishedAt desc)  { "slug": slug.current, publishedAt, "lang": i18n_lang, title, publishedAt, excerpt },
+    "${PageType.blog}": *[_type == "${
+    PageType.blog
+  }" && category != 'wiki'] | order(publishedAt desc)  { "slug": slug.current, publishedAt, "lang": i18n_lang, title, publishedAt, excerpt },
     ${getSiteConfig()}
   }`
 
@@ -143,6 +142,5 @@ async function getAllPosts(): Promise<SanityPost[]> {
   return filteredPosts
 }
 
-export * from './wiki.server'
 export type { DocumentProps, BlogPageProps }
 export { getAllPages, getPage, getBlogPost, getAllPosts, getSiteInfo }
