@@ -1,6 +1,5 @@
+import { json, LoaderArgs } from '@remix-run/node'
 import formatDate from 'date-fns/format'
-import { json } from 'remix'
-import type { LoaderFunction } from 'remix'
 
 import { getAllPosts, getBlogPost } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
@@ -9,13 +8,24 @@ import { i18n } from '~/lib/services/i18n.server'
 import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { removeTrailingSlash } from '~/lib/utils/string'
-import { Handle, PageType, RouteLoader, SanityPost } from '~/types'
-
-export type LoaderData = RouteLoader<SanityPost>
+import { Handle, PageType } from '~/types'
 
 const query = groq`${getDoc(PageType.blog, true)}`
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const handle: Handle = {
+  getSitemapEntries: async () => {
+    const posts = await getAllPosts()
+
+    return posts.map(({ slug, lang, publishedAt }) => {
+      const year = formatDate(new Date(publishedAt), 'yyyy')
+      const month = formatDate(new Date(publishedAt), 'MM')
+
+      return { route: `/${lang}/${year}/${month}/${slug}`, priority: 0.3 }
+    })
+  },
+}
+
+export async function loader({ request, params }: LoaderArgs) {
   const lang = await i18n.getLocale(request)
 
   const requestUrl = new URL(request.url)
@@ -55,7 +65,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       )}`,
     )
 
-  return json<LoaderData>(
+  return json(
     {
       data: data.post,
       preview,
@@ -69,15 +79,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   )
 }
 
-export const handle: Handle = {
-  getSitemapEntries: async () => {
-    const posts = await getAllPosts()
+type LoaderType = typeof loader
 
-    return posts.map(({ slug, lang, publishedAt }) => {
-      const year = formatDate(new Date(publishedAt), 'yyyy')
-      const month = formatDate(new Date(publishedAt), 'MM')
-
-      return { route: `/${lang}/${year}/${month}/${slug}`, priority: 0.3 }
-    })
-  },
-}
+export type { LoaderType }

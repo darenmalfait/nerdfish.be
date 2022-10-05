@@ -9,7 +9,7 @@
     "import": "npx sanity dataset import ../data/production.tar.gz --missing",
     "lint:src": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:types": "tsc --noEmit",
-    "tailwind:build": "npx tailwindcss build ./styles/tailwind.css -o ./styles/tailwind.output.css",
+    "tailwind:build": "npx tailwindcss build -i ./styles/tailwind.css -o ./styles/tailwind.output.css",
     "test": "sanity check",
     "validate": "run-s lint:*"
   },

@@ -1,10 +1,11 @@
 import { H3, Grid, H2 } from '@daren/ui-components'
-import { PlusIcon, SearchIcon } from '@heroicons/react/solid'
+import { PlusIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
+import type { SerializeFrom } from '@remix-run/node'
+import { useSearchParams } from '@remix-run/react'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSearchParams } from 'remix'
 
 import { Button } from '~/components/buttons'
 import { ArticleCard, HighlightCard, Tag } from '~/components/elements'
@@ -46,7 +47,7 @@ export function PostsBlock({
     tags = [],
     title,
   } = {},
-}: SanityBlock<ContentProps>) {
+}: SanityBlock<SerializeFrom<ContentProps>>) {
   const { t, i18n } = useTranslation()
   const [searchParams] = useSearchParams()
 
@@ -86,7 +87,7 @@ export function PostsBlock({
 
   const isSearching = query.length > 0
 
-  const posts: SanityPost[] =
+  const posts: SerializeFrom<SanityPost>[] =
     isSearching || !featuredEnabled
       ? matchingPosts.slice(0, indexToShow)
       : matchingPosts
@@ -132,7 +133,7 @@ export function PostsBlock({
                 {subTitle && <H3 className="mb-8">{subTitle}</H3>}
 
                 <div className="relative">
-                  <SearchIcon
+                  <MagnifyingGlassIcon
                     width="20px"
                     height="20px"
                     className="flex absolute top-0 left-6 justify-center items-center p-0 h-full text-primary-400 bg-transparent border-none"

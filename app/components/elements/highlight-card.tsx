@@ -1,4 +1,5 @@
 import { Grid, H2 } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -15,7 +16,7 @@ interface HighlightCardProps {
   title?: string
   subTitle?: string
   cta?: string
-  image?: SanityImage
+  image?: SerializeFrom<SanityImage>
   href: string
   className?: string
   category?: string

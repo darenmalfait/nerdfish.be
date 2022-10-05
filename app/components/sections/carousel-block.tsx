@@ -108,7 +108,7 @@ export function CarouselBlock({
         <TabPanels className="grid order-4 col-span-full mt-16 lg:col-span-5 lg:col-start-7 lg:mt-0">
           {items.map(({ title, body, action }, idx) => {
             return (
-              <ContentPanel active={activeTabIndex === idx} key={title}>
+              <ContentPanel key={title} active={activeTabIndex === idx}>
                 <H2>{title}</H2>
                 {body && <PortableText blocks={body} />}
                 {action && <CtaLink {...action} />}

@@ -1,4 +1,5 @@
-import type { LoaderFunction } from 'remix'
+import type { LoaderArgs } from '@remix-run/node'
+
 import { MimeType, Transformer } from 'remix-image'
 import { imageLoader, DiskCache } from 'remix-image/server'
 import sharp from 'sharp'
@@ -13,6 +14,7 @@ const supportedInputs = new Set([
 const supportedOutputs = new Set([MimeType.JPEG, MimeType.PNG, MimeType.WEBP])
 
 const sharpTransformer: Transformer = {
+  fallbackOutput: MimeType.PNG,
   name: 'sharpTransformer',
   supportedInputs,
   supportedOutputs,
@@ -35,14 +37,14 @@ const sharpTransformer: Transformer = {
       .resize(width, height, {
         fit,
         position,
-        ...(background && {
+        ...{
           background: {
             r: background[0],
             g: background[1],
             b: background[2],
             alpha: background[3],
           },
-        }),
+        },
       })
       .jpeg({
         quality,
@@ -75,6 +77,6 @@ const config = {
   transformer: sharpTransformer,
 }
 
-export const loader: LoaderFunction = ({ request }) => {
+export function loader({ request }: LoaderArgs) {
   return imageLoader(config, request)
 }

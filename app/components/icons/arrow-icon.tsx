@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@heroicons/react/solid'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
 import * as React from 'react'

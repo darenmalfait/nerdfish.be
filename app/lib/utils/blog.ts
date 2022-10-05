@@ -1,8 +1,12 @@
+import type { SerializeFrom } from '@remix-run/node'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 
 import type { SanityPost } from '~/types/sanity'
 
-export function filterPosts(posts: SanityPost[], searchString: string) {
+export function filterPosts(
+  posts: SerializeFrom<SanityPost>[],
+  searchString: string,
+) {
   if (!searchString) return posts
 
   const options = {

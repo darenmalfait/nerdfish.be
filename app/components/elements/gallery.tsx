@@ -1,3 +1,4 @@
+import type { SerializeFrom } from '@remix-run/node'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -12,11 +13,11 @@ export enum GalleryType {
 }
 
 export interface GalleryProps {
-  images: SanityImage[]
+  images: SerializeFrom<SanityImage>[]
   zoom?: boolean
 }
 
-function Image(image: SanityImage) {
+function Image(image: SerializeFrom<SanityImage>) {
   return (
     <div className="relative w-full h-0 rounded-2xl aspect-w-5 aspect-h-3">
       <OptimizedImage
@@ -35,8 +36,8 @@ function Grid({ images, zoom }: GalleryProps) {
     <div className="flex flex-wrap -m-1 md:-m-2">
       {images.map(image => (
         <div
-          className="flex flex-wrap w-full md:w-1/2 xl:w-1/3"
           key={image.asset?._id}
+          className="flex flex-wrap w-full md:w-1/2 xl:w-1/3"
         >
           <div className="p-1 w-full md:p-2">
             <Image {...image} zoom={zoom} alt={image.alt} />
@@ -56,7 +57,7 @@ function getImageContainerProps(full: boolean) {
 
 function Wicked({ images = [], zoom }: GalleryProps) {
   const sections = React.useMemo(() => {
-    const results: SanityImage[][] = []
+    const results: SerializeFrom<SanityImage>[][] = []
     const imageList = [...images]
 
     while (imageList.length) {

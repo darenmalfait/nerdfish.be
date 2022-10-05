@@ -1,9 +1,9 @@
 import { Container, Grid } from '@daren/ui-components'
-import { RssIcon } from '@heroicons/react/solid'
+import { RssIcon } from '@heroicons/react/24/solid'
+import { Link } from '@remix-run/react'
 import clsx from 'clsx'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'remix'
 
 import { CtaLink, Hamburger } from '~/components/buttons'
 import { Logo } from '~/components/common'
@@ -90,7 +90,7 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
           onClick: onToggle,
-        })
+        } as any)
       }
 
       return child

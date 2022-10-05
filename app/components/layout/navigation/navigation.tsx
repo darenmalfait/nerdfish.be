@@ -21,7 +21,7 @@ function Navigation({
 
   const actionItems = React.useMemo(() => {
     return actions.items?.map((cta: SanityCta, i: number) => {
-      return <Navbar.Link {...cta} key={i} />
+      return <Navbar.Link key={i} {...cta} />
     })
   }, [actions])
 
@@ -34,9 +34,9 @@ function Navigation({
       {main.items?.map((cta: SanityCta, i: number) => {
         return (
           <Navbar.Link
+            key={i}
             className="block relative py-2 px-3 transition leading-0"
             {...cta}
-            key={i}
           />
         )
       })}

@@ -6,12 +6,13 @@ export type SanityProps<T = any, Q extends ParsedUrlQuery = ParsedUrlQuery> = {
   params: Q
 }
 
-import type { CodeBlockLanguage } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 
 import type { LanguageCode, PageType } from '.'
 
 import type { CtaProps } from '~/components/buttons'
+import type { CodeBlockLanguage } from '~/components/code-block/code-block'
 
 export interface SanityImagePaletteSwatch {
   background?: string
@@ -246,7 +247,7 @@ export interface SanityColorList {
 }
 
 export interface SanityImageBackground {
-  image?: SanityImage
+  image?: SerializeFrom<SanityImage>
 }
 
 export interface SanityBackground {

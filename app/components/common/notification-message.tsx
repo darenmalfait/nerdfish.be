@@ -1,9 +1,9 @@
-import { PlusIcon } from '@heroicons/react/solid'
+import { PlusIcon } from '@heroicons/react/24/solid'
+import { useSearchParams } from '@remix-run/react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 import { useState } from 'react'
-import { useSearchParams } from 'remix'
 
 function NotificationMessage({
   queryStringKey,

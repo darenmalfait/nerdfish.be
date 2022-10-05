@@ -1,6 +1,5 @@
+import { ActionArgs, createCookie, redirect } from '@remix-run/node'
 import type { TFunction } from 'i18next'
-import { createCookie, redirect } from 'remix'
-import type { ActionFunction, LoaderFunction } from 'remix'
 
 import { i18n } from '~/lib/services/i18n.server'
 import { handleFormSubmission } from '~/lib/utils/actions.server'
@@ -28,7 +27,7 @@ type ActionData = {
   }
 }
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
   const form = new URLSearchParams(await request.text())
   const translate = await i18n.getFixedT(request, 'common')
 
@@ -50,6 +49,6 @@ export const action: ActionFunction = async ({ request }) => {
   })
 }
 
-export const loader: LoaderFunction = () => {
+export async function loader() {
   return redirect('/')
 }

@@ -1,4 +1,4 @@
-import type { LoaderFunction } from 'remix'
+import type { LoaderArgs } from '@remix-run/node'
 
 import { getAllPosts, getSiteInfo } from '~/lib/api'
 
@@ -7,7 +7,7 @@ import { getDomainUrl } from '~/lib/utils/misc'
 import { removeTrailingSlash } from '~/lib/utils/string'
 import { PageType } from '~/types'
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export async function loader({ request, params }: LoaderArgs) {
   const lang = params.lang || getDefaultLanguage().code
 
   const posts = await getAllPosts()

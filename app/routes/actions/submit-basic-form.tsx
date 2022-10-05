@@ -1,6 +1,6 @@
+import { ActionArgs, json } from '@remix-run/node'
 import type { TFunction } from 'i18next'
 import * as React from 'react'
-import { ActionFunction, json, LoaderFunction, redirect } from 'remix'
 
 import { i18n } from '~/lib/services/i18n.server'
 
@@ -53,7 +53,7 @@ export type ActionData = {
   }
 }
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
   const translate = await i18n.getFixedT(request, 'basic-form')
 
   return handleFormSubmission<ActionData>({
@@ -92,10 +92,6 @@ export const action: ActionFunction = async ({ request }) => {
       return json(actionData)
     },
   })
-}
-
-export const loader: LoaderFunction = () => {
-  return redirect('/')
 }
 
 export default function SubmitBasicForm() {

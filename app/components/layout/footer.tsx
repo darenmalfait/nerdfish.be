@@ -52,8 +52,8 @@ function Footer({ multilang, company, navigation, socials }: FooterProps) {
               {items.map(item => (
                 <CtaLink
                   key={item.title}
-                  {...item}
                   className="inline-block mr-8 text-lg"
+                  {...item}
                   kind="link"
                 />
               ))}

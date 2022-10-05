@@ -1,28 +1,14 @@
-import { createCookie, json, redirect } from 'remix'
-import type { LoaderFunction } from 'remix'
+import { json, LoaderArgs, createCookie, redirect } from '@remix-run/node'
 
-import type { Theme } from '~/context/theme-provider'
 import { getSiteInfo } from '~/lib/api'
 import { i18n } from '~/lib/services/i18n.server'
 import { getThemeSession } from '~/lib/services/theme.server'
-import { ENV, getEnv } from '~/lib/utils/get-env'
+import { getEnv } from '~/lib/utils/get-env'
 import { getDefaultLanguage } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { pathedRoutes } from '~/other-routes.server'
-import type { SiteInfo } from '~/types'
 
-export type LoaderData = {
-  locale: string
-  siteInfo?: SiteInfo
-  ENV: ENV
-  theme: Theme | null
-  requestInfo: {
-    origin: string
-    path: string
-  }
-}
-
-export const loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
   // because this is called for every route, we'll do an early return for anything
   // that has a other route setup. The response will be handled there.
   if (pathedRoutes[new URL(request.url).pathname]) {
@@ -48,7 +34,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     })
   }
 
-  return json<LoaderData>({
+  return json({
     locale,
     siteInfo,
     ENV,
@@ -59,3 +45,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     },
   })
 }
+
+type LoaderType = typeof loader
+
+export type { LoaderType }

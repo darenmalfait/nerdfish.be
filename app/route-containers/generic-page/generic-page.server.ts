@@ -1,5 +1,4 @@
-import { json, redirect } from 'remix'
-import type { LoaderFunction } from 'remix'
+import { json, LoaderArgs, redirect } from '@remix-run/node'
 
 import { getAllPages, getPage } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
@@ -18,7 +17,26 @@ export type LoaderData = RouteLoader<SanityPage>
 
 const query = groq`${getDoc(PageType.page, true)}`
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const handle: Handle = {
+  getSitemapEntries: async () => {
+    const pages = await getAllPages()
+
+    return pages.map(page => {
+      let route = `/${page.lang}/${page.slug}`
+      if (page.slug === 'home') {
+        if (page.lang === getDefaultLanguage().code) {
+          // index route already exists
+          return null
+        }
+
+        route = `/${page.lang}/`
+      }
+      return { route, priority: 0.6 }
+    })
+  },
+}
+
+export async function loader({ request, params }: LoaderArgs) {
   const lang = await i18n.getLocale(request)
 
   if (params.lang !== lang && lang !== getDefaultLanguage().code) {
@@ -58,7 +76,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       `${getDomainUrl(request)}${localizeSlug(data.page.slug || '', lang)}`,
     )
 
-  return json<LoaderData>(
+  return json(
     {
       data: data.page,
       preview,
@@ -70,21 +88,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   )
 }
 
-export const handle: Handle = {
-  getSitemapEntries: async () => {
-    const pages = await getAllPages()
+type LoaderType = typeof loader
 
-    return pages.map(page => {
-      let route = `/${page.lang}/${page.slug}`
-      if (page.slug === 'home') {
-        if (page.lang === getDefaultLanguage().code) {
-          // index route already exists
-          return null
-        }
-
-        route = `/${page.lang}/`
-      }
-      return { route, priority: 0.6 }
-    })
-  },
-}
+export type { LoaderType }

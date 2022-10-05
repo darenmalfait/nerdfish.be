@@ -1,4 +1,5 @@
 import { Grid, H2 } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import { motion } from 'framer-motion'
 
 import { OptimizedImage } from '../elements/optimized-image'
@@ -11,7 +12,7 @@ import type { SanityImage } from '~/types/sanity'
 export interface HeroProps {
   title?: string
   subTitle?: React.ReactNode
-  image?: SanityImage | string
+  image?: SerializeFrom<SanityImage> | string
   as?: React.ElementType
   action?: React.ReactNode
 }

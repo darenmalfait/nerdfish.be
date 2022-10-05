@@ -1,8 +1,9 @@
 import { ProgressiveImage } from '@daren/ui-components'
+import type { SerializeFrom } from '@remix-run/node'
 import clsx from 'clsx'
 import * as React from 'react'
 import { Controlled } from 'react-medium-image-zoom'
-import { useResponsiveImage } from 'remix-image'
+import { Image as RemixImage } from 'remix-image'
 
 import { useResponsiveSanityImage } from '~/lib/api/sanity'
 
@@ -15,7 +16,7 @@ export type ResponsiveProps = {
 
 type ImageProps = Pick<SanityImage, 'zoom' | 'shadow'> & {
   responsive?: ResponsiveProps[]
-  asset?: SanityImageAsset
+  asset?: SerializeFrom<SanityImageAsset>
 }
 
 function Image({
@@ -81,13 +82,17 @@ function OptimizedDefaultImage({
   optimizerUrl = '/resources/image',
   responsive = [],
   ...imgProps
-}: JSX.IntrinsicElements['img'] & {
+}: Pick<JSX.IntrinsicElements['img'], 'src' | 'className'> & {
   optimizerUrl?: string
   blurDataUrl?: string
 } & ImageProps) {
-  const responsiveProps = useResponsiveImage(imgProps, optimizerUrl, responsive)
-
-  return <Image {...imgProps} {...responsiveProps} />
+  return (
+    <RemixImage
+      {...imgProps}
+      loaderUrl={optimizerUrl}
+      responsive={responsive}
+    />
+  )
 }
 
 function OptimizedImage(

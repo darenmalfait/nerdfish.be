@@ -1,7 +1,7 @@
+import { useLoaderData } from '@remix-run/react'
 import * as React from 'react'
-import { useLoaderData } from 'remix'
 
-import type { LoaderData } from './generic-page.server'
+import type { LoaderType } from './generic-page.server'
 
 import { FourOhFour, PageBuilder } from '~/components/common'
 import { Preview } from '~/components/utils/preview'
@@ -19,7 +19,7 @@ export default function GenericPage() {
     preview,
     query,
     params,
-  } = useLoaderData<LoaderData>()
+  } = useLoaderData<LoaderType>()
   const [data, setData] = React.useState(initialData)
 
   React.useEffect(() => {

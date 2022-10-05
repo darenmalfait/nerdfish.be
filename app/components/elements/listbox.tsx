@@ -1,5 +1,5 @@
 import { Listbox as HeadlessListbox } from '@headlessui/react'
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { CheckIcon, ArrowsUpDownIcon } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
 import { Button } from '~/components/buttons'
@@ -75,7 +75,7 @@ interface ButtonProps {
 
 function ListboxButton({
   children,
-  Icon = SelectorIcon,
+  Icon = ArrowsUpDownIcon,
   ...props
 }: ButtonProps) {
   return (

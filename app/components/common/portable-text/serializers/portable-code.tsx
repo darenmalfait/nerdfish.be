@@ -1,11 +1,10 @@
-import { CodeBlock } from '@daren/ui-components'
-
 import type { PrismTheme } from 'prism-react-renderer'
 import * as React from 'react'
 
 import type { Serialized } from './serializers.types'
 import theme from './vscode-theme'
 
+import { CodeBlock } from '~/components/code-block/code-block'
 import { Container } from '~/components/layout'
 import type { SanityCode } from '~/types/sanity'
 

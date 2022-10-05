@@ -1,11 +1,10 @@
+import { ActionArgs, json, redirect } from '@remix-run/node'
 import * as React from 'react'
-import { json, redirect } from 'remix'
-import type { ActionFunction, LoaderFunction } from 'remix'
 
 import { isTheme } from '~/context/theme-provider'
 import { getThemeSession } from '~/lib/services/theme.server'
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
   const themeSession = await getThemeSession(request)
   const requestText = await request.text()
   const form = new URLSearchParams(requestText)
@@ -25,7 +24,9 @@ export const action: ActionFunction = async ({ request }) => {
   )
 }
 
-export const loader: LoaderFunction = () => redirect('/', { status: 404 })
+export async function loader() {
+  return redirect('/', { status: 404 })
+}
 
 export default function SetThemeRoute() {
   return <div>Oops... You should not see this.</div>

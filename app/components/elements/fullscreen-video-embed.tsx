@@ -1,5 +1,6 @@
-import { PlusIcon } from '@heroicons/react/solid'
+import { PlusIcon } from '@heroicons/react/24/solid'
 import Dialog from '@reach/dialog'
+import type { SerializeFrom } from '@remix-run/node'
 import getVideoId from 'get-video-id'
 import * as React from 'react'
 
@@ -83,7 +84,7 @@ export interface FullscreenVideoEmbedProps {
   url?: string
   file?: SanityFile
   videoType: 'url' | 'file'
-  placeholder: SanityImage
+  placeholder: SerializeFrom<SanityImage>
   autoplay?: boolean
   title?: string
 }
