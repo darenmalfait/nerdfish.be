@@ -6,6 +6,7 @@ import { PageType } from '~/types/languages'
 
 export function getDynamicRoute(type: string = PageType.page): string | false {
   if (type === PageType.blog) return 'blog'
+  if (type === PageType.wiki) return 'wiki'
 
   return false
 }

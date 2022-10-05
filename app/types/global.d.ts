@@ -8,3 +8,5 @@ declare global {
   // eslint-disable-next-line no-var
   var grecaptcha: any
 }
+
+declare module 'lodash'

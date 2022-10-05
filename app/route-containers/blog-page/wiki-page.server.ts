@@ -1,26 +1,26 @@
 import { json, LoaderArgs } from '@remix-run/node'
 import formatDate from 'date-fns/format'
 
-import { getAllPosts, getBlogPost } from '~/lib/api'
+import { getAllWikiPages, getBlogPost } from '~/lib/api'
 import { groq } from '~/lib/api/sanity'
-import { getBlogs } from '~/lib/api/sanity/queries'
+import { getWikis } from '~/lib/api/sanity/queries'
 import { i18n } from '~/lib/services/i18n.server'
 import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { removeTrailingSlash } from '~/lib/utils/string'
 import { Handle, PageType } from '~/types'
 
-const query = groq`${getBlogs()}`
+const query = groq`${getWikis()}`
 
 export const handle: Handle = {
   getSitemapEntries: async () => {
-    const posts = await getAllPosts()
+    const posts = await getAllWikiPages()
 
     return posts.map(({ slug, lang, publishedAt }) => {
       const year = formatDate(new Date(publishedAt), 'yyyy')
       const month = formatDate(new Date(publishedAt), 'MM')
 
-      return { route: `/${lang}/blog/${year}/${month}/${slug}`, priority: 0.3 }
+      return { route: `/${lang}/wiki/${year}/${month}/${slug}`, priority: 0.3 }
     })
   },
 }

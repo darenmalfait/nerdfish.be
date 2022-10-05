@@ -9,6 +9,7 @@ import { renderToString } from 'react-dom/server'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
 
 import { i18n } from './lib/services/i18n.server'
+import { routes as otherRoutes } from './other-routes.server'
 
 import { i18nextOptions } from '~/i18n.config'
 
@@ -40,6 +41,12 @@ export default async function handleRequest(
   headers: Headers,
   context: EntryContext,
 ) {
+  for (const handler of otherRoutes) {
+    // eslint-disable-next-line no-await-in-loop
+    const otherRouteResponse = await handler(request, context)
+    if (otherRouteResponse) return otherRouteResponse
+  }
+
   // First, we create a new instance of i18next so every request will have a
   // completely unique instance and not share any state
   const instance = createInstance()
