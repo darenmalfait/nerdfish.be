@@ -58,7 +58,7 @@ export const postsBlock = groq`
     content {
       ...,
       link->{ "slug": slug.current, "lang": i18n_lang },
-      "posts": *[_type == "post" && i18n_lang == $lang]  | order(dateTime(publishedAt) desc) {
+      "posts": *[_type == "post" && i18n_lang == $lang && category != "wiki"]  | order(dateTime(publishedAt) desc) {
         ...,
         "slug": slug.current,
         "lang": i18n_lang,
