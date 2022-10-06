@@ -71,6 +71,25 @@ export const postsBlock = groq`
   }
 `
 
+export const wikiBlock = groq`
+  _type == 'wikiBlock' => {
+    _type,
+    content {
+      ...,
+      link->{ "slug": slug.current, "lang": i18n_lang },
+      "posts": *[_type == "post" && i18n_lang == $lang && category == "wiki"]  | order(dateTime(publishedAt) desc) {
+        ...,
+        "slug": slug.current,
+        "lang": i18n_lang,
+        excerpt,
+        author->,
+        tags[]->,
+        "readingTime": round(length(pt::text(body)) / 5 / 180 )
+      }
+    }
+  }
+`
+
 export const bigTitleBlock: any = groq`
   _type == 'bigTitleBlock' => {
     _type,
@@ -147,6 +166,7 @@ export const blocks = groq`
   ${heroBlock},
   ${longcopyBlock},
   ${postsBlock},
+  ${wikiBlock},
   ${referencesBlock},
   ${bigTitleBlock},
   layout {

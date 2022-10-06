@@ -115,50 +115,6 @@ async function getBlogPost({
   }
 }
 
-async function getWikiPages({
-  lang = getDefaultLanguage().code,
-}: {
-  lang?: string
-}): Promise<
-  | ({
-      posts: SanityPost[]
-    } & DefaultDocumentProps<{
-      site?: SiteConfig
-      navigation?: SiteNavigation
-    }>[])
-  | undefined
-> {
-  const query = groq`{
-    ${`"posts": *[_type == "${PageType.blog}" && i18n_lang == $lang && category == "wiki"]  | order(dateTime(publishedAt) desc) {
-        ...,
-        "slug": slug.current,
-        "lang": i18n_lang,
-        excerpt,
-        author->,
-        tags[]->,
-        "readingTime": round(length(pt::text(body)) / 5 / 180 )
-      }`},
-    ${getSiteConfig()}
-  }`
-
-  try {
-    const data: {
-      posts: SanityPost[]
-    } & DefaultDocumentProps<{
-      site?: SiteConfig
-      navigation?: SiteNavigation
-    }>[] = await getClient().fetch(query, {
-      lang,
-    })
-
-    return {
-      ...data,
-    }
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 async function getAllPosts(): Promise<SanityPost[]> {
   const query = groq`{
     ${`"posts": *[_type == "${PageType.blog}" && category != "wiki"]  | order(dateTime(publishedAt) desc) {
@@ -233,5 +189,4 @@ export {
   getAllPosts,
   getAllWikiPages,
   getSiteInfo,
-  getWikiPages,
 }
