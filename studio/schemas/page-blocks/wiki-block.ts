@@ -4,10 +4,10 @@ import { blockFieldName } from '../../schemas/fragments/block-type'
 import { BlockContentType, ObjectField } from '../../types/schema-types'
 import { createBlockSchema } from '../helpers/create-block-schema'
 
-const BLOCK_NAME = 'postsBlock'
-const BLOCK_TITLE = 'Posts'
+const BLOCK_NAME = 'wikiBlock'
+const BLOCK_TITLE = 'Wiki'
 
-export const postsBlockContent: ObjectField = {
+export const wikiBlockContent: ObjectField = {
   type: 'object',
   title: 'Block Content',
   name: blockFieldName(BLOCK_NAME, BlockContentType.content),
@@ -35,12 +35,6 @@ export const postsBlockContent: ObjectField = {
       description: 'Enable search for this block',
     },
     {
-      title: 'Is first item featured',
-      name: 'featuredEnabled',
-      type: 'boolean',
-      description: 'The first item in the list is featered.',
-    },
-    {
       title: 'Tags',
       description: 'Only use companies with these tags',
       name: 'tags',
@@ -55,7 +49,7 @@ export const postsBlockContent: ObjectField = {
   ],
 }
 
-export const postsBlock: ObjectField = {
+export const wikiBlock: ObjectField = {
   ...createBlockSchema({
     name: BLOCK_NAME,
     title: BLOCK_TITLE,

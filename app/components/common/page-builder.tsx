@@ -7,6 +7,7 @@ import { HeroBlock } from '../sections/hero-block'
 import { KeywordlistBlock } from '../sections/keyword-list-block'
 import { LongcopyBlock } from '../sections/longcopy-block'
 import { PostsBlock } from '../sections/posts-block'
+import { WikiBlock } from '../sections/wiki-block'
 
 import { Placeholder } from '~/components/layout'
 
@@ -18,6 +19,7 @@ const components = {
   bigTitleBlock: BigtitleBlock,
   carouselBlock: CarouselBlock,
   postsBlock: PostsBlock,
+  wikiBlock: WikiBlock,
   heroBlock: HeroBlock,
   placeholderBlock: Placeholder,
   longcopyBlock: LongcopyBlock,

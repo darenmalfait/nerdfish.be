@@ -17,5 +17,6 @@ export const blocks: ArrayField = {
     { type: 'keywordListBlock' },
     { type: 'longcopyBlock' },
     { type: 'postsBlock' },
+    { type: 'wikiBlock' },
   ],
 }
