@@ -1,6 +1,6 @@
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/solid'
 import * as React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'remix'
 
 import { usePreviewSubscription } from '~/lib/api/sanity/use-preview-subscription'
 

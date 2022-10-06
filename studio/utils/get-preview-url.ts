@@ -19,7 +19,9 @@ export default function getPreviewUrl(doc: any): string | undefined {
 
     if (doc._type === 'post') {
       const dateSegment = formatDate(new Date(doc.publishedAt), 'yyyy/MM')
-      url.pathname = `/${lang}/blog/${dateSegment}/${slug || ''}/`
+      url.pathname = `/${lang}/${
+        doc.category === 'wiki' ? 'wiki' : 'blog'
+      }/${dateSegment}/${slug || ''}/`
     }
 
     url.searchParams.set(
