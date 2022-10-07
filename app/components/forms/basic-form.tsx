@@ -1,5 +1,6 @@
 import {
   Alert,
+  Button,
   Field,
   FormHelperText,
   Label,
@@ -8,8 +9,6 @@ import {
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useFetcher } from 'remix'
-
-import { Button } from '../buttons'
 
 import { useRecaptcha } from '~/lib/utils/recaptcha'
 import type { ActionData } from '~/routes/actions/submit-basic-form'

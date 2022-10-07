@@ -1,5 +1,4 @@
 export * from './arrow-link'
-export * from './button'
 export * from './cta'
 export * from './double-label-link'
 export * from './hamburger'

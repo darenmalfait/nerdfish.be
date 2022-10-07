@@ -1,8 +1,7 @@
+import { Button } from '@daren/ui-components'
 import { Listbox as HeadlessListbox } from '@headlessui/react'
 import { CheckIcon, ArrowsUpDownIcon } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-
-import { Button } from '~/components/buttons'
 
 export function Options({
   children,

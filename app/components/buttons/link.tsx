@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
+import { Link as BaseLink } from '@daren/ui-components'
 import * as React from 'react'
 import { Link as RemixLink, LinkProps } from 'remix'
 
@@ -45,7 +46,8 @@ const Link = React.forwardRef<
     return <a {...rest} download={download} href={href || toUrl} ref={ref} />
   } else {
     return (
-      <RemixLink
+      <BaseLink
+        as={RemixLink}
         prefetch={prefetch}
         {...rest}
         to={to || href || ''}

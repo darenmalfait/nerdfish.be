@@ -1,9 +1,7 @@
-import { H2, RadioGroup } from '@daren/ui-components'
+import { Button, H2, RadioGroup } from '@daren/ui-components'
 
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-
-import { Button } from '~/components/buttons'
 
 import { BasicForm } from '~/components/forms'
 import { Container } from '~/components/layout'
