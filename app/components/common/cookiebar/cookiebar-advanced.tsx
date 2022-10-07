@@ -1,3 +1,4 @@
+import { Button } from '@daren/ui-components'
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
@@ -6,7 +7,6 @@ import { useTranslation } from 'react-i18next'
 
 import { CookieType } from '.'
 
-import { Button } from '~/components/buttons'
 import { PortableText } from '~/components/common/'
 import { Accordion } from '~/components/elements'
 import { Toggle } from '~/components/forms'

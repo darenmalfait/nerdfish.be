@@ -1,6 +1,7 @@
+import { ButtonLink, ButtonProps } from '@daren/ui-components'
+
 import { ArrowLink } from './arrow-link'
 
-import { ButtonLink, ButtonProps } from './button'
 import { Link } from './link'
 
 import { DoubleLabelLink } from '.'

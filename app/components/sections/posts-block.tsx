@@ -1,4 +1,4 @@
-import { H3, Grid, H2 } from '@daren/ui-components'
+import { H3, Grid, H2, Button } from '@daren/ui-components'
 import { PlusIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import type { SerializeFrom } from '@remix-run/node'
 import { useSearchParams } from '@remix-run/react'
@@ -7,7 +7,6 @@ import parseISO from 'date-fns/parseISO'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Button } from '~/components/buttons'
 import { ArticleCard, HighlightCard, Tag } from '~/components/elements'
 import { Section, Container, Header, Spacer } from '~/components/layout'
 import { getBlogSlug, getRoute } from '~/lib/routes'

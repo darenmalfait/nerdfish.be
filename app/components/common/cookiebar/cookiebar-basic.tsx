@@ -1,8 +1,8 @@
+import { Button } from '@daren/ui-components'
 import type { PortableTextEntry } from '@sanity/block-content-to-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Button } from '~/components/buttons'
 import { PortableText } from '~/components/common/'
 import { CookieIcon } from '~/components/icons/cookie-icon'
 
