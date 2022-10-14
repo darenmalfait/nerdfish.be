@@ -1,8 +1,9 @@
 import type { LoaderArgs } from '@remix-run/node'
 
 import { getAllPosts, getSiteInfo } from '~/lib/api'
+import { getBlogSlug, getRoute } from '~/lib/routes'
 
-import { getDefaultLanguage, localizeSlug } from '~/lib/utils/i18n'
+import { getDefaultLanguage } from '~/lib/utils/i18n'
 import { getDomainUrl } from '~/lib/utils/misc'
 import { removeTrailingSlash } from '~/lib/utils/string'
 import { PageType } from '~/types'
@@ -18,10 +19,10 @@ export async function loader({ request, params }: LoaderArgs) {
     const canonical =
       post.seo?.canonical ??
       removeTrailingSlash(
-        `${getDomainUrl(request)}${localizeSlug(
-          post.slug || '',
-          lang,
+        `${getDomainUrl(request)}${getRoute(
           PageType.blog,
+          getBlogSlug(post.publishedAt, post.slug as string),
+          lang,
         )}`,
       )
 
