@@ -1,0 +1,74 @@
+---
+seo:
+  title: 'A kebab, a camel, and pascal walked into a code space...'
+  description: >-
+    In contrast to what the title might indicate, this blog post is not the
+    start of a joke.
+title: 'A kebab, a camel, and pascal walked into a codespace'
+tags:
+  - typescript
+  - best-practice
+category: technical
+heroImg: >-
+  https://res.cloudinary.com/darenmalfait/image/upload/v1667653207/pascal-walk_i4ieyk.png
+excerpt: >
+  In contrast to what the title might indicate, this blog post is not the start
+  of a joke. Instead of dad joking around, I want to talk about casing in naming
+  in programming.
+date: '2022-01-15T23:00:00.000Z'
+_body:
+  "In contrast to what the title might indicate, this blog post is not the start
+  of a joke. Instead of dad joking around, I want to talk about casing in naming
+  in programming.\n\nOnly interested in the short version about how I name my
+  stuff in programming. Skip to the conclusion. If you want to go for the full
+  story, keep on reading. Let’s dive in. \U0001F60A\n\n## What do I mean by
+  casing?\n\nIn programming, spaces are a kind of character that is reserved.
+  You can’t use spaces in variables, so we replace the spacing with something
+  that allows us to still read it.\n\nFor example, if you declare a variable to
+  indicate the visible item count:\n\n```typescript\nvisible item count =
+  5;\n```\n\nJavascript would try to treat every word as a different concept.
+  This means it treats visible, item, and count as individuals.\n\nSo we declare
+  the variable like this:\n\n```javascript\nvisibleItemCount = 5;\n```\n\nIn
+  conclusion, removing spaces is something you cannot ignore in programming. In
+  this blog, I will share my thoughts about different kinds of ways to remove
+  spacing from words, but I will mainly focus on how I think you should name
+  your files.\n\n## What are my options?\n\n### Camelcase (camelCase)\n\nTo use
+  camelCase, you strip the spaces from your words and capitalize every word
+  except the first.\n\n```powershell\nvisible item count =>
+  visibleItemCount\n```\n\nThis way of capitalizing is commonly used for
+  variable declaration.\n\n### Pascal case (PascalCase)\n\nTo write something in
+  Pascal-Case, you start every word with capital and remove the
+  spacing.\n\n```powershell\nvisible item count => VisibleItemCount\n```\n\nThis
+  is often used to declare classes.\n\n### Kebab case (kebab-case)\n\nYou can
+  write something as kebab-case by turning everything lowercase and replacing
+  spaces with dashes (-).\n\n```powershell\nvisible item count =>
+  visible-item-count\n```\n\nThis is commonly used to write readable URLs
+  (example.com/blog/title-of-the-blog-post).\n\n## What about
+  filenames?\n\nCamel Case seems to have become the standard for naming files in
+  front-end development. Why is that?\n\nOver the past years, I had a few naming
+  conventions. For instance, I used Pascal Case for components, kebab-case for
+  utilities, and camelCase for everything else. This way, I could expect what
+  was inside the file without opening it. I like the idea, but things get tricky
+  when stuff changes. FYI, file systems that are by default case insensitive,
+  like macOS, have issues when changing caps and submitting them to your repo.
+  It’s a recipe for failure at one point or another. There is always a way to
+  fix it, but in my opinion, it’s not worth the hassle. If I have to rely on the
+  file name casing to know what I would expect inside the file, it would
+  probably mean there are issues in my project structure in the first
+  place.\n\nOver time, I switched to all lower cases (kebab), and I love it. In
+  essence, these are the key benefits of kebab as opposed to camelCase:\n\n*
+  filenames are consistent and less cluttered\n* you don’t need to consider
+  casing. All files are considered equal (but some files are more equal than
+  others)\n* refactoring is easier\n* it avoids issues with filesystems that are
+  case-insensitive by default\n\nTo me, it seems like a small tradeoff for a lot
+  of benefits.\n\nIn addition, I’m not the only developer thinking this way. For
+  example, Kent C. Dodds replied to a tweet about someone who had an issue with
+  capitalization when his application was deployed to a (most likely) Linux
+  server.\n\n![KCD Twitter
+  message](https://res.cloudinary.com/darenmalfait/image/upload/v1667653577/Screenshot_2022-01-24_at_00.35.40_tu8tzr.png
+  \"KCD Twitter message\")\n\n## Conclusion: my preferred naming
+  conventions\n\nLong story short, this is how I like to name stuff in my
+  codespaces nowadays:\n\n* variables and utility functions => camelCase\n*
+  classes => PascalCase\n* filenames => kebab-case&#x20;\n\nWhat’s your
+  preferred naming convention? Let me know! \U0001F601\n"
+---

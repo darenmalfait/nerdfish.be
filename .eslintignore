@@ -1,7 +1,9 @@
-studio
-build/*
-public/*
-generate/*
-remix.env.d.ts
-node_modules
+/node_modules/.*
+
+# next
 dist
+next-env.d.ts
+
+# tina
+__generated__
+public

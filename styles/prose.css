@@ -13,3 +13,7 @@
 .prose > :first-child {
   margin-top: 0;
 }
+
+.prose img {
+  margin: 0 auto;
+}
