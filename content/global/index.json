@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "main": [
+      {
+        "href": "blog",
+        "label": "blog"
+      },
+      {
+        "href": "wiki",
+        "label": "wiki"
+      },
+      {
+        "href": "https://darenui.netlify.app/",
+        "label": "darenui"
+      }
+    ],
+    "actions": [
+      {
+        "href": "contact",
+        "label": "contact",
+        "isButton": true
+      }
+    ]
+  },
+  "social": {
+    "twitter": "https://twitter.com/darenmalfait",
+    "github": "https://github.com/darenmalfait"
+  },
+  "paths": {
+    "wiki": "wiki",
+    "blog": "blog",
+    "contact": "contact"
+  }
+}

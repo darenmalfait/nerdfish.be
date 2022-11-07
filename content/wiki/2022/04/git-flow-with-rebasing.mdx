@@ -1,0 +1,32 @@
+---
+title: git flow with rebasing
+tags:
+  - git
+excerpt: |
+  In this post, I present a Gitstrategy for developing and releasing software.
+date: '2022-04-06T22:00:00.000Z'
+---
+
+You can read this blog article to see why this is a successful way of branching. In this flow, we have the main branch and a development branch.&#x20;
+
+## Working with GitHub
+
+### Features
+
+* First, you open a Pull Request against the development branch.
+* When the Pull Request is approved, merge using squash and merge, adding the ticket number and a brief description: i.e., feat(unicorn): add a tail.
+
+That squashes your PR into one commit on the development branch. If there are conflicts, you need to rebase against development again. To do that, you run the following command in your feature branch.
+
+```powershell
+git pull --rebase origin development
+git push --force-with-lease
+```
+
+### Releases
+
+* First, open a Pull Request against the main branch
+* When the PR is approved, and the staging deployment has been verified by QA, merge using rebase and merge. DO NOT SQUASH MERGE!
+* Repeat the steps above against development (may need to rebase first if hotfixes have deployed).
+* Tag a release on main. Use the version number and put the changelog in the description. (Can be done automatically with a GitHub action).
+

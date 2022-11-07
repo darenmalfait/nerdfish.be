@@ -1,0 +1,23 @@
+---
+title: Git commands collection
+tags:
+  - git
+excerpt: |
+  Some git commands I use regularly.
+date: '2022-06-20T22:00:00.000Z'
+---
+
+## Unsynced origin
+
+You still have the repo online and offline, but they are not linked anymore
+
+```powershell
+git init
+git remote add origin <origin>
+```
+
+```powershell
+git fetch origin main
+git reset --hard origin/main
+```
+

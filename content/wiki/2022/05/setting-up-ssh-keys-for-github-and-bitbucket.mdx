@@ -1,0 +1,27 @@
+---
+title: setting up ssh keys for github and bitbucket
+tags:
+  - setup
+excerpt: |
+  Commands to create specific ssh keys for multiple hosts
+date: '2022-05-25T22:00:00.000Z'
+---
+
+## Generating a new SSH key for Github
+
+```powershell
+echo "Generating a new SSH key for Github (private)"
+ssh-keygen -t ed25519 -C "<insert email>" -f ~/.ssh/daren_github_private
+eval "$(ssh-agent -s)"
+touch ~/.ssh/config
+printf "# Default hostname\n Host github.com\n Hostname github.com\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/daren_github_private" | tee ~/.ssh/config
+ssh-add -K ~/.ssh/daren_github_private
+echo "run 'pbcopy < ~/.ssh/daren_github_private.pub' and paste that into Github"
+```
+
+If you use a new host or something like \`bitbucket.org-clientname\` as \`host\`. You need to add it to your ssh.
+
+```powershell
+ssh -T git@bitbucket.org-clientname
+```
+
