@@ -1,12 +1,15 @@
 {
   "extends": "./tsconfig-base.json",
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["remix/generate", "./generate", "./studio"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".forestry/types.ts",
+    ".forestry/config.ts",
+    "./tina/**/*.ts"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
     "forceConsistentCasingInFileNames": true,
     "target": "es2019",
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
@@ -14,9 +17,10 @@
     "strict": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": true
-  }
+  },
+  "exclude": ["node_modules"]
 }

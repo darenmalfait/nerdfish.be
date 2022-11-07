@@ -1,0 +1,52 @@
+query contentQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+  blogConnection {
+    edges {
+      node {
+        ...BlogParts
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+      }
+    }
+  }
+  wikiConnection {
+    edges {
+      node {
+        ...WikiParts
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+      }
+    }
+  }
+}
+
+query blogPostQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  blog(relativePath: $relativePath) {
+    ...BlogParts
+  }
+}
+
+query wikiQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  wiki(relativePath: $relativePath) {
+    ...WikiParts
+  }
+}

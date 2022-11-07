@@ -1,45 +1,34 @@
+
 # dependencies
 /node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+sitemap*
+robots.txt
 
 # misc
-.vscode/
 .DS_Store
-*.pem
-.history
-tsconfig.tsbuildinfo
+.env
+.env.local
+.idea
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*
-!.env.example
+# package manager files
+yarn.lock
 
-# vercel
-.vercel
-
-# netlify
-.netlify
-
-# backups
-*.tar.gz
-
-
-.cache
-build
-server-build
-public/build
-coverage
-tmp
-
-app/styles/**/*.css
-other/postcss.ignored
-
-cypress/videos
-cypress/screenshots
-*.local.*
-
-
-*_old.json
+# other
+tsconfig.tsbuildinfo

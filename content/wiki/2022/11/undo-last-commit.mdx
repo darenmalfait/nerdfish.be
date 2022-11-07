@@ -1,0 +1,21 @@
+---
+title: undo last commit
+tags:
+  - git
+excerpt: |
+  quick commands on how to reset to the previous commit
+date: '2022-11-06T23:00:00.000Z'
+---
+
+Using the soft flag, you can preserve the changes you want to undo. You'll find the changes as uncommitted local modifications in your working copy.
+
+```powershell
+git reset--soft HEAD~1
+```
+
+If you don't want to keep these changes, use the --hard flag. Be sure to do this when you're sure you don't need these changes anymore.
+
+```powershell
+git reset--hard HEAD~1
+```
+

@@ -39,7 +39,9 @@ module.exports = {
   content: [
     // ... paths that use tailwind
     fromRoot('./node_modules/@daren/**/*.{js,ts,jsx,tsx}'), // path to daren
-    fromRoot('./app/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./pages/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./pages-containers/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./components/**/*.{js,jsx,ts,tsx}'),
   ],
   plugins: [
     require('@tailwindcss/typography'),
