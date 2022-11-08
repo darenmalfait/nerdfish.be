@@ -32,7 +32,7 @@ function FormSelector({
         <RadioGroup.Option value="coffee" label="grab a coffee" />
       </RadioGroup>
       <Button type="button" name="set-form-type" onClick={onClick}>
-        Volgende
+        Write your message
       </Button>
     </div>
   )
