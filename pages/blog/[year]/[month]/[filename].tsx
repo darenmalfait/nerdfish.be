@@ -1,11 +1,5 @@
-import {
-  Container,
-  Grid,
-  H2,
-  H6,
-  ProgressiveImage,
-  Section,
-} from '@daren/ui-components'
+import { Container, Grid, H2, H6, Section } from '@daren/ui-components'
+
 import formatDate from 'date-fns/format'
 import { padStart } from 'lodash'
 import type { GetStaticPropsContext } from 'next'
@@ -13,17 +7,14 @@ import { useTina } from 'tinacms/dist/react'
 
 import type { BlogPostQueryQuery } from '../../../../.tina/__generated__/types'
 import { BackLink } from '../../../../components/common/arrow-link'
+import { Image } from '../../../../components/common/image'
 import { PortableText } from '../../../../components/common/portable-text'
 import { Seo } from '../../../../components/common/seo'
 import { Layout } from '../../../../components/layout/layout'
 import { useGlobal } from '../../../../context/global-provider'
 import { getBlogPost, getBlogPosts } from '../../../../lib/services/api'
 import type { AsyncReturnType } from '../../../../lib/types/misc'
-import {
-  buildSrc,
-  buildSrcSet,
-  getLowQualityUrlFor,
-} from '../../../../lib/utils/cloudinary'
+import { buildSrc, getLowQualityUrlFor } from '../../../../lib/utils/cloudinary'
 
 function Content({ blog }: BlogPostQueryQuery) {
   const { paths } = useGlobal()
@@ -59,20 +50,11 @@ function Content({ blog }: BlogPostQueryQuery) {
         <Grid className="mb-12">
           <Container size="medium" data-tinafield="image">
             {heroImg && (
-              <figure className="relative h-auto">
-                <ProgressiveImage
-                  placeholder={getLowQualityUrlFor(heroImg)}
-                  img={
-                    <img
-                      className="rounded-md"
-                      sizes="(min-width: 940px) 50vw, 100vw"
-                      srcSet={buildSrcSet(heroImg)}
-                      src={buildSrc(heroImg)}
-                      alt={title}
-                    />
-                  }
-                />
-              </figure>
+              <Image
+                blurDataURL={getLowQualityUrlFor(heroImg)}
+                src={buildSrc(heroImg)}
+                alt={title}
+              />
             )}
           </Container>
         </Grid>

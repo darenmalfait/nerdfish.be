@@ -1,14 +1,12 @@
-import { Container, Grid, H2, ProgressiveImage } from '@daren/ui-components'
+import { Container, Grid, H2 } from '@daren/ui-components'
+
 import { motion } from 'framer-motion'
 import type { RichTextType, Template } from 'tinacms'
 
 import { imageSchema, portableTextSchema } from '../../.tina/schema/objects'
-import type { Block, Image } from '../../lib/types/cms'
-import {
-  buildSrc,
-  buildSrcSet,
-  getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+import { Image } from '../../components/common/image'
+import type { Block, Image as ImageType } from '../../lib/types/cms'
+import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
 import { PortableText } from '../common/portable-text'
 
 const childVariants = {
@@ -22,7 +20,7 @@ const Hero = ({
   text,
   title,
 }: Block & {
-  image?: Image
+  image?: ImageType
   text?: RichTextType
   title?: string
 }) => {
@@ -67,19 +65,14 @@ const Hero = ({
               transition={{ duration: 0.75 }}
               className="flex relative items-center mx-auto w-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
             >
-              <ProgressiveImage
+              <Image
                 className="mb-12 rounded-xl"
-                placeholder={getLowQualityUrlFor(image.src)}
-                img={
-                  <img
-                    sizes="(min-width: 940px) 50vw, 100vw"
-                    srcSet={buildSrcSet(image.src)}
-                    src={buildSrc(image.src, {
-                      width: 500,
-                    })}
-                    alt={image.alt}
-                  />
-                }
+                blurDataURL={getLowQualityUrlFor(image.src)}
+                src={buildSrc(image.src, {
+                  width: 500,
+                })}
+                loading="eager"
+                alt={image.alt}
               />
             </motion.div>
           )}

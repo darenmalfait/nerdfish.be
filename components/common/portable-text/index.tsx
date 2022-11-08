@@ -4,6 +4,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { PortableButton } from './portable-button'
 import { PortableCode } from './portable-code'
 import { PortableContactForm } from './portable-contact-form'
+import { PortableImage } from './portable-image'
 
 function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
   return (
@@ -14,6 +15,7 @@ function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
           Button: PortableButton,
           ContactForm: PortableContactForm,
           code_block: PortableCode,
+          img: PortableImage,
         } as any
       }
     />

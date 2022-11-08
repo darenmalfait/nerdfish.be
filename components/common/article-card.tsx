@@ -1,16 +1,13 @@
-import { H3, ProgressiveImage } from '@daren/ui-components'
+import { H3 } from '@daren/ui-components'
 import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 
+import { Image } from './image'
 import { Link } from './link'
 
 import type { Blog } from '../../.tina/__generated__/types'
-import {
-  buildSrc,
-  buildSrcSet,
-  getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
 import { getDatedSlug } from '../../lib/utils/routes'
 import {
   CategoryIndicator,
@@ -34,23 +31,16 @@ function ArticleCard({
 
         {heroImg ? (
           <div className="rounded-lg aspect-w-3 aspect-h-4">
-            <ProgressiveImage
+            <Image
               className={clsx(
-                'object-contain absolute inset-0 w-full h-full rounded-lg focus-ring',
+                'object-cover absolute inset-0 w-full h-full rounded-lg focus-ring',
                 getCategoryColors(category),
               )}
-              placeholder={getLowQualityUrlFor(heroImg)}
-              img={
-                <img
-                  className="rounded-lg"
-                  sizes="(min-width: 940px) 50vw, 100vw"
-                  srcSet={buildSrcSet(heroImg)}
-                  src={buildSrc(heroImg, {
-                    width: 300,
-                  })}
-                  alt={title}
-                />
-              }
+              blurDataURL={getLowQualityUrlFor(heroImg)}
+              src={buildSrc(heroImg, {
+                width: 600,
+              })}
+              alt={title ?? ''}
             />
           </div>
         ) : (
