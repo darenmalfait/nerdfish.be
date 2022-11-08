@@ -75,6 +75,14 @@ function getMetaTags({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       )}
+
+      <link
+        key="rss-feed"
+        rel="alternative"
+        type="application/xml; charset=utf-8"
+        title="RSS feed for daren.be"
+        href="/rss.xml"
+      />
     </>
   )
 }
