@@ -7,6 +7,7 @@ import '@daren/theme/dist/darenui.css'
 import '../styles/tailwind.css'
 import '../styles/app.css'
 import '../styles/prose.css'
+import '../styles/components.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
