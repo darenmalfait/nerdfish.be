@@ -1,19 +1,16 @@
-import { Container, Grid, H2, ProgressiveImage } from '@daren/ui-components'
+import { Container, Grid, H2 } from '@daren/ui-components'
 import clsx from 'clsx'
 import * as React from 'react'
 
 import { ArrowLink } from './arrow-link'
+import { Image } from './image'
 import { Link } from './link'
 
 import {
   CategoryIndicator,
   getCategoryColors,
 } from '../../components/common/category-indicator'
-import {
-  buildSrc,
-  buildSrcSet,
-  getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
 
 interface HighlightCardProps {
   title?: string
@@ -84,19 +81,13 @@ function HighlightCard({
             </div>
             <div className="relative col-span-full mt-12 h-0 aspect-w-3 aspect-h-4 lg:col-span-4 lg:col-start-8 lg:mt-0">
               {image && (
-                <ProgressiveImage
+                <Image
                   className="object-cover absolute inset-0"
-                  placeholder={getLowQualityUrlFor(image)}
-                  img={
-                    <img
-                      sizes="(min-width: 940px) 50vw, 100vw"
-                      srcSet={buildSrcSet(image)}
-                      src={buildSrc(image, {
-                        width: 300,
-                      })}
-                      alt={title}
-                    />
-                  }
+                  blurDataURL={getLowQualityUrlFor(image)}
+                  src={buildSrc(image, {
+                    width: 600,
+                  })}
+                  alt={title ?? ''}
                 />
               )}
             </div>
