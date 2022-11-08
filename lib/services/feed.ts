@@ -2,6 +2,7 @@ import { Feed } from 'feed'
 
 import { getBlogPosts } from './api'
 
+import type { BlogType } from '../../lib/types/cms'
 import { BlogPath } from '../utils/constants'
 import { getDatedSlug } from '../utils/routes'
 
@@ -21,8 +22,8 @@ async function buildFeed() {
 
   const posts = await getBlogPosts()
 
-  posts.forEach(post => {
-    const link = `/${BlogPath}${getDatedSlug(
+  posts.forEach((post: BlogType) => {
+    const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
       post.date || new Date().toString(),
       post._sys?.filename || '',
     )}`
