@@ -15,5 +15,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: npm install install
+      - run: npm install --legacy-peer-deps
       - run: npm run validate
