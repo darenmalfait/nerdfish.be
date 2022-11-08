@@ -51,7 +51,7 @@ function HighlightCard({
             className="group px-8 pt-14 pb-6 w-full rounded-lg md:pb-12 lg:px-0 bg-secondary"
           >
             <div className="col-span-full lg:flex lg:flex-col lg:col-span-5 lg:col-start-2 lg:justify-between">
-              <div>
+              <div suppressHydrationWarning>
                 {category && (
                   <CategoryIndicator
                     className="bg-grey-900 dark:bg-gray-50 mb-8 text-white dark:text-gray-900"
