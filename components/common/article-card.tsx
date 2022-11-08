@@ -61,7 +61,10 @@ function ArticleCard({
           </div>
         )}
 
-        <div className="mt-8 text-xl font-bold text-primary-300">
+        <div
+          className="mt-8 text-xl font-bold text-primary-300"
+          suppressHydrationWarning
+        >
           {date ? formatDate(parseISO(date), 'PPP') : ''}
         </div>
         <H3 as="div" className="mt-4">

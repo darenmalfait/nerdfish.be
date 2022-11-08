@@ -184,6 +184,7 @@ function Wiki({
                     <article
                       key={wiki._sys?.filename}
                       className="flex flex-col"
+                      suppressHydrationWarning
                     >
                       <Link
                         href={`/wiki${getDatedSlug(
@@ -194,7 +195,10 @@ function Wiki({
                       >
                         {wiki.title}
                       </Link>
-                      <p className="text-sm text-gray-400 dark:text-gray-600">
+                      <p
+                        className="text-sm text-gray-400 dark:text-gray-600"
+                        suppressHydrationWarning
+                      >
                         {formatDate(parseISO(wiki.date || ''), 'PPP')}
                       </p>
                       <div className="mt-2 text-justify text-gray-600 dark:text-gray-300">

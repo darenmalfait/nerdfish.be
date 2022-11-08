@@ -37,7 +37,9 @@ function Content({ wiki }: WikiQueryQuery) {
                 variant="secondary"
                 className="mt-2"
               >
-                {formatDate(new Date(date), 'dd MMMM yyyy')}
+                <span suppressHydrationWarning>
+                  {formatDate(new Date(date), 'dd MMMM yyyy')}
+                </span>
               </H6>
             )}
           </Container>
