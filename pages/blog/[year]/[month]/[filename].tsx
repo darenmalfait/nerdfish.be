@@ -97,15 +97,7 @@ export default function BlogPostPage(
         url={props.params?.filename || '/'}
         description={data.blog.seo?.description || ''}
         canonical={data.blog.seo?.canonical}
-      >
-        <link
-          key="rss-feed"
-          rel="alternative"
-          type="application/xml; charset=utf-8"
-          title="RSS feed for daren.be"
-          href="/rss.xml"
-        />
-      </Seo>
+      />
       <Content {...data} />
     </Layout>
   )
