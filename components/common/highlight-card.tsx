@@ -10,7 +10,11 @@ import {
   CategoryIndicator,
   getCategoryColors,
 } from '../../components/common/category-indicator'
-import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
+import {
+  buildSrc,
+  buildSrcSet,
+  getLowQualityUrlFor,
+} from '../../lib/utils/cloudinary'
 
 interface HighlightCardProps {
   title?: string
@@ -83,7 +87,8 @@ function HighlightCard({
               {image && (
                 <Image
                   className="object-cover absolute inset-0"
-                  blurDataURL={getLowQualityUrlFor(image)}
+                  placeholder={getLowQualityUrlFor(image)}
+                  srcSet={buildSrcSet(image)}
                   src={buildSrc(image, {
                     width: 600,
                   })}

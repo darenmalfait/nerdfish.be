@@ -7,7 +7,11 @@ import { Image } from './image'
 import { Link } from './link'
 
 import type { Blog } from '../../.tina/__generated__/types'
-import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
+import {
+  buildSrc,
+  buildSrcSet,
+  getLowQualityUrlFor,
+} from '../../lib/utils/cloudinary'
 import { getDatedSlug } from '../../lib/utils/routes'
 import {
   CategoryIndicator,
@@ -36,7 +40,8 @@ function ArticleCard({
                 'object-cover absolute inset-0 w-full h-full rounded-lg focus-ring',
                 getCategoryColors(category),
               )}
-              blurDataURL={getLowQualityUrlFor(heroImg)}
+              placeholder={getLowQualityUrlFor(heroImg)}
+              srcSet={buildSrcSet(heroImg)}
               src={buildSrc(heroImg, {
                 width: 600,
               })}

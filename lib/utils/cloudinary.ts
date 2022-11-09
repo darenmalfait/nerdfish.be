@@ -33,7 +33,7 @@ function buildSrc(
 function buildSrcSet(
   imageUrl: string,
   {
-    srcSizes = [600, 850, 1100, 1300],
+    srcSizes = [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     format,
   }: {
     srcSizes?: number[]

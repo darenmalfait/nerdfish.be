@@ -6,7 +6,11 @@ import type { RichTextType, Template } from 'tinacms'
 import { imageSchema, portableTextSchema } from '../../.tina/schema/objects'
 import { Image } from '../../components/common/image'
 import type { Block, Image as ImageType } from '../../lib/types/cms'
-import { buildSrc, getLowQualityUrlFor } from '../../lib/utils/cloudinary'
+import {
+  buildSrc,
+  buildSrcSet,
+  getLowQualityUrlFor,
+} from '../../lib/utils/cloudinary'
 import { PortableText } from '../common/portable-text'
 
 const childVariants = {
@@ -67,7 +71,8 @@ const Hero = ({
             >
               <Image
                 className="mb-12 rounded-xl"
-                blurDataURL={getLowQualityUrlFor(image.src)}
+                placeholder={getLowQualityUrlFor(image.src)}
+                srcSet={buildSrcSet(image.src)}
                 src={buildSrc(image.src, {
                   width: 500,
                 })}
