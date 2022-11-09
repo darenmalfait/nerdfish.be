@@ -14,7 +14,11 @@ import { Layout } from '../../../../components/layout/layout'
 import { useGlobal } from '../../../../context/global-provider'
 import { getBlogPost, getBlogPosts } from '../../../../lib/services/api'
 import type { AsyncReturnType } from '../../../../lib/types/misc'
-import { buildSrc, getLowQualityUrlFor } from '../../../../lib/utils/cloudinary'
+import {
+  buildSrc,
+  buildSrcSet,
+  getLowQualityUrlFor,
+} from '../../../../lib/utils/cloudinary'
 
 function Content({ blog }: BlogPostQueryQuery) {
   const { paths } = useGlobal()
@@ -51,7 +55,8 @@ function Content({ blog }: BlogPostQueryQuery) {
           <Container size="medium" data-tinafield="image">
             {heroImg && (
               <Image
-                blurDataURL={getLowQualityUrlFor(heroImg)}
+                placeholder={getLowQualityUrlFor(heroImg)}
+                srcSet={buildSrcSet(heroImg)}
                 src={buildSrc(heroImg)}
                 alt={title}
               />
