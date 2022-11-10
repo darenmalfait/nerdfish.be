@@ -1,0 +1,17 @@
+{
+  "exclude": ["node_modules", "__generated__/*"],
+  // "include": ["./**/*"],
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "preserveWatchOutput": true
+  }
+}

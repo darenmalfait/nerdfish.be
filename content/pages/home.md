@@ -5,6 +5,10 @@ seo:
 title: Home
 blocks:
   - title: Daren Malfait
+    action:
+      title: Hire me
+      label: Get in touch
+      href: contact
     _template: bigTitle
   - title: 'Hi, I''m Daren'
     text: >
