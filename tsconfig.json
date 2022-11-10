@@ -5,8 +5,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".forestry/types.ts",
-    ".forestry/config.ts",
-    "./tina/**/*.ts"
+    ".forestry/config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
