@@ -48,6 +48,10 @@ cp .env.example .env
   - `NEXT_PUBLIC_RECAPTCHA_SITEKEY` recaptcha public key
   - `RECAPTCHA_SECRETKEY` recaptcha secret key
   - `SENDGRID_API_KEY` found in sendgrid
+  - `NEXT_PUBLIC_ALGOLIA_APP_ID`: found in Algolia app settings
+  - `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`: found in Algolia app settings
+  - `ALGOLIA_ADMIN_KEY`: found in Algolia app settings
+  - `NEXT_PUBLIC_ALGOLIA_INDEX_NAME`: found in Algolia app settings
 
 #### Import environment variables from a file
 Perhaps you already have your environment variables stored in a local file like a .env file. You can use that as a source to bulk import into Netlify like this:
