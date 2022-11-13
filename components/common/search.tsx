@@ -1,13 +1,6 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-
-type SearchItem = {
-  title?: string
-  slug: string
-  type?: string
-}
-
 import * as React from 'react'
 import {
   InstantSearch,
@@ -16,9 +9,14 @@ import {
   Configure,
 } from 'react-instantsearch-hooks-web'
 
-import { Link } from './link'
+type SearchItem = {
+  title?: string
+  slug: string
+  type?: string
+}
 
 import { getAlgoliaClient } from '../../lib/services/search'
+import { stripPreSlash } from '../../lib/utils/string'
 
 const INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME ?? ''
 const searchClient = getAlgoliaClient().algoliaClient
@@ -46,25 +44,24 @@ function Hits() {
           className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-primary"
         >
           {hits.map((hit, index) => (
-            <Link href={hit.slug} key={hit.objectID}>
-              <Combobox.Option
-                tabIndex={index}
-                value={hit}
-                className={({ active }) =>
-                  clsx(
-                    'flex items-center justify-between p-4 max-w-full',
-                    active && 'bg-primary',
-                  )
-                }
-              >
-                <span className="whitespace-nowrap font-semibold text-primary truncate">
-                  {hit.title?.toLowerCase()}
-                </span>
-                <span className="ml-4 text-right text-xs text-secondary">
-                  {hit.type}
-                </span>
-              </Combobox.Option>
-            </Link>
+            <Combobox.Option
+              tabIndex={index}
+              key={hit.objectID}
+              value={hit}
+              className={({ active }) =>
+                clsx(
+                  'flex items-center justify-between p-4 max-w-full',
+                  active && 'bg-primary',
+                )
+              }
+            >
+              <span className="whitespace-nowrap font-semibold text-primary truncate">
+                {hit.title?.toLowerCase()}
+              </span>
+              <span className="ml-4 text-right text-xs text-secondary">
+                {hit.type}
+              </span>
+            </Combobox.Option>
           ))}
         </Combobox.Options>
       )}
@@ -135,7 +132,14 @@ function SearchInput() {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="group mx-auto max-w-xl rounded-xl shadow-2xl transition-all bg-secondary">
-                <Combobox onChange={() => setOpen(false)}>
+                <Combobox
+                  onChange={(item: SearchItem) => {
+                    window.location = `/${stripPreSlash(
+                      item.slug,
+                    )}` as unknown as Location
+                    setOpen(false)
+                  }}
+                >
                   <div className="relative">
                     <Combobox.Input
                       id="algolia_search"
