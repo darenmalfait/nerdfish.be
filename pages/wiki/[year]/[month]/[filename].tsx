@@ -1,11 +1,12 @@
 import { Container, Grid, H2, H6, Section } from '@daren/ui-components'
-import formatDate from 'date-fns/format'
+import { parseISO } from 'date-fns'
 import { padStart } from 'lodash'
 import type { GetStaticPropsContext } from 'next'
 import { useTina } from 'tinacms/dist/react'
 
 import type { WikiQueryQuery } from '../../../../.tina/__generated__/types'
 import { BackLink } from '../../../../components/common/arrow-link'
+import { DateFormatter } from '../../../../components/common/date-formatter'
 import { PortableText } from '../../../../components/common/portable-text'
 import { Seo } from '../../../../components/common/seo'
 import { Layout } from '../../../../components/layout/layout'
@@ -38,7 +39,7 @@ function Content({ wiki }: WikiQueryQuery) {
                 className="mt-2"
               >
                 <span suppressHydrationWarning>
-                  {formatDate(new Date(date), 'dd MMMM yyyy')}
+                  <DateFormatter dateString={date} format="dd MMMM yyyy" />
                 </span>
               </H6>
             )}
@@ -98,7 +99,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: wikiItems.map(({ date, _sys }) => {
-      const d = new Date(date || '')
+      const d = parseISO(date || '')
 
       return {
         params: {

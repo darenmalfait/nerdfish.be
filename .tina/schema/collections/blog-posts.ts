@@ -1,3 +1,4 @@
+import { parseISO } from 'date-fns'
 import { padStart } from 'lodash'
 import slugify from 'slugify'
 import { Collection } from 'tinacms'
@@ -19,7 +20,7 @@ const blogPostsCollection: Collection = {
     filename: {
       readonly: true,
       slugify: values => {
-        const date = values.date ? new Date(values.date) : new Date()
+        const date = parseISO(values.date)
         const year = date.getFullYear()
         const month = padStart((date.getMonth() + 1).toString(), 2, '0')
 
