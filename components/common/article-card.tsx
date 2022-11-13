@@ -1,8 +1,7 @@
 import { H3 } from '@daren/ui-components'
 import clsx from 'clsx'
-import formatDate from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
 
+import { DateFormatter } from './date-formatter'
 import { Image } from './image'
 import { Link } from './link'
 
@@ -60,7 +59,7 @@ function ArticleCard({
           className="mt-8 text-xl font-bold text-primary-300"
           suppressHydrationWarning
         >
-          {date ? formatDate(parseISO(date), 'PPP') : ''}
+          <DateFormatter dateString={date} format="PPP" />
         </div>
         <H3 as="div" className="mt-4">
           {title}

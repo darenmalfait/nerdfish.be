@@ -1,3 +1,5 @@
+import { parseISO } from 'date-fns'
+
 import client from '../../.tina/__generated__/client'
 
 import type { Blog, ContentQueryQuery, Wiki } from '.tina/__generated__/types'
@@ -9,8 +11,8 @@ function sortByDate<T>(
     }[],
 ) {
   return items.sort((a, b) => {
-    const aDate = new Date(a.date || '')
-    const bDate = new Date(b.date || '')
+    const aDate = parseISO(a.date || '')
+    const bDate = parseISO(b.date || '')
 
     return bDate.getTime() - aDate.getTime()
   })

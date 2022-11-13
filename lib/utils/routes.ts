@@ -1,3 +1,4 @@
+import { parseISO } from 'date-fns'
 import formatDate from 'date-fns/format'
 
 import { stripPreSlash } from './string'
@@ -17,7 +18,7 @@ function getRoute(slug: string, basePath: string = ''): string {
 function getDatedSlug(date: string, slug: string) {
   if (!date) return slug
 
-  const dateSegment = formatDate(new Date(date), 'yyyy/MM')
+  const dateSegment = formatDate(parseISO(date), 'yyyy/MM')
   return `/${dateSegment}/${slug || ''}`
 }
 

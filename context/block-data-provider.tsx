@@ -1,3 +1,4 @@
+import { parseISO } from 'date-fns'
 import * as React from 'react'
 
 import type { Blog, Wiki } from '../.tina/__generated__/types'
@@ -19,8 +20,8 @@ interface BlockDataProviderProps {
 // sort by date newest first
 function sortNewestFirst(items: any[]) {
   return items.sort((a, b) => {
-    const aDate = new Date(a.date)
-    const bDate = new Date(b.date)
+    const aDate = parseISO(a.date)
+    const bDate = parseISO(b.date)
 
     return bDate.getTime() - aDate.getTime()
   })
