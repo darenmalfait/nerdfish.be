@@ -7,6 +7,7 @@ import * as React from 'react'
 import { Hamburger } from '../../../components/common/hamburger'
 import { Link } from '../../../components/common/link'
 import { Overlay } from '../../../components/common/overlay'
+import { Search } from '../../../components/common/search'
 import { ThemeToggle } from '../../../components/common/theme-toggle'
 import { Logo } from '../../../components/icons/logo'
 import { useClickOutside } from '../../../lib/utils/use-click-outside'
@@ -118,6 +119,7 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
               </div>
               <div className="flex justify-end md:flex-1">
                 <nav className="inline-flex items-center ml-5 space-x-4 lg:justify-end lg:ml-0 lg:space-y-0 lg:w-2/5">
+                  <Search />
                   <ThemeToggle />
                   <a
                     className="hidden p-2 rounded-full xsm:block focus-ring"
