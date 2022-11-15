@@ -1,4 +1,5 @@
-import { parseISO, format as formatDate } from 'date-fns'
+import { format as formatDate } from 'date-fns'
+import * as React from 'react'
 
 function DateFormatter({
   dateString,
@@ -7,13 +8,21 @@ function DateFormatter({
   dateString: string
   format?: string
 }) {
-  const date = parseISO(dateString)
+  const [hydrated, setHydrated] = React.useState(false)
 
-  return (
-    <time suppressHydrationWarning dateTime={dateString}>
-      {formatDate(date, format || 'PP')}
-    </time>
-  )
+  React.useEffect(() => {
+    // This forces a rerender, so the date is rendered
+    // the second time but not the first
+    setHydrated(true)
+  }, [])
+  if (!hydrated) {
+    // Returns null on first render, so the client and server match
+    return null
+  }
+
+  const date = new Date(dateString)
+
+  return <time dateTime={dateString}>{formatDate(date, format || 'PP')}</time>
 }
 
 export { DateFormatter }

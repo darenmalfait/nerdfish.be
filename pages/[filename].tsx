@@ -53,7 +53,7 @@ export const getStaticProps = async ({
 
 export const getStaticPaths = async () => {
   return {
-    paths: (await getPages()).map(page => ({
+    paths: ((await getPages()) || []).map(page => ({
       params: { filename: page._sys?.filename },
     })),
     fallback: 'blocking',
