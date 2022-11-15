@@ -8,6 +8,7 @@ import type { Template } from 'tinacms'
 
 import { tagsSchema } from '../../.tina/schema/objects'
 import { useBlockData } from '../../context/block-data-provider'
+import { useGlobal } from '../../context/global-provider'
 import type { Block } from '../../lib/types/cms'
 import { filterBlog } from '../../lib/utils/blog'
 import { BlogPath } from '../../lib/utils/constants'
@@ -40,6 +41,7 @@ function Blog({
   tags?: string[]
   count?: number
 }) {
+  const { hydrated } = useGlobal()
   const { title, subtitle, link } = header || {}
   const router = useRouter()
   const [queryValue, setQuery] = React.useState(
@@ -187,15 +189,21 @@ function Blog({
         <Section>
           <HighlightCard
             category={featured.category}
-            href={`/${BlogPath}${getDatedSlug(
-              featured.date as string,
-              featured._sys?.filename || '',
-            )}`}
+            href={
+              hydrated
+                ? `/${BlogPath}${getDatedSlug(
+                    featured.date as string,
+                    featured._sys?.filename || '',
+                  )}`
+                : ''
+            }
             title={featured.title}
             subTitle={
-              featured.date
-                ? `${formatDate(parseISO(featured.date), 'PPP')}`
-                : 'TBA'
+              hydrated
+                ? featured.date
+                  ? `${formatDate(parseISO(featured.date), 'PPP')}`
+                  : 'TBA'
+                : ''
             }
             image={featured.heroImg}
           />

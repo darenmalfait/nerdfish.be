@@ -1,7 +1,9 @@
 import { Inter as interFont, Lora as loraFont } from '@next/font/google'
-import { AppProviders } from 'context/app-providers'
+
 import { LazyMotion, domAnimation } from 'framer-motion'
 import type { AppProps } from 'next/app'
+
+import { AppProviders } from '../context/app-providers'
 
 const inter = interFont({
   variable: '--font-inter',

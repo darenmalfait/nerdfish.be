@@ -6,6 +6,7 @@ import { Image } from './image'
 import { Link } from './link'
 
 import type { Blog } from '../../.tina/__generated__/types'
+import { useGlobal } from '../../context/global-provider'
 import {
   buildSrc,
   buildSrcSet,
@@ -24,10 +25,13 @@ function ArticleCard({
   category,
   _sys,
 }: Partial<Blog>) {
+  const { hydrated } = useGlobal()
   return (
     <div className="relative w-full">
       <Link
-        href={`/blog${getDatedSlug(date, _sys?.filename || '')}`}
+        href={
+          hydrated ? `/blog${getDatedSlug(date, _sys?.filename || '')}` : ''
+        }
         className="group peer block relative w-full focus:outline-none"
       >
         <CategoryIndicator category={category} />
