@@ -5,12 +5,12 @@ import type { AppProps } from 'next/app'
 
 import { AppProviders } from '../context/app-providers'
 
-const inter = interFont({
+export const inter = interFont({
   variable: '--font-inter',
   subsets: ['latin'],
 })
 
-const lora = loraFont({
+export const lora = loraFont({
   variable: '--font-lora',
   subsets: ['latin'],
 })
@@ -26,7 +26,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <AppProviders>
       <LazyMotion features={domAnimation}>
-        <main className={`${inter.variable} ${lora.variable} font-sans`}>
+        <main>
           <Component {...pageProps} />
         </main>
       </LazyMotion>
