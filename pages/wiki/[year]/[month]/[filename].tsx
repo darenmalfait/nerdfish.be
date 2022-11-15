@@ -1,5 +1,4 @@
 import { Container, Grid, H2, H6, Section } from '@daren/ui-components'
-import { parseISO } from 'date-fns'
 import { padStart } from 'lodash'
 import type { GetStaticPropsContext } from 'next'
 import { useTina } from 'tinacms/dist/react'
@@ -93,11 +92,9 @@ export const getStaticProps = async ({
 }
 
 export const getStaticPaths = async () => {
-  const wikiItems = await getWikiPosts()
-
   return {
-    paths: wikiItems.map(({ date, _sys }) => {
-      const d = parseISO(date || '')
+    paths: ((await getWikiPosts()) || []).map(({ date, _sys }) => {
+      const d = new Date(date || '')
 
       return {
         params: {

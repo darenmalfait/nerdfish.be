@@ -1,11 +1,11 @@
 import { Button, Container, Grid, H2, H3, Section } from '@daren/ui-components'
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
-import { DateFormatter } from 'components/common/date-formatter'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 
 import { tagsSchema } from '../../.tina/schema/objects'
+import { DateFormatter } from '../../components/common/date-formatter'
 import { useBlockData } from '../../context/block-data-provider'
 import type { Block } from '../../lib/types/cms'
 import { useUpdateQueryStringValueWithoutNavigation } from '../../lib/utils/misc'
