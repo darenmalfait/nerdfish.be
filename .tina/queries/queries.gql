@@ -3,7 +3,7 @@ query contentQuery($relativePath: String!) {
   page(relativePath: $relativePath) {
     ...PageParts
   }
-  blogConnection {
+  blogConnection(sort: "date", last: -1) {
     edges {
       node {
         ...BlogParts
@@ -19,7 +19,7 @@ query contentQuery($relativePath: String!) {
       }
     }
   }
-  wikiConnection {
+  wikiConnection(sort: "date", last: -1) {
     edges {
       node {
         ...WikiParts

@@ -1,4 +1,3 @@
-import { parseISO } from 'date-fns'
 import * as React from 'react'
 
 import type { Blog, Wiki } from '../.tina/__generated__/types'
@@ -17,16 +16,6 @@ interface BlockDataProviderProps {
   children: React.ReactNode
 }
 
-// sort by date newest first
-function sortNewestFirst(items: any[]) {
-  return items.sort((a, b) => {
-    const aDate = parseISO(a.date)
-    const bDate = parseISO(b.date)
-
-    return bDate.getTime() - aDate.getTime()
-  })
-}
-
 // import { BlockDataProvider } from "path-to-context/BlockDataContext"
 // use <BlockDataProvider> as a wrapper around the part you need the context for
 function BlockDataProvider({
@@ -35,9 +24,7 @@ function BlockDataProvider({
   children,
 }: BlockDataProviderProps) {
   return (
-    <BlockDataContext.Provider
-      value={{ wiki: sortNewestFirst(wiki), blog: sortNewestFirst(blog) }}
-    >
+    <BlockDataContext.Provider value={{ wiki, blog }}>
       {children}
     </BlockDataContext.Provider>
   )
