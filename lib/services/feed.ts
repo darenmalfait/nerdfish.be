@@ -1,4 +1,3 @@
-import { parseISO } from 'date-fns'
 import { Feed } from 'feed'
 
 import { getBlogPosts } from './api'
@@ -24,7 +23,7 @@ async function buildFeed() {
 
   posts.forEach(post => {
     const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
-      parseISO(post.date || '').toISOString(),
+      new Date(post.date || '').toDateString(),
       post._sys?.filename || '',
     )}`
 
@@ -40,7 +39,7 @@ async function buildFeed() {
           link: 'https://www.daren.be',
         },
       ],
-      date: parseISO(post.date || ''),
+      date: new Date(post.date || ''),
       image: post.heroImg || undefined,
     })
   })
