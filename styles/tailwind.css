@@ -1,42 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: block;
-  font-weight: 400;
-  src: local("Inter Regular"), local("inter-regular"),
-    url("/fonts/inter/inter-regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: block;
-  font-weight: 700;
-  src: local("Inter Bold"), local("inter-bold"),
-    url("/fonts/inter/inter-bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: block;
-  font-weight: 900;
-  src: local("Inter Black"), local("inter-black"),
-    url("/fonts/inter/inter-black.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: block;
-  font-weight: 300;
-  src: local("Lora Regular"), local("lora-regular"),
-    url("/fonts/lora/lora-regular.woff2") format("woff2");
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer base {
   html {

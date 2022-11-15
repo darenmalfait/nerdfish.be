@@ -1,6 +1,17 @@
+import { Inter as interFont, Lora as loraFont } from '@next/font/google'
 import { AppProviders } from 'context/app-providers'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import type { AppProps } from 'next/app'
+
+const inter = interFont({
+  variable: '--font-inter',
+  subsets: ['latin'],
+})
+
+const lora = loraFont({
+  variable: '--font-lora',
+  subsets: ['latin'],
+})
 
 import '@daren/theme/dist/darenui.css'
 
@@ -13,7 +24,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <AppProviders>
       <LazyMotion features={domAnimation}>
-        <Component {...pageProps} />
+        <main className={`${inter.variable} ${lora.variable} font-sans`}>
+          <Component {...pageProps} />
+        </main>
       </LazyMotion>
     </AppProviders>
   )

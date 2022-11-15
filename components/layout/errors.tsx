@@ -37,7 +37,7 @@ function ErrorPage({
   ]
 
   return (
-    <main className="relative">
+    <>
       <NoIndex />
       <Section>
         <BigTitle parentField="title" title={title} />
@@ -117,7 +117,7 @@ function ErrorPage({
           </Container>
         </Grid>
       </Section>
-    </main>
+    </>
   )
 }
 

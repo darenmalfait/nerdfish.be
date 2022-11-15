@@ -14,17 +14,6 @@ type SocialMetas = {
   canonical?: string | null
 }
 
-// TODO: update site manifest
-// TODO: update favicon
-// Generate favicon with https://realfavicongenerator.net/
-
-const fonts = [
-  '/fonts/inter/inter-regular.woff2',
-  '/fonts/inter/inter-bold.woff2',
-  '/fonts/inter/inter-black.woff2',
-  '/fonts/lora/lora-regular.woff2',
-]
-
 function getMetaTags({
   url,
   title,
@@ -42,17 +31,6 @@ function getMetaTags({
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-      {fonts.map(href => (
-        <link
-          key={href}
-          rel="preload"
-          as="font"
-          href={href}
-          type={`font/${href.split('.').pop()}`}
-          crossOrigin="anonymous"
-        />
-      ))}
 
       {image && <meta property="image" content={image} />}
       {image && <meta property="og:image" content={image} />}
