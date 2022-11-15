@@ -7,6 +7,7 @@ interface GlobalContextProps {
   paths?: Global['paths']
   navigation: Global['navigation']
   social?: Global['social']
+  hydrated: boolean
 }
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
@@ -22,6 +23,7 @@ interface GlobalProviderProps extends Partial<Global> {
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
   const { navigation, paths: originalPaths, social } = globalProps
+  const [hydrated, setHydrated] = React.useState(false)
 
   const paths = React.useMemo(() => {
     if (!originalPaths) return undefined
@@ -37,8 +39,16 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
     }, {} as GlobalPaths)
   }, [originalPaths])
 
+  React.useEffect(() => {
+    // This forces a rerender, so the date is rendered
+    // the second time but not the first
+    setHydrated(true)
+  }, [])
+
   return (
-    <GlobalProviderContext.Provider value={{ paths, navigation, social }}>
+    <GlobalProviderContext.Provider
+      value={{ paths, navigation, social, hydrated }}
+    >
       {children}
     </GlobalProviderContext.Provider>
   )

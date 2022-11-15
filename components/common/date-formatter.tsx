@@ -1,6 +1,8 @@
 import { format as formatDate } from 'date-fns'
 import * as React from 'react'
 
+import { useGlobal } from '../../context/global-provider'
+
 function DateFormatter({
   dateString,
   format,
@@ -8,17 +10,10 @@ function DateFormatter({
   dateString: string
   format?: string
 }) {
-  const [hydrated, setHydrated] = React.useState(false)
+  const { hydrated } = useGlobal()
 
-  React.useEffect(() => {
-    // This forces a rerender, so the date is rendered
-    // the second time but not the first
-    setHydrated(true)
-  }, [])
-  if (!hydrated) {
-    // Returns null on first render, so the client and server match
-    return null
-  }
+  // Returns null on first render, so the client and server match
+  if (!hydrated) return null
 
   const date = new Date(dateString)
 

@@ -7,6 +7,7 @@ import type { Template } from 'tinacms'
 import { tagsSchema } from '../../.tina/schema/objects'
 import { DateFormatter } from '../../components/common/date-formatter'
 import { useBlockData } from '../../context/block-data-provider'
+import { useGlobal } from '../../context/global-provider'
 import type { Block } from '../../lib/types/cms'
 import { useUpdateQueryStringValueWithoutNavigation } from '../../lib/utils/misc'
 import { getDatedSlug } from '../../lib/utils/routes'
@@ -36,6 +37,7 @@ function Wiki({
   tags?: string[]
   count?: number
 }) {
+  const { hydrated } = useGlobal()
   const { title, subtitle, link } = header || {}
   const router = useRouter()
   const [queryValue, setQuery] = React.useState(
@@ -185,10 +187,14 @@ function Wiki({
                       className="flex flex-col"
                     >
                       <Link
-                        href={`/wiki${getDatedSlug(
-                          wiki.date as string,
-                          wiki._sys?.filename || '',
-                        )}`}
+                        href={
+                          hydrated
+                            ? `/wiki${getDatedSlug(
+                                wiki.date as string,
+                                wiki._sys?.filename || '',
+                              )}`
+                            : ''
+                        }
                         className="line-clamp-3 text-2xl font-semibold leading-snug hover:underline text-primary hover:text-secondary"
                       >
                         {wiki.title}
