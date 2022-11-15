@@ -6,12 +6,10 @@ import type { AppProps } from 'next/app'
 import { AppProviders } from '../context/app-providers'
 
 export const inter = interFont({
-  variable: '--font-inter',
   subsets: ['latin'],
 })
 
 export const lora = loraFont({
-  variable: '--font-lora',
   subsets: ['latin'],
 })
 
