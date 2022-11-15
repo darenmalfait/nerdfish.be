@@ -1,7 +1,6 @@
 import { Button, Container, Grid, H2, H3, Section } from '@daren/ui-components'
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
-import formatDate from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
+import { DateFormatter } from 'components/common/date-formatter'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import type { Template } from 'tinacms'
@@ -184,7 +183,6 @@ function Wiki({
                     <article
                       key={wiki._sys?.filename}
                       className="flex flex-col"
-                      suppressHydrationWarning
                     >
                       <Link
                         href={`/wiki${getDatedSlug(
@@ -195,12 +193,11 @@ function Wiki({
                       >
                         {wiki.title}
                       </Link>
-                      <p
-                        className="text-sm text-gray-400 dark:text-gray-600"
-                        suppressHydrationWarning
-                      >
-                        {formatDate(parseISO(wiki.date || ''), 'PPP')}
-                      </p>
+                      {wiki.date && (
+                        <p className="text-sm text-gray-400 dark:text-gray-600">
+                          <DateFormatter dateString={wiki.date} format="PPP" />
+                        </p>
+                      )}
                       <div className="mt-2 text-justify text-gray-600 dark:text-gray-300">
                         <PortableText content={wiki.excerpt} />
                       </div>
