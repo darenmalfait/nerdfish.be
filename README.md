@@ -16,6 +16,7 @@ The website is built using NextJS. It uses tina.io to provide data.
 - [Environment Variables](#environment-variables)
     - [Import environment variables from a file](#import-environment-variables-from-a-file)
 - [Run Locally](#run-locally)
+- [Public files](#public-files)
 - [Semantic Commit Messages](#semantic-commit-messages)
   - [Example](#example)
     - [Commit Types:](#commit-types)
@@ -65,6 +66,11 @@ Once node_modules are installed, this will run both the app.
 ```bash
   npm run dev
 ```
+
+## Public files
+
+  - update site manifest
+  - update favicon: Generate favicon with https://realfavicongenerator.net/
 
 ## Semantic Commit Messages
 
