@@ -9,7 +9,11 @@ function DateFormatter({
 }) {
   const date = parseISO(dateString)
 
-  return <time dateTime={dateString}>{formatDate(date, format || 'PP')}</time>
+  return (
+    <time suppressHydrationWarning dateTime={dateString}>
+      {formatDate(date, format || 'PP')}
+    </time>
+  )
 }
 
 export { DateFormatter }
