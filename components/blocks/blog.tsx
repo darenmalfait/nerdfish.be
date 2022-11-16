@@ -44,9 +44,16 @@ function Blog({
   const { hydrated } = useGlobal()
   const { title, subtitle, link } = header || {}
   const router = useRouter()
+
   const [queryValue, setQuery] = React.useState(
     router.query.q?.toString() ?? '',
   )
+
+  React.useEffect(() => {
+    setQuery(router.query.q?.toString() ?? '')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady])
+
   const { blog: allPosts } = useBlockData()
 
   const query = typeof queryValue === 'string' ? queryValue.trim() : ''

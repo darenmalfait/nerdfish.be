@@ -43,6 +43,12 @@ function Wiki({
   const [queryValue, setQuery] = React.useState(
     router.query.q?.toString() ?? '',
   )
+
+  React.useEffect(() => {
+    setQuery(router.query.q?.toString() ?? '')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady])
+
   const { wiki: allPosts } = useBlockData()
 
   const query = typeof queryValue === 'string' ? queryValue.trim() : ''
