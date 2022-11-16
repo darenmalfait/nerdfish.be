@@ -2,6 +2,7 @@ name: Build Pull request
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,10 +11,17 @@ jobs:
         node: ['18']
     name: Node ${{ matrix.node }} sample
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup node
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - run: npm install --legacy-peer-deps
+
       - run: npm run validate
