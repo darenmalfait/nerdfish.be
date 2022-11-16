@@ -1,6 +1,6 @@
 function generateSocialImage({
   title,
-  cloudName = 'darenmalfait',
+  cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   imagePublicID,
   cloudinaryUrlBase = 'https://res.cloudinary.com',
   version = null,
