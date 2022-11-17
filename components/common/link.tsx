@@ -23,7 +23,7 @@ const Link = React.forwardRef<
     url?: string
     href: string
   }
->(function Link({ isButton, url = '', href = url, children, ...props }, ref) {
+>(function Link({ isButton, url = '', href = url, ...props }, ref) {
   const isExternal = hrefParameters.some(hrefParameter =>
     href.startsWith(hrefParameter),
   )
@@ -37,7 +37,6 @@ const Link = React.forwardRef<
   if (obfuscate) {
     return (
       <Obfuscate
-        {...props}
         {...{
           [obfuscateParameters[obfuscate]]: slug.replace(`${obfuscate}:`, ''),
         }}
