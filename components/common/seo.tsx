@@ -35,6 +35,7 @@ function getMetaTags({
       {image && <meta property="image" content={image} />}
       {image && <meta property="og:image" content={image} />}
       {image && <meta name="twitter:image" content={image} />}
+      {image && <meta name="twitter:card" content="summary_large_image" />}
 
       <title key="title">{title}</title>
       <meta property="og:title" content={title} />
