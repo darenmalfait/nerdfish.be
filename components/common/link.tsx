@@ -1,4 +1,5 @@
 import { ButtonLink, Link as DarenLink } from '@daren/ui-components'
+
 import NextLink, { LinkProps } from 'next/link'
 import * as React from 'react'
 import Obfuscate from 'react-obfuscate'
@@ -6,7 +7,12 @@ import Obfuscate from 'react-obfuscate'
 import { stripPreSlash } from '../../lib/utils/string'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https']
-const obfuscateParameters = ['mailto', 'tel', 'sms']
+
+const obfuscateParameters = {
+  mailto: 'email',
+  tel: 'tel',
+  sms: 'sms',
+}
 
 const Link = React.forwardRef<
   any,
@@ -17,16 +23,27 @@ const Link = React.forwardRef<
     url?: string
     href: string
   }
->(function Link({ isButton, url = '', href = url, ...props }, ref) {
+>(function Link({ isButton, url = '', href = url, children, ...props }, ref) {
   const isExternal = hrefParameters.some(hrefParameter =>
     href.startsWith(hrefParameter),
   )
 
-  const obfuscate = obfuscateParameters.find(obfuscateParameter =>
+  const obfuscate = Object.keys(obfuscateParameters).find(obfuscateParameter =>
     href.startsWith(obfuscateParameter),
-  )
+  ) as keyof typeof obfuscateParameters | undefined
 
   const slug = isExternal ? href : `/${stripPreSlash(href)}`
+
+  if (obfuscate) {
+    return (
+      <Obfuscate
+        {...props}
+        {...{
+          [obfuscateParameters[obfuscate]]: slug.replace(`${obfuscate}:`, ''),
+        }}
+      />
+    )
+  }
 
   if (isButton) {
     return (
@@ -38,13 +55,8 @@ const Link = React.forwardRef<
         {...props}
         href={slug}
         external={isExternal}
-      >
-        {obfuscate ? (
-          <Obfuscate {...{ [obfuscate]: slug.replace(`${obfuscate}:`, '') }} />
-        ) : (
-          props.children
-        )}
-      </ButtonLink>
+        suppressHydrationWarning
+      />
     )
   }
 
@@ -56,13 +68,8 @@ const Link = React.forwardRef<
       {...props}
       href={slug}
       external={isExternal}
-    >
-      {obfuscate ? (
-        <Obfuscate {...{ [obfuscate]: slug.replace(`${obfuscate}:`, '') }} />
-      ) : (
-        props.children
-      )}
-    </DarenLink>
+      suppressHydrationWarning
+    />
   )
 })
 
