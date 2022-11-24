@@ -11,6 +11,16 @@ date: '2022-03-21T23:00:00.000Z'
 
 Updating packages is essential to get the latest features and reduce security issues. npm-check-updates is an npm package that makes the process of updating packages easier. Here's my flow of how I update packages.
 
+## Yarn
+
+With yarn you can choose packages to update with:
+
+```powershell
+yarn upgrade-interactive --latest
+```
+
+Yarn also checks subrepos and as such is ideal for that purpose.
+
 ## Install npm-check-updates
 
 If you don't want to install the package globally, you can run it with npx.
