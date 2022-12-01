@@ -127,7 +127,7 @@ function Blog({
                   <MagnifyingGlassIcon
                     width="20px"
                     height="20px"
-                    className="flex absolute top-0 left-6 justify-center items-center p-0 h-full text-primary-400 bg-transparent border-none"
+                    className="absolute top-0 left-6 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
                   />
                   <input
                     type="search"
@@ -137,9 +137,9 @@ function Blog({
                     }}
                     name="q"
                     placeholder="Search"
-                    className="py-6 pr-16 pl-14 w-full text-primary-400 bg-white rounded-full border-2 outline-none focus-ring"
+                    className="w-full rounded-full border-2 bg-white py-6 pr-16 pl-14 text-primary-400 outline-none focus-ring"
                   />
-                  <div className="hidden absolute top-0 right-0 justify-between items-center w-14 h-full text-lg font-bold text-primary-400 md:flex">
+                  <div className="absolute top-0 right-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
                     {matchingPosts.length}
                   </div>
                 </div>
@@ -153,7 +153,7 @@ function Blog({
             <Section className="mb-16">
               <Grid>
                 <Container size="full">
-                  <div className="flex flex-wrap col-span-full justify-center -mr-4 -mb-4 lg:col-span-10">
+                  <div className="col-span-full -mr-4 -mb-4 flex flex-wrap justify-center lg:col-span-10">
                     {allTags.map(tag => {
                       if (!tag) {
                         return null
@@ -218,9 +218,9 @@ function Blog({
       )}
 
       <Section>
-        <Grid className="gap-y-16 mt-16 mb-32">
+        <Grid className="mt-16 mb-32 gap-y-16">
           {matchingPosts.length === 0 ? (
-            <div className="flex flex-col col-span-full">
+            <div className="col-span-full flex flex-col">
               <H3 as="p" variant="secondary" className="max-w-lg">
                 No results found.
               </H3>
@@ -237,7 +237,7 @@ function Blog({
         </Grid>
 
         {hasMorePosts ? (
-          <div className="flex justify-center mb-32 w-full">
+          <div className="mb-32 flex w-full justify-center">
             <Button
               variant="secondary"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}

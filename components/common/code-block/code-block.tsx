@@ -50,7 +50,7 @@ function CodeBlock({
               className={clsx(
                 classNameProp,
                 className,
-                'overflow-x-auto  relative py-5 pr-8 my-5 mx-auto text-sm leading-relaxed rounded-xl',
+                'relative  my-5 mx-auto overflow-x-auto rounded-xl py-5 pr-8 text-sm leading-relaxed',
                 {
                   'pl-4': !showLineNumbers,
                   'pl-16': showLineNumbers,
@@ -65,7 +65,7 @@ function CodeBlock({
                   // eslint-disable-next-line react/jsx-key
                   <div {...getLineProps({ line, key: i })}>
                     {showLineNumbers && (
-                      <span className="grid absolute left-0 shrink-0 place-items-center mr-[16px] w-[40px] text-primary-300">
+                      <span className="absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center text-primary-300">
                         {pad(i + 1)}
                       </span>
                     )}
@@ -78,7 +78,7 @@ function CodeBlock({
                 )
               })}
               {showLanguage && (
-                <span className="block sticky right-0 w-full text-xs text-right">
+                <span className="sticky right-0 block w-full text-right text-xs">
                   {language}
                 </span>
               )}

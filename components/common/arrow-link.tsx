@@ -79,7 +79,7 @@ function ArrowLink({
       href={href || '#'}
       className={clsx(
         className,
-        'inline-flex items-center space-x-4 text-lg font-bold text-left !no-underline focus:outline-none transition cursor-pointer text-primary',
+        'inline-flex cursor-pointer items-center space-x-4 text-left text-lg font-bold !no-underline transition text-primary focus:outline-none',
       )}
       ref={ref as any}
       animate={state}
@@ -88,7 +88,7 @@ function ArrowLink({
         <span className="mr-8 text-xl font-bold">{children}</span>
       ) : null}
 
-      <div className="inline-flex relative flex-none justify-center items-center p-1 w-14 h-14">
+      <div className="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1">
         <motion.span variants={arrowVariants[direction]}>
           <ArrowIcon size={20} direction={direction} />
         </motion.span>
@@ -115,7 +115,7 @@ function BackLink({
       href={href}
       className={clsx(
         className,
-        'flex space-x-4 font-bold focus:outline-none text-primary',
+        'flex space-x-4 font-bold text-primary focus:outline-none',
       )}
       ref={ref as any}
       animate={state}

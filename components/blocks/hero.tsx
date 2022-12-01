@@ -29,11 +29,11 @@ const Hero = ({
   title?: string
 }) => {
   return (
-    <Grid as="header" className="items-start pt-24 h-auto lg:pb-12 lg:my-12">
+    <Grid as="header" className="h-auto items-start pt-24 lg:my-12 lg:pb-12">
       <Container size="medium">
-        <div className="relative pt-6 pb-8 w-full text-center lg:py-8 lg:text-left">
+        <div className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left">
           <motion.div
-            className="flex flex-col flex-auto justify-start lg:w-1/2 xl:pr-16"
+            className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16"
             initial="initial"
             animate="visible"
             variants={{
@@ -54,7 +54,7 @@ const Hero = ({
               <motion.div
                 data-tinafield={`${parentField}.text`}
                 variants={childVariants}
-                className="mt-3 mb-12 prose prose-lg dark:prose-invert"
+                className="prose prose-lg mt-3 mb-12 dark:prose-invert"
               >
                 <PortableText content={text} />
               </motion.div>
@@ -67,7 +67,7 @@ const Hero = ({
               initial={{ scale: 1.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.75 }}
-              className="flex relative items-center mx-auto w-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
+              className="relative mx-auto flex w-full items-center sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"
             >
               <Image
                 className="mb-12 rounded-xl"

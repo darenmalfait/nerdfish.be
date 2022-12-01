@@ -27,7 +27,7 @@ function FeatureCard({
 
   return (
     <div
-      className="flex relative flex-col items-start py-12 px-8 w-full h-full rounded-lg lg:px-12 bg-secondary"
+      className="relative flex h-full w-full flex-col items-start rounded-lg py-12 px-8 bg-secondary lg:px-12"
       {...props}
     >
       {Icon && (
@@ -39,13 +39,13 @@ function FeatureCard({
       <H2
         data-tinafield={`${parentField}.items.${index}.title`}
         as="h3"
-        className="flex flex-none items-end mb-4 text-xl font-medium text-primary"
+        className="mb-4 flex flex-none items-end text-xl font-medium text-primary"
       >
         {title}
       </H2>
       <p
         data-tinafield={`${parentField}.items.${index}.description`}
-        className="flex-auto max-w-sm text-xl text-secondary"
+        className="max-w-sm flex-auto text-xl text-secondary"
       >
         {description}
       </p>

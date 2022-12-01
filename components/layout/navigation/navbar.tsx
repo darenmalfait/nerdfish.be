@@ -47,17 +47,17 @@ function MobileNav({
     <div
       ref={open ? ref : null}
       className={clsx(
-        'inset-[0px 0px auto] fixed top-0 right-0 z-30 w-full max-w-screen-sm h-screen transition-transform bg-primary',
+        'inset-[0px 0px auto] fixed top-0 right-0 z-30 h-screen w-full max-w-screen-sm transition-transform bg-primary',
         {
-          'shadow-2xl translate-x-0': open,
-          'shadow-none translate-x-full': !open,
+          'translate-x-0 shadow-2xl': open,
+          'translate-x-full shadow-none': !open,
         },
       )}
     >
       <div className="py-9 px-5vw lg:py-12">
-        <div className="flex justify-between items-center mx-auto max-w-8xl text-primary">
+        <div className="mx-auto flex max-w-8xl items-center justify-between text-primary">
           <Link aria-label="home page" className="w-2/5" href={rootPath}>
-            <Logo className="w-10 h-10 transition-transform hover:scale-110" />
+            <Logo className="h-10 w-10 transition-transform hover:scale-110" />
           </Link>
           <Hamburger open={open} onClick={onClose} />
         </div>
@@ -102,27 +102,27 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
       <div className="py-9 lg:py-12">
         <Grid className="mx-auto text-primary">
           <Container size="full">
-            <div className="flex relative gap-4">
+            <div className="relative flex gap-4">
               <div className="flex flex-1">
                 <Link
-                  className="flex order-first items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:justify-start lg:items-center lg:w-1/5"
+                  className="order-first flex items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
                   aria-label="home page"
                   href={rootPath}
                 >
-                  <Logo className="w-10 h-10 transition-transform hover:scale-105" />
+                  <Logo className="h-10 w-10 transition-transform hover:scale-105" />
                 </Link>
               </div>
               <div className="hidden flex-1 justify-end md:justify-center lg:flex">
-                <nav className="flex px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200 bg-white/90 dark:bg-zinc-800/90 rounded-full ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg shadow-zinc-800/5 backdrop-blur">
+                <nav className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                   {children}
                 </nav>
               </div>
               <div className="flex justify-end md:flex-1">
-                <nav className="inline-flex items-center ml-5 space-x-4 lg:justify-end lg:ml-0 lg:space-y-0 lg:w-2/5">
+                <nav className="ml-5 inline-flex items-center space-x-4 lg:ml-0 lg:w-2/5 lg:justify-end lg:space-y-0">
                   <Search />
                   <ThemeToggle />
                   <a
-                    className="hidden p-2 rounded-full xsm:block focus-ring"
+                    className="hidden rounded-full p-2 focus-ring xsm:block"
                     target="_blank"
                     href="/rss.xml"
                     aria-label="rss feed"

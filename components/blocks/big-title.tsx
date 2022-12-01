@@ -36,7 +36,7 @@ const BigTitle = ({
           )}
           <h1
             data-tinafield={`${parentField}.title`}
-            className="text-primary text-6xl font-title font-black leading-none text-transparent uppercase sm:text-[11.6250vw] 2xl:text-[12rem]"
+            className="font-title text-6xl font-black uppercase leading-none text-transparent text-primary sm:text-[11.6250vw] 2xl:text-[12rem]"
           >
             {title}
           </h1>

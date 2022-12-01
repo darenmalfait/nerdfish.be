@@ -27,14 +27,14 @@ function CategoryIndicator({
   return (
     <div
       className={clsx({
-        'flex absolute inset-0 justify-start items-start w-full h-full':
+        'absolute inset-0 flex h-full w-full items-start justify-start':
           !inline,
       })}
     >
       <span
         className={clsx(
           className,
-          'inline-block z-10 py-2 px-4 w-auto text-sm font-bold rounded-xl shadow-sm transition-colors text-secondary bg-secondary',
+          'z-10 inline-block w-auto rounded-xl py-2 px-4 text-sm font-bold shadow-sm transition-colors bg-secondary text-secondary',
           // getCategoryColors(category || ''),
           {
             'absolute top-6 right-6 lg:right-[unset] lg:left-6': !inline,

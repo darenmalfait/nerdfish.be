@@ -6,13 +6,13 @@ function Hamburger({
 } & JSX.IntrinsicElements['button']) {
   return (
     <button
-      className="w-9 h-9 rounded-lg md:hidden"
+      className="h-9 w-9 rounded-lg md:hidden"
       type="button"
       name="toggle-navigation"
       aria-label="toon navigatie"
       onClick={onClick}
     >
-      <svg fill="currentColor" viewBox="0 0 20 20" className="ml-auto w-6 h-6">
+      <svg fill="currentColor" viewBox="0 0 20 20" className="ml-auto h-6 w-6">
         {!open && (
           <path
             fillRule="evenodd"

@@ -32,15 +32,15 @@ function ArticleCard({
         href={
           hydrated ? `/blog${getDatedSlug(date, _sys?.filename || '')}` : ''
         }
-        className="group peer block relative w-full focus:outline-none"
+        className="group peer relative block w-full focus:outline-none"
       >
         <CategoryIndicator category={category} />
 
         {heroImg ? (
-          <div className="rounded-lg aspect-w-3 aspect-h-4">
+          <div className="aspect-w-3 aspect-h-4 rounded-lg">
             <Image
               className={clsx(
-                'object-cover absolute inset-0 w-full h-full rounded-lg focus-ring',
+                'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
                 getCategoryColors(category),
               )}
               placeholder={getLowQualityUrlFor(heroImg)}

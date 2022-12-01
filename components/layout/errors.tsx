@@ -45,33 +45,33 @@ function ErrorPage({
       <Section>
         <Grid>
           <Container size="full">
-            <div className="relative pt-6 pb-8 w-full text-center lg:py-8 lg:text-left">
-              <div className="flex flex-col flex-auto justify-start lg:w-1/2 xl:pr-16">
-                <div className="py-16 max-w-xl sm:py-24">
+            <div className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left">
+              <div className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16">
+                <div className="max-w-xl py-16 sm:py-24">
                   <div className="text-center lg:text-left">
                     <Paragraph className="mt-2 text-lg text-secondary">
                       {subTitle}
                     </Paragraph>
                   </div>
                   <div className="mt-12">
-                    <h2 className="text-sm font-semibold tracking-wide uppercase text-secondary">
+                    <h2 className="text-sm font-semibold uppercase tracking-wide text-secondary">
                       Popular pages
                     </h2>
-                    <ul className="mt-4 border-y border-gray-200 divide-y divide-gray-200">
+                    <ul className="mt-4 divide-y divide-gray-200 border-y border-gray-200">
                       {links.map((link, i) => (
                         <li
                           key={i}
-                          className="group flex relative items-start py-6 space-x-4"
+                          className="group relative flex items-start space-x-4 py-6"
                         >
                           <div className="shrink-0">
-                            <span className="bg-inverse flex justify-center items-center w-12 h-12 rounded-lg">
+                            <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-inverse">
                               <link.icon
-                                className="w-6 h-6 text-inverse"
+                                className="h-6 w-6 text-inverse"
                                 aria-hidden="true"
                               />
                             </span>
                           </div>
-                          <div className="flex-1 min-w-0">
+                          <div className="min-w-0 flex-1">
                             <h3 className="text-base font-medium text-primary">
                               <span className="rounded-sm focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2">
                                 <a
@@ -92,7 +92,7 @@ function ErrorPage({
                           </div>
                           <div className="shrink-0 self-center">
                             <ChevronRightIcon
-                              className="w-5 h-5 text-gray-400"
+                              className="h-5 w-5 text-gray-400"
                               aria-hidden="true"
                             />
                           </div>
@@ -106,7 +106,7 @@ function ErrorPage({
                 </div>
               </div>
 
-              <div className="flex relative items-center mx-auto w-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+              <div className="relative mx-auto flex w-full items-center sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
                 <img
                   className="max-w-96 mx-auto w-full rounded-md"
                   src="/images/cat-on-box.png"

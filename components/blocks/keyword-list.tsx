@@ -25,7 +25,7 @@ const KeywordList = ({
             >
               {title}
             </H1>
-            <div className="grid grid-cols-2 gap-8 w-full md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
               {keywords?.map(item => (
                 <span
                   data-tinafields={`${parentField}.keywords.{i}.item`}

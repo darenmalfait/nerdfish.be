@@ -13,18 +13,18 @@ function Footer() {
   const twitter = social?.twitter
 
   return (
-    <footer className="px-5vw mt-32">
-      <div className="py-24 mx-auto max-w-8xl border-t border-gray-300 dark:border-gray-700">
+    <footer className="mt-32 px-5vw">
+      <div className="mx-auto max-w-8xl border-t border-gray-300 py-24 dark:border-gray-700">
         <div>
           <Link
             className="flex flex-initial items-center font-bold md:mr-24"
             aria-label="home page"
             href="/"
           >
-            <Logo className="w-14 h-14" />
+            <Logo className="h-14 w-14" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-8 py-12 border-primary-100 transition-colors duration-150 lg:grid-cols-12 bg-primary text-primary">
+        <div className="grid grid-cols-1 gap-8 border-primary-100 py-12 transition-colors duration-150 bg-primary text-primary lg:grid-cols-12">
           <div className="col-span-8">
             <div>
               {items.map(item => (
@@ -32,7 +32,7 @@ function Footer() {
                   key={item?.label}
                   href={item?.href || '/'}
                   isButton={item?.isButton}
-                  className="inline-block mr-8 text-lg"
+                  className="mr-8 inline-block text-lg"
                   {...item}
                 >
                   {item?.label}
@@ -40,8 +40,8 @@ function Footer() {
               ))}
             </div>
           </div>
-          <div className="flex col-span-2 items-start lg:col-span-4 lg:justify-end text-primary">
-            <div className="flex items-center space-x-4 h-10">
+          <div className="col-span-2 flex items-start text-primary lg:col-span-4 lg:justify-end">
+            <div className="flex h-10 items-center space-x-4">
               {twitter && (
                 <a
                   rel="noreferrer noopener"
