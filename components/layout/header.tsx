@@ -22,12 +22,12 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
         )}
       >
         <div className="space-y-2 lg:space-y-0">
-          {title && <H2>{title}</H2>}
+          {title && <H2 className="font-bold">{title}</H2>}
           {subTitle && (
             <H2
               variant="secondary"
               as="p"
-              className="!text-gray-600 dark:!text-gray-300 "
+              className="!text-gray-600 dark:!text-gray-300 font-bold"
             >
               {subTitle}
             </H2>

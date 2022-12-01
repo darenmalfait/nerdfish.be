@@ -8,9 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ['Inter', ...defaultTheme.fontFamily.sans],
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        serif: ['Lora', ...defaultTheme.fontFamily.serif],
+        title: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         gray: {
