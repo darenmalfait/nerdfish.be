@@ -15,7 +15,7 @@ export const Content = ({
   return (
     <Section>
       <Grid
-        className="prose dark:prose-invert text-primary"
+        className="prose text-primary dark:prose-invert"
         data-tinafield={`${parentField}.body`}
       >
         {body && <PortableText content={body} />}

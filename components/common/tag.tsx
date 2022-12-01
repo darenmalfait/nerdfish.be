@@ -24,10 +24,10 @@ function Tag({
       onChange={onClick}
       className={clsx(
         className,
-        'block relative mr-4 mb-4 w-auto h-auto rounded-full transition cursor-pointer',
+        'relative mr-4 mb-4 block h-auto w-auto cursor-pointer rounded-full transition',
         {
-          'bg-primary-600 dark:bg-gray-800 text-primary': !selected,
-          'bg-accent dark:bg-accent-100 text-white dark:text-black': selected,
+          'bg-primary-600 text-primary dark:bg-gray-800': !selected,
+          'bg-accent text-white dark:bg-accent-100 dark:text-black': selected,
           'opacity-100 focus-ring': !disabled,
           'opacity-25': disabled,
           'py-3 px-6': size === 'md',

@@ -41,7 +41,7 @@ function HighlightCard({
       <Container size="full">
         <Link
           className={clsx(
-            'block no-underline rounded-lg lg:bg-transparent',
+            'block rounded-lg no-underline lg:bg-transparent',
             className,
           )}
           href={href}
@@ -49,13 +49,13 @@ function HighlightCard({
         >
           <Grid
             nested
-            className="group px-8 pt-14 pb-6 w-full rounded-lg md:pb-12 lg:px-0 bg-secondary"
+            className="group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary md:pb-12 lg:px-0"
           >
-            <div className="col-span-full lg:flex lg:flex-col lg:col-span-5 lg:col-start-2 lg:justify-between">
+            <div className="col-span-full lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
               <div suppressHydrationWarning>
                 {category && (
                   <CategoryIndicator
-                    className="bg-grey-900 dark:bg-gray-50 mb-8 text-white dark:text-gray-900"
+                    className="bg-grey-900 mb-8 text-white dark:bg-gray-50 dark:text-gray-900"
                     category={category}
                     inline
                   />
@@ -69,7 +69,7 @@ function HighlightCard({
               </div>
 
               {href && (
-                <div className="flex justify-between items-center mt-12">
+                <div className="mt-12 flex items-center justify-between">
                   <ArrowLink>
                     {cta}
                     <div
@@ -83,10 +83,10 @@ function HighlightCard({
                 </div>
               )}
             </div>
-            <div className="relative col-span-full mt-12 h-0 aspect-w-3 aspect-h-4 lg:col-span-4 lg:col-start-8 lg:mt-0">
+            <div className="aspect-w-3 aspect-h-4 relative col-span-full mt-12 h-0 lg:col-span-4 lg:col-start-8 lg:mt-0">
               {image && (
                 <Image
-                  className="object-cover absolute inset-0"
+                  className="absolute inset-0 object-cover"
                   placeholder={getLowQualityUrlFor(image)}
                   srcSet={buildSrcSet(image)}
                   src={buildSrc(image, {

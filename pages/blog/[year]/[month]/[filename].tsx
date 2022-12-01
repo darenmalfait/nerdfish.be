@@ -27,7 +27,7 @@ function Content({ blog }: BlogPostQueryQuery) {
     <>
       <Section>
         <Grid className="mt-24 mb-14 lg:mb-24">
-          <div className="flex col-span-full justify-between lg:col-span-8 lg:col-start-3">
+          <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
             <BackLink href={paths?.blog || ''}>All blog posts</BackLink>
           </div>
         </Grid>

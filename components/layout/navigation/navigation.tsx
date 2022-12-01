@@ -31,7 +31,7 @@ function Navigation({ multilang, ...props }: NavigationProps) {
         return (
           <Navbar.Link
             key={i}
-            className="leading-0 block relative py-2 px-3 transition"
+            className="leading-0 relative block py-2 px-3 transition"
             isButton={link.isButton || false}
             href={link.href}
           >

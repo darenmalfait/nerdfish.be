@@ -35,7 +35,7 @@ function Hits() {
   return (
     <>
       {hits.length === 0 && (
-        <p className="text-primary p-4">No results found!</p>
+        <p className="p-4 text-primary">No results found!</p>
       )}
 
       {hits.length > 0 && (
@@ -50,12 +50,12 @@ function Hits() {
               value={hit}
               className={({ active }) =>
                 clsx(
-                  'flex items-center justify-between p-4 max-w-full',
+                  'flex max-w-full items-center justify-between p-4',
                   active && 'bg-primary',
                 )
               }
             >
-              <span className="whitespace-nowrap font-semibold text-primary truncate">
+              <span className="truncate whitespace-nowrap font-semibold text-primary">
                 {hit.title?.toLowerCase()}
               </span>
               <span className="ml-4 text-right text-xs text-secondary">

@@ -17,7 +17,7 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
     <Grid as={as}>
       <div
         className={clsx(
-          'flex flex-col col-span-full space-y-10 lg:flex-row lg:justify-between lg:items-end lg:space-y-0',
+          'col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0',
           className,
         )}
       >
@@ -27,7 +27,7 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
             <H2
               variant="secondary"
               as="p"
-              className="!text-gray-600 dark:!text-gray-300 font-bold"
+              className="font-bold !text-gray-600 dark:!text-gray-300"
             >
               {subTitle}
             </H2>

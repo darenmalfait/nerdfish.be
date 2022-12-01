@@ -22,7 +22,7 @@ function ThemeToggle() {
   return (
     <button
       type="button"
-      className="flex justify-center items-center p-2 rounded-full focus-ring"
+      className="flex items-center justify-center rounded-full p-2 focus-ring"
       onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
     >
       {isDarkMode ? <SunIcon className="w-5" /> : <MoonIcon className="w-5" />}

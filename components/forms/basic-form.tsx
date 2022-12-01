@@ -99,7 +99,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
             <Alert
               type="success"
               description={
-                <p className="p-0 m-0">
+                <p className="m-0 p-0">
                   Your message has been sent successfully.{' '}
                   <span role="img" aria-label="party popper emoji">
                     🎉

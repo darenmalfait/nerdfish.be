@@ -24,7 +24,7 @@ function FormSelector({
   }
 
   return (
-    <div className="not-prose space-y-8 max-w-2xl">
+    <div className="not-prose max-w-2xl space-y-8">
       {heading && <H2>{heading}</H2>}
       <RadioGroup name="form-selector" value={selected} onChange={onChange}>
         <RadioGroup.Option value="project" label="talk about a project" />

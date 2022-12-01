@@ -65,7 +65,7 @@ function ClipboardCopyButton({ value, className }: ClipboardCopyButtonProps) {
     <button
       onClick={() => setState(State.Copy)}
       className={clsx(
-        'group-group-hover:opacity-100 peer-group-hover:opacity-100 p-2 text-lg font-medium whitespace-nowrap bg-transparent rounded-lg focus:outline-none group-hover:ring-2 focus:ring-2 shadow group-hover:shadow-md group-hover:opacity-100 focus:opacity-100 peer-focus:opacity-100 transition lg:opacity-0',
+        'group-group-hover:opacity-100 peer-group-hover:opacity-100 whitespace-nowrap rounded-lg bg-transparent p-2 text-lg font-medium shadow transition focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-hover:shadow-md group-hover:ring-2 peer-focus:opacity-100 lg:opacity-0',
         className,
         state === State.Copied
           ? 'text-green-400 ring-green-400'
@@ -74,9 +74,9 @@ function ClipboardCopyButton({ value, className }: ClipboardCopyButtonProps) {
     >
       <span className="inline">
         {state === State.Copied ? (
-          <CheckCircleIcon className="w-5 h-5" />
+          <CheckCircleIcon className="h-5 w-5" />
         ) : (
-          <DocumentDuplicateIcon className="w-5 h-5" />
+          <DocumentDuplicateIcon className="h-5 w-5" />
         )}
       </span>
     </button>
