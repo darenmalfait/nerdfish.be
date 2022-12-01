@@ -1,4 +1,4 @@
-import { Button, Container, Grid, H2, H3, Section } from '@daren/ui-components'
+import { Button, Container, Grid, H3, Section } from '@daren/ui-components'
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/router'
 import * as React from 'react'
@@ -97,15 +97,15 @@ function Wiki({
       {searchEnabled && (
         <>
           <Section>
+            {(title || subtitle) && (
+              <Header title={title} subTitle={subtitle} />
+            )}
             <Grid>
               <Container
                 size="full"
                 className="mt-12"
                 data-tinafield={`${parentField}.header`}
               >
-                {title && <H2 className="mb-4">{title}</H2>}
-                {subtitle && <H3 className="mb-8">{subtitle}</H3>}
-
                 <div className="relative">
                   <MagnifyingGlassIcon
                     width="20px"
