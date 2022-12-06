@@ -1,6 +1,6 @@
 ---
 seo:
-  title: Daren Malfait Freelance full-stack JavaScript/TypeScript & ReactJS engineer
+  title: 'Daren Malfait, Freelance full-stack JavaScript/TypeScript & ReactJS engineer'
   description: Come check out how Daren can help you with web development.
 title: Home
 blocks:
