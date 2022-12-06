@@ -6,6 +6,8 @@
 
 ---
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d03759a1-3ce4-4909-a16f-be2043ded5d9/deploy-status)](https://app.netlify.com/sites/daren/deploys)
+
 The website is built using NextJS. It uses tina.io to provide data.
 
 
