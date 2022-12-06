@@ -1,6 +1,6 @@
 ---
 seo:
-  title: Daren Malfait freelance web developer
+  title: Daren Malfait Freelance full-stack JavaScript/TypeScript & ReactJS engineer
   description: Come check out how Daren can help you with web development.
 title: Home
 blocks:
@@ -12,8 +12,8 @@ blocks:
     _template: bigTitle
   - title: 'Hi, I''m Daren'
     text: >+
-      I'm a **freelance web developer** with ~ ten years of experience from
-      Harelbeke, Belgium.
+      I'm a **Freelance full-stack JavaScript/TypeScript & ReactJS engineer**
+      with ~ ten years of experience from Harelbeke, Belgium.
 
 
       Check out my work. Get in touch. Let's work together!
