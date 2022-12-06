@@ -1,6 +1,6 @@
 ---
 seo:
-  title: Daren Malfait
+  title: Daren Malfait freelance web developer
   description: Come check out how Daren can help you with web development.
 title: Home
 blocks:
@@ -11,8 +11,8 @@ blocks:
       href: contact
     _template: bigTitle
   - title: 'Hi, I''m Daren'
-    text: >
-      I'm a full-stack web developer with ~ ten years of experience from
+    text: >+
+      I'm a **freelance web developer** with ~ ten years of experience from
       Harelbeke, Belgium.
 
 
@@ -20,6 +20,7 @@ blocks:
 
 
       <Button text="Hire me!" href="contact" />
+
     image:
       src: >-
         https://res.cloudinary.com/darenmalfait/image/upload/v1667596394/daren-wiki/daren-cartoon_a8oqrk.webp
