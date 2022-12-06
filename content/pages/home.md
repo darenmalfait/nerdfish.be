@@ -12,7 +12,7 @@ blocks:
     _template: bigTitle
   - title: 'Hi, I''m Daren'
     text: >+
-      I'm a **Freelance full-stack JavaScript/TypeScript & ReactJS engineer**
+      I'm a f**reelance full-stack JavaScript/TypeScript & ReactJS engineer**
       with ~ ten years of experience from Harelbeke, Belgium.
 
 
