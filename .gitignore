@@ -38,3 +38,7 @@ tsconfig.tsbuildinfo
 
 # Local Netlify folder
 .netlify
+
+.flaskenv*
+!.env.project
+!.env.vault
