@@ -28,7 +28,7 @@ brew install dopplerhq/cli/doppler
 Now, verify the Doppler CLI was installed by checking its version.
 
 ```shell
-doppler update
+doppler --version
 ```
 
 For the Doppler CLI to access secrets for your projects, it needs an access token. For local development, we use the doppler login command which will open a browser window and ask you to authenticate
@@ -57,3 +57,4 @@ doppler secrets upload .env -c dev
 ```shell
 doppler secrets download --no-file --format env -c dev -p project-name  > .env
 ```
+
