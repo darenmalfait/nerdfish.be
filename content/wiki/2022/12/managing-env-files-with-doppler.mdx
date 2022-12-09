@@ -1,0 +1,61 @@
+---
+seo:
+  title: Managing env files with doppler
+  description: >-
+    A basic flow on how to use doppler to download and upload .env
+    configurations
+title: Managing env files with doppler
+excerpt: |
+  A basic flow on how to use doppler to download and upload .env configurations
+date: '2022-12-08T23:00:00.000Z'
+---
+
+## Setup
+
+The Doppler CLI provides access to your secrets in every environment, from local development, CI/CD, staging, and production.&#x20;
+
+```shell
+# Prerequisite. gnupg is required for binary signature verification
+brew install gnupg
+
+# Next, install using brew (use `doppler update` for subsequent updates)
+brew install dopplerhq/cli/doppler
+```
+
+Now, verify the Doppler CLI was installed by checking its version.
+
+```shell
+doppler update
+```
+
+For the Doppler CLI to access secrets for your projects, it needs an access token. For local development, we use the doppler login command which will open a browser window and ask you to authenticate
+
+```shell
+doppler login
+```
+
+
+
+## CLI
+
+### Init
+
+```shell
+# Select project and config
+doppler setup
+```
+
+### Uploading to doppler
+
+```shell
+doppler secrets upload .env -c dev
+```
+
+
+
+### Downloading from doppler
+
+```shell
+doppler secrets download --no-file --format env -c dev -p project-name  > .env
+```
+
