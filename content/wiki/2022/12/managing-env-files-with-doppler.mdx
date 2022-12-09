@@ -1,12 +1,15 @@
 ---
 seo:
-  title: Managing env files with doppler
+  title: Managing env files with doppler for local development
   description: >-
     A basic flow on how to use doppler to download and upload .env
     configurations
-title: Managing env files with doppler
-excerpt: |
+title: Managing env files with doppler for local development
+tags:
+  - ops
+excerpt: >
   A basic flow on how to use doppler to download and upload .env configurations
+  for local development
 date: '2022-12-08T23:00:00.000Z'
 ---
 
@@ -34,8 +37,6 @@ For the Doppler CLI to access secrets for your projects, it needs an access toke
 doppler login
 ```
 
-
-
 ## CLI
 
 ### Init
@@ -51,11 +52,8 @@ doppler setup
 doppler secrets upload .env -c dev
 ```
 
-
-
 ### Downloading from doppler
 
 ```shell
 doppler secrets download --no-file --format env -c dev -p project-name  > .env
 ```
-
