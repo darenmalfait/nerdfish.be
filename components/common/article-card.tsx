@@ -1,10 +1,6 @@
 import { H3 } from '@daren/ui-components'
 import clsx from 'clsx'
 
-import { DateFormatter } from './date-formatter'
-import { Image } from './image'
-import { Link } from './link'
-
 import type { Blog } from '../../.tina/__generated__/types'
 import { useGlobal } from '../../context/global-provider'
 import {
@@ -17,6 +13,10 @@ import {
   CategoryIndicator,
   getCategoryColors,
 } from '../common/category-indicator'
+
+import { DateFormatter } from './date-formatter'
+import { Image } from './image'
+import { Link } from './link'
 
 function ArticleCard({
   title,

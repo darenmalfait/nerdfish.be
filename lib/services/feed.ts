@@ -1,9 +1,9 @@
 import { Feed } from 'feed'
 
-import { getBlogPosts } from './api'
-
 import { BlogPath } from '../utils/constants'
 import { getDatedSlug } from '../utils/routes'
+
+import { getBlogPosts } from './api'
 
 async function buildFeed() {
   const feed = new Feed({

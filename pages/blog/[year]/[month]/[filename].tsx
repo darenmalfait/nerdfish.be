@@ -1,4 +1,5 @@
 import { Container, Grid, H2, H6, Section } from '@daren/ui-components'
+import { getFileNameFromUrl } from 'lib/utils/social'
 import { padStart } from 'lodash'
 import type { GetStaticPropsContext } from 'next'
 import { useTina } from 'tinacms/dist/react'
@@ -83,6 +84,7 @@ export default function BlogPostPage(
         url={props.params?.filename || '/'}
         description={data.blog.seo?.description || ''}
         canonical={data.blog.seo?.canonical}
+        subImage={getFileNameFromUrl(data.blog.heroImg)}
       />
       <Content {...data} />
     </Layout>

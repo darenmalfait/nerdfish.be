@@ -1,13 +1,13 @@
 import clsx from 'clsx'
 import { motion, Variant } from 'framer-motion'
 
-import { Link } from './link'
-
 import {
   ElementState,
   useElementState,
 } from '../../lib/utils/use-element-state'
 import { ArrowIcon, ArrowIconProps } from '../icons/arrow-icon'
+
+import { Link } from './link'
 
 const arrowVariants: Record<
   ArrowIconProps['direction'],

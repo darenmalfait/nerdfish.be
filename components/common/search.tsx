@@ -9,14 +9,14 @@ import {
   Configure,
 } from 'react-instantsearch-hooks-web'
 
+import { getAlgoliaClient } from '../../lib/services/search'
+import { stripPreSlash } from '../../lib/utils/string'
+
 type SearchItem = {
   title?: string
   slug: string
   type?: string
 }
-
-import { getAlgoliaClient } from '../../lib/services/search'
-import { stripPreSlash } from '../../lib/utils/string'
 
 const INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME ?? ''
 const searchClient = getAlgoliaClient().algoliaClient

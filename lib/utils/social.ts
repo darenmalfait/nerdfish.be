@@ -1,3 +1,13 @@
+// https://support.cloudinary.com/hc/en-us/community/posts/200788162-Using-special-characters-in-Text-overlaying-
+function escapeSpecialCharacters(title: string) {
+  return title.replace(/,/g, '%2C').replace(/\//g, '%2F')
+}
+
+function truncateText(text: string, maxLength = 60) {
+  if (text.length <= maxLength) return text
+  return `${text.substring(0, maxLength)}...`
+}
+
 function generateSocialImage({
   title,
   cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -8,12 +18,13 @@ function generateSocialImage({
   titleExtraConfig = '_bold',
   imageWidth = 1200,
   imageHeight = 630,
-  textAreaWidth = 630,
+  textAreaWidth = 530,
   textAreaHeight = 450,
   textLeftOffset = 45,
   textBottomOffset = -40,
   textColor = 'FFFFFF',
   titleFontSize = 60,
+  image = 'og:image',
 }: {
   title: string
   cloudName?: string
@@ -30,6 +41,7 @@ function generateSocialImage({
   textBottomOffset?: number
   textColor?: string
   titleFontSize?: number
+  image?: string | null
 }) {
   // configure social media image dimensions, quality, and format
   const imageConfig = [
@@ -37,6 +49,26 @@ function generateSocialImage({
     `h_${imageHeight}`,
     'c_fill',
     'f_auto',
+  ].join(',')
+
+  // configure the sub-image
+  const subImageConfig = [
+    'a_0',
+    'c_fill',
+    'g_east',
+    'h_630',
+    `l_${image}`,
+    'w_600',
+  ].join(',')
+
+  // configure the diagonal overlay
+  const diagonalOverlayConfig = [
+    'c_scale',
+    'g_west',
+    'h_630',
+    'l_og-mask',
+    'w_356',
+    'x_425',
   ].join(',')
 
   // configure the title text
@@ -49,7 +81,7 @@ function generateSocialImage({
     `x_${textLeftOffset}`,
     `y_${textBottomOffset}`,
     `l_text:${titleFont}_${titleFontSize}${titleExtraConfig}:${encodeURIComponent(
-      title,
+      escapeSpecialCharacters(truncateText(title)),
     )}`,
   ].join(',')
 
@@ -61,6 +93,8 @@ function generateSocialImage({
     'upload',
     imageConfig,
     titleConfig,
+    subImageConfig,
+    diagonalOverlayConfig,
     version,
     imagePublicID,
   ]
@@ -72,4 +106,12 @@ function generateSocialImage({
   return validParts.join('/')
 }
 
-export { generateSocialImage }
+function getFileNameFromUrl(url?: string | null) {
+  if (!url) return null
+
+  const parts = url.split('/')
+  const filename = parts[parts.length - 1]
+  return filename?.split('.')[0]
+}
+
+export { generateSocialImage, getFileNameFromUrl }
