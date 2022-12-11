@@ -50,7 +50,7 @@ const bigTitleBlockSchema: Template = {
   name: 'bigTitle',
   label: 'Big Title',
   ui: {
-    previewSrc: '/blocks/hero.png',
+    previewSrc: '/blocks/big-title.png',
     defaultItem: {
       title: 'Big Title',
     },
