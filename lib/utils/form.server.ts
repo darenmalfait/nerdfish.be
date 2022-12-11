@@ -1,8 +1,8 @@
 import type { NextApiResponse } from 'next'
 
-import { getErrorMessage, getNonNull } from './misc'
-
 import type { NonNullProperties } from '../../lib/types/misc'
+
+import { getErrorMessage, getNonNull } from './misc'
 
 type ErrorMessage = string
 type NoError = null

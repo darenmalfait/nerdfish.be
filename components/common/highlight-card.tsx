@@ -2,19 +2,20 @@ import { Container, Grid, H2 } from '@daren/ui-components'
 import clsx from 'clsx'
 import * as React from 'react'
 
-import { ArrowLink } from './arrow-link'
-import { Image } from './image'
-import { Link } from './link'
-
 import {
   CategoryIndicator,
   getCategoryColors,
 } from '../../components/common/category-indicator'
+
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
 } from '../../lib/utils/cloudinary'
+
+import { ArrowLink } from './arrow-link'
+import { Image } from './image'
+import { Link } from './link'
 
 interface HighlightCardProps {
   title?: string

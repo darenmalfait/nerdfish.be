@@ -12,6 +12,7 @@ type SocialMetas = {
   description: string
   schema?: string
   canonical?: string | null
+  subImage?: string | null
 }
 
 function getMetaTags({
@@ -71,6 +72,7 @@ function Seo({
   image: ogImage,
   title,
   children,
+  subImage,
   ...props
 }: SocialMetas & {
   children?: React.ReactNode
@@ -83,7 +85,11 @@ function Seo({
     : `${basePath}/${stripPreSlash(path)}`
 
   if (!ogImage) {
-    metaImage = generateSocialImage({ title, imagePublicID: 'seo-image.png' })
+    metaImage = generateSocialImage({
+      title,
+      imagePublicID: 'social.png',
+      image: subImage,
+    })
   }
 
   const image = metaImage?.startsWith('http')

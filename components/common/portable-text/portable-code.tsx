@@ -2,9 +2,9 @@ import { Container } from '@daren/ui-components'
 import type { Language, PrismTheme } from 'prism-react-renderer'
 import * as React from 'react'
 
-import theme from './vscode-theme'
-
 import { CodeBlock } from '../code-block/code-block'
+
+import theme from './vscode-theme'
 
 function PortableCode({ lang, value }: { lang?: Language; value?: string }) {
   return (

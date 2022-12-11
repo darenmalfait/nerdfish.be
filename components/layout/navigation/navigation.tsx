@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { Navbar } from './navbar'
-
 import { useGlobal } from '../../../context/global-provider'
+
+import { Navbar } from './navbar'
 
 interface NavigationProps {
   multilang?: boolean
