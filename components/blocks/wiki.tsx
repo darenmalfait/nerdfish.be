@@ -240,7 +240,7 @@ const wikiBlockSchema: Template = {
   name: 'Wiki',
   label: 'Wiki',
   ui: {
-    previewSrc: '/blocks/hero.png',
+    previewSrc: '/blocks/wiki.png',
   },
   fields: [
     {

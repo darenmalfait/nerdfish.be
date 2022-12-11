@@ -47,7 +47,7 @@ const keywordListBlockSchema: Template = {
   name: 'KeywordList',
   label: 'Keywords',
   ui: {
-    previewSrc: '/blocks/hero.png',
+    previewSrc: '/blocks/keyword-list.png',
     defaultItem: {
       items: ['feature', 'feature', 'feature'],
     },

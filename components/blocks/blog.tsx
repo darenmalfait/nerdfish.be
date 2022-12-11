@@ -255,7 +255,7 @@ const blogBlockSchema: Template = {
   name: 'Blog',
   label: 'Blog',
   ui: {
-    previewSrc: '/blocks/hero.png',
+    previewSrc: '/blocks/blog.png',
   },
   fields: [
     {
