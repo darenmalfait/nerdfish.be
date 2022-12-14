@@ -1,21 +1,21 @@
-import { Container, Grid, H2 } from '@daren/ui-components'
+import {Container, Grid, H2} from '@daren/ui-components'
 
-import { motion } from 'framer-motion'
-import type { RichTextType, Template } from 'tinacms'
+import {motion} from 'framer-motion'
+import type {RichTextType, Template} from 'tinacms'
 
-import { imageSchema, portableTextSchema } from '../../.tina/schema/objects'
-import { Image } from '../../components/common/image'
-import type { Block, Image as ImageType } from '../../lib/types/cms'
+import {imageSchema, portableTextSchema} from '../../.tina/schema/objects'
+import {Image} from '../../components/common/image'
+import type {Block, Image as ImageType} from '../../lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
 } from '../../lib/utils/cloudinary'
-import { PortableText } from '../common/portable-text'
+import {PortableText} from '../common/portable-text'
 
 const childVariants = {
-  initial: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  initial: {opacity: 0, y: 25},
+  visible: {opacity: 1, y: 0, transition: {duration: 0.5}},
 }
 
 const Hero = ({
@@ -37,8 +37,8 @@ const Hero = ({
             initial="initial"
             animate="visible"
             variants={{
-              initial: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              initial: {opacity: 0},
+              visible: {opacity: 1, transition: {staggerChildren: 0.2}},
             }}
           >
             <motion.div variants={childVariants} className="space-y-6">
@@ -50,7 +50,7 @@ const Hero = ({
               </H2>
             </motion.div>
 
-            {text && (
+            {text ? (
               <motion.div
                 data-tinafield={`${parentField}.text`}
                 variants={childVariants}
@@ -58,15 +58,15 @@ const Hero = ({
               >
                 <PortableText content={text} />
               </motion.div>
-            )}
+            ) : null}
           </motion.div>
 
-          {image && (
+          {image ? (
             <motion.div
               data-tinafield={`${parentField}.image`}
-              initial={{ scale: 1.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.75 }}
+              initial={{scale: 1.5, opacity: 0}}
+              animate={{scale: 1, opacity: 1}}
+              transition={{duration: 0.75}}
               className="relative mx-auto flex w-full items-center sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"
             >
               <Image
@@ -80,7 +80,7 @@ const Hero = ({
                 alt={image.alt}
               />
             </motion.div>
-          )}
+          ) : null}
         </div>
       </Container>
     </Grid>
@@ -108,4 +108,4 @@ const heroBlockSchema: Template = {
   ],
 }
 
-export { Hero, heroBlockSchema }
+export {Hero, heroBlockSchema}

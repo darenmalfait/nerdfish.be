@@ -34,4 +34,4 @@ function useClickOutside(
   return ref
 }
 
-export { useClickOutside }
+export {useClickOutside}

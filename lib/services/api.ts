@@ -1,6 +1,6 @@
 import tina from '../../.tina/__generated__/client'
 
-import type { Blog, ContentQueryQuery, Wiki } from '.tina/__generated__/types'
+import type {Blog, ContentQueryQuery, Wiki} from '.tina/__generated__/types'
 
 async function getPages() {
   const pageDate = await tina.queries.pageConnection()

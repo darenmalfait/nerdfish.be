@@ -1,9 +1,9 @@
-import { Feed } from 'feed'
+import {Feed} from 'feed'
 
-import { BlogPath } from '../utils/constants'
-import { getDatedSlug } from '../utils/routes'
+import {BlogPath} from '../utils/constants'
+import {getDatedSlug} from '../utils/routes'
 
-import { getBlogPosts } from './api'
+import {getBlogPosts} from './api'
 
 async function buildFeed() {
   const feed = new Feed({
@@ -19,19 +19,19 @@ async function buildFeed() {
     },
   })
 
-  const posts = (await getBlogPosts()) || []
+  const posts = (await getBlogPosts()) ?? []
 
   posts.forEach(post => {
     const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
-      new Date(post.date || '').toDateString(),
-      post._sys?.filename || '',
+      new Date(post.date ?? '').toDateString(),
+      post._sys?.filename ?? '',
     )}`
 
     feed.addItem({
-      title: post.title || '',
+      title: post.title ?? '',
       id: link,
       link,
-      description: post.excerpt || '',
+      description: post.excerpt ?? '',
       author: [
         {
           name: 'Daren Malfait',
@@ -39,12 +39,12 @@ async function buildFeed() {
           link: 'https://www.daren.be',
         },
       ],
-      date: new Date(post.date || ''),
-      image: post.heroImg || undefined,
+      date: new Date(post.date ?? ''),
+      image: post.heroImg ?? undefined,
     })
   })
 
   return feed
 }
 
-export { buildFeed }
+export {buildFeed}

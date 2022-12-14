@@ -1,6 +1,6 @@
 import formatDate from 'date-fns/format'
 
-import { stripPreSlash } from './string'
+import {stripPreSlash} from './string'
 
 function getBasePath(path?: string) {
   return path ? path.substring(0, path.lastIndexOf('.')) : path
@@ -21,4 +21,4 @@ function getDatedSlug(date: string, slug: string) {
   return `/${dateSegment}/${slug || ''}`
 }
 
-export { getRoute, getDatedSlug, getBasePath }
+export {getRoute, getDatedSlug, getBasePath}

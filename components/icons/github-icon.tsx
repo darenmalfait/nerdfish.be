@@ -18,4 +18,4 @@ function GithubIcon(props: JSX.IntrinsicElements['svg']) {
   )
 }
 
-export { GithubIcon }
+export {GithubIcon}

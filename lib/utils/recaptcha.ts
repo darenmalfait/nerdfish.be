@@ -16,7 +16,7 @@ function cleanGstaticRecaptchaScript() {
 function cleanGoogleRecaptcha(scriptId: string) {
   // remove badge
   const nodeBadge = document.querySelector('.grecaptcha-badge')
-  if (nodeBadge && nodeBadge.parentNode) {
+  if (nodeBadge?.parentNode) {
     document.body.removeChild(nodeBadge.parentNode)
   }
 
@@ -80,7 +80,7 @@ export function useRecaptcha(): RecaptchaProps {
   }, [])
 
   const execute = React.useCallback(async () => {
-    if (!greCaptchaInstance || !greCaptchaInstance.execute) {
+    if (!greCaptchaInstance?.execute) {
       console.error('Error: grecaptcha is not defined')
     }
 
@@ -92,5 +92,5 @@ export function useRecaptcha(): RecaptchaProps {
     )
   }, [greCaptchaInstance])
 
-  return { execute }
+  return {execute}
 }

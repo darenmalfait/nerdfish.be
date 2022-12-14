@@ -28,12 +28,12 @@ function useElementState(): [
     const el = ref.current
     if (!el) return
 
-    const pointerenter = () => setState(s => ({ ...s, hover: true }))
-    const pointerleave = () => setState(s => ({ ...s, hover: false }))
-    const focus = () => setState(s => ({ ...s, focus: true }))
-    const blur = () => setState(s => ({ ...s, focus: false }))
+    const pointerenter = () => setState(s => ({...s, hover: true}))
+    const pointerleave = () => setState(s => ({...s, hover: false}))
+    const focus = () => setState(s => ({...s, focus: true}))
+    const blur = () => setState(s => ({...s, focus: false}))
     const pointerdown = () => {
-      setState(s => ({ ...s, active: true }))
+      setState(s => ({...s, active: true}))
 
       // pointer events can be cancelled due to which el would never receive
       // a pointerup nor pointercancel event. Listen on the window for those
@@ -41,7 +41,7 @@ function useElementState(): [
       // not with { once: true }, because we want te remove both of them, once
       // of them has been received.
       const pointerup = () => {
-        setState(s => ({ ...s, active: false }))
+        setState(s => ({...s, active: false}))
         window.removeEventListener('pointerup', pointerup)
         window.removeEventListener('pointercancel', pointerup)
       }
@@ -55,12 +55,12 @@ function useElementState(): [
         return
       }
 
-      setState(s => ({ ...s, active: true }))
+      setState(s => ({...s, active: true}))
 
       // when clicking a link, the keyup doesn't need to come from the keydown
       // element. We listen on the window instead, but only once.
-      const keyup = () => setState(s => ({ ...s, active: false }))
-      window.addEventListener('keyup', keyup, { once: true })
+      const keyup = () => setState(s => ({...s, active: false}))
+      window.addEventListener('keyup', keyup, {once: true})
     }
 
     el.addEventListener('pointerenter', pointerenter)
@@ -91,4 +91,4 @@ function useElementState(): [
   return [setRef, status]
 }
 
-export { useElementState }
+export {useElementState}

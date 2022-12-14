@@ -1,16 +1,16 @@
-import { Container, Grid } from '@daren/ui-components'
-import { RssIcon } from '@heroicons/react/24/solid'
+import {Container, Grid} from '@daren/ui-components'
+import {RssIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
 import * as React from 'react'
 
-import { Hamburger } from '../../../components/common/hamburger'
-import { Link } from '../../../components/common/link'
-import { Overlay } from '../../../components/common/overlay'
-import { Search } from '../../../components/common/search'
-import { ThemeToggle } from '../../../components/common/theme-toggle'
-import { Logo } from '../../../components/icons/logo'
-import { useClickOutside } from '../../../lib/utils/use-click-outside'
+import {Hamburger} from '../../../components/common/hamburger'
+import {Link} from '../../../components/common/link'
+import {Overlay} from '../../../components/common/overlay'
+import {Search} from '../../../components/common/search'
+import {ThemeToggle} from '../../../components/common/theme-toggle'
+import {Logo} from '../../../components/icons/logo'
+import {useClickOutside} from '../../../lib/utils/use-click-outside'
 
 interface MobileNavProps {
   actions?: React.ReactNode
@@ -78,7 +78,7 @@ interface NavbarProps {
   actions?: React.ReactNode
 }
 
-function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
+function Navbar({actions, children, rootPath = '/'}: NavbarProps) {
   const [open, setOpen] = React.useState(false)
 
   const onToggle = React.useCallback(() => {
@@ -154,4 +154,4 @@ function Navbar({ actions, children, rootPath = '/' }: NavbarProps) {
 
 Navbar.Link = Link
 
-export { Navbar }
+export {Navbar}

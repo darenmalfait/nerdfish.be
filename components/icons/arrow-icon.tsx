@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import {ArrowRightIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
 type ArrowIconProps = {
@@ -30,5 +30,5 @@ function ArrowIcon({
   )
 }
 
-export { ArrowIcon }
-export type { ArrowIconProps }
+export {ArrowIcon}
+export type {ArrowIconProps}

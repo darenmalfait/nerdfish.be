@@ -1,5 +1,5 @@
-import { FourOhFour } from '../components/layout/errors'
-import { Layout } from '../components/layout/layout'
+import {FourOhFour} from '../components/layout/errors'
+import {Layout} from '../components/layout/layout'
 
 import global from '../content/global/index.json'
 

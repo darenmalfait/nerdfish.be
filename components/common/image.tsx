@@ -1,4 +1,4 @@
-import { ExtractProps, ProgressiveImage } from '@daren/ui-components'
+import {ExtractProps, ProgressiveImage} from '@daren/ui-components'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -31,4 +31,4 @@ function Image({
   )
 }
 
-export { Image }
+export {Image}

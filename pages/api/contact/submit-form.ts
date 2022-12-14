@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type {NextApiRequest, NextApiResponse} from 'next'
 
-import { sendEmail } from '../../../lib/services/email.server'
+import {sendEmail} from '../../../lib/services/email.server'
 import {
   getErrorForRecaptcha,
   handleFormSubmission,
@@ -62,7 +62,7 @@ export default async function handler(
       projectType: () => null,
     },
     handleFormValues: async fields => {
-      const { name, email, message, projectType } = fields
+      const {name, email, message, projectType} = fields
 
       const html = `
       name: ${name}
@@ -90,4 +90,4 @@ export default async function handler(
   })
 }
 
-export type { ActionData }
+export type {ActionData}

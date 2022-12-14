@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-import { BigTitle } from './blocks/big-title'
-import { Blog } from './blocks/blog'
-import { Content } from './blocks/content'
-import { Features } from './blocks/features'
-import { Hero } from './blocks/hero'
-import { KeywordList } from './blocks/keyword-list'
-import { Wiki } from './blocks/wiki'
-import { Placeholder } from './common/placeholder'
+import {BigTitle} from './blocks/big-title'
+import {Blog} from './blocks/blog'
+import {Content} from './blocks/content'
+import {Features} from './blocks/features'
+import {Hero} from './blocks/hero'
+import {KeywordList} from './blocks/keyword-list'
+import {Wiki} from './blocks/wiki'
+import {Placeholder} from './common/placeholder'
 
 // [key] is the name of the module in TinaCMS
 const components = {
@@ -33,12 +33,15 @@ function Blocks<T extends keyof typeof components>({
 }) {
   return (
     <>
-      {(items || []).map((block, i) => {
+      {(items ?? []).map((block, i) => {
         const Component = components[block.__typename]
 
         if (typeof Component !== 'undefined') {
           return (
-            <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+            <div
+              data-tinafield={`blocks.${i}`}
+              key={i.toString() + block.__typename}
+            >
               <Component {...(block as any)} parentField={`blocks.${i}`} />
             </div>
           )
@@ -46,7 +49,7 @@ function Blocks<T extends keyof typeof components>({
 
         return (
           <Placeholder
-            key={i + block.__typename}
+            key={i.toString() + block.__typename}
             componentName={block.__typename}
           />
         )
@@ -55,4 +58,4 @@ function Blocks<T extends keyof typeof components>({
   )
 }
 
-export { Blocks }
+export {Blocks}

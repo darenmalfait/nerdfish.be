@@ -1,6 +1,6 @@
-import { Section } from '@daren/ui-components'
+import {Section} from '@daren/ui-components'
 
-function Placeholder({ componentName }: { componentName: string | number }) {
+function Placeholder({componentName}: {componentName: string | number}) {
   return (
     <Section className="border border-red-200 bg-red-100 py-4 text-center">
       <p className="mx-auto text-center text-red-700">
@@ -10,4 +10,4 @@ function Placeholder({ componentName }: { componentName: string | number }) {
   )
 }
 
-export { Placeholder }
+export {Placeholder}

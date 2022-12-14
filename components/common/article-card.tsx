@@ -1,22 +1,22 @@
-import { H3 } from '@daren/ui-components'
+import {H3} from '@daren/ui-components'
 import clsx from 'clsx'
 
-import type { Blog } from '../../.tina/__generated__/types'
-import { useGlobal } from '../../context/global-provider'
+import type {Blog} from '../../.tina/__generated__/types'
+import {useGlobal} from '../../context/global-provider'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
 } from '../../lib/utils/cloudinary'
-import { getDatedSlug } from '../../lib/utils/routes'
+import {getDatedSlug} from '../../lib/utils/routes'
 import {
   CategoryIndicator,
   getCategoryColors,
 } from '../common/category-indicator'
 
-import { DateFormatter } from './date-formatter'
-import { Image } from './image'
-import { Link } from './link'
+import {DateFormatter} from './date-formatter'
+import {Image} from './image'
+import {Link} from './link'
 
 function ArticleCard({
   title,
@@ -25,12 +25,12 @@ function ArticleCard({
   category,
   _sys,
 }: Partial<Blog>) {
-  const { hydrated } = useGlobal()
+  const {hydrated} = useGlobal()
   return (
     <div className="relative w-full">
       <Link
         href={
-          hydrated ? `/blog${getDatedSlug(date, _sys?.filename || '')}` : ''
+          hydrated ? `/blog${getDatedSlug(date, _sys?.filename ?? '')}` : ''
         }
         className="group peer relative block w-full focus:outline-none"
       >
@@ -70,4 +70,4 @@ function ArticleCard({
   )
 }
 
-export { ArticleCard }
+export {ArticleCard}

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function TwitterIcon({ className, ...props }: JSX.IntrinsicElements['svg']) {
+function TwitterIcon({className, ...props}: JSX.IntrinsicElements['svg']) {
   return (
     <svg
       className={className}
@@ -16,4 +16,4 @@ function TwitterIcon({ className, ...props }: JSX.IntrinsicElements['svg']) {
   )
 }
 
-export { TwitterIcon }
+export {TwitterIcon}

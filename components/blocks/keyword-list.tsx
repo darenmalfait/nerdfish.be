@@ -1,9 +1,9 @@
-import { Container, Grid, H1, Section } from '@daren/ui-components'
+import {Container, Grid, H1, Section} from '@daren/ui-components'
 import * as React from 'react'
 
-import type { Template } from 'tinacms'
+import type {Template} from 'tinacms'
 
-import type { Block } from '../../lib/types/cms'
+import type {Block} from '../../lib/types/cms'
 
 const KeywordList = ({
   parentField,
@@ -67,4 +67,4 @@ const keywordListBlockSchema: Template = {
   ],
 }
 
-export { KeywordList, keywordListBlockSchema }
+export {KeywordList, keywordListBlockSchema}

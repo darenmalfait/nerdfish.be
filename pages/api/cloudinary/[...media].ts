@@ -1,4 +1,4 @@
-import { isAuthorized } from '@tinacms/auth'
+import {isAuthorized} from '@tinacms/auth'
 import {
   mediaHandlerConfig,
   createMediaHandler,
@@ -34,7 +34,7 @@ export default createMediaHandler({
 
       const user = await isAuthorized(req)
 
-      return user && user.verified
+      return user?.verified
     } catch (e) {
       console.error(e)
       return false as any

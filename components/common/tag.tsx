@@ -1,6 +1,6 @@
-import { CustomCheckboxContainer, CustomCheckboxInput } from '@reach/checkbox'
+import {CustomCheckboxContainer, CustomCheckboxInput} from '@reach/checkbox'
 import clsx from 'clsx'
-import type { ChangeEventHandler } from 'react'
+import type {ChangeEventHandler} from 'react'
 
 function Tag({
   tag,
@@ -42,4 +42,4 @@ function Tag({
   )
 }
 
-export { Tag }
+export {Tag}
