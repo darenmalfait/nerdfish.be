@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import type { Global, GlobalPaths } from '../.tina/__generated__/types'
-import { stripPreSlash } from '../lib/utils/string'
+import type {Global, GlobalPaths} from '../.tina/__generated__/types'
+import {stripPreSlash} from '../lib/utils/string'
 
 interface GlobalContextProps {
   paths?: Global['paths']
@@ -21,13 +21,13 @@ interface GlobalProviderProps extends Partial<Global> {
 
 // import { GlobalProvider } from "path-to-context/GlobalProviderContext"
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
-function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
-  const { navigation, paths: originalPaths, social } = globalProps
+function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
+  const {navigation, paths: originalPaths, social} = globalProps
   const [hydrated, setHydrated] = React.useState(false)
 
   const paths = React.useMemo(() => {
     if (!originalPaths) return undefined
-    return Object.keys(originalPaths).reduce((acc, key) => {
+    return Object.keys(originalPaths).reduce<GlobalPaths>((acc, key) => {
       const path = originalPaths[key as keyof GlobalPaths] ?? ''
 
       const isExternal = path.startsWith('http')
@@ -36,7 +36,7 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
         ...acc,
         [key]: isExternal ? path : `/${stripPreSlash(path)}`,
       }
-    }, {} as GlobalPaths)
+    }, {})
   }, [originalPaths])
 
   React.useEffect(() => {
@@ -47,7 +47,7 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
 
   return (
     <GlobalProviderContext.Provider
-      value={{ paths, navigation, social, hydrated }}
+      value={{paths, navigation, social, hydrated}}
     >
       {children}
     </GlobalProviderContext.Provider>
@@ -67,4 +67,4 @@ function useGlobal(): GlobalContextProps {
   return context
 }
 
-export { GlobalProvider, useGlobal }
+export {GlobalProvider, useGlobal}

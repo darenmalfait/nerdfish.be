@@ -1,12 +1,12 @@
-import type { GetStaticPropsContext } from 'next'
-import { useTina } from 'tinacms/dist/react'
+import type {GetStaticPropsContext} from 'next'
+import {useTina} from 'tinacms/dist/react'
 
-import { Blocks } from '../components/blocks-renderer'
-import { Seo } from '../components/common/seo'
-import { Layout } from '../components/layout/layout'
-import { BlockDataProvider } from '../context/block-data-provider'
-import { getPage, getPages, mapPageData } from '../lib/services/api'
-import type { AsyncReturnType } from '../lib/types/misc'
+import {Blocks} from '../components/blocks-renderer'
+import {Seo} from '../components/common/seo'
+import {Layout} from '../components/layout/layout'
+import {BlockDataProvider} from '../context/block-data-provider'
+import {getPage, getPages, mapPageData} from '../lib/services/api'
+import type {AsyncReturnType} from '../lib/types/misc'
 
 function Content({
   page,
@@ -23,14 +23,14 @@ function Content({
 export default function Page(
   props: AsyncReturnType<typeof getStaticProps>['props'],
 ) {
-  const { data } = useTina(props)
+  const {data} = useTina(props)
 
   return (
     <Layout globalData={data.global}>
       <Seo
-        title={data.page.seo?.title || data.page.title || 'Untitled'}
-        url={props.params?.filename || '/'}
-        description={data.page.seo?.description || ''}
+        title={data.page.seo?.title ?? (data.page.title || 'Untitled')}
+        url={props.params?.filename ?? '/'}
+        description={data.page.seo?.description ?? ''}
         canonical={data.page.seo?.canonical}
       />
       <Content {...mapPageData(data)} />
@@ -40,8 +40,8 @@ export default function Page(
 
 export const getStaticProps = async ({
   params,
-}: GetStaticPropsContext<{ filename?: string }>) => {
-  const path = `${params?.filename || 'home'}.md`
+}: GetStaticPropsContext<{filename?: string}>) => {
+  const path = `${params?.filename ?? 'home'}.md`
 
   return {
     props: {
@@ -53,8 +53,8 @@ export const getStaticProps = async ({
 
 export const getStaticPaths = async () => {
   return {
-    paths: ((await getPages()) || []).map(page => ({
-      params: { filename: page._sys?.filename },
+    paths: ((await getPages()) ?? []).map(page => ({
+      params: {filename: page._sys?.filename},
     })),
     fallback: 'blocking',
   }

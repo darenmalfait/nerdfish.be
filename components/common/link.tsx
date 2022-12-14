@@ -1,10 +1,10 @@
-import { ButtonLink, Link as DarenLink } from '@daren/ui-components'
+import {ButtonLink, Link as DarenLink} from '@daren/ui-components'
 
-import NextLink, { LinkProps } from 'next/link'
+import NextLink, {LinkProps} from 'next/link'
 import * as React from 'react'
 import Obfuscate from 'react-obfuscate'
 
-import { stripPreSlash } from '../../lib/utils/string'
+import {stripPreSlash} from '../../lib/utils/string'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https']
 
@@ -23,7 +23,7 @@ const Link = React.forwardRef<
     url?: string
     href: string
   }
->(function Link({ isButton, url = '', href = url, ...props }, ref) {
+>(function Link({isButton, url = '', href = url, ...props}, ref) {
   const isExternal = hrefParameters.some(hrefParameter =>
     href.startsWith(hrefParameter),
   )
@@ -72,4 +72,4 @@ const Link = React.forwardRef<
   )
 })
 
-export { Link }
+export {Link}

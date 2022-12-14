@@ -17,11 +17,11 @@ function getTheme(key: string, fallback?: string) {
   if (isServer) return undefined
   let theme
   try {
-    theme = localStorage.getItem(key) || undefined
+    theme = localStorage.getItem(key) ?? undefined
   } catch (e: any) {
     console.error('e', e.message)
   }
-  return theme || fallback
+  return theme ?? fallback
 }
 
 interface ThemeContextProps {
@@ -98,17 +98,18 @@ const ThemeScript = React.memo(
     }
 
     const scriptSrc = (() => {
-      if (forcedTheme)
+      if (forcedTheme) {
         return `!function(){${optimization}${updateDOM(forcedTheme)}}()`
+      }
 
       return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDOM(
         'dark',
       )}}else{${updateDOM('light')}}}else if(e)${updateDOM('e', true)};${
-        !defaultSystem ? `else{${updateDOM(defaultTheme, false, false)}}` : ''
+        defaultSystem ? '' : `else{${updateDOM(defaultTheme, false, false)}}`
       }${fallbackColorScheme}}catch(e){console.error(e.message);}}()`
     })()
 
-    return <script dangerouslySetInnerHTML={{ __html: scriptSrc }} />
+    return <script dangerouslySetInnerHTML={{__html: scriptSrc}} />
   },
   // Never re-render this component
   () => true,
@@ -141,13 +142,14 @@ function ThemeProvider({
     [themes],
   )
 
-  const setTheme = React.useCallback((theme: string) => {
-    setThemeState(theme)
+  const setTheme = React.useCallback((newTheme: string) => {
+    setThemeState(newTheme)
 
     // Save to storage
     try {
-      localStorage.setItem(storageKey, theme)
-    } catch (e) {
+      localStorage.setItem(storageKey, newTheme)
+    } catch (e: any) {
+      console.error(e.message)
       // Unsupported
     }
   }, [])
@@ -183,8 +185,8 @@ function ThemeProvider({
       }
 
       // If default theme set, use it if localstorage === null (happens on local storage manual deletion)
-      const theme = e.newValue || defaultTheme
-      setTheme(theme)
+      const selectedTheme = e.newValue ?? defaultTheme
+      setTheme(selectedTheme)
     }
 
     window.addEventListener('storage', handleStorage)
@@ -235,4 +237,4 @@ function useTheme(): ThemeContextProps {
   return context
 }
 
-export { ThemeProvider, useTheme }
+export {ThemeProvider, useTheme}

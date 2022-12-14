@@ -1,16 +1,16 @@
-import { Container, Grid, Paragraph, Section } from '@daren/ui-components'
+import {Container, Grid, Paragraph, Section} from '@daren/ui-components'
 import {
   BookmarkIcon,
   ChevronRightIcon,
   RssIcon,
 } from '@heroicons/react/24/solid'
 
-import { BigTitle } from '../../components/blocks/big-title'
-import { ArrowLink } from '../../components/common/arrow-link'
-import { NoIndex } from '../../components/common/seo'
+import {BigTitle} from '../../components/blocks/big-title'
+import {ArrowLink} from '../../components/common/arrow-link'
+import {NoIndex} from '../../components/common/seo'
 
 import global from '../../content/global/index.json'
-import { stripPreSlash } from '../../lib/utils/string'
+import {stripPreSlash} from '../../lib/utils/string'
 
 function ErrorPage({
   title = '404',
@@ -121,24 +121,18 @@ function ErrorPage({
   )
 }
 
-function FourOhFour({
-  title,
-  subTitle,
-}: {
-  title?: string
-  subTitle?: string
-}) {
+function FourOhFour({title, subTitle}: {title?: string; subTitle?: string}) {
   return (
     <ErrorPage
-      title={title || "404 - Page doesn't exist"}
+      title={title ?? "404 - Page doesn't exist"}
       subTitle={
-        subTitle || "Sorry, we couldn't find the page you were looking for."
+        subTitle ?? "Sorry, we couldn't find the page you were looking for."
       }
     />
   )
 }
 
-function ServerError({ error }: { error?: Error }) {
+function ServerError({error}: {error?: Error}) {
   return (
     <ErrorPage
       title="500 - Oh no, something went wrong!"
@@ -147,4 +141,4 @@ function ServerError({ error }: { error?: Error }) {
   )
 }
 
-export { FourOhFour, ServerError }
+export {FourOhFour, ServerError}

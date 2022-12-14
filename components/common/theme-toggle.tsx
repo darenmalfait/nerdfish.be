@@ -1,11 +1,11 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import {MoonIcon, SunIcon} from '@heroicons/react/24/solid'
 import * as React from 'react'
 
-import { useTheme } from '../../context/theme-provider'
+import {useTheme} from '../../context/theme-provider'
 
 function ThemeToggle() {
   const [mounted, setMounted] = React.useState(false)
-  const { theme, setTheme, systemTheme } = useTheme()
+  const {theme, setTheme, systemTheme} = useTheme()
 
   // useEffect only runs on the client, so now we can safely show the UI
   React.useEffect(() => {
@@ -31,4 +31,4 @@ function ThemeToggle() {
   )
 }
 
-export { ThemeToggle }
+export {ThemeToggle}

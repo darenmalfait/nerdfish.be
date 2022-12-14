@@ -17,4 +17,4 @@ function Spacer({
   return <div className={`${className} ${spacerSizes[size]}`} />
 }
 
-export { Spacer }
+export {Spacer}

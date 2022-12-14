@@ -1,7 +1,7 @@
-import { Grid, H2 } from '@daren/ui-components'
+import {Grid, H2} from '@daren/ui-components'
 import clsx from 'clsx'
 
-import { ArrowLink } from '../common/arrow-link'
+import {ArrowLink} from '../common/arrow-link'
 
 interface HeaderProps {
   ctaUrl?: string
@@ -12,7 +12,7 @@ interface HeaderProps {
   className?: string
 }
 
-function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
+function Header({ctaUrl, cta, title, subTitle, className, as}: HeaderProps) {
   return (
     <Grid as={as}>
       <div
@@ -22,8 +22,8 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
         )}
       >
         <div className="space-y-2 lg:space-y-0">
-          {title && <H2 className="font-bold">{title}</H2>}
-          {subTitle && (
+          {title ? <H2 className="font-bold">{title}</H2> : null}
+          {subTitle ? (
             <H2
               variant="secondary"
               as="p"
@@ -31,7 +31,7 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
             >
               {subTitle}
             </H2>
-          )}
+          ) : null}
         </div>
 
         {cta && ctaUrl ? (
@@ -44,4 +44,4 @@ function Header({ ctaUrl, cta, title, subTitle, className, as }: HeaderProps) {
   )
 }
 
-export { Header }
+export {Header}

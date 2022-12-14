@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import type { NonNullProperties } from '../../lib/types/misc'
+import type {NonNullProperties} from '../../lib/types/misc'
 
 function getDomainUrl(): string | undefined {
   if (process.env.NEXT_PUBLIC_URL) {

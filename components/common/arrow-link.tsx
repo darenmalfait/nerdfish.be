@@ -1,53 +1,50 @@
 import clsx from 'clsx'
-import { motion, Variant } from 'framer-motion'
+import {motion, Variant} from 'framer-motion'
 
-import {
-  ElementState,
-  useElementState,
-} from '../../lib/utils/use-element-state'
-import { ArrowIcon, ArrowIconProps } from '../icons/arrow-icon'
+import {ElementState, useElementState} from '../../lib/utils/use-element-state'
+import {ArrowIcon, ArrowIconProps} from '../icons/arrow-icon'
 
-import { Link } from './link'
+import {Link} from './link'
 
 const arrowVariants: Record<
   ArrowIconProps['direction'],
   Record<ElementState, Variant>
 > = {
   up: {
-    initial: { y: 0 },
-    hover: { y: -8 },
+    initial: {y: 0},
+    hover: {y: -8},
     focus: {
       y: [0, -8, 0],
-      transition: { repeat: Infinity },
+      transition: {repeat: Infinity},
     },
-    active: { y: -24 },
+    active: {y: -24},
   },
   right: {
-    initial: { x: 0 },
-    hover: { x: 8 },
+    initial: {x: 0},
+    hover: {x: 8},
     focus: {
       x: [0, 8, 0],
-      transition: { repeat: Infinity },
+      transition: {repeat: Infinity},
     },
-    active: { x: 24 },
+    active: {x: 24},
   },
   down: {
-    initial: { y: 0 },
-    hover: { y: 8 },
+    initial: {y: 0},
+    hover: {y: 8},
     focus: {
       y: [0, 8, 0],
-      transition: { repeat: Infinity },
+      transition: {repeat: Infinity},
     },
-    active: { y: 24 },
+    active: {y: 24},
   },
   left: {
-    initial: { x: 0 },
-    hover: { x: -8 },
+    initial: {x: 0},
+    hover: {x: -8},
     focus: {
       x: [0, -8, 0],
-      transition: { repeat: Infinity },
+      transition: {repeat: Infinity},
     },
-    active: { x: -24 },
+    active: {x: -24},
   },
 }
 
@@ -76,7 +73,7 @@ function ArrowLink({
   return (
     <Tag
       {...props}
-      href={href || '#'}
+      href={href ?? '#'}
       className={clsx(
         className,
         'inline-flex cursor-pointer items-center space-x-4 text-left text-lg font-bold !no-underline transition text-primary focus:outline-none',
@@ -105,7 +102,7 @@ function BackLink({
   href,
   className,
   children,
-}: { href: string } & Pick<ArrowLinkProps, 'className' | 'children'>) {
+}: {href: string} & Pick<ArrowLinkProps, 'className' | 'children'>) {
   const [ref, state] = useElementState()
 
   const Tag = href ? MotionLink : MotionSpan
@@ -128,4 +125,4 @@ function BackLink({
   )
 }
 
-export { ArrowLink, BackLink }
+export {ArrowLink, BackLink}

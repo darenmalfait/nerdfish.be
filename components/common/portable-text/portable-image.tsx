@@ -5,9 +5,9 @@ import {
   buildSrcSet,
   getLowQualityUrlFor,
 } from '../../../lib/utils/cloudinary'
-import { Image } from '../image'
+import {Image} from '../image'
 
-function PortableImage({ alt = '', url = '' }: { alt?: string; url?: string }) {
+function PortableImage({alt = '', url = ''}: {alt?: string; url?: string}) {
   return (
     <Image
       placeholder={getLowQualityUrlFor(url)}
@@ -20,4 +20,4 @@ function PortableImage({ alt = '', url = '' }: { alt?: string; url?: string }) {
   )
 }
 
-export { PortableImage }
+export {PortableImage}

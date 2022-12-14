@@ -1,8 +1,8 @@
-import type { NextApiResponse } from 'next'
+import type {NextApiResponse} from 'next'
 
-import type { NonNullProperties } from '../../lib/types/misc'
+import type {NonNullProperties} from '../../lib/types/misc'
 
-import { getErrorMessage, getNonNull } from './misc'
+import {getErrorMessage, getNonNull} from './misc'
 
 type ErrorMessage = string
 type NoError = null
@@ -11,15 +11,15 @@ type FormValue = string | null
 async function handleFormSubmission<
   ActionData extends {
     status: 'success' | 'error' | string
-    fields: { [field: string]: FormValue }
-    errors: { [field: string]: ErrorMessage | NoError }
+    fields: {[field: string]: FormValue}
+    errors: {[field: string]: ErrorMessage | NoError}
   },
 >({
   values,
   response,
   validators,
   // @ts-expect-error ts(2322) 🤷‍♂️
-  actionData = { fields: {}, errors: {} },
+  actionData = {fields: {}, errors: {}},
   handleFormValues,
 }: {
   validators: {
@@ -31,11 +31,11 @@ async function handleFormSubmission<
   actionData?: ActionData
   handleFormValues: (
     formValues: NonNullProperties<ActionData['fields']>,
-  ) => Response | Promise<Response | void> | void
+  ) => Response | Promise<Response> | Promise<void>
 } & {
   values: Record<string, string>
   response?: NextApiResponse
-}): Promise<Response | void> {
+}): Promise<Response | Promise<void>> {
   try {
     // collect all values first because validators can reference them
     for (const fieldName of Object.keys(validators)) {
@@ -48,7 +48,7 @@ async function handleFormSubmission<
 
     await Promise.all(
       Object.entries(validators).map(async ([fieldName, validator]) => {
-        const formValue = values[fieldName] || ''
+        const formValue = values[fieldName] ?? ''
         // Default the value to empty string so it doesn't have trouble with
         // getNonNull later. This allows us to have a validator that allows
         // for optional values.
@@ -60,12 +60,12 @@ async function handleFormSubmission<
     )
 
     if (Object.values(actionData.errors).some(err => err !== null)) {
-      return response?.status(400).json({ ...actionData, status: 'error' })
+      return response?.status(400).json({...actionData, status: 'error'})
     }
 
     const nonNullFields = getNonNull(actionData.fields)
     // not sure why, but it wasn't happy without the type cast 🤷‍♂️
-    return handleFormValues(
+    return await handleFormValues(
       nonNullFields as NonNullProperties<ActionData['fields']>,
     )
   } catch (error: unknown) {
@@ -81,7 +81,7 @@ async function getErrorForRecaptcha(
 
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${recaptcha}`
 
-  const recaptchaRes = await fetch(verifyUrl, { method: 'POST' })
+  const recaptchaRes = await fetch(verifyUrl, {method: 'POST'})
 
   const recaptchaJson = await recaptchaRes.json()
 
@@ -92,4 +92,4 @@ async function getErrorForRecaptcha(
   return null
 }
 
-export { getErrorForRecaptcha, handleFormSubmission }
+export {getErrorForRecaptcha, handleFormSubmission}

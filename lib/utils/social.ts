@@ -114,4 +114,4 @@ function getFileNameFromUrl(url?: string | null) {
   return filename?.split('.')[0]
 }
 
-export { generateSocialImage, getFileNameFromUrl }
+export {generateSocialImage, getFileNameFromUrl}

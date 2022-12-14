@@ -1,11 +1,11 @@
-import { Grid, H2, Section } from '@daren/ui-components'
+import {Grid, H2, Section} from '@daren/ui-components'
 import * as Icons from '@heroicons/react/24/solid'
-import { camelCase, startCase } from 'lodash'
-import type { Template } from 'tinacms'
+import {camelCase, startCase} from 'lodash'
+import type {Template} from 'tinacms'
 
-import type { Block } from '../../lib/types/cms'
-import { Header } from '../layout/header'
-import { Spacer } from '../layout/spacer'
+import type {Block} from '../../lib/types/cms'
+import {Header} from '../layout/header'
+import {Spacer} from '../layout/spacer'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
@@ -30,12 +30,12 @@ function FeatureCard({
       className="relative flex h-full w-full flex-col items-start rounded-lg py-12 px-8 bg-secondary lg:px-12"
       {...props}
     >
-      {Icon && (
+      {Icon ? (
         <Icon
           data-tinafield={`${parentField}.items.${index}.icon`}
           className="mb-8 h-8 text-primary"
         />
-      )}
+      ) : null}
       <H2
         data-tinafield={`${parentField}.items.${index}.title`}
         as="h3"
@@ -69,15 +69,15 @@ function Features({
 }) {
   return (
     <>
-      {(title || subTitle) && (
+      {title || subTitle ? (
         <Section className="mt-24">
           <Header title={title} subTitle={subTitle} />
           <Spacer size="2xs" />
         </Section>
-      )}
+      ) : null}
       <Section>
         <Grid rowGap>
-          {items?.map(({ title, icon, description }, i) => (
+          {items?.map(({title: itemTitle, icon, description}, i) => (
             <div
               key={`${parentField}-${i}`}
               className="col-span-full lg:col-span-6"
@@ -86,10 +86,11 @@ function Features({
                 parentField={parentField}
                 index={i}
                 icon={
-                  icon &&
-                  (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
+                  icon
+                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
+                    : null
                 }
-                title={title}
+                title={itemTitle}
                 description={description}
               />
             </div>
@@ -170,4 +171,4 @@ const featuresBlockSchema: Template = {
   ],
 }
 
-export { Features, featuresBlockSchema }
+export {Features, featuresBlockSchema}

@@ -1,22 +1,22 @@
-import { Button, Container, Grid, H3, Section } from '@daren/ui-components'
-import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
-import { useRouter } from 'next/router'
+import {Button, Container, Grid, H3, Section} from '@daren/ui-components'
+import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
+import {useRouter} from 'next/router'
 import * as React from 'react'
-import type { Template } from 'tinacms'
+import type {Template} from 'tinacms'
 
-import { tagsSchema } from '../../.tina/schema/objects'
-import { DateFormatter } from '../../components/common/date-formatter'
-import { useBlockData } from '../../context/block-data-provider'
-import { useGlobal } from '../../context/global-provider'
-import type { Block } from '../../lib/types/cms'
-import { useUpdateQueryStringValueWithoutNavigation } from '../../lib/utils/misc'
-import { getDatedSlug } from '../../lib/utils/routes'
-import { filterWiki } from '../../lib/utils/wiki'
-import { Link } from '../common/link'
-import { PortableText } from '../common/portable-text'
-import { Tag } from '../common/tag'
-import { Header } from '../layout/header'
-import { Spacer } from '../layout/spacer'
+import {tagsSchema} from '../../.tina/schema/objects'
+import {DateFormatter} from '../../components/common/date-formatter'
+import {useBlockData} from '../../context/block-data-provider'
+import {useGlobal} from '../../context/global-provider'
+import type {Block} from '../../lib/types/cms'
+import {useUpdateQueryStringValueWithoutNavigation} from '../../lib/utils/misc'
+import {getDatedSlug} from '../../lib/utils/routes'
+import {filterWiki} from '../../lib/utils/wiki'
+import {Link} from '../common/link'
+import {PortableText} from '../common/portable-text'
+import {Tag} from '../common/tag'
+import {Header} from '../layout/header'
+import {Spacer} from '../layout/spacer'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -37,8 +37,8 @@ function Wiki({
   tags?: string[]
   count?: number
 }) {
-  const { hydrated } = useGlobal()
-  const { title, subtitle, link } = header || {}
+  const {hydrated} = useGlobal()
+  const {title, subtitle, link} = header ?? {}
   const router = useRouter()
   const [queryValue, setQuery] = React.useState(
     router.query.q?.toString() ?? '',
@@ -49,7 +49,7 @@ function Wiki({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
-  const { wiki: allPosts } = useBlockData()
+  const {wiki: allPosts} = useBlockData()
 
   const query = typeof queryValue === 'string' ? queryValue.trim() : ''
   useUpdateQueryStringValueWithoutNavigation('q', query)
@@ -94,12 +94,12 @@ function Wiki({
 
   return (
     <>
-      {searchEnabled && (
+      {searchEnabled ? (
         <>
           <Section>
-            {(title || subtitle) && (
+            {title || subtitle ? (
               <Header title={title} subTitle={subtitle} />
-            )}
+            ) : null}
             <Grid>
               <Container
                 size="full"
@@ -149,7 +149,9 @@ function Wiki({
                           tag={tag}
                           selected={selected}
                           onClick={() => toggleTag(tag || '')}
-                          disabled={!visibleTags.includes(tag) && !selected}
+                          disabled={
+                            visibleTags.includes(tag) ? false : !selected
+                          }
                         />
                       )
                     })}
@@ -161,9 +163,9 @@ function Wiki({
 
           <Spacer size="3xs" className="col-span-full" />
         </>
-      )}
+      ) : null}
 
-      {!searchEnabled && (title || subtitle) && (
+      {!searchEnabled && (title || subtitle) ? (
         <Section className="mt-24" data-tinafield={`${parentField}.header`}>
           <Header
             title={title}
@@ -173,7 +175,7 @@ function Wiki({
           />
           <Spacer size="2xs" />
         </Section>
-      )}
+      ) : null}
 
       <Section>
         <Grid>
@@ -197,7 +199,7 @@ function Wiki({
                           hydrated
                             ? `/wiki${getDatedSlug(
                                 wiki.date as string,
-                                wiki._sys?.filename || '',
+                                wiki._sys?.filename ?? '',
                               )}`
                             : ''
                         }
@@ -205,11 +207,11 @@ function Wiki({
                       >
                         {wiki.title}
                       </Link>
-                      {wiki.date && (
+                      {wiki.date ? (
                         <p className="text-sm text-gray-400 dark:text-gray-600">
                           <DateFormatter dateString={wiki.date} format="PPP" />
                         </p>
-                      )}
+                      ) : null}
                       <div className="mt-2 text-justify text-gray-600 dark:text-gray-300">
                         <PortableText content={wiki.excerpt} />
                       </div>
@@ -280,4 +282,4 @@ const wikiBlockSchema: Template = {
   ],
 }
 
-export { Wiki, wikiBlockSchema }
+export {Wiki, wikiBlockSchema}

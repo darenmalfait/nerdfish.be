@@ -22,4 +22,4 @@ async function sendEmail(msg: MailMessage) {
   await sendgrid.send(msg)
 }
 
-export { sendEmail }
+export {sendEmail}

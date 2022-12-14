@@ -1,10 +1,10 @@
-import { Grid, Section } from '@daren/ui-components'
+import {Grid, Section} from '@daren/ui-components'
 import React from 'react'
-import type { RichTextType, Template } from 'tinacms'
+import type {RichTextType, Template} from 'tinacms'
 
-import { portableTextSchema } from '../../.tina/schema/objects'
-import type { Block } from '../../lib/types/cms'
-import { PortableText } from '../common/portable-text'
+import {portableTextSchema} from '../../.tina/schema/objects'
+import type {Block} from '../../lib/types/cms'
+import {PortableText} from '../common/portable-text'
 
 export const Content = ({
   parentField,
@@ -18,7 +18,7 @@ export const Content = ({
         className="prose text-primary dark:prose-invert"
         data-tinafield={`${parentField}.body`}
       >
-        {body && <PortableText content={body} />}
+        {body ? <PortableText content={body} /> : null}
       </Grid>
     </Section>
   )

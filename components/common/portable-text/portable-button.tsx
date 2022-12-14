@@ -1,16 +1,13 @@
-import { ButtonLink, ExtractProps } from '@daren/ui-components'
+import {ButtonLink, ExtractProps} from '@daren/ui-components'
 
-import { stripPreSlash } from '../../../lib/utils/string'
+import {stripPreSlash} from '../../../lib/utils/string'
 
 function PortableButton({
   text,
   href,
   variant = 'primary',
   ...props
-}: { text: string } & Pick<
-  ExtractProps<typeof ButtonLink>,
-  'href' | 'variant'
->) {
+}: {text: string} & Pick<ExtractProps<typeof ButtonLink>, 'href' | 'variant'>) {
   const isExternal = href?.startsWith('http')
   const slug = isExternal ? href : `/${stripPreSlash(href)}`
 
@@ -19,7 +16,7 @@ function PortableButton({
       <ButtonLink
         {...props}
         href={slug}
-        variant={variant !== '' ? variant : 'primary'}
+        variant={variant ? 'primary' : variant}
         external={isExternal}
       >
         {text}
@@ -28,4 +25,4 @@ function PortableButton({
   )
 }
 
-export { PortableButton }
+export {PortableButton}

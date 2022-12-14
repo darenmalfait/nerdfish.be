@@ -1,8 +1,8 @@
-import { Button, Container, H2, RadioGroup } from '@daren/ui-components'
+import {Button, Container, H2, RadioGroup} from '@daren/ui-components'
 
 import * as React from 'react'
 
-import { BasicForm } from '../../../components/forms/basic-form'
+import {BasicForm} from '../../../components/forms/basic-form'
 
 type FormType = 'basic' | 'project' | 'coffee'
 
@@ -25,7 +25,7 @@ function FormSelector({
 
   return (
     <div className="not-prose max-w-2xl space-y-8">
-      {heading && <H2>{heading}</H2>}
+      {heading ? <H2>{heading}</H2> : null}
       <RadioGroup name="form-selector" value={selected} onChange={onChange}>
         <RadioGroup.Option value="project" label="talk about a project" />
         <RadioGroup.Option value="basic" label="talk about the weather" />
@@ -38,7 +38,7 @@ function FormSelector({
   )
 }
 
-function PortableContactForm({ heading }: { heading?: string }) {
+function PortableContactForm({heading}: {heading?: string}) {
   const [selectedForm, setSelectedForm] = React.useState<FormType | null>(null)
 
   const onFormChoice = React.useCallback((choice: FormType) => {
@@ -47,12 +47,9 @@ function PortableContactForm({ heading }: { heading?: string }) {
 
   return (
     <Container size="default">
-      {!selectedForm && (
-        <FormSelector heading={heading} onSubmit={onFormChoice} />
-      )}
-      {selectedForm && (
+      {selectedForm ? (
         <div>
-          {selectedForm === 'coffee' && (
+          {selectedForm === 'coffee' ? (
             <H2>
               grab a coffee{' '}
               <span role="img" aria-label="Coffee">
@@ -60,12 +57,14 @@ function PortableContactForm({ heading }: { heading?: string }) {
               </span>
               ?
             </H2>
-          )}
+          ) : null}
           <BasicForm withProject={selectedForm === 'project'} />
         </div>
+      ) : (
+        <FormSelector heading={heading} onSubmit={onFormChoice} />
       )}
     </Container>
   )
 }
 
-export { PortableContactForm }
+export {PortableContactForm}

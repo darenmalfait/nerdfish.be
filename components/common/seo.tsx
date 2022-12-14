@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import * as React from 'react'
 
-import { getDomainUrl } from '../../lib/utils/misc'
-import { generateSocialImage } from '../../lib/utils/social'
-import { stripPreSlash, stripTrailingSlash } from '../../lib/utils/string'
+import {getDomainUrl} from '../../lib/utils/misc'
+import {generateSocialImage} from '../../lib/utils/social'
+import {stripPreSlash, stripTrailingSlash} from '../../lib/utils/string'
 
 type SocialMetas = {
   image?: string | null
@@ -33,32 +33,37 @@ function getMetaTags({
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-      {image && <meta property="image" content={image} />}
-      {image && <meta property="og:image" content={image} />}
-      {image && <meta name="twitter:image" content={image} />}
-      {image && <meta name="twitter:card" content="summary_large_image" />}
+      {image ? <meta property="image" content={image} /> : null}
+      {image ? <meta property="og:image" content={image} /> : null}
+      {image ? <meta name="twitter:image" content={image} /> : null}
+      {image ? (
+        <meta name="twitter:card" content="summary_large_image" />
+      ) : null}
 
       <title key="title">{title}</title>
       <meta property="og:title" content={title} />
       <meta name="twitter:title" content={title} />
 
-      {description && <meta name="description" content={description} />}
-      {description && <meta property="og:description" content={description} />}
-      {description && <meta name="twitter:description" content={description} />}
+      {description ? <meta name="description" content={description} /> : null}
+      {description ? (
+        <meta property="og:description" content={description} />
+      ) : null}
+      {description ? (
+        <meta name="twitter:description" content={description} />
+      ) : null}
 
-      {url && <meta property="og:url" content={url} />}
-      <link rel="canonical" href={canonical || url} />
+      {url ? <meta property="og:url" content={url} /> : null}
+      <link rel="canonical" href={canonical ?? url} />
 
-      {schema && (
+      {schema ? (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{__html: JSON.stringify(schema)}}
         />
-      )}
+      ) : null}
 
       <link
         key="rss-feed"
-        rel="alternative"
         type="application/xml; charset=utf-8"
         title="RSS feed for daren.be"
         href="/rss.xml"
@@ -77,7 +82,7 @@ function Seo({
 }: SocialMetas & {
   children?: React.ReactNode
 }) {
-  const basePath = stripTrailingSlash(getDomainUrl() || '')
+  const basePath = stripTrailingSlash(getDomainUrl() ?? '')
   let metaImage = ogImage
 
   const url = path.startsWith('http')
@@ -94,11 +99,11 @@ function Seo({
 
   const image = metaImage?.startsWith('http')
     ? metaImage
-    : `${basePath}/${stripPreSlash(metaImage || '')}`
+    : `${basePath}/${stripPreSlash(metaImage ?? '')}`
 
   return (
     <Head>
-      {getMetaTags({ url, image, title, ...props })}
+      {getMetaTags({url, image, title, ...props})}
       {children}
     </Head>
   )
@@ -112,4 +117,4 @@ function NoIndex() {
   )
 }
 
-export { Seo, NoIndex }
+export {Seo, NoIndex}

@@ -1,9 +1,9 @@
-import { Inter as interFont } from '@next/font/google'
+import {Inter as interFont} from '@next/font/google'
 
-import { LazyMotion, domAnimation } from 'framer-motion'
-import type { AppProps } from 'next/app'
+import {LazyMotion, domAnimation} from 'framer-motion'
+import type {AppProps} from 'next/app'
 
-import { AppProviders } from '../context/app-providers'
+import {AppProviders} from '../context/app-providers'
 
 import '@daren/theme/dist/darenui.css'
 
@@ -17,7 +17,7 @@ export const inter = interFont({
   subsets: ['latin'],
 })
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({Component, pageProps}: AppProps) => {
   return (
     <AppProviders>
       <LazyMotion features={domAnimation}>

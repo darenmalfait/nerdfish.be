@@ -1,6 +1,6 @@
-import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import {matchSorter, rankings as matchSorterRankings} from 'match-sorter'
 
-import type { Wiki } from '../../.tina/__generated__/types'
+import type {Wiki} from '../../.tina/__generated__/types'
 
 export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
   if (!searchString) return posts

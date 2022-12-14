@@ -1,4 +1,4 @@
-import { Container, Grid, H2 } from '@daren/ui-components'
+import {Container, Grid, H2} from '@daren/ui-components'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -13,9 +13,9 @@ import {
   getLowQualityUrlFor,
 } from '../../lib/utils/cloudinary'
 
-import { ArrowLink } from './arrow-link'
-import { Image } from './image'
-import { Link } from './link'
+import {ArrowLink} from './arrow-link'
+import {Image} from './image'
+import {Link} from './link'
 
 interface HighlightCardProps {
   title?: string
@@ -54,13 +54,13 @@ function HighlightCard({
           >
             <div className="col-span-full lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
               <div suppressHydrationWarning>
-                {category && (
+                {category ? (
                   <CategoryIndicator
                     className="bg-grey-900 mb-8 text-white dark:bg-gray-50 dark:text-gray-900"
                     category={category}
                     inline
                   />
-                )}
+                ) : null}
                 <H2 as="h3" className="mt-12 font-bold">
                   {title}
                 </H2>
@@ -69,7 +69,7 @@ function HighlightCard({
                 </div>
               </div>
 
-              {href && (
+              {href ? (
                 <div className="mt-12 flex items-center justify-between">
                   <ArrowLink>
                     {cta}
@@ -82,10 +82,10 @@ function HighlightCard({
                     <div className="absolute inset-0 -z-1 rounded-lg" />
                   </ArrowLink>
                 </div>
-              )}
+              ) : null}
             </div>
             <div className="aspect-w-3 aspect-h-4 relative col-span-full mt-12 h-0 lg:col-span-4 lg:col-start-8 lg:mt-0">
-              {image && (
+              {image ? (
                 <Image
                   className="absolute inset-0 object-cover"
                   placeholder={getLowQualityUrlFor(image)}
@@ -95,7 +95,7 @@ function HighlightCard({
                   })}
                   alt={title ?? ''}
                 />
-              )}
+              ) : null}
             </div>
           </Grid>
         </Link>
@@ -104,4 +104,4 @@ function HighlightCard({
   )
 }
 
-export { HighlightCard }
+export {HighlightCard}

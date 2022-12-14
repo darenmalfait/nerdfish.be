@@ -8,4 +8,4 @@ type NonNullProperties<Type> = {
   [Key in keyof Type]-?: Exclude<Type[Key], null | undefined>
 }
 
-export type { AsyncReturnType, NonNullProperties }
+export type {AsyncReturnType, NonNullProperties}

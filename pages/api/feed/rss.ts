@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type {NextApiRequest, NextApiResponse} from 'next'
 
-import { buildFeed } from '../../../lib/services/feed'
+import {buildFeed} from '../../../lib/services/feed'
 
 export default async (_req: NextApiRequest, res: NextApiResponse) => {
   const feed = await buildFeed()

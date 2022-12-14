@@ -1,5 +1,5 @@
-import { Combobox, Dialog, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
+import {Combobox, Dialog, Transition} from '@headlessui/react'
+import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import * as React from 'react'
 import {
@@ -9,8 +9,8 @@ import {
   Configure,
 } from 'react-instantsearch-hooks-web'
 
-import { getAlgoliaClient } from '../../lib/services/search'
-import { stripPreSlash } from '../../lib/utils/string'
+import {getAlgoliaClient} from '../../lib/services/search'
+import {stripPreSlash} from '../../lib/utils/string'
 
 type SearchItem = {
   title?: string
@@ -30,15 +30,15 @@ function Hits() {
     [],
   )
 
-  const { hits } = useHits<SearchItem>({ transformItems })
+  const {hits} = useHits<SearchItem>({transformItems})
 
   return (
     <>
-      {hits.length === 0 && (
+      {hits.length === 0 ? (
         <p className="p-4 text-primary">No results found!</p>
-      )}
+      ) : null}
 
-      {hits.length > 0 && (
+      {hits.length > 0 ? (
         <Combobox.Options
           static
           className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-primary"
@@ -48,7 +48,7 @@ function Hits() {
               tabIndex={index}
               key={hit.objectID}
               value={hit}
-              className={({ active }) =>
+              className={({active}) =>
                 clsx(
                   'flex max-w-full items-center justify-between p-4',
                   active && 'bg-primary',
@@ -64,14 +64,14 @@ function Hits() {
             </Combobox.Option>
           ))}
         </Combobox.Options>
-      )}
+      ) : null}
     </>
   )
 }
 
 function SearchInput() {
   const [open, setOpen] = React.useState(false)
-  const { refine } = useSearchBox()
+  const {refine} = useSearchBox()
 
   React.useEffect(() => {
     document.addEventListener('keydown', handleKeyDown)
@@ -174,4 +174,4 @@ function Search() {
   )
 }
 
-export { Search }
+export {Search}

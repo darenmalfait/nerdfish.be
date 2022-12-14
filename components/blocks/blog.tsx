@@ -1,24 +1,24 @@
-import { Button, Container, Grid, H3, Section } from '@daren/ui-components'
-import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
+import {Button, Container, Grid, H3, Section} from '@daren/ui-components'
+import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import * as React from 'react'
-import type { Template } from 'tinacms'
+import type {Template} from 'tinacms'
 
-import { tagsSchema } from '../../.tina/schema/objects'
-import { useBlockData } from '../../context/block-data-provider'
-import { useGlobal } from '../../context/global-provider'
-import type { Block } from '../../lib/types/cms'
-import { filterBlog } from '../../lib/utils/blog'
-import { BlogPath } from '../../lib/utils/constants'
-import { useUpdateQueryStringValueWithoutNavigation } from '../../lib/utils/misc'
-import { getDatedSlug } from '../../lib/utils/routes'
-import { ArticleCard } from '../common/article-card'
-import { HighlightCard } from '../common/highlight-card'
-import { Tag } from '../common/tag'
-import { Header } from '../layout/header'
-import { Spacer } from '../layout/spacer'
+import {tagsSchema} from '../../.tina/schema/objects'
+import {useBlockData} from '../../context/block-data-provider'
+import {useGlobal} from '../../context/global-provider'
+import type {Block} from '../../lib/types/cms'
+import {filterBlog} from '../../lib/utils/blog'
+import {BlogPath} from '../../lib/utils/constants'
+import {useUpdateQueryStringValueWithoutNavigation} from '../../lib/utils/misc'
+import {getDatedSlug} from '../../lib/utils/routes'
+import {ArticleCard} from '../common/article-card'
+import {HighlightCard} from '../common/highlight-card'
+import {Tag} from '../common/tag'
+import {Header} from '../layout/header'
+import {Spacer} from '../layout/spacer'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -41,8 +41,8 @@ function Blog({
   tags?: string[]
   count?: number
 }) {
-  const { hydrated } = useGlobal()
-  const { title, subtitle, link } = header || {}
+  const {hydrated} = useGlobal()
+  const {title, subtitle, link} = header ?? {}
   const router = useRouter()
 
   const [queryValue, setQuery] = React.useState(
@@ -54,7 +54,7 @@ function Blog({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
-  const { blog: allPosts } = useBlockData()
+  const {blog: allPosts} = useBlockData()
 
   const query = typeof queryValue === 'string' ? queryValue.trim() : ''
   useUpdateQueryStringValueWithoutNavigation('q', query)
@@ -111,12 +111,12 @@ function Blog({
 
   return (
     <>
-      {searchEnabled && (
+      {searchEnabled ? (
         <>
           <Section>
-            {(title || subtitle) && (
+            {title || subtitle ? (
               <Header title={title} subTitle={subtitle} />
-            )}
+            ) : null}
             <Grid>
               <Container
                 size="full"
@@ -166,7 +166,9 @@ function Blog({
                           tag={tag}
                           selected={selected}
                           onClick={() => toggleTag(tag || '')}
-                          disabled={!visibleTags.includes(tag) && !selected}
+                          disabled={
+                            visibleTags.includes(tag) ? false : !selected
+                          }
                         />
                       )
                     })}
@@ -178,9 +180,9 @@ function Blog({
 
           <Spacer size="3xs" className="col-span-full" />
         </>
-      )}
+      ) : null}
 
-      {!searchEnabled && (title || subtitle) && (
+      {!searchEnabled && (title || subtitle) ? (
         <Section className="mt-24" data-tinafield={`${parentField}.header`}>
           <Header
             title={title}
@@ -190,9 +192,9 @@ function Blog({
           />
           <Spacer size="2xs" />
         </Section>
-      )}
+      ) : null}
 
-      {!isSearching && featured && featuredEnabled && (
+      {!isSearching && featured && featuredEnabled ? (
         <Section>
           <HighlightCard
             category={featured.category}
@@ -200,7 +202,7 @@ function Blog({
               hydrated
                 ? `/${BlogPath}${getDatedSlug(
                     featured.date as string,
-                    featured._sys?.filename || '',
+                    featured._sys?.filename ?? '',
                   )}`
                 : ''
             }
@@ -215,7 +217,7 @@ function Blog({
             image={featured.heroImg}
           />
         </Section>
-      )}
+      ) : null}
 
       <Section>
         <Grid className="mt-16 mb-32 gap-y-16">
@@ -300,4 +302,9 @@ const blogBlockSchema: Template = {
   ],
 }
 
-export { Blog, blogBlockSchema }
+export {Blog, blogBlockSchema}
+
+/*
+eslint
+  complexity: "off",
+*/

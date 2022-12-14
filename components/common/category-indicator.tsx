@@ -10,7 +10,7 @@ const colorMap: Record<string, string> = {
 }
 
 export function getCategoryColors(category: string = 'unkown'): string {
-  return colorMap[category] || ''
+  return colorMap[category] ?? ''
 }
 
 interface CategoryIndicatorProps {
@@ -47,4 +47,4 @@ function CategoryIndicator({
   )
 }
 
-export { CategoryIndicator }
+export {CategoryIndicator}

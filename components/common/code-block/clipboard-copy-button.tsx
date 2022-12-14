@@ -1,7 +1,4 @@
-import {
-  CheckCircleIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/solid'
+import {CheckCircleIcon, DocumentDuplicateIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import * as React from 'react'
 
@@ -36,7 +33,7 @@ enum State {
   Copied = 'copied',
 }
 
-function ClipboardCopyButton({ value, className }: ClipboardCopyButtonProps) {
+function ClipboardCopyButton({value, className}: ClipboardCopyButtonProps) {
   const [state, setState] = React.useState<State>(State.Idle)
 
   React.useEffect(() => {
@@ -83,4 +80,4 @@ function ClipboardCopyButton({ value, className }: ClipboardCopyButtonProps) {
   )
 }
 
-export { ClipboardCopyButton }
+export {ClipboardCopyButton}

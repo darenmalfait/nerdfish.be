@@ -19,12 +19,12 @@ const defaultOptions = {
 
 async function handleFormSubmit(
   data: Record<string, unknown>,
-  { action, method, ...options }: Options = defaultOptions,
+  {action, method, ...options}: Options = defaultOptions,
 ) {
   const response = await fetch(action, {
     ...defaultOptions,
     ...options,
-    method: method?.toUpperCase() || defaultOptions.method.toUpperCase(),
+    method: method?.toUpperCase() ?? defaultOptions.method.toUpperCase(),
     headers: {
       ...defaultOptions.headers,
       ...options.headers,
@@ -64,8 +64,8 @@ function useSubmit<T>() {
     [],
   )
 
-  return { state, submit, result, getFormValues }
+  return {state, submit, result, getFormValues}
 }
 
-export { handleFormSubmit, useSubmit }
-export type { State }
+export {handleFormSubmit, useSubmit}
+export type {State}

@@ -1,13 +1,13 @@
-import { useGlobal } from '../../context/global-provider'
-import { Link } from '../common/link'
-import { GithubIcon } from '../icons/github-icon'
-import { Logo } from '../icons/logo'
-import { TwitterIcon } from '../icons/twitter-icon'
+import {useGlobal} from '../../context/global-provider'
+import {Link} from '../common/link'
+import {GithubIcon} from '../icons/github-icon'
+import {Logo} from '../icons/logo'
+import {TwitterIcon} from '../icons/twitter-icon'
 
 function Footer() {
-  const { navigation, social } = useGlobal()
+  const {navigation, social} = useGlobal()
 
-  const items = [...(navigation?.main || []), ...(navigation?.actions || [])]
+  const items = [...(navigation?.main ?? []), ...(navigation?.actions ?? [])]
 
   const github = social?.github
   const twitter = social?.twitter
@@ -30,7 +30,7 @@ function Footer() {
               {items.map(item => (
                 <Link
                   key={item?.label}
-                  href={item?.href || '/'}
+                  href={item?.href ?? '/'}
                   isButton={item?.isButton}
                   className="mr-8 inline-block text-lg"
                   {...item}
@@ -42,7 +42,7 @@ function Footer() {
           </div>
           <div className="col-span-2 flex items-start text-primary lg:col-span-4 lg:justify-end">
             <div className="flex h-10 items-center space-x-4">
-              {twitter && (
+              {twitter ? (
                 <a
                   rel="noreferrer noopener"
                   aria-label="Twitter feed"
@@ -51,12 +51,12 @@ function Footer() {
                 >
                   <TwitterIcon className="duration-75 ease-linear hover:scale-110" />
                 </a>
-              )}
-              {github && (
+              ) : null}
+              {github ? (
                 <Link aria-label="Github Repository" href={github}>
                   <GithubIcon className="duration-75 ease-linear hover:scale-110" />
                 </Link>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
@@ -65,4 +65,4 @@ function Footer() {
   )
 }
 
-export { Footer }
+export {Footer}

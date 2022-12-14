@@ -8,8 +8,8 @@ import {
 } from '@daren/ui-components'
 import * as React from 'react'
 
-import { useSubmit } from '../../lib/utils/form'
-import { useRecaptcha } from '../../lib/utils/recaptcha'
+import {useSubmit} from '../../lib/utils/form'
+import {useRecaptcha} from '../../lib/utils/recaptcha'
 
 function ProjectField() {
   const [project, setProject] = React.useState<any>('website')
@@ -30,10 +30,10 @@ function ProjectField() {
   )
 }
 
-function BasicForm({ withProject }: { withProject?: boolean }) {
-  const { execute } = useRecaptcha()
+function BasicForm({withProject}: {withProject?: boolean}) {
+  const {execute} = useRecaptcha()
   const [submitError, setSubmitError] = React.useState<string | null>(null)
-  const { state, result, submit, getFormValues } = useSubmit<{
+  const {state, result, submit, getFormValues} = useSubmit<{
     status: 'success' | 'error'
     errors?: any
   }>()
@@ -51,7 +51,7 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
           recaptchaResponse: token,
         }
 
-        submit(values, {
+        await submit(values, {
           method: 'post',
           action: '/api/contact/submit-form',
         })
@@ -79,12 +79,12 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
             id="email"
             error={result?.errors?.email}
           />
-          {withProject && (
+          {withProject ? (
             <div className="not-prose space-y-3">
               <Label>Project</Label>
               <ProjectField />
             </div>
-          )}
+          ) : null}
           <Field
             type="textarea"
             label="Message"
@@ -130,4 +130,4 @@ function BasicForm({ withProject }: { withProject?: boolean }) {
   )
 }
 
-export { BasicForm }
+export {BasicForm}

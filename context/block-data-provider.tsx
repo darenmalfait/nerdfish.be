@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import type { Blog, Wiki } from '../.tina/__generated__/types'
+import type {Blog, Wiki} from '../.tina/__generated__/types'
 
 interface BlockDataContextProps {
   wiki: Partial<Wiki>[]
@@ -24,7 +24,7 @@ function BlockDataProvider({
   children,
 }: BlockDataProviderProps) {
   return (
-    <BlockDataContext.Provider value={{ wiki, blog }}>
+    <BlockDataContext.Provider value={{wiki, blog}}>
       {children}
     </BlockDataContext.Provider>
   )
@@ -43,4 +43,4 @@ function useBlockData(): BlockDataContextProps {
   return context
 }
 
-export { BlockDataProvider, useBlockData }
+export {BlockDataProvider, useBlockData}

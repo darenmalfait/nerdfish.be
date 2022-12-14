@@ -6,7 +6,7 @@ import Highlight, {
 } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
 
-import { ClipboardCopyButton } from './clipboard-copy-button'
+import {ClipboardCopyButton} from './clipboard-copy-button'
 
 function pad(num: number | string, size = 2) {
   num = num.toString()
@@ -40,7 +40,7 @@ function CodeBlock({
         language={language}
         theme={theme ?? nightOwl}
       >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        {({className, style, tokens, getLineProps, getTokenProps}) => (
           <>
             <ClipboardCopyButton
               value={code}
@@ -63,25 +63,25 @@ function CodeBlock({
 
                 return (
                   // eslint-disable-next-line react/jsx-key
-                  <div {...getLineProps({ line, key: i })}>
-                    {showLineNumbers && (
+                  <div {...getLineProps({line, key: i})}>
+                    {showLineNumbers ? (
                       <span className="absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center text-primary-300">
                         {pad(i + 1)}
                       </span>
-                    )}
-                    {line.length === 0 && <span>&#8203;</span>}
+                    ) : null}
+                    {line.length === 0 ? <span>&#8203;</span> : null}
                     {line.map((token, key) => (
                       // eslint-disable-next-line react/jsx-key
-                      <span {...getTokenProps({ token, key })} />
+                      <span {...getTokenProps({token, key})} />
                     ))}
                   </div>
                 )
               })}
-              {showLanguage && (
+              {showLanguage ? (
                 <span className="sticky right-0 block w-full text-right text-xs">
                   {language}
                 </span>
-              )}
+              ) : null}
             </pre>
           </>
         )}
@@ -90,5 +90,5 @@ function CodeBlock({
   )
 }
 
-export { CodeBlock }
-export type { CodeBlockLanguage }
+export {CodeBlock}
+export type {CodeBlockLanguage}
