@@ -18,7 +18,7 @@ function generateSocialImage({
   titleExtraConfig = '_bold',
   imageWidth = 1200,
   imageHeight = 630,
-  textAreaWidth = 530,
+  textAreaWidth = 500,
   textAreaHeight = 450,
   textLeftOffset = 45,
   textBottomOffset = -40,
