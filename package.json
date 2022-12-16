@@ -2,6 +2,7 @@
   "name": "daren.be",
   "private": true,
   "description": "full stack web developer",
+  "author": "Daren Malfait <me@daren.be> (https://daren.be)",
   "scripts": {
     "build:local": "tinacms build --local && next build",
     "build": "tinacms build && next build",
