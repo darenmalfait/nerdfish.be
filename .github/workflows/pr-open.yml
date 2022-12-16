@@ -22,6 +22,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - run: npm install --legacy-peer-deps
+      - run: npm install
 
       - run: npm run validate
