@@ -7,15 +7,25 @@ excerpt: |
 date: '2022-11-06T23:00:00.000Z'
 ---
 
-Using the soft flag, you can preserve the changes you want to undo. You'll find the changes as uncommitted local modifications in your working copy.
+You can preserve the changes you want to undo using the soft flag. You'll find the changes as uncommitted local modifications in your working copy.
 
-```powershell
+```shell
 git reset --soft HEAD~1
 ```
 
 If you don't want to keep these changes, use the --hard flag. Be sure to do this when you're sure you don't need these changes anymore.
 
-```powershell
+```shell
 git reset --hard HEAD~1
+```
+
+
+
+## Oops, I didn't mean to
+
+If you reset a bit too much, you can redo the last step using:
+
+```shell
+git reset 'HEAD@{1}'
 ```
 
