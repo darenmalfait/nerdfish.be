@@ -5,7 +5,8 @@
   "author": "Daren Malfait <me@daren.be> (https://daren.be)",
   "scripts": {
     "build:local": "tinacms build --local && next build",
-    "build": "tinacms build && next build",
+    "build:tina": "tinacms build",
+    "build": "npm run build:tina && next build",
     "postbuild": "node ./lib/scripts/build-algolia-search.js && next-sitemap",
     "dev": "tinacms dev -c \"next dev\"",
     "export": "npm run build && next export",
