@@ -80,6 +80,6 @@ ssh -T git@bitbucket.org-private
 In the config, we resolve the hostname.
 
 ```shell
-printf "# Github\n Host bitbucket.org-private\n Hostname bitbucket.org\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/bitbucket-private" | tee ~/.ssh/config
+printf "# Bitbucket private\n Host bitbucket.org-private\n Hostname bitbucket.org\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/bitbucket-private" | tee ~/.ssh/config
 ```
 
