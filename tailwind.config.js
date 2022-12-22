@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        fallback: [...defaultTheme.fontFamily.sans],
         title: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
       },
