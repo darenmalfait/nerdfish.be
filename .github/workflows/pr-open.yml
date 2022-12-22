@@ -3,11 +3,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-env:
-  NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
-  NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-  TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,6 +24,11 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build:tina
+      - name: build tina
+        env:
+          NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
+          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        run: npm run build:tina
 
       - run: npm run validate
