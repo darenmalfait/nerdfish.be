@@ -1,3 +1,6 @@
+import clsx from 'clsx'
+import {stripPreSlash} from 'lib/utils/string'
+import {useRouter} from 'next/router'
 import * as React from 'react'
 
 import {useGlobal} from '../../../context/global-provider'
@@ -10,6 +13,7 @@ interface NavigationProps {
 
 function Navigation({multilang, ...props}: NavigationProps) {
   const {navigation} = useGlobal()
+  const router = useRouter()
 
   const actionItems = React.useMemo(() => {
     return navigation?.actions?.map((link, i: number) => {
@@ -27,11 +31,18 @@ function Navigation({multilang, ...props}: NavigationProps) {
     <Navbar {...props} rootPath="/" actions={actionItems}>
       {navigation?.main?.map((link, i: number) => {
         if (!link) return null
+        const isActive = stripPreSlash(router.asPath).startsWith(link.href)
 
         return (
           <Navbar.Link
             key={i}
-            className="leading-0 relative block py-2 px-3 transition"
+            className={clsx(
+              'flex h-8 items-center gap-x-1.5 rounded-full px-3 text-black/80 transition hover:bg-gray-50 hover:text-black/90 dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white/90 sm:h-10 sm:px-4',
+              {
+                'flex h-8 items-center gap-x-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 text-black/80 !text-black transition hover:bg-gray-50 hover:text-black/90 hover:!bg-secondary dark:border-gray-800 dark:bg-black/50 dark:text-white/70 dark:!text-white   dark:hover:text-white/90 sm:h-10 sm:px-4':
+                  isActive,
+              },
+            )}
             isButton={link.isButton ?? false}
             href={link.href}
           >
