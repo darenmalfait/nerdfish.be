@@ -1,6 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPackagePrefixes": ["@tinacms", "tinacms"],
+      "groupName": "tinacms",
+      "schedule": ["before 2am"]
+    },
+    {
+      "matchPackagePrefixes": ["@next", "next"],
+      "groupName": "NextJS",
+      "schedule": ["before 2am"]
+    },
+    {
+      "matchPackagePrefixes": ["@daren"],
+      "groupName": "Daren",
+      "schedule": ["before 2am"]
+    }
   ]
 }
