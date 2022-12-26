@@ -23,7 +23,7 @@ function generateSocialImage({
   textLeftOffset = 45,
   textBottomOffset = -40,
   textColor = 'FFFFFF',
-  titleFontSize = 60,
+  titleFontSize = 50,
   image = 'og:image',
 }: {
   title: string
