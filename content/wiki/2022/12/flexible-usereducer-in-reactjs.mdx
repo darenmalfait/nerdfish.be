@@ -1,0 +1,35 @@
+---
+seo:
+  title: Flexible useReducer in Reactjs
+  description: Snippet for a flexible useReducer in React.js
+title: Flexible useReducer in Reactjs
+tags:
+  - react
+excerpt: |
+  Snippet for a flexible useReducer in React.js
+date: '2022-12-25T23:00:00.000Z'
+---
+
+This contains a snippet for a flexible way of using useReducer. I tend to use this if my component has a lot of states. It's cleaner than `useState`.
+
+```javascript
+import * as React from 'react'
+
+const initialState = {
+  key: "value",
+};
+
+function Component() {
+  const reducer = (state, newState) => { return { ...state, ...newState } };
+  const [store, setStore] = React.useReducer(reducer, initialState);
+
+  function updateStore(values) {
+    setStore({ ...values });
+  }
+
+  return <div />
+}
+```
+
+
+
