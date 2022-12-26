@@ -17,9 +17,17 @@ type MailMessage = {
 }
 
 async function sendEmail(msg: MailMessage) {
+  if (!sendgridKey) {
+    console.warn('Email not sent. SENDGRID_API_KEY is not set.')
+    return
+  }
+
   sendgrid.setApiKey(sendgridKey)
 
-  await sendgrid.send(msg)
+  await sendgrid.send(msg).catch(err => {
+    console.error(err)
+    throw err
+  })
 }
 
 export {sendEmail}
