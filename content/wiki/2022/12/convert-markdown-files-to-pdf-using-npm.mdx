@@ -1,0 +1,31 @@
+---
+seo:
+  title: Convert markdown files to pdf using npm
+  description: >-
+    This page contains snippets to convert markdown files to pdf via an npm
+    package.
+title: Convert markdown files to pdf using npm
+tags:
+  - terminal
+excerpt: >
+  This page contains snippets to convert markdown files to pdf via an npm
+  package.
+date: '2022-12-25T23:00:00.000Z'
+---
+
+You can convert markdown files to pdf files with [a package](https://www.npmjs.com/package/markdown-pdf)  called `markdown-pdf`.
+
+```shell
+npx markdown-pdf filename.md
+```
+
+
+
+## Converting multiple files
+
+If you have a folder filled with markdown files. You can convert an entire folder with:
+
+```shell
+for i in *.md; do npx markdown-pdf "$i"; done
+```
+
