@@ -39,6 +39,11 @@ export function useRecaptcha(): RecaptchaProps {
   }>(null)
 
   React.useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+      console.error('Error: RECAPTCHA_SITEKEY is not set')
+      return
+    }
+
     const loadScriptByURL = (id: string, url: string) => {
       const isScriptExist = document.getElementById(id)
 
@@ -67,7 +72,7 @@ export function useRecaptcha(): RecaptchaProps {
     }
 
     const scriptId = 'recaptcha-key'
-    // load the script by passing the URL
+
     // load the script by passing the URL
     loadScriptByURL(
       scriptId,

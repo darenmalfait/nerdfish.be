@@ -77,16 +77,27 @@ async function handleFormSubmission<
 async function getErrorForRecaptcha(
   recaptcha: string | null,
 ): Promise<string | null> {
+  if (!process.env.RECAPTCHA_SECRETKEY) {
+    console.warn('Recaptcha not checked. RECAPTCHA_SECRETKEY is not set.')
+    return null
+  }
+
   if (!recaptcha) return 'Recaptcha is required'
 
-  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${recaptcha}`
+  const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${recaptcha}`
 
-  const recaptchaRes = await fetch(verifyUrl, {method: 'POST'})
+  const recaptchaRes = await fetch(recaptchaUrl, {method: 'POST'})
+
+  if (!recaptchaRes.ok) {
+    console.error(recaptchaRes)
+    return 'Recaptcha failed'
+  }
 
   const recaptchaJson = await recaptchaRes.json()
 
   if (!recaptchaJson.success) {
-    return 'recaptcha-validation-invalid'
+    console.error(recaptchaJson)
+    return 'Recaptcha failed'
   }
 
   return null
