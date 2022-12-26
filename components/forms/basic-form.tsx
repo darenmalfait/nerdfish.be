@@ -38,27 +38,36 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     errors?: any
   }>()
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+
     setSubmitError(null)
 
-    let values = getFormValues(event.currentTarget)
+    const formValues = getFormValues(event.currentTarget)
 
-    execute()
-      .then(async (token: string) => {
-        values = {
-          ...values,
-          recaptchaResponse: token,
+    async function submitForm(values: any) {
+      return submit(values, {
+        method: 'post',
+        action: '/api/contact/submit-form',
+      })
+    }
+
+    try {
+      if (process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+        const recaptchaResponse = await execute()
+
+        const recaptchaFormValues = {
+          ...formValues,
+          recaptchaResponse,
         }
 
-        await submit(values, {
-          method: 'post',
-          action: '/api/contact/submit-form',
-        })
-      })
-      .catch((error: any) => {
-        setSubmitError(error.message)
-      })
+        await submitForm(recaptchaFormValues)
+      } else {
+        await submitForm(formValues)
+      }
+    } catch (error: any) {
+      setSubmitError(error.message ?? 'Something went wrong.')
+    }
   }
 
   const emailSuccessfullySent = state === 'idle' && result?.status === 'success'
