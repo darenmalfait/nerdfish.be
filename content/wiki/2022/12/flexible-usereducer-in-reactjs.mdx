@@ -12,24 +12,27 @@ date: '2022-12-25T23:00:00.000Z'
 
 This contains a snippet for a flexible way of using useReducer. I tend to use this if my component has a lot of states. It's cleaner than `useState`.
 
-```javascript
-import * as React from 'react'
+This code is a React component that uses the useReducer hook to manage the state.
 
-const initialState = {
+```javascript
+import * as React from 'react' // import React and its hooks
+
+const initialState = { // store initial state
   key: "value",
 };
 
 function Component() {
-  const reducer = (state, newState) => { return { ...state, ...newState } };
-  const [store, setStore] = React.useReducer(reducer, initialState);
+  const [store, setStore] = React.useReducer(reducer, initialState); // useReducer hook
 
-  function updateStore(values) {
-    setStore({ ...values });
+  function updateStore(values) { // update store function
+    setStore(values);
   }
 
   return <div />
 }
+
+function reducer(state, newState) { // reducer function to update store
+  return { ...state, ...newState };
+}
 ```
-
-
 
