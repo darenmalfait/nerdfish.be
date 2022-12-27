@@ -1,4 +1,4 @@
-import type { SchemaField } from 'tinacms'
+import type {SchemaField} from 'tinacms'
 
 const tagsSchema: SchemaField = {
   type: 'string',
@@ -7,4 +7,4 @@ const tagsSchema: SchemaField = {
   label: 'Tags',
 }
 
-export { tagsSchema }
+export {tagsSchema}

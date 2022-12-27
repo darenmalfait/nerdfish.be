@@ -1,9 +1,9 @@
-import { parseISO } from 'date-fns'
-import { padStart } from 'lodash'
+import {parseISO} from 'date-fns'
+import {padStart} from 'lodash'
 import slugify from 'slugify'
-import { Collection } from 'tinacms'
+import type {Collection} from 'tinacms'
 
-import { portableTextSchema, seo, tagsSchema } from '../objects'
+import {portableTextSchema, seo, tagsSchema} from '../objects'
 
 const blogPostsCollection: Collection = {
   label: 'Blog Posts',
@@ -11,7 +11,7 @@ const blogPostsCollection: Collection = {
   path: 'content/blogs',
   format: 'mdx',
   ui: {
-    router: ({ document }) => {
+    router: ({document}) => {
       return `/blog/${document._sys.relativePath.substring(
         0,
         document._sys.relativePath.lastIndexOf('.'),
@@ -75,9 +75,10 @@ const blogPostsCollection: Collection = {
     {
       ...portableTextSchema,
       label: 'Body',
-      name: '_body',
+      name: 'body',
+      isBody: true,
     },
   ],
 }
 
-export { blogPostsCollection }
+export {blogPostsCollection}

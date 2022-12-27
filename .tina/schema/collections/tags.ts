@@ -1,4 +1,4 @@
-import { Collection } from 'tinacms'
+import type {Collection} from 'tinacms'
 
 const tagsCollection: Collection = {
   label: 'Tags',
@@ -19,4 +19,4 @@ const tagsCollection: Collection = {
   ],
 }
 
-export { tagsCollection }
+export {tagsCollection}

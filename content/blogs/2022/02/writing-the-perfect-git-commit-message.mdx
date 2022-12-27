@@ -17,6 +17,91 @@ excerpt: >
   history is not a priority, but don't be mistaken. It is essential. This post
   describes a way to keep your commit messages uniform and easy to read.
 date: '2022-02-03T11:00:00.000Z'
-_body: "Commit messages to come in all forms and sizes. Clean git history is not a priority in many codebases, but don't be mistaken. It is essential. It is a way to keep your commit messages uniform and easy to read.\n\n[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) are a way of writing commit messages that have been around for a long time. And here is an example of what one looks like:\n\n```markdown\nfeat(scope): add magical unicorn\n^--^^-----^  ^------------------^\n|       |              |\n|       |              +-> Summary in present tense. Starting with add, remove, update, do. Think about: If I commit this, my code would .... add magical unicorn\n|       |\n|       +-> optional scope of the commit, component-name, container\n|\n+-------> Type: chore, docs, feat, fix, refactor, style, or test.\n```\n\n## Commit type\n\nThe developer should write the commit from the user's perspective, not the developer's. Slight nuance, but it makes a difference.\n\n* \\`feat\\`: New feature for the user (not a feature to the code, or ci, ...)&#x20;\n* \\`fix\\`:  Bugfix for the user (not a fix to build something, ...)\n* \\`docs\\`: Changes to the documentation\n* \\`style\\`: This could be the styling of the code or styling changes in general. Does not change any functionality.\n* \\`refactor\\`: Refactoring production code. For example: Renaming a variable\n* \\`test\\`: Only changes current or new tests. Does not change the production code\n* \\`chore\\`: Does not impact production.\n\n## Scope (optional)\n\nYou may provide a scope after a type, but it must consist of a noun describing a section of the codebase. feat(datepicker):\n\n## The commit message\n\nWriting a good commit message is food for discussion, and according to conventional commits (and myself), you should write the commit message in the present time.\n\nAn excellent way to write a message is to fill in the sentence:\n\nIf I commit my code, it will ... (add a magical unicorn)feat(forest): add a magical unicorn\n\n## The message body (optional)\n\nWe have covered most ways of writing commit messages, but a message body can still be filled in.\n\nThe body can include the motivation for the change and contrast this with previous behaviour.\n\n* The body is the place to mention issue identifiers and their relations\n\nExample \\`closes #33\\`\n\n### The body footer (optional)\n\nThe footer should contain any information about Breaking Changes.\n\nBreaking Changes should start with the word BREAKING CHANGES: followed by space or two newlines.\n\nA breaking change can be part of commits of any type.\n\n```markdown\nfeat(forest): add magical unicorn\n\nclose #1337\nBREAKING CHANGES: We removed horses, because they don't get allong\n```\n\n## Semantic versioning\n\n1. fix: a commit of the type\_fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).\n2. feat: a commit of the type\_feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).\n3. BREAKING CHANGE: a commit that has a footer, or appends  ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.\n"
 ---
 
+Commit messages to come in all forms and sizes. Clean git history is not a
+priority in many codebases, but don't be mistaken. It is essential. It is a way
+to keep your commit messages uniform and easy to read.
+
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) are a way
+of writing commit messages that have been around for a long time. And here is an
+example of what one looks like:
+
+```markdown
+feat(scope): add magical unicorn
+^--^^-----^  ^------------------^
+|       |              |
+|       |              +-> Summary in present tense. Starting with add, remove, update, do. Think about: If I commit this, my code would .... add magical unicorn
+|       |
+|       +-> optional scope of the commit, component-name, container
+|
++-------> Type: chore, docs, feat, fix, refactor, style, or test.
+```
+
+
+## Commit type
+
+The developer should write the commit from the user's perspective, not the
+developer's. Slight nuance, but it makes a difference.
+
+- `feat`: New feature for the user (not a feature to the code, or ci, ...)&#x20;
+- `fix`: Bugfix for the user (not a fix to build something, ...)
+- `docs`: Changes to the documentation
+- `style`: This could be the styling of the code or styling changes in general.
+  Does not change any functionality.
+- `refactor`: Refactoring production code. For example: Renaming a variable
+- `test`: Only changes current or new tests. Does not change the production code
+- `chore`: Does not impact production.
+
+## Scope (optional)
+
+You may provide a scope after a type, but it must consist of a noun describing a
+section of the codebase. feat(datepicker):
+
+## The commit message
+
+Writing a good commit message is food for discussion, and according to
+conventional commits (and myself), you should write the commit message in the
+present time.
+
+An excellent way to write a message is to fill in the sentence:
+
+If I commit my code, it will ... (add a magical unicorn)feat(forest): add a
+magical unicorn
+
+## The message body (optional)
+
+We have covered most ways of writing commit messages, but a message body can
+still be filled in.
+
+The body can include the motivation for the change and contrast this with
+previous behaviour.
+
+- The body is the place to mention issue identifiers and their relations
+
+Example `closes #33`
+
+### The body footer (optional)
+
+The footer should contain any information about Breaking Changes.
+
+Breaking Changes should start with the word BREAKING CHANGES: followed by space
+or two newlines.
+
+A breaking change can be part of commits of any type.
+
+```markdown
+feat(forest): add magical unicorn
+
+close #1337 BREAKING CHANGES: We removed horses, because they don't get allong
+```
+
+## Semantic versioning
+
+1. fix: a commit of the type_fix patches a bug in your codebase (this correlates
+   with PATCH in Semantic Versioning).
+2. feat: a commit of the type_feat introduces a new feature to the codebase
+   (this correlates with MINOR in Semantic Versioning).
+3. BREAKING CHANGE: a commit that has a footer, or appends ! after the
+   type/scope, introduces a breaking API change (correlating with MAJOR in
+   Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.

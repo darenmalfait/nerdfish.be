@@ -1,14 +1,14 @@
-import { Collection } from 'tinacms'
+import type {Collection} from 'tinacms'
 
-import { blocks } from '../blocks'
-import { seo } from '../objects'
+import {blocks} from '../blocks'
+import {seo} from '../objects'
 
 const pagesColllection: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
   ui: {
-    router: ({ document }) => {
+    router: ({document}) => {
       if (document._sys.filename === 'home') {
         return `/`
       }
@@ -38,4 +38,4 @@ const pagesColllection: Collection = {
   ],
 }
 
-export { pagesColllection }
+export {pagesColllection}

@@ -22,7 +22,7 @@ import {
 
 function Content({blog}: BlogPostQueryQuery) {
   const {paths} = useGlobal()
-  const {title, date, _body, heroImg} = blog
+  const {title, date, body, heroImg} = blog
 
   return (
     <>
@@ -63,8 +63,8 @@ function Content({blog}: BlogPostQueryQuery) {
         </Grid>
       </Section>
       <Section>
-        <Grid className="prose dark:prose-invert" data-tinafield="_body">
-          {_body ? <PortableText content={_body} /> : null}
+        <Grid className="prose dark:prose-invert" data-tinafield="body">
+          {body ? <PortableText content={body} /> : null}
         </Grid>
       </Section>
     </>
