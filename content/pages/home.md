@@ -11,7 +11,7 @@ blocks:
       href: contact
     _template: bigTitle
   - title: 'Hi, I''m Daren'
-    text: >+
+    text: >
       I'm a **freelance full-stack JavaScript/TypeScript & ReactJS engineer**
       with ~ ten years of experience from Harelbeke, Belgium.
 
@@ -20,7 +20,6 @@ blocks:
 
 
       <Button text="Hire me!" href="contact" />
-
     image:
       src: >-
         https://res.cloudinary.com/darenmalfait/image/upload/v1667596394/daren-wiki/daren-cartoon_a8oqrk.webp
@@ -31,21 +30,26 @@ blocks:
     items:
       - title: Webdevelopment
         description: >-
-          I use various web technologies to develop attractive websites which
-          convert visitors to customers. In addition, I create beautiful,
-          user-friendly and responsive website layouts.
+          Web development is the process of building and maintaining websites
+          and applications.
         icon: ComputerDesktopIcon
-      - title: Mentoring
-        description: I help people to understand the magical world of javascript better.
-        icon: BookOpenIcon
-      - title: Speaking
+      - title: User experience
         description: >-
-          I like talking about the tools, techs and things I experienced
-          throughout the years.
-        icon: SpeakerWaveIcon
-      - title: Building things
-        description: I create products from A to Z while also keeping UX in mind.
-        icon: WrenchIcon
+          User experience is crucial because it affects customer satisfaction
+          and loyalty.
+        icon: RectangleGroupIcon
+      - title: Developer experience
+        description: >-
+          Developer experience, or DX, is essential because it can affect a
+          developer's productivity, satisfaction, and overall effectiveness in
+          creating and maintaining software.
+        icon: HeartIcon
+      - title: Code auditing
+        description: >-
+          Code auditing is reviewing and evaluating code to identify and fix
+          issues, improve performance, and ensure compliance with coding
+          standards.
+        icon: DocumentMagnifyingGlassIcon
     _template: features
   - title: Tools & Techs
     keywords:
@@ -74,4 +78,5 @@ blocks:
     count: 3
     _template: Blog
 ---
+
 
