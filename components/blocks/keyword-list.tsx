@@ -18,13 +18,15 @@ const KeywordList = ({
       <Grid>
         <Container size="full" className="py-32">
           <div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-y-0 lg:space-x-16">
-            <H1
-              data-tinafield={`${parentField}.title`}
-              as="h2"
-              className="w-full max-w-sm font-bold xl:max-w-lg"
-            >
-              {title}
-            </H1>
+            <div className="w-full max-w-sm xl:max-w-lg">
+              <H1
+                data-tinafield={`${parentField}.title`}
+                as="h2"
+                className="w-full font-bold "
+              >
+                {title}
+              </H1>
+            </div>
             <div className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
               {keywords?.map(item => (
                 <span
