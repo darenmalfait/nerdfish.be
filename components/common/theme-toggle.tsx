@@ -1,9 +1,13 @@
 import {MoonIcon, SunIcon} from '@heroicons/react/24/solid'
+import clsx from 'clsx'
 import * as React from 'react'
 
 import {useTheme} from '../../context/theme-provider'
 
-function ThemeToggle() {
+function ThemeToggle({
+  className,
+  ...props
+}: Omit<JSX.IntrinsicElements['button'], 'onCliick'>) {
   const [mounted, setMounted] = React.useState(false)
   const {theme, setTheme, systemTheme} = useTheme()
 
@@ -22,7 +26,11 @@ function ThemeToggle() {
   return (
     <button
       type="button"
-      className="flex items-center justify-center rounded-full p-2 focus-ring"
+      {...props}
+      className={clsx(
+        className,
+        'flex items-center justify-center rounded-full p-2 focus-ring',
+      )}
       onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
     >
       {isDarkMode ? <SunIcon className="w-5" /> : <MoonIcon className="w-5" />}

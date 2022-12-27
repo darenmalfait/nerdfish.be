@@ -13,6 +13,8 @@ module.exports = {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        twitter: '#1DA1F2',
+        github: '#24292e',
         gray: {
           100: 'var(--color-gray-100)',
           200: 'var(--color-gray-200)',
