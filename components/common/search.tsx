@@ -169,7 +169,7 @@ function SearchDialog({
                     id="algolia_search"
                     type="search"
                     className="h-12 w-full rounded-lg border-0 bg-primary-600 pr-11 pl-4 font-bold text-black outline-none placeholder:text-gray-500 focus:ring-0 sm:text-sm"
-                    placeholder="Search components..."
+                    placeholder="Search website..."
                     onChange={event => refine(event.currentTarget.value)}
                   />
                   <MagnifyingGlassIcon
