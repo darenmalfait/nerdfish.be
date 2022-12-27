@@ -16,4 +16,4 @@ const actionSchema = {
   ],
 }
 
-export { actionSchema }
+export {actionSchema}

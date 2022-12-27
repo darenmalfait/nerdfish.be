@@ -1,4 +1,4 @@
-import type { RichTextType } from 'tinacms'
+import type {RichTextType} from 'tinacms'
 
 const portableTextSchema: RichTextType = {
   label: 'Text',
@@ -24,10 +24,10 @@ const portableTextSchema: RichTextType = {
           name: 'variant',
           label: 'Variant',
           options: [
-            { label: 'Primary', value: 'primary' },
-            { label: 'Secondary', value: 'secondary' },
-            { label: 'Danger', value: 'danger' },
-            { label: 'Success', value: 'success' },
+            {label: 'Primary', value: 'primary'},
+            {label: 'Secondary', value: 'secondary'},
+            {label: 'Danger', value: 'danger'},
+            {label: 'Success', value: 'success'},
           ],
         },
       ],
@@ -46,4 +46,4 @@ const portableTextSchema: RichTextType = {
   ],
 }
 
-export { portableTextSchema }
+export {portableTextSchema}

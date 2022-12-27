@@ -5,7 +5,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".forestry/types.ts",
-    ".forestry/config.ts"
+    ".forestry/config.ts",
+    ".tina/**/*.ts",
+    ".tina/**/*.tsx"
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -21,5 +23,5 @@
     "resolveJsonModule": true,
     "noEmit": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".tina/__generated__"]
 }

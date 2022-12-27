@@ -1,4 +1,4 @@
-import type { SchemaField } from 'tinacms'
+import type {SchemaField} from 'tinacms'
 
 const seo: SchemaField = {
   name: 'seo',
@@ -26,4 +26,4 @@ const seo: SchemaField = {
   ],
 }
 
-export { seo }
+export {seo}

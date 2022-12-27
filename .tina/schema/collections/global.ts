@@ -1,4 +1,4 @@
-import { Collection } from 'tinacms'
+import type {Collection} from 'tinacms'
 
 const globalColllection: Collection = {
   label: 'Global',
@@ -21,7 +21,7 @@ const globalColllection: Collection = {
           list: true,
           ui: {
             itemProps: item => {
-              return { label: item.label }
+              return {label: item.label}
             },
             defaultItem: {
               href: 'home',
@@ -55,7 +55,7 @@ const globalColllection: Collection = {
           list: true,
           ui: {
             itemProps: item => {
-              return { label: item.label }
+              return {label: item.label}
             },
             defaultItem: {
               href: 'action',
@@ -136,4 +136,4 @@ const globalColllection: Collection = {
   ],
 }
 
-export { globalColllection }
+export {globalColllection}

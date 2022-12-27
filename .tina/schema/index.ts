@@ -1,9 +1,10 @@
-import { Schema } from 'tinacms'
+import type {Schema} from 'tinacms'
 
 import * as collections from './collections'
 
 const schema: Schema = {
-  collections: Object.keys(collections).map(key => collections[key]),
+  // eslint-disable-next-line import/namespace
+  collections: Object.keys(collections).map(key => (collections as any)[key]),
 }
 
-export { schema }
+export {schema}

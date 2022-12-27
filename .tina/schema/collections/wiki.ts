@@ -1,9 +1,9 @@
-import { parseISO } from 'date-fns'
-import { padStart } from 'lodash'
+import {parseISO} from 'date-fns'
+import {padStart} from 'lodash'
 import slugify from 'slugify'
-import { Collection } from 'tinacms'
+import type {Collection} from 'tinacms'
 
-import { portableTextSchema, seo, tagsSchema } from '../objects'
+import {portableTextSchema, seo, tagsSchema} from '../objects'
 
 const wikiCollection: Collection = {
   label: 'Wiki',
@@ -11,7 +11,7 @@ const wikiCollection: Collection = {
   path: 'content/wiki',
   format: 'mdx',
   ui: {
-    router: ({ document }) => {
+    router: ({document}) => {
       return `/wiki/${document._sys.relativePath.substring(
         0,
         document._sys.relativePath.lastIndexOf('.'),
@@ -62,10 +62,10 @@ const wikiCollection: Collection = {
     {
       ...portableTextSchema,
       label: 'Body',
-      name: '_body',
+      name: 'body',
       isBody: true,
     },
   ],
 }
 
-export { wikiCollection }
+export {wikiCollection}

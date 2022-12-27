@@ -1,4 +1,4 @@
-import type { SchemaField } from 'tinacms'
+import type {SchemaField} from 'tinacms'
 
 const imageSchema: SchemaField = {
   type: 'object',
@@ -18,4 +18,4 @@ const imageSchema: SchemaField = {
   ],
 }
 
-export { imageSchema }
+export {imageSchema}
