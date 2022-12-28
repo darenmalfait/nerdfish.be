@@ -34,15 +34,10 @@ function Content({blog}: BlogPostQueryQuery) {
         </Grid>
 
         <Grid as="header" className="mb-12">
-          <Container>
+          <Container className="space-y-2">
             <H2 data-tinafield="title">{title}</H2>
             {date ? (
-              <H6
-                data-tinafield="date"
-                as="p"
-                variant="secondary"
-                className="mt-2"
-              >
+              <H6 data-tinafield="date" as="p" variant="secondary">
                 <DateFormatter dateString={date} format="dd MMMM yyyy" />
               </H6>
             ) : null}
