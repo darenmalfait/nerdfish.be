@@ -3,10 +3,7 @@ import * as React from 'react'
 import type {Global, GlobalPaths} from '../.tina/__generated__/types'
 import {stripPreSlash} from '../lib/utils/string'
 
-interface GlobalContextProps {
-  paths?: Global['paths']
-  navigation: Global['navigation']
-  social?: Global['social']
+interface GlobalContextProps extends Partial<Global> {
   hydrated: boolean
 }
 
@@ -22,7 +19,7 @@ interface GlobalProviderProps extends Partial<Global> {
 // import { GlobalProvider } from "path-to-context/GlobalProviderContext"
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
-  const {navigation, paths: originalPaths, social} = globalProps
+  const {navigation, paths: originalPaths, social, companyInfo} = globalProps
   const [hydrated, setHydrated] = React.useState(false)
 
   const paths = React.useMemo(() => {
@@ -47,7 +44,7 @@ function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
 
   return (
     <GlobalProviderContext.Provider
-      value={{paths, navigation, social, hydrated}}
+      value={{paths, navigation, social, companyInfo, hydrated}}
     >
       {children}
     </GlobalProviderContext.Provider>

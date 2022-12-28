@@ -133,6 +133,23 @@ const globalColllection: Collection = {
         },
       ],
     },
+    {
+      type: 'object',
+      label: 'Company info',
+      name: 'companyInfo',
+      fields: [
+        {
+          type: 'string',
+          label: 'Company name',
+          name: 'companyName',
+        },
+        {
+          type: 'string',
+          label: 'VAT',
+          name: 'vat',
+        },
+      ],
+    },
   ],
 }
 

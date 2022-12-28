@@ -6,7 +6,9 @@ title: contact
 blocks:
   - title: Contact me
     _template: bigTitle
-  - body: >+
+  - body: >
+
+
       ## You can email me
 
 
@@ -16,6 +18,14 @@ blocks:
 
       <ContactForm heading="Get in touch" />
 
+
+      ## Contact information
+
+
+      Daren Malfait BV\
+
+      BE0794123756
     _template: content
 ---
+
 
