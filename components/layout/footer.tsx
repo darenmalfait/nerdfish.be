@@ -20,8 +20,16 @@ function Footer() {
             <Logo className="relative h-12 w-12 rounded-full border-2 border-white dark:border-[#111]" />
           </div>
           <p className="max-w-md">
-            <b className="font-semibold">Made by Daren</b>, a freelance web
-            developer that keeps user experience in mind.
+            <b className="font-semibold">
+              Made by{' '}
+              <Link
+                className="underline"
+                href={twitter ?? github ?? 'https://www.daren.be'}
+              >
+                Daren
+              </Link>
+            </b>
+            , a freelance web developer that keeps user experience in mind.
           </p>
         </div>
         <div className="flex flex-row items-center gap-3 md:gap-7">
