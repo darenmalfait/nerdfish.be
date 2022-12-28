@@ -1,4 +1,5 @@
 import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
+
 import {padStart} from 'lodash'
 import type {GetStaticPropsContext} from 'next'
 import {useTina} from 'tinacms/dist/react'
@@ -12,6 +13,7 @@ import {Layout} from '../../../../components/layout/layout'
 import {useGlobal} from '../../../../context/global-provider'
 import {getWikiPost, getWikiPosts} from '../../../../lib/services/api'
 import type {AsyncReturnType} from '../../../../lib/types/misc'
+import {getFileNameFromUrl} from '../../../../lib/utils/social'
 
 function Content({wiki}: WikiQueryQuery) {
   const {paths} = useGlobal()
@@ -55,6 +57,12 @@ export default function WikiPage(
   return (
     <Layout globalData={data.global}>
       <Seo
+        image={data.wiki.seo?.seoImg}
+        subImage={
+          data.wiki.seo?.partialSeoImage
+            ? getFileNameFromUrl(data.wiki.seo.partialSeoImage)
+            : undefined
+        }
         title={data.wiki.seo?.title ?? (data.wiki.title || 'Untitled')}
         url={props.params?.filename ?? '/'}
         description={data.wiki.seo?.description ?? ''}
