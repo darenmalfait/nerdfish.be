@@ -27,13 +27,13 @@ function FeatureCard({
 
   return (
     <div
-      className="relative flex h-full w-full flex-col items-start gap-3 rounded-lg py-6 px-8 bg-secondary lg:flex-row lg:gap-6  lg:py-10  lg:px-12"
+      className="relative flex h-full w-full flex-col items-start gap-3 rounded-lg py-6 px-8 bg-secondary shadow-outline lg:flex-row lg:gap-6  lg:py-10  lg:px-12"
       {...props}
     >
       {Icon ? (
         <Icon
           data-tinafield={`${parentField}.items.${index}.icon`}
-          className="flex h-8 shrink-0 text-primary lg:mt-1.5"
+          className="flex h-8 shrink-0 text-primary lg:mt-0.5"
         />
       ) : null}
       <div>

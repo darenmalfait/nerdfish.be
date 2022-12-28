@@ -50,13 +50,13 @@ function HighlightCard({
         >
           <Grid
             nested
-            className="shadow-outline group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary md:pb-12 lg:px-0"
+            className="group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary shadow-outline md:pb-12 lg:px-0"
           >
             <div className="col-span-full lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
               <div suppressHydrationWarning>
                 {category ? (
                   <CategoryIndicator
-                    className="bg-grey-900 mb-8 text-white dark:bg-gray-50 dark:text-gray-900"
+                    className="mb-8 !bg-gray-900 !text-white dark:!bg-gray-50 dark:!text-gray-900"
                     category={category}
                     inline
                   />
