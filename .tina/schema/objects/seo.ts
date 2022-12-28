@@ -23,6 +23,16 @@ const seo: SchemaField = {
       label: 'Canonical',
       name: 'canonical',
     },
+    {
+      type: 'image',
+      name: 'seoImg',
+      label: 'Seo Image',
+    },
+    {
+      type: 'image',
+      name: 'partialSeoImage',
+      label: 'Partial Seo Image',
+    },
   ],
 }
 
