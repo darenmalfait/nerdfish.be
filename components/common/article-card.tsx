@@ -37,7 +37,7 @@ function ArticleCard({
         <CategoryIndicator category={category} />
 
         {heroImg ? (
-          <div className="aspect-w-3 aspect-h-4 rounded-lg">
+          <div className="aspect-w-3 aspect-h-4 rounded-lg shadow-outline">
             <Image
               className={clsx(
                 'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
