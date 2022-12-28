@@ -7,6 +7,8 @@ seo:
     moment.
 title: frrrip throwing remix.run into the mix my first impressions
 tags:
+  - technical
+  - insight
   - inspiration
 category: technical
 heroImg: >-
@@ -17,7 +19,7 @@ excerpt: >
 date: '2022-01-28T11:00:00.000Z'
 ---
 
-remix.run is the (or not, to be confirmed) hot new Full Stack React framework
+Remix.run is the (or not, to be confirmed) hot new Full Stack React framework
 around the block. A few knowledgeable engineers hype it at the moment. It should
 be noted that the founders [Michael Jackson](https://twitter.com/mjackson) and
 [Ryan Florence](https://twitter.com/ryanflorence) are mostly known for React
@@ -28,12 +30,12 @@ developers have used at least one or more things that they made.
 
 In this post, I will be talking about the following:
 
-- Remix
-- Routes
-- Loaders
-- Client UI
-- Actions → I like this part
-- My opinion
+* Remix
+* Routes
+* Loaders
+* Client UI
+* Actions → I like this part
+* My opinion
 
 ## About Remix
 
@@ -55,7 +57,7 @@ the same stuff Remix does, but differently.
 I have mixed feelings about the initial setup. So let me carry you through this.
 Firstly, you do this in your terminal:
 
-![create-remix command](https://res.cloudinary.com/darenmalfait/image/upload/v1667651738/Screenshot_2022-01-29_at_00.13.28_tfjszh.png 'create-remix command')
+![create-remix command](https://res.cloudinary.com/darenmalfait/image/upload/v1667651738/remix-install.png "create-remix command")
 
 Following this, you see a fancy Remix animation in the console and a menu where
 you need to choose where to deploy your application. Depending on your pick, you
@@ -173,10 +175,10 @@ export default function ContactFormRoute() {
 }
 ```
 
-Remix <Form> works identically to HTML <form>, with a few goodies. If JavaScript
-is turned off, the form will still work. Remember, the default form only
-supports GET en POST, so you should probably stick to those if you’re using a
-form.
+Remix `<Form>` works identically to HTML `<form>`, with a few goodies. If
+JavaScript is turned off, the form will still work. Remember, the default form
+only supports GET en POST, so you should probably stick to those if you’re using
+a form.
 
 And then, we create a server-side Action to handle the form submission. When no
 `action` is provided to a form, it will submit to the page itself.
@@ -204,15 +206,15 @@ few ways, one of them being useActionData.
 ```typescript
 const actionsData = useActionData()
 
-if (actionsData?.ok) return <div>success! < /div>
-if (actionsData?.errors) return <div>{ actionsData?.errors } < /div>
+if (actionsData?.ok) return <div>success! </div>
+if (actionsData?.errors) return <div>{actionsData?.errors} </div>
 ```
 
 When a POST is made to a URL, multiple routes in your route hierarchy will match
 the URL. Unlike GET to loaders, where all of them are called to build the UI,
 only one action is called.
 
-Forms without an action prop (<Form method="post">) will automatically post to
+Forms without an action prop (`<Form method="post">`) will automatically post to
 the same route within which they are rendered.
 
 My first thought was: Oh, you can build an entire API like that. Nice. It’s the
@@ -236,7 +238,7 @@ Honestly, I can say that I’m hyped. I am a fan of serverless and JAMStack, so 
 started sceptically. Remix.run, to me, feels like you are working inside a web
 framework, not a React framework. You so happen to be, are working with React on
 top of it. Moreover, I have learned about Javascript in my adventure learning
-Remix, and I’m not done using it. It is promising - without a doubt.
+Remix, and I’m not done using it. It is promising without a doubt.
 
 In conclusion, a lot of things make sense. Thinking about what happens on the
 server and what doesn’t is something extra to think about, but that might be a
