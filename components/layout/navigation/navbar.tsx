@@ -113,7 +113,7 @@ function Navbar({actions, children, rootPath = '/'}: NavbarProps) {
                 </Link>
               </div>
               <div className="hidden flex-1 justify-end md:justify-center lg:flex">
-                <nav className="flex rounded-full px-3 text-sm font-medium text-zinc-800  dark:text-zinc-200">
+                <nav className="flex rounded-full px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200  lg:space-x-2">
                   {children}
                 </nav>
               </div>
