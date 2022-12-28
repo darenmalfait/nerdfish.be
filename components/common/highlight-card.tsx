@@ -50,7 +50,7 @@ function HighlightCard({
         >
           <Grid
             nested
-            className="group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary md:pb-12 lg:px-0"
+            className="shadow-outline group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary md:pb-12 lg:px-0"
           >
             <div className="col-span-full lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
               <div suppressHydrationWarning>

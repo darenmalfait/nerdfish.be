@@ -27,28 +27,30 @@ function FeatureCard({
 
   return (
     <div
-      className="relative flex h-full w-full flex-col items-start rounded-lg py-12 px-8 bg-secondary lg:px-12"
+      className="relative flex h-full w-full flex-col items-start gap-3 rounded-lg py-6 px-8 bg-secondary lg:flex-row lg:gap-6  lg:py-10  lg:px-12"
       {...props}
     >
       {Icon ? (
         <Icon
           data-tinafield={`${parentField}.items.${index}.icon`}
-          className="mb-8 h-8 text-primary"
+          className="flex h-8 shrink-0 text-primary lg:mt-1.5"
         />
       ) : null}
-      <H2
-        data-tinafield={`${parentField}.items.${index}.title`}
-        as="h3"
-        className="mb-4 flex flex-none items-end text-xl font-medium text-primary"
-      >
-        {title}
-      </H2>
-      <p
-        data-tinafield={`${parentField}.items.${index}.description`}
-        className="max-w-sm flex-auto text-xl text-secondary"
-      >
-        {description}
-      </p>
+      <div>
+        <H2
+          data-tinafield={`${parentField}.items.${index}.title`}
+          as="h3"
+          className="mb-4 flex flex-none items-end !text-xl font-medium text-primary"
+        >
+          {title}
+        </H2>
+        <p
+          data-tinafield={`${parentField}.items.${index}.description`}
+          className="flex-auto text-xl text-secondary"
+        >
+          {description}
+        </p>
+      </div>
     </div>
   )
 }
