@@ -1,6 +1,11 @@
 import tina from '../../.tina/__generated__/client'
 
-import type {Blog, ContentQueryQuery, Wiki} from '.tina/__generated__/types'
+import type {
+  Blog,
+  BlogPostQueryQuery,
+  ContentQueryQuery,
+  Wiki,
+} from '.tina/__generated__/types'
 
 async function getPages() {
   const pageDate = await tina.queries.pageConnection()
@@ -32,12 +37,6 @@ async function getWikiPost(relativePath: string) {
   })
 }
 
-async function getBlogPost(relativePath: string) {
-  return tina.queries.blogPostQuery({
-    relativePath,
-  })
-}
-
 function mapPageData(data: ContentQueryQuery) {
   return {
     ...data,
@@ -47,6 +46,15 @@ function mapPageData(data: ContentQueryQuery) {
     wiki: data.wikiConnection.edges?.map(item => ({
       ...(item?.node ?? {}),
     })) as Wiki[],
+  }
+}
+
+function mapBlogData(data: BlogPostQueryQuery) {
+  return {
+    ...data,
+    blogs: data.blogConnection.edges?.map(item => ({
+      ...(item?.node ?? {}),
+    })) as Blog[],
   }
 }
 
@@ -61,6 +69,17 @@ async function getPage(relativePath: string) {
   }
 }
 
+async function getBlogPost(relativePath: string) {
+  const blog = await tina.queries.blogPostQuery({
+    relativePath,
+  })
+
+  return {
+    ...blog,
+    data: mapBlogData(blog.data),
+  }
+}
+
 export {
   getBlogPosts,
   getWikiPosts,
@@ -69,4 +88,5 @@ export {
   getPages,
   getPage,
   mapPageData,
+  mapBlogData,
 }

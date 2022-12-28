@@ -1,28 +1,51 @@
 import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
-import {getFileNameFromUrl} from 'lib/utils/social'
+
+import {BlockDataProvider, useBlockData} from 'context/block-data-provider'
+
 import {padStart} from 'lodash'
 import type {GetStaticPropsContext} from 'next'
+import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import type {BlogPostQueryQuery} from '../../../../.tina/__generated__/types'
 import {BackLink} from '../../../../components/common/arrow-link'
+import {ArticleCard} from '../../../../components/common/article-card'
 import {DateFormatter} from '../../../../components/common/date-formatter'
 import {Image} from '../../../../components/common/image'
 import {PortableText} from '../../../../components/common/portable-text'
 import {Seo} from '../../../../components/common/seo'
+import {Header} from '../../../../components/layout/header'
 import {Layout} from '../../../../components/layout/layout'
 import {useGlobal} from '../../../../context/global-provider'
-import {getBlogPost, getBlogPosts} from '../../../../lib/services/api'
+import {
+  getBlogPost,
+  getBlogPosts,
+  mapBlogData,
+} from '../../../../lib/services/api'
 import type {AsyncReturnType} from '../../../../lib/types/misc'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
 } from '../../../../lib/utils/cloudinary'
+import {getFileNameFromUrl} from '../../../../lib/utils/social'
 
-function Content({blog}: BlogPostQueryQuery) {
+function Content({
+  blog,
+}: AsyncReturnType<typeof getStaticProps>['props']['data']) {
   const {paths} = useGlobal()
+  const {blog: allPosts} = useBlockData()
   const {title, date, body, heroImg} = blog
+
+  const relatedPosts = React.useMemo(() => {
+    return allPosts
+      .filter(
+        post =>
+          post.title !== blog.title &&
+          post.date !== blog.date &&
+          post.tags?.some(tag => blog.tags?.includes(tag)),
+      )
+      .slice(0, 3)
+  }, [allPosts, blog.date, blog.tags, blog.title])
 
   return (
     <>
@@ -62,6 +85,27 @@ function Content({blog}: BlogPostQueryQuery) {
           {body ? <PortableText content={body} /> : null}
         </Grid>
       </Section>
+      {relatedPosts.length > 0 ? (
+        <>
+          <Section className="mt-24">
+            <Header
+              title="Done reading?"
+              subTitle="Read more related articles"
+            />
+          </Section>
+          <Section>
+            <Grid className="mt-16 mb-32 gap-y-16">
+              {relatedPosts.map(relatedBlog => {
+                return (
+                  <div key={relatedBlog.id} className="col-span-4">
+                    <ArticleCard {...relatedBlog} id={relatedBlog.id} />
+                  </div>
+                )
+              })}
+            </Grid>
+          </Section>
+        </>
+      ) : null}
     </>
   )
 }
@@ -72,6 +116,8 @@ export default function BlogPostPage(
 ) {
   const {data} = useTina(props)
 
+  const {blogs} = mapBlogData(data)
+
   return (
     <Layout globalData={data.global}>
       <Seo
@@ -81,7 +127,9 @@ export default function BlogPostPage(
         canonical={data.blog.seo?.canonical}
         subImage={getFileNameFromUrl(data.blog.heroImg)}
       />
-      <Content {...data} />
+      <BlockDataProvider blog={blogs}>
+        <Content {...mapBlogData(data)} />
+      </BlockDataProvider>
     </Layout>
   )
 }

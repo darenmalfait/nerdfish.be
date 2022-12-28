@@ -8,6 +8,7 @@ seo:
     and easy to read.
 title: Writing the perfect git commit message
 tags:
+  - technical
   - best-practice
 category: technical
 heroImg: >-
@@ -38,20 +39,19 @@ feat(scope): add magical unicorn
 +-------> Type: chore, docs, feat, fix, refactor, style, or test.
 ```
 
-
 ## Commit type
 
 The developer should write the commit from the user's perspective, not the
 developer's. Slight nuance, but it makes a difference.
 
-- `feat`: New feature for the user (not a feature to the code, or ci, ...)&#x20;
-- `fix`: Bugfix for the user (not a fix to build something, ...)
-- `docs`: Changes to the documentation
-- `style`: This could be the styling of the code or styling changes in general.
+* `feat`: New feature for the user (not a feature to the code, or ci, ...)&#x20;
+* `fix`: Bugfix for the user (not a fix to build something, ...)
+* `docs`: Changes to the documentation
+* `style`: This could be the styling of the code or styling changes in general.
   Does not change any functionality.
-- `refactor`: Refactoring production code. For example: Renaming a variable
-- `test`: Only changes current or new tests. Does not change the production code
-- `chore`: Does not impact production.
+* `refactor`: Refactoring production code. For example: Renaming a variable
+* `test`: Only changes current or new tests. Does not change the production code
+* `chore`: Does not impact production.
 
 ## Scope (optional)
 
@@ -77,7 +77,7 @@ still be filled in.
 The body can include the motivation for the change and contrast this with
 previous behaviour.
 
-- The body is the place to mention issue identifiers and their relations
+* The body is the place to mention issue identifiers and their relations
 
 Example `closes #33`
 
@@ -98,9 +98,9 @@ close #1337 BREAKING CHANGES: We removed horses, because they don't get allong
 
 ## Semantic versioning
 
-1. fix: a commit of the type_fix patches a bug in your codebase (this correlates
+1. fix: a commit of the type\_fix patches a bug in your codebase (this correlates
    with PATCH in Semantic Versioning).
-2. feat: a commit of the type_feat introduces a new feature to the codebase
+2. feat: a commit of the type\_feat introduces a new feature to the codebase
    (this correlates with MINOR in Semantic Versioning).
 3. BREAKING CHANGE: a commit that has a footer, or appends ! after the
    type/scope, introduces a breaking API change (correlating with MAJOR in
