@@ -7,6 +7,7 @@ import {Layout} from '../components/layout/layout'
 import {BlockDataProvider} from '../context/block-data-provider'
 import {getPage, getPages, mapPageData} from '../lib/services/api'
 import type {AsyncReturnType} from '../lib/types/misc'
+import {getFileNameFromUrl} from '../lib/utils/social'
 
 function Content({
   page,
@@ -28,6 +29,12 @@ export default function Page(
   return (
     <Layout globalData={data.global}>
       <Seo
+        image={data.page.seo?.seoImg}
+        subImage={
+          data.page.seo?.partialSeoImage
+            ? getFileNameFromUrl(data.page.seo.partialSeoImage)
+            : undefined
+        }
         title={data.page.seo?.title ?? (data.page.title || 'Untitled')}
         url={props.params?.filename ?? '/'}
         description={data.page.seo?.description ?? ''}
