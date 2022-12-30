@@ -25,7 +25,7 @@ blocks:
       <Button text="Hire me!" href="contact" />
     image:
       src: >-
-        https://res.cloudinary.com/darenmalfait/image/upload/v1672264474/darenmalfait_y0kiqq.png
+        http://res.cloudinary.com/darenmalfait/image/upload/v1672423852/daren-memoji_dpgiwg.png
       alt: Daren Malfait
     _template: hero
   - title: What do I do?
@@ -81,6 +81,7 @@ blocks:
     count: 3
     _template: Blog
 ---
+
 
 
 
