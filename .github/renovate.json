@@ -1,22 +1,64 @@
 {
-  "timezone": "Europe/Paris",
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": [
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all",
+    "schedule:daily"
+  ],
+  "rebaseWhen": "conflicted",
+  "ignoreDeps": [],
+  "labels": ["dependencies"],
   "packageRules": [
     {
-      "matchPackagePrefixes": ["@tinacms", "tinacms"],
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ]
+    },
+    {
       "groupName": "tinacms",
-      "schedule": ["before 2am"]
+      "matchPackagePatterns": ["@tinacms*", "tinacms*"],
+      "automerge": true
     },
     {
-      "matchPackagePrefixes": ["@next", "next"],
+      "groupName": "commitlint",
+      "matchPackagePatterns": ["@commitlint/*", "husky"],
+      "automerge": true
+    },
+    {
+      "groupName": "tailwind",
+      "matchPackagePatterns": ["@tailwind/*", "tailwindcss"]
+    },
+    {
+      "groupName": "heroicons",
+      "matchPackagePatterns": "@heroicons/*"
+    },
+    {
       "groupName": "NextJS",
-      "schedule": ["before 2am"]
+      "matchPackagePatterns": ["@next*", "next*"]
     },
     {
-      "matchPackagePrefixes": ["@daren"],
+      "groupName": "eslint",
+      "matchPackagePatterns": ["eslint*", "@typescript-eslint/*"]
+    },
+    {
       "groupName": "Daren",
-      "schedule": ["before 2am"]
+      "matchPackagePatterns": ["@daren*"]
+    },
+    {
+      "groupName": "github actions",
+      "matchManagers": ["github-actions"]
     }
-  ]
+  ],
+  "prConcurrentLimit": 30,
+  "prHourlyLimit": 0,
+  "rangeStrategy": "bump",
+  "timezone": "Europe/Paris"
 }
