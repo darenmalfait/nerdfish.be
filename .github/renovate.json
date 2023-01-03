@@ -29,7 +29,7 @@
       "automerge": true
     },
     {
-      "groupName": "commitlint",
+      "groupName": "commit-hooks",
       "matchPackagePatterns": ["@commitlint/*", "husky"],
       "automerge": true
     },
