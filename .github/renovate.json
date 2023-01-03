@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "schedule:daily"],
+  "extends": ["config:base"],
   "ignorePresets": [":prHourlyLimit2"],
   "rangeStrategy": "update-lockfile",
   "automerge": true,
