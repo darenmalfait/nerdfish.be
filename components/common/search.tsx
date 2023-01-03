@@ -51,18 +51,24 @@ function SearchResult({
         attribute="title"
         classNames={{
           root: 'text-sm font-medium text-zinc-900 dark:text-white',
-          highlighted: 'bg-transparent text-success underline',
+          highlighted: 'bg-transparent text-daren-100 underline',
         }}
         hit={item as any}
       />
 
       {item.type ? (
-        <div
-          id={`${item.objectID}-type`}
-          aria-hidden="true"
-          className="text-2xs mt-1 truncate whitespace-nowrap text-secondary"
-        >
-          {item.type}
+        <div className="mt-1">
+          <Highlight
+            id={`${item.objectID}-type`}
+            attribute="type"
+            classNames={{
+              root: 'text-2xs truncate whitespace-nowrap text-secondary',
+              highlighted: 'bg-transparent text-daren-100 underline',
+            }}
+            hit={item as any}
+          >
+            {item.type}
+          </Highlight>
         </div>
       ) : null}
     </Combobox.Option>
