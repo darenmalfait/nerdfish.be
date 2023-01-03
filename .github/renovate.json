@@ -1,16 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":ignoreModulesAndTests",
-    "group:monorepos",
-    "group:recommended",
-    "workarounds:all",
-    "schedule:daily"
-  ],
+  "extends": ["config:base", "schedule:daily"],
+  "ignorePresets": [":prHourlyLimit2"],
+  "rangeStrategy": "update-lockfile",
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "schedule": ["before 7am every weekday", "every weekend"],
+  "semanticCommits": "enabled",
   "rebaseWhen": "conflicted",
-  "ignoreDeps": [],
   "labels": ["dependencies"],
   "packageRules": [
     {
@@ -37,6 +38,14 @@
       "matchPackagePatterns": ["@tailwind/*", "tailwindcss"]
     },
     {
+      "groupName": "algolia",
+      "matchPackagePatterns": [
+        "@algolia*",
+        "algoliasearch",
+        "react-instantsearch*"
+      ]
+    },
+    {
       "groupName": "heroicons",
       "matchPackagePatterns": "@heroicons/*"
     },
@@ -57,8 +66,5 @@
       "matchManagers": ["github-actions"]
     }
   ],
-  "prConcurrentLimit": 30,
-  "prHourlyLimit": 0,
-  "rangeStrategy": "bump",
   "timezone": "Europe/Paris"
 }
