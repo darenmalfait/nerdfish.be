@@ -30,7 +30,7 @@ const Hero = ({
 }) => {
   return (
     <Grid as="header" className="h-auto items-start pt-24 lg:my-12 lg:pb-12">
-      <Container size="medium">
+      <Container size="full">
         <div className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left">
           <motion.div
             className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16"
@@ -67,7 +67,7 @@ const Hero = ({
               initial={{scale: 1.5, opacity: 0}}
               animate={{scale: 1, opacity: 1}}
               transition={{duration: 0.75}}
-              className="relative mx-auto flex w-full items-center sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"
+              className="relative mx-auto flex w-full items-center sm:w-3/4 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2"
             >
               <Image
                 className="mb-12 rounded-xl"
