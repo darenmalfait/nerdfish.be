@@ -7,6 +7,9 @@ blocks:
   - title: Contact me
     _template: bigTitle
   - body: >
+      <image
+      src="https://res.cloudinary.com/darenmalfait/image/upload/v1673024309/Daren_plastic_telephone_pixar_style_3d_render_solid_background_2a4a2aae-a901-4c18-8bd3-a1da71c0e269-removebg-preview_wmlyvr.png"
+      alt="Contact" compact={true} />
 
 
       ## You can email me
@@ -27,5 +30,9 @@ blocks:
       BE0794123756
     _template: content
 ---
+
+
+
+
 
 

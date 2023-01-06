@@ -10,11 +10,20 @@ interface HeaderProps {
   title?: string
   subTitle?: React.ReactNode
   className?: string
+  nested?: boolean
 }
 
-function Header({ctaUrl, cta, title, subTitle, className, as}: HeaderProps) {
+function Header({
+  ctaUrl,
+  cta,
+  title,
+  subTitle,
+  className,
+  as,
+  nested,
+}: HeaderProps) {
   return (
-    <Grid as={as}>
+    <Grid nested={nested} as={as}>
       <div
         className={clsx(
           'col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0',

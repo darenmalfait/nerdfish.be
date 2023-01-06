@@ -1,6 +1,6 @@
-import type {SchemaField} from 'tinacms'
+import type {ObjectField} from '../types'
 
-const imageSchema: SchemaField = {
+const imageSchema: ObjectField = {
   type: 'object',
   label: 'Image',
   name: 'image',

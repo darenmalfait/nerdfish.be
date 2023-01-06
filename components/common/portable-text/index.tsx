@@ -18,6 +18,7 @@ function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
           ContactForm: PortableContactForm,
           code_block: PortableCode,
           img: PortableImage,
+          image: PortableImage,
           a: Link,
         } as any
       }

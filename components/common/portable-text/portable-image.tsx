@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import * as React from 'react'
 
 import {
@@ -7,13 +8,26 @@ import {
 } from '../../../lib/utils/cloudinary'
 import {Image} from '../image'
 
-function PortableImage({alt = '', url = ''}: {alt?: string; url?: string}) {
+function PortableImage({
+  alt = '',
+  src = '',
+  url = src,
+  compact = false,
+}: {
+  alt?: string
+  src?: string
+  url?: string
+  compact?: boolean
+}) {
   return (
     <Image
+      className={clsx({
+        'max-w-xs': compact,
+      })}
       placeholder={getLowQualityUrlFor(url)}
       srcSet={buildSrcSet(url)}
       src={buildSrc(url, {
-        width: 800,
+        width: compact ? 400 : 800,
       })}
       alt={alt}
     />
