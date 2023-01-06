@@ -1,10 +1,24 @@
 import type {RichTextType} from 'tinacms'
 
+import {imageSchema} from './image'
+
 const portableTextSchema: RichTextType = {
   label: 'Text',
   name: 'text',
   type: 'rich-text',
   templates: [
+    {
+      ...imageSchema,
+      name: 'image',
+      fields: [
+        ...imageSchema.fields,
+        {
+          type: 'boolean',
+          name: 'compact',
+          label: 'Compact',
+        },
+      ],
+    },
     {
       name: 'Button',
       label: 'Button',
