@@ -29,7 +29,7 @@ type BlockProps<T> = {
 function Blocks<T extends keyof typeof components>({
   items,
 }: {
-  items?: (BlockProps<T> & PropsOf<typeof components[T]>)[]
+  items?: (BlockProps<T> & PropsOf<(typeof components)[T]>)[]
 }) {
   return (
     <>
