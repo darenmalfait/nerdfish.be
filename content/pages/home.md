@@ -4,7 +4,8 @@ seo:
     Daren Malfait, Freelance full-stack JavaScript / TypeScript & ReactJS
     engineer
   description: Come check out how Daren can help you with web development.
-  partialSeoImage: ''
+  partialSeoImage: >-
+    http://res.cloudinary.com/darenmalfait/image/upload/v1673107414/Daren_isometric_solid_background_3098f641-8e43-4573-bb18-d72b18b9d6ac_sx33ta.png
 title: Home
 blocks:
   - title: Daren Malfait
@@ -81,6 +82,7 @@ blocks:
     count: 3
     _template: Blog
 ---
+
 
 
 
