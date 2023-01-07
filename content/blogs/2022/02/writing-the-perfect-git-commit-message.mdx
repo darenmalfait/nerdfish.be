@@ -17,16 +17,144 @@ excerpt: >
   Commit messages come in all forms and sizes. In many code bases, a clean git
   history is not a priority, but don't be mistaken. It is essential. This post
   describes a way to keep your commit messages uniform and easy to read.
-date: '2022-02-03T11:00:00.000Z'
+date: '2022-02-22T19:00:00.000Z'
 ---
 
-Commit messages to come in all forms and sizes. Clean git history is not a
-priority in many codebases, but don't be mistaken. It is essential. It is a way
-to keep your commit messages uniform and easy to read.
+## Why should I care?
 
-[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) are a way
-of writing commit messages that have been around for a long time. And here is an
-example of what one looks like:
+Clean git history is essential because it helps to make it easier to understand the evolution of a project. When history is cluttered with unnecessary commits and merge conflicts, it can be challenging to understand what changes were made and why they were made. A clean history can also make it easier to revert to previous versions of the project, as it is easier to find specific commits when the history is organized.&#x20;
+
+Overall, a clean git history is essential for the maintainability and understandability of a project.
+
+## Lousy practise
+
+A bad git history can take many forms, but some common characteristics include the following:
+
+* A large number of commits that do not convey the changes being made
+* Multiple merge conflicts that have not been adequately resolved
+* Use of commit messages that are not descriptive or do not accurately reflect the changes being made
+* A lack of clear separation between different features or bug fixes
+* Large commits that include many unrelated changes
+
+In general, a horrible git history is challenging to understand and navigate. It may also indicate poor coding practices, such as a lack of testing or focus on code organization.
+
+Here are some examples of what I consider lousy git commit messages:
+
+* "Fixing bug" - This commit message does not provide any information about the bug or how it was fixed.
+* "Updating code" - This commit message is too vague and does not provide any information about what was updated or why it was necessary.
+* "asdf" - This commit message provides no information and does not help understand the changes made.
+* "Final version" - This commit message does not describe any of the changes that were made and do not help understand the evolution of the project.
+* "Adding everything" - This commit message is too broad and does not provide any information about what was added or why it was necessary.
+
+## Good practise
+
+Good git commit messages follow a few best practices:
+
+* First, they are descriptive and explain the changes made and their reasons.
+* They use clear and concise language.
+* They are written in the present tense.
+* They are no longer than 70 characters in the subject line (the commit message's first line).
+
+Here are some examples of good commit messages:
+
+* "Fix typo in README file"
+* "Add tests for new feature"
+* "Refactor login module for improved performance"
+* "Update dependencies to fix security vulnerabilities"
+
+In general, good commit messages are specific and informative and help provide context about the changes that were made. This makes it easier for others to understand the project's evolution and collaborate effectively.
+
+## Best practise
+
+### Conventional commits
+
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) are a structured way of writing commit messages that makes it easier to generate changelogs, release notes, and other documentation automatically. The goal of using conventional commits is to make it easier to understand the changes that have been made to a project and to allow tools to understand the intent of each commit more easily. Those things work because the way the commit messages are written is predictable. That also means humans can easily read and understand them.
+
+Several conventions for formatting commit messages have been established as best practices. One widely used convention is the Angular convention, which defines the following structure for commit messages:
+
+```
+<type>(<scope>): <subject>
+```
+
+The type is a short, all-lowercase string that describes the nature of the commit. Some common types include:
+
+* `feat`: New feature for the user (not a part of the code, or ci, ...)&#x20;
+* `fix`: Bugfix for the user (not a fix to build something, ...)
+* `docs`: Changes to the documentation
+* `style`: This could be the code's styling or general styling changes.
+  Does not change any functionality.
+* `refactor`: Refactoring production code. For example: Renaming a variable
+* `test`: Only changes current or new tests. Does not change the production code
+* `chore`: Does not impact production.
+
+The scope is an optional string that describes the part of the codebase that the commit affects.
+
+The subject is a brief description of the changes made in the commit. It should be written in an imperative mood and should not exceed 50 characters.
+
+For example, a commit message following the Angular convention might look like this:
+
+
+```
+feat(search): add support for searching by date range
+```
+
+### The commit body
+
+The body of a conventional commit is optional and is used to provide a more detailed description of the changes made. It should be used to explain the motivation for the changes, as well as any implementation details that may be relevant.
+
+The body of the commit should be separated from the subject by a blank line and wrapped to a maximum line length of 72 characters.
+
+Here is an example of a commit message with a body:
+
+```
+feat(search): add support for searching by date range
+
+This commit adds a new feature to the search module that allows users to search for records within a specific date range. The date range can be specified using two new fields on the search form: a start date and an end date.
+
+- Adds new fields to the search form for specifying the date range
+- Updates the search API to accept the start and end dates as parameters
+- Modifies the search results page to display the selected date range
+```
+
+In general, the body of a commit message should provide enough information to understand the changes and motivations behind them without going into unnecessary detail.
+
+### Breaking changes
+
+In conventional commits, breaking changes are indicated by including the word "BREAKING CHANGE" in the commit message, followed by a colon and a description of the breaking change.
+
+For example:
+
+```
+feat(search): add support for searching by date range
+
+BREAKING CHANGE: The search API now requires a start and end date to be specified for all searches. The old API, which only accepted a single search term, is no longer supported.
+
+This commit adds a new feature to the search module that allows users to search for records within a specific date range. The date range can be specified using two new fields on the search form: a start date and an end date.
+
+- Adds new fields to the search form for specifying the date range
+- Updates the search API to accept the start and end dates as parameters
+- Modifies the search results page to display the selected date range
+```
+
+The description of the breaking change should explain the change's impact and any steps users will need to take to migrate to the new version.
+
+You can also append '!' to the scope/type to get the same result:
+
+```
+feat(search)!: add support for searching by date range
+```
+
+### Semantic versioning
+
+* **fix**: a commit of the type `fix` patches a bug in your codebase (this correlates
+  with PATCH in Semantic Versioning).
+* **feat**: a commit of the type `feat` introduces a new feature to the codebase
+  (this correlates with MINOR in Semantic Versioning).
+* **BREAKING CHANGE**: a commit that has a footer or appends '!' after the
+  type/scope introduces a breaking API change (correlating with MAJOR in
+  Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+
+## TLDR
 
 ```markdown
 feat(scope): add magical unicorn
@@ -39,69 +167,3 @@ feat(scope): add magical unicorn
 +-------> Type: chore, docs, feat, fix, refactor, style, or test.
 ```
 
-## Commit type
-
-The developer should write the commit from the user's perspective, not the
-developer's. Slight nuance, but it makes a difference.
-
-* `feat`: New feature for the user (not a feature to the code, or ci, ...)&#x20;
-* `fix`: Bugfix for the user (not a fix to build something, ...)
-* `docs`: Changes to the documentation
-* `style`: This could be the styling of the code or styling changes in general.
-  Does not change any functionality.
-* `refactor`: Refactoring production code. For example: Renaming a variable
-* `test`: Only changes current or new tests. Does not change the production code
-* `chore`: Does not impact production.
-
-## Scope (optional)
-
-You may provide a scope after a type, but it must consist of a noun describing a
-section of the codebase. feat(datepicker):
-
-## The commit message
-
-Writing a good commit message is food for discussion, and according to
-conventional commits (and myself), you should write the commit message in the
-present time.
-
-An excellent way to write a message is to fill in the sentence:
-
-If I commit my code, it will ... (add a magical unicorn)feat(forest): add a
-magical unicorn
-
-## The message body (optional)
-
-We have covered most ways of writing commit messages, but a message body can
-still be filled in.
-
-The body can include the motivation for the change and contrast this with
-previous behaviour.
-
-* The body is the place to mention issue identifiers and their relations
-
-Example `closes #33`
-
-### The body footer (optional)
-
-The footer should contain any information about Breaking Changes.
-
-Breaking Changes should start with the word BREAKING CHANGES: followed by space
-or two newlines.
-
-A breaking change can be part of commits of any type.
-
-```markdown
-feat(forest): add magical unicorn
-
-close #1337 BREAKING CHANGES: We removed horses, because they don't get allong
-```
-
-## Semantic versioning
-
-1. fix: a commit of the type\_fix patches a bug in your codebase (this correlates
-   with PATCH in Semantic Versioning).
-2. feat: a commit of the type\_feat introduces a new feature to the codebase
-   (this correlates with MINOR in Semantic Versioning).
-3. BREAKING CHANGE: a commit that has a footer, or appends ! after the
-   type/scope, introduces a breaking API change (correlating with MAJOR in
-   Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
