@@ -4,11 +4,11 @@
 
 @layer base {
   html {
-    @apply overscroll-none max-w-full min-h-screen font-sans;
+    @apply min-h-screen max-w-full overscroll-none font-sans;
   }
 
   body {
-    @apply bg-primary min-h-screen;
+    @apply min-h-screen bg-primary;
   }
 
   .prose pre {
