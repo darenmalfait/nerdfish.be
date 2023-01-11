@@ -98,7 +98,7 @@ function CodeBlock({
               className={clsx(
                 classNameProp,
                 className,
-                'relative my-5 mx-auto overflow-x-auto rounded-xl  !bg-black/90 py-5 pr-8 text-sm leading-relaxed dark:!bg-white/5',
+                'relative my-5 mx-auto overflow-x-auto rounded-xl !bg-black/90 py-5 pr-8 text-sm leading-relaxed shadow-outline dark:!bg-white/5',
                 {
                   'pl-4': !showLineNumbers,
                   'pl-16': showLineNumbers,
