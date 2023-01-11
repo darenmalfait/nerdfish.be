@@ -7,7 +7,8 @@ seo:
     output only to show the files that contain a specified string and opens them
     in Visual Studio Code.
   partialSeoImage: >-
-    https://res.cloudinary.com/darenmalfait/image/upload/v1673383999/Daren_a_scared_computer_with_a_ribbons_around_it_plastic_3d_ren_f2ba46b1-7d12-4144-99b2-8c19461c2b6a_dm7mif.png
+    http://res.cloudinary.com/darenmalfait/image/upload/v1673438098/open-all-files-with-errors_zs2drx.png
+  cardType: secondary
 title: a oneliner to open all files with linting issues in vs-code
 tags:
   - eslint
@@ -37,4 +38,3 @@ This command uses several command line tools to perform several actions:
 1. npx eslint: This runs the ESLint command-line tool using npx, a tool for executing packages, like ESLint, in a project. The --ext flag is used to specify file extensions that should be linted. In this case, it's linting files with the extensions .js, .jsx, .ts, and .tsx. The . at the end specifies the current directory.
 2. grep darenmalfait: The grep command is used to search for a pattern in a given input. In this case, it is searching through the output of the previous command (ESLint) for the string "darenmalfait".
 3. xargs code : The xargs command is used to build and execute command lines from standard input. In this case, it takes the output of the previous command (grep), which should be the filename containing the pattern 'darenmalfait' and use them as an argument for the command 'code'. So this last command will open the matched files in vs-code.
-
