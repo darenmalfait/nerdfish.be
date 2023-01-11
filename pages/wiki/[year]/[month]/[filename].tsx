@@ -67,6 +67,7 @@ export default function WikiPage(
         url={props.params?.filename ?? '/'}
         description={data.wiki.seo?.description ?? ''}
         canonical={data.wiki.seo?.canonical}
+        cardType={data.wiki.seo?.cardType}
       />
       <Content {...data} />
     </Layout>
