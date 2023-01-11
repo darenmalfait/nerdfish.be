@@ -25,6 +25,7 @@ function generateSocialImage({
   textColor = 'FFFFFF',
   titleFontSize = 50,
   image = 'og:image',
+  variant = 'primary',
 }: {
   title: string
   cloudName?: string
@@ -42,6 +43,7 @@ function generateSocialImage({
   textColor?: string
   titleFontSize?: number
   image?: string | null
+  variant?: 'primary' | 'secondary' | string | null
 }) {
   // configure social media image dimensions, quality, and format
   const imageConfig = [
@@ -55,10 +57,10 @@ function generateSocialImage({
   const subImageConfig = [
     'a_0',
     'c_fill',
-    'g_east',
-    'h_630',
-    `l_${image}`,
-    'w_600',
+    variant === 'primary' ? 'g_east' : 'g_center',
+    variant === 'primary' ? 'h_630' : `h_${imageHeight}`,
+    variant === 'primary' ? `l_${image}` : `u_${image}`,
+    variant === 'primary' ? 'w_600' : `w_${imageWidth}`,
   ].join(',')
 
   // configure the diagonal overlay
@@ -92,9 +94,9 @@ function generateSocialImage({
     'image',
     'upload',
     imageConfig,
-    titleConfig,
+    variant === 'primary' ? titleConfig : '',
     subImageConfig,
-    diagonalOverlayConfig,
+    variant === 'primary' ? diagonalOverlayConfig : '',
     version,
     imagePublicID,
   ]

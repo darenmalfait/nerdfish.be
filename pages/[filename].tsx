@@ -39,6 +39,7 @@ export default function Page(
         url={props.params?.filename ?? '/'}
         description={data.page.seo?.description ?? ''}
         canonical={data.page.seo?.canonical}
+        cardType={data.page.seo?.cardType}
       />
       <Content {...mapPageData(data)} />
     </Layout>

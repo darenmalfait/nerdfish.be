@@ -126,6 +126,7 @@ export default function BlogPostPage(
         description={data.blog.seo?.description ?? ''}
         canonical={data.blog.seo?.canonical}
         subImage={getFileNameFromUrl(data.blog.heroImg)}
+        cardType={data.blog.seo?.cardType}
       />
       <BlockDataProvider blog={blogs}>
         <Content {...mapBlogData(data)} />

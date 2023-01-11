@@ -13,6 +13,7 @@ type SocialMetas = {
   schema?: string
   canonical?: string | null
   subImage?: string | null
+  cardType?: 'primary' | 'secondary' | string | null
 }
 
 function getMetaTags({
@@ -78,6 +79,7 @@ function Seo({
   title,
   children,
   subImage,
+  cardType = 'primary',
   ...props
 }: SocialMetas & {
   children?: React.ReactNode
@@ -90,10 +92,14 @@ function Seo({
     : `${basePath}/${stripPreSlash(path)}`
 
   if (!ogImage) {
+    const variant = cardType ?? 'primary'
+
     metaImage = generateSocialImage({
-      title,
-      imagePublicID: 'social.png',
+      title: variant === 'primary' ? title : '',
+      imagePublicID:
+        variant === 'primary' ? 'social.png' : 'social-transparent.png',
       image: subImage,
+      variant,
     })
   }
 
