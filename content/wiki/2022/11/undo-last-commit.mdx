@@ -16,12 +16,26 @@ seo:
 You can preserve the changes you want to undo using the soft flag. You'll find
 the changes as uncommitted local modifications in your working copy.
 
+## Soft reset
+
 ```shell
 git reset --soft HEAD~1
 ```
 
 If you don't want to keep these changes, use the --hard flag. Be sure to do this
 when you're sure you don't need these changes anymore.
+
+With a soft reset, you can remove the files you didn't want to commit and recommit with the same message:
+
+```shell
+git restore --staged path/to/unwanted-file
+```
+
+```shell
+git commit -c ORIG_HEAD
+```
+
+## Hard reset
 
 ```shell
 git reset --hard HEAD~1
@@ -34,8 +48,7 @@ that HEAD currently points to".
 The difference between the two commands is in how they handle changes in the
 working directory and the index (also known as the "staging area").
 
-git reset --soft HEAD~1 Will move the HEAD pointer to the previous commit will
-leave the changes in the working directory and the index intact. This means that
+git reset --soft HEAD~1 Will move the HEAD pointer to the previous commit, leaving the changes in the working directory and the index intact. This means that
 any changes you have made to your code since the last commit will still be
 there, and you can continue to make additional changes or create a new commit to
 include them.
@@ -50,7 +63,7 @@ discards changes permanently, and you can't get it back unless you have a backup
 or version.
 
 So, git reset --soft allows you to undo a commit but keep all the changes while
-git reset --hard will undo the commit and discarding all the changes.
+git reset --hard will undo the commit and discard all the changes.
 
 ## Oops, I didn't mean to
 
