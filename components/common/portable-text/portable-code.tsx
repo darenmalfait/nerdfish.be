@@ -9,7 +9,6 @@ function PortableCode({lang, value}: {lang?: Language; value?: string}) {
     <Container size="default">
       <CodeBlock
         code={value}
-        className="!rounded-xl"
         language={lang}
         showLanguage={false}
         showLineNumbers={true}

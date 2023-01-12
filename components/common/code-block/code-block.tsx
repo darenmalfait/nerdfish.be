@@ -6,12 +6,12 @@ import Highlight, {
   PrismTheme,
 } from 'prism-react-renderer'
 
-import lightTheme from 'prism-react-renderer/themes/vsLight'
 import * as React from 'react'
 
 import {useTheme} from '../../../context/theme-provider'
 
-import vscodeTheme from './vscode-theme'
+import darkTheme from './vscode-dark'
+import lightTheme from './vscode-light'
 
 function pad(num: number | string, size = 2) {
   num = num.toString()
@@ -110,16 +110,29 @@ function CodeBlock({
         {...defaultProps}
         code={code}
         language={language}
-        theme={theme ?? isDarkMode ? (vscodeTheme as PrismTheme) : lightTheme}
+        theme={
+          theme ?? isDarkMode
+            ? (darkTheme as PrismTheme)
+            : (lightTheme as PrismTheme)
+        }
       >
         {({className, style, tokens, getLineProps, getTokenProps}) => (
-          <>
+          <div
+            className={clsx(
+              classNameProp,
+              'rounded-xl bg-black/5 shadow-outline dark:bg-white/5',
+            )}
+          >
+            <div className="flex py-3 px-4">
+              <div className="mr-2 h-3 w-3 rounded-full bg-red-500" />
+              <div className="mr-2 h-3 w-3 rounded-full bg-yellow-500" />
+              <div className="h-3 w-3 rounded-full bg-green-500" />
+            </div>
             <CopyButton code={code} />
             <pre
               className={clsx(
-                classNameProp,
                 className,
-                'relative my-5 mx-auto overflow-x-auto rounded-xl !bg-black/5 py-5 pr-8 text-sm leading-relaxed shadow-outline dark:!bg-white/5',
+                'relative my-5 mx-auto overflow-x-auto pt-0 pb-5 pr-8 text-sm leading-relaxed ',
                 {
                   'pl-4': !showLineNumbers,
                   'pl-16': showLineNumbers,
@@ -152,7 +165,7 @@ function CodeBlock({
                 </span>
               ) : null}
             </pre>
-          </>
+          </div>
         )}
       </Highlight>
     </div>
