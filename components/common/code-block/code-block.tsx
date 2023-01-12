@@ -5,8 +5,13 @@ import Highlight, {
   Language,
   PrismTheme,
 } from 'prism-react-renderer'
-import nightOwl from 'prism-react-renderer/themes/nightOwl'
+
+import lightTheme from 'prism-react-renderer/themes/vsLight'
 import * as React from 'react'
+
+import {useTheme} from '../../../context/theme-provider'
+
+import vscodeTheme from './vscode-theme'
 
 function pad(num: number | string, size = 2) {
   num = num.toString()
@@ -37,7 +42,7 @@ function CopyButton({code}: {code: string}) {
         'group/button absolute top-3.5 right-4 z-10 overflow-hidden rounded-full py-1 pl-2 pr-3 text-xs font-medium opacity-0 backdrop-blur transition text-primary focus:opacity-100 group-hover:opacity-100',
         copied
           ? 'bg-emerald-400/10 ring-1 ring-inset ring-emerald-400/20'
-          : 'hover:bg-white/7.5 dark:bg-white/2.5 bg-white/5 dark:hover:bg-white/5',
+          : 'bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10',
       )}
       onClick={async () => {
         await window.navigator.clipboard.writeText(code).then(() => {
@@ -48,7 +53,7 @@ function CopyButton({code}: {code: string}) {
       <span
         aria-hidden={copied}
         className={clsx(
-          'pointer-events-none flex items-center gap-0.5 text-gray-200 transition duration-300',
+          'pointer-events-none flex items-center gap-0.5 text-gray-800 transition duration-300 dark:text-gray-200',
           copied && '-translate-y-1.5 opacity-0',
         )}
       >
@@ -83,13 +88,29 @@ function CodeBlock({
   theme?: PrismTheme
   className?: string
 }) {
+  const [mounted, setMounted] = React.useState(false)
+  const {theme: selectedtheme, systemTheme} = useTheme()
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
+  const isDarkMode =
+    selectedtheme === 'dark' ||
+    (selectedtheme === 'system' && systemTheme === 'dark')
+
   return (
     <div className="group relative">
       <Highlight
         {...defaultProps}
         code={code}
         language={language}
-        theme={theme ?? nightOwl}
+        theme={theme ?? isDarkMode ? (vscodeTheme as PrismTheme) : lightTheme}
       >
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <>
@@ -98,7 +119,7 @@ function CodeBlock({
               className={clsx(
                 classNameProp,
                 className,
-                'relative my-5 mx-auto overflow-x-auto rounded-xl !bg-black/90 py-5 pr-8 text-sm leading-relaxed shadow-outline dark:!bg-white/5',
+                'relative my-5 mx-auto overflow-x-auto rounded-xl !bg-black/5 py-5 pr-8 text-sm leading-relaxed shadow-outline dark:!bg-white/5',
                 {
                   'pl-4': !showLineNumbers,
                   'pl-16': showLineNumbers,
