@@ -41,19 +41,17 @@ git commit -c ORIG_HEAD
 git reset --hard HEAD~1
 ```
 
-The HEAD~1 argument tells git to move the HEAD pointer to the commit before the
-current commit. Essentially, it's a shorthand for "the commit before the commit
+The HEAD~1 argument tells git to move the HEAD pointer to the commit before the current commit. Essentially, it's a shorthand for "the commit before the commit
 that HEAD currently points to".
 
 The difference between the two commands is in how they handle changes in the
 working directory and the index (also known as the "staging area").
 
-git reset --soft HEAD~1 Will move the HEAD pointer to the previous commit, leaving the changes in the working directory and the index intact. This means that
+`git reset --soft HEAD~1` Will move the HEAD pointer to the previous commit, leaving the changes in the working directory and the index intact. This means that
 any changes you have made to your code since the last commit will still be
-there, and you can continue to make additional changes or create a new commit to
-include them.
+there, you can continue to make additional changes or create a new commit to include them.
 
-git reset --hard HEAD~1 Will also move the HEAD pointer to the previous commit
+`git reset --hard HEAD~1` Will also move the HEAD pointer to the previous commit
 and discard any changes in the working directory and the index. This means any
 changes made to your code since the last commit will be lost, and your working
 directory will be the same as in the previous commit.
@@ -62,8 +60,7 @@ It's essential to be very careful when using git reset --hard because it
 discards changes permanently, and you can't get it back unless you have a backup
 or version.
 
-So, git reset --soft allows you to undo a commit but keep all the changes while
-git reset --hard will undo the commit and discard all the changes.
+So, `git reset --soft` allows you to undo a commit but keep all the changes while `git reset --hard` will undo the commit and discard all the changes.
 
 ## Oops, I didn't mean to
 
