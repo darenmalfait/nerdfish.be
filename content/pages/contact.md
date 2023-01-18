@@ -27,9 +27,12 @@ blocks:
 
       Daren Malfait BV\
 
-      BE0794123756
+      [me@daren.be](mailto:me@daren.be "me@daren.be")\
+
+      BTW: BE0794123756
     _template: content
 ---
+
 
 
 
