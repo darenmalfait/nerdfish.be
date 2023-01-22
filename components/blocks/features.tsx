@@ -40,7 +40,7 @@ function FeatureCard({
         <H2
           data-tinafield={`${parentField}.items.${index}.title`}
           as="h3"
-          className="mb-4 flex flex-none items-end !text-xl font-medium text-primary"
+          className="mb-4 flex flex-none items-end !text-xl font-medium tracking-normal text-primary"
         >
           {title}
         </H2>
