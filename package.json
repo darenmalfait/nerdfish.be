@@ -17,8 +17,7 @@
     "validate": "run-s lint:*"
   },
   "resolutions": {
-    "@headlessui/react": "1.7.7",
-    "final-form": "4.20.8"
+    "@headlessui/react": "1.7.7"
   },
   "dependencies": {
     "@daren/theme": "^2.4.4",
@@ -54,7 +53,6 @@
     "react-obfuscate": "^3.6.8",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.6",
-    "styled-jsx": "^5.1.1",
     "tinacms": "^1.1.3",
     "tiny-invariant": "^1.3.1",
     "typescript": "^4.9.4"
