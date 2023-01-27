@@ -1,6 +1,6 @@
+import * as React from 'react'
 import {ExtractProps, ProgressiveImage} from '@daren/ui-components'
 import clsx from 'clsx'
-import * as React from 'react'
 
 function Image({
   src,

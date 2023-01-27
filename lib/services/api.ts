@@ -1,5 +1,4 @@
 import tina from '../../.tina/__generated__/client'
-
 import type {
   Blog,
   BlogPostQueryQuery,

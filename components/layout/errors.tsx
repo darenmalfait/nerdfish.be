@@ -8,7 +8,6 @@ import {
 import {BigTitle} from '../../components/blocks/big-title'
 import {ArrowLink} from '../../components/common/arrow-link'
 import {NoIndex} from '../../components/common/seo'
-
 import global from '../../content/global/index.json'
 import {stripPreSlash} from '../../lib/utils/string'
 

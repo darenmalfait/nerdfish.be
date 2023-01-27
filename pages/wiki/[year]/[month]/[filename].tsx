@@ -1,7 +1,6 @@
-import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
-
-import {padStart} from 'lodash'
 import type {GetStaticPropsContext} from 'next'
+import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
+import {padStart} from 'lodash'
 import {useTina} from 'tinacms/dist/react'
 
 import type {WikiQueryQuery} from '../../../../.tina/__generated__/types'

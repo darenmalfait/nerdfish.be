@@ -1,16 +1,16 @@
+import * as React from 'react'
 import type {ExtractProps} from '@daren/ui-components'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import {NoResultIcon} from 'components/icons/no-result-icon'
-import * as React from 'react'
 import type {Hit} from 'react-instantsearch-core'
 import {
+  Configure,
+  Highlight,
   InstantSearch,
   useHits,
   useSearchBox,
-  Configure,
-  Highlight,
 } from 'react-instantsearch-hooks-web'
 
 import {getAlgoliaClient} from '../../lib/services/search'

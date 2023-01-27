@@ -1,15 +1,13 @@
+import * as React from 'react'
 import {ClipboardDocumentListIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import Highlight, {
-  defaultProps,
   Language,
   PrismTheme,
+  defaultProps,
 } from 'prism-react-renderer'
 
-import * as React from 'react'
-
 import {useTheme} from '../../../context/theme-provider'
-
 import darkTheme from './vscode-dark'
 import lightTheme from './vscode-light'
 

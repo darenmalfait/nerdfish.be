@@ -1,8 +1,7 @@
+import * as React from 'react'
 import {Container, Grid} from '@daren/ui-components'
 import {RssIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-
-import * as React from 'react'
 
 import {Hamburger} from '../../../components/common/hamburger'
 import {Link} from '../../../components/common/link'
