@@ -35,25 +35,35 @@ function getMetaTags({
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
       {image ? <meta property="image" content={image} /> : null}
-      {image ? <meta property="og:image" content={image} /> : null}
+      {image ? <meta name="image" property="og:image" content={image} /> : null}
       {image ? <meta name="twitter:image" content={image} /> : null}
       {image ? (
         <meta name="twitter:card" content="summary_large_image" />
       ) : null}
 
       <title key="title">{title}</title>
-      <meta property="og:title" content={title} />
+      <meta
+        name="title"
+        // eslint-disable-next-line react/no-unknown-property
+        prefix="og: http://ogp.me/ns#"
+        property="og:title"
+        content={title}
+      />
       <meta name="twitter:title" content={title} />
 
       {description ? <meta name="description" content={description} /> : null}
       {description ? (
-        <meta property="og:description" content={description} />
+        <meta
+          name="description"
+          property="og:description"
+          content={description}
+        />
       ) : null}
       {description ? (
         <meta name="twitter:description" content={description} />
       ) : null}
 
-      {url ? <meta property="og:url" content={url} /> : null}
+      {url ? <meta name="url" property="og:url" content={url} /> : null}
       <link rel="canonical" href={canonical ?? url} />
 
       {schema ? (
