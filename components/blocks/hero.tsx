@@ -1,5 +1,4 @@
 import {Container, Grid, H2} from '@daren/ui-components'
-
 import {motion} from 'framer-motion'
 import type {RichTextType, Template} from 'tinacms'
 

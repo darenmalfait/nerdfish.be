@@ -1,10 +1,9 @@
+import * as React from 'react'
+import {useRouter} from 'next/router'
 import clsx from 'clsx'
 import {stripPreSlash} from 'lib/utils/string'
-import {useRouter} from 'next/router'
-import * as React from 'react'
 
 import {useGlobal} from '../../../context/global-provider'
-
 import {Navbar} from './navbar'
 
 interface NavigationProps {

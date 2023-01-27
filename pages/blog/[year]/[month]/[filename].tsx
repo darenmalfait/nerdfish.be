@@ -1,10 +1,8 @@
-import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
-
-import {BlockDataProvider, useBlockData} from 'context/block-data-provider'
-
-import {padStart} from 'lodash'
-import type {GetStaticPropsContext} from 'next'
 import * as React from 'react'
+import type {GetStaticPropsContext} from 'next'
+import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
+import {BlockDataProvider, useBlockData} from 'context/block-data-provider'
+import {padStart} from 'lodash'
 import {useTina} from 'tinacms/dist/react'
 
 import {BackLink} from '../../../../components/common/arrow-link'

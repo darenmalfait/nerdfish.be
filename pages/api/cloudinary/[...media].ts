@@ -1,7 +1,7 @@
 import {isAuthorized} from '@tinacms/auth'
 import {
-  mediaHandlerConfig,
   createMediaHandler,
+  mediaHandlerConfig,
 } from 'next-tinacms-cloudinary/dist/handlers'
 import invariant from 'tiny-invariant'
 

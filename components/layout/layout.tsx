@@ -1,9 +1,8 @@
-import Head from 'next/head'
 import React from 'react'
+import Head from 'next/head'
 
 import type {Global} from '../../.tina/__generated__/types'
 import {GlobalProvider} from '../../context/global-provider'
-
 import {Footer} from './footer'
 import {Navigation} from './navigation/navigation'
 

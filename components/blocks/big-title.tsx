@@ -1,7 +1,5 @@
-import {Container, DoubleLabelLink, Grid, Section} from '@daren/ui-components'
-
 import * as React from 'react'
-
+import {Container, DoubleLabelLink, Grid, Section} from '@daren/ui-components'
 import type {Template} from 'tinacms'
 
 import {actionSchema} from '../../.tina/schema/objects'

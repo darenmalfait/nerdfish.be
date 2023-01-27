@@ -1,7 +1,6 @@
 import type {NextApiResponse} from 'next'
 
 import type {NonNullProperties} from '../../lib/types/misc'
-
 import {getErrorMessage, getNonNull} from './misc'
 
 type ErrorMessage = string

@@ -1,13 +1,11 @@
 import {Inter as interFont} from '@next/font/google'
 import localFont from '@next/font/local'
-
-import {LazyMotion, domAnimation} from 'framer-motion'
 import type {AppProps} from 'next/app'
+import {LazyMotion, domAnimation} from 'framer-motion'
 
 import {AppProviders} from '../context/app-providers'
 
 import '@daren/theme/dist/darenui.css'
-
 import '../styles/tailwind.css'
 import '../styles/app.css'
 import '../styles/prose.css'

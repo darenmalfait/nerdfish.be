@@ -1,7 +1,6 @@
-import {ButtonLink, Link as DarenLink} from '@daren/ui-components'
-
-import NextLink, {LinkProps} from 'next/link'
 import * as React from 'react'
+import NextLink, {LinkProps} from 'next/link'
+import {ButtonLink, Link as DarenLink} from '@daren/ui-components'
 import Obfuscate from 'react-obfuscate'
 
 import {stripPreSlash} from '../../lib/utils/string'

@@ -1,10 +1,10 @@
+import * as React from 'react'
+import {useRouter} from 'next/router'
 import {Button, Container, Grid, H3, H5, Section} from '@daren/ui-components'
 import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
-import {useRouter} from 'next/router'
-import * as React from 'react'
 import type {Template} from 'tinacms'
 
 import {tagsSchema} from '../../.tina/schema/objects'

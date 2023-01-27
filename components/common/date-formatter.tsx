@@ -1,5 +1,5 @@
-import {format as formatDate} from 'date-fns'
 import * as React from 'react'
+import {format as formatDate} from 'date-fns'
 
 import {useGlobal} from '../../context/global-provider'
 
