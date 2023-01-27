@@ -13,7 +13,6 @@ import {
   CategoryIndicator,
   getCategoryColors,
 } from '../common/category-indicator'
-
 import {DateFormatter} from './date-formatter'
 import {Image} from './image'
 import {Link} from './link'

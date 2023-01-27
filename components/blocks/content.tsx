@@ -1,5 +1,5 @@
-import {Grid, Section} from '@daren/ui-components'
 import React from 'react'
+import {Grid, Section} from '@daren/ui-components'
 import type {RichTextType, Template} from 'tinacms'
 
 import {portableTextSchema} from '../../.tina/schema/objects'

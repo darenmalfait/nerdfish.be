@@ -1,6 +1,5 @@
-import {Container, Grid, H1, Section} from '@daren/ui-components'
 import * as React from 'react'
-
+import {Container, Grid, H1, Section} from '@daren/ui-components'
 import type {Template} from 'tinacms'
 
 import type {Block} from '../../lib/types/cms'
