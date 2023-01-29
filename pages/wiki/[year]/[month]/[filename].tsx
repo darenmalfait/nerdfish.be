@@ -1,5 +1,5 @@
 import type {GetStaticPropsContext} from 'next'
-import {Container, Grid, H2, H6, Section} from '@daren/ui-components'
+import {Container, Grid, H1, H6, Section} from '@daren/ui-components'
 import {padStart} from 'lodash'
 import {useTina} from 'tinacms/dist/react'
 
@@ -30,7 +30,7 @@ function Content({wiki}: WikiQueryQuery) {
 
         <Grid as="header" className="mb-12">
           <Container className="space-y-2">
-            <H2 data-tinafield="title">{title}</H2>
+            <H1 data-tinafield="title">{title}</H1>
             {date ? (
               <H6 data-tinafield="date" as="p" variant="secondary">
                 <DateFormatter dateString={date} format="dd MMMM yyyy" />
