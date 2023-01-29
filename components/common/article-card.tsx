@@ -58,12 +58,12 @@ function ArticleCard({
           </div>
         )}
 
-        <div className="mt-8 text-xl font-bold text-primary-300">
-          <DateFormatter dateString={date} format="PPP" />
+        <div className="space-y-2">
+          <div className="mt-8 text-xl font-bold text-primary-300">
+            <DateFormatter dateString={date} format="PPP" />
+          </div>
+          <H3 as="div">{title}</H3>
         </div>
-        <H3 as="div" className="mt-4">
-          {title}
-        </H3>
       </Link>
     </div>
   )

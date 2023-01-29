@@ -59,11 +59,13 @@ function HighlightCard({
                     inline
                   />
                 ) : null}
-                <H2 as="h3" className="mt-12 font-bold">
-                  {title}
-                </H2>
-                <div className="mt-6 text-xl font-bold text-primary">
-                  {subTitle}
+                <div>
+                  <H2 as="h3" className="mt-0">
+                    {title}
+                  </H2>
+                  <div className="mt-6 text-xl font-bold text-primary">
+                    {subTitle}
+                  </div>
                 </div>
               </div>
 
