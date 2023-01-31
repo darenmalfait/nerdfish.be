@@ -1,5 +1,6 @@
 export * from './blog-posts'
 export * from './global'
 export * from './pages'
+export * from './products'
 export * from './tags'
 export * from './wiki'

@@ -11,11 +11,10 @@ import {getFileNameFromUrl} from '../lib/utils/social'
 
 function Content({
   page,
-  wiki,
-  blog,
+  ...blocks
 }: AsyncReturnType<typeof getStaticProps>['props']['data']) {
   return (
-    <BlockDataProvider wiki={wiki} blog={blog}>
+    <BlockDataProvider {...blocks}>
       <Blocks items={page.blocks as any} />
     </BlockDataProvider>
   )

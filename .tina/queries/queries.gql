@@ -35,6 +35,22 @@ query contentQuery($relativePath: String!) {
       }
     }
   }
+  productConnection {
+    edges {
+      node {
+        ...ProductParts
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+      }
+    }
+  }
 }
 
 query blogPostQuery($relativePath: String!) {

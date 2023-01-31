@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import type {Blog, Wiki} from '../.tina/__generated__/types'
+import type {Blog, Product, Wiki} from '../.tina/__generated__/types'
 
 interface BlockDataContextProps {
   wiki: Partial<Wiki>[]
   blog: Partial<Blog>[]
+  products: Partial<Product>[]
 }
 
 const BlockDataContext = React.createContext<BlockDataContextProps | null>(null)
@@ -13,6 +14,7 @@ BlockDataContext.displayName = 'BlockDataContext'
 interface BlockDataProviderProps {
   wiki?: Partial<Wiki>[]
   blog?: Partial<Blog>[]
+  products?: Partial<Product>[]
   children: React.ReactNode
 }
 
@@ -21,10 +23,11 @@ interface BlockDataProviderProps {
 function BlockDataProvider({
   wiki = [],
   blog = [],
+  products = [],
   children,
 }: BlockDataProviderProps) {
   return (
-    <BlockDataContext.Provider value={{wiki, blog}}>
+    <BlockDataContext.Provider value={{wiki, blog, products}}>
       {children}
     </BlockDataContext.Provider>
   )

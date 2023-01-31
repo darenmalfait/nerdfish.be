@@ -1,6 +1,6 @@
 import type {Collection} from 'tinacms'
 
-const globalColllection: Collection = {
+const globalCollection: Collection = {
   label: 'Global',
   name: 'global',
   path: 'content/global',
@@ -153,4 +153,4 @@ const globalColllection: Collection = {
   ],
 }
 
-export {globalColllection}
+export {globalCollection}
