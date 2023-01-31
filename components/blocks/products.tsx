@@ -17,13 +17,13 @@ import type {Product} from '.tina/__generated__/types'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (
-    <div className="flex items-center col-span-full lg:col-span-6 justify-items-stretch">
+    <div className="col-span-full flex items-center justify-items-stretch lg:col-span-6">
       <Link
         href={link ?? '#'}
-        className="group text-primary bg-secondary shadow-outline relative flex flex-col items-center justify-center w-full rounded-lg px-8 py-5 overflow-hidden"
+        className="group relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg px-8 py-5 bg-secondary text-primary shadow-outline"
       >
         {image ? (
-          <div className="mb-4 h-24 flex items-center w-auto group-hover:scale-125 z-1 transition-all duration-1000">
+          <div className="z-1 mb-4 flex h-24 w-auto items-center transition-all duration-1000 group-hover:scale-125">
             <Image
               placeholder={getLowQualityUrlFor(image)}
               srcSet={buildSrcSet(image)}
@@ -34,13 +34,13 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
             />
           </div>
         ) : null}
-        <div className="text-center space-y-2 z-1">
+        <div className="z-1 space-y-2 text-center">
           <H3 className="m-0">{title}</H3>
           <Paragraph>
-            <span className="truncate overflow-ellipsis">{description}</span>
-            <span className="block font-bold whitespace-nowrap">
+            <span className="text-ellipsis">{description}</span>
+            <span className="block whitespace-nowrap font-bold">
               {soon ? (
-                <span className="border py-1 px-2 rounded-full text-xs border-green-300 bg-green-50 dark:border-green-200 dark:bg-green-500/10">
+                <span className="rounded-full border border-green-300 bg-green-50 py-1 px-2 text-xs dark:border-green-200 dark:bg-green-500/10">
                   Soon
                 </span>
               ) : (
@@ -49,7 +49,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
             </span>
           </Paragraph>
         </div>
-        <div className="absolute inset-0 bg-daren-100 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 z-0" />
+        <div className="absolute inset-0 z-0 bg-daren-100 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
       </Link>
     </div>
   )
