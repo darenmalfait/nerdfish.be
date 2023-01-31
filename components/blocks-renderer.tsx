@@ -6,18 +6,20 @@ import {Content} from './blocks/content'
 import {Features} from './blocks/features'
 import {Hero} from './blocks/hero'
 import {KeywordList} from './blocks/keyword-list'
+import {Products} from './blocks/products'
 import {Wiki} from './blocks/wiki'
 import {Placeholder} from './common/placeholder'
 
 // [key] is the name of the module in TinaCMS
 const components = {
   PageBlocksBigTitle: BigTitle,
+  PageBlocksBlog: Blog,
   PageBlocksContent: Content,
   PageBlocksFeatures: Features,
   PageBlocksHero: Hero,
   PageBlocksKeywordList: KeywordList,
+  PageBlocksProducts: Products,
   PageBlocksWiki: Wiki,
-  PageBlocksBlog: Blog,
 }
 
 type PropsOf<T> = T extends React.ComponentType<infer Props> ? Props : never

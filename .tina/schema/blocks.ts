@@ -4,6 +4,7 @@ import {contentBlockSchema} from '../../components/blocks/content'
 import {featuresBlockSchema} from '../../components/blocks/features'
 import {heroBlockSchema} from '../../components/blocks/hero'
 import {keywordListBlockSchema} from '../../components/blocks/keyword-list'
+import {productsBlockSchema} from '../../components/blocks/products'
 import {wikiBlockSchema} from '../../components/blocks/wiki'
 
 const blocks = [
@@ -14,6 +15,7 @@ const blocks = [
   heroBlockSchema,
   keywordListBlockSchema,
   wikiBlockSchema,
+  productsBlockSchema,
 ]
 
 export {blocks}

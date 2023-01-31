@@ -3,7 +3,7 @@ import type {Collection} from 'tinacms'
 import {blocks} from '../blocks'
 import {seo} from '../objects'
 
-const pagesColllection: Collection = {
+const pagesCollection: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
@@ -38,4 +38,4 @@ const pagesColllection: Collection = {
   ],
 }
 
-export {pagesColllection}
+export {pagesCollection}

@@ -3,6 +3,7 @@ import type {
   Blog,
   BlogPostQueryQuery,
   ContentQueryQuery,
+  Product,
   Wiki,
 } from '.tina/__generated__/types'
 
@@ -45,6 +46,9 @@ function mapPageData(data: ContentQueryQuery) {
     wiki: data.wikiConnection.edges?.map(item => ({
       ...(item?.node ?? {}),
     })) as Wiki[],
+    products: data.productConnection.edges?.map(item => ({
+      ...(item?.node ?? {}),
+    })) as Product[],
   }
 }
 
