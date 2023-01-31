@@ -7,6 +7,7 @@ const productsCollection: Collection = {
   label: 'Products',
   name: 'product',
   path: 'content/products',
+  format: 'md',
   ui: {
     filename: {
       readonly: true,
