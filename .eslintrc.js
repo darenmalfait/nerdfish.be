@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['daren', 'daren/react', 'daren/jsx-a11y'],
+  extends: ['daren', 'daren/react', 'daren/jsx-a11y', 'daren/tailwind'],
   parserOptions: {
     project: './tsconfig.json',
   },
