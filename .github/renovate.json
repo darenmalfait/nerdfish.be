@@ -1,13 +1,4 @@
 {
   "extends": ["local>darenmalfait/daren-renovate-config:next-tina-project"],
-  "packageRules": [
-    {
-      "groupName": "algolia",
-      "matchPackagePatterns": [
-        "@algolia*",
-        "algoliasearch",
-        "react-instantsearch*"
-      ]
-    }
-  ]
+  "packageRules": []
 }
