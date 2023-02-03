@@ -5,18 +5,18 @@ import {stripPreSlash} from '../../../lib/utils/string'
 function PortableButton({
   text,
   href,
-  variant = 'primary',
+  variant = 'default',
   ...props
 }: {text: string} & Pick<ExtractProps<typeof ButtonLink>, 'href' | 'variant'>) {
   const isExternal = href?.startsWith('http')
-  const slug = isExternal ? href : `/${stripPreSlash(href)}`
+  const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`
 
   return (
     <div className="inline-block w-auto">
       <ButtonLink
         {...props}
         href={slug}
-        variant={variant ? 'primary' : variant}
+        variant={variant}
         external={isExternal}
       >
         {text}

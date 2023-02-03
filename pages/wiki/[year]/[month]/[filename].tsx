@@ -40,7 +40,10 @@ function Content({wiki}: WikiQueryQuery) {
         </Grid>
       </Section>
       <Section>
-        <Grid className="prose dark:prose-invert" data-tinafield="body">
+        <Grid
+          className="prose dark:prose-invert md:prose-lg lg:prose-xl"
+          data-tinafield="body"
+        >
           {body ? <PortableText content={body} /> : null}
         </Grid>
       </Section>

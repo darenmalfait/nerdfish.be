@@ -45,7 +45,7 @@ function PortableContactForm({heading}: {heading?: string}) {
   }, [])
 
   return (
-    <Container size="default">
+    <Container size="default" className="not-prose">
       {selectedForm ? (
         <div>
           {selectedForm === 'coffee' ? (

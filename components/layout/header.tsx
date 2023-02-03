@@ -30,7 +30,7 @@ function Header({
           className,
         )}
       >
-        <div className="-space-y-4">
+        <div className="space-y-0">
           {title ? <H2>{title}</H2> : null}
           {subTitle ? (
             <H2

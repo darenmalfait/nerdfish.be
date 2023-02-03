@@ -23,7 +23,7 @@ const BigTitle = ({
       <Grid className="my-8 lg:my-16">
         <Container size="full" className="space-y-6">
           {action?.title ? (
-            <DoubleLabelLink<typeof DoubleLabelLink>
+            <DoubleLabelLink
               as={Link}
               href={action.href ?? '/'}
               description={action.label ?? ''}

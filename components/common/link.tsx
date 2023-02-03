@@ -48,9 +48,9 @@ const Link = React.forwardRef<
       <ButtonLink
         passHref
         ref={ref}
-        as={NextLink}
-        size="small"
-        {...props}
+        as={NextLink as any}
+        size="sm"
+        {...(props as any)}
         href={slug}
         external={isExternal}
         suppressHydrationWarning
@@ -62,7 +62,7 @@ const Link = React.forwardRef<
     <DarenLink
       passHref
       ref={ref}
-      as={NextLink}
+      as={NextLink as any}
       {...props}
       href={slug}
       external={isExternal}
