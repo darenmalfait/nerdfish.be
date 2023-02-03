@@ -46,7 +46,7 @@ function FeatureCard({
         </H2>
         <p
           data-tinafield={`${parentField}.items.${index}.description`}
-          className="flex-auto text-xl text-secondary"
+          className="flex-auto text-lg text-secondary"
         >
           {description}
         </p>

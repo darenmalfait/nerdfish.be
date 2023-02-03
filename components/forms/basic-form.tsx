@@ -117,7 +117,7 @@ function BasicForm({withProject}: {withProject?: boolean}) {
               }
             />
           ) : (
-            <Button disabled={state !== 'idle'} type="submit" variant="primary">
+            <Button disabled={state !== 'idle'} type="submit">
               Send message
             </Button>
           )}

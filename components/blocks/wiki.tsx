@@ -263,7 +263,7 @@ function Wiki({
         {hasMorePosts ? (
           <div className="mb-32 flex w-full justify-center">
             <Button
-              variant="secondary"
+              variant="subtle"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
               <span>Load more</span> <PlusIcon width="20px" height="20px" />
