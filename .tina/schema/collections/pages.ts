@@ -1,3 +1,4 @@
+import slugify from 'slugify'
 import type {Collection} from 'tinacms'
 
 import {blocks} from '../blocks'
@@ -15,6 +16,14 @@ const pagesCollection: Collection = {
       }
 
       return `/${document._sys.filename}`
+    },
+    filename: {
+      readonly: true,
+      slugify: values => {
+        const slug = slugify(values.title.toLowerCase())
+
+        return slug
+      },
     },
   },
   fields: [

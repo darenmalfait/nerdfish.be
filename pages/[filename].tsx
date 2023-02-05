@@ -48,7 +48,7 @@ export default function Page(
 export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<{filename?: string}>) => {
-  const path = `${params?.filename ?? 'home'}.md`
+  const path = `${params?.filename?.toLowerCase() ?? 'home'}.md`
 
   return {
     props: {
