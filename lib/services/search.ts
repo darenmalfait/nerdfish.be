@@ -10,7 +10,11 @@ interface Request {
 
 export type SearchRequest = Request & MultipleQueriesQuery
 
-function getAlgoliaClient() {
+function getAlgoliaClient(): {
+  algoliaClient: ReturnType<typeof algoliasearch>
+  search: (requests: SearchRequest[]) => Promise<any>
+  searchForFacetValues: (requests: any) => Promise<any>
+} {
   const algoliaClient = algoliasearch(appId, apiKey)
 
   return {

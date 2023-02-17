@@ -3,7 +3,6 @@ import type {ExtractProps} from '@daren/ui-components'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-import {NoResultIcon} from 'components/icons/no-result-icon'
 import type {Hit} from 'react-instantsearch-core'
 import {
   Configure,
@@ -13,6 +12,7 @@ import {
   useSearchBox,
 } from 'react-instantsearch-hooks-web'
 
+import {NoResultIcon} from '../../components/icons/no-result-icon'
 import {getAlgoliaClient} from '../../lib/services/search'
 import {stripPreSlash} from '../../lib/utils/string'
 
