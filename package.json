@@ -18,13 +18,13 @@
     "validate": "run-s lint:*"
   },
   "resolutions": {
-    "@headlessui/react": "^1.7.10"
+    "@headlessui/react": "^1.7.11"
   },
   "dependencies": {
     "@daren/theme": "^2.4.7",
     "@daren/ui-components": "^1.20.1",
     "@daren/ui-core": "^2.12.1",
-    "@headlessui/react": "^1.7.10",
+    "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.15",
     "@next/env": "^13.1.6",
     "@next/font": "^13.1.6",
@@ -38,7 +38,7 @@
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "feed": "^4.2.2",
-    "framer-motion": "^9.0.2",
+    "framer-motion": "^9.0.4",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
     "next": "^13.1.6",
@@ -49,7 +49,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-instantsearch-dom": "^6.39.0",
-    "react-instantsearch-hooks-web": "^6.39.3",
+    "react-instantsearch-hooks-web": "^6.40.0",
     "react-is": "^18.2.0",
     "react-obfuscate": "^3.6.8",
     "slugify": "^1.6.5",
@@ -63,9 +63,9 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@svgr/webpack": "^6.5.1",
     "@tinacms/cli": "^1.2.1",
-    "@types/js-cookie": "^3.0.2",
+    "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.191",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "@types/react": "^18.0.28",
     "@types/react-instantsearch-core": "^6.26.3",
     "@types/react-instantsearch-dom": "^6.12.3",
@@ -80,9 +80,9 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
-    "postcss-nesting": "^11.1.0",
+    "postcss-nesting": "^11.2.1",
     "shelljs": "^0.8.5",
-    "tailwindcss": "^3.2.6"
+    "tailwindcss": "^3.2.7"
   },
   "packageManager": "pnpm@7.27.0"
 }
