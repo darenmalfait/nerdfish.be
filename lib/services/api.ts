@@ -5,7 +5,7 @@ import type {
   ContentQueryQuery,
   Product,
   Wiki,
-} from '.tina/__generated__/types'
+} from '../../.tina/__generated__/types'
 
 async function getPages() {
   const pageDate = await tina.queries.pageConnection()
@@ -40,13 +40,13 @@ async function getWikiPost(relativePath: string) {
 function mapPageData(data: ContentQueryQuery) {
   return {
     ...data,
-    blog: data.blogConnection.edges?.map(item => ({
+    blog: data.blogConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Blog[],
-    wiki: data.wikiConnection.edges?.map(item => ({
+    wiki: data.wikiConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Wiki[],
-    products: data.productConnection.edges?.map(item => ({
+    products: data.productConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Product[],
   }
@@ -55,7 +55,7 @@ function mapPageData(data: ContentQueryQuery) {
 function mapBlogData(data: BlogPostQueryQuery) {
   return {
     ...data,
-    blogs: data.blogConnection.edges?.map(item => ({
+    blogs: data.blogConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Blog[],
   }

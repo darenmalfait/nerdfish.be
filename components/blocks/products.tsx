@@ -2,6 +2,7 @@ import * as React from 'react'
 import {Grid, H3, Paragraph, Section} from '@daren/ui-components'
 import type {Template} from 'tinacms'
 
+import type {Product} from '../../.tina/__generated__/types'
 import {tagsSchema} from '../../.tina/schema/objects'
 import {useBlockData} from '../../context/block-data-provider'
 import type {Block} from '../../lib/types/cms'
@@ -13,7 +14,6 @@ import {
 import {Image} from '../common/image'
 import {Link} from '../common/link'
 import {Header} from '../layout/header'
-import type {Product} from '.tina/__generated__/types'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (

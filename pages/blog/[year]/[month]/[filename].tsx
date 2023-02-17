@@ -1,7 +1,6 @@
 import * as React from 'react'
 import type {GetStaticPropsContext} from 'next'
 import {Container, Grid, H1, H6, Section} from '@daren/ui-components'
-import {BlockDataProvider, useBlockData} from 'context/block-data-provider'
 import {padStart} from 'lodash'
 import {useTina} from 'tinacms/dist/react'
 
@@ -13,6 +12,10 @@ import {PortableText} from '../../../../components/common/portable-text'
 import {Seo} from '../../../../components/common/seo'
 import {Header} from '../../../../components/layout/header'
 import {Layout} from '../../../../components/layout/layout'
+import {
+  BlockDataProvider,
+  useBlockData,
+} from '../../../../context/block-data-provider'
 import {useGlobal} from '../../../../context/global-provider'
 import {
   getBlogPost,
