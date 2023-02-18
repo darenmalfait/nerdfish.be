@@ -7,8 +7,8 @@ specifiers:
   '@commitlint/cli': ^17.4.4
   '@commitlint/config-conventional': ^17.4.4
   '@daren/theme': ^2.4.7
-  '@daren/ui-components': ^1.20.1
-  '@daren/ui-core': ^2.12.1
+  '@daren/ui-components': ^1.20.2
+  '@daren/ui-core': ^2.12.2
   '@headlessui/react': ^1.7.11
   '@heroicons/react': ^2.0.16
   '@next/env': ^13.1.6
@@ -67,8 +67,8 @@ specifiers:
 
 dependencies:
   '@daren/theme': 2.4.7_react@18.2.0
-  '@daren/ui-components': 1.20.1_zula6vjvt3wdocc4mwcxqa6nzi
-  '@daren/ui-core': 2.12.1_tailwindcss@3.2.7
+  '@daren/ui-components': 1.20.2_zula6vjvt3wdocc4mwcxqa6nzi
+  '@daren/ui-core': 2.12.2_tailwindcss@3.2.7
   '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.16_react@18.2.0
   '@next/env': 13.1.6
@@ -1769,8 +1769,8 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
-  /@daren/alert/1.4.17_react@18.2.0:
-    resolution: {integrity: sha512-nbmLs6yZpO4nKY/Y/fDGSkje8f7NqeLD8lHmbt8/EXRFlrBPSjQnHOzuoxKACMia2OfwDQ04skcF8mu6Gs0wXw==}
+  /@daren/alert/1.4.18_react@18.2.0:
+    resolution: {integrity: sha512-V1Gh2uQ29Y/JmMH4R/62M8fX8DCV6ShVfPPv9fRUkZ98bDyo8nwx9yJ7ap1roYNiBHI9bVVdFc5DpEKaD5G6Zw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1779,12 +1779,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/button/2.0.6_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-YB9Y88bsVxpdlFMxng2Q2ok4aldHitI8laTwV2jbDJfs+96UfiFkxr5Au7FXdtFV6Ze1/NlYPazQ1/y2v78iXQ==}
+  /@daren/button/2.0.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-QLKU5E9F268qHNr9PWl03f6+sfgjpvczAJmP01+AKlK+hQkWFKK71oOUMHtkvCrrI0hp7nGdRNxms1J4FJkP6A==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/form-elements': 1.14.1_biqbaboplfbrettd7655fr4n2y
+      '@daren/form-elements': 1.14.2_biqbaboplfbrettd7655fr4n2y
       '@daren/typography': 1.9.11_react@18.2.0
       '@daren/utils': 1.9.6_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
@@ -1793,8 +1793,8 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/code-block/3.0.9_react@18.2.0:
-    resolution: {integrity: sha512-lxlMcnf+sdIURp+UEMV+AXuPhvkXHCM81JcHMw3fRAmHJtZ0vnfpvlo/TzjVniEdetVR62/kq1ZTTYCkf0zA4w==}
+  /@daren/code-block/3.0.10_react@18.2.0:
+    resolution: {integrity: sha512-kB71juWRC62owjLxkU5Zmw3N8NVbp8V3HY5ddmxb+Ck1ffXakgQXe7sEbFi0TZS75GdpmXKAFMc1u0ixW1VNXg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1804,8 +1804,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/form-elements/1.14.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-OfCZMLSkJvh47vhyafSBUWLi+3bEkKyOim++ExZvy6zyJmyWbRpLFb7IOCX22kPflHmMzch9AcdS8r3xPAparA==}
+  /@daren/form-elements/1.14.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JjiDGGp5jGvy9/Z2a5mUz6pRqeoTnEooHqhY4Ypz0hBwhBjK6ZEIuyA9/JtTW/nbTCIvmRHOsduTDCqFqSrwkA==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1849,8 +1849,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/modal/1.4.20_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-KtggzubZF0w0P4C0JWOiWpzzIocTlTC72/ywMb2H1YvVSxQs6VJ3iH0P7WQfhBUi/uxMhfZ1tTZFn1Tfx6foSQ==}
+  /@daren/modal/1.4.21_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Mqs0ahmBjqvsB+U8geX4/pdLdXQEySM0xNIRSKPyKrJyUOYbVzchf4EqsctxzwBCKBNT5ptDGY/jg4t57rsVPA==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1862,8 +1862,8 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/navigation-list/1.4.1_react@18.2.0:
-    resolution: {integrity: sha512-Mpr219FWTY59b634XXnwefjNsubxDum6JwpI8vEQTDzek8d35xdQ4ZzegWB3N7/OwMYS8SBEdgt8dxidTcITFg==}
+  /@daren/navigation-list/1.4.2_react@18.2.0:
+    resolution: {integrity: sha512-zD2yPXFGO1SodKnyk+BkSSFE5Szp0qA0ubPhh+8ja9/JDnNY/6vK/2C1G88QaNYPAfFN0EQMeGBliq7+e12Oxg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1881,8 +1881,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/review/1.3.21_react@18.2.0:
-    resolution: {integrity: sha512-GbsA5+6KwKv0umRmqM7qpvP78Mngwk/9ckt/GuQ/yGMKMd2E2mxr+0Bv2IANW2ueI5QSSzoRu9KhM5peUdrvqA==}
+  /@daren/review/1.3.22_react@18.2.0:
+    resolution: {integrity: sha512-MUmG0MQXKusYaImtpiVtkWcVlGYUNTdVYXAVrvHM6nCqQxDltj0bnC0Ef1+Irw38liTskJXRzLLB7h1RoMrqAw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1934,8 +1934,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/toast/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-+l6kSCY3pvV6EJak87IDee4KbJq074uC/nYyK6APJDNFjH71GzUlXwpEU+rgbpXYjh3Gdgb6b+qB7XdHGZQxZg==}
+  /@daren/toast/1.1.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-j+uR1z7jT/1fhlongiQLNZvnCN6/Sa3zVgTnDE87SAq2ChtCbBoe6g4Fq4WN11bjxjjO28qvWzLHrFbxlE/S6g==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1956,27 +1956,27 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/ui-components/1.20.1_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-UkzwwKyqRqbnhK1S0RHFAVx1y1YgyP7Ha0mEgPZFh8yTrsmWW+cJYtzQlzXm1rOAGSbG2XVx4N+Zi/gNi6Pg5g==}
+  /@daren/ui-components/1.20.2_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-1oMVPrhkWvgw7hnkOwdSU0HRlTbPJ4KRt/tz73gJIltqEGL/U3FwSSWhlr0VgzLrgTZFhc5o29EShYWeZEYDQg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/alert': 1.4.17_react@18.2.0
-      '@daren/button': 2.0.6_biqbaboplfbrettd7655fr4n2y
-      '@daren/code-block': 3.0.9_react@18.2.0
-      '@daren/form-elements': 1.14.1_biqbaboplfbrettd7655fr4n2y
+      '@daren/alert': 1.4.18_react@18.2.0
+      '@daren/button': 2.0.7_biqbaboplfbrettd7655fr4n2y
+      '@daren/code-block': 3.0.10_react@18.2.0
+      '@daren/form-elements': 1.14.2_biqbaboplfbrettd7655fr4n2y
       '@daren/grid': 1.4.14_react@18.2.0
       '@daren/hover-card': 1.0.0_zula6vjvt3wdocc4mwcxqa6nzi
       '@daren/layout-components': 1.3.14_react@18.2.0
-      '@daren/modal': 1.4.20_biqbaboplfbrettd7655fr4n2y
-      '@daren/navigation-list': 1.4.1_react@18.2.0
+      '@daren/modal': 1.4.21_biqbaboplfbrettd7655fr4n2y
+      '@daren/navigation-list': 1.4.2_react@18.2.0
       '@daren/progressive-image': 1.4.12_react@18.2.0
-      '@daren/review': 1.3.21_react@18.2.0
+      '@daren/review': 1.3.22_react@18.2.0
       '@daren/scroll-area': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@daren/spinner': 1.1.14_react@18.2.0
       '@daren/tabs': 2.0.3_biqbaboplfbrettd7655fr4n2y
       '@daren/theme': 2.4.7_react@18.2.0
-      '@daren/toast': 1.1.1_biqbaboplfbrettd7655fr4n2y
+      '@daren/toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
       '@daren/typography': 1.9.11_react@18.2.0
       '@daren/utils': 1.9.6_react@18.2.0
       react: 18.2.0
@@ -1985,10 +1985,10 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/ui-core/2.12.1_tailwindcss@3.2.7:
-    resolution: {integrity: sha512-k6ryoalDjfi5BIXDA9B5Svc0lI9Ypw/u5rAZCPqhPN1j4K6FasGq8sXHdbJsTqw+9hclNoAdeXhPBRA9GbMjLw==}
+  /@daren/ui-core/2.12.2_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-SVN2uAfqS+XkRZW6Psl51xC60ZWCwrCubbGfY5JTIsNxC3yZdmJsRIjcevNDP0QtrOchM78EeKEgy6nuUqT65A==}
     peerDependencies:
-      tailwindcss: 3.2.6
+      tailwindcss: 3.2.7
     dependencies:
       tailwindcss: 3.2.7_postcss@8.4.21
     dev: false
