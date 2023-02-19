@@ -1,3 +1,5 @@
+'use client'
+
 import {ThemeProvider as DarenThemeProvider} from '@daren/theme'
 
 import {ThemeProvider} from './theme-provider'

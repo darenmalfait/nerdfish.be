@@ -1,15 +1,14 @@
 import * as React from 'react'
-import {Container, Grid} from '@daren/ui-components'
+import {Container, Grid, cx} from '@daren/ui-components'
 import {RssIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 
-import {Hamburger} from '../../../components/common/hamburger'
-import {Link} from '../../../components/common/link'
-import {Overlay} from '../../../components/common/overlay'
-import {Search} from '../../../components/common/search'
-import {ThemeToggle} from '../../../components/common/theme-toggle'
-import {Logo} from '../../../components/icons/logo'
-import {useClickOutside} from '../../../lib/utils/use-click-outside'
+import {Hamburger} from '~/components/common/hamburger'
+import {Link} from '~/components/common/link'
+import {Overlay} from '~/components/common/overlay'
+import {Search} from '~/components/common/search'
+import {ThemeToggle} from '~/components/common/theme-toggle'
+import {Logo} from '~/components/icons/logo'
+import {useClickOutside} from '~/lib/utils/use-click-outside'
 
 interface MobileNavProps {
   actions?: React.ReactNode
@@ -45,7 +44,7 @@ function MobileNav({
   return (
     <div
       ref={open ? ref : null}
-      className={clsx(
+      className={cx(
         'inset-[0px 0px auto] fixed top-0 right-0 z-30 h-screen w-full max-w-screen-sm transition-transform bg-primary',
         {
           'translate-x-0 shadow-2xl': open,

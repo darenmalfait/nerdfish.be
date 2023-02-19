@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {ExtractProps, ProgressiveImage} from '@daren/ui-components'
-import clsx from 'clsx'
+import {ExtractProps, ProgressiveImage, cx} from '@daren/ui-components'
 
 function Image({
   src,
@@ -13,16 +12,16 @@ function Image({
   placeholder: ExtractProps<typeof ProgressiveImage>['placeholder']
 }) {
   return (
-    <div className="w-full rounded-lg">
+    <div className="w-full rounded-lg" suppressHydrationWarning={true}>
       <ProgressiveImage
-        className={clsx(className, 'w-full rounded-lg')}
+        className={cx('w-full rounded-lg', className)}
         placeholder={placeholder}
         img={
           <img
             {...props}
             loading={loading}
             alt={alt}
-            className={clsx(className, 'rounded-lg')}
+            className={cx('rounded-lg', className)}
             src={src}
           />
         }

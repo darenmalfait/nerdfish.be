@@ -1,3 +1,5 @@
+'use client'
+
 import type {RichTextType} from 'tinacms'
 
 import {imageSchema} from './image'

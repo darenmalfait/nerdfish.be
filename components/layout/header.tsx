@@ -1,5 +1,4 @@
-import {Grid, H2} from '@daren/ui-components'
-import clsx from 'clsx'
+import {Grid, H2, cx} from '@daren/ui-components'
 
 import {ArrowLink} from '../common/arrow-link'
 
@@ -25,7 +24,7 @@ function Header({
   return (
     <Grid nested={nested} as={as}>
       <div
-        className={clsx(
+        className={cx(
           'col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0',
           className,
         )}

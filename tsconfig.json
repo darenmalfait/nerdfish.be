@@ -4,6 +4,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    ".next/types/**/*.ts",
     ".forestry/types.ts",
     ".forestry/config.ts",
     ".tina/**/*.ts",
@@ -25,7 +26,12 @@
     "paths": {
       "~/*": ["./*"],
       ".tina/*": ["./.tina/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["node_modules", ".tina/__generated__"]
 }

@@ -18,7 +18,7 @@
     "validate": "run-s lint:*"
   },
   "resolutions": {
-    "@headlessui/react": "^1.7.13"
+    "@headlessui/react": "^1.7.12"
   },
   "dependencies": {
     "@daren/theme": "^2.4.8",
@@ -34,7 +34,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "@tinacms/auth": "^1.0.3",
     "algoliasearch": "^4.15.0",
-    "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "feed": "^4.2.2",
@@ -42,7 +41,7 @@
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
     "next": "^13.2.3",
-    "next-sitemap": "^3.1.55",
+    "next-sitemap": "^4.0.2",
     "next-tinacms-cloudinary": "^4.1.2",
     "prism-react-renderer": "^1.3.5",
     "react": "^18.2.0",
@@ -50,10 +49,8 @@
     "react-icons": "^4.8.0",
     "react-instantsearch-dom": "^6.39.0",
     "react-instantsearch-hooks-web": "^6.40.1",
-    "react-is": "^18.2.0",
     "react-obfuscate": "^3.6.9",
     "slugify": "^1.6.5",
-    "styled-components": "^5.3.8",
     "tinacms": "^1.2.2",
     "tiny-invariant": "^1.3.1",
     "typescript": "^4.9.5"
@@ -63,7 +60,6 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@svgr/webpack": "^6.5.1",
     "@tinacms/cli": "^1.2.2",
-    "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.14.6",
     "@types/react": "^18.0.28",

@@ -1,6 +1,10 @@
 module.exports = {
+  swcMinify: true,
   images: {
     domains: ['res.cloudinary.com'],
+  },
+  experimental: {
+    appDir: true,
   },
   webpack(config) {
     config.module.rules.push({

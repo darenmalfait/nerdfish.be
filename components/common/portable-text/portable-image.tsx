@@ -1,11 +1,12 @@
 import * as React from 'react'
-import clsx from 'clsx'
+import {cx} from '@daren/ui-components'
 
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../../lib/utils/cloudinary'
+} from '~/lib/utils/cloudinary'
+
 import {Image} from '../image'
 
 function PortableImage({
@@ -21,7 +22,7 @@ function PortableImage({
 }) {
   return (
     <Image
-      className={clsx({
+      className={cx({
         'max-w-xs': compact,
       })}
       placeholder={getLowQualityUrlFor(url)}

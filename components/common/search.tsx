@@ -1,7 +1,7 @@
 import * as React from 'react'
+import {cx} from '@daren/ui-components'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 import type {Hit} from 'react-instantsearch-core'
 import {
   Configure,
@@ -11,9 +11,9 @@ import {
   useSearchBox,
 } from 'react-instantsearch-hooks-web'
 
-import {NoResultIcon} from '../../components/icons/no-result-icon'
-import {getAlgoliaClient} from '../../lib/services/search'
-import {stripPreSlash} from '../../lib/utils/string'
+import {NoResultIcon} from '~/components/icons/no-result-icon'
+import {getAlgoliaClient} from '~/lib/services/search'
+import {stripPreSlash} from '~/lib/utils/string'
 
 type SearchItem = {
   title?: string
@@ -38,7 +38,7 @@ function SearchResult({
       {...props}
       value={item}
       className={({active}) =>
-        clsx(
+        cx(
           'group block cursor-pointer px-4 py-3',
           resultIndex > 0 && 'border-t border-zinc-100 dark:border-zinc-800',
           active && 'bg-primary',
@@ -142,7 +142,7 @@ function SearchDialog({
           leaveTo="opacity-0"
         >
           <div
-            className={clsx('fixed inset-0 bg-black transition-opacity ', {
+            className={cx('fixed inset-0 bg-black transition-opacity ', {
               'opacity-25 dark:opacity-70': open,
               'opacity-0': !open,
             })}
