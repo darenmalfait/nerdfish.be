@@ -7,9 +7,12 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+
+
+# Remix
+/api
+build
+.cache
 
 # production
 /build
@@ -32,13 +35,12 @@ yarn.lock
 
 # other
 tsconfig.tsbuildinfo
-.env*
-!.env.example
 .vscode
 
 # Local Netlify folder
 .netlify
 
-.flaskenv*
-!.env.project
-!.env.vault
+# ENV files
+.env*
+!.env.example
+.vercel

@@ -1,10 +1,6 @@
-/node_modules/.*
-
-# next
-dist
-next-env.d.ts
-
+node_modules
 # tina
 !.tina
 __generated__
 public
+/api

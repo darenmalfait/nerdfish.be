@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         fallback: [...defaultTheme.fontFamily.sans],
-        title: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        title: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         twitter: '#1DA1F2',
@@ -41,9 +41,7 @@ module.exports = {
   content: [
     // ... paths that use tailwind
     fromRoot('./node_modules/@daren/**/*.{js,ts,jsx,tsx}'), // path to daren
-    fromRoot('./pages/**/*.{js,jsx,ts,tsx}'),
-    fromRoot('./pages-containers/**/*.{js,jsx,ts,tsx}'),
-    fromRoot('./components/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./app/**/*.{js,jsx,ts,tsx}'),
   ],
   plugins: [
     require('@tailwindcss/typography'),
