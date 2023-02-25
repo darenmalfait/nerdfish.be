@@ -1,5 +1,4 @@
 import * as React from 'react'
-import type {ExtractProps} from '@daren/ui-components'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
@@ -29,12 +28,11 @@ function SearchResult({
   item,
   resultIndex,
   ...props
-}: {item: Hit<SearchItem>} & Pick<
-  ExtractProps<typeof Combobox.Option>,
-  'tabIndex'
-> & {
-    resultIndex: number
-  }) {
+}: {item: Hit<SearchItem>} & {
+  tabIndex?: number
+} & {
+  resultIndex: number
+}) {
   return (
     <Combobox.Option
       {...props}
