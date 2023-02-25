@@ -18,13 +18,13 @@
     "validate": "run-s lint:*"
   },
   "resolutions": {
-    "@headlessui/react": "^1.7.11"
+    "@headlessui/react": "^1.7.12"
   },
   "dependencies": {
     "@daren/theme": "^2.4.7",
     "@daren/ui-components": "^1.20.3",
     "@daren/ui-core": "^2.12.2",
-    "@headlessui/react": "^1.7.11",
+    "@headlessui/react": "^1.7.12",
     "@heroicons/react": "^2.0.16",
     "@next/env": "^13.2.1",
     "@next/font": "^13.2.1",
@@ -49,7 +49,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-instantsearch-dom": "^6.39.0",
-    "react-instantsearch-hooks-web": "^6.40.0",
+    "react-instantsearch-hooks-web": "^6.40.1",
     "react-is": "^18.2.0",
     "react-obfuscate": "^3.6.8",
     "slugify": "^1.6.5",
@@ -65,7 +65,7 @@
     "@tinacms/cli": "^1.2.2",
     "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.191",
-    "@types/node": "^18.14.0",
+    "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",
     "@types/react-instantsearch-core": "^6.26.3",
     "@types/react-instantsearch-dom": "^6.12.3",
@@ -84,5 +84,5 @@
     "shelljs": "^0.8.5",
     "tailwindcss": "^3.2.7"
   },
-  "packageManager": "pnpm@7.27.1"
+  "packageManager": "pnpm@7.28.0"
 }
