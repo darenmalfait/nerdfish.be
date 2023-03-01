@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {Container, Grid, H1, Section} from '@daren/ui-components'
-import type {Template} from 'tinacms'
 
 import type {Block} from '../../lib/types/cms'
 
@@ -44,28 +43,4 @@ const KeywordList = ({
   )
 }
 
-const keywordListBlockSchema: Template = {
-  name: 'KeywordList',
-  label: 'Keywords',
-  ui: {
-    previewSrc: '/blocks/keyword-list.png',
-    defaultItem: {
-      items: ['feature', 'feature', 'feature'],
-    },
-  },
-  fields: [
-    {
-      type: 'string',
-      label: 'Title',
-      name: 'title',
-    },
-    {
-      type: 'string',
-      label: 'Keywords',
-      name: 'keywords',
-      list: true,
-    },
-  ],
-}
-
-export {KeywordList, keywordListBlockSchema}
+export {KeywordList}

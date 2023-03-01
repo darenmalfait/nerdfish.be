@@ -82,3 +82,42 @@ query wikiQuery($relativePath: String!) {
     ...WikiParts
   }
 }
+
+query sitemapQuery {
+  ...LayoutQueryFragment
+  pageConnection {
+    edges {
+      node {
+        title
+        id
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+  blogConnection {
+    edges {
+      node {
+        title
+        id
+        date
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+  wikiConnection {
+    edges {
+      node {
+        title
+        id
+        date
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}

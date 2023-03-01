@@ -1,8 +1,7 @@
 import React from 'react'
 import {Grid, Section} from '@daren/ui-components'
-import type {RichTextType, Template} from 'tinacms'
+import type {RichTextType} from 'tinacms'
 
-import {portableTextSchema} from '../../.tina/schema/objects'
 import type {Block} from '../../lib/types/cms'
 import {PortableText} from '../common/portable-text'
 
@@ -22,22 +21,4 @@ export const Content = ({
       </Grid>
     </Section>
   )
-}
-
-export const contentBlockSchema: Template = {
-  name: 'content',
-  label: 'Content',
-  ui: {
-    previewSrc: '/blocks/content.png',
-    defaultItem: {
-      body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
-    },
-  },
-  fields: [
-    {
-      ...portableTextSchema,
-      label: 'Body',
-      name: 'body',
-    },
-  ],
 }

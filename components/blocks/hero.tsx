@@ -1,8 +1,7 @@
 import {Container, Grid, H2} from '@daren/ui-components'
 import {motion} from 'framer-motion'
-import type {RichTextType, Template} from 'tinacms'
+import type {RichTextType} from 'tinacms'
 
-import {imageSchema, portableTextSchema} from '../../.tina/schema/objects'
 import {Image} from '../../components/common/image'
 import type {Block, Image as ImageType} from '../../lib/types/cms'
 import {
@@ -86,25 +85,4 @@ const Hero = ({
   )
 }
 
-const heroBlockSchema: Template = {
-  name: 'hero',
-  label: 'Hero',
-  ui: {
-    previewSrc: '/blocks/hero.png',
-    defaultItem: {
-      title: 'Here is a title',
-      text: 'Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.',
-    },
-  },
-  fields: [
-    {
-      type: 'string',
-      label: 'Title',
-      name: 'title',
-    },
-    portableTextSchema,
-    imageSchema,
-  ],
-}
-
-export {Hero, heroBlockSchema}
+export {Hero}

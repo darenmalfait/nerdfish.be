@@ -1,9 +1,6 @@
 import * as React from 'react'
 import {Grid, H3, Paragraph, Section} from '@daren/ui-components'
-import type {Template} from 'tinacms'
 
-import type {Product} from '../../.tina/__generated__/types'
-import {tagsSchema} from '../../.tina/schema/objects'
 import {useBlockData} from '../../context/block-data-provider'
 import type {Block} from '../../lib/types/cms'
 import {
@@ -14,6 +11,7 @@ import {
 import {Image} from '../common/image'
 import {Link} from '../common/link'
 import {Header} from '../layout/header'
+import type {Product} from '.tina/__generated__/types'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (
@@ -91,43 +89,4 @@ function Products({
   )
 }
 
-const productsBlockSchema: Template = {
-  name: 'products',
-  label: 'Products',
-  ui: {
-    previewSrc: '/blocks/products.png',
-  },
-  fields: [
-    {
-      name: 'header',
-      label: 'Header',
-      type: 'object',
-      fields: [
-        {
-          type: 'string',
-          label: 'Title',
-          name: 'title',
-        },
-        {
-          type: 'string',
-          label: 'subtitle',
-          name: 'subtitle',
-        },
-        {
-          type: 'string',
-          label: 'Link',
-          name: 'link',
-          description: 'Optional CTA link',
-        },
-      ],
-    },
-    tagsSchema,
-    {
-      type: 'number',
-      label: 'Number of visible items, leave empty for all.',
-      name: 'count',
-    },
-  ],
-}
-
-export {Products, productsBlockSchema}
+export {Products}

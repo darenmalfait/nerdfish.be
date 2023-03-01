@@ -3,9 +3,7 @@ import {useRouter} from 'next/router'
 import {Button, Container, Grid, H3, H5, Section} from '@daren/ui-components'
 import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
-import type {Template} from 'tinacms'
 
-import {tagsSchema} from '../../.tina/schema/objects'
 import {DateFormatter} from '../../components/common/date-formatter'
 import {Image} from '../../components/common/image'
 import {useBlockData} from '../../context/block-data-provider'
@@ -275,53 +273,4 @@ function Wiki({
   )
 }
 
-const wikiBlockSchema: Template = {
-  name: 'Wiki',
-  label: 'Wiki',
-  ui: {
-    previewSrc: '/blocks/wiki.png',
-  },
-  fields: [
-    {
-      name: 'header',
-      label: 'Header',
-      type: 'object',
-      fields: [
-        {
-          type: 'string',
-          label: 'Title',
-          name: 'title',
-        },
-        {
-          type: 'string',
-          label: 'subtitle',
-          name: 'subtitle',
-        },
-        {
-          type: 'string',
-          label: 'Link',
-          name: 'link',
-          description: 'Optional CTA link',
-        },
-        {
-          type: 'image',
-          label: 'Image',
-          name: 'image',
-        },
-      ],
-    },
-    {
-      type: 'boolean',
-      label: 'Is search enabled?',
-      name: 'searchEnabled',
-    },
-    tagsSchema,
-    {
-      type: 'number',
-      label: 'Number of visible items, leave empty for all.',
-      name: 'count',
-    },
-  ],
-}
-
-export {Wiki, wikiBlockSchema}
+export {Wiki}
