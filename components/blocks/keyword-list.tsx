@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Container, Grid, H1, Section} from '@daren/ui-components'
 
-import type {Block} from '../../lib/types/cms'
+import type {Block} from '~/lib/types/cms'
 
 const KeywordList = ({
   parentField,

@@ -21,7 +21,11 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "~/*": ["./*"],
+      ".tina/*": ["./.tina/*"]
+    }
   },
   "exclude": ["node_modules", ".tina/__generated__"]
 }

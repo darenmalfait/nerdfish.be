@@ -2,13 +2,14 @@ import {Container, Grid, H2} from '@daren/ui-components'
 import {motion} from 'framer-motion'
 import type {RichTextType} from 'tinacms'
 
-import {Image} from '../../components/common/image'
-import type {Block, Image as ImageType} from '../../lib/types/cms'
+import {Image} from '~/components/common/image'
+import type {Block, Image as ImageType} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+} from '~/lib/utils/cloudinary'
+
 import {PortableText} from '../common/portable-text'
 
 const childVariants = {

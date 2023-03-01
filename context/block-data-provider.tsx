@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import type {Blog, Product, Wiki} from '../.tina/__generated__/types'
+import type {Blog, Product, Wiki} from '.tina/__generated__/types'
 
 interface BlockDataContextProps {
   wiki: Partial<Wiki>[]

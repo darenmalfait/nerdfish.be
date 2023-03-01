@@ -6,19 +6,20 @@ import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 
-import {Image} from '../../components/common/image'
-import {useBlockData} from '../../context/block-data-provider'
-import {useGlobal} from '../../context/global-provider'
-import type {Block} from '../../lib/types/cms'
-import {filterBlog} from '../../lib/utils/blog'
+import {Image} from '~/components/common/image'
+import {useBlockData} from '~/context/block-data-provider'
+import {useGlobal} from '~/context/global-provider'
+import type {Block} from '~/lib/types/cms'
+import {filterBlog} from '~/lib/utils/blog'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
-import {BlogPath} from '../../lib/utils/constants'
-import {useUpdateQueryStringValueWithoutNavigation} from '../../lib/utils/misc'
-import {getDatedSlug} from '../../lib/utils/routes'
+} from '~/lib/utils/cloudinary'
+import {BlogPath} from '~/lib/utils/constants'
+import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/misc'
+import {getDatedSlug} from '~/lib/utils/routes'
+
 import {ArticleCard} from '../common/article-card'
 import {HighlightCard} from '../common/highlight-card'
 import {Tag} from '../common/tag'
