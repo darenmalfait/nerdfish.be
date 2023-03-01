@@ -1,8 +1,6 @@
 import * as React from 'react'
 import {Container, DoubleLabelLink, Grid, Section} from '@daren/ui-components'
-import type {Template} from 'tinacms'
 
-import {actionSchema} from '../../.tina/schema/objects'
 import {Link} from '../../components/common/link'
 import type {Block} from '../../lib/types/cms'
 
@@ -44,34 +42,4 @@ const BigTitle = ({
   )
 }
 
-const bigTitleBlockSchema: Template = {
-  name: 'bigTitle',
-  label: 'Big Title',
-  ui: {
-    previewSrc: '/blocks/big-title.png',
-    defaultItem: {
-      title: 'Big Title',
-    },
-  },
-  fields: [
-    {
-      type: 'string',
-      label: 'Title',
-      name: 'title',
-    },
-    {
-      ...actionSchema,
-      type: 'object',
-      fields: [
-        {
-          name: 'title',
-          label: 'Title',
-          type: 'string',
-        },
-        ...((actionSchema.fields as any) || []),
-      ],
-    },
-  ],
-}
-
-export {BigTitle, bigTitleBlockSchema}
+export {BigTitle}

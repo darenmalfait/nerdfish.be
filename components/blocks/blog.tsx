@@ -5,9 +5,7 @@ import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
-import type {Template} from 'tinacms'
 
-import {tagsSchema} from '../../.tina/schema/objects'
 import {Image} from '../../components/common/image'
 import {useBlockData} from '../../context/block-data-provider'
 import {useGlobal} from '../../context/global-provider'
@@ -290,61 +288,7 @@ function Blog({
   )
 }
 
-const blogBlockSchema: Template = {
-  name: 'Blog',
-  label: 'Blog',
-  ui: {
-    previewSrc: '/blocks/blog.png',
-  },
-  fields: [
-    {
-      name: 'header',
-      label: 'Header',
-      type: 'object',
-      fields: [
-        {
-          type: 'string',
-          label: 'Title',
-          name: 'title',
-        },
-        {
-          type: 'string',
-          label: 'subtitle',
-          name: 'subtitle',
-        },
-        {
-          type: 'string',
-          label: 'Link',
-          name: 'link',
-          description: 'Optional CTA link',
-        },
-        {
-          type: 'image',
-          label: 'Image',
-          name: 'image',
-        },
-      ],
-    },
-    {
-      type: 'boolean',
-      label: 'Is search enabled?',
-      name: 'searchEnabled',
-    },
-    {
-      type: 'boolean',
-      label: 'Is featured enabled?',
-      name: 'featuredEnabled',
-    },
-    tagsSchema,
-    {
-      type: 'number',
-      label: 'Number of visible items, leave empty for all.',
-      name: 'count',
-    },
-  ],
-}
-
-export {Blog, blogBlockSchema}
+export {Blog}
 
 /*
 eslint
