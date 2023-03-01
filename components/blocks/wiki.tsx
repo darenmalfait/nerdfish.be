@@ -4,19 +4,20 @@ import {Button, Container, Grid, H3, H5, Section} from '@daren/ui-components'
 import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
-import {DateFormatter} from '../../components/common/date-formatter'
-import {Image} from '../../components/common/image'
-import {useBlockData} from '../../context/block-data-provider'
-import {useGlobal} from '../../context/global-provider'
-import type {Block} from '../../lib/types/cms'
+import {DateFormatter} from '~/components/common/date-formatter'
+import {Image} from '~/components/common/image'
+import {useBlockData} from '~/context/block-data-provider'
+import {useGlobal} from '~/context/global-provider'
+import type {Block} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
-import {useUpdateQueryStringValueWithoutNavigation} from '../../lib/utils/misc'
-import {getDatedSlug} from '../../lib/utils/routes'
-import {filterWiki} from '../../lib/utils/wiki'
+} from '~/lib/utils/cloudinary'
+import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/misc'
+import {getDatedSlug} from '~/lib/utils/routes'
+import {filterWiki} from '~/lib/utils/wiki'
+
 import {Link} from '../common/link'
 import {PortableText} from '../common/portable-text'
 import {Tag} from '../common/tag'

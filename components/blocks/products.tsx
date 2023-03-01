@@ -1,13 +1,14 @@
 import * as React from 'react'
 import {Grid, H3, Paragraph, Section} from '@daren/ui-components'
 
-import {useBlockData} from '../../context/block-data-provider'
-import type {Block} from '../../lib/types/cms'
+import {useBlockData} from '~/context/block-data-provider'
+import type {Block} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+} from '~/lib/utils/cloudinary'
+
 import {Image} from '../common/image'
 import {Link} from '../common/link'
 import {Header} from '../layout/header'

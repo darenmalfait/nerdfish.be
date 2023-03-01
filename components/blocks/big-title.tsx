@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {Container, DoubleLabelLink, Grid, Section} from '@daren/ui-components'
 
-import {Link} from '../../components/common/link'
-import type {Block} from '../../lib/types/cms'
+import {Link} from '~/components/common/link'
+import type {Block} from '~/lib/types/cms'
 
 const BigTitle = ({
   parentField,

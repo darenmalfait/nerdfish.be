@@ -2,7 +2,8 @@ import React from 'react'
 import {Grid, Section} from '@daren/ui-components'
 import type {RichTextType} from 'tinacms'
 
-import type {Block} from '../../lib/types/cms'
+import type {Block} from '~/lib/types/cms'
+
 import {PortableText} from '../common/portable-text'
 
 export const Content = ({

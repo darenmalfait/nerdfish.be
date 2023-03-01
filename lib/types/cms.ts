@@ -1,4 +1,4 @@
-import type {Blog, Wiki} from '../../.tina/__generated__/types'
+import type {Blog, Wiki} from '.tina/__generated__/types'
 
 type Image = {
   src: string

@@ -2,7 +2,8 @@ import {Grid, H2, Section} from '@daren/ui-components'
 import * as Icons from '@heroicons/react/24/solid'
 import {camelCase, startCase} from 'lodash'
 
-import type {Block} from '../../lib/types/cms'
+import type {Block} from '~/lib/types/cms'
+
 import {Header} from '../layout/header'
 import {Spacer} from '../layout/spacer'
 

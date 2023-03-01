@@ -1,7 +1,8 @@
 import {Feed} from 'feed'
 
-import {BlogPath} from '../utils/constants'
-import {getDatedSlug} from '../utils/routes'
+import {BlogPath} from '~/lib/utils/constants'
+import {getDatedSlug} from '~/lib/utils/routes'
+
 import {getBlogPosts} from './api'
 
 async function buildFeed() {
