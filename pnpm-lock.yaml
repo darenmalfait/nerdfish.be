@@ -6,9 +6,9 @@ overrides:
 specifiers:
   '@commitlint/cli': ^17.4.4
   '@commitlint/config-conventional': ^17.4.4
-  '@daren/theme': ^2.4.7
-  '@daren/ui-components': ^1.20.3
-  '@daren/ui-core': ^2.12.2
+  '@daren/theme': ^2.4.8
+  '@daren/ui-components': ^1.20.7
+  '@daren/ui-core': ^2.12.3
   '@headlessui/react': ^1.7.13
   '@heroicons/react': ^2.0.16
   '@next/env': ^13.2.3
@@ -66,9 +66,9 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
-  '@daren/theme': 2.4.7_react@18.2.0
-  '@daren/ui-components': 1.20.3_zula6vjvt3wdocc4mwcxqa6nzi
-  '@daren/ui-core': 2.12.2_tailwindcss@3.2.7
+  '@daren/theme': 2.4.8_react@18.2.0
+  '@daren/ui-components': 1.20.7_zula6vjvt3wdocc4mwcxqa6nzi
+  '@daren/ui-core': 2.12.3_tailwindcss@3.2.7
   '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.16_react@18.2.0
   '@next/env': 13.2.3
@@ -1769,47 +1769,47 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
-  /@daren/alert/1.4.19_react@18.2.0:
-    resolution: {integrity: sha512-sC2d1UcjinvlQpOpB1ARHwyHMfFn8o6OdyW9NyVLEKqVToyiA5BvJZ/r+8jFXVYFtHHizuLvc2mA/jFjSiIP9w==}
+  /@daren/alert/1.4.20_react@18.2.0:
+    resolution: {integrity: sha512-AE9k4dWsvbxYFppjS4gl00R/Y2EIL85+4+g6nqdiWP0ziCQ1/s3CRZMKuP+MhTar4nOy6cUzpVU3Yqzu8rDVPg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/button/2.0.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-DVnerP5i3SFMllhDGUZwBofQqJ4rJH7VNKqpIfKyqbMygh5sgvRrbJqPHhEFT3LpbssBsd5Z1vRTXXadh+WBxQ==}
+  /@daren/button/2.0.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-o199q2lheKBPs5N7BzpiyL3fhXfkUzXheWciqZ6fRlaTFf+0c3Oc6SicloD1BI7ogdjveSTRA5nRswO7rUvlmQ==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/form-elements': 1.14.3_biqbaboplfbrettd7655fr4n2y
-      '@daren/typography': 1.9.12_react@18.2.0
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/form-elements': 1.14.4_biqbaboplfbrettd7655fr4n2y
+      '@daren/typography': 1.9.13_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /@daren/code-block/3.0.11_react@18.2.0:
-    resolution: {integrity: sha512-NTi1T9Pe/NYqLMWXZ4kD2eVjG2p+IMFsxXDolvspiWmKZ4gyNkmCT5+Rsi+G+YhpRg0DCHis6bfdYkVa+R0HVw==}
+  /@daren/code-block/3.0.12_react@18.2.0:
+    resolution: {integrity: sha512-xb+mv0A2ib1F0+PgDPJZRbv3wRsA2HA6PlMdIZSA7gcRTIYB3MwdIdpfdZGguP/w8rx7YRRE6UpMImo4+CWlzg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/form-elements/1.14.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-PxYyvOn3+YxM9SWr+O5UzEm0lKLl7eGCaPOWj34SNnvdoG3UycVEX1O5eN65uAy3Qm0kBKTp32TIemrS/ZeS3w==}
+  /@daren/form-elements/1.14.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-+JqJm9drNsDQq5i3V8OqGEkTI85u0ggS3TmLOde+QURqqPiPRH+SNhsa0YwLomjm2k/vlr5MNugfecWtnGPPjQ==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
@@ -1817,44 +1817,44 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/grid/1.4.15_react@18.2.0:
-    resolution: {integrity: sha512-jWez18r7wERdpRuWUkCxcWoRwvUJ9uOaBd3iKP9Z/dMxxMn/vz919kQHY5TjdCljRGvl9uk8be16EP6GIgF92A==}
+  /@daren/grid/1.4.16_react@18.2.0:
+    resolution: {integrity: sha512-AiKG1r3chIBV7uTQJ5r1O9Ii3y5qOc1Osryj9gA64wvsGdez92Jz/7imGaLgEKKQ0viuJPeeqlRmT0ettenT3g==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/hover-card/1.0.0_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-g1iBzexiUkivFBVHiqh5RNWYT9mhaTP7ON5d33qGmgz9Cq5mxPWO6A9Q7zx5MlIjJBlyqvFRhEAVYU8uLTiJBw==}
+  /@daren/hover-card/1.0.1_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-aRU2RwUSHVfB+8yqlhcC1D9zm8N4PMoxc/1bjjMiAUTSvCv5JYqyqhpIu5fEF98d//C9Gtiu8HtiAJr6ZGxU2A==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
-      '@radix-ui/react-hover-card': 1.0.3_zula6vjvt3wdocc4mwcxqa6nzi
+      '@daren/utils': 1.9.7_react@18.2.0
+      '@radix-ui/react-hover-card': 1.0.4_zula6vjvt3wdocc4mwcxqa6nzi
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
       - react-dom
     dev: false
 
-  /@daren/layout-components/1.3.15_react@18.2.0:
-    resolution: {integrity: sha512-yI6oL7/6BxmQRpNOvgcZItmW4mb+nb6rgpwXRNJxPRHdXZMiyCNiGjADoE28d+I21fz25x42AHb6Dmdce6a3AA==}
+  /@daren/layout-components/1.3.16_react@18.2.0:
+    resolution: {integrity: sha512-vIecgUbHIOXuTCY1PiKUzbMD3rlzQuPysUvxg/EDkHPLIH9ElUHYjZ5ni7saYyTRxc7ReoC90WXJZB0EeqpNug==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/grid': 1.4.15_react@18.2.0
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/grid': 1.4.16_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/modal/1.4.22_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-TzIb8J0NmJ4+m7vA44X2mcFwa+68UXeR2LeSXFtzA5cXWy7Kc00p4dMXx6rdnipx31trfXi8pQKWQ5mz+I4fPw==}
+  /@daren/modal/1.4.23_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-R7xdX1Zl7pjffX6qOPZykuNchedZkIzInUnSAKDRpj0oc0zPKQZ5BTkfwGTtvlxLPr4+soMi4b/cUhg6KaDWug==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
@@ -1862,84 +1862,84 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/navigation-list/1.4.3_react@18.2.0:
-    resolution: {integrity: sha512-U8J9fC25mOAVYdtktBzFQWCVMbk6amds0qomaN5WdBwMvprpNDCLEyVn9ybfMHdxpIOxD4BLkagbHTHveeldzA==}
+  /@daren/navigation-list/1.4.4_react@18.2.0:
+    resolution: {integrity: sha512-oTfyEOkib/x3hRmnImibN8E2YOA2ld5V2e5AE5WWDVVMabJfvSMDNylWXajuIRJ5/zsvKB0DWeK50OzEQG2dPw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/progressive-image/1.4.13_react@18.2.0:
-    resolution: {integrity: sha512-1lxSfIlpozUZR0CXSnCTBShlfBjhLjPA2xgaVF/CLkNqZt9v/9JebXNe3qx2n/EYCluukc6RktWaJrWfg5v2eA==}
+  /@daren/progressive-image/1.4.17_react@18.2.0:
+    resolution: {integrity: sha512-lWUzm949Qoq6Tzn9llH3WHQ2AJfz/TE0azZLAU3lKZ/JomKFbLDO1RVOzPUWYzoGT/pHxWEtUOR3l4ulu49Pcg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/review/1.3.23_react@18.2.0:
-    resolution: {integrity: sha512-k3oYmpFS+FWchnTPVWGEI4OtccGhkBs4LBTegMkdM6WegP9aq2vS66LUB8+XljTEBq72tn1m4S7S5i3hjnS1Iw==}
+  /@daren/review/1.3.24_react@18.2.0:
+    resolution: {integrity: sha512-/bb/3WToE+TAWcrYcrN+PYUpjN6A3J1dOuqYsMvBV/aIFxjs+/ke52kJlPVStS+I7fcco6IGb4uy8zrKgmg6Zw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/typography': 1.9.12_react@18.2.0
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/typography': 1.9.13_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/scroll-area/1.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-CswLhTeSoEYPcCxEypEyDW+Hqp6k4GwkKdTt1+NRH4Ey8j+FhNga0I4+VYAjoRZ1EilBNYDlYH8B6FAITFxKAA==}
+  /@daren/scroll-area/1.0.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-u8KdX9k5KlbmYXBXPKM2VieaxURd1/hF2Q1Q7hvA1LS60v5P5Vsy+We8jgVleil9pSGWs+FJEs+urUHMpipXDg==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@radix-ui/react-scroll-area': 1.0.2_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /@daren/spinner/1.1.15_react@18.2.0:
-    resolution: {integrity: sha512-6MKdhKWCUV1AyksKcDFZxMLXL04rgZJVLWOh/6nxdnuaoDcjvm+7zyh7bIklbvX52pt+VKjhadoYdwBmH4HERw==}
+  /@daren/spinner/1.1.16_react@18.2.0:
+    resolution: {integrity: sha512-PRBtDh+SUuqK5/ZVjWB6V8JzLU33bqoiF1PbNZMZaY3VTkc53/05JehxqqZIRUAAEJbIg3AhNSNXt34c9Juwrw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/tabs/2.0.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-dNkbfkJMRfFqwzA5RopOoOR/YcS499/uT3tIx8Uo+pDJKmBrCFtVtWLjhw8JHOEHSI1pot+isWM/9jzdwCimaA==}
+  /@daren/tabs/2.0.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-jAAjdiuJ+dRQ1j4BPKEM9hyH73UyDxRHWrqzQqZ8SpwezEaG9qG4wgByUzKzqKGyMQDkDtfJOK1dCY0mnMvIqA==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@radix-ui/react-tabs': 1.0.2_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
     transitivePeerDependencies:
       - react-dom
     dev: false
 
-  /@daren/theme/2.4.7_react@18.2.0:
-    resolution: {integrity: sha512-2l+i+NgSCryYsfOKW5vmet6VKZYe8OJjYr2/gPK52ct3rA/Y324XiBikqXoJvsTRSW0+tufyzfN3xbNP1aFJXg==}
+  /@daren/theme/2.4.8_react@18.2.0:
+    resolution: {integrity: sha512-UoYfKwzRT5utjMk+Ys+X6NG4NprpJ66fSBFep3zXua6ykinJXcMVa/sX0jkXQuhoBI5xFMV9K3b2YtMm+J8GAQ==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/toast/1.1.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-j+uR1z7jT/1fhlongiQLNZvnCN6/Sa3zVgTnDE87SAq2ChtCbBoe6g4Fq4WN11bjxjjO28qvWzLHrFbxlE/S6g==}
+  /@daren/toast/1.1.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Y6DB6Mad93YcOHEW/e7HVFQayXqLuOVSkLuMV8gRsHJwLdqMCZc6uHb0GFeLamzQntNqt8KpHJsEkb4lub1ezQ==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       '@heroicons/react': 2.0.16_react@18.2.0
       '@radix-ui/react-toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -1947,60 +1947,60 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/typography/1.9.12_react@18.2.0:
-    resolution: {integrity: sha512-Zrv/Mo6O8QqypDbKcJjxQsLTGzfXvAyj7t2dghic6sjlwdF+NZDL85jnhEOE1OUdD5VR/MFe89faejitbImdIw==}
+  /@daren/typography/1.9.13_react@18.2.0:
+    resolution: {integrity: sha512-VKRb6wdQeLdYLMTtDN0M9S7zXRe2We4P9BJpV+ZdpF0eR9Rg4E5oDtDkrPCNlap5wi8oE9K3Gmc27UUzdfkmmw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     dev: false
 
-  /@daren/ui-components/1.20.3_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-tDgD9ZUoooeDaL2upDo3UwXb7y+HXiGP/v2gA2xemvhhuSnOLw5JZMaKykr8HZMtRBwFXSoaheR4C46rYn7cEg==}
+  /@daren/ui-components/1.20.7_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-MljoxqV39Ilgp6OcO5t6RCs/TmrsNnKISo4gLb854rjfhNjFEUvY0a6b4giB/bBX2BBlono1cpEOMvShIujW8A==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
-      '@daren/alert': 1.4.19_react@18.2.0
-      '@daren/button': 2.0.8_biqbaboplfbrettd7655fr4n2y
-      '@daren/code-block': 3.0.11_react@18.2.0
-      '@daren/form-elements': 1.14.3_biqbaboplfbrettd7655fr4n2y
-      '@daren/grid': 1.4.15_react@18.2.0
-      '@daren/hover-card': 1.0.0_zula6vjvt3wdocc4mwcxqa6nzi
-      '@daren/layout-components': 1.3.15_react@18.2.0
-      '@daren/modal': 1.4.22_biqbaboplfbrettd7655fr4n2y
-      '@daren/navigation-list': 1.4.3_react@18.2.0
-      '@daren/progressive-image': 1.4.13_react@18.2.0
-      '@daren/review': 1.3.23_react@18.2.0
-      '@daren/scroll-area': 1.0.1_biqbaboplfbrettd7655fr4n2y
-      '@daren/spinner': 1.1.15_react@18.2.0
-      '@daren/tabs': 2.0.3_biqbaboplfbrettd7655fr4n2y
-      '@daren/theme': 2.4.7_react@18.2.0
-      '@daren/toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
-      '@daren/typography': 1.9.12_react@18.2.0
-      '@daren/utils': 1.9.6_react@18.2.0
+      '@daren/alert': 1.4.20_react@18.2.0
+      '@daren/button': 2.0.9_biqbaboplfbrettd7655fr4n2y
+      '@daren/code-block': 3.0.12_react@18.2.0
+      '@daren/form-elements': 1.14.4_biqbaboplfbrettd7655fr4n2y
+      '@daren/grid': 1.4.16_react@18.2.0
+      '@daren/hover-card': 1.0.1_zula6vjvt3wdocc4mwcxqa6nzi
+      '@daren/layout-components': 1.3.16_react@18.2.0
+      '@daren/modal': 1.4.23_biqbaboplfbrettd7655fr4n2y
+      '@daren/navigation-list': 1.4.4_react@18.2.0
+      '@daren/progressive-image': 1.4.17_react@18.2.0
+      '@daren/review': 1.3.24_react@18.2.0
+      '@daren/scroll-area': 1.0.2_biqbaboplfbrettd7655fr4n2y
+      '@daren/spinner': 1.1.16_react@18.2.0
+      '@daren/tabs': 2.0.4_biqbaboplfbrettd7655fr4n2y
+      '@daren/theme': 2.4.8_react@18.2.0
+      '@daren/toast': 1.1.3_biqbaboplfbrettd7655fr4n2y
+      '@daren/typography': 1.9.13_react@18.2.0
+      '@daren/utils': 1.9.7_react@18.2.0
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
       - react-dom
     dev: false
 
-  /@daren/ui-core/2.12.2_tailwindcss@3.2.7:
-    resolution: {integrity: sha512-SVN2uAfqS+XkRZW6Psl51xC60ZWCwrCubbGfY5JTIsNxC3yZdmJsRIjcevNDP0QtrOchM78EeKEgy6nuUqT65A==}
+  /@daren/ui-core/2.12.3_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-kzmEVvxb6xOaj6lyoAX2n9mLvUL+TdrBJAMgek2PfMeuyGuLnQKRqG+A7+fep/x8/GBlcm/8Mo6ilhv8CfKe3Q==}
     peerDependencies:
       tailwindcss: 3.2.7
     dependencies:
       tailwindcss: 3.2.7_postcss@8.4.21
     dev: false
 
-  /@daren/utils/1.9.6_react@18.2.0:
-    resolution: {integrity: sha512-6RaCaaLZn4nAtCCKK57v4Qr7Mv/9eVWEn1vf7ojogHS7s5bclUpOojUhXJ7fS3uOp20pAsmue77HpigPEfsVbw==}
+  /@daren/utils/1.9.7_react@18.2.0:
+    resolution: {integrity: sha512-OXzkLh5swIhxhvPYk0l0Rgu9fH/+6vyaQde9BJxIuR3PriRYFcM4+MRtZPeWD6E2eaBrdgH0RbMDqd11N0IepA==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
       clsx: 1.2.1
       react: 18.2.0
-      tailwind-merge: 1.9.1
+      tailwind-merge: 1.10.0
     dev: false
 
   /@emotion/is-prop-valid/0.8.8:
@@ -2923,8 +2923,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@radix-ui/react-hover-card/1.0.3_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-rr2+DxPlMhR57IPcNvZ85X8chytdfj7kyVToyR5Ge0r4IJEFiyPs0Cs8/K8oe5zt+yo0F8f29vtC8tNNK+ZIkA==}
+  /@radix-ui/react-hover-card/1.0.4_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-7MVGF1Q/dW5/z7fVPnlp+6r5osBYXCKdRZdUPFvRmSWYSTmf5BtR4dr7KsElhJWKROdYxQYVM7MYo2mpfz5t2A==}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0
       react-dom: ^16.8 || ^17.0 || ^18.0
@@ -13633,8 +13633,8 @@ packages:
       tslib: 2.5.0
     dev: true
 
-  /tailwind-merge/1.9.1:
-    resolution: {integrity: sha512-ED9MkiUHlmfh58EC1xHRqXcH1IQyRtmDP0AmXlugYkP2tvfu7ejtjFEHJLJt93mQ7ZJkcqSIgm9M394bq5vOJg==}
+  /tailwind-merge/1.10.0:
+    resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
     dev: false
 
   /tailwindcss/3.2.7_postcss@8.4.21:
