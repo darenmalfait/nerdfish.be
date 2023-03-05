@@ -37,7 +37,7 @@ specifiers:
   eslint: ^8.35.0
   eslint-config-daren: ^4.0.8
   feed: ^4.2.2
-  framer-motion: ^10.0.1
+  framer-motion: ^10.0.2
   gray-matter: ^4.0.3
   husky: ^8.0.3
   lodash: ^4.17.21
@@ -83,7 +83,7 @@ dependencies:
   date-fns: 2.29.3
   dotenv: 16.0.3
   feed: 4.2.2
-  framer-motion: 10.0.1_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 10.0.2_biqbaboplfbrettd7655fr4n2y
   lodash: 4.17.21
   match-sorter: 6.3.1
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
@@ -8556,8 +8556,8 @@ packages:
       map-cache: 0.2.2
     dev: true
 
-  /framer-motion/10.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-/N7gBA9gH8PkStyNQ67P/lx8UhL/7Y8z9Ku7FfgOF77sSG8wu8781kX7I5ZUgflRRtQXo8qH4Rev23004G1zcQ==}
+  /framer-motion/10.0.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-1k8y1e6DMRQ/r6or4TBxRhE1cXlDE5bm+SFeWLeh7ng0sfSbpROC2Qd1OEHq6lLXNARar/KKoj/EQ6eIvn60Uw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
