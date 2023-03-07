@@ -1,11 +1,11 @@
-import tina from '.tina/__generated__/client'
+import tina from '~/.tina/__generated__/client'
 import type {
   Blog,
   BlogPostQueryQuery,
   ContentQueryQuery,
   Product,
   Wiki,
-} from '.tina/__generated__/types'
+} from '~/.tina/__generated__/types'
 
 async function getPages() {
   const pageDate = await tina.queries.pageConnection()
@@ -32,18 +32,20 @@ async function getWikiPosts() {
 }
 
 async function getWikiPost(relativePath: string) {
-  return tina.queries.wikiQuery({
-    relativePath,
-  })
+  return tina.queries
+    .wikiQuery({
+      relativePath,
+    })
+    .catch(() => null)
 }
 
 function mapPageData(data: ContentQueryQuery) {
   return {
     ...data,
-    blog: data.blogConnection.edges?.map((item: any) => ({
+    blogs: data.blogConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Blog[],
-    wiki: data.wikiConnection.edges?.map((item: any) => ({
+    wikis: data.wikiConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Wiki[],
     products: data.productConnection.edges?.map((item: any) => ({
@@ -62,9 +64,13 @@ function mapBlogData(data: BlogPostQueryQuery) {
 }
 
 async function getPage(relativePath: string) {
-  const page = await tina.queries.contentQuery({
-    relativePath,
-  })
+  const page = await tina.queries
+    .contentQuery({
+      relativePath,
+    })
+    .catch(() => null)
+
+  if (!page) return null
 
   return {
     ...page,
@@ -73,9 +79,13 @@ async function getPage(relativePath: string) {
 }
 
 async function getBlogPost(relativePath: string) {
-  const blog = await tina.queries.blogPostQuery({
-    relativePath,
-  })
+  const blog = await tina.queries
+    .blogPostQuery({
+      relativePath,
+    })
+    .catch(() => null)
+
+  if (!blog) return null
 
   return {
     ...blog,

@@ -1,10 +1,48 @@
-import * as React from 'react'
+'use client'
 
-import type {Blog, Product, Wiki} from '.tina/__generated__/types'
+import * as React from 'react'
+import Head from 'next/head'
+
+import type {Blog, Product, Wiki} from '~/.tina/__generated__/types'
+
+const modeScript = `
+  let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  updateMode()
+  darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions)
+  window.addEventListener('storage', updateModeWithoutTransitions)
+
+  function updateMode() {
+    let isSystemDarkMode = darkModeMediaQuery.matches
+    let isDarkMode = window.localStorage.isDarkMode === 'true' || (!('isDarkMode' in window.localStorage) && isSystemDarkMode)
+
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    if (isDarkMode === isSystemDarkMode) {
+      delete window.localStorage.isDarkMode
+    }
+  }
+
+  function disableTransitionsTemporarily() {
+    document.documentElement.classList.add('[&_*]:!transition-none')
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none')
+    }, 0)
+  }
+
+  function updateModeWithoutTransitions() {
+    disableTransitionsTemporarily()
+    updateMode()
+  }
+`
 
 interface BlockDataContextProps {
-  wiki: Partial<Wiki>[]
-  blog: Partial<Blog>[]
+  wikis: Partial<Wiki>[]
+  blogs: Partial<Blog>[]
   products: Partial<Product>[]
 }
 
@@ -12,8 +50,8 @@ const BlockDataContext = React.createContext<BlockDataContextProps | null>(null)
 BlockDataContext.displayName = 'BlockDataContext'
 
 interface BlockDataProviderProps {
-  wiki?: Partial<Wiki>[]
-  blog?: Partial<Blog>[]
+  wikis?: Partial<Wiki>[]
+  blogs?: Partial<Blog>[]
   products?: Partial<Product>[]
   children: React.ReactNode
 }
@@ -21,13 +59,16 @@ interface BlockDataProviderProps {
 // import { BlockDataProvider } from "path-to-context/BlockDataContext"
 // use <BlockDataProvider> as a wrapper around the part you need the context for
 function BlockDataProvider({
-  wiki = [],
-  blog = [],
+  wikis = [],
+  blogs = [],
   products = [],
   children,
 }: BlockDataProviderProps) {
   return (
-    <BlockDataContext.Provider value={{wiki, blog, products}}>
+    <BlockDataContext.Provider value={{wikis, blogs, products}}>
+      <Head>
+        <script dangerouslySetInnerHTML={{__html: modeScript}} />
+      </Head>
       {children}
     </BlockDataContext.Provider>
   )

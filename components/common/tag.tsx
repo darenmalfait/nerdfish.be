@@ -1,6 +1,6 @@
 import type {ChangeEventHandler} from 'react'
+import {cx} from '@daren/ui-components'
 import {CustomCheckboxContainer, CustomCheckboxInput} from '@reach/checkbox'
-import clsx from 'clsx'
 
 function Tag({
   tag,
@@ -22,8 +22,7 @@ function Tag({
       as="label"
       checked={selected}
       onChange={onClick}
-      className={clsx(
-        className,
+      className={cx(
         'relative mr-4 mb-4 block h-auto w-auto cursor-pointer rounded-full transition',
         {
           'bg-primary-600 text-primary dark:bg-gray-800': !selected,
@@ -33,6 +32,7 @@ function Tag({
           'py-3 px-6': size === 'md',
           'py-2 px-4 text-sm': size === 'sm',
         },
+        className,
       )}
       disabled={disabled}
     >

@@ -1,8 +1,8 @@
 import * as React from 'react'
+import {cx} from '@daren/ui-components'
 import {MoonIcon, SunIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 
-import {useTheme} from '../../context/theme-provider'
+import {useTheme} from '~/context/theme-provider'
 
 function ThemeToggle({
   className,
@@ -27,9 +27,9 @@ function ThemeToggle({
     <button
       type="button"
       {...props}
-      className={clsx(
-        className,
+      className={cx(
         'flex items-center justify-center rounded-full p-2 focus-ring',
+        className,
       )}
       onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
     >

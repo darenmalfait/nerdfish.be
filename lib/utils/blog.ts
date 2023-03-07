@@ -1,6 +1,6 @@
 import {matchSorter, rankings as matchSorterRankings} from 'match-sorter'
 
-import type {Blog} from '.tina/__generated__/types'
+import type {Blog} from '~/.tina/__generated__/types'
 
 function filterBlog(posts: Partial<Blog>[], searchString: string) {
   if (!searchString) return posts

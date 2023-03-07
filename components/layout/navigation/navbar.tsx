@@ -1,15 +1,15 @@
 import * as React from 'react'
-import {Container, Grid} from '@daren/ui-components'
+import {Container, Grid, cx} from '@daren/ui-components'
 import {RssIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 
-import {Hamburger} from '../../../components/common/hamburger'
-import {Link} from '../../../components/common/link'
-import {Overlay} from '../../../components/common/overlay'
-import {Search} from '../../../components/common/search'
-import {ThemeToggle} from '../../../components/common/theme-toggle'
-import {Logo} from '../../../components/icons/logo'
-import {useClickOutside} from '../../../lib/utils/use-click-outside'
+import {Hamburger} from '~/components/common/hamburger'
+import {Link} from '~/components/common/link'
+import {Overlay} from '~/components/common/overlay'
+import {Search} from '~/components/common/search'
+import {ThemeToggle} from '~/components/common/theme-toggle'
+import {Logo} from '~/components/icons/logo'
+import {getDomainUrl} from '~/lib/utils/misc'
+import {useClickOutside} from '~/lib/utils/use-click-outside'
 
 interface MobileNavProps {
   actions?: React.ReactNode
@@ -45,7 +45,7 @@ function MobileNav({
   return (
     <div
       ref={open ? ref : null}
-      className={clsx(
+      className={cx(
         'inset-[0px 0px auto] fixed top-0 right-0 z-30 h-screen w-full max-w-screen-sm transition-transform bg-primary',
         {
           'translate-x-0 shadow-2xl': open,
@@ -77,7 +77,7 @@ interface NavbarProps {
   actions?: React.ReactNode
 }
 
-function Navbar({actions, children, rootPath = '/'}: NavbarProps) {
+function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
   const [open, setOpen] = React.useState(false)
 
   const onToggle = React.useCallback(() => {
@@ -106,7 +106,7 @@ function Navbar({actions, children, rootPath = '/'}: NavbarProps) {
                 <Link
                   className="order-first flex items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
                   aria-label="home page"
-                  href={rootPath}
+                  href={rootPath ?? '/'}
                 >
                   <Logo className="h-10 w-10 transition-transform hover:scale-105" />
                 </Link>
@@ -139,7 +139,7 @@ function Navbar({actions, children, rootPath = '/'}: NavbarProps) {
         </Grid>
       </div>
       <MobileNav
-        rootPath={rootPath}
+        rootPath={rootPath ?? '/'}
         actions={navItems(actions)}
         onClose={onToggle}
         open={open}

@@ -8,8 +8,8 @@ import {
   RadioGroup,
 } from '@daren/ui-components'
 
-import {useSubmit} from '../../lib/utils/form'
-import {useRecaptcha} from '../../lib/utils/recaptcha'
+import {useSubmit} from '~/lib/utils/form'
+import {useRecaptcha} from '~/lib/utils/recaptcha'
 
 function ProjectField() {
   const [project, setProject] = React.useState<any>('website')

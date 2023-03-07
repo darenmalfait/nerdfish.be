@@ -1,5 +1,6 @@
-import {ThemeToggle} from '../../components/common/theme-toggle'
-import {useGlobal} from '../../context/global-provider'
+import {ThemeToggle} from '~/components/common/theme-toggle'
+import {useGlobal} from '~/context/global-provider'
+
 import {Link} from '../common/link'
 import {GithubIcon} from '../icons/github-icon'
 import {Logo} from '../icons/logo'

@@ -1,16 +1,16 @@
 import * as React from 'react'
-import {Container, Grid, H2} from '@daren/ui-components'
-import clsx from 'clsx'
+import {Container, Grid, H2, cx} from '@daren/ui-components'
 
 import {
   CategoryIndicator,
   getCategoryColors,
-} from '../../components/common/category-indicator'
+} from '~/components/common/category-indicator'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
+} from '~/lib/utils/cloudinary'
+
 import {ArrowLink} from './arrow-link'
 import {Image} from './image'
 import {Link} from './link'
@@ -39,7 +39,7 @@ function HighlightCard({
     <Grid>
       <Container size="full">
         <Link
-          className={clsx(
+          className={cx(
             'block rounded-lg no-underline lg:bg-transparent',
             className,
           )}
@@ -74,7 +74,7 @@ function HighlightCard({
                   <ArrowLink>
                     {cta}
                     <div
-                      className={clsx(
+                      className={cx(
                         'absolute inset-0 z-10 rounded-lg focus-ring',
                         getCategoryColors(category ?? 'unknown'),
                       )}

@@ -1,14 +1,14 @@
-import {H3} from '@daren/ui-components'
-import clsx from 'clsx'
+import {H3, cx} from '@daren/ui-components'
 
-import type {Blog} from '../../.tina/__generated__/types'
-import {useGlobal} from '../../context/global-provider'
+import type {Blog} from '~/.tina/__generated__/types'
+import {useGlobal} from '~/context/global-provider'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
-} from '../../lib/utils/cloudinary'
-import {getDatedSlug} from '../../lib/utils/routes'
+} from '~/lib/utils/cloudinary'
+import {getDatedSlug} from '~/lib/utils/routes'
+
 import {
   CategoryIndicator,
   getCategoryColors,
@@ -38,7 +38,7 @@ function ArticleCard({
         {heroImg ? (
           <div className="aspect-w-3 aspect-h-4 rounded-lg shadow-outline">
             <Image
-              className={clsx(
+              className={cx(
                 'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
                 getCategoryColors(category),
               )}
