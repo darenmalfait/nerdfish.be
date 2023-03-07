@@ -10,7 +10,7 @@ async function fetchPage(slug?: string) {
   return getPage(`${slug?.toLowerCase() ?? 'home'}.md`)
 }
 
-export async function generateStaticPaths() {
+export async function generateStaticParams() {
   return ((await getPages()) ?? []).map(page => ({
     slug: page._sys?.filename ?? 'home',
   }))

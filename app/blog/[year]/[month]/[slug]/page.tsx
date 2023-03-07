@@ -21,7 +21,7 @@ async function fetchBlog(slug?: string, year?: string, month?: string) {
   return getBlogPost(getPath(slug, year, month))
 }
 
-export async function generateStaticPaths() {
+export async function generateStaticParams() {
   return ((await getBlogPosts()) ?? []).map(({date, _sys}) => {
     const d = new Date(date ?? '')
 

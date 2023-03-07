@@ -21,7 +21,7 @@ async function fetchWiki(slug?: string, year?: string, month?: string) {
   return getWikiPost(getPath(slug, year, month))
 }
 
-export async function generateStaticPaths() {
+export async function generateStaticParams() {
   return ((await getWikiPosts()) ?? []).map(({date, _sys}) => {
     const d = new Date(date ?? '')
 
