@@ -4,10 +4,12 @@ import {notFound} from 'next/navigation'
 import {getPage, getPages} from '~/lib/services/api'
 import {getMetaData} from '~/lib/utils/seo'
 import {getFileNameFromUrl} from '~/lib/utils/social'
+import {stripTrailingSlash} from '~/lib/utils/string'
 import {DefaultPage} from '~/templates/page'
 
 async function fetchPage(slug?: string) {
-  return getPage(`${slug?.toLowerCase() ?? 'home'}.md`)
+  const path = slug ? stripTrailingSlash(slug.toLowerCase()) : 'home'
+  return getPage(`${path.length ? path : 'home'}.md`)
 }
 
 export async function generateStaticParams() {
