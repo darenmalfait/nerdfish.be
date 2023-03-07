@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getWikiPost, getWikiPosts} from '~/lib/services/api'
@@ -37,7 +38,13 @@ export async function generateMetadata({
 }: {
   params: {slug?: string; year?: string; month?: string}
 }): Promise<Metadata | undefined> {
-  const {data} = await fetchWiki(params.slug, params.year, params.month)
+  const loaderData = await fetchWiki(params.slug, params.year, params.month)
+
+  if (!loaderData) {
+    notFound()
+  }
+
+  const {data} = loaderData
 
   return getMetaData({
     image: data.wiki.seo?.seoImg,
@@ -57,7 +64,11 @@ export default async function wikiPage({
 }: {
   params: {slug?: string; year?: string; month?: string}
 }) {
-  const data = await fetchWiki(slug, year, month)
+  const loaderData = await fetchWiki(slug, year, month)
 
-  return <WikiPage {...data} />
+  if (!loaderData) {
+    notFound()
+  }
+
+  return <WikiPage {...loaderData} />
 }

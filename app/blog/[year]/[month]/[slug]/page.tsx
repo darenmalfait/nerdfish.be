@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getBlogPost, getBlogPosts} from '~/lib/services/api'
@@ -37,7 +38,13 @@ export async function generateMetadata({
 }: {
   params: {slug?: string; year?: string; month?: string}
 }): Promise<Metadata | undefined> {
-  const {data} = await fetchBlog(params.slug, params.year, params.month)
+  const loaderData = await fetchBlog(params.slug, params.year, params.month)
+
+  if (!loaderData) {
+    return
+  }
+
+  const {data} = loaderData
 
   return getMetaData({
     image: data.blog.seo?.seoImg,
@@ -57,7 +64,11 @@ export default async function Page({
 }: {
   params: {slug?: string; year?: string; month?: string}
 }) {
-  const data = await fetchBlog(slug, year, month)
+  const loaderData = await fetchBlog(slug, year, month)
 
-  return <BlogPage {...data} />
+  if (!loaderData) {
+    notFound()
+  }
+
+  return <BlogPage {...loaderData} />
 }

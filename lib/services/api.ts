@@ -32,9 +32,11 @@ async function getWikiPosts() {
 }
 
 async function getWikiPost(relativePath: string) {
-  return tina.queries.wikiQuery({
-    relativePath,
-  })
+  return tina.queries
+    .wikiQuery({
+      relativePath,
+    })
+    .catch(() => null)
 }
 
 function mapPageData(data: ContentQueryQuery) {
@@ -62,9 +64,13 @@ function mapBlogData(data: BlogPostQueryQuery) {
 }
 
 async function getPage(relativePath: string) {
-  const page = await tina.queries.contentQuery({
-    relativePath,
-  })
+  const page = await tina.queries
+    .contentQuery({
+      relativePath,
+    })
+    .catch(() => null)
+
+  if (!page) return null
 
   return {
     ...page,
@@ -73,9 +79,13 @@ async function getPage(relativePath: string) {
 }
 
 async function getBlogPost(relativePath: string) {
-  const blog = await tina.queries.blogPostQuery({
-    relativePath,
-  })
+  const blog = await tina.queries
+    .blogPostQuery({
+      relativePath,
+    })
+    .catch(() => null)
+
+  if (!blog) return null
 
   return {
     ...blog,

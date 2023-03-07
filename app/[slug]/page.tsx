@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {notFound} from 'next/navigation'
 
 import {getPage, getPages} from '~/lib/services/api'
 import {getMetaData} from '~/lib/utils/seo'
@@ -20,7 +21,13 @@ export async function generateMetadata({
 }: {
   params: {slug?: string}
 }): Promise<Metadata | undefined> {
-  const {data} = await fetchPage(params.slug)
+  const loaderData = await fetchPage(params.slug)
+
+  if (!loaderData) {
+    return
+  }
+
+  const {data} = loaderData
 
   return getMetaData({
     image: data.page.seo?.seoImg,
@@ -41,6 +48,10 @@ export default async function Page({
   params: {slug?: string}
 }) {
   const data = await fetchPage(slug)
+
+  if (!data) {
+    notFound()
+  }
 
   return <DefaultPage {...data} />
 }
