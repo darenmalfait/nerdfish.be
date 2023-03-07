@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import {cx} from '@daren/ui-components'
 
 const colorMap: Record<string, string> = {
   unknown: 'set-color-blog-current-unknown',
@@ -26,19 +26,19 @@ function CategoryIndicator({
 }: CategoryIndicatorProps) {
   return (
     <div
-      className={clsx({
+      className={cx({
         'absolute inset-0 flex h-full w-full items-start justify-start':
           !inline,
       })}
     >
       <span
-        className={clsx(
-          className,
+        className={cx(
           'z-10 inline-block w-auto rounded-xl py-2 px-4 text-sm font-bold shadow-sm transition-colors bg-secondary text-secondary',
           // getCategoryColors(category || ''),
           {
             'absolute top-6 right-6 lg:right-[unset] lg:left-6': !inline,
           },
+          className,
         )}
       >
         {category}

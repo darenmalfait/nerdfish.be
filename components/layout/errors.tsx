@@ -5,11 +5,10 @@ import {
   RssIcon,
 } from '@heroicons/react/24/solid'
 
-import {BigTitle} from '../../components/blocks/big-title'
-import {ArrowLink} from '../../components/common/arrow-link'
-import {NoIndex} from '../../components/common/seo'
-import global from '../../content/global/index.json'
-import {stripPreSlash} from '../../lib/utils/string'
+import {BigTitle} from '~/components/blocks/big-title'
+import {ArrowLink} from '~/components/common/arrow-link'
+import global from '~/content/global/index.json'
+import {stripPreSlash} from '~/lib/utils/string'
 
 function ErrorPage({
   title = '404',
@@ -37,7 +36,6 @@ function ErrorPage({
 
   return (
     <>
-      <NoIndex />
       <Section>
         <BigTitle parentField="title" title={title} />
       </Section>

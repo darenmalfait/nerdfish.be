@@ -1,3 +1,5 @@
+'use client'
+
 import type {ExtractProps} from '@daren/ui-components'
 import {TinaMarkdown} from 'tinacms/dist/rich-text'
 
@@ -16,7 +18,7 @@ function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
           Button: PortableButton,
           ContactForm: PortableContactForm,
           code_block: PortableCode,
-          img: PortableImage,
+          // img: PortableImage,
           image: PortableImage,
           a: Link,
         } as any

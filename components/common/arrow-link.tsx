@@ -1,7 +1,8 @@
-import clsx from 'clsx'
+import {cx} from '@daren/ui-components'
 import {Variant, motion} from 'framer-motion'
 
-import {ElementState, useElementState} from '../../lib/utils/use-element-state'
+import {ElementState, useElementState} from '~/lib/utils/use-element-state'
+
 import {ArrowIcon, ArrowIconProps} from '../icons/arrow-icon'
 import {Link} from './link'
 
@@ -73,7 +74,7 @@ function ArrowLink({
     <Tag
       {...props}
       href={href ?? '#'}
-      className={clsx(
+      className={cx(
         className,
         'inline-flex cursor-pointer items-center space-x-4 text-left text-lg font-bold !no-underline transition text-primary focus:outline-none',
       )}
@@ -109,7 +110,7 @@ function BackLink({
   return (
     <Tag
       href={href}
-      className={clsx(
+      className={cx(
         className,
         'flex space-x-4 font-bold text-primary focus:outline-none',
       )}

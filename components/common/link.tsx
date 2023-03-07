@@ -3,7 +3,7 @@ import NextLink, {LinkProps} from 'next/link'
 import {ButtonLink, Link as DarenLink} from '@daren/ui-components'
 import Obfuscate from 'react-obfuscate'
 
-import {stripPreSlash} from '../../lib/utils/string'
+import {stripPreSlash} from '~/lib/utils/string'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https']
 

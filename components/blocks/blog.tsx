@@ -1,8 +1,17 @@
+'use client'
+
 import * as React from 'react'
-import {useRouter} from 'next/router'
-import {Button, Container, Grid, H3, H5, Section} from '@daren/ui-components'
+import {useSearchParams} from 'next/navigation'
+import {
+  Button,
+  Container,
+  Grid,
+  H3,
+  H5,
+  Section,
+  cx,
+} from '@daren/ui-components'
 import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 
@@ -17,8 +26,8 @@ import {
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
 import {BlogPath} from '~/lib/utils/constants'
-import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/misc'
 import {getDatedSlug} from '~/lib/utils/routes'
+import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/url'
 
 import {ArticleCard} from '../common/article-card'
 import {HighlightCard} from '../common/highlight-card'
@@ -50,18 +59,15 @@ function Blog({
 }) {
   const {hydrated} = useGlobal()
   const {title, subtitle, link} = header ?? {}
-  const router = useRouter()
+  const params = useSearchParams()
 
-  const [queryValue, setQuery] = React.useState(
-    router.query.q?.toString() ?? '',
-  )
+  const [queryValue, setQuery] = React.useState(params?.get('q') ?? '')
 
   React.useEffect(() => {
-    setQuery(router.query.q?.toString() ?? '')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.isReady])
+    setQuery(params?.get('q') ?? '')
+  }, [params])
 
-  const {blog: allPosts} = useBlockData()
+  const {blogs: allPosts} = useBlockData()
 
   const query = typeof queryValue === 'string' ? queryValue.trim() : ''
   useUpdateQueryStringValueWithoutNavigation('q', query)
@@ -144,7 +150,7 @@ function Blog({
                   </div>
                 ) : null}
                 <div
-                  className={clsx(
+                  className={cx(
                     'col-span-full pt-6 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
                     {
                       'lg:col-span-5 lg:col-start-1': header?.image,

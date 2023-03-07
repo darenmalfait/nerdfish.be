@@ -1,5 +1,5 @@
+import {cx} from '@daren/ui-components'
 import {ArrowRightIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 
 type ArrowIconProps = {
   direction: 'up' | 'right' | 'down' | 'left'
@@ -24,7 +24,7 @@ function ArrowIcon({
     <ArrowRightIcon
       width={size}
       height={size}
-      className={clsx(className, '', rotationMap[direction])}
+      className={cx(rotationMap[direction], className)}
       {...props}
     />
   )

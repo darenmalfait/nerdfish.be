@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Button, Container, H2, RadioGroup} from '@daren/ui-components'
 
-import {BasicForm} from '../../../components/forms/basic-form'
+import {BasicForm} from '~/components/forms/basic-form'
 
 type FormType = 'basic' | 'project' | 'coffee'
 

@@ -1,6 +1,6 @@
 import {ButtonLink, ExtractProps} from '@daren/ui-components'
 
-import {stripPreSlash} from '../../../lib/utils/string'
+import {stripPreSlash} from '~/lib/utils/string'
 
 function PortableButton({
   text,

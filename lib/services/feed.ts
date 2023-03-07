@@ -21,7 +21,7 @@ async function buildFeed() {
 
   const posts = (await getBlogPosts()) ?? []
 
-  posts.forEach(post => {
+  posts.reverse().forEach(post => {
     const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
       new Date(post.date ?? '').toDateString(),
       post._sys?.filename ?? '',

@@ -1,13 +1,14 @@
 import * as React from 'react'
+import {cx} from '@daren/ui-components'
 import {ClipboardDocumentListIcon} from '@heroicons/react/24/solid'
-import clsx from 'clsx'
 import Highlight, {
   Language,
   PrismTheme,
   defaultProps,
 } from 'prism-react-renderer'
 
-import {useTheme} from '../../../context/theme-provider'
+import {useTheme} from '~/context/theme-provider'
+
 import darkTheme from './vscode-dark'
 import lightTheme from './vscode-light'
 
@@ -36,7 +37,7 @@ function CopyButton({code}: {code: string}) {
   return (
     <button
       type="button"
-      className={clsx(
+      className={cx(
         'group/button absolute top-3.5 right-4 z-10 overflow-hidden rounded-full py-1 pl-2 pr-3 text-xs font-medium opacity-0 backdrop-blur transition text-primary focus:opacity-100 group-hover:opacity-100',
         copied
           ? 'bg-emerald-400/10 ring-1 ring-inset ring-emerald-400/20'
@@ -50,7 +51,7 @@ function CopyButton({code}: {code: string}) {
     >
       <span
         aria-hidden={copied}
-        className={clsx(
+        className={cx(
           'pointer-events-none flex items-center gap-0.5 text-gray-800 transition duration-300 dark:text-gray-200',
           copied && '-translate-y-1.5 opacity-0',
         )}
@@ -60,7 +61,7 @@ function CopyButton({code}: {code: string}) {
       </span>
       <span
         aria-hidden={!copied}
-        className={clsx(
+        className={cx(
           'pointer-events-none absolute inset-0 flex items-center justify-center text-emerald-400 transition duration-300',
           !copied && 'translate-y-1.5 opacity-0',
         )}
@@ -116,7 +117,7 @@ function CodeBlock({
       >
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <div
-            className={clsx(
+            className={cx(
               classNameProp,
               'rounded-xl bg-black/5 shadow-outline dark:bg-white/5',
             )}
@@ -128,7 +129,7 @@ function CodeBlock({
             </div>
             <CopyButton code={code} />
             <pre
-              className={clsx(
+              className={cx(
                 className,
                 'relative my-5 mx-auto overflow-x-auto pt-0 pb-5 pr-8 text-sm leading-relaxed ',
                 {
@@ -141,9 +142,10 @@ function CodeBlock({
               {tokens.map((line, i) => {
                 if (i === tokens.length - 1 && line.length === 0) return null
 
+                const tokenProps = getLineProps({line, key: i})
+
                 return (
-                  // eslint-disable-next-line react/jsx-key
-                  <div {...getLineProps({line, key: i})}>
+                  <div {...tokenProps} key={tokenProps.key}>
                     {showLineNumbers ? (
                       <span className="absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center text-primary-300">
                         {pad(i + 1)}
@@ -151,8 +153,7 @@ function CodeBlock({
                     ) : null}
                     {line.length === 0 ? <span>&#8203;</span> : null}
                     {line.map((token, key) => (
-                      // eslint-disable-next-line react/jsx-key
-                      <span {...getTokenProps({token, key})} />
+                      <span {...getTokenProps({token, key})} key={key} />
                     ))}
                   </div>
                 )
