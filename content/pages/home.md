@@ -8,13 +8,13 @@ seo:
     http://res.cloudinary.com/darenmalfait/image/upload/v1673109305/Daren_isometric_solid_background_3098f641-8e43-4573-bb18-d72b18b9d6ac_cwg6yr.png
 title: Home
 blocks:
-  - title: Daren Malfait
+  - title: nerdfish
     action:
       title: Hire me
       label: Get in touch
       href: contact
     _template: bigTitle
-  - title: 'Hi, I''m Daren'
+  - title: 'Hi, I''m Nerdfish'
     text: >
       I'm a **freelance full-stack JavaScript/TypeScript & ReactJS engineer**
       with ~ ten years of experience from Harelbeke, Belgium.
@@ -26,7 +26,7 @@ blocks:
       <Button text="Hire me!" href="contact" />
     image:
       src: >-
-        http://res.cloudinary.com/darenmalfait/image/upload/v1673109178/daren-plastic_ogvpor.png
+        http://res.cloudinary.com/darenmalfait/image/upload/v1678350404/nerdy-fish-no-bg_tlt9pd.png
       alt: Daren Malfait
     _template: hero
   - title: What do I do?
@@ -82,6 +82,8 @@ blocks:
     count: 3
     _template: Blog
 ---
+
+
 
 
 
