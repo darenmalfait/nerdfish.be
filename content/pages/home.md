@@ -14,7 +14,7 @@ blocks:
       label: Get in touch
       href: contact
     _template: bigTitle
-  - title: 'Hi, I''m Nerdfish'
+  - title: 'Hi, I''m Daren'
     text: >
       I'm a **freelance full-stack JavaScript/TypeScript & ReactJS engineer**
       with ~ ten years of experience from Harelbeke, Belgium.
