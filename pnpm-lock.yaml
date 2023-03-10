@@ -6,9 +6,9 @@ overrides:
 specifiers:
   '@commitlint/cli': ^17.4.4
   '@commitlint/config-conventional': ^17.4.4
-  '@daren/theme': ^2.4.8
-  '@daren/ui-components': ^1.20.7
-  '@daren/ui-core': ^2.12.3
+  '@daren/theme': ^2.5.0
+  '@daren/ui-components': ^1.20.9
+  '@daren/ui-core': ^2.12.4
   '@headlessui/react': ^1.7.12
   '@heroicons/react': ^2.0.16
   '@next/env': ^13.2.4
@@ -62,9 +62,9 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
-  '@daren/theme': 2.4.8_react@18.2.0
-  '@daren/ui-components': 1.20.7_zula6vjvt3wdocc4mwcxqa6nzi
-  '@daren/ui-core': 2.12.3_tailwindcss@3.2.7
+  '@daren/theme': 2.5.0_react@18.2.0
+  '@daren/ui-components': 1.20.9_zula6vjvt3wdocc4mwcxqa6nzi
+  '@daren/ui-core': 2.12.4_tailwindcss@3.2.7
   '@headlessui/react': 1.7.12_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.16_react@18.2.0
   '@next/env': 13.2.4
@@ -1865,8 +1865,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/progressive-image/1.4.17_react@18.2.0:
-    resolution: {integrity: sha512-lWUzm949Qoq6Tzn9llH3WHQ2AJfz/TE0azZLAU3lKZ/JomKFbLDO1RVOzPUWYzoGT/pHxWEtUOR3l4ulu49Pcg==}
+  /@daren/progressive-image/1.4.18_react@18.2.0:
+    resolution: {integrity: sha512-P541OUUv9NhKg0aKOL6YuK9joZxZGKmpmkrr4AZAf1/J8LBEBCPdUSeSVYVui/d6mVleFPzkjLIdfY9hG1aM0w==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1918,8 +1918,8 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/theme/2.4.8_react@18.2.0:
-    resolution: {integrity: sha512-UoYfKwzRT5utjMk+Ys+X6NG4NprpJ66fSBFep3zXua6ykinJXcMVa/sX0jkXQuhoBI5xFMV9K3b2YtMm+J8GAQ==}
+  /@daren/theme/2.5.0_react@18.2.0:
+    resolution: {integrity: sha512-YX94bX3UMEJBgyGhwCHT49tHfXCq9WpTjOwMg4YetHGejMd/mbDIaVCGxcUjI9jFiLtcJr89BgpFYehajWh2MQ==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1949,8 +1949,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@daren/ui-components/1.20.7_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-MljoxqV39Ilgp6OcO5t6RCs/TmrsNnKISo4gLb854rjfhNjFEUvY0a6b4giB/bBX2BBlono1cpEOMvShIujW8A==}
+  /@daren/ui-components/1.20.9_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-1uWcoVvUAW3aaNs6mVnX/YJeoBOFqIxW5JKNenOfNmUiqv1TN6j7idQmrBA2fnVuaPwowZuezI+zvF6O+IFjHw==}
     peerDependencies:
       react: '>=18.2.0'
     dependencies:
@@ -1963,12 +1963,12 @@ packages:
       '@daren/layout-components': 1.3.16_react@18.2.0
       '@daren/modal': 1.4.23_biqbaboplfbrettd7655fr4n2y
       '@daren/navigation-list': 1.4.4_react@18.2.0
-      '@daren/progressive-image': 1.4.17_react@18.2.0
+      '@daren/progressive-image': 1.4.18_react@18.2.0
       '@daren/review': 1.3.24_react@18.2.0
       '@daren/scroll-area': 1.0.2_biqbaboplfbrettd7655fr4n2y
       '@daren/spinner': 1.1.16_react@18.2.0
       '@daren/tabs': 2.0.4_biqbaboplfbrettd7655fr4n2y
-      '@daren/theme': 2.4.8_react@18.2.0
+      '@daren/theme': 2.5.0_react@18.2.0
       '@daren/toast': 1.1.3_biqbaboplfbrettd7655fr4n2y
       '@daren/typography': 1.9.13_react@18.2.0
       '@daren/utils': 1.9.7_react@18.2.0
@@ -1978,8 +1978,8 @@ packages:
       - react-dom
     dev: false
 
-  /@daren/ui-core/2.12.3_tailwindcss@3.2.7:
-    resolution: {integrity: sha512-kzmEVvxb6xOaj6lyoAX2n9mLvUL+TdrBJAMgek2PfMeuyGuLnQKRqG+A7+fep/x8/GBlcm/8Mo6ilhv8CfKe3Q==}
+  /@daren/ui-core/2.12.4_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-2VhCZn5n1FLiZymmpb4zLQJsShfFD++6onStXERoTMbmxe79hZBgO3N1MeqSpeKp/VCI4nTRwC5SjjmOiivnog==}
     peerDependencies:
       tailwindcss: 3.2.7
     dependencies:
