@@ -8,8 +8,10 @@ import {stripTrailingSlash} from '~/lib/utils/string'
 import {DefaultPage} from '~/templates/page'
 
 async function fetchPage(slug?: string) {
-  const path = slug ? stripTrailingSlash(slug.toLowerCase()) : 'home'
-  return getPage(`${path.length ? path : 'home'}.md`)
+  const filename =
+    !slug || slug === '/' ? 'home' : stripTrailingSlash(slug.toLowerCase())
+
+  return getPage(`${filename.length ? filename : 'home'}.md`)
 }
 
 export async function generateStaticParams() {
