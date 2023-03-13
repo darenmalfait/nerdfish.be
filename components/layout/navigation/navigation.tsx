@@ -3,7 +3,6 @@ import {usePathname} from 'next/navigation'
 import {cx} from '@daren/ui-components'
 
 import {useGlobal} from '~/context/global-provider'
-import {getDomainUrl} from '~/lib/utils/misc'
 import {stripPreSlash} from '~/lib/utils/string'
 
 import {Navbar} from './navbar'
@@ -29,7 +28,7 @@ function Navigation({multilang, ...props}: NavigationProps) {
   }, [navigation?.actions])
 
   return (
-    <Navbar {...props} rootPath={getDomainUrl()} actions={actionItems}>
+    <Navbar {...props} rootPath="/" actions={actionItems}>
       {navigation?.main?.map((link, i: number) => {
         if (!link) return null
         const isActive = stripPreSlash(pathname).startsWith(link.href)
