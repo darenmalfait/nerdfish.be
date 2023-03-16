@@ -1,7 +1,8 @@
 import * as React from 'react'
-import {Button, Container, H2, RadioGroup} from '@daren/ui-components'
+import {Button, Container, H2} from '@nerdfish/ui'
 
 import {BasicForm} from '~/components/forms/basic-form'
+import {RadioGroup} from '~/components/forms/radio-group'
 
 type FormType = 'basic' | 'project' | 'coffee'
 

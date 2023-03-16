@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {usePathname} from 'next/navigation'
-import {cx} from '@daren/ui-components'
+import {cx} from '@nerdfish/utils'
 
 import {useGlobal} from '~/context/global-provider'
 import {stripPreSlash} from '~/lib/utils/string'

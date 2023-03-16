@@ -1,5 +1,5 @@
-import {cx} from '@daren/ui-components'
-import {ArrowRightIcon} from '@heroicons/react/24/solid'
+import {cx} from '@nerdfish/utils'
+import {ArrowRight} from 'lucide-react'
 
 type ArrowIconProps = {
   direction: 'up' | 'right' | 'down' | 'left'
@@ -21,7 +21,7 @@ function ArrowIcon({
   ...props
 }: JSX.IntrinsicElements['svg'] & ArrowIconProps) {
   return (
-    <ArrowRightIcon
+    <ArrowRight
       width={size}
       height={size}
       className={cx(rotationMap[direction], className)}

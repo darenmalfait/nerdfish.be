@@ -1,6 +1,6 @@
 'use client'
 
-import {ThemeProvider as DarenThemeProvider} from '@daren/theme'
+import {ThemeProvider as NerdfishThemeProvider} from '@nerdfish/theme'
 
 import {ThemeProvider} from './theme-provider'
 
@@ -11,7 +11,7 @@ interface AppProvidersProps {
 function AppProviders({children}: AppProvidersProps) {
   return (
     <ThemeProvider>
-      <DarenThemeProvider>{children}</DarenThemeProvider>
+      <NerdfishThemeProvider>{children}</NerdfishThemeProvider>
     </ThemeProvider>
   )
 }

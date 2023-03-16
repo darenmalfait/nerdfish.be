@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {cx} from '@daren/ui-components'
-import {MoonIcon, SunIcon} from '@heroicons/react/24/solid'
+import {cx} from '@nerdfish/utils'
+import {Moon, Sun} from 'lucide-react'
 
 import {useTheme} from '~/context/theme-provider'
 
@@ -33,7 +33,7 @@ function ThemeToggle({
       )}
       onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
     >
-      {isDarkMode ? <SunIcon className="w-5" /> : <MoonIcon className="w-5" />}
+      {isDarkMode ? <Sun className="w-5" /> : <Moon className="w-5" />}
       <div className="sr-only">{isDarkMode ? `Light` : `Dark`} Mode</div>
     </button>
   )

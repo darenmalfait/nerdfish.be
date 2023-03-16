@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Container, Grid, H1, Section} from '@daren/ui-components'
+import {Container, Grid, H1, Section} from '@nerdfish/ui'
 
 import type {Block} from '~/lib/types/cms'
 

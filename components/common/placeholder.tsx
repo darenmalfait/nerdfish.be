@@ -1,4 +1,4 @@
-import {Section} from '@daren/ui-components'
+import {Section} from '@nerdfish/ui'
 
 function Placeholder({componentName}: {componentName: string | number}) {
   return (

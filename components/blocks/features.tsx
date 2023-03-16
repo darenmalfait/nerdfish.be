@@ -1,6 +1,6 @@
-import {Grid, H2, Section} from '@daren/ui-components'
-import * as Icons from '@heroicons/react/24/solid'
+import {Grid, H2, Section} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
+import * as Icons from 'lucide-react'
 
 import type {Block} from '~/lib/types/cms'
 
@@ -23,7 +23,7 @@ function FeatureCard({
     icon?: keyof typeof Icons
     index?: number
   }) {
-  const Icon = icon && dynamicHeroIcon(icon)
+  const Icon = icon && (dynamicHeroIcon(icon) as Icons.LucideIcon)
 
   return (
     <div

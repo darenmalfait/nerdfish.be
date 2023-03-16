@@ -72,9 +72,9 @@ export default async function handler(
       `
 
       await sendEmail({
-        to: `"Daren Malfait" <me@daren.be>`,
-        from: 'me@daren.be',
-        subject: 'Form submission from daren.be',
+        to: `"Daren Malfait" <daren@nerdfish.be>`,
+        from: 'daren@nerdfish.be',
+        subject: 'Form submission from nerdfish.be',
         html,
         replyTo: `${name} <${email}>`,
       })

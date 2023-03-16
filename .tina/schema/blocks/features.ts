@@ -1,4 +1,4 @@
-import * as Icons from '@heroicons/react/24/solid'
+import * as Icons from 'lucide-react'
 import type {Template} from 'tinacms'
 
 const defaultFeature = {
