@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Grid, H3, Paragraph, Section} from '@daren/ui-components'
+import {Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 
 import type {Product} from '~/.tina/__generated__/types'
 import {useBlockData} from '~/context/block-data-provider'
@@ -48,7 +48,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
             </span>
           </Paragraph>
         </div>
-        <div className="absolute inset-0 z-0 bg-daren-100 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
+        <div className="absolute inset-0 z-0 bg-nerdfish-100 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
       </Link>
     </div>
   )

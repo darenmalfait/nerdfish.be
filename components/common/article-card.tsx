@@ -1,4 +1,5 @@
-import {H3, cx} from '@daren/ui-components'
+import {H3} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 
 import type {Blog} from '~/.tina/__generated__/types'
 import {useGlobal} from '~/context/global-provider'

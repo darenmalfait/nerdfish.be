@@ -1,9 +1,5 @@
-import {Container, Grid, Paragraph, Section} from '@daren/ui-components'
-import {
-  BookmarkIcon,
-  ChevronRightIcon,
-  RssIcon,
-} from '@heroicons/react/24/solid'
+import {Container, Grid, Paragraph, Section} from '@nerdfish/ui'
+import {Bookmark, ChevronRight, Rss} from 'lucide-react'
 
 import {BigTitle} from '~/components/blocks/big-title'
 import {ArrowLink} from '~/components/common/arrow-link'
@@ -23,13 +19,13 @@ function ErrorPage({
     {
       title: 'Blog',
       description: 'Read about my latest news and articles.',
-      icon: RssIcon,
+      icon: Rss,
       href: `/${stripPreSlash(paths.blog || '')}`,
     },
     {
       title: 'Get in touch',
       description: "Send me a message and I'll get back to you.",
-      icon: BookmarkIcon,
+      icon: Bookmark,
       href: `/${stripPreSlash(paths.contact || '')}`,
     },
   ]
@@ -88,7 +84,7 @@ function ErrorPage({
                             </p>
                           </div>
                           <div className="shrink-0 self-center">
-                            <ChevronRightIcon
+                            <ChevronRight
                               className="h-5 w-5 text-gray-400"
                               aria-hidden="true"
                             />

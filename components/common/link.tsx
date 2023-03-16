@@ -1,6 +1,6 @@
 import * as React from 'react'
 import NextLink, {LinkProps} from 'next/link'
-import {ButtonLink, Link as DarenLink} from '@daren/ui-components'
+import {ButtonLink, Link as NerdfishLink} from '@nerdfish/ui'
 import Obfuscate from 'react-obfuscate'
 
 import {stripPreSlash} from '~/lib/utils/string'
@@ -59,7 +59,7 @@ const Link = React.forwardRef<
   }
 
   return (
-    <DarenLink
+    <NerdfishLink
       passHref
       ref={ref}
       as={NextLink as any}

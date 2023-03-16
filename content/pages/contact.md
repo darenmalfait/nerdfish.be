@@ -1,7 +1,7 @@
 ---
 seo:
-  title: Contact Daren Malfait
-  description: Send Daren a personal email
+  title: Contact Nerdfish
+  description: Send a question with an email
 title: contact
 blocks:
   - title: Contact me
@@ -25,11 +25,12 @@ blocks:
       ## Contact information
 
 
+      Nerdfish\
       Daren Malfait BV\
 
-      [me@daren.be](mailto:me@daren.be "me@daren.be")\
+      [daren@nerdfish.be](mailto:daren@nerdfish.be "daren@nerdfish.be")\
 
-      BTW: BE0794123756
+      VAT: BE0794123756
     _template: content
 ---
 

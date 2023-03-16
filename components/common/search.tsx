@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {cx} from '@daren/ui-components'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
-import {MagnifyingGlassIcon} from '@heroicons/react/24/solid'
+import {cx} from '@nerdfish/utils'
+import {Search as SearchIcon} from 'lucide-react'
 import type {Hit} from 'react-instantsearch-core'
 import {
   Configure,
@@ -49,7 +49,7 @@ function SearchResult({
         attribute="title"
         classNames={{
           root: 'text-sm font-medium text-zinc-900 dark:text-white',
-          highlighted: 'bg-transparent text-daren-100 underline',
+          highlighted: 'bg-transparent text-nerdfish-100 underline',
         }}
         hit={item as any}
       />
@@ -61,7 +61,7 @@ function SearchResult({
             attribute="type"
             classNames={{
               root: 'text-2xs truncate whitespace-nowrap text-secondary',
-              highlighted: 'bg-transparent text-daren-100 underline',
+              highlighted: 'bg-transparent text-nerdfish-100 underline',
             }}
             hit={item as any}
           >
@@ -176,7 +176,7 @@ function SearchDialog({
                     placeholder="Search website..."
                     onChange={event => refine(event.currentTarget.value)}
                   />
-                  <MagnifyingGlassIcon
+                  <SearchIcon
                     className="pointer-events-none absolute top-3.5 right-4 h-5 w-5 text-gray-400"
                     aria-hidden="true"
                   />
@@ -219,7 +219,7 @@ function SearchComponent() {
         className="flex items-center justify-center rounded-full p-2 font-fallback focus-ring"
         onClick={() => setOpen(true)}
       >
-        <MagnifyingGlassIcon className="w-5" />
+        <SearchIcon className="w-5" />
         <div className="sr-only">Search</div>
       </button>
       <SearchDialog open={open} setOpen={setOpen} />

@@ -6,7 +6,7 @@ import '~/styles/tailwind.css'
 import '~/styles/app.css'
 import '~/styles/prose.css'
 import '~/styles/components.css'
-import '@daren/theme/dist/darenui.css'
+import '@nerdfish/theme/dist/nerdfishui.css'
 
 const inter = interFont({
   variable: '--font-inter',

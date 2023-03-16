@@ -1,5 +1,6 @@
 import * as React from 'react'
-import {ExtractProps, ProgressiveImage, cx} from '@daren/ui-components'
+import {ProgressiveImage} from '@nerdfish/ui'
+import {ExtractProps, cx} from '@nerdfish/utils'
 
 function Image({
   src,

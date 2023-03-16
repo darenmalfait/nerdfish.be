@@ -1,12 +1,12 @@
 <div align="center">
-<h1>Daren.be</h1>
+<h1>nerdfish.be</h1>
 
-<p>Darens personal website</p>
+<p>Nerdfish website</p>
 </div>
 
 ---
 
-This repository contains the code for my personal website. The website is built using NextJS with tailwindcss and tinacms as a CMS.
+This repository contains the code for nerdfish.be. The website is built using NextJS with tailwindcss and tinacms as a CMS.
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -56,7 +56,7 @@ pnpm dev
 The website's favicon was generated with [https://realfavicongenerator.net/](https://realfavicongenerator.net/).
 
 ## Commit Messages
-The commit messages for this project follow the semantic format. For more information on how to write the perfect commit message, please refer to this [blog post](https://www.daren.be/blog/2022/02/writing-the-perfect-git-commit-message).
+The commit messages for this project follow the semantic format. For more information on how to write the perfect commit message, please refer to this [blog post](https://www.nerdfish.be/blog/2022/02/writing-the-perfect-git-commit-message).
 
 ## License
 This website is licensed under the MIT license. Please see the LICENSE file for more information.

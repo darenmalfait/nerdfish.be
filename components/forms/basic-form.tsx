@@ -1,15 +1,10 @@
 import * as React from 'react'
-import {
-  Alert,
-  Button,
-  Field,
-  FormHelperText,
-  Label,
-  RadioGroup,
-} from '@daren/ui-components'
+import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
 
 import {useSubmit} from '~/lib/utils/form'
 import {useRecaptcha} from '~/lib/utils/recaptcha'
+
+import {RadioGroup} from './radio-group'
 
 function ProjectField() {
   const [project, setProject] = React.useState<any>('website')
@@ -76,13 +71,13 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     <form noValidate onSubmit={handleSubmit}>
       <fieldset>
         <div className="mb-8 space-y-8">
-          <Field
+          <Input
             label="Name"
             name="name"
             id="name"
             error={result?.errors?.name}
           />
-          <Field
+          <Input
             label="Email"
             name="email"
             id="email"
@@ -94,7 +89,7 @@ function BasicForm({withProject}: {withProject?: boolean}) {
               <ProjectField />
             </div>
           ) : null}
-          <Field
+          <Input
             type="textarea"
             label="Message"
             name="message"
@@ -106,15 +101,8 @@ function BasicForm({withProject}: {withProject?: boolean}) {
           </FormHelperText>
           {emailSuccessfullySent ? (
             <Alert
-              type="success"
-              description={
-                <p className="m-0 p-0">
-                  Your message has been sent successfully.{' '}
-                  <span role="img" aria-label="party popper emoji">
-                    🎉
-                  </span>
-                </p>
-              }
+              variant="success"
+              description="Your message has been sent successfully. 🎉"
             />
           ) : (
             <Button disabled={state !== 'idle'} type="submit">
@@ -123,14 +111,17 @@ function BasicForm({withProject}: {withProject?: boolean}) {
           )}
         </div>
         {result?.errors?.generalError ? (
-          <Alert type="danger" description={result.errors.generalError} />
+          <Alert variant="danger" description={result.errors.generalError} />
         ) : null}
         {result?.errors?.recaptchaResponse ? (
-          <Alert type="danger" description={result.errors.recaptchaResponse} />
+          <Alert
+            variant="danger"
+            description={result.errors.recaptchaResponse}
+          />
         ) : null}
         {submitError ? (
           <Alert
-            type="danger"
+            variant="danger"
             description="There was an error submitting your form. Please try again."
           />
         ) : null}
