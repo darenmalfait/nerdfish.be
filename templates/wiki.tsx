@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import {Container, Grid, H1, H6, Section} from '@daren/ui-components'
+import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
 import {useTina} from 'tinacms/dist/react'
 
 import type {

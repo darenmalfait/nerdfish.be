@@ -1,6 +1,7 @@
 import * as React from 'react'
-import {Container, Grid, cx} from '@daren/ui-components'
-import {RssIcon} from '@heroicons/react/24/solid'
+import {Container, Grid} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
+import {Rss} from 'lucide-react'
 
 import {Hamburger} from '~/components/common/hamburger'
 import {Link} from '~/components/common/link'
@@ -53,7 +54,7 @@ function MobileNav({
         },
       )}
     >
-      <div className="py-9 px-5vw lg:py-12">
+      <div className="px-5vw py-9 lg:py-12">
         <div className="mx-auto flex max-w-8xl items-center justify-between text-primary">
           <Link
             aria-label="home page"
@@ -132,7 +133,7 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
                     rel="noreferrer"
                   >
                     <span className="sr-only">RSS feed</span>
-                    <RssIcon className="w-5" />
+                    <Rss className="w-5" />
                   </a>
                   <div className="hidden space-x-3 sm:flex">{actions}</div>
                   <Hamburger open={open} onClick={onToggle} />

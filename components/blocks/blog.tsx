@@ -2,18 +2,11 @@
 
 import * as React from 'react'
 import {useSearchParams} from 'next/navigation'
-import {
-  Button,
-  Container,
-  Grid,
-  H3,
-  H5,
-  Section,
-  cx,
-} from '@daren/ui-components'
-import {MagnifyingGlassIcon, PlusIcon} from '@heroicons/react/24/solid'
+import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
+import {Plus, Search} from 'lucide-react'
 
 import {Image} from '~/components/common/image'
 import {useBlockData} from '~/context/block-data-provider'
@@ -166,7 +159,7 @@ function Blog({
                       className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left"
                     >
                       <Container size="full" className="relative">
-                        <MagnifyingGlassIcon
+                        <Search
                           width="20px"
                           height="20px"
                           className="absolute top-0 left-6 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
@@ -286,7 +279,7 @@ function Blog({
               variant="subtle"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
-              <span>Load more</span> <PlusIcon width="20px" height="20px" />
+              <span>Load more</span> <Plus width="20px" height="20px" />
             </Button>
           </div>
         ) : null}

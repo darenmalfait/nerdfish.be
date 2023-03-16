@@ -40,7 +40,7 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   content: [
     // ... paths that use tailwind
-    fromRoot('./node_modules/@daren/**/*.{js,ts,jsx,tsx}'), // path to daren
+    fromRoot('./node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}'), // path to nerdfish
     fromRoot('./pages/**/*.{js,jsx,ts,tsx}'),
     fromRoot('./pages-containers/**/*.{js,jsx,ts,tsx}'),
     fromRoot('./components/**/*.{js,jsx,ts,tsx}'),
@@ -48,6 +48,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
-    require('@daren/ui-core'),
+    require('@nerdfish/tailwind-config'),
   ],
 }

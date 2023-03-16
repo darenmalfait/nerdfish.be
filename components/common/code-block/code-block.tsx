@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {cx} from '@daren/ui-components'
-import {ClipboardDocumentListIcon} from '@heroicons/react/24/solid'
+import {cx} from '@nerdfish/utils'
+import {ClipboardCopy} from 'lucide-react'
 import Highlight, {
   Language,
   PrismTheme,
@@ -56,7 +56,7 @@ function CopyButton({code}: {code: string}) {
           copied && '-translate-y-1.5 opacity-0',
         )}
       >
-        <ClipboardDocumentListIcon className="fill-gray-500/20 h-5 w-5 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
+        <ClipboardCopy className="fill-gray-500/20 h-5 w-5 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
         Copy
       </span>
       <span

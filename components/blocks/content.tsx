@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Section} from '@daren/ui-components'
+import {Grid, Section} from '@nerdfish/ui'
 import type {RichTextType} from 'tinacms'
 
 import type {Block} from '~/lib/types/cms'

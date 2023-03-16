@@ -36,24 +36,24 @@ blocks:
         description: >-
           Web development is the process of building and maintaining websites
           and applications.
-        icon: ComputerDesktopIcon
+        icon: MonitorSmartphone
       - title: User experience
         description: >-
           User experience is crucial because it affects customer satisfaction
           and loyalty.
-        icon: RectangleGroupIcon
+        icon: Paintbrush
       - title: Developer experience
         description: >-
           Developer experience, or DX, is essential because it can affect a
           developer's productivity, satisfaction, and overall effectiveness in
           creating and maintaining software.
-        icon: HeartIcon
+        icon: Heart
       - title: Code auditing
         description: >-
           Code auditing is reviewing and evaluating code to identify and fix
           issues, improve performance, and ensure compliance with coding
           standards.
-        icon: DocumentMagnifyingGlassIcon
+        icon: FileSearch
     _template: features
   - title: Tools & Techs
     keywords:

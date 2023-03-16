@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {cx} from '@daren/ui-components'
+import {cx} from '@nerdfish/utils'
 
 import {
   buildSrc,

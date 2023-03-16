@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Container, DoubleLabelLink, Grid, Section} from '@daren/ui-components'
+import {Container, DoubleLabelLink, Grid, Section} from '@nerdfish/ui'
 
 import {Link} from '~/components/common/link'
 import type {Block} from '~/lib/types/cms'

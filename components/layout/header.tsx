@@ -1,4 +1,5 @@
-import {Grid, H2, cx} from '@daren/ui-components'
+import {Grid, H2} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 
 import {ArrowLink} from '../common/arrow-link'
 
