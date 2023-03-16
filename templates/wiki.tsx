@@ -27,8 +27,8 @@ function Content({title, date, body}: Partial<Wiki>) {
           </div>
         </Grid>
 
-        <Grid as="header" className="mb-12">
-          <Container className="space-y-2">
+        <Grid as="header" className="mb-12 mt-6">
+          <Container size="medium" className="space-y-2">
             {title ? <H1 data-tinafield="title">{title}</H1> : null}
             {date ? (
               <H6 data-tinafield="date" as="p" variant="secondary">
