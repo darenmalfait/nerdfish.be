@@ -9,13 +9,13 @@ async function buildFeed() {
   const feed = new Feed({
     title: 'Daren Malfait - Full Stack Web developer',
     description: "Daren's blog about full stack web development",
-    id: 'https://daren.be',
-    link: 'https://daren.be',
+    id: 'https://nerdfish.be',
+    link: 'https://nerdfish.be',
     copyright: 'Daren Malfait',
     language: 'en',
     author: {
       name: 'Daren Malfait',
-      email: 'me@daren.be',
+      email: 'daren@nerdfish.be',
     },
   })
 
@@ -35,8 +35,8 @@ async function buildFeed() {
       author: [
         {
           name: 'Daren Malfait',
-          email: 'me@daren.be',
-          link: 'https://www.daren.be',
+          email: 'daren@nerdfish.be',
+          link: 'https://www.nerdfish.be',
         },
       ],
       date: new Date(post.date ?? ''),

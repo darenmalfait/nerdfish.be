@@ -25,7 +25,7 @@ function Footer() {
                 Made by{' '}
                 <Link
                   className="underline"
-                  href={twitter ?? github ?? 'https://www.daren.be'}
+                  href={twitter ?? github ?? 'https://www.nerdfish.be'}
                 >
                   nerdfish
                 </Link>
