@@ -49,8 +49,8 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
           </div>
         </Grid>
 
-        <Grid as="header" className="mb-12">
-          <Container className="space-y-2">
+        <Grid as="header" className="mb-12 mt-6">
+          <Container size="medium" className="space-y-2">
             <H1 data-tinafield="title">{title}</H1>
             {date ? (
               <H6 data-tinafield="date" as="p" variant="secondary">
