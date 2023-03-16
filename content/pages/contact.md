@@ -25,14 +25,16 @@ blocks:
       ## Contact information
 
 
-      Nerdfish\
+      **Nerdfish**\
+
       Daren Malfait BV\
 
-      [daren@nerdfish.be](mailto:daren@nerdfish.be "daren@nerdfish.be")\
+      [daren@nerdfish.be](mailto\:daren@nerdfish.be "daren@nerdfish.be")\
 
       VAT: BE0794123756
     _template: content
 ---
+
 
 
 
