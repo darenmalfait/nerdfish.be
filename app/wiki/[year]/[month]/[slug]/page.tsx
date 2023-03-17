@@ -3,8 +3,9 @@ import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getWikiPost, getWikiPosts} from '~/lib/services/api'
+import {buildSrc} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
-import {getFileNameFromUrl} from '~/lib/utils/social'
+import {generateOGImageUrl, getFileNameFromUrl} from '~/lib/utils/social'
 import {WikiPage} from '~/templates/wiki'
 
 function getPath(slug?: string, year?: string, month?: string) {
@@ -45,17 +46,29 @@ export async function generateMetadata({
   }
 
   const {data} = loaderData
+  const title = data.wiki.seo?.title ?? (data.wiki.title || 'Untitled')
 
   return getMetaData({
-    image: data.wiki.seo?.seoImg,
-    subImage: data.wiki.seo?.partialSeoImage
-      ? getFileNameFromUrl(data.wiki.seo.partialSeoImage)
-      : undefined,
-    title: data.wiki.seo?.title ?? (data.wiki.title || 'Untitled'),
+    ogImage: data.wiki.seo?.seoImg
+      ? data.wiki.seo.seoImg
+      : generateOGImageUrl({
+          cardType: data.wiki.seo?.cardType as any,
+          image: data.wiki.seo?.partialSeoImage
+            ? buildSrc(
+                getFileNameFromUrl(data.wiki.seo.partialSeoImage) ?? '',
+                {
+                  width: data.wiki.seo.cardType === 'primary' ? 800 : 1100,
+                  height: data.wiki.seo.cardType === 'primary' ? 630 : 430,
+                  format: 'png',
+                },
+              )
+            : undefined,
+          heading: title,
+        }),
+    title,
     url: params.slug ?? '/',
     description: data.wiki.seo?.description ?? '',
     canonical: data.wiki.seo?.canonical,
-    cardType: data.wiki.seo?.cardType,
   })
 }
 
