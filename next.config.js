@@ -1,4 +1,6 @@
 module.exports = {
+  // workaround for next not supporting trailing slashes in paths
+  trailingSlash: true,
   swcMinify: true,
   images: {
     domains: ['res.cloudinary.com'],
