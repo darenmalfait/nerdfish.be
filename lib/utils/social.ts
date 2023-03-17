@@ -22,9 +22,9 @@ function generateOGImageUrl({
   const url = getDomainUrl()
 
   const ogUrl =
-    cardType === 'primary'
-      ? new URL(`${url}/api/og/primary`)
-      : new URL(`${url}/api/og/secondary`)
+    cardType === 'secondary'
+      ? new URL(`${url}/api/og/secondary`)
+      : new URL(`${url}/api/og/primary`)
   Object.entries(props).forEach(([key, value]) => {
     ogUrl.searchParams.set(key, value ?? '')
   })

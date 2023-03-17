@@ -57,8 +57,8 @@ export async function generateMetadata({
             ? buildSrc(
                 getFileNameFromUrl(data.wiki.seo.partialSeoImage) ?? '',
                 {
-                  width: data.wiki.seo.cardType === 'primary' ? 800 : 1100,
-                  height: data.wiki.seo.cardType === 'primary' ? 630 : 430,
+                  width: data.wiki.seo.cardType === 'secondary' ? 1100 : 800,
+                  height: data.wiki.seo.cardType === 'secondary' ? 430 : 630,
                   format: 'png',
                 },
               )
