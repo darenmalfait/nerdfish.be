@@ -56,13 +56,13 @@ function MobileNav({
     >
       <div className="px-5vw py-9 lg:py-12">
         <div className="mx-auto flex max-w-8xl items-center justify-between text-primary">
-          <Link
+          <a
             aria-label="home page"
             className="w-2/5 text-primary"
             href={rootPath}
           >
-            <Logo className="h-12 w-auto text-white transition-transform hover:scale-110" />
-          </Link>
+            <Logo className="h-5 w-auto text-white transition-transform hover:scale-110" />
+          </a>
           <Hamburger open={open} onClick={onClose} />
         </div>
       </div>
@@ -108,13 +108,13 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
           <Container size="full">
             <div className="relative flex gap-4">
               <div className="flex flex-1">
-                <Link
+                <a
                   className="order-first flex items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
                   aria-label="home page"
                   href={rootPath ?? '/'}
                 >
                   <Logo className="h-5 w-auto transition-transform hover:scale-105" />
-                </Link>
+                </a>
               </div>
               <div className="hidden flex-1 justify-end md:justify-center lg:flex">
                 <nav className="flex rounded-full px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200  lg:space-x-2">
