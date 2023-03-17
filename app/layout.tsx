@@ -26,3 +26,5 @@ export default function RootLayout({children}: RootLayoutProps) {
     </html>
   )
 }
+
+export const revalidate = 0
