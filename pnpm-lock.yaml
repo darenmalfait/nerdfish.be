@@ -9,7 +9,7 @@ specifiers:
   '@headlessui/react': ^1.7.13
   '@nerdfish/tailwind-config': ^1.0.0
   '@nerdfish/theme': ^1.0.0
-  '@nerdfish/ui': ^1.0.0
+  '@nerdfish/ui': ^1.0.1
   '@nerdfish/utils': ^1.0.0
   '@next/env': ^13.2.4
   '@next/font': ^13.2.4
@@ -68,7 +68,7 @@ dependencies:
   '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
   '@nerdfish/tailwind-config': 1.0.0_postcss@8.4.21
   '@nerdfish/theme': 1.0.0_typescript@4.9.5
-  '@nerdfish/ui': 1.0.0_fleixqh4h74dmdivs7fx6vtiqe
+  '@nerdfish/ui': 1.0.1_fleixqh4h74dmdivs7fx6vtiqe
   '@nerdfish/utils': 1.0.0_typescript@4.9.5
   '@next/env': 13.2.4
   '@next/font': 13.2.4
@@ -2484,10 +2484,10 @@ packages:
       - typescript
     dev: false
 
-  /@nerdfish/ui/1.0.0_fleixqh4h74dmdivs7fx6vtiqe:
-    resolution: {integrity: sha512-Pyk1ihkPJreBrvEYZK7I+ZdBgRegggyew0a92WZXLTBt5rwihg5Lsgc3MMudvOegp624TYuGd41fmeJGeyf2TA==}
+  /@nerdfish/ui/1.0.1_fleixqh4h74dmdivs7fx6vtiqe:
+    resolution: {integrity: sha512-Vak4Q/MR30vZU/cJklu7U/W2KrQMcAHduwu184miCBdmJEMA/ptT3QUIeWLgR3tUrPva07cG90G9faBMjsjrow==}
     dependencies:
-      '@nerdfish/utils': 0.0.0_typescript@4.9.5
+      '@nerdfish/utils': 1.0.0_typescript@4.9.5
       '@radix-ui/react-accordion': 1.1.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-alert-dialog': 1.0.3_zula6vjvt3wdocc4mwcxqa6nzi
       '@radix-ui/react-aspect-ratio': 1.0.2_biqbaboplfbrettd7655fr4n2y
@@ -2508,16 +2508,6 @@ packages:
       - '@types/react'
       - react
       - react-dom
-      - typescript
-    dev: false
-
-  /@nerdfish/utils/0.0.0_typescript@4.9.5:
-    resolution: {integrity: sha512-LGwjEVeb7RcCX2Ibgbhf3a1bAt0+9ejgyqDdUzzWpn1kMj9NnsV3U3LTwOx7s5B0YZpaH8yENr2GqnoIMZ6tWA==}
-    dependencies:
-      class-variance-authority: 0.4.0_typescript@4.9.5
-      clsx: 1.2.1
-      tailwind-merge: 1.10.0
-    transitivePeerDependencies:
       - typescript
     dev: false
 
