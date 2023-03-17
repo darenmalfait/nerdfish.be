@@ -54,16 +54,19 @@ export async function generateMetadata({
       ? data.blog.seo.seoImg
       : generateOGImageUrl({
           cardType: data.blog.seo?.cardType as any,
-          image: data.blog.seo?.partialSeoImage
-            ? buildSrc(
-                getFileNameFromUrl(data.blog.seo.partialSeoImage) ?? '',
-                {
-                  width: data.blog.seo.cardType === 'secondary' ? 1100 : 800,
-                  height: data.blog.seo.cardType === 'secondary' ? 430 : 630,
-                  format: 'png',
-                },
-              )
-            : undefined,
+          image:
+            data.blog.seo?.partialSeoImage || data.blog.heroImg
+              ? buildSrc(
+                  getFileNameFromUrl(
+                    data.blog.seo?.partialSeoImage ?? data.blog.heroImg,
+                  ) ?? '',
+                  {
+                    width: data.blog.seo?.cardType === 'secondary' ? 1100 : 800,
+                    height: data.blog.seo?.cardType === 'secondary' ? 430 : 630,
+                    format: 'png',
+                  },
+                )
+              : undefined,
           heading: title,
         }),
     title,
