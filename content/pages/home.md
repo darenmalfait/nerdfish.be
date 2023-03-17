@@ -3,7 +3,7 @@ seo:
   title: 'Nerdfish, full-stack JavaScript / TypeScript & ReactJS development'
   description: Come check out how Daren can help you with web development.
   partialSeoImage: >-
-    http://res.cloudinary.com/darenmalfait/image/upload/v1679005256/nerdy-fish_wvrqec.png
+    http://res.cloudinary.com/darenmalfait/image/upload/v1679066426/nerdy-fish_aixgm3.png
 title: Home
 blocks:
   - title: nerdfish
@@ -80,6 +80,7 @@ blocks:
     count: 3
     _template: Blog
 ---
+
 
 
 

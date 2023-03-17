@@ -1,3 +1,8 @@
+import type {z} from 'zod'
+
+import type {ogImageSchema} from '../types/og'
+import {getDomainUrl} from './misc'
+
 // https://support.cloudinary.com/hc/en-us/community/posts/200788162-Using-special-characters-in-Text-overlaying-
 function escapeSpecialCharacters(title: string) {
   return title.replace(/,/g, '%2C').replace(/\//g, '%2F')
@@ -6,6 +11,25 @@ function escapeSpecialCharacters(title: string) {
 function truncateText(text: string, maxLength = 60) {
   if (text.length <= maxLength) return text
   return `${text.substring(0, maxLength)}...`
+}
+
+function generateOGImageUrl({
+  cardType = 'primary',
+  ...props
+}: z.infer<typeof ogImageSchema> & {
+  cardType?: 'primary' | 'secondary'
+}) {
+  const url = getDomainUrl()
+
+  const ogUrl =
+    cardType === 'primary'
+      ? new URL(`${url}/api/og/primary`)
+      : new URL(`${url}/api/og/secondary`)
+  Object.entries(props).forEach(([key, value]) => {
+    ogUrl.searchParams.set(key, value ?? '')
+  })
+
+  return ogUrl.toString()
 }
 
 function generateSocialImage({
@@ -116,4 +140,4 @@ function getFileNameFromUrl(url?: string | null) {
   return filename?.split('.')[0]
 }
 
-export {generateSocialImage, getFileNameFromUrl}
+export {generateSocialImage, getFileNameFromUrl, generateOGImageUrl}

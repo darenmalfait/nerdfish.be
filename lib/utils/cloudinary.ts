@@ -19,13 +19,20 @@ function buildSrc(
   url: string,
   {
     width = 1000,
+    height,
     format = 'webp',
   }: {
     width?: number
+    height?: number
     format?: string
   } = {},
 ) {
   const filename = getFileNameFromUrl(url)
+
+  if (height) {
+    // no stretch
+    return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width},h_${height},c_fill/${filename}.${format}`
+  }
 
   return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width}/${filename}.${format}`
 }

@@ -3,8 +3,9 @@ import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getBlogPost, getBlogPosts} from '~/lib/services/api'
+import {buildSrc} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
-import {getFileNameFromUrl} from '~/lib/utils/social'
+import {generateOGImageUrl, getFileNameFromUrl} from '~/lib/utils/social'
 import {BlogPage} from '~/templates/blog'
 
 function getPath(slug?: string, year?: string, month?: string) {
@@ -46,16 +47,29 @@ export async function generateMetadata({
 
   const {data} = loaderData
 
+  const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
+
   return getMetaData({
-    image: data.blog.seo?.seoImg,
-    subImage: data.blog.seo?.partialSeoImage
-      ? getFileNameFromUrl(data.blog.seo.partialSeoImage)
-      : undefined,
-    title: data.blog.seo?.title ?? (data.blog.title || 'Untitled'),
+    ogImage: data.blog.seo?.seoImg
+      ? data.blog.seo.seoImg
+      : generateOGImageUrl({
+          cardType: data.blog.seo?.cardType as any,
+          image: data.blog.seo?.partialSeoImage
+            ? buildSrc(
+                getFileNameFromUrl(data.blog.seo.partialSeoImage) ?? '',
+                {
+                  width: data.blog.seo.cardType === 'primary' ? 800 : 1100,
+                  height: data.blog.seo.cardType === 'primary' ? 630 : 430,
+                  format: 'png',
+                },
+              )
+            : undefined,
+          heading: title,
+        }),
+    title,
     url: params.slug ?? '/',
     description: data.blog.seo?.description ?? '',
     canonical: data.blog.seo?.canonical,
-    cardType: data.blog.seo?.cardType,
   })
 }
 
