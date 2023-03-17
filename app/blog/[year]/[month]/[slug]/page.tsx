@@ -58,8 +58,8 @@ export async function generateMetadata({
             ? buildSrc(
                 getFileNameFromUrl(data.blog.seo.partialSeoImage) ?? '',
                 {
-                  width: data.blog.seo.cardType === 'primary' ? 800 : 1100,
-                  height: data.blog.seo.cardType === 'primary' ? 630 : 430,
+                  width: data.blog.seo.cardType === 'secondary' ? 1100 : 800,
+                  height: data.blog.seo.cardType === 'secondary' ? 430 : 630,
                   format: 'png',
                 },
               )
