@@ -11,7 +11,7 @@ import {Plus, Search} from 'lucide-react'
 import {Image} from '~/components/common/image'
 import {useBlockData} from '~/context/block-data-provider'
 import {useGlobal} from '~/context/global-provider'
-import type {Block} from '~/lib/types/cms'
+import {type Block} from '~/lib/types/cms'
 import {filterBlog} from '~/lib/utils/blog'
 import {
   buildSrc,

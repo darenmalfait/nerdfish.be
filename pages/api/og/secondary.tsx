@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import type {NextRequest} from 'next/server'
+import {type NextRequest} from 'next/server'
 import {cx} from '@nerdfish/utils'
 import {ImageResponse} from '@vercel/og'
 

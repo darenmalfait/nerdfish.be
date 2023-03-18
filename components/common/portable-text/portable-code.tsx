@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Container} from '@nerdfish/ui'
-import type {Language} from 'prism-react-renderer'
+import {type Language} from 'prism-react-renderer'
 
 import {CodeBlock} from '../code-block/code-block'
 

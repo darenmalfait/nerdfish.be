@@ -1,5 +1,5 @@
 import {ButtonLink} from '@nerdfish/ui'
-import type {ExtractProps} from '@nerdfish/utils'
+import {type ExtractProps} from '@nerdfish/utils'
 
 import {stripPreSlash} from '~/lib/utils/string'
 

@@ -1,4 +1,4 @@
-import type {SchemaField} from 'tinacms'
+import {type SchemaField} from 'tinacms'
 
 type ObjectField = SchemaField & {
   type: 'object'

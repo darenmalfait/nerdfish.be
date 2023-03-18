@@ -1,5 +1,5 @@
 import slugify from 'slugify'
-import type {Collection} from 'tinacms'
+import {type Collection} from 'tinacms'
 
 import {blocks} from '../blocks'
 import {seo} from '../objects'

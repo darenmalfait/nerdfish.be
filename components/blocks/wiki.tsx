@@ -10,7 +10,7 @@ import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
 import {useBlockData} from '~/context/block-data-provider'
 import {useGlobal} from '~/context/global-provider'
-import type {Block} from '~/lib/types/cms'
+import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,

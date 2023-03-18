@@ -30,12 +30,12 @@ developers have used at least one or more things that they made.
 
 In this post, I will be talking about the following:
 
-* Remix
-* Routes
-* Loaders
-* Client UI
-* Actions → I like this part
-* My opinion
+- Remix
+- Routes
+- Loaders
+- Client UI
+- Actions → I like this part
+- My opinion
 
 ## About Remix
 
@@ -57,7 +57,7 @@ the same stuff Remix does, but differently.
 I have mixed feelings about the initial setup. So let me carry you through this.
 Firstly, you do this in your terminal:
 
-![create-remix command](https://res.cloudinary.com/darenmalfait/image/upload/v1667651738/remix-install.png "create-remix command")
+![create-remix command](https://res.cloudinary.com/darenmalfait/image/upload/v1667651738/remix-install.png 'create-remix command')
 
 Following this, you see a fancy Remix animation in the console and a menu where
 you need to choose where to deploy your application. Depending on your pick, you
@@ -111,7 +111,7 @@ An example of a loader:
 
 ```typescript
 import {json} from 'remix'
-import type {LoaderFunction} from 'remix'
+import {type LoaderFunction} from 'remix'
 
 export const loader: LoaderFunction = async ({request, params}) => {
   const example = await getExampleData()

@@ -1,5 +1,5 @@
-import type {Metadata} from 'next'
-import type {OpenGraphType} from 'next/dist/lib/metadata/types/opengraph-types'
+import {type Metadata} from 'next'
+import {type OpenGraphType} from 'next/dist/lib/metadata/types/opengraph-types'
 
 import {getDomainUrl} from './misc'
 import {stripPreSlash, stripTrailingSlash} from './string'

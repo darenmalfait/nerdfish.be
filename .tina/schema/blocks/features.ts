@@ -1,5 +1,5 @@
 import * as Icons from 'lucide-react'
-import type {Template} from 'tinacms'
+import {type Template} from 'tinacms'
 
 const defaultFeature = {
   title: "Here's Another Feature",
