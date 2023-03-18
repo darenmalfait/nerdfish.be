@@ -1,10 +1,10 @@
 import tina from '~/.tina/__generated__/client'
-import type {
-  Blog,
-  BlogPostQueryQuery,
-  ContentQueryQuery,
-  Product,
-  Wiki,
+import {
+  type Blog,
+  type BlogPostQueryQuery,
+  type ContentQueryQuery,
+  type Product,
+  type Wiki,
 } from '~/.tina/__generated__/types'
 
 async function getPages() {

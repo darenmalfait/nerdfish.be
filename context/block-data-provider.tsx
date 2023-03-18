@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 
-import type {Blog, Product, Wiki} from '~/.tina/__generated__/types'
+import {type Blog, type Product, type Wiki} from '~/.tina/__generated__/types'
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')

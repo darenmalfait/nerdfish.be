@@ -1,4 +1,4 @@
-import type {NextApiRequest, NextApiResponse} from 'next'
+import {type NextApiRequest, type NextApiResponse} from 'next'
 
 import {getSitemapData} from '~/lib/services/api'
 import {getDatedSlug} from '~/lib/utils/routes'

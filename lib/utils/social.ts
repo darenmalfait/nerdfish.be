@@ -1,6 +1,6 @@
-import type {z} from 'zod'
+import {type z} from 'zod'
 
-import type {ogImageSchema} from '../types/og'
+import {type ogImageSchema} from '../types/og'
 import {getDomainUrl} from './misc'
 
 // https://support.cloudinary.com/hc/en-us/community/posts/200788162-Using-special-characters-in-Text-overlaying-

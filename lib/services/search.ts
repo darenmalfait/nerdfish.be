@@ -1,4 +1,7 @@
-import type {MultipleQueriesQuery, SearchOptions} from '@algolia/client-search'
+import {
+  type MultipleQueriesQuery,
+  type SearchOptions,
+} from '@algolia/client-search'
 import algoliasearch from 'algoliasearch/lite'
 
 const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID ?? ''

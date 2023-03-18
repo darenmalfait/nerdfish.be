@@ -1,4 +1,4 @@
-import type {SchemaField} from 'tinacms'
+import {type SchemaField} from 'tinacms'
 
 const tagsSchema: SchemaField = {
   type: 'string',

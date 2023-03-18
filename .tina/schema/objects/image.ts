@@ -1,4 +1,4 @@
-import type {ObjectField} from '../types'
+import {type ObjectField} from '../types'
 
 const imageSchema: ObjectField = {
   type: 'object',

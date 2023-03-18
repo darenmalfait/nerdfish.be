@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import type {Global} from '~/.tina/__generated__/types'
+import {type Global} from '~/.tina/__generated__/types'
 import {GlobalProvider} from '~/context/global-provider'
 
 import {Footer} from './footer'

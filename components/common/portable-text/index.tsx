@@ -1,6 +1,6 @@
 'use client'
 
-import type {ExtractProps} from '@nerdfish/utils'
+import {type ExtractProps} from '@nerdfish/utils'
 import {TinaMarkdown} from 'tinacms/dist/rich-text'
 
 import {Link} from '../link'

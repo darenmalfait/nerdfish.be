@@ -1,9 +1,9 @@
 import {Container, Grid, H2} from '@nerdfish/ui'
 import {motion} from 'framer-motion'
-import type {RichTextType} from 'tinacms'
+import {type RichTextType} from 'tinacms'
 
 import {Image} from '~/components/common/image'
-import type {Block, Image as ImageType} from '~/lib/types/cms'
+import {type Block, type Image as ImageType} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,

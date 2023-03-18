@@ -1,4 +1,4 @@
-import type {Schema} from 'tinacms'
+import {type Schema} from 'tinacms'
 
 import * as collections from './collections'
 

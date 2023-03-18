@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 
-import type {Product} from '~/.tina/__generated__/types'
+import {type Product} from '~/.tina/__generated__/types'
 import {useBlockData} from '~/context/block-data-provider'
-import type {Block} from '~/lib/types/cms'
+import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
   buildSrcSet,

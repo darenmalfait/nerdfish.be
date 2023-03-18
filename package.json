@@ -21,6 +21,7 @@
     "@headlessui/react": "^1.7.13"
   },
   "dependencies": {
+    "@algolia/client-search": "^4.15.0",
     "@headlessui/react": "^1.7.13",
     "@nerdfish/tailwind-config": "^1.0.0",
     "@nerdfish/theme": "^1.0.0",
@@ -48,6 +49,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-instantsearch-core": "^6.39.0",
     "react-instantsearch-dom": "^6.39.0",
     "react-instantsearch-hooks-web": "^6.41.0",
     "react-obfuscate": "^3.6.9",
@@ -72,7 +74,7 @@
     "@typescript-eslint/parser": "^5.55.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.36.0",
-    "eslint-config-daren": "^4.0.12",
+    "eslint-config-daren": "^4.0.13",
     "gray-matter": "^4.0.3",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",

@@ -4,10 +4,10 @@ import * as React from 'react'
 import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
 import {useTina} from 'tinacms/dist/react'
 
-import type {
-  Wiki,
-  WikiQueryQuery,
-  WikiQueryQueryVariables,
+import {
+  type Wiki,
+  type WikiQueryQuery,
+  type WikiQueryQueryVariables,
 } from '~/.tina/__generated__/types'
 import {BackLink} from '~/components/common/arrow-link'
 import {DateFormatter} from '~/components/common/date-formatter'
