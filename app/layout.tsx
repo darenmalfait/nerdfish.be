@@ -1,4 +1,4 @@
-import {Inter as interFont} from '@next/font/google'
+import {Inter as interFont} from 'next/font/google'
 
 import {AppProviders} from '~/context/app-providers'
 
