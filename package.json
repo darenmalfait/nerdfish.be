@@ -7,7 +7,7 @@
     "build:local": "tinacms build --local && next build",
     "build:tina": "tinacms build",
     "build": "pnpm build:tina && next build",
-    "postbuild": "node ./lib/scripts/build-algolia-search.js && next-sitemap",
+    "postbuild": "node ./lib/scripts/build-algolia-search.js",
     "dev": "tinacms dev -c \"next dev\"",
     "export": "pnpm build && next export",
     "lint:src": "eslint --ext .js,.jsx,.ts,.tsx .",
