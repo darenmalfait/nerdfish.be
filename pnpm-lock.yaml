@@ -13,7 +13,6 @@ specifiers:
   '@nerdfish/ui': ^1.0.1
   '@nerdfish/utils': ^1.0.0
   '@next/env': ^13.2.4
-  '@next/font': ^13.2.4
   '@reach/checkbox': ^0.18.0
   '@sendgrid/mail': ^7.7.0
   '@svgr/webpack': ^6.5.1
@@ -73,7 +72,6 @@ dependencies:
   '@nerdfish/ui': 1.0.1_hpvy5vaeqrkzuobspyarcswcp4
   '@nerdfish/utils': 1.0.0_typescript@5.0.2
   '@next/env': 13.2.4
-  '@next/font': 13.2.4
   '@reach/checkbox': 0.18.0_biqbaboplfbrettd7655fr4n2y
   '@sendgrid/mail': 7.7.0
   '@tailwindcss/aspect-ratio': 0.4.2_tailwindcss@3.2.7
@@ -2521,10 +2519,6 @@ packages:
 
   /@next/env/13.2.4:
     resolution: {integrity: sha512-+Mq3TtpkeeKFZanPturjcXt+KHfKYnLlX6jMLyCrmpq6OOs4i1GqBOAauSkii9QeKCMTYzGppar21JU57b/GEA==}
-    dev: false
-
-  /@next/font/13.2.4:
-    resolution: {integrity: sha512-lMAnuOYjv5g22WhD00u0DQ9u2rTMJH0S64PKE4Sy8Y2q+FJTYs6ZHT2z3VRoI8+AOWSLK4FirpnygcjOienQ9A==}
     dev: false
 
   /@next/swc-android-arm-eabi/13.2.4:
