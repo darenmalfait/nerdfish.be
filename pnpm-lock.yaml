@@ -40,7 +40,7 @@ specifiers:
   gray-matter: ^4.0.3
   husky: ^8.0.3
   lodash: ^4.17.21
-  lucide-react: ^0.125.0
+  lucide-react: ^0.126.0
   match-sorter: ^6.3.1
   next: ^13.2.4
   next-tinacms-cloudinary: ^4.3.0
@@ -84,7 +84,7 @@ dependencies:
   feed: 4.2.2
   framer-motion: 10.6.0_biqbaboplfbrettd7655fr4n2y
   lodash: 4.17.21
-  lucide-react: 0.125.0_react@18.2.0
+  lucide-react: 0.126.0_react@18.2.0
   match-sorter: 6.3.1
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   next-tinacms-cloudinary: 4.3.0
@@ -10318,6 +10318,14 @@ packages:
 
   /lucide-react/0.125.0_react@18.2.0:
     resolution: {integrity: sha512-tadphtB6TPytEitR9vX75hqu9PQT/uz5RcvXMq976nC190eukAM9+cHMgBxfvfEGDXwIhIT9aFxTUGdAjxw9uQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /lucide-react/0.126.0_react@18.2.0:
+    resolution: {integrity: sha512-ZAbdahh5/gGFCYRS41f0/Ww5KhKwpJHjcrM71gpQ/x/G8Zu+Q9L3mkVv5XpDBlZfga4skNueatfnlSkn3mtc1Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
