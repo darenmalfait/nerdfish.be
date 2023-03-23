@@ -5,7 +5,7 @@ blocks:
     text: ''
     image:
       src: >-
-        http://res.cloudinary.com/darenmalfait/image/upload/v1675601773/Daren_web_development_pixar_style_3d_render_plastic_1d1af720-88ea-4cb2-8d76-8675a2210446-transformed_1_dw0vqb.png
+        http://res.cloudinary.com/darenmalfait/image/upload/v1679597108/Daren_painter_painting_a_painting_plastic_pixar_style_3d_render_bb85db60-87db-427c-ad6b-c1072cc2ee15_bn07tt.png
       alt: webdesign
     _template: hero
   - body: >
@@ -98,4 +98,5 @@ seo:
     http://res.cloudinary.com/darenmalfait/image/upload/v1675603119/Daren_web_development_pixar_style_3d_render_plastic_1d1af720-88ea-4cb2-8d76-8675a2210446_v1iyn3.png
   cardType: primary
 ---
+
 
