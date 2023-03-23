@@ -30,27 +30,28 @@ blocks:
   - title: What do I do?
     subTitle: 'You can hire me for:'
     items:
-      - title: Webdevelopment
+      - title: Webdesign
         description: >-
-          Web development is the process of building and maintaining websites
-          and applications.
+          Web design is an art form that focuses on creating beautiful,
+          user-friendly, and functional websites. It requires thoughtful
+          consideration of the user experience, content organization, and visual
+          design.
         icon: MonitorSmartphone
       - title: User experience
         description: >-
-          User experience is crucial because it affects customer satisfaction
-          and loyalty.
+          User experience is absolutely essential for customer satisfaction and
+          loyalty. In fact, it has a direct influence on both.
         icon: Paintbrush
       - title: Developer experience
         description: >-
-          Developer experience, or DX, is essential because it can affect a
-          developer's productivity, satisfaction, and overall effectiveness in
-          creating and maintaining software.
+          Developer Experience (DX) is essential for developers. It
+          significantly affects their productivity, satisfaction, and ability to
+          create and maintain software.
         icon: Heart
       - title: Code auditing
         description: >-
-          Code auditing is reviewing and evaluating code to identify and fix
-          issues, improve performance, and ensure compliance with coding
-          standards.
+          Code auditing reviews and evaluates code to improve performance,
+          identify and fix issues, and ensure coding standards are met.
         icon: FileSearch
     _template: features
   - title: Tools & Techs
@@ -80,6 +81,7 @@ blocks:
     count: 3
     _template: Blog
 ---
+
 
 
 
