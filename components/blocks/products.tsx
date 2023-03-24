@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Link from 'next/link'
 import {Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 
 import {type Product} from '~/.tina/__generated__/types'
@@ -11,7 +12,6 @@ import {
 } from '~/lib/utils/cloudinary'
 
 import {Image} from '../common/image'
-import {Link} from '../common/link'
 import {Header} from '../layout/header'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
