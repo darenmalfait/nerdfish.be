@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Link from 'next/link'
 import {Container, Grid, H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
@@ -14,7 +15,6 @@ import {
 
 import {ArrowLink} from './arrow-link'
 import {Image} from './image'
-import {Link} from './link'
 
 interface HighlightCardProps {
   title?: string
