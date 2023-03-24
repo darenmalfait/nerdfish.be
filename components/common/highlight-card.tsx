@@ -37,16 +37,16 @@ function HighlightCard({
   ...props
 }: HighlightCardProps) {
   return (
-    <Grid>
-      <Container size="full">
-        <Link
-          className={cx(
-            'block rounded-lg no-underline lg:bg-transparent',
-            className,
-          )}
-          href={href}
-          {...props}
-        >
+    <Link
+      className={cx(
+        'block rounded-lg no-underline lg:bg-transparent',
+        className,
+      )}
+      href={href}
+      {...props}
+    >
+      <Grid>
+        <Container size="full">
           <Grid
             nested
             className="group w-full rounded-lg px-8 pt-14 pb-6 bg-secondary shadow-outline md:pb-12 lg:px-0"
@@ -99,9 +99,9 @@ function HighlightCard({
               ) : null}
             </div>
           </Grid>
-        </Link>
-      </Container>
-    </Grid>
+        </Container>
+      </Grid>
+    </Link>
   )
 }
 
