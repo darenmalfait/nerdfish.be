@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Link from 'next/link'
 import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -20,7 +21,6 @@ import {getDatedSlug} from '~/lib/utils/routes'
 import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/url'
 import {filterWiki} from '~/lib/utils/wiki'
 
-import {Link} from '../common/link'
 import {PortableText} from '../common/portable-text'
 import {Tag} from '../common/tag'
 import {Header} from '../layout/header'
