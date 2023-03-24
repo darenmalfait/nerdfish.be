@@ -27,13 +27,11 @@ function ArticleCard({
 }: Partial<Blog>) {
   const {hydrated} = useGlobal()
   return (
-    <div className="relative w-full">
-      <Link
-        href={
-          hydrated ? `/blog${getDatedSlug(date, _sys?.filename ?? '')}` : ''
-        }
-        className="group peer relative block w-full focus:outline-none"
-      >
+    <Link
+      href={hydrated ? `/blog${getDatedSlug(date, _sys?.filename ?? '')}` : ''}
+      className="relative w-full"
+    >
+      <div className="group peer relative block w-full focus:outline-none">
         <CategoryIndicator category={category} />
 
         {heroImg ? (
@@ -65,8 +63,8 @@ function ArticleCard({
           </div>
           <H3 as="div">{title}</H3>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
 
