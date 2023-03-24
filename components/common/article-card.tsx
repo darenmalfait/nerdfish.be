@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
@@ -16,7 +17,6 @@ import {
 } from '../common/category-indicator'
 import {DateFormatter} from './date-formatter'
 import {Image} from './image'
-import {Link} from './link'
 
 function ArticleCard({
   title,
