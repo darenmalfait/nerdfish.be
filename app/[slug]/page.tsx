@@ -12,7 +12,7 @@ async function fetchPage(slug?: string) {
   const filename =
     !slug || slug === '/' ? 'home' : stripTrailingSlash(slug.toLowerCase())
 
-  return getPage(`${filename.length ? filename : 'home'}.md`)
+  return getPage(`${filename.length ? filename : 'home'}.mdx`)
 }
 
 export async function generateStaticParams() {
