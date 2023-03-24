@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Link from 'next/link'
 import {Container, Grid, H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
@@ -37,7 +36,7 @@ function HighlightCard({
   ...props
 }: HighlightCardProps) {
   return (
-    <Link
+    <a
       className={cx(
         'block rounded-lg no-underline lg:bg-transparent',
         className,
@@ -101,7 +100,7 @@ function HighlightCard({
           </Grid>
         </Container>
       </Grid>
-    </Link>
+    </a>
   )
 }
 

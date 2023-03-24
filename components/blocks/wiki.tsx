@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
 import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -10,7 +9,6 @@ import {Plus, Search} from 'lucide-react'
 import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
 import {useBlockData} from '~/context/block-data-provider'
-import {useGlobal} from '~/context/global-provider'
 import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
@@ -46,7 +44,6 @@ function Wiki({
   tags?: string[]
   count?: number
 }) {
-  const {hydrated} = useGlobal()
   const {title, subtitle, link} = header ?? {}
   const params = useSearchParams()
   const [queryValue, setQuery] = React.useState(params?.get('q') ?? '')
@@ -230,19 +227,15 @@ function Wiki({
                       key={wiki._sys?.filename}
                       className="flex flex-col"
                     >
-                      <Link
-                        href={
-                          hydrated
-                            ? `/wiki${getDatedSlug(
-                                wiki.date as string,
-                                wiki._sys?.filename ?? '',
-                              )}`
-                            : ''
-                        }
+                      <a
+                        href={`/wiki${getDatedSlug(
+                          wiki.date as string,
+                          wiki._sys?.filename ?? '',
+                        )}`}
                         className="line-clamp-3 text-2xl font-semibold leading-snug text-primary hover:underline hover:text-secondary"
                       >
                         {wiki.title}
-                      </Link>
+                      </a>
                       {wiki.date ? (
                         <p className="text-sm text-gray-400 dark:text-gray-600">
                           <DateFormatter dateString={wiki.date} format="PPP" />

@@ -233,14 +233,10 @@ function Blog({
         <Section>
           <HighlightCard
             category={featured.category}
-            href={
-              hydrated
-                ? `/${BlogPath}${getDatedSlug(
-                    featured.date as string,
-                    featured._sys?.filename ?? '',
-                  )}`
-                : ''
-            }
+            href={`/${BlogPath}${getDatedSlug(
+              featured.date as string,
+              featured._sys?.filename ?? '',
+            )}`}
             title={featured.title}
             subTitle={
               hydrated
@@ -266,7 +262,7 @@ function Blog({
             posts.map(blog => {
               return (
                 <div key={blog.id} className="col-span-4">
-                  <ArticleCard {...blog} id={blog.id} />
+                  <ArticleCard {...blog} />
                 </div>
               )
             })
