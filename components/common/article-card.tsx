@@ -1,7 +1,6 @@
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {type Blog} from '~/.tina/__generated__/types'
 import {useGlobal} from '~/context/global-provider'
 import {
   buildSrc,
@@ -9,6 +8,7 @@ import {
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
+import {type Blog} from '~/tina/__generated__/types'
 
 import {
   CategoryIndicator,

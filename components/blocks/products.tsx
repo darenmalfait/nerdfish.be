@@ -2,7 +2,6 @@ import * as React from 'react'
 import Link from 'next/link'
 import {Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 
-import {type Product} from '~/.tina/__generated__/types'
 import {useBlockData} from '~/context/block-data-provider'
 import {type Block} from '~/lib/types/cms'
 import {
@@ -10,6 +9,7 @@ import {
   buildSrcSet,
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
+import {type Product} from '~/tina/__generated__/types'
 
 import {Image} from '../common/image'
 import {Header} from '../layout/header'

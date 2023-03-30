@@ -4,11 +4,6 @@ import * as React from 'react'
 import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
 import {useTina} from 'tinacms/dist/react'
 
-import {
-  type Blog,
-  type BlogPostQueryQuery,
-  type BlogQueryVariables,
-} from '~/.tina/__generated__/types'
 import {BackLink} from '~/components/common/arrow-link'
 import {ArticleCard} from '~/components/common/article-card'
 import {DateFormatter} from '~/components/common/date-formatter'
@@ -24,6 +19,11 @@ import {
   buildSrcSet,
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
+import {
+  type Blog,
+  type BlogPostQueryQuery,
+  type BlogQueryVariables,
+} from '~/tina/__generated__/types'
 
 function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
   const {paths} = useGlobal()
