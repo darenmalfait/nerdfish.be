@@ -137,13 +137,13 @@ function Wiki({
                     ) : null}
                     <Grid
                       nested
-                      className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left"
+                      className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left"
                     >
                       <Container size="full" className="relative">
                         <Search
                           width="20px"
                           height="20px"
-                          className="absolute top-0 left-6 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
+                          className="text-primary-400 absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
                         />
                         <input
                           type="search"
@@ -153,9 +153,9 @@ function Wiki({
                           }}
                           name="q"
                           placeholder="Search"
-                          className="w-full rounded-full border-2 bg-white py-6 pr-16 pl-14 text-primary-400 outline-none focus-ring"
+                          className="text-primary-400 focus-ring w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 outline-none"
                         />
-                        <div className="absolute top-0 right-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
+                        <div className="text-primary-400 absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
                           {matchingPosts.length}
                         </div>
                       </Container>
@@ -175,7 +175,7 @@ function Wiki({
               <H5 as="h3" className="mb-8">
                 Filter articles by topic
               </H5>
-              <div className="col-span-full -mr-4 -mb-4 flex flex-wrap justify-start lg:col-span-10">
+              <div className="col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10">
                 {allTags.map(tag => {
                   if (!tag) {
                     return null
@@ -232,7 +232,7 @@ function Wiki({
                           wiki.date as string,
                           wiki._sys?.filename ?? '',
                         )}`}
-                        className="line-clamp-3 text-2xl font-semibold leading-snug text-primary hover:underline hover:text-secondary"
+                        className="text-primary hover:text-secondary line-clamp-3 text-2xl font-semibold leading-snug hover:underline"
                       >
                         {wiki.title}
                       </a>

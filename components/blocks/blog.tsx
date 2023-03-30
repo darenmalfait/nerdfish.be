@@ -156,13 +156,13 @@ function Blog({
                     ) : null}
                     <Grid
                       nested
-                      className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left"
+                      className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left"
                     >
                       <Container size="full" className="relative">
                         <Search
                           width="20px"
                           height="20px"
-                          className="absolute top-0 left-6 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
+                          className="text-primary-400 absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
                         />
                         <input
                           type="search"
@@ -172,9 +172,9 @@ function Blog({
                           }}
                           name="q"
                           placeholder="Search"
-                          className="w-full rounded-full border-2 bg-white py-6 pr-16 pl-14 text-primary-400 outline-none focus-ring"
+                          className="text-primary-400 focus-ring w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 outline-none"
                         />
-                        <div className="absolute top-0 right-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
+                        <div className="text-primary-400 absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
                           {matchingPosts.length}
                         </div>
                       </Container>
@@ -194,7 +194,7 @@ function Blog({
               <H5 as="h3" className="mb-8">
                 Filter articles by topic
               </H5>
-              <div className="col-span-full -mr-4 -mb-4 flex flex-wrap justify-start lg:col-span-10">
+              <div className="col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10">
                 {allTags.map(tag => {
                   if (!tag) {
                     return null
@@ -251,7 +251,7 @@ function Blog({
       ) : null}
 
       <Section>
-        <Grid className="mt-16 mb-32 gap-y-16">
+        <Grid className="mb-32 mt-16 gap-y-16">
           {matchingPosts.length === 0 ? (
             <div className="col-span-full flex flex-col">
               <H3 as="p" variant="secondary" className="max-w-lg">

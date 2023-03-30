@@ -13,7 +13,7 @@ function Footer() {
   const twitter = social?.twitter
 
   return (
-    <footer className="mt-24 px-5vw pb-8 text-primary md:pb-20">
+    <footer className="px-5vw text-primary mt-24 pb-8 md:pb-20">
       <div className="flex flex-col items-center justify-between gap-8 border-t border-gray-100 pt-8 dark:border-white/10 md:flex-row md:items-start md:pt-16">
         <div className="flex flex-col items-center justify-center gap-4 text-center md:flex-row md:items-start md:text-left">
           <div className="flex h-12 items-center">
@@ -35,11 +35,11 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-row items-center gap-3 md:gap-7">
-          <ThemeToggle className="flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-github/20" />
+          <ThemeToggle className="hover:bg-github/20 flex h-10 w-10 items-center justify-center rounded-full transition" />
 
           {twitter ? (
             <Link
-              className="flex h-10 w-10 items-center justify-center rounded-full transition focus-ring hover:bg-twitter/20"
+              className="focus-ring hover:bg-twitter/20 flex h-10 w-10 items-center justify-center rounded-full transition"
               aria-label="Twitter feed"
               href={twitter}
             >
@@ -48,7 +48,7 @@ function Footer() {
           ) : null}
           {github ? (
             <Link
-              className="flex h-10 w-10 items-center justify-center rounded-full transition focus-ring hover:bg-github/20"
+              className="focus-ring hover:bg-github/20 flex h-10 w-10 items-center justify-center rounded-full transition"
               aria-label="Github Repository"
               href={github}
             >

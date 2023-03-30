@@ -55,10 +55,10 @@ function MobileNav({
       )}
     >
       <div className="px-5vw py-9 lg:py-12">
-        <div className="mx-auto flex max-w-8xl items-center justify-between text-primary">
+        <div className="max-w-8xl text-primary mx-auto flex items-center justify-between">
           <a
             aria-label="home page"
-            className="w-2/5 text-primary"
+            className="text-primary w-2/5"
             href={rootPath}
           >
             <Logo className="h-5 w-auto text-white transition-transform hover:scale-110" />
@@ -104,12 +104,12 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
   return (
     <div className="w-full">
       <div className="py-9 lg:py-12">
-        <Grid className="mx-auto text-primary">
+        <Grid className="text-primary mx-auto">
           <Container size="full">
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 <a
-                  className="order-first flex items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
+                  className="text-primary-700 order-first flex items-center space-x-4 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
                   aria-label="home page"
                   href={rootPath ?? '/'}
                 >
@@ -126,7 +126,7 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
                   <Search />
                   <ThemeToggle />
                   <a
-                    className="hidden rounded-full p-2 focus-ring xsm:block"
+                    className="focus-ring xsm:block hidden rounded-full p-2"
                     target="_blank"
                     href="/rss.xml"
                     aria-label="rss feed"

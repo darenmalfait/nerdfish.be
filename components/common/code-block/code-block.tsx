@@ -56,7 +56,7 @@ function CopyButton({code}: {code: string}) {
           copied && '-translate-y-1.5 opacity-0',
         )}
       >
-        <ClipboardCopy className="fill-gray-500/20 h-5 w-5 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
+        <ClipboardCopy className="h-5 w-5 fill-gray-500/20 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
         Copy
       </span>
       <span
@@ -122,7 +122,7 @@ function CodeBlock({
               'rounded-xl bg-black/5 shadow-outline dark:bg-white/5',
             )}
           >
-            <div className="flex py-3 px-4">
+            <div className="flex px-4 py-3">
               <div className="mr-2 h-3 w-3 rounded-full bg-red-500" />
               <div className="mr-2 h-3 w-3 rounded-full bg-yellow-500" />
               <div className="h-3 w-3 rounded-full bg-green-500" />
@@ -147,7 +147,7 @@ function CodeBlock({
                 return (
                   <div {...tokenProps} key={tokenProps.key}>
                     {showLineNumbers ? (
-                      <span className="absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center text-primary-300">
+                      <span className="text-primary-300 absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center">
                         {pad(i + 1)}
                       </span>
                     ) : null}
