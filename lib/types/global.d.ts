@@ -1,4 +1,3 @@
-declare module 'react-multiline-clamp'
 declare module 'react-obfuscate'
 declare module '@algolia/client-search' {
   export interface MultipleQueriesQuery {
