@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
-import {type Global, type GlobalPaths} from '~/.tina/__generated__/types'
 import {stripPreSlash} from '~/lib/utils/string'
+import {type Global, type GlobalPaths} from '~/tina/__generated__/types'
 
 interface GlobalContextProps extends Partial<Global> {
   hydrated: boolean

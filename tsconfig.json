@@ -7,8 +7,8 @@
     ".next/types/**/*.ts",
     ".forestry/types.ts",
     ".forestry/config.ts",
-    ".tina/**/*.ts",
-    ".tina/**/*.tsx"
+    "tina/**/*.ts",
+    "tina/**/*.tsx"
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -25,7 +25,6 @@
     "noEmit": true,
     "paths": {
       "~/*": ["./*"],
-      ".tina/*": ["./.tina/*"]
     },
     "plugins": [
       {
@@ -33,5 +32,5 @@
       }
     ]
   },
-  "exclude": ["node_modules", ".tina/__generated__"]
+  "exclude": ["node_modules", "tina/__generated__"]
 }
