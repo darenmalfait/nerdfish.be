@@ -4,17 +4,17 @@ import * as React from 'react'
 import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
 import {useTina} from 'tinacms/dist/react'
 
-import {
-  type Wiki,
-  type WikiQueryQuery,
-  type WikiQueryQueryVariables,
-} from '~/.tina/__generated__/types'
 import {BackLink} from '~/components/common/arrow-link'
 import {DateFormatter} from '~/components/common/date-formatter'
 import {PortableText} from '~/components/common/portable-text'
 import {Layout} from '~/components/layout/layout'
 import {BlockDataProvider} from '~/context/block-data-provider'
 import {useGlobal} from '~/context/global-provider'
+import {
+  type Wiki,
+  type WikiQueryQuery,
+  type WikiQueryQueryVariables,
+} from '~/tina/__generated__/types'
 
 function Content({title, date, body}: Partial<Wiki>) {
   const {paths} = useGlobal()

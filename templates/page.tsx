@@ -3,14 +3,14 @@
 import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import {
-  type ContentQueryQuery,
-  type ContentQueryQueryVariables,
-} from '~/.tina/__generated__/types'
 import {Blocks} from '~/components/blocks-renderer'
 import {Layout} from '~/components/layout/layout'
 import {BlockDataProvider} from '~/context/block-data-provider'
 import {mapPageData} from '~/lib/services/api'
+import {
+  type ContentQueryQuery,
+  type ContentQueryQueryVariables,
+} from '~/tina/__generated__/types'
 
 function DefaultPage(props: {
   data: ContentQueryQuery
