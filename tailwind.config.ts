@@ -1,10 +1,11 @@
-const path = require('path')
+import path from 'path'
 
-const defaultTheme = require('tailwindcss/defaultTheme')
+import {type Config} from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-const fromRoot = p => path.join(__dirname, p)
+const fromRoot = (relativePath: string) => path.join(__dirname, relativePath)
 
-module.exports = {
+export default {
   theme: {
     extend: {
       fontFamily: {
@@ -50,4 +51,4 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@nerdfish/tailwind-config'),
   ],
-}
+} satisfies Config

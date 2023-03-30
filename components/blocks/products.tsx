@@ -19,7 +19,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
     <div className="col-span-full flex items-center justify-items-stretch lg:col-span-6">
       <Link
         href={link ?? '#'}
-        className="group relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg px-8 py-5 bg-secondary text-primary shadow-outline"
+        className="bg-secondary text-primary shadow-outline group relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg px-8 py-5"
       >
         {image ? (
           <div className="z-1 mb-4 flex h-24 w-auto items-center transition-all duration-1000 group-hover:scale-125">
@@ -39,7 +39,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
             <span className="text-ellipsis">{description}</span>
             <span className="block whitespace-nowrap font-bold">
               {soon ? (
-                <span className="rounded-full border border-green-300 bg-green-50 py-1 px-2 text-xs dark:border-green-200 dark:bg-green-500/10">
+                <span className="rounded-full border border-green-300 bg-green-50 px-2 py-1 text-xs dark:border-green-200 dark:bg-green-500/10">
                   Soon
                 </span>
               ) : (
@@ -48,7 +48,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
             </span>
           </Paragraph>
         </div>
-        <div className="absolute inset-0 z-0 bg-nerdfish-100 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
+        <div className="bg-nerdfish-100 absolute inset-0 z-0 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
       </Link>
     </div>
   )

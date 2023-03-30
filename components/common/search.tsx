@@ -89,7 +89,7 @@ function SearchResults() {
   return (
     <>
       {hits.length === 0 ? (
-        <div className="p-6 text-center font-fallback">
+        <div className="font-fallback p-6 text-center">
           <NoResultIcon className="mx-auto h-5 w-5 stroke-gray-900 dark:stroke-white" />
           <p className="mt-2 text-xs text-zinc-700 dark:text-zinc-400">
             Nothing found for{' '}
@@ -104,7 +104,7 @@ function SearchResults() {
       {hits.length > 0 ? (
         <Combobox.Options
           static
-          className="max-h-72 scroll-py-2 overflow-y-auto py-2 font-fallback text-sm text-primary"
+          className="font-fallback text-primary max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm"
         >
           {hits.map((hit, index) => (
             <SearchResult
@@ -149,7 +149,7 @@ function SearchDialog({
           />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto p-4 font-fallback sm:p-6 md:p-20">
+        <div className="font-fallback fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20">
           <Transition.Child
             as={React.Fragment}
             enter="ease-out duration-300"
@@ -159,7 +159,7 @@ function SearchDialog({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Dialog.Panel className="group mx-auto max-w-xl rounded-xl shadow-2xl transition-all bg-secondary">
+            <Dialog.Panel className="bg-secondary group mx-auto max-w-xl rounded-xl shadow-2xl transition-all">
               <Combobox
                 onChange={(item: SearchItem) => {
                   window.location = `/${stripPreSlash(
@@ -172,12 +172,12 @@ function SearchDialog({
                   <Combobox.Input
                     id="algolia_search"
                     type="search"
-                    className="h-12 w-full rounded-lg border-0 bg-primary-600 pr-11 pl-4 font-bold text-black outline-none placeholder:text-gray-500 focus:ring-0 sm:text-sm"
+                    className="bg-primary-600 h-12 w-full rounded-lg border-0 pl-4 pr-11 font-bold text-black outline-none placeholder:text-gray-500 focus:ring-0 sm:text-sm"
                     placeholder="Search website..."
                     onChange={event => refine(event.currentTarget.value)}
                   />
                   <SearchIcon
-                    className="pointer-events-none absolute top-3.5 right-4 h-5 w-5 text-gray-400"
+                    className="pointer-events-none absolute right-4 top-3.5 h-5 w-5 text-gray-400"
                     aria-hidden="true"
                   />
                 </div>
@@ -216,7 +216,7 @@ function SearchComponent() {
     <>
       <button
         type="button"
-        className="flex items-center justify-center rounded-full p-2 font-fallback focus-ring"
+        className="font-fallback focus-ring flex items-center justify-center rounded-full p-2"
         onClick={() => setOpen(true)}
       >
         <SearchIcon className="w-5" />

@@ -15,7 +15,7 @@ const KeywordList = ({
     <Section>
       <Grid>
         <Container size="full" className="py-32">
-          <div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-y-0 lg:space-x-16">
+          <div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-x-16 lg:space-y-0">
             <div className="w-full max-w-sm xl:max-w-lg">
               <H1
                 data-tinafield={`${parentField}.title`}
@@ -30,7 +30,7 @@ const KeywordList = ({
                 <span
                   data-tinafields={`${parentField}.keywords.{i}.item`}
                   key={item}
-                  className="block text-lg text-primary"
+                  className="text-primary block text-lg"
                 >
                   {item}
                 </span>
