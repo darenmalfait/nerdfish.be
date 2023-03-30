@@ -43,7 +43,7 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
   return (
     <>
       <Section>
-        <Grid className="mt-24 mb-14 lg:mb-24">
+        <Grid className="mb-14 mt-24 lg:mb-24">
           <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
             <BackLink href={paths?.blog ?? ''}>All blog posts</BackLink>
           </div>
@@ -90,7 +90,7 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
             />
           </Section>
           <Section>
-            <Grid className="mt-16 mb-32 gap-y-16">
+            <Grid className="mb-32 mt-16 gap-y-16">
               {relatedPosts.map(relatedBlog => {
                 return (
                   <div key={relatedBlog.id} className="col-span-4">

@@ -30,7 +30,7 @@ const Hero = ({
   return (
     <Grid as="header" className="h-auto items-start pt-24 lg:my-12 lg:pb-12">
       <Container size="full">
-        <div className="relative w-full pt-6 pb-8 text-center lg:py-8 lg:text-left">
+        <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
           <motion.div
             className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16"
             initial="initial"
@@ -53,7 +53,7 @@ const Hero = ({
               <motion.div
                 data-tinafield={`${parentField}.text`}
                 variants={childVariants}
-                className="prose prose-lg mt-3 mb-12 dark:prose-invert"
+                className="prose prose-lg dark:prose-invert mb-12 mt-3"
               >
                 <PortableText content={text} />
               </motion.div>
