@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
-import {cx} from '@nerdfish/utils'
+import {ExtractProps, cx} from '@nerdfish/utils'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import {Plus, Search} from 'lucide-react'
@@ -31,7 +31,7 @@ import {Spacer} from '../layout/spacer'
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-function Blog({
+function BlogOverview({
   parentField,
   header,
   searchEnabled,
@@ -281,6 +281,30 @@ function Blog({
         ) : null}
       </Section>
     </>
+  )
+}
+
+function BlogFallback() {
+  return (
+    <Section>
+      <Grid>
+        <Container size="full">
+          <div className="col-span-full flex flex-col">
+            <H3 as="p" variant="secondary" className="max-w-lg">
+              Loading...
+            </H3>
+          </div>
+        </Container>
+      </Grid>
+    </Section>
+  )
+}
+
+export default function Blog(props: ExtractProps<typeof BlogOverview>) {
+  return (
+    <React.Suspense fallback={<BlogFallback />}>
+      <BlogOverview {...props} />
+    </React.Suspense>
   )
 }
 
