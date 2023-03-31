@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
@@ -26,7 +27,7 @@ function ArticleCard({
 }: Partial<Blog>) {
   const {hydrated} = useGlobal()
   return (
-    <a
+    <Link
       href={hydrated ? `/blog${getDatedSlug(date, _sys?.filename ?? '')}` : ''}
       className="relative w-full"
     >
@@ -63,7 +64,7 @@ function ArticleCard({
           <H3 as="div">{title}</H3>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
