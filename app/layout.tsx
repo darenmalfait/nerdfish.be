@@ -26,6 +26,3 @@ export default function RootLayout({children}: RootLayoutProps) {
     </html>
   )
 }
-
-// TODO: this needs to be fixed, in development 0 doesn't work and in production it doesn't render meta data otherwise
-export const revalidate = process.env.NODE_ENV === 'development' ? 60 : 0
