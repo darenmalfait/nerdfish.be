@@ -2,9 +2,9 @@ import {type Metadata} from 'next'
 import {notFound} from 'next/navigation'
 
 import {getPage, getPages} from '~/lib/services/api'
-import {buildSrc} from '~/lib/utils/cloudinary'
+import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
-import {generateOGImageUrl, getFileNameFromUrl} from '~/lib/utils/social'
+import {generateOGImageUrl} from '~/lib/utils/social'
 import {stripTrailingSlash} from '~/lib/utils/string'
 import {DefaultPage} from '~/templates/page'
 

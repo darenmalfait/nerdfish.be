@@ -3,9 +3,9 @@ import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getWikiPost, getWikiPosts} from '~/lib/services/api'
-import {buildSrc} from '~/lib/utils/cloudinary'
+import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
-import {generateOGImageUrl, getFileNameFromUrl} from '~/lib/utils/social'
+import {generateOGImageUrl} from '~/lib/utils/social'
 import {WikiPage} from '~/templates/wiki'
 
 function getPath(slug?: string, year?: string, month?: string) {

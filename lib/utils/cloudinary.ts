@@ -59,4 +59,4 @@ function buildSrcSet(
   return sizes.join(',')
 }
 
-export {getLowQualityUrlFor, buildSrc, buildSrcSet}
+export {getFileNameFromUrl, getLowQualityUrlFor, buildSrc, buildSrcSet}
