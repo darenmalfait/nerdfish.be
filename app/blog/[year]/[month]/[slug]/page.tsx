@@ -3,9 +3,9 @@ import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {getBlogPost, getBlogPosts} from '~/lib/services/api'
-import {buildSrc} from '~/lib/utils/cloudinary'
+import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
-import {generateOGImageUrl, getFileNameFromUrl} from '~/lib/utils/social'
+import {generateOGImageUrl} from '~/lib/utils/social'
 import {BlogPage} from '~/templates/blog'
 
 function getPath(slug?: string, year?: string, month?: string) {
@@ -58,7 +58,7 @@ export async function generateMetadata({
             data.blog.seo?.partialSeoImage || data.blog.heroImg
               ? buildSrc(
                   getFileNameFromUrl(
-                    data.blog.seo?.partialSeoImage ?? data.blog.heroImg,
+                    data.blog.seo?.partialSeoImage ?? data.blog.heroImg ?? '',
                   ) ?? '',
                   {
                     width: data.blog.seo?.cardType === 'secondary' ? 1100 : 800,
