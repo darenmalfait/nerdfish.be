@@ -3,10 +3,11 @@ title: Form handling in React without states
 excerpt: |
   using useStates for form handling, things get clunky fast.
 date: '2023-04-06T10:00:00.000Z'
+tags:
+  - react
 ---
 
-Handling forms in React is typically done by storing the values of the form fields in state. For example:\
-
+Handling forms in React is typically done by storing the values of the form fields in state. For example:\\
 
 ```javascript
 import * as React from 'react';
@@ -21,14 +22,11 @@ function ExampleForm() {
   }
 
   return (
-    <form onSubmit= { handleSubmit } >
-    <input type="text" name = "firstName" value = { firstName }
-  onChange = {(e) => setFirstName(e.target.value)
-} />
-  < input type = "text" name = "lastName" value = { lastName }
-onChange = {(e) => setLastName(e.target.value)} />
-  < button type = "submit" > Submit < /button>
-    < /form>
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+      <input type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+      <button type="submit">Submit</button>
+    </form>
   )
 }
 ```
