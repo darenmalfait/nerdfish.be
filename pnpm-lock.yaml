@@ -101,8 +101,8 @@ dependencies:
     specifier: ^1.6.6
     version: 1.6.6
   tinacms:
-    specifier: ^1.4.3
-    version: 1.4.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0)
+    specifier: ^1.4.5
+    version: 1.4.5(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0)
   tiny-invariant:
     specifier: ^1.3.1
     version: 1.3.1
@@ -124,8 +124,8 @@ devDependencies:
     specifier: ^7.0.0
     version: 7.0.0
   '@tinacms/cli':
-    specifier: ^1.5.3
-    version: 1.5.3(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(graphql-tag@2.12.6)(postcss@8.4.21)(react@18.2.0)(scheduler@0.23.0)(ts-node@10.9.1)(typanion@3.12.1)
+    specifier: ^1.5.5
+    version: 1.5.5(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(graphql-tag@2.12.6)(postcss@8.4.21)(react@18.2.0)(scheduler@0.23.0)(ts-node@10.9.1)(typanion@3.12.1)
   '@types/lodash':
     specifier: ^4.14.192
     version: 4.14.192
@@ -2270,8 +2270,8 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@graphql-codegen/plugin-helpers@4.0.0(graphql@15.8.0):
-    resolution: {integrity: sha512-vgNGTanT36hC4RAC/LAThMEjDvnu3WCyx6MtKZcPUtfCWFxbUAr88+OarGl1LAEiOef0agIREC7tIBXCqjKkJA==}
+  /@graphql-codegen/plugin-helpers@4.2.0(graphql@15.8.0):
+    resolution: {integrity: sha512-THFTCfg+46PXlXobYJ/OoCX6pzjI+9woQqCjdyKtgoI0tn3Xq2HUUCiidndxUpEYVrXb5pRiRXb7b/ZbMQqD0A==}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -2281,7 +2281,7 @@ packages:
       graphql: 15.8.0
       import-from: 4.0.0
       lodash: 4.17.21
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /@graphql-codegen/schema-ast@2.6.1(graphql@15.8.0):
@@ -4815,15 +4815,15 @@ packages:
       - supports-color
     dev: true
 
-  /@tinacms/app@1.2.3(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(scheduler@0.23.0)(ts-node@10.9.1)(yup@0.32.11):
-    resolution: {integrity: sha512-y6nO/e58lMFqprUFTFsENeImsJlZjgMPfTh/As6IaW/RNqnDlaOZ99H/FFO8Jg4Lc01iNtwf9yNNC8rL9KkirQ==}
+  /@tinacms/app@1.2.5(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(scheduler@0.23.0)(ts-node@10.9.1)(yup@0.32.11):
+    resolution: {integrity: sha512-dgvuy+vd5LKQkdGNE0xazU2JI5EibR80eEu1IdeUCdiFHyN9fx3Az7s0rj4CLz93sb1SCFmJgF3av3U/k24hgA==}
     dependencies:
       '@graphiql/toolkit': 0.8.2(@types/node@18.15.11)(graphql@15.8.0)
       '@headlessui/react': 1.7.13(react-dom@17.0.2)(react@17.0.2)
       '@heroicons/react': 1.0.6(react@17.0.2)
       '@monaco-editor/react': 4.4.5(monaco-editor@0.31.0)(react-dom@17.0.2)(react@17.0.2)
-      '@tinacms/mdx': 1.3.7(react@17.0.2)(yup@0.32.11)
-      '@tinacms/toolkit': 1.6.2(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
+      '@tinacms/mdx': 1.3.8(react@17.0.2)(yup@0.32.11)
+      '@tinacms/toolkit': 1.6.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
       '@xstate/react': 3.0.0(@types/react@18.0.32)(react@17.0.2)(xstate@4.32.1)
       final-form: 4.20.7
       graphiql: 2.4.0(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(graphql@15.8.0)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)
@@ -4836,7 +4836,7 @@ packages:
       react-is: 17.0.2
       react-router-dom: 6.3.0(react-dom@17.0.2)(react@17.0.2)
       tailwindcss: 3.3.1(postcss@8.4.21)(ts-node@10.9.1)
-      tinacms: 1.4.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
+      tinacms: 1.4.5(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
       typescript: 4.9.5
       webfontloader: 1.6.28
       xstate: 4.32.1
@@ -4872,12 +4872,12 @@ packages:
       - encoding
     dev: false
 
-  /@tinacms/cli@1.5.3(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(graphql-tag@2.12.6)(postcss@8.4.21)(react@18.2.0)(scheduler@0.23.0)(ts-node@10.9.1)(typanion@3.12.1):
-    resolution: {integrity: sha512-2H7Kz+EBMun6XQAZNYQWXh2dzpG4NJq/SydwMx15moWOITPfve9zqGEekElrKxenqIz0jP40MWQuZ5CLze2esQ==}
+  /@tinacms/cli@1.5.5(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(graphql-tag@2.12.6)(postcss@8.4.21)(react@18.2.0)(scheduler@0.23.0)(ts-node@10.9.1)(typanion@3.12.1):
+    resolution: {integrity: sha512-JkTjDw3icAEAtrY0rRCUmpZxi0ZFSHrjLfUyvVAU8ngoSBnd1Dei3AHszbJ99ixfB9I5jGEKjHRANIKBMl4P8A==}
     hasBin: true
     dependencies:
       '@graphql-codegen/core': 2.6.8(graphql@15.8.0)
-      '@graphql-codegen/plugin-helpers': 4.0.0(graphql@15.8.0)
+      '@graphql-codegen/plugin-helpers': 4.2.0(graphql@15.8.0)
       '@graphql-codegen/typescript': 2.8.8(graphql@15.8.0)
       '@graphql-codegen/typescript-generic-sdk': 2.5.1(graphql-tag@2.12.6)(graphql@15.8.0)
       '@graphql-codegen/typescript-operations': 2.5.13(graphql@15.8.0)
@@ -4890,9 +4890,9 @@ packages:
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.3.1)
       '@tailwindcss/line-clamp': 0.3.1(tailwindcss@3.3.1)
       '@tailwindcss/typography': 0.5.9(tailwindcss@3.3.1)
-      '@tinacms/app': 1.2.3(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(scheduler@0.23.0)(ts-node@10.9.1)(yup@0.32.11)
-      '@tinacms/datalayer': 1.2.4(react@18.2.0)
-      '@tinacms/graphql': 1.4.4(react@18.2.0)
+      '@tinacms/app': 1.2.5(@babel/core@7.21.3)(@codemirror/language@6.0.0)(@types/node@18.15.11)(@types/react@18.0.32)(scheduler@0.23.0)(ts-node@10.9.1)(yup@0.32.11)
+      '@tinacms/datalayer': 1.2.6(react@18.2.0)
+      '@tinacms/graphql': 1.4.6(react@18.2.0)
       '@tinacms/metrics': 1.0.2(fs-extra@9.1.0)
       '@tinacms/schema-tools': 1.4.2(react@18.2.0)(yup@0.32.11)
       '@vitejs/plugin-react': 3.1.0(vite@4.1.4)
@@ -4975,10 +4975,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@tinacms/datalayer@1.2.4(react@18.2.0):
-    resolution: {integrity: sha512-XUyl6Li/McLSvBnliULWPyO8CR5Lk7XyZ8YlS3mJ/K4j9jagLCYJk9npTnsVHDFdjF4kXi9v3KtR1KURNgYDoA==}
+  /@tinacms/datalayer@1.2.6(react@18.2.0):
+    resolution: {integrity: sha512-mK8JtNSLRrJ/IyhGs/GuPU2eW/lgia2UCiRm7b1fGBt5OBuXRWwAledGuCL8krvZ/nY1wQVQ6ngh2t6IWc51NA==}
     dependencies:
-      '@tinacms/graphql': 1.4.4(react@18.2.0)
+      '@tinacms/graphql': 1.4.6(react@18.2.0)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -4987,12 +4987,12 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@tinacms/graphql@1.4.4(react@18.2.0):
-    resolution: {integrity: sha512-v9SWzMQvrqMacAv/Wj3obEDSL8c8T/ocKxpOSSkOjtmpmj2zyiyESmIqz+OIz3pEniHiSi9KEPOKfvo8G80aAw==}
+  /@tinacms/graphql@1.4.6(react@18.2.0):
+    resolution: {integrity: sha512-tUm1fTbhUKcmWvP/qRVtCmLAxzi+FRrBAWFENfyOHYKi4HGGubEEUqVRlKXCOKnMqU45znZlMljJRltIYQMj9A==}
     dependencies:
       '@graphql-tools/relay-operation-optimizer': 6.5.17(encoding@0.1.13)(graphql@15.8.0)
       '@iarna/toml': 2.2.5
-      '@tinacms/mdx': 1.3.7(react@18.2.0)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.8(react@18.2.0)(yup@0.32.11)
       '@tinacms/schema-tools': 1.4.2(react@18.2.0)(yup@0.32.11)
       abstract-level: 1.0.3
       body-parser: 1.20.1
@@ -5049,8 +5049,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@tinacms/mdx@1.3.7(react@17.0.2)(yup@0.32.11):
-    resolution: {integrity: sha512-l6opJ2gM/b6WyBYDAb/ZmXuEersgZe0K8jawSXDtpYInD8YS7xYQ/IVmzDtEkh5BZV5Baq0luAa362Sd1Lzy/Q==}
+  /@tinacms/mdx@1.3.8(react@17.0.2)(yup@0.32.11):
+    resolution: {integrity: sha512-TCsJN9WbOn4z6wnyY3Y4tYJUPnFjxSv3GetgwbQZAxclDtO21kkD+v850lbxdK+QWMCgUJNOQeBHrnfY7UeOUA==}
     dependencies:
       '@tinacms/schema-tools': 1.4.2(react@17.0.2)(yup@0.32.11)
       '@types/mdast': 3.0.10
@@ -5107,8 +5107,8 @@ packages:
       - yup
     dev: true
 
-  /@tinacms/mdx@1.3.7(react@18.2.0)(yup@0.32.11):
-    resolution: {integrity: sha512-l6opJ2gM/b6WyBYDAb/ZmXuEersgZe0K8jawSXDtpYInD8YS7xYQ/IVmzDtEkh5BZV5Baq0luAa362Sd1Lzy/Q==}
+  /@tinacms/mdx@1.3.8(react@18.2.0)(yup@0.32.11):
+    resolution: {integrity: sha512-TCsJN9WbOn4z6wnyY3Y4tYJUPnFjxSv3GetgwbQZAxclDtO21kkD+v850lbxdK+QWMCgUJNOQeBHrnfY7UeOUA==}
     dependencies:
       '@tinacms/schema-tools': 1.4.2(react@18.2.0)(yup@0.32.11)
       '@types/mdast': 3.0.10
@@ -5225,8 +5225,8 @@ packages:
       react-is: 17.0.2
     dev: false
 
-  /@tinacms/toolkit@1.6.2(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0):
-    resolution: {integrity: sha512-lv4AHO+8UkEXpmBsysxdNUzXRApLIIUIjEbhBfvFFXUEVC7Mx8Ry/fi4UDEzXXlctcGENYELLGVLMZatfhGKWA==}
+  /@tinacms/toolkit@1.6.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0):
+    resolution: {integrity: sha512-vqgAxXIs/EE9pwyTMHLetsfP2AiyIrQdsB66YtXPnnMlPv7KzEvyToBeWHubigqwbqY8jdV1KqBcOMUcnKCg4A==}
     peerDependencies:
       react: '>=16.14'
       react-dom: '>=16.14'
@@ -5290,8 +5290,8 @@ packages:
       - supports-color
     dev: true
 
-  /@tinacms/toolkit@1.6.2(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0):
-    resolution: {integrity: sha512-lv4AHO+8UkEXpmBsysxdNUzXRApLIIUIjEbhBfvFFXUEVC7Mx8Ry/fi4UDEzXXlctcGENYELLGVLMZatfhGKWA==}
+  /@tinacms/toolkit@1.6.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0):
+    resolution: {integrity: sha512-vqgAxXIs/EE9pwyTMHLetsfP2AiyIrQdsB66YtXPnnMlPv7KzEvyToBeWHubigqwbqY8jdV1KqBcOMUcnKCg4A==}
     peerDependencies:
       react: '>=16.14'
       react-dom: '>=16.14'
@@ -16785,8 +16785,8 @@ packages:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
 
-  /tinacms@1.4.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0):
-    resolution: {integrity: sha512-tRq0wl3SoOIvzYVmfrAfew6crXjEPlVz1yrMJ+wUdXCfcIwyGaTCP7MPhCU9rPjw1IFVmY/P2KUhTSqgOxaZwg==}
+  /tinacms@1.4.5(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0):
+    resolution: {integrity: sha512-rdUkm9Qi/G+wXe2zgDdtfjv0KmK44bZ/0/RJk+Q7YrnCGXGXprrgtfxFLgcDlDNksJG918a1dkO8lgXuoCAl2A==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -16799,7 +16799,7 @@ packages:
       '@react-hook/window-size': 3.1.1(react@17.0.2)
       '@tinacms/schema-tools': 1.4.2(react@17.0.2)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.1(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)
-      '@tinacms/toolkit': 1.6.2(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
+      '@tinacms/toolkit': 1.6.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@17.0.2)(react-is@17.0.2)(react@17.0.2)(scheduler@0.23.0)
       crypto-js: 4.1.1
       encoding: 0.1.13
       fetch-ponyfill: 7.1.0(encoding@0.1.13)
@@ -16833,8 +16833,8 @@ packages:
       - supports-color
     dev: true
 
-  /tinacms@1.4.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0):
-    resolution: {integrity: sha512-tRq0wl3SoOIvzYVmfrAfew6crXjEPlVz1yrMJ+wUdXCfcIwyGaTCP7MPhCU9rPjw1IFVmY/P2KUhTSqgOxaZwg==}
+  /tinacms@1.4.5(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0):
+    resolution: {integrity: sha512-rdUkm9Qi/G+wXe2zgDdtfjv0KmK44bZ/0/RJk+Q7YrnCGXGXprrgtfxFLgcDlDNksJG918a1dkO8lgXuoCAl2A==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -16847,7 +16847,7 @@ packages:
       '@react-hook/window-size': 3.1.1(react@18.2.0)
       '@tinacms/schema-tools': 1.4.2(react@18.2.0)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.1(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)
-      '@tinacms/toolkit': 1.6.2(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0)
+      '@tinacms/toolkit': 1.6.3(@babel/core@7.21.3)(@types/react@18.0.32)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)(scheduler@0.23.0)
       crypto-js: 4.1.1
       encoding: 0.1.13
       fetch-ponyfill: 7.1.0(encoding@0.1.13)
