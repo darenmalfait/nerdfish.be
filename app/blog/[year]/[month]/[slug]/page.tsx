@@ -4,6 +4,7 @@ import {padStart} from 'lodash'
 
 import {getBlogPost, getBlogPosts} from '~/lib/services/api'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
+import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 import {BlogPage} from '~/templates/blog'
@@ -70,7 +71,7 @@ export async function generateMetadata({
           heading: title,
         }),
     title,
-    url: params.slug ?? '/',
+    url: `/blog/${getDatedSlug(data.blog.date, params.slug ?? '')}`,
     description: data.blog.seo?.description ?? '',
     canonical: data.blog.seo?.canonical,
   })

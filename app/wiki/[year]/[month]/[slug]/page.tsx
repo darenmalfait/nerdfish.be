@@ -4,6 +4,7 @@ import {padStart} from 'lodash'
 
 import {getWikiPost, getWikiPosts} from '~/lib/services/api'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
+import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 import {WikiPage} from '~/templates/wiki'
@@ -66,7 +67,7 @@ export async function generateMetadata({
           heading: title,
         }),
     title,
-    url: params.slug ?? '/',
+    url: `/wiki/${getDatedSlug(data.wiki.date, params.slug ?? '')}`,
     description: data.wiki.seo?.description ?? '',
     canonical: data.wiki.seo?.canonical,
   })
