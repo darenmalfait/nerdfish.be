@@ -1,0 +1,108 @@
+---
+seo:
+  title: 'JavaScript fundamentals: functional vs object-oriented programming'
+  description: >-
+    Functional programming and object-oriented programming are two popular
+    programming paradigms in current software development. Understanding their
+    differences can help you make better choices when designing and constructing
+    software. To solve any issue, you don't need to stick to one paradigm. You
+    can use either object-oriented or functional approaches for any task. It's
+    essential to understand the distinctions between the two, though.
+  partialSeoImage: >-
+    https://res.cloudinary.com/darenmalfait/image/upload/v1681294251/Daren_A_geometric-shaped_blue_robot_next_to_a_red_anthropomorph_b1390440-539f-4848-8060-2ec285bb039a_rg6g0t.png
+  cardType: primary
+title: JavaScript fundamentals functional vs object-oriented programming
+tags:
+  - JavaScript fundamentals
+category: technical
+heroImg: >-
+  http://res.cloudinary.com/darenmalfait/image/upload/v1681294251/Daren_A_geometric-shaped_blue_robot_next_to_a_red_anthropomorph_b1390440-539f-4848-8060-2ec285bb039a_rg6g0t.png
+excerpt: >-
+  Functional programming and object-oriented programming are two popular
+  programming paradigms in current software development. Understanding their
+  differences can help you make better choices when designing and constructing
+  software. To solve any issue, you don't need to stick to one paradigm. You can
+  use either object-oriented or functional approaches for any task. It's
+  essential to understand the distinctions between the two, though.
+date: '2023-04-12T10:00:00.000Z'
+---
+
+Functional programming and object-oriented programming are two popular programming paradigms in current software development. Understanding their differences can help you make better choices when designing and constructing software. To solve any issue, you don't need to stick to one paradigm. You can use either object-oriented or functional approaches for any task. It's essential to understand the distinctions between the two, though.
+
+## In Code
+
+Object-Oriented Programming (OOP) focuses on objects. These "entities," such as a person, a database connection, or an input field, can be manipulated by referring to them as instances. This is done by creating classes, which are templates used to create objects in JavaScript.
+
+Imagine you own a cat and you want to represent it in your code. You could create a Cat class, for example:
+
+```javascript
+class Cat {
+  constructor(name, age, color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+
+  meow() {
+    console.log('Meow!');
+  }
+
+  purr() {
+    console.log('Purr...');
+  }
+}
+```
+
+This code creates a Cat class with three properties: name, age, and color. It also has two methods, \`meow()\` and \`purr()\`, which simulate the sounds cats make.
+
+To create a new cat, you can write code like this:
+
+```javascript
+const myCat = new Cat('Fluffy', 5, 'gray');
+```
+
+This instantiates a Cat object and assigns it to the variable myCat. You can then invoke its methods, such as:
+
+```javascript
+myCat.meow(); // Output: "Meow!"
+```
+
+In functional programming, the emphasis is on functions rather than objects. Unlike OOP, there is no notion of objects that maintain their own state or data. Rather, functions are used to modify data and return a new outcome. This eliminates the need to store state, making the code simpler to maintain and debug.
+
+We decompose the task we want to implement into pure functions as much as possible. Ideal functions are those that do not cause any side effects.
+
+For example, to describe a cat, we could create a function like this:
+
+```javascript
+function describeCat(name, age, color) {
+  return {
+    name,
+    age,
+    color,
+    meow: () => console.log('Meow!'),
+    purr: () => console.log('Purr...'),
+  };
+}
+```
+
+This code defines a function, \`describeCat\`, which takes three arguments: \`name\`, \`age\`, and \`color\`. It returns an object with these properties and two methods: \`meow()\` and \`purr()\`.
+
+To create a new cat using this function, you can write:
+
+```javascript
+const myCat = describeCat('Fluffy', 5, 'gray');
+```
+
+Call the \`describeCat\` function and assign the returned object to the \`myCat\` variable. You can then invoke methods on this object, as in the object-oriented programming example.
+
+```javascript
+myCat.meow(); // Output: "Meow!"
+```
+
+## In words
+
+What distinguishes these two approaches? In object-oriented programming (OOP), we create classes and objects with properties and methods. Functional programming (FP) involves writing functions that accept inputs and produce outputs. Both approaches can be used to solve the same problems, yet they have different advantages and disadvantages.
+
+I believe that functional programming (FP) is often simpler and easier to understand than object-oriented programming (OOP). Functions are more straightforward to reason about than objects with complex state and behavior. Furthermore, FP encourages immutability, where data does not change after it is created. This can make code easier to comprehend and reduce the likelihood of errors.
+
+I hope this post was informative and enjoyable. Thank you for taking the time to read it. I wish you success on your coding journey!
