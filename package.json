@@ -18,11 +18,11 @@
     "validate": "run-s lint:*"
   },
   "resolutions": {
-    "@headlessui/react": "^1.7.13"
+    "@headlessui/react": "^1.7.14"
   },
   "dependencies": {
     "@algolia/client-search": "^4.17.0",
-    "@headlessui/react": "^1.7.13",
+    "@headlessui/react": "^1.7.14",
     "@nerdfish/tailwind-config": "^1.0.1",
     "@nerdfish/theme": "^1.0.1",
     "@nerdfish/ui": "^1.1.0",
@@ -33,14 +33,14 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@tinacms/auth": "^1.0.3",
-    "@vercel/og": "^0.5.1",
+    "@vercel/og": "^0.5.2",
     "algoliasearch": "^4.17.0",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "feed": "^4.2.2",
-    "framer-motion": "^10.11.2",
+    "framer-motion": "^10.11.6",
     "lodash": "^4.17.21",
-    "lucide-react": "^0.137.0",
+    "lucide-react": "^0.144.0",
     "match-sorter": "^6.3.1",
     "next": "^13.3.0",
     "next-tinacms-cloudinary": "^4.3.0",
@@ -50,7 +50,7 @@
     "react-icons": "^4.8.0",
     "react-instantsearch-core": "^6.39.1",
     "react-instantsearch-dom": "^6.39.1",
-    "react-instantsearch-hooks-web": "^6.42.1",
+    "react-instantsearch-hooks-web": "^6.42.2",
     "react-obfuscate": "^3.6.9",
     "slugify": "^1.6.6",
     "tinacms": "^1.4.5",
