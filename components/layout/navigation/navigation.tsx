@@ -9,9 +9,16 @@ import {Navbar} from './navbar'
 
 interface NavigationProps {
   multilang?: boolean
+  className?: string
+  hideThemeToggle?: boolean
 }
 
-function Navigation({multilang, ...props}: NavigationProps) {
+function Navigation({
+  multilang,
+  className,
+  hideThemeToggle,
+  ...props
+}: NavigationProps) {
   const {navigation} = useGlobal()
   const pathname = usePathname() ?? '/'
 
@@ -28,7 +35,13 @@ function Navigation({multilang, ...props}: NavigationProps) {
   }, [navigation?.actions])
 
   return (
-    <Navbar {...props} rootPath="/" actions={actionItems}>
+    <Navbar
+      {...props}
+      hideThemeToggle={hideThemeToggle}
+      rootPath="/"
+      actions={actionItems}
+      className={className}
+    >
       {navigation?.main?.map((link, i: number) => {
         if (!link) return null
         const isActive = stripPreSlash(pathname).startsWith(link.href)

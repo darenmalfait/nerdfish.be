@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {Container, DoubleLabelLink, Grid, Section} from '@nerdfish/ui'
 
