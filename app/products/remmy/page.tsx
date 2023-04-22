@@ -18,6 +18,8 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     ogImage: generateOGImageUrl({
       cardType: 'primary',
       heading: title,
+      image:
+        'https://res.cloudinary.com/darenmalfait/image/upload/v1682078653/android-chrome-512x512_y1jigr.png',
     }),
     title,
     url: '/products/remmy',
