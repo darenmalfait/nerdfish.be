@@ -6,7 +6,7 @@ import {GithubIcon} from '../icons/github-icon'
 import {Logo} from '../icons/logo'
 import {TwitterIcon} from '../icons/twitter-icon'
 
-function Footer() {
+function Footer({hideThemeToggle}: {hideThemeToggle?: boolean}) {
   const {social} = useGlobal()
 
   const github = social?.github
@@ -35,7 +35,9 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-row items-center gap-3 md:gap-7">
-          <ThemeToggle className="hover:bg-github/20 flex h-10 w-10 items-center justify-center rounded-full transition" />
+          {!hideThemeToggle ? (
+            <ThemeToggle className="hover:bg-github/20 flex h-10 w-10 items-center justify-center rounded-full transition" />
+          ) : null}
 
           {twitter ? (
             <Link
