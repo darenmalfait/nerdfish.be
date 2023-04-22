@@ -12,7 +12,7 @@ import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const title = 'Structure your files with Remmy'
+  const title = 'Give structure to filenames with Remmy'
 
   return getMetaData({
     ogImage: generateOGImageUrl({
