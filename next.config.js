@@ -7,6 +7,7 @@ module.exports = {
   },
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: ['@nerdfish/ui'],
   },
   eslint: {
     ignoreDuringBuilds: true,
