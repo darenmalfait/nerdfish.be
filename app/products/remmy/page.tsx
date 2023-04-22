@@ -41,7 +41,7 @@ export default async function Page() {
             parentField="none"
             title="Structure in your files with Remmy"
             action={{
-              title: 'Get started',
+              title: 'Get Remmy for macOS',
               label: 'Download',
               href: 'https://5387854441136.gumroad.com/l/remmy',
             }}
@@ -86,7 +86,7 @@ export default async function Page() {
               href="https://5387854441136.gumroad.com/l/remmy"
               className="mx-auto mt-12 "
             >
-              Download Remmy
+              Download Remmy for macOS
             </ButtonLink>
           </div>
         </Section>
@@ -146,7 +146,7 @@ export default async function Page() {
                       rel="noopener noreferrer"
                       href="https://5387854441136.gumroad.com/l/remmy"
                     >
-                      Get started
+                      Get started on macOS
                     </ButtonLink>
                   </div>
                 </div>
