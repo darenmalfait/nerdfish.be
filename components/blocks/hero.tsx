@@ -1,3 +1,5 @@
+'use client'
+
 import {Container, Grid, H2} from '@nerdfish/ui'
 import {motion} from 'framer-motion'
 import {type RichTextType} from 'tinacms'

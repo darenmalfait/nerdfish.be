@@ -80,9 +80,17 @@ interface NavbarProps {
   rootPath?: string
   children?: React.ReactNode
   actions?: React.ReactNode
+  hideThemeToggle?: boolean
+  className?: string
 }
 
-function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
+function Navbar({
+  actions,
+  children,
+  rootPath = getDomainUrl(),
+  className,
+  hideThemeToggle,
+}: NavbarProps) {
   const [open, setOpen] = React.useState(false)
 
   const onToggle = React.useCallback(() => {
@@ -102,7 +110,7 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
   }
 
   return (
-    <div className="w-full">
+    <div className={cx('w-full', className)}>
       <div className="py-9 lg:py-12">
         <Grid className="text-primary mx-auto">
           <Container size="full">
@@ -124,7 +132,7 @@ function Navbar({actions, children, rootPath = getDomainUrl()}: NavbarProps) {
               <div className="flex justify-end md:flex-1">
                 <nav className="ml-5 inline-flex items-center space-x-4 lg:ml-0 lg:w-2/5 lg:justify-end lg:space-y-0">
                   <Search />
-                  <ThemeToggle />
+                  {!hideThemeToggle ? <ThemeToggle /> : null}
                   <a
                     className="focus-ring xsm:block hidden rounded-full p-2"
                     target="_blank"

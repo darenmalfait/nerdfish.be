@@ -1,3 +1,5 @@
+'use client'
+
 import {Grid, H2, Section} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'

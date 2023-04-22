@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {cx} from '@nerdfish/utils'
 import {ClipboardCopy} from 'lucide-react'
@@ -79,6 +81,7 @@ function CodeBlock({
   showLanguage,
   theme,
   className: classNameProp,
+  forceColorTheme,
 }: {
   code?: string
   language?: Language
@@ -86,6 +89,7 @@ function CodeBlock({
   showLanguage?: boolean
   theme?: PrismTheme
   className?: string
+  forceColorTheme?: 'light' | 'dark'
 }) {
   const [mounted, setMounted] = React.useState(false)
   const {theme: selectedtheme, systemTheme} = useTheme()
@@ -100,6 +104,7 @@ function CodeBlock({
   }
 
   const isDarkMode =
+    forceColorTheme === 'dark' ||
     selectedtheme === 'dark' ||
     (selectedtheme === 'system' && systemTheme === 'dark')
 
