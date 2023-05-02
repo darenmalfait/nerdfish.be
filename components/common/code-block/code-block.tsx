@@ -176,5 +176,4 @@ function CodeBlock({
   )
 }
 
-export {CodeBlock}
-export type {CodeBlockLanguage}
+export {CodeBlock, type CodeBlockLanguage}
