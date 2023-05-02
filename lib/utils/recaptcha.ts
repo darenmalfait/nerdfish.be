@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import {env} from '~/env.mjs'
+
 /**
  * Function to clean the recaptcha_[language] script injected by the recaptcha.js
  */
@@ -39,7 +41,7 @@ export function useRecaptcha(): RecaptchaProps {
   }>(null)
 
   React.useEffect(() => {
-    if (!process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+    if (!env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
       console.error('Error: RECAPTCHA_SITEKEY is not set')
       return
     }
@@ -76,7 +78,7 @@ export function useRecaptcha(): RecaptchaProps {
     // load the script by passing the URL
     loadScriptByURL(
       scriptId,
-      `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
+      `https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
     )
 
     return () => {
@@ -89,12 +91,9 @@ export function useRecaptcha(): RecaptchaProps {
       console.error('Error: grecaptcha is not defined')
     }
 
-    return greCaptchaInstance?.execute(
-      process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
-      {
-        action: 'submit',
-      },
-    )
+    return greCaptchaInstance?.execute(env.NEXT_PUBLIC_RECAPTCHA_SITEKEY, {
+      action: 'submit',
+    })
   }, [greCaptchaInstance])
 
   return {execute}

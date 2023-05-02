@@ -4,8 +4,10 @@ import {
 } from '@algolia/client-search'
 import algoliasearch from 'algoliasearch/lite'
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID ?? ''
-const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY ?? ''
+import {env} from '~/env.mjs'
+
+const appId = env.NEXT_PUBLIC_ALGOLIA_APP_ID
+const apiKey = env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY
 
 interface Request {
   params: SearchOptions

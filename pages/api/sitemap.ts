@@ -1,9 +1,10 @@
 import {type NextApiRequest, type NextApiResponse} from 'next'
 
+import {env} from '~/env.mjs'
 import {getSitemapData} from '~/lib/services/api'
 import {getDatedSlug} from '~/lib/utils/routes'
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL
+const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async (_req: NextApiRequest, res: NextApiResponse) => {
   const data = await getSitemapData()
