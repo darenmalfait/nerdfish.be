@@ -1,3 +1,5 @@
+import {env} from '~/env.mjs'
+
 const CLOUDINARY_REGEX =
   /^.+\.cloudinary\.com\/(?:[^/]+\/)(?:(image|video)\/)?(?:(upload|fetch)\/)?(?:(?:[^_/]+_[^,/]+,?)*\/)?(?:v(\d+|\w{1,2})\/)?([^.^\s]+)(?:\.(.+))?$/
 
@@ -12,7 +14,7 @@ function getFileNameFromUrl(url: string) {
 function getLowQualityUrlFor(url: string, extension: string = 'webp') {
   const filename = getFileNameFromUrl(url)
 
-  return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_50/${filename}.${extension}`
+  return `https://res.cloudinary.com/${env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_50/${filename}.${extension}`
 }
 
 function buildSrc(
@@ -31,10 +33,10 @@ function buildSrc(
 
   if (height) {
     // no stretch
-    return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width},h_${height},c_fill/${filename}.${format}`
+    return `https://res.cloudinary.com/${env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width},h_${height},c_fill/${filename}.${format}`
   }
 
-  return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width}/${filename}.${format}`
+  return `https://res.cloudinary.com/${env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width}/${filename}.${format}`
 }
 
 function buildSrcSet(

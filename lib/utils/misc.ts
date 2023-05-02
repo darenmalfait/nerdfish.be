@@ -1,8 +1,9 @@
+import {env} from '~/env.mjs'
 import {type NonNullProperties} from '~/lib/types/misc'
 
 function getDomainUrl(): string | undefined {
-  if (process.env.NEXT_PUBLIC_URL) {
-    return process.env.NEXT_PUBLIC_URL
+  if (env.NEXT_PUBLIC_URL) {
+    return env.NEXT_PUBLIC_URL
   }
 }
 

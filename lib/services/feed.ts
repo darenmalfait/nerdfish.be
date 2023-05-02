@@ -1,5 +1,6 @@
 import {Feed} from 'feed'
 
+import {env} from '~/env.mjs'
 import {BlogPath} from '~/lib/utils/constants'
 import {getDatedSlug} from '~/lib/utils/routes'
 
@@ -22,7 +23,7 @@ async function buildFeed() {
   const posts = (await getBlogPosts()) ?? []
 
   posts.reverse().forEach(post => {
-    const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
+    const link = `${env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
       new Date(post.date ?? '').toDateString(),
       post._sys?.filename ?? '',
     )}`

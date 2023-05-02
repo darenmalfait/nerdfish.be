@@ -12,6 +12,7 @@ import {
 } from 'react-instantsearch-hooks-web'
 
 import {NoResultIcon} from '~/components/icons/no-result-icon'
+import {env} from '~/env.mjs'
 import {getAlgoliaClient} from '~/lib/services/search'
 import {stripPreSlash} from '~/lib/utils/string'
 
@@ -21,7 +22,7 @@ type SearchItem = {
   type?: string
 }
 
-const INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME ?? ''
+const INDEX_NAME = env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME
 const searchClient = getAlgoliaClient().algoliaClient
 
 function SearchResult({

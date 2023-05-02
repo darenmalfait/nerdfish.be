@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
 
+import {env} from '~/env.mjs'
 import {useSubmit} from '~/lib/utils/form'
 import {useRecaptcha} from '~/lib/utils/recaptcha'
 
@@ -48,7 +49,7 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     }
 
     try {
-      if (process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+      if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
         const recaptchaResponse = await execute()
 
         const recaptchaFormValues = {
