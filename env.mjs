@@ -13,8 +13,8 @@ export const env = createEnv({
     SENDGRID_API_KEY: z.string().min(1),
     TINA_TOKEN: z.string().min(1),
 
-    NODE_ENV: z.string().min(1).default('development'),
-    HEAD: z.string().min(1).optional(),
+    NODE_ENV: z.string().default('development'),
+    HEAD: z.string().optional(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -31,10 +31,10 @@ export const env = createEnv({
 
     NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1),
 
-    NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(),
+    NEXT_PUBLIC_TINA_BRANCH: z.string().optional(),
     NEXT_PUBLIC_TINA_CLIENT_ID: z.string().min(1),
     NEXT_PUBLIC_URL: z.string().url(),
-    NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF: z.string().min(1).optional(),
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF: z.string().optional(),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
