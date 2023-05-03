@@ -1,15 +1,14 @@
-import {type NextApiRequest, type NextApiResponse} from 'next'
-
 import {env} from '~/env.mjs'
 import {getSitemapData} from '~/lib/services/api'
 import {getDatedSlug} from '~/lib/utils/routes'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
-export default async (_req: NextApiRequest, res: NextApiResponse) => {
-  const data = await getSitemapData()
+export async function GET() {
+  try {
+    const data = await getSitemapData()
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -52,7 +51,15 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
   </urlset>
   `
 
-  res.statusCode = 200
-  res.setHeader('content-type', 'application/xml; charset=utf-8')
-  res.end(xml)
+    return new Response(xml, {
+      status: 200,
+      headers: {
+        'content-type': 'application/xml; charset=utf-8',
+      },
+    })
+  } catch (error) {
+    return new Response(`Failed to get sitemap`, {
+      status: 500,
+    })
+  }
 }
