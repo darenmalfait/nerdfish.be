@@ -49,6 +49,17 @@ jobs:
           NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          ALGOLIA_ADMIN_KEY: 'dummy'
+          CLOUDINARY_API_SECRET: 'dummy'
+          RECAPTCHA_SECRETKEY: 'dummy'
+          SENDGRID_API_KEY: 'dummy'
+          NEXT_PUBLIC_ALGOLIA_APP_ID: 'dummy'
+          NEXT_PUBLIC_ALGOLIA_INDEX_NAME: 'dummy'
+          NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: 'dummy'
+          NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
+          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
+          NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
+          NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
         run: pnpm build:tina
 
       - run: pnpm validate
