@@ -19,7 +19,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
     <div className="col-span-full flex items-center justify-items-stretch lg:col-span-6">
       <Link
         href={link ?? '#'}
-        className="bg-secondary text-primary shadow-outline group relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg px-8 py-5 pt-0"
+        className="bg-secondary text-primary shadow-outline group relative flex min-h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg px-8 py-5 pt-0"
       >
         {image ? (
           <div className="z-1 mb-0 flex h-24 w-auto items-center transition-all duration-1000 group-hover:scale-125">
