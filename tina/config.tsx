@@ -1,16 +1,15 @@
 import {defineStaticConfig} from 'tinacms'
 
-import {env} from '../env.mjs'
 import {schema} from './schema'
 
 const config = defineStaticConfig({
-  clientId: env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID ?? '',
   branch:
-    env.NEXT_PUBLIC_TINA_BRANCH ?? // custom branch env override
-    env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ?? // Vercel branch env
-    env.HEAD ?? // Netlify branch env
+    process.env.NEXT_PUBLIC_TINA_BRANCH ?? // custom branch env override
+    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ?? // Vercel branch env
+    process.env.HEAD ?? // Netlify branch env
     '',
-  token: env.TINA_TOKEN,
+  token: process.env.TINA_TOKEN ?? '',
   media: {
     // If you wanted cloudinary do this
     loadCustomStore: async () => {
