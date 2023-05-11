@@ -29,6 +29,8 @@ function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
     return Object.keys(originalPaths).reduce<GlobalPaths>((acc, key) => {
       const path = originalPaths[key as keyof GlobalPaths] ?? ''
 
+      if (typeof path === 'object') return acc
+
       const isExternal = path.startsWith('http')
 
       return {
