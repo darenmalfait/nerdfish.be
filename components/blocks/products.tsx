@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import Link from 'next/link'
 import {Badge, Grid, H3, Paragraph, Section} from '@nerdfish/ui'
