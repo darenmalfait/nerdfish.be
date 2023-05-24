@@ -1,3 +1,5 @@
+'use client'
+
 import {ThemeToggle} from '~/components/common/theme-toggle'
 import {useGlobal} from '~/context/global-provider'
 

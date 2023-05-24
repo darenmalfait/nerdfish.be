@@ -1,22 +1,24 @@
 import React from 'react'
 import {Grid, Section} from '@nerdfish/ui'
 import {type RichTextType} from 'tinacms'
+import {tinaField} from 'tinacms/dist/react'
 
-import {type Block} from '~/lib/types/cms'
+import {Block} from '~/lib/types/cms'
 
 import {PortableText} from '../common/portable-text'
 
-export const Content = ({
-  parentField,
-  body,
-}: Block & {
-  body?: RichTextType
-}) => {
+export const Content = (
+  data: Block & {
+    body?: RichTextType
+  },
+) => {
+  const {body} = data
+
   return (
     <Section>
       <Grid
         className="prose text-primary dark:prose-invert py-12"
-        data-tinafield={`${parentField}.body`}
+        data-tina-field={tinaField(data, 'body')}
       >
         {body ? <PortableText content={body} /> : null}
       </Grid>

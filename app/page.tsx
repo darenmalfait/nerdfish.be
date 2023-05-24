@@ -1,4 +1,4 @@
-import Page, {generateMetadata, generateStaticParams} from './[slug]/page'
+import Page, {generateMetadata} from './[slug]/page'
 
-export {generateStaticParams, generateMetadata}
+export {generateMetadata}
 export default Page

@@ -29,9 +29,9 @@ function Content({title, date, body}: Partial<Wiki>) {
 
         <Grid as="header" className="mb-12 mt-6">
           <Container size="medium" className="space-y-2">
-            {title ? <H1 data-tinafield="title">{title}</H1> : null}
+            {title ? <H1 data-tina-Efield="title">{title}</H1> : null}
             {date ? (
-              <H6 data-tinafield="date" as="p" variant="secondary">
+              <H6 data-tina-Efield="date" as="p" variant="secondary">
                 <DateFormatter dateString={date} format="dd MMMM yyyy" />
               </H6>
             ) : null}
@@ -41,7 +41,7 @@ function Content({title, date, body}: Partial<Wiki>) {
       <div>
         <Grid
           className="prose dark:prose-invert md:prose-lg lg:prose-xl"
-          data-tinafield="body"
+          data-tina-Efield="body"
         >
           {body ? <PortableText content={body} /> : null}
         </Grid>

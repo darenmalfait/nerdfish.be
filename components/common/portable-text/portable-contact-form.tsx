@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {Button, Container, H2} from '@nerdfish/ui'
 

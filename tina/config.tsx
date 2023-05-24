@@ -24,6 +24,16 @@ const config = defineStaticConfig({
     //   mediaRoot: 'uploads',
     // },
   },
+  admin: {
+    auth: {
+      onLogin: async ({token}) => {
+        location.href = `/api/preview/enter?token=${token.id_token}&slug=${location.pathname}`
+      },
+      onLogout: async () => {
+        location.href = `/api/preview/exit?slug=${location.pathname}`
+      },
+    },
+  },
   build: {
     publicFolder: 'public', // The public asset folder for your framework
     outputFolder: 'admin', // within the public folder

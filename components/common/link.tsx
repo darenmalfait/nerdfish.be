@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import NextLink, {LinkProps} from 'next/link'
 import {ButtonLink, Link as NerdfishLink} from '@nerdfish/ui'

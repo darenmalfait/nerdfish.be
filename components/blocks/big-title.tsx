@@ -1,23 +1,22 @@
-'use client'
-
 import * as React from 'react'
 import {Container, DoubleLabelLink, Grid, Section} from '@nerdfish/ui'
+import {tinaField} from 'tinacms/dist/react'
 
 import {Link} from '~/components/common/link'
 import {type Block} from '~/lib/types/cms'
 
-const BigTitle = ({
-  parentField,
-  title,
-  action,
-}: Block & {
-  title?: string
-  action?: {
+const BigTitle = (
+  data: Block & {
     title?: string
-    label?: string
-    href?: string
-  }
-}) => {
+    action?: {
+      title?: string
+      label?: string
+      href?: string
+    }
+  },
+) => {
+  const {title, action} = data
+
   return (
     <Section>
       <Grid className="my-8 lg:my-16">
@@ -27,13 +26,13 @@ const BigTitle = ({
               as={Link}
               href={action.href ?? '/'}
               description={action.label ?? ''}
-              data-tinafield={`${parentField}.action`}
+              data-tina-field={tinaField(action)}
             >
               {action.title}
             </DoubleLabelLink>
           ) : null}
           <h1
-            data-tinafield={`${parentField}.title`}
+            data-tina-field={tinaField(data, 'title')}
             className="text-primary font-sans text-6xl font-black uppercase leading-none text-transparent sm:text-[11.6250vw] 2xl:text-[12rem]"
           >
             {title}

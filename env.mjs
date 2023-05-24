@@ -12,6 +12,7 @@ export const env = createEnv({
     RECAPTCHA_SECRETKEY: z.string().min(1),
     SENDGRID_API_KEY: z.string().min(1),
     TINA_TOKEN: z.string().min(1),
+    IS_LOCAL: z.string().optional(),
 
     NODE_ENV: z.string().default('development'),
     HEAD: z.string().optional(),
@@ -64,5 +65,6 @@ export const env = createEnv({
     RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
+    IS_LOCAL: process.env.IS_LOCAL,
   },
 })

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {Badge, Grid, H3, Paragraph, Section} from '@nerdfish/ui'
+import {tinaField} from 'tinacms/dist/react'
 
 import {useBlockData} from '~/context/block-data-provider'
 import {type Block} from '~/lib/types/cms'
@@ -52,23 +53,24 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
   )
 }
 
-function Products({
-  parentField,
-  header,
-}: Block & {
-  header?: {
-    title?: string
-    subtitle?: string
-    link?: string
-  }
-}) {
+function Products(
+  data: Block & {
+    header?: {
+      title?: string
+      subtitle?: string
+      link?: string
+    }
+  },
+) {
+  const {header} = data
+
   const {products: allProducts} = useBlockData()
   const {title, subtitle, link} = header ?? {}
 
   return (
     <>
       {title || subtitle ? (
-        <Section data-tinafield={`${parentField}.header`} className="mb-6">
+        <Section data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header
             title={title}
             subTitle={subtitle}
@@ -77,7 +79,10 @@ function Products({
           />
         </Section>
       ) : null}
-      <Section data-tinafield={`${parentField}.title`} className="space-y-6">
+      <Section
+        data-tina-field={tinaField(data, 'header')}
+        className="space-y-6"
+      >
         <Grid rowGap>
           {allProducts.map((product, index) => (
             <Feature key={index} {...product} />

@@ -1,3 +1,5 @@
+'use client'
+
 import {type ChangeEventHandler} from 'react'
 import {cx} from '@nerdfish/utils'
 import {CustomCheckboxContainer, CustomCheckboxInput} from '@reach/checkbox'

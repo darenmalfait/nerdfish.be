@@ -33,7 +33,7 @@ function ErrorPage({
   return (
     <>
       <Section>
-        <BigTitle parentField="title" title={title} />
+        <BigTitle title={title} />
       </Section>
       <Section>
         <Grid>
