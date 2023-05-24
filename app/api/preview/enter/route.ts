@@ -12,7 +12,7 @@ const routeContextSchema = z.object({
 
 export async function GET(req: NextRequest) {
   try {
-    const isLocal = env.IS_LOCAL
+    const isLocal = env.NODE_ENV == 'development'
 
     const searchParams = {
       token: req.nextUrl.searchParams.get('token'),
