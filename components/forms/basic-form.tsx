@@ -3,6 +3,7 @@
 import * as React from 'react'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
+import {Loader2} from 'lucide-react'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
 
@@ -24,6 +25,7 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     register,
     setValue,
     getValues,
+    reset,
     formState: {errors},
   } = useForm<FormData>({
     resolver: zodResolver(contactFormSchema),
@@ -51,6 +53,9 @@ function BasicForm({withProject}: {withProject?: boolean}) {
         ...data,
         recaptchaResponse,
       }),
+      onSuccess: () => {
+        reset()
+      },
     })
   }
 
@@ -100,10 +105,14 @@ function BasicForm({withProject}: {withProject?: boolean}) {
           {status === 'done' ? (
             <Alert
               variant="success"
+              title="Message sent"
               description="Your message has been sent successfully. 🎉"
             />
           ) : (
             <Button disabled={status !== 'idle'} type="submit">
+              {status === 'loading' ? (
+                <Loader2 className="mr-2 animate-spin" />
+              ) : null}
               Send message
             </Button>
           )}

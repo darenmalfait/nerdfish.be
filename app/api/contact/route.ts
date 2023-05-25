@@ -52,6 +52,8 @@ export async function POST(req: Request) {
       return new Response(JSON.stringify(error.issues), {status: 422})
     }
 
+    console.error('error', error)
+
     return new Response(null, {status: 500})
   }
 }

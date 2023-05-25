@@ -32,7 +32,7 @@ function useFetcher<T>(defaultValue?: T) {
 
         const text = await response.text()
         if (!text) {
-          setStatus('idle')
+          setStatus('done')
           return options?.onSuccess?.()
         }
 
