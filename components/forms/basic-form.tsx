@@ -1,128 +1,133 @@
+'use client'
+
 import * as React from 'react'
+import {zodResolver} from '@hookform/resolvers/zod'
 import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
+import {Loader2} from 'lucide-react'
+import {useForm} from 'react-hook-form'
+import {z} from 'zod'
 
 import {env} from '~/env.mjs'
-import {useSubmit} from '~/lib/utils/form'
+import {useFetcher} from '~/lib/utils/form-actions'
 import {useRecaptcha} from '~/lib/utils/recaptcha'
+import {contactFormSchema} from '~/lib/validations/contact'
 
 import {RadioGroup} from './radio-group'
 
-function ProjectField() {
-  const [project, setProject] = React.useState<any>('website')
-
-  return (
-    <RadioGroup
-      name="projectType"
-      value={project}
-      onChange={setProject}
-      label="Project"
-      aria-label="Project"
-    >
-      <RadioGroup.Option value="website" label="Website" />
-      <RadioGroup.Option value="application" label="Application" />
-      <RadioGroup.Option value="event" label="Event" />
-      <RadioGroup.Option value="other" label="Other" />
-    </RadioGroup>
-  )
-}
+type FormData = z.infer<typeof contactFormSchema>
 
 function BasicForm({withProject}: {withProject?: boolean}) {
   const {execute} = useRecaptcha()
-  const [submitError, setSubmitError] = React.useState<string | null>(null)
-  const {state, result, submit, getFormValues} = useSubmit<{
-    status: 'success' | 'error'
-    errors?: any
-  }>()
+  const {submit, error, status} = useFetcher()
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+  const {
+    handleSubmit,
+    register,
+    setValue,
+    getValues,
+    reset,
+    formState: {errors},
+  } = useForm<FormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      textMessage: '',
+      project: 'website',
+    },
+  })
 
-    setSubmitError(null)
+  async function onSubmit(data: FormData) {
+    let recaptchaResponse
 
-    const formValues = getFormValues(event.currentTarget)
-
-    async function submitForm(values: any) {
-      return submit(values, {
-        method: 'post',
-        action: '/api/contact/submit-form',
-      })
+    if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+      recaptchaResponse = await execute()
     }
 
-    try {
-      if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
-        const recaptchaResponse = await execute()
-
-        const recaptchaFormValues = {
-          ...formValues,
-          recaptchaResponse,
-        }
-
-        await submitForm(recaptchaFormValues)
-      } else {
-        await submitForm(formValues)
-      }
-    } catch (error: any) {
-      setSubmitError(error.message ?? 'Something went wrong.')
-    }
+    await submit(`/api/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...data,
+        recaptchaResponse,
+      }),
+      onSuccess: () => {
+        reset()
+      },
+    })
   }
 
-  const emailSuccessfullySent = state === 'idle' && result?.status === 'success'
-
   return (
-    <form noValidate onSubmit={handleSubmit}>
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
       <fieldset>
         <div className="mb-8 space-y-8">
           <Input
             label="Name"
-            name="name"
             id="name"
-            error={result?.errors?.name}
+            error={errors.name?.message}
+            {...register('name')}
           />
           <Input
             label="Email"
-            name="email"
             id="email"
-            error={result?.errors?.email}
+            error={errors.email?.message}
+            {...register('email')}
           />
           {withProject ? (
             <div className="not-prose space-y-3">
               <Label>Project</Label>
-              <ProjectField />
+              <RadioGroup
+                {...register('project')}
+                defaultValue={getValues('project')}
+                onChange={value => setValue('project', value)}
+                label="Project"
+                aria-label="Project"
+              >
+                <RadioGroup.Option value="website" label="Website" />
+                <RadioGroup.Option value="application" label="Application" />
+                <RadioGroup.Option value="event" label="Event" />
+                <RadioGroup.Option value="other" label="Other" />
+              </RadioGroup>
             </div>
           ) : null}
           <Input
             type="textarea"
             label="Message"
-            name="message"
             id="message"
-            error={result?.errors?.message}
+            error={errors.textMessage?.message}
+            {...register('textMessage')}
           />
           <FormHelperText>
             We only use your data to get in touch with you.
           </FormHelperText>
-          {emailSuccessfullySent ? (
+          {status === 'done' ? (
             <Alert
               variant="success"
+              title="Message sent"
               description="Your message has been sent successfully. 🎉"
             />
           ) : (
-            <Button disabled={state !== 'idle'} type="submit">
+            <Button disabled={status !== 'idle'} type="submit">
+              {status === 'loading' ? (
+                <Loader2 className="mr-2 animate-spin" />
+              ) : null}
               Send message
             </Button>
           )}
         </div>
-        {result?.errors?.generalError ? (
-          <Alert variant="danger" description={result.errors.generalError} />
-        ) : null}
-        {result?.errors?.recaptchaResponse ? (
+        {errors.recaptchaResponse?.message ? (
           <Alert
             variant="danger"
-            description={result.errors.recaptchaResponse}
+            title="reCAPTCHA error"
+            description="Please verify that you are not a robot."
           />
         ) : null}
-        {submitError ? (
+        {error ? (
           <Alert
             variant="danger"
+            title="Error"
             description="There was an error submitting your form. Please try again."
           />
         ) : null}

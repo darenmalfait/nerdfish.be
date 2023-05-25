@@ -86,29 +86,27 @@ interface RadioGroupProps {
   children?: React.ReactNode
 }
 
-function RadioGroup({
-  name,
-  value: valueProp,
-  defaultValue,
-  label,
-  onChange,
-  children,
-  ...props
-}: ExtractProps<typeof HeadlessRadioGroup> & RadioGroupProps) {
+const RawRadioGroup = React.forwardRef<
+  HTMLInputElement,
+  ExtractProps<typeof HeadlessRadioGroup> & RadioGroupProps
+>(function RadioGroup(
+  {name, value: valueProp, defaultValue, label, onChange, children, ...props},
+  ref,
+) {
   const [value, setValue] = useControllableState(
     valueProp,
     defaultValue,
     onChange,
   )
 
-  function handleChange(newValue: any) {
-    setValue(newValue)
-    onChange?.(newValue)
-  }
-
   return (
-    <HeadlessRadioGroup value={value} onChange={handleChange} {...props}>
-      <input name={name} value={value as string} type="hidden" />
+    <HeadlessRadioGroup
+      name={name}
+      ref={ref}
+      value={value}
+      onChange={setValue}
+      {...props}
+    >
       {label ? (
         <HeadlessRadioGroup.Label className="sr-only">
           {label}
@@ -117,8 +115,8 @@ function RadioGroup({
       <div className="space-y-2">{children}</div>
     </HeadlessRadioGroup>
   )
-}
+})
 
-RadioGroup.Option = Option as any
+const RadioGroup = Object.assign(RawRadioGroup, {Option})
 
 export {RadioGroup}

@@ -1,13 +1,17 @@
 import {type Metadata} from 'next'
+import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
+import {Layout} from '~/components/layout/layout'
 import {getWikiPost, getWikiPosts} from '~/lib/services/api'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
-import {WikiPage} from '~/templates/wiki'
+
+import {WikiPreview} from './wiki-preview'
+import {WikiTemplate} from './wiki-template'
 
 function getPath(slug?: string, year?: string, month?: string) {
   let path = `${slug}.mdx`
@@ -73,16 +77,31 @@ export async function generateMetadata({
   })
 }
 
-export default async function wikiPage({
+export default async function WikiPage({
   params: {slug, year, month},
 }: {
   params: {slug?: string; year?: string; month?: string}
 }) {
   const loaderData = await fetchWiki(slug, year, month)
+  const {isEnabled: isPreview} = draftMode()
 
   if (!loaderData) {
     notFound()
   }
 
-  return <WikiPage {...loaderData} />
+  return (
+    <Layout globalData={loaderData.data.global}>
+      {isPreview ? (
+        <WikiPreview
+          {...loaderData}
+          wikiPath={loaderData.data.global.paths?.wiki}
+        />
+      ) : (
+        <WikiTemplate
+          {...loaderData}
+          wikiPath={loaderData.data.global.paths?.wiki}
+        />
+      )}
+    </Layout>
+  )
 }

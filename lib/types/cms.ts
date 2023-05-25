@@ -4,7 +4,7 @@ type Image = {
 }
 
 type Block = {
-  parentField: string
+  _typename?: string
 }
 
 export type {Image, Block}
