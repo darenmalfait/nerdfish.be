@@ -1,6 +1,5 @@
-'use client'
-
 import * as React from 'react'
+import {tinaField} from 'tinacms/dist/react'
 
 import {BigTitle} from './blocks/big-title'
 import {Blog} from './blocks/blog'
@@ -43,10 +42,10 @@ function Blocks<T extends keyof typeof components>({
         if (typeof Component !== 'undefined') {
           return (
             <div
-              data-tinafield={`blocks.${i}`}
               key={i.toString() + block.__typename}
+              data-tina-field={tinaField(block)}
             >
-              <Component {...(block as any)} parentField={`blocks.${i}`} />
+              <Component {...(block as any)} />
             </div>
           )
         }

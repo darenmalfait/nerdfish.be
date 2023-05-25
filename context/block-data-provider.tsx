@@ -3,7 +3,12 @@
 import * as React from 'react'
 import Head from 'next/head'
 
-import {type Blog, type Product, type Wiki} from '~/tina/__generated__/types'
+import {
+  Page,
+  type Blog,
+  type Product,
+  type Wiki,
+} from '~/tina/__generated__/types'
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -44,6 +49,9 @@ interface BlockDataContextProps {
   wikis: Partial<Wiki>[]
   blogs: Partial<Blog>[]
   products: Partial<Product>[]
+  page?: BlockDataProviderProps['page']
+  blog?: BlockDataProviderProps['blog']
+  wiki?: BlockDataProviderProps['wiki']
 }
 
 const BlockDataContext = React.createContext<BlockDataContextProps | null>(null)
@@ -54,6 +62,9 @@ interface BlockDataProviderProps {
   blogs?: Partial<Blog>[]
   products?: Partial<Product>[]
   children: React.ReactNode
+  page?: Partial<Page>
+  blog?: Partial<Blog>
+  wiki?: Partial<Wiki>
 }
 
 // import { BlockDataProvider } from "path-to-context/BlockDataContext"
@@ -63,9 +74,10 @@ function BlockDataProvider({
   blogs = [],
   products = [],
   children,
+  ...data
 }: BlockDataProviderProps) {
   return (
-    <BlockDataContext.Provider value={{wikis, blogs, products}}>
+    <BlockDataContext.Provider value={{wikis, blogs, products, ...data}}>
       <Head>
         <script dangerouslySetInnerHTML={{__html: modeScript}} />
       </Head>

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'

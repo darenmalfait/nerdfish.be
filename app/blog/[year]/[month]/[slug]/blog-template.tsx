@@ -1,8 +1,6 @@
-'use client'
-
 import * as React from 'react'
 import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
-import {useTina} from 'tinacms/dist/react'
+import {tinaField} from 'tinacms/dist/react'
 
 import {BackLink} from '~/components/common/arrow-link'
 import {ArticleCard} from '~/components/common/article-card'
@@ -10,24 +8,26 @@ import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
 import {PortableText} from '~/components/common/portable-text'
 import {Header} from '~/components/layout/header'
-import {Layout} from '~/components/layout/layout'
-import {BlockDataProvider, useBlockData} from '~/context/block-data-provider'
-import {useGlobal} from '~/context/global-provider'
+import {BlockDataProvider} from '~/context/block-data-provider'
 import {mapBlogData} from '~/lib/services/api'
 import {
   buildSrc,
   buildSrcSet,
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
-import {
-  type Blog,
-  type BlogPostQueryQuery,
-  type BlogQueryVariables,
-} from '~/tina/__generated__/types'
+import {BlogPostQueryQuery} from '~/tina/__generated__/types'
 
-function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
-  const {paths} = useGlobal()
-  const {blogs: allPosts} = useBlockData()
+function BlogTemplate({
+  data,
+  blogPath,
+}: {
+  data: BlogPostQueryQuery
+  blogPath?: string | null
+}) {
+  const {title, date, tags, heroImg, body} = data.blog
+
+  const blockData = {...mapBlogData(data)}
+  const {blogs: allPosts} = blockData
 
   const relatedPosts = React.useMemo(() => {
     return allPosts
@@ -41,19 +41,23 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
   }, [allPosts, date, tags, title])
 
   return (
-    <>
+    <BlockDataProvider {...blockData}>
       <Section>
         <Grid className="mb-14 mt-24 lg:mb-24">
           <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
-            <BackLink href={paths?.blog ?? ''}>All blog posts</BackLink>
+            <BackLink href={blogPath ?? ''}>All blog posts</BackLink>
           </div>
         </Grid>
 
         <Grid as="header" className="mb-12 mt-6">
           <Container size="medium" className="space-y-2">
-            <H1 data-tinafield="title">{title}</H1>
+            <H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
             {date ? (
-              <H6 data-tinafield="date" as="p" variant="secondary">
+              <H6
+                data-tina-field={tinaField(data.blog, 'date')}
+                as="p"
+                variant="secondary"
+              >
                 <DateFormatter dateString={date} format="dd MMMM yyyy" />
               </H6>
             ) : null}
@@ -61,7 +65,10 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
         </Grid>
 
         <Grid className="mb-12">
-          <Container size="medium" data-tinafield="image">
+          <Container
+            size="medium"
+            data-tina-field={tinaField(data.blog, 'heroImg')}
+          >
             {heroImg ? (
               <Image
                 placeholder={getLowQualityUrlFor(heroImg)}
@@ -76,7 +83,7 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
       <Section>
         <Grid
           className="prose dark:prose-invert md:prose-lg lg:prose-xl"
-          data-tinafield="body"
+          data-tina-field={tinaField(data.blog, 'body')}
         >
           {body ? <PortableText content={body} /> : null}
         </Grid>
@@ -102,28 +109,8 @@ function Content({title, date, tags, heroImg, body}: Partial<Blog>) {
           </Section>
         </>
       ) : null}
-    </>
+    </BlockDataProvider>
   )
 }
 
-function BlogPage(props: {
-  data: BlogPostQueryQuery
-  query: string
-  variables: BlogQueryVariables
-}) {
-  const {data} = useTina<BlogPostQueryQuery>({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  })
-
-  return (
-    <Layout globalData={data.global}>
-      <BlockDataProvider {...mapBlogData(data)}>
-        <Content {...data.blog} />
-      </BlockDataProvider>
-    </Layout>
-  )
-}
-
-export {BlogPage}
+export {BlogTemplate}

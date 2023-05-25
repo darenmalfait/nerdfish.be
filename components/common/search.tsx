@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {cx} from '@nerdfish/utils'

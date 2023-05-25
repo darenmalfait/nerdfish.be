@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {ProgressiveImage} from '@nerdfish/ui'
 import {ExtractProps, cx} from '@nerdfish/utils'

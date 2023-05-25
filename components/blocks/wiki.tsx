@@ -5,6 +5,7 @@ import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
 import {ExtractProps, cx} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
+import {tinaField} from 'tinacms/dist/react'
 
 import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
@@ -27,23 +28,21 @@ import {Spacer} from '../layout/spacer'
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-function WikiOverview({
-  parentField,
-  header,
-  searchEnabled,
-  tags,
-  count,
-}: Block & {
-  header?: {
-    title?: string
-    subtitle?: string
-    link?: string
-    image?: string
-  }
-  searchEnabled?: boolean
-  tags?: string[]
-  count?: number
-}) {
+function WikiOverview(
+  data: Block & {
+    header?: {
+      title?: string
+      subtitle?: string
+      link?: string
+      image?: string
+    }
+    searchEnabled?: boolean
+    tags?: string[]
+    count?: number
+  },
+) {
+  const {header, searchEnabled, tags, count} = data
+
   const {title, subtitle, link} = header ?? {}
   const params = useSearchParams()
   const [queryValue, setQuery] = React.useState(params?.get('q') ?? '')
@@ -103,12 +102,12 @@ function WikiOverview({
           <Grid>
             <Container size="full">
               <div
-                data-tinafield={`${parentField}.header`}
+                data-tina-field={tinaField(data, 'header')}
                 className="relative mx-auto mb-24 grid h-auto max-w-7xl grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
               >
                 {header?.image ? (
                   <div
-                    data-tinafield={`${parentField}.header.image`}
+                    data-tina-field={tinaField(data, 'header')}
                     className="col-span-full mb-12 px-10 lg:col-span-5 lg:col-start-7 lg:mb-0"
                   >
                     <Image
@@ -199,7 +198,7 @@ function WikiOverview({
       ) : null}
 
       {!searchEnabled && (title || subtitle) ? (
-        <Section className="mt-24" data-tinafield={`${parentField}.header`}>
+        <Section className="mt-24" data-tina-field={tinaField(data, 'header')}>
           <Header
             title={title}
             subTitle={subtitle}
