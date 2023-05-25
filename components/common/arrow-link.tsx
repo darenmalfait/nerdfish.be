@@ -1,3 +1,5 @@
+'use client'
+
 import {cx} from '@nerdfish/utils'
 import {Variant, motion} from 'framer-motion'
 

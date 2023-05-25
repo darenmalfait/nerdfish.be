@@ -1,30 +1,25 @@
-'use client'
-
 import {Grid, H2, Section} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
+import {tinaField} from 'tinacms/dist/react'
 
-import {type Block} from '~/lib/types/cms'
+import {Block} from '~/lib/types/cms'
 
 import {Header} from '../layout/header'
 import {Spacer} from '../layout/spacer'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
-function FeatureCard({
-  parentField,
-  title,
-  description,
-  icon,
-  index,
-  ...props
-}: Block &
-  JSX.IntrinsicElements['div'] & {
-    title: string
-    description: string
-    icon?: keyof typeof Icons
-    index?: number
-  }) {
+function FeatureCard(
+  data: Block &
+    JSX.IntrinsicElements['div'] & {
+      title: string
+      description: string
+      icon?: keyof typeof Icons
+      index?: number
+    },
+) {
+  const {title, description, icon, index, ...props} = data
   const Icon = icon && (dynamicHeroIcon(icon) as Icons.LucideIcon)
 
   return (
@@ -34,20 +29,20 @@ function FeatureCard({
     >
       {Icon ? (
         <Icon
-          data-tinafield={`${parentField}.items.${index}.icon`}
+          data-tina-field={tinaField(data, 'icon')}
           className="text-primary flex h-8 shrink-0 lg:mt-0.5"
         />
       ) : null}
       <div>
         <H2
-          data-tinafield={`${parentField}.items.${index}.title`}
+          data-tina-field={tinaField(data, 'title')}
           as="h3"
           className="text-primary mb-4 flex flex-none items-end !text-xl font-medium tracking-normal"
         >
           {title}
         </H2>
         <p
-          data-tinafield={`${parentField}.items.${index}.description`}
+          data-tina-field={tinaField(data, 'description')}
           className="text-secondary flex-auto text-lg"
         >
           {description}
@@ -58,11 +53,10 @@ function FeatureCard({
 }
 
 function Features({
-  parentField = '',
   title,
   subTitle,
   items,
-}: Block & {
+}: {
   title?: string
   subTitle?: string
   items?: {
@@ -82,12 +76,8 @@ function Features({
       <Section>
         <Grid rowGap>
           {items?.map(({title: itemTitle, icon, description}, i) => (
-            <div
-              key={`${parentField}-${i}`}
-              className="col-span-full lg:col-span-6"
-            >
+            <div key={i} className="col-span-full lg:col-span-6">
               <FeatureCard
-                parentField={parentField}
                 index={i}
                 icon={
                   icon

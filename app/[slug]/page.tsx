@@ -1,12 +1,16 @@
 import {type Metadata} from 'next'
+import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 
+import {Layout} from '~/components/layout/layout'
 import {getPage, getPages} from '~/lib/services/api'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 import {stripTrailingSlash} from '~/lib/utils/string'
-import {DefaultPage} from '~/templates/page'
+
+import {PagePreview} from './page-preview'
+import {PageTemplate} from './page-template'
 
 async function fetchPage(slug?: string) {
   const filename =
@@ -66,10 +70,15 @@ export default async function Page({
   params: {slug?: string}
 }) {
   const data = await fetchPage(slug)
+  const {isEnabled: isPreview} = draftMode()
 
   if (!data) {
     notFound()
   }
 
-  return <DefaultPage {...data} />
+  return (
+    <Layout globalData={data.data.global}>
+      {isPreview ? <PagePreview {...data} /> : <PageTemplate {...data} />}
+    </Layout>
+  )
 }

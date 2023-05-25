@@ -3,6 +3,7 @@
 import {Container, Grid, H2} from '@nerdfish/ui'
 import {motion} from 'framer-motion'
 import {type RichTextType} from 'tinacms'
+import {tinaField} from 'tinacms/dist/react'
 
 import {Image} from '~/components/common/image'
 import {type Block, type Image as ImageType} from '~/lib/types/cms'
@@ -19,16 +20,15 @@ const childVariants = {
   visible: {opacity: 1, y: 0, transition: {duration: 0.5}},
 }
 
-const Hero = ({
-  parentField = '',
-  image,
-  text,
-  title,
-}: Block & {
-  image?: ImageType
-  text?: RichTextType
-  title?: string
-}) => {
+const Hero = (
+  data: Block & {
+    image?: ImageType
+    text?: RichTextType
+    title?: string
+  },
+) => {
+  const {image, text, title} = data
+
   return (
     <Grid as="header" className="h-auto items-start pt-24 lg:my-12 lg:pb-12">
       <Container size="full">
@@ -44,7 +44,7 @@ const Hero = ({
           >
             <motion.div variants={childVariants} className="space-y-6">
               <H2
-                data-tinafield={`${parentField}.title`}
+                data-tina-field={tinaField(data, 'title')}
                 className="font-black"
               >
                 {title}
@@ -53,7 +53,7 @@ const Hero = ({
 
             {text ? (
               <motion.div
-                data-tinafield={`${parentField}.text`}
+                data-tina-field={tinaField(data, 'text')}
                 variants={childVariants}
                 className="prose prose-lg dark:prose-invert mb-12 mt-3"
               >
@@ -64,7 +64,7 @@ const Hero = ({
 
           {image ? (
             <motion.div
-              data-tinafield={`${parentField}.image`}
+              data-tina-field={tinaField(data, 'image')}
               initial={{scale: 1.5, opacity: 0}}
               animate={{scale: 1, opacity: 1}}
               transition={{duration: 0.75}}

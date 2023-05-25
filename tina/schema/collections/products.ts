@@ -9,6 +9,9 @@ const productsCollection: Collection = {
   path: 'content/products',
   format: 'mdx',
   ui: {
+    router: ({document}) => {
+      return `/products/${document._sys.filename}`
+    },
     filename: {
       readonly: true,
       slugify: values => {

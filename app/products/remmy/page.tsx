@@ -40,7 +40,6 @@ export default async function Page() {
             <RemmyBackground className="min-h-screen min-w-full" />
           </div>
           <BigTitle
-            parentField="none"
             title="Structure in your files with Remmy"
             action={{
               title: 'Get Remmy for macOS',
@@ -51,7 +50,6 @@ export default async function Page() {
         </div>
         <Section className="mt-0 block w-full bg-gradient-to-b from-[#141720] to-gray-900 pt-24">
           <Features
-            parentField=""
             title="Features"
             subTitle="What does Remmy do?"
             items={[

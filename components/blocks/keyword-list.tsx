@@ -1,16 +1,17 @@
 import * as React from 'react'
 import {Container, Grid, H1, Section} from '@nerdfish/ui'
+import {tinaField} from 'tinacms/dist/react'
 
 import {type Block} from '~/lib/types/cms'
 
-const KeywordList = ({
-  parentField,
-  title,
-  keywords,
-}: Block & {
-  title?: string
-  keywords?: string[]
-}) => {
+const KeywordList = (
+  data: Block & {
+    title?: string
+    keywords?: string[]
+  },
+) => {
+  const {title, keywords} = data
+
   return (
     <Section>
       <Grid>
@@ -18,20 +19,19 @@ const KeywordList = ({
           <div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-x-16 lg:space-y-0">
             <div className="w-full max-w-sm xl:max-w-lg">
               <H1
-                data-tinafield={`${parentField}.title`}
+                data-tina-field={tinaField(data, 'title')}
                 as="h2"
                 className="w-full font-bold "
               >
                 {title}
               </H1>
             </div>
-            <div className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+            <div
+              data-tina-field={tinaField(data, 'keywords')}
+              className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
+            >
               {keywords?.map(item => (
-                <span
-                  data-tinafields={`${parentField}.keywords.{i}.item`}
-                  key={item}
-                  className="text-primary block text-lg"
-                >
+                <span key={item} className="text-primary block text-lg">
                   {item}
                 </span>
               ))}
