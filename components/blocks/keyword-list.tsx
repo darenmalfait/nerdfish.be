@@ -31,7 +31,7 @@ const KeywordList = (
               className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
             >
               {keywords?.map(item => (
-                <span key={item} className="text-primary block text-lg">
+                <span key={item} className="block text-lg text-primary">
                   {item}
                 </span>
               ))}

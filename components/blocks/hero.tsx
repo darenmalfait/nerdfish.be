@@ -55,7 +55,7 @@ const Hero = (
               <motion.div
                 data-tina-field={tinaField(data, 'text')}
                 variants={childVariants}
-                className="prose prose-lg dark:prose-invert mb-12 mt-3"
+                className="prose prose-lg mb-12 mt-3 dark:prose-invert"
               >
                 <PortableText content={text} />
               </motion.div>

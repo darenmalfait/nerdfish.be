@@ -37,7 +37,7 @@ function ArticleCard({
         <CategoryIndicator category={category} />
 
         {heroImg ? (
-          <div className="aspect-w-3 aspect-h-4 shadow-outline rounded-lg">
+          <div className="aspect-h-4 aspect-w-3 rounded-lg shadow-outline">
             <Image
               className={cx(
                 'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
@@ -52,15 +52,15 @@ function ArticleCard({
             />
           </div>
         ) : (
-          <div className="aspect-w-3 aspect-h-4">
-            <div className="focus-ring w-full rounded-lg transition">
+          <div className="aspect-h-4 aspect-w-3">
+            <div className="w-full rounded-lg transition focus-ring">
               <div className="inset-0 bg-orange-500" />
             </div>
           </div>
         )}
 
         <div className="space-y-2">
-          <div className="text-primary-300 mt-8 text-xl font-bold">
+          <div className="mt-8 text-xl font-bold text-primary-300">
             <DateFormatter dateString={date} format="PPP" />
           </div>
           <H3 as="div">{title}</H3>

@@ -57,10 +57,10 @@ function MobileNav({
       )}
     >
       <div className="px-5vw py-9 lg:py-12">
-        <div className="max-w-8xl text-primary mx-auto flex items-center justify-between">
+        <div className="mx-auto flex max-w-8xl items-center justify-between text-primary">
           <a
             aria-label="home page"
-            className="text-primary w-2/5"
+            className="w-2/5 text-primary"
             href={rootPath}
           >
             <Logo className="h-5 w-auto text-white transition-transform hover:scale-110" />
@@ -114,12 +114,12 @@ function Navbar({
   return (
     <div className={cx('w-full', className)}>
       <div className="py-9 lg:py-12">
-        <Grid className="text-primary mx-auto">
+        <Grid className="mx-auto text-primary">
           <Container size="full">
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 <a
-                  className="text-primary-700 order-first flex items-center space-x-4 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
+                  className="order-first flex items-center space-x-4 text-primary-700 md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-start"
                   aria-label="home page"
                   href={rootPath ?? '/'}
                 >
@@ -136,7 +136,7 @@ function Navbar({
                   <Search />
                   {!hideThemeToggle ? <ThemeToggle /> : null}
                   <a
-                    className="focus-ring xsm:block hidden rounded-full p-2"
+                    className="hidden rounded-full p-2 focus-ring xsm:block"
                     target="_blank"
                     href="/rss.xml"
                     aria-label="rss feed"

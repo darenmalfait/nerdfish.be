@@ -17,7 +17,7 @@ export const Content = (
   return (
     <Section>
       <Grid
-        className="prose text-primary dark:prose-invert py-12"
+        className="prose py-12 text-primary dark:prose-invert"
         data-tina-field={tinaField(data, 'body')}
       >
         {body ? <PortableText content={body} /> : null}
