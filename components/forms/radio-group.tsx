@@ -64,7 +64,7 @@ function Option({
             </div>
           </div>
           {checked ? (
-            <div className="text-inverse shrink-0">
+            <div className="shrink-0 text-inverse">
               <CheckCircle className="h-6 w-6" />
             </div>
           ) : null}

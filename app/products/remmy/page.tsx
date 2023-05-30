@@ -127,10 +127,10 @@ export default async function Page() {
             </Container>
           </Grid>
         </Section>
-        <Section className="bg-primary mt-24">
+        <Section className="mt-24 bg-primary">
           <Grid>
             <Container size="full">
-              <div className="shadow-outline from-nerdfish-100 to-nerdfish-900 via-nerdfish-500 relative isolate overflow-hidden bg-gradient-to-br px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+              <div className="relative isolate overflow-hidden bg-gradient-to-br from-nerdfish-100 via-nerdfish-500 to-nerdfish-900 px-6 pt-16 shadow-2xl shadow-outline sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
                 <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
                   <H2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     Start structuring your files today

@@ -42,12 +42,12 @@ function ErrorPage({
               <div className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16">
                 <div className="max-w-xl py-16 sm:py-24">
                   <div className="text-center lg:text-left">
-                    <Paragraph className="text-secondary mt-2 text-lg">
+                    <Paragraph className="mt-2 text-lg text-secondary">
                       {subTitle}
                     </Paragraph>
                   </div>
                   <div className="mt-12">
-                    <h2 className="text-secondary text-sm font-semibold uppercase tracking-wide">
+                    <h2 className="text-sm font-semibold uppercase tracking-wide text-secondary">
                       Popular pages
                     </h2>
                     <ul className="mt-4 divide-y divide-gray-200 border-y border-gray-200">
@@ -57,16 +57,16 @@ function ErrorPage({
                           className="group relative flex items-start space-x-4 py-6"
                         >
                           <div className="shrink-0">
-                            <span className="bg-inverse flex h-12 w-12 items-center justify-center rounded-lg">
+                            <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-inverse">
                               <link.icon
-                                className="text-inverse h-6 w-6"
+                                className="h-6 w-6 text-inverse"
                                 aria-hidden="true"
                               />
                             </span>
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h3 className="text-primary text-base font-medium">
-                              <span className="focus-within:ring-accent rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
+                            <h3 className="text-base font-medium text-primary">
+                              <span className="rounded-sm focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2">
                                 <a
                                   href={link.href}
                                   className="focus:outline-none"
@@ -79,7 +79,7 @@ function ErrorPage({
                                 </a>
                               </span>
                             </h3>
-                            <p className="text-secondary text-base">
+                            <p className="text-base text-secondary">
                               {link.description}
                             </p>
                           </div>
