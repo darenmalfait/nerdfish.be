@@ -58,7 +58,7 @@ function CopyButton({code}: {code: string}) {
           copied && '-translate-y-1.5 opacity-0',
         )}
       >
-        <ClipboardCopy className="h-5 w-5 fill-gray-500/20 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
+        <ClipboardCopy className="fill-gray-500/20 h-5 w-5 stroke-gray-500 transition-colors group-hover/button:stroke-gray-400" />
         Copy
       </span>
       <span
@@ -152,7 +152,7 @@ function CodeBlock({
                 return (
                   <div {...tokenProps} key={tokenProps.key}>
                     {showLineNumbers ? (
-                      <span className="text-primary-300 absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center">
+                      <span className="absolute left-0 mr-[16px] grid w-[40px] shrink-0 place-items-center text-primary-300">
                         {pad(i + 1)}
                       </span>
                     ) : null}

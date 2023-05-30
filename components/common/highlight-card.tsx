@@ -49,7 +49,7 @@ function HighlightCard({
         <Container size="full">
           <Grid
             nested
-            className="bg-secondary shadow-outline group w-full rounded-lg px-8 pb-6 pt-14 md:pb-12 lg:px-0"
+            className="group w-full rounded-lg px-8 pb-6 pt-14 bg-secondary shadow-outline md:pb-12 lg:px-0"
           >
             <div className="col-span-full lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
               <div suppressHydrationWarning>
@@ -64,7 +64,7 @@ function HighlightCard({
                   <H2 as="h3" className="mt-0">
                     {title}
                   </H2>
-                  <div className="text-primary mt-6 text-xl font-bold">
+                  <div className="mt-6 text-xl font-bold text-primary">
                     {subTitle}
                   </div>
                 </div>
@@ -80,12 +80,12 @@ function HighlightCard({
                         getCategoryColors(category ?? 'unknown'),
                       )}
                     />
-                    <div className="-z-1 absolute inset-0 rounded-lg" />
+                    <div className="absolute inset-0 -z-1 rounded-lg" />
                   </ArrowLink>
                 </div>
               ) : null}
             </div>
-            <div className="aspect-w-3 aspect-h-4 relative col-span-full mt-12 h-0 lg:col-span-4 lg:col-start-8 lg:mt-0">
+            <div className="aspect-h-4 aspect-w-3 relative col-span-full mt-12 h-0 lg:col-span-4 lg:col-start-8 lg:mt-0">
               {image ? (
                 <Image
                   className="absolute inset-0 object-cover"
