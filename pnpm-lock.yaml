@@ -80,8 +80,8 @@ dependencies:
     specifier: ^4.3.1
     version: 4.3.1
   prism-react-renderer:
-    specifier: ^1.3.5
-    version: 1.3.5(react@18.2.0)
+    specifier: ^2.0.4
+    version: 2.0.4(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2503,7 +2503,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.5.2
     dev: true
 
   /@graphql-tools/optimize@1.4.0(graphql@15.8.0):
@@ -2536,7 +2536,7 @@ packages:
       '@graphql-tools/merge': 8.4.2(graphql@15.8.0)
       '@graphql-tools/utils': 9.2.1(graphql@15.8.0)
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.5.2
       value-or-promise: 1.0.12
     dev: true
 
@@ -2557,7 +2557,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 15.8.0
-      tslib: 2.4.1
+      tslib: 2.5.2
     dev: true
 
   /@graphql-tools/utils@9.2.1(graphql@15.8.0):
@@ -5987,6 +5987,10 @@ packages:
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
+
+  /@types/prismjs@1.26.0:
+    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==}
+    dev: false
 
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -15193,6 +15197,16 @@ packages:
       react: 18.2.0
     dev: false
 
+  /prism-react-renderer@2.0.4(react@18.2.0):
+    resolution: {integrity: sha512-1fcayBPhlGWLjKHeZMA2eJbvLsq1YJsoP3CUOF0BNlobw4knAYS6EWHYawywaZ5zoIxYkgxuqrrkCj7b+135ow==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      '@types/prismjs': 1.26.0
+      clsx: 1.2.1
+      react: 18.2.0
+    dev: false
+
   /prismjs@1.29.0:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
     engines: {node: '>=6'}
@@ -16254,7 +16268,7 @@ packages:
     resolution: {integrity: sha512-g53hMkpM0I98MU266IzDFMrTD980gNF3BJnkyFcmN+dD873mQeD5rdMO3Y2X+x8umQfbSE0PcoEDl7ledSA+2g==}
     dependencies:
       mdast-util-mdx: 2.0.1
-      micromark-extension-mdxjs: 1.0.0
+      micromark-extension-mdxjs: 1.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
