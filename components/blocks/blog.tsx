@@ -160,7 +160,7 @@ function BlogOverview(
                         <Search
                           width="20px"
                           height="20px"
-                          className="text-primary-400 absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
+                          className="absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
                         />
                         <input
                           type="search"
@@ -170,9 +170,9 @@ function BlogOverview(
                           }}
                           name="q"
                           placeholder="Search"
-                          className="text-primary-400 focus-ring w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 outline-none"
+                          className="w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 text-primary-400 outline-none focus-ring"
                         />
-                        <div className="text-primary-400 absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
+                        <div className="absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
                           {matchingPosts.length}
                         </div>
                       </Container>
