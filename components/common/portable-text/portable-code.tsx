@@ -1,18 +1,17 @@
 import * as React from 'react'
 import {Container} from '@nerdfish/ui'
-import {type Language} from 'prism-react-renderer'
+import {Lang} from 'shiki'
 
-import {CodeBlock} from '../code-block/code-block'
+import {Code} from '../code'
 
-function PortableCode({lang, value}: {lang?: Language; value?: string}) {
+function PortableCode({lang, value}: {lang?: Lang; value?: string}) {
+  if (!value) return null
+
   return (
     <Container size="default">
-      <CodeBlock
-        code={value}
-        language={lang}
-        showLanguage={false}
-        showLineNumbers={true}
-      />
+      {/* https://github.com/vercel/next.js/issues/42292 */}
+      {/* @ts-expect-error Server Component */}
+      <Code code={value} lang={lang} />
     </Container>
   )
 }

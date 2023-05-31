@@ -5,7 +5,7 @@ import {ButtonLink, Container, Grid, H2, Paragraph, Section} from '@nerdfish/ui'
 import remmyScreeshot from '~/assets/images/remmy-screenshot.png'
 import {BigTitle} from '~/components/blocks/big-title'
 import {Features} from '~/components/blocks/features'
-import {CodeBlock} from '~/components/common/code-block/code-block'
+import {PortableCode} from '~/components/common/portable-text/portable-code'
 import {Layout} from '~/components/layout/layout'
 import {RemmyBackground} from '~/components/misc/remmy-bg'
 import {getMetaData} from '~/lib/utils/seo'
@@ -98,10 +98,8 @@ export default async function Page() {
               <Paragraph>
                 The default naming convention looks like this:
               </Paragraph>
-              <CodeBlock
-                forceColorTheme="dark"
-                className="mt-4"
-                code={`{year}_{month}_{day}-{company_name}-{description}.{extension}
+              <PortableCode
+                value={`{year}_{month}_{day}-{company_name}-{description}.{extension}
 
 2023_01_01-nerdfish_company-remmy_description.pdf`}
               />
