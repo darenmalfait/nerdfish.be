@@ -17,3 +17,7 @@
 .prose img {
   margin: 0 auto;
 }
+
+.prose code {
+  box-shadow: none;
+}
