@@ -1,6 +1,8 @@
 import * as React from 'react'
 import {tinaField} from 'tinacms/dist/react'
 
+import {Block} from '~/lib/types/cms'
+
 import {BigTitle} from './blocks/big-title'
 import {Blog} from './blocks/blog'
 import {Content} from './blocks/content'
@@ -31,8 +33,10 @@ type BlockProps<T> = {
 
 function Blocks<T extends keyof typeof components>({
   items,
+  globalData,
 }: {
   items?: (BlockProps<T> & PropsOf<(typeof components)[T]>)[]
+  globalData?: Block['globalData']
 }) {
   return (
     <>
@@ -45,7 +49,7 @@ function Blocks<T extends keyof typeof components>({
               key={i.toString() + block.__typename}
               data-tina-field={tinaField(block)}
             >
-              <Component {...(block as any)} />
+              <Component {...(block as any)} globalData={globalData} />
             </div>
           )
         }

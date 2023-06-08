@@ -8,7 +8,6 @@ import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
 import {PortableText} from '~/components/common/portable-text'
 import {Header} from '~/components/layout/header'
-import {BlockDataProvider} from '~/context/block-data-provider'
 import {mapBlogData} from '~/lib/services/api'
 import {
   buildSrc,
@@ -41,7 +40,7 @@ function BlogTemplate({
   }, [allPosts, date, tags, title])
 
   return (
-    <BlockDataProvider {...blockData}>
+    <>
       <Section>
         <Grid className="mb-14 mt-24 lg:mb-24">
           <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
@@ -109,7 +108,7 @@ function BlogTemplate({
           </Section>
         </>
       ) : null}
-    </BlockDataProvider>
+    </>
   )
 }
 
