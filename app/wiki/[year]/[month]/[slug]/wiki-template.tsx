@@ -5,7 +5,6 @@ import {tinaField} from 'tinacms/dist/react'
 import {BackLink} from '~/components/common/arrow-link'
 import {DateFormatter} from '~/components/common/date-formatter'
 import {PortableText} from '~/components/common/portable-text'
-import {BlockDataProvider} from '~/context/block-data-provider'
 import {WikiQueryQuery} from '~/tina/__generated__/types'
 
 function WikiTemplate({
@@ -18,7 +17,7 @@ function WikiTemplate({
   const {title, date, body} = data.wiki
 
   return (
-    <BlockDataProvider {...data}>
+    <>
       <Section>
         <Grid className="mb-14 mt-24 lg:mb-24">
           <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
@@ -51,7 +50,7 @@ function WikiTemplate({
           {body ? <PortableText content={body} /> : null}
         </Grid>
       </div>
-    </BlockDataProvider>
+    </>
   )
 }
 
