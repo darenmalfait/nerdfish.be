@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
 import {ExtractProps, cx} from '@nerdfish/utils'
 import formatDate from 'date-fns/format'
@@ -10,8 +9,6 @@ import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
 import {Image} from '~/components/common/image'
-import {useBlockData} from '~/context/block-data-provider'
-import {useGlobal} from '~/context/global-provider'
 import {type Block} from '~/lib/types/cms'
 import {filterBlog} from '~/lib/utils/blog'
 import {
@@ -21,7 +18,6 @@ import {
 } from '~/lib/utils/cloudinary'
 import {BlogPath} from '~/lib/utils/constants'
 import {getDatedSlug} from '~/lib/utils/routes'
-import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/url'
 
 import {ArticleCard} from '../common/article-card'
 import {HighlightCard} from '../common/highlight-card'
@@ -46,26 +42,26 @@ function BlogOverview(
     count?: number
   },
 ) {
-  const {header, searchEnabled, featuredEnabled, tags, count} = data
+  const {
+    header,
+    searchEnabled,
+    featuredEnabled,
+    tags,
+    count,
+    globalData = {},
+  } = data
 
-  const {hydrated} = useGlobal()
+  const {blogs: allPosts = []} = globalData
+
   const {title, subtitle, link} = header ?? {}
-  const params = useSearchParams()
 
-  const [queryValue, setQuery] = React.useState(params?.get('q') ?? '')
-
-  React.useEffect(() => {
-    setQuery(params?.get('q') ?? '')
-  }, [params])
-
-  const {blogs: allPosts} = useBlockData()
-
-  const query = typeof queryValue === 'string' ? queryValue.trim() : ''
-  useUpdateQueryStringValueWithoutNavigation('q', query)
+  const [query, setQuery] = React.useState('')
 
   const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
+
   let filteredPosts =
     tags && tags.length > 0 ? filterBlog(allPosts, tags.join(' ')) : allPosts
+  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
 
   if (count) {
     filteredPosts = filteredPosts.slice(0, count)
@@ -74,12 +70,6 @@ function BlogOverview(
   const matchingPosts = React.useMemo(() => {
     return filterBlog(filteredPosts, query)
   }, [filteredPosts, query])
-
-  React.useEffect(() => {
-    setIndexToShow(PAGE_SIZE)
-  }, [query])
-
-  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
 
   const isSearching = query.length > 0
   const featured = filteredPosts.length > 0 ? filteredPosts[0] : null
@@ -164,7 +154,7 @@ function BlogOverview(
                         />
                         <input
                           type="search"
-                          value={queryValue}
+                          value={query}
                           onChange={event => {
                             setQuery(event.currentTarget.value.toLowerCase())
                           }}
@@ -237,11 +227,9 @@ function BlogOverview(
             )}`}
             title={featured.title}
             subTitle={
-              hydrated
-                ? featured.date
-                  ? `${formatDate(parseISO(featured.date), 'PPP')}`
-                  : 'TBA'
-                : ''
+              featured.date
+                ? `${formatDate(parseISO(featured.date), 'PPP')}`
+                : 'TBA'
             }
             image={featured.heroImg}
           />
@@ -282,28 +270,8 @@ function BlogOverview(
   )
 }
 
-function BlogFallback() {
-  return (
-    <Section>
-      <Grid>
-        <Container size="full">
-          <div className="col-span-full flex flex-col">
-            <H3 as="p" variant="secondary" className="max-w-lg">
-              Loading...
-            </H3>
-          </div>
-        </Container>
-      </Grid>
-    </Section>
-  )
-}
-
 export default function Blog(props: ExtractProps<typeof BlogOverview>) {
-  return (
-    <React.Suspense fallback={<BlogFallback />}>
-      <BlogOverview {...props} />
-    </React.Suspense>
-  )
+  return <BlogOverview {...props} />
 }
 
 export {Blog}

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import {Badge, Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {useBlockData} from '~/context/block-data-provider'
 import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
@@ -64,9 +63,9 @@ function Products(
     }
   },
 ) {
-  const {header} = data
+  const {header, globalData = {}} = data
 
-  const {products: allProducts} = useBlockData()
+  const {products: allProducts = []} = globalData
   const {title, subtitle, link} = header ?? {}
 
   return (
