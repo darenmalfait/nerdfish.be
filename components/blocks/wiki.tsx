@@ -9,7 +9,6 @@ import {tinaField} from 'tinacms/dist/react'
 
 import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
-import {useBlockData} from '~/context/block-data-provider'
 import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
@@ -17,7 +16,6 @@ import {
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
-import {useUpdateQueryStringValueWithoutNavigation} from '~/lib/utils/url'
 import {filterWiki} from '~/lib/utils/wiki'
 
 import {PortableText} from '../common/portable-text'
@@ -41,25 +39,19 @@ function WikiOverview(
     count?: number
   },
 ) {
-  const {header, searchEnabled, tags, count} = data
+  const {header, searchEnabled, tags, count, globalData} = data
 
   const {title, subtitle, link} = header ?? {}
   const params = useSearchParams()
-  const [queryValue, setQuery] = React.useState(params?.get('q') ?? '')
+  const [query, setQuery] = React.useState(params?.get('q') ?? '')
 
-  React.useEffect(() => {
-    setQuery(params?.get('q') ?? '')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params])
-
-  const {wikis: allPosts} = useBlockData()
-
-  const query = typeof queryValue === 'string' ? queryValue.trim() : ''
-  useUpdateQueryStringValueWithoutNavigation('q', query)
+  const {wikis: allPosts = []} = globalData ?? {}
 
   const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
   let filteredPosts =
     tags && tags.length > 0 ? filterWiki(allPosts, tags.join(' ')) : allPosts
+
+  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
 
   if (count) {
     filteredPosts = filteredPosts.slice(0, count)
@@ -68,12 +60,6 @@ function WikiOverview(
   const matchingPosts = React.useMemo(() => {
     return filterWiki(filteredPosts, query)
   }, [filteredPosts, query])
-
-  React.useEffect(() => {
-    setIndexToShow(PAGE_SIZE)
-  }, [query])
-
-  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
 
   const posts = matchingPosts.slice(0, indexToShow)
 
@@ -146,7 +132,7 @@ function WikiOverview(
                         />
                         <input
                           type="search"
-                          value={queryValue}
+                          value={query}
                           onChange={event => {
                             setQuery(event.currentTarget.value.toLowerCase())
                           }}
@@ -266,28 +252,8 @@ function WikiOverview(
   )
 }
 
-function WikiFallback() {
-  return (
-    <Section>
-      <Grid>
-        <Container size="full">
-          <div className="col-span-full flex flex-col">
-            <H3 as="p" variant="secondary" className="max-w-lg">
-              Loading...
-            </H3>
-          </div>
-        </Container>
-      </Grid>
-    </Section>
-  )
-}
-
 export default function Wiki(props: ExtractProps<typeof WikiOverview>) {
-  return (
-    <React.Suspense fallback={<WikiFallback />}>
-      <WikiOverview {...props} />
-    </React.Suspense>
-  )
+  return <WikiOverview {...props} />
 }
 
 export {Wiki}
