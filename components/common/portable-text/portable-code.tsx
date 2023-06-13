@@ -9,8 +9,6 @@ function PortableCode({lang, value}: {lang?: Lang; value?: string}) {
 
   return (
     <Container size="default">
-      {/* https://github.com/vercel/next.js/issues/42292 */}
-      {/* @ts-expect-error Server Component */}
       <Code code={value} lang={lang} />
     </Container>
   )
