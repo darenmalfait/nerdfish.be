@@ -233,7 +233,7 @@ function SearchComponent() {
 function Search() {
   return (
     <InstantSearch searchClient={searchClient} indexName={INDEX_NAME}>
-      <Configure hitsPerPage={5} />
+      <Configure />
       <SearchComponent />
     </InstantSearch>
   )
