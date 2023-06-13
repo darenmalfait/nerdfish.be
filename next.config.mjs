@@ -9,6 +9,7 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
   },
   experimental: {
+    serverActions: true,
     appDir: true,
     serverComponentsExternalPackages: ['@nerdfish/ui'],
   },
