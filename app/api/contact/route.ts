@@ -1,7 +1,7 @@
 import {z} from 'zod'
 
 import {env} from '~/env.mjs'
-import {sendEmail} from '~/lib/services/email.server'
+import {sendEmail} from '~/lib/api/mail'
 import {contactFormSchema} from '~/lib/validations/contact'
 
 export async function POST(req: Request) {

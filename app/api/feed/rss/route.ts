@@ -1,4 +1,4 @@
-import {buildFeed} from '~/lib/services/feed'
+import {buildFeed} from '~/lib/utils/feed'
 
 export async function GET() {
   try {

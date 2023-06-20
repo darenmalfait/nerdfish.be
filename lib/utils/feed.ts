@@ -4,7 +4,7 @@ import {env} from '~/env.mjs'
 import {BlogPath} from '~/lib/utils/constants'
 import {getDatedSlug} from '~/lib/utils/routes'
 
-import {getBlogPosts} from './api'
+import {getBlogPosts} from '../api/cms'
 
 async function buildFeed() {
   const feed = new Feed({

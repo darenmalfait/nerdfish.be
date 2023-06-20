@@ -8,7 +8,7 @@ import {DateFormatter} from '~/components/common/date-formatter'
 import {Image} from '~/components/common/image'
 import {PortableText} from '~/components/common/portable-text'
 import {Header} from '~/components/layout/header'
-import {mapBlogData} from '~/lib/services/api'
+import {mapBlogData} from '~/lib/api/cms'
 import {
   buildSrc,
   buildSrcSet,
