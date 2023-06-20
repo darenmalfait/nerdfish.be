@@ -1,5 +1,5 @@
 import {env} from '~/env.mjs'
-import {getSitemapData} from '~/lib/services/api'
+import {getSitemapData} from '~/lib/api/cms'
 import {getDatedSlug} from '~/lib/utils/routes'
 
 const BASE_URL = env.NEXT_PUBLIC_URL

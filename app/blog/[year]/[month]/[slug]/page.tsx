@@ -4,7 +4,7 @@ import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
 import {Layout} from '~/components/layout/layout'
-import {getBlogPost, getBlogPosts} from '~/lib/services/api'
+import {getBlogPost, getBlogPosts} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'

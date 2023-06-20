@@ -15,7 +15,7 @@ import {
 
 import {NoResultIcon} from '~/components/icons/no-result-icon'
 import {env} from '~/env.mjs'
-import {getAlgoliaClient} from '~/lib/services/search'
+import {getAlgoliaClient} from '~/lib/api/search'
 import {stripPreSlash} from '~/lib/utils/string'
 
 type SearchItem = {

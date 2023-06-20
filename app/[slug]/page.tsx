@@ -3,7 +3,7 @@ import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 
 import {Layout} from '~/components/layout/layout'
-import {getPage, getPages} from '~/lib/services/api'
+import {getPage, getPages} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
