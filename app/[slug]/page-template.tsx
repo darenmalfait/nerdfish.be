@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import {Blocks} from '~/components/blocks-renderer'
-import {mapPageData} from '~/lib/services/api'
+import {mapPageData} from '~/lib/api/cms'
 import {type ContentQueryQuery} from '~/tina/__generated__/types'
 
 function PageTemplate({data}: {data: ContentQueryQuery}) {
