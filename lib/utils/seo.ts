@@ -32,6 +32,7 @@ function getMetaData({
 
   return {
     ...other,
+    metadataBase: new URL(basePath),
     icons: {
       icon: '/favicon.ico',
       apple: '/apple-touch-icon.png',
