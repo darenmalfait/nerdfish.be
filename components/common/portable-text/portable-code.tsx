@@ -1,10 +1,9 @@
 import * as React from 'react'
 import {Container} from '@nerdfish/ui'
-import {Lang} from 'shiki'
 
 import {Code} from '../code'
 
-function PortableCode({lang, value}: {lang?: Lang; value?: string}) {
+function PortableCode({lang, value}: {lang?: string; value?: string}) {
   if (!value) return null
 
   return (
