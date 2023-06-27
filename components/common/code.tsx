@@ -1,25 +1,9 @@
-import {cache} from 'react'
-import {Lang, getHighlighter as shikiGetHighlighter} from 'shiki'
+'use client'
+
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import {a11yDark} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import {CopyButton} from './copy-button'
-
-const highlighterPromise = shikiGetHighlighter({})
-
-const getHighlighter = cache(async (language: string) => {
-  const highlighter = await highlighterPromise
-  const loadedLanguages = highlighter.getLoadedLanguages()
-
-  const promises = []
-  if (!loadedLanguages.includes(language as Lang)) {
-    promises.push(highlighter.loadLanguage(language as Lang))
-  }
-
-  promises.push(highlighter.loadTheme('github-dark'))
-
-  await Promise.all(promises)
-
-  return highlighter
-})
 
 interface CodeProps {
   code: string
@@ -27,13 +11,6 @@ interface CodeProps {
 }
 
 async function Code({code, lang = 'typescript'}: CodeProps) {
-  const highlighter = await getHighlighter(lang)
-
-  const html = highlighter.codeToHtml(code, {
-    lang,
-    theme: 'github-dark',
-  })
-
   return (
     <div className="rounded-xl bg-black/5 shadow-outline dark:bg-white/5">
       <div className="flex px-4 py-3">
@@ -43,7 +20,9 @@ async function Code({code, lang = 'typescript'}: CodeProps) {
       </div>
       <div className="relative -mt-8">
         <CopyButton value={code} className="absolute right-2 top-4" />
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <SyntaxHighlighter language={lang} style={a11yDark}>
+          {code}
+        </SyntaxHighlighter>
       </div>
     </div>
   )
