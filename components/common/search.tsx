@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
+import {Button} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 import {Search as SearchIcon} from 'lucide-react'
 import {type Hit} from 'react-instantsearch-core'
@@ -217,14 +218,16 @@ function SearchComponent() {
 
   return (
     <>
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         type="button"
-        className="flex items-center justify-center rounded-full p-2 font-fallback focus-ring"
+        className="active-ring"
         onClick={() => setOpen(true)}
       >
-        <SearchIcon className="w-5" />
+        <SearchIcon className="w-4" />
         <div className="sr-only">Search</div>
-      </button>
+      </Button>
       <SearchDialog open={open} setOpen={setOpen} />
     </>
   )

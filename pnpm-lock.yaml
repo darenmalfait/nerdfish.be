@@ -24,8 +24,8 @@ dependencies:
     specifier: ^1.0.2
     version: 1.0.2(typescript@5.1.6)
   '@nerdfish/ui':
-    specifier: ^1.5.0
-    version: 1.5.0(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+    specifier: ^2.1.1
+    version: 2.1.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
   '@nerdfish/utils':
     specifier: ^1.1.1
     version: 1.1.1(typescript@5.1.6)
@@ -3162,8 +3162,8 @@ packages:
       - typescript
     dev: false
 
-  /@nerdfish/ui@1.5.0(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-Yb3QyBEXT3JKQU+buxHUnaIb0vKW0b0ZDCsGylBu09+PSJ2fa0Lj3lKPZt8z5fW60DQhwlKSZNXWSHLDEEmw8g==}
+  /@nerdfish/ui@2.1.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-S1NiSC7AjHZG1MinJBYCu5WTjNSZVFQA/lwM3N1GBQC+xaOxg2yybP7CzBky3P93g+qMlhHbo2f+D01zBnQzbQ==}
     dependencies:
       '@nerdfish/utils': 1.1.1(typescript@5.1.6)
       '@radix-ui/react-accordion': 1.1.2(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
@@ -3176,6 +3176,7 @@ packages:
       '@radix-ui/react-hover-card': 1.0.6(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-popover': 1.0.6(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-scroll-area': 1.0.4(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.2.14)(react@18.2.0)
       '@radix-ui/react-switch': 1.0.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-tabs': 1.0.4(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-toast': 1.1.4(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
@@ -3183,7 +3184,7 @@ packages:
       '@radix-ui/react-tooltip': 1.0.6(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       cmdk: 0.2.0(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
-      lucide-react: 0.248.0(react@18.2.0)
+      lucide-react: 0.256.0(react@18.2.0)
       react-day-picker: 8.8.0(date-fns@2.30.0)(react@18.2.0)
       shiki: 0.14.3
     transitivePeerDependencies:
@@ -13720,8 +13721,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.248.0(react@18.2.0):
-    resolution: {integrity: sha512-zMqVvwsvhLV6ooekfM8HEngR/lLGkIgOwZ4X140K+CDdAPwfp9LARnmJhMF32wlDganAIVEgN7saIv3pcCLUVw==}
+  /lucide-react@0.256.0(react@18.2.0):
+    resolution: {integrity: sha512-uqw4MijZS29zePSBtkEIdOAp2Mn2mE6lVgFxaUd/MpclVUOuwacpRF67s1y3ErEIcR9aSBO0F1e6G56Ci8VUKA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
