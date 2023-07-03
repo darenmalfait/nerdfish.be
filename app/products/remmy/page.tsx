@@ -1,6 +1,14 @@
 import {Metadata} from 'next'
 import Image from 'next/image'
-import {ButtonLink, Container, Grid, H2, Paragraph, Section} from '@nerdfish/ui'
+import Link from 'next/link'
+import {
+  Container,
+  getButtonClassName,
+  Grid,
+  H2,
+  Paragraph,
+  Section,
+} from '@nerdfish/ui'
 
 import remmyScreeshot from '~/assets/images/remmy-screenshot.png'
 import {BigTitle} from '~/components/blocks/big-title'
@@ -80,14 +88,16 @@ export default async function Page() {
             ]}
           />
           <div className="flex justify-center">
-            <ButtonLink
+            <Link
               target="_blank"
               rel="noopener noreferrer"
               href="https://5387854441136.gumroad.com/l/remmy"
-              className="mx-auto mt-12 "
+              className={getButtonClassName({
+                className: 'mx-auto mt-12 cursor-pointer',
+              })}
             >
               Download Remmy for macOS
-            </ButtonLink>
+            </Link>
           </div>
         </Section>
 
@@ -139,13 +149,18 @@ export default async function Page() {
                     fixed name structure.
                   </p>
                   <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                    <ButtonLink
+                    <Link
+                      className={getButtonClassName({
+                        className: 'cursor-pointer',
+                        variant: 'nerdfish',
+                        size: 'xl',
+                      })}
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://5387854441136.gumroad.com/l/remmy"
                     >
                       Get started on macOS
-                    </ButtonLink>
+                    </Link>
                   </div>
                 </div>
                 <div className="relative mt-16 h-80 lg:mt-8">

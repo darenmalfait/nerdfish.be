@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import NextLink, {LinkProps} from 'next/link'
-import {ButtonLink, Link as NerdfishLink} from '@nerdfish/ui'
+import {getButtonClassName} from '@nerdfish/ui'
 import Obfuscate from 'react-obfuscate'
 
 import {stripPreSlash} from '~/lib/utils/string'
@@ -47,27 +47,30 @@ const Link = React.forwardRef<
 
   if (isButton) {
     return (
-      <ButtonLink
+      <NextLink
         passHref
         ref={ref}
         as={NextLink as any}
         size="sm"
         {...(props as any)}
+        className={getButtonClassName({
+          className: `${props.className} cursor-pointer`,
+        })}
         href={slug}
-        external={isExternal}
+        target={isExternal ? '_blank' : undefined}
         suppressHydrationWarning
       />
     )
   }
 
   return (
-    <NerdfishLink
+    <NextLink
       passHref
       ref={ref}
       as={NextLink as any}
       {...props}
       href={slug}
-      external={isExternal}
+      target={isExternal ? '_blank' : undefined}
       suppressHydrationWarning
     />
   )
