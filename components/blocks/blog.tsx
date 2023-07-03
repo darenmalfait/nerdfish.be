@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
-import {ExtractProps, cx} from '@nerdfish/utils'
+import {cx, ExtractProps} from '@nerdfish/utils'
 import formatDate from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import {Plus, Search} from 'lucide-react'
