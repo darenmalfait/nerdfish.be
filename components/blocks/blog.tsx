@@ -258,7 +258,7 @@ function BlogOverview(
         {hasMorePosts ? (
           <div className="mb-32 flex w-full justify-center">
             <Button
-              variant="subtle"
+              variant="secondary"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
               <span>Load more</span> <Plus width="20px" height="20px" />

@@ -1,4 +1,5 @@
-import {ButtonLink} from '@nerdfish/ui'
+import Link from 'next/link'
+import {Button, getButtonClassName} from '@nerdfish/ui'
 import {type ExtractProps} from '@nerdfish/utils'
 
 import {stripPreSlash} from '~/lib/utils/string'
@@ -8,20 +9,28 @@ function PortableButton({
   href,
   variant = 'default',
   ...props
-}: {text: string} & Pick<ExtractProps<typeof ButtonLink>, 'href' | 'variant'>) {
+}: {text: string; href?: string} & Pick<
+  ExtractProps<typeof Button>,
+  'variant'
+>) {
   const isExternal = href?.startsWith('http')
   const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`
 
+  if (!slug) return null
+
   return (
     <div className="inline-block w-auto">
-      <ButtonLink
+      <Link
         {...props}
         href={slug}
-        variant={variant}
-        external={isExternal}
+        className={getButtonClassName({
+          className: 'cursor-pointer',
+          variant,
+        })}
+        target={isExternal ? '_blank' : undefined}
       >
         {text}
-      </ButtonLink>
+      </Link>
     </div>
   )
 }

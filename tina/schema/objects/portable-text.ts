@@ -44,7 +44,7 @@ const portableTextSchema: RichTextType = {
             {label: 'Danger', value: 'danger'},
             {label: 'Success', value: 'success'},
             {label: 'Outline', value: 'outline'},
-            {label: 'Subtle', value: 'subtle'},
+            {label: 'Secondary', value: 'secondary'},
             {label: 'Ghost', value: 'ghost'},
             {label: 'Link', value: 'link'},
           ],
