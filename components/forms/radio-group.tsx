@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import {RadioGroup as HeadlessRadioGroup} from '@headlessui/react'
-import {ExtractProps, cx, useControllableState} from '@nerdfish/utils'
+import {cx, ExtractProps, useControllableState} from '@nerdfish/utils'
 import {CheckCircle} from 'lucide-react'
 
 interface OptionProps {

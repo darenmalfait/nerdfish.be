@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import {ProgressiveImage} from '@nerdfish/ui'
-import {ExtractProps, cx} from '@nerdfish/utils'
+import {cx, ExtractProps} from '@nerdfish/utils'
 
 function Image({
   src,

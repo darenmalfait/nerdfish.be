@@ -1,7 +1,7 @@
 'use client'
 
 import {cx} from '@nerdfish/utils'
-import {Variant, motion} from 'framer-motion'
+import {motion, Variant} from 'framer-motion'
 
 import {ElementState, useElementState} from '~/lib/utils/use-element-state'
 

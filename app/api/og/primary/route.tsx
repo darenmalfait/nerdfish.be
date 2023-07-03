@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unknown-property */
+
 import {ImageResponse} from '@vercel/og'
 
 import {ogImageSchema} from '~/lib/types/og'

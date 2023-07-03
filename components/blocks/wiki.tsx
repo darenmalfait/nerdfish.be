@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {useSearchParams} from 'next/navigation'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
-import {ExtractProps, cx} from '@nerdfish/utils'
+import {cx, ExtractProps} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
