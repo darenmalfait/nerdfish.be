@@ -1,5 +1,7 @@
 'use client'
 
+import {getButtonClassName} from '@nerdfish/ui'
+
 import {ThemeToggle} from '~/components/common/theme-toggle'
 import {useGlobal} from '~/context/global-provider'
 
@@ -43,20 +45,28 @@ function Footer({hideThemeToggle}: {hideThemeToggle?: boolean}) {
 
           {twitter ? (
             <Link
-              className="flex h-10 w-10 items-center justify-center rounded-full transition focus-ring hover:bg-twitter/20"
+              className={getButtonClassName({
+                variant: 'ghost',
+                size: 'icon',
+                className: 'active-ring cursor-pointer !hover:bg-twitter/20',
+              })}
               aria-label="Twitter feed"
               href={twitter}
             >
-              <TwitterIcon className="duration-75 ease-linear" />
+              <TwitterIcon className="h-4 w-4 duration-75 ease-linear" />
             </Link>
           ) : null}
           {github ? (
             <Link
-              className="flex h-10 w-10 items-center justify-center rounded-full transition focus-ring hover:bg-github/20"
+              className={getButtonClassName({
+                variant: 'ghost',
+                size: 'icon',
+                className: 'active-ring cursor-pointer hover:bg-github/20',
+              })}
               aria-label="Github Repository"
               href={github}
             >
-              <GithubIcon className="duration-75 ease-linear" />
+              <GithubIcon className="h-4 w-4 duration-75 ease-linear" />
               <span className="sr-only">Github</span>
             </Link>
           ) : null}

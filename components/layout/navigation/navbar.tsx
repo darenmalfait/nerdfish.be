@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import {Container, Grid} from '@nerdfish/ui'
+import {Container, getButtonClassName, Grid} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 import {Rss} from 'lucide-react'
 
@@ -132,18 +132,22 @@ function Navbar({
                 </nav>
               </div>
               <div className="flex justify-end md:flex-1">
-                <nav className="ml-5 inline-flex items-center space-x-4 lg:ml-0 lg:w-2/5 lg:justify-end lg:space-y-0">
+                <nav className="ml-5 flex items-center space-x-2 lg:ml-0 lg:justify-end lg:space-y-0">
                   <Search />
                   {!hideThemeToggle ? <ThemeToggle /> : null}
                   <a
-                    className="hidden rounded-full p-2 focus-ring xsm:block"
+                    className={getButtonClassName({
+                      variant: 'ghost',
+                      size: 'icon',
+                      className: 'hidden xsm:flex active-ring',
+                    })}
                     target="_blank"
                     href="/rss.xml"
                     aria-label="rss feed"
                     rel="noreferrer"
                   >
                     <span className="sr-only">RSS feed</span>
-                    <Rss className="w-5" />
+                    <Rss className="h-4 w-4" />
                   </a>
                   <div className="hidden space-x-3 sm:flex">{actions}</div>
                   <Hamburger open={open} onClick={onToggle} />
