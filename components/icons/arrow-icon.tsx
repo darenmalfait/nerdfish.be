@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {cx} from '@nerdfish/utils'
 import {ArrowRight} from 'lucide-react'
 
@@ -14,21 +15,22 @@ const rotationMap = {
   left: '-rotate-180',
 }
 
-function ArrowIcon({
-  direction = 'right',
-  size,
-  className,
-  ...props
-}: JSX.IntrinsicElements['svg'] & ArrowIconProps) {
-  return (
-    <ArrowRight
-      width={size}
-      height={size}
-      className={cx(rotationMap[direction], className)}
-      {...props}
-    />
-  )
-}
+const ArrowIcon = React.forwardRef<SVGSVGElement, ArrowIconProps>(
+  function ArrowIcon(
+    {direction = 'right', size = 24, className, ...props},
+    ref,
+  ) {
+    return (
+      <ArrowRight
+        ref={ref}
+        width={size}
+        height={size}
+        className={cx(rotationMap[direction], className)}
+        {...props}
+      />
+    )
+  },
+)
 
 export {ArrowIcon}
 export type {ArrowIconProps}
