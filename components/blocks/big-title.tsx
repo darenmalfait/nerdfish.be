@@ -27,6 +27,7 @@ const BigTitle = (
               href={action.href ?? '/'}
               description={action.label ?? ''}
               data-tina-field={tinaField(action)}
+              className="cursor-pointer"
             >
               {action.title}
             </DoubleLabelLink>
