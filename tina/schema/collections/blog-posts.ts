@@ -11,7 +11,7 @@ const blogPostsCollection: Collection = {
   path: 'content/blogs',
   format: 'mdx',
   ui: {
-    router: ({document}) => {
+    router: async ({document}) => {
       return `/blog/${document._sys.relativePath.substring(
         0,
         document._sys.relativePath.lastIndexOf('.'),

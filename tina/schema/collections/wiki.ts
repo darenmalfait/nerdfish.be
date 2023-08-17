@@ -11,7 +11,7 @@ const wikiCollection: Collection = {
   path: 'content/wiki',
   format: 'mdx',
   ui: {
-    router: ({document}) => {
+    router: async ({document}) => {
       return `/wiki/${document._sys.relativePath.substring(
         0,
         document._sys.relativePath.lastIndexOf('.'),

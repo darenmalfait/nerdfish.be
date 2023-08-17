@@ -9,7 +9,7 @@ const productsCollection: Collection = {
   path: 'content/products',
   format: 'mdx',
   ui: {
-    router: ({document}) => {
+    router: async ({document}) => {
       return `/products/${document._sys.filename}`
     },
     filename: {
