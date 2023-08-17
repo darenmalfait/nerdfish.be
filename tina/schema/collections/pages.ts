@@ -10,7 +10,7 @@ const pagesCollection: Collection = {
   path: 'content/pages',
   format: 'mdx',
   ui: {
-    router: ({document}) => {
+    router: async ({document}) => {
       if (document._sys.filename === 'home') {
         return `/`
       }
