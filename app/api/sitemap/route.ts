@@ -15,35 +15,35 @@ export async function GET() {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
               http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     ${data.pages
-      ?.map(page => {
+      ?.map((page: any) => {
         return `
           <url>
             <loc>${BASE_URL}/${
-          page._sys?.filename !== 'home' ? page._sys?.filename : ''
-        }</loc>
+              page._sys.filename !== 'home' ? page._sys.filename : ''
+            }</loc>
             <priority>1.00</priority>
           </url>
         `
       })
       .join('')}
-    ${data.blogs?.map(blog => {
+    ${data.blogs?.map((blog: any) => {
       return `
         <url>
           <loc>${BASE_URL}/blog/${getDatedSlug(
-        blog.date ?? new Date().toISOString(),
-        blog._sys?.filename ?? '',
-      )}</loc>
+            blog.date ?? new Date().toISOString(),
+            blog._sys.filename ?? '',
+          )}</loc>
           <priority>0.80</priority>
         </url>
       `
     })}
-    ${data.wikis?.map(wiki => {
+    ${data.wikis?.map((wiki: any) => {
       return `
         <url>
           <loc>${BASE_URL}/wiki/${getDatedSlug(
-        wiki.date ?? new Date().toISOString(),
-        wiki._sys?.filename ?? '',
-      )}</loc>
+            wiki.date ?? new Date().toISOString(),
+            wiki._sys.filename ?? '',
+          )}</loc>
           <priority>0.50</priority>
         </url>
       `
