@@ -60,7 +60,7 @@ export async function generateMetadata({
       : generateOGImageUrl({
           cardType: data.blog.seo?.cardType as any,
           image:
-            data.blog.seo?.partialSeoImage || data.blog.heroImg
+            data.blog.seo?.partialSeoImage ?? data.blog.heroImg
               ? buildSrc(
                   getFileNameFromUrl(
                     data.blog.seo?.partialSeoImage ?? data.blog.heroImg ?? '',

@@ -67,7 +67,7 @@ function Features({
 }) {
   return (
     <>
-      {title || subTitle ? (
+      {title ?? subTitle ? (
         <Section className="mt-24">
           <Header title={title} subTitle={subTitle} />
           <Spacer size="2xs" />
