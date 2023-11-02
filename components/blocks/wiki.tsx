@@ -117,7 +117,7 @@ function WikiOverview(
                   )}
                 >
                   <div className="flex flex-auto flex-col justify-center">
-                    {title || subtitle ? (
+                    {title ?? subtitle ? (
                       <Header nested title={title} subTitle={subtitle} />
                     ) : null}
                     <Grid
@@ -183,7 +183,7 @@ function WikiOverview(
         </Section>
       ) : null}
 
-      {!searchEnabled && (title || subtitle) ? (
+      {!searchEnabled && (title ?? subtitle) ? (
         <Section className="mt-24" data-tina-field={tinaField(data, 'header')}>
           <Header
             title={title}

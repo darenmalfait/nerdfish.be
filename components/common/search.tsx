@@ -5,7 +5,6 @@ import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {Button} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 import {Search as SearchIcon} from 'lucide-react'
-import {type Hit} from 'react-instantsearch-core'
 import {
   Configure,
   Highlight,
@@ -32,7 +31,12 @@ function SearchResult({
   item,
   resultIndex,
   ...props
-}: {item: Hit<SearchItem>} & {
+}: {
+  item: SearchItem & {
+    objectID: string
+    type?: string
+  }
+} & {
   tabIndex?: number
 } & {
   resultIndex: number
