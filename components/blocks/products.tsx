@@ -70,7 +70,7 @@ function Products(
 
   return (
     <>
-      {title || subtitle ? (
+      {title ?? subtitle ? (
         <Section data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header
             title={title}
