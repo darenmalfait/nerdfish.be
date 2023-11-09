@@ -41,11 +41,6 @@ const globalCollection: Collection = {
               name: 'label',
               required: true,
             },
-            {
-              type: 'boolean',
-              label: 'is Button?',
-              name: 'isButton',
-            },
           ],
         },
         {
@@ -74,11 +69,6 @@ const globalCollection: Collection = {
               label: 'Label',
               name: 'label',
               required: true,
-            },
-            {
-              type: 'boolean',
-              label: 'is Button?',
-              name: 'isButton',
             },
           ],
         },
