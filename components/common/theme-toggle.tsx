@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import {Button, ButtonProps} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 import {Moon, Sun} from 'lucide-react'
 
 import {useTheme} from '~/context/theme-provider'
@@ -28,9 +29,9 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         type="button"
         size="icon"
-        variant="ghost"
+        variant={variant ?? 'ghost'}
         {...props}
-        className="active-ring"
+        className={cx('active-ring', className)}
         onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
       >
         {isDarkMode ? (
