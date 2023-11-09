@@ -1,4 +1,4 @@
-import {Inter as interFont} from 'next/font/google'
+import {GeistSans} from 'geist/font/sans'
 
 import {AppProviders} from '~/context/app-providers'
 
@@ -8,11 +8,6 @@ import '~/styles/prose.css'
 import '~/styles/components.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
 
-const inter = interFont({
-  variable: '--font-inter',
-  subsets: ['latin'],
-})
-
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -20,7 +15,7 @@ interface RootLayoutProps {
 export default function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`${GeistSans.variable} font-sans`}>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>
