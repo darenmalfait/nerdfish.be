@@ -139,7 +139,7 @@ function SearchDialog({
 
   return (
     <Transition.Root show={open} as={React.Fragment} appear>
-      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+      <Dialog as="div" className="relative z-50" onClose={() => setOpen(false)}>
         <Transition.Child
           as={React.Fragment}
           enter="ease-out duration-300"
@@ -200,7 +200,7 @@ function SearchDialog({
   )
 }
 
-function SearchComponent() {
+function SearchComponent({className}: {className?: string}) {
   const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -226,7 +226,7 @@ function SearchComponent() {
         variant="ghost"
         size="icon"
         type="button"
-        className="active-ring"
+        className={cx('active-ring', className)}
         onClick={() => setOpen(true)}
       >
         <SearchIcon className="w-4" />
@@ -237,11 +237,11 @@ function SearchComponent() {
   )
 }
 
-function Search() {
+function Search({className}: {className?: string}) {
   return (
     <InstantSearch searchClient={searchClient} indexName={INDEX_NAME}>
       <Configure />
-      <SearchComponent />
+      <SearchComponent className={className} />
     </InstantSearch>
   )
 }
