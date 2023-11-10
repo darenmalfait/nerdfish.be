@@ -24,7 +24,9 @@ function PortableButton({
         {...props}
         href={slug}
         className={getButtonClassName({
-          className: 'cursor-pointer',
+          accentuate: true,
+          size: 'xl',
+          className: 'cursor-pointer no-underline',
           variant,
         })}
         target={isExternal ? '_blank' : undefined}
