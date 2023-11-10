@@ -224,7 +224,7 @@ export const Layout = ({
     <MotionConfig transition={shouldReduceMotion ? {duration: 0} : undefined}>
       <GlobalProvider {...globalData}>
         <div className={cx(forceTheme)}>
-          <div className={cx(expanded && 'bg-inverse')}>
+          <div className="bg-inverse">
             <header>
               <div
                 className="absolute inset-x-0 top-2 z-40 pt-14"
@@ -249,7 +249,7 @@ export const Layout = ({
                 layout
                 id={panelId}
                 style={{height: expanded ? 'auto' : '0.5rem'}}
-                className="relative z-50 overflow-hidden bg-gray-900 pt-2"
+                className="relative z-50 overflow-hidden pt-2 bg-inverse"
                 aria-hidden={expanded ? undefined : 'true'}
                 // @ts-expect-error (https://github.com/facebook/react/issues/17157)
                 inert={expanded ? undefined : ''}
@@ -282,7 +282,7 @@ export const Layout = ({
             >
               <motion.div
                 layout
-                className="relative isolate flex w-full flex-col pt-9"
+                className="relative isolate flex w-full flex-col pt-24"
               >
                 <main className="w-full flex-auto">{children}</main>
 
