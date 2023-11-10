@@ -52,7 +52,7 @@ function Header({
           </div>
           {!expanded ? (
             <div className="hidden flex-1 justify-end md:justify-center lg:flex">
-              <nav className="flex rounded-full px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200  lg:space-x-2">
+              <nav className="flex rounded-full px-3 text-sm font-medium lg:space-x-2">
                 {navigation?.main?.map((link, i: number) => {
                   if (!link) return null
                   const isActive = stripPreSlash(pathname).startsWith(link.href)
@@ -61,7 +61,7 @@ function Header({
                     <Link
                       key={i}
                       className={cx(
-                        'flex h-8 items-center cursor-pointer gap-x-1.5 rounded-full px-3 text-black/80 transition hover:bg-gray-50 hover:text-black/90 dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white/90 sm:h-10 sm:px-4',
+                        'flex h-8 items-center cursor-pointer gap-x-1.5 rounded-full px-3 transition sm:h-10 sm:px-4 dark:hover:bg-white/10 hover:bg-black/5',
                         {
                           'flex h-8 items-center gap-x-1.5 rounded-full bg-gray-50 px-3 text-black/80 !text-black transition shadow-outline hover:bg-gray-50 hover:text-black/90 hover:!bg-secondary  dark:bg-black/50 dark:text-white/70 dark:!text-white   dark:hover:text-white/90 sm:h-10 sm:px-4':
                             isActive,
@@ -77,15 +77,20 @@ function Header({
             </div>
           ) : null}
           <div className="flex justify-end space-x-2 md:flex-1">
-            <Search className={invert ? 'text-inverse' : ''} />
-            <ThemeToggle className={invert ? 'text-inverse' : ''} />
+            <Search
+              className={invert ? '!text-gray-100 hover:bg-white/10' : ''}
+            />
+            <ThemeToggle
+              variant="ghost"
+              className={invert ? '!text-gray-100 hover:bg-white/10' : ''}
+            />
             <a
               className={getButtonClassName({
                 variant: 'ghost',
                 size: 'icon',
                 className: cx(
                   'hidden xsm:flex active-ring',
-                  invert && 'text-inverse',
+                  invert && '!text-gray-100 hover:bg-white/10',
                 ),
               })}
               target="_blank"
@@ -104,6 +109,9 @@ function Header({
                   <Link
                     className={getButtonClassName({
                       variant: invert ? 'secondary' : 'default',
+                      className: invert
+                        ? 'dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300'
+                        : '',
                     })}
                     key={i}
                     href={`/${stripPreSlash(link.href)}`}
@@ -131,7 +139,7 @@ function Header({
                 className={cx(
                   'h-4 w-4',
                   invert
-                    ? 'fill-white group-hover:fill-gray-200 dark:fill-gray-900 dark:group-hover:fill-gray-100'
+                    ? 'fill-white group-hover:fill-gray-200'
                     : 'fill-gray-900 group-hover:fill-gray-700 dark:fill-white dark:group-hover:fill-gray-100',
                 )}
               />
@@ -145,7 +153,7 @@ function Header({
 
 function NavigationRow({children}: {children: React.ReactNode}) {
   return (
-    <Grid className="even:mt-px sm:bg-inverse">
+    <Grid className="even:mt-px dark:bg-gray-800 sm:bg-gray-900">
       <Container size="full">
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -163,10 +171,10 @@ function NavigationItem({
   return (
     <Link
       href={`/${stripPreSlash(href)}`}
-      className="sm:even:border-secondary group relative isolate -mx-6 px-6 py-10 bg-inverse even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-gray-900 px-6 py-10 text-gray-100 even:mt-px dark:bg-gray-800 sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-white/20 sm:even:pl-16"
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-gray-800 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100 dark:bg-gray-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen rounded-md bg-white/5 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
     </Link>
   )
 }
@@ -224,7 +232,7 @@ export const Layout = ({
     <MotionConfig transition={shouldReduceMotion ? {duration: 0} : undefined}>
       <GlobalProvider {...globalData}>
         <div className={cx(forceTheme)}>
-          <div className="bg-inverse">
+          <div className="bg-gray-900 dark:bg-gray-800">
             <header>
               <div
                 className="absolute inset-x-0 top-2 z-40 pt-14"
@@ -249,12 +257,12 @@ export const Layout = ({
                 layout
                 id={panelId}
                 style={{height: expanded ? 'auto' : '0.5rem'}}
-                className="relative z-50 overflow-hidden pt-2 bg-inverse"
+                className="relative z-50 overflow-hidden bg-gray-900 pt-2 dark:bg-gray-800"
                 aria-hidden={expanded ? undefined : 'true'}
                 // @ts-expect-error (https://github.com/facebook/react/issues/17157)
                 inert={expanded ? undefined : ''}
               >
-                <motion.div layout className="bg-inverse">
+                <motion.div layout className="bg-gray-900 dark:bg-gray-800">
                   <div ref={navRef} className="pb-16 pt-14">
                     <Header
                       invert
@@ -277,8 +285,7 @@ export const Layout = ({
 
             <motion.div
               layout
-              style={{borderTopLeftRadius: 40, borderTopRightRadius: 40}}
-              className="relative flex flex-auto overflow-hidden pt-14 bg-primary"
+              className="relative flex flex-auto overflow-hidden rounded-3xl pt-14 bg-primary"
             >
               <motion.div
                 layout
