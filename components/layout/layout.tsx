@@ -78,11 +78,11 @@ function Header({
           ) : null}
           <div className="flex justify-end space-x-2 md:flex-1">
             <Search
-              className={invert ? '!text-gray-100 hover:bg-white/10' : ''}
+              className={invert ? '!text-gray-100 hover:!bg-white/10' : ''}
             />
             <ThemeToggle
               variant="ghost"
-              className={invert ? '!text-gray-100 hover:bg-white/10' : ''}
+              className={invert ? '!text-gray-100 hover:!bg-white/10' : ''}
             />
             <a
               className={getButtonClassName({
@@ -90,7 +90,7 @@ function Header({
                 size: 'icon',
                 className: cx(
                   'hidden xsm:flex active-ring',
-                  invert && '!text-gray-100 hover:bg-white/10',
+                  invert && '!text-gray-100 hover:!bg-white/10',
                 ),
               })}
               target="_blank"
@@ -110,7 +110,7 @@ function Header({
                     className={getButtonClassName({
                       variant: invert ? 'secondary' : 'default',
                       className: invert
-                        ? 'dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300'
+                        ? 'dark:!bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300'
                         : '',
                     })}
                     key={i}
@@ -131,7 +131,7 @@ function Header({
               aria-controls={panelId}
               className={cx(
                 'group',
-                invert ? 'hover:bg-white/10' : 'hover:bg-gray-900/10',
+                invert ? 'hover:!bg-white/10' : 'hover:bg-gray-900/10',
               )}
               aria-label="Toggle navigation"
             >
