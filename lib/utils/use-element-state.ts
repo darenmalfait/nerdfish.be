@@ -85,10 +85,10 @@ function useElementState(): [
   const status: ElementState = state.active
     ? 'active'
     : state.focus
-    ? 'focus'
-    : state.hover
-    ? 'hover'
-    : 'initial'
+      ? 'focus'
+      : state.hover
+        ? 'hover'
+        : 'initial'
 
   return [setRef, status]
 }
