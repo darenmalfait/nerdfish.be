@@ -25,7 +25,7 @@ const config = defineStaticConfig({
     // },
   },
   admin: {
-    auth: {
+    authHooks: {
       onLogin: async ({token}) => {
         location.href = `/api/preview/enter?token=${token.id_token}&slug=${location.pathname}`
       },
