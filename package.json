@@ -43,7 +43,7 @@
     "framer-motion": "^10.16.5",
     "geist": "^1.1.0",
     "lodash": "^4.17.21",
-    "lucide-react": "^0.292.0",
+    "lucide-react": "^0.293.0",
     "match-sorter": "^6.3.1",
     "next": "^14.0.3",
     "next-tinacms-cloudinary": "^4.4.3",
@@ -69,7 +69,7 @@
     "@svgr/webpack": "^8.1.0",
     "@tinacms/cli": "^1.5.36",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.9.5",
+    "@types/node": "^20.10.0",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
     "@types/react-instantsearch-core": "^6.26.8",
@@ -91,5 +91,5 @@
     "shelljs": "^0.8.5",
     "tailwindcss": "^3.3.5"
   },
-  "packageManager": "pnpm@8.10.5"
+  "packageManager": "pnpm@8.11.0"
 }
