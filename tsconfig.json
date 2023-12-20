@@ -24,7 +24,9 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./src/*"],
+      "~/tina/*": ["./tina/*"],
+      "~/content/*": ["./content/*"]
     },
     "plugins": [
       {

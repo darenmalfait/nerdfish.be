@@ -1,5 +1,6 @@
 // This will make sure the environment variables are validated at build time which will save a lot of time and headaches down the road.
-import './env.mjs'
+
+import './src/env.mjs'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,7 +11,6 @@ const nextConfig = {
   },
   experimental: {
     serverActions: true,
-    appDir: true,
     serverComponentsExternalPackages: ['@nerdfish/ui'],
   },
   eslint: {
