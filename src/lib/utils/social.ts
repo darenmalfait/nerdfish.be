@@ -7,7 +7,7 @@ function generateOGImageUrl({
   cardType = 'primary',
   ...props
 }: z.infer<typeof ogImageSchema> & {
-  cardType?: 'primary' | 'secondary'
+  cardType?: string | null
 }) {
   const url = getDomainUrl()
 
