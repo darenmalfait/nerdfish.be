@@ -41,9 +41,9 @@ export default {
   content: [
     // ... paths that use tailwind
     fromRoot('./node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}'), // path to nerdfish
-    fromRoot('./pages/**/*.{js,jsx,ts,tsx}'),
-    fromRoot('./app/**/*.{js,jsx,ts,tsx}'),
-    fromRoot('./components/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./src/pages/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./src/app/**/*.{js,jsx,ts,tsx}'),
+    fromRoot('./src/components/**/*.{js,jsx,ts,tsx}'),
   ],
   plugins: [
     require('@tailwindcss/typography'),
