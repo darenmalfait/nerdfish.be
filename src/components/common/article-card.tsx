@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {useGlobal} from '~/context/global-provider'
+import {useGlobal} from '~/app/global-provider'
 import {
   buildSrc,
   buildSrcSet,

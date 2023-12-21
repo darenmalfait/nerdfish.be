@@ -1,6 +1,6 @@
 import {GeistSans} from 'geist/font/sans'
 
-import {AppProviders} from '~/context/app-providers'
+import {AppProviders} from '~/app/app-providers'
 
 import '~/styles/tailwind.css'
 import '~/styles/app.css'

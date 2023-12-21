@@ -3,7 +3,7 @@ import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
-import {Layout} from '~/components/layout/layout'
+import {BasicLayout} from '~/app/_components/basic-layout'
 import {getBlogPost, getBlogPosts} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
@@ -94,7 +94,7 @@ export default async function BlogPage({
   }
 
   return (
-    <Layout globalData={loaderData.data.global}>
+    <BasicLayout globalData={loaderData.data.global}>
       {isPreview ? (
         <BlogPreview
           {...loaderData}
@@ -106,6 +106,6 @@ export default async function BlogPage({
           blogPath={loaderData.data.global.paths?.blog}
         />
       )}
-    </Layout>
+    </BasicLayout>
   )
 }
