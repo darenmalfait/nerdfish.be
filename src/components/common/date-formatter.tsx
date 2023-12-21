@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {format as formatDate} from 'date-fns'
 
-import {useGlobal} from '~/context/global-provider'
+import {useGlobal} from '~/app/global-provider'
 
 function DateFormatter({
   dateString,

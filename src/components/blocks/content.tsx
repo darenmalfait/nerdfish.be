@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import {Grid, Section} from '@nerdfish/ui'
 import {type RichTextType} from 'tinacms'
 import {tinaField} from 'tinacms/dist/react'

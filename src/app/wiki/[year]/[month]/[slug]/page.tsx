@@ -3,7 +3,7 @@ import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 import {padStart} from 'lodash'
 
-import {Layout} from '~/components/layout/layout'
+import {BasicLayout} from '~/app/_components/basic-layout'
 import {getWikiPost, getWikiPosts} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
@@ -90,7 +90,7 @@ export default async function WikiPage({
   }
 
   return (
-    <Layout globalData={loaderData.data.global}>
+    <BasicLayout globalData={loaderData.data.global}>
       {isPreview ? (
         <WikiPreview
           {...loaderData}
@@ -102,6 +102,6 @@ export default async function WikiPage({
           wikiPath={loaderData.data.global.paths?.wiki}
         />
       )}
-    </Layout>
+    </BasicLayout>
   )
 }
