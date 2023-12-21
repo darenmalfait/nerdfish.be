@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import * as React from 'react'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {Button, Container, getButtonClassName, Grid} from '@nerdfish/ui'
@@ -8,13 +8,13 @@ import {cx} from '@nerdfish/utils'
 import {motion, MotionConfig, useReducedMotion} from 'framer-motion'
 import {Rss} from 'lucide-react'
 
-import {GlobalProvider, useGlobal} from '~/context/global-provider'
+import {Search} from '~/components/common/search'
+import {ThemeToggle} from '~/components/common/theme-toggle'
+import {Logo} from '~/components/icons/logo'
 import {stripPreSlash} from '~/lib/utils/string'
 import {type Global} from '~/tina/__generated__/types'
 
-import {Search} from '../common/search'
-import {ThemeToggle} from '../common/theme-toggle'
-import {Logo} from '../icons/logo'
+import {GlobalProvider, useGlobal} from '../global-provider'
 import {Footer} from './footer'
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -211,7 +211,7 @@ function NavigationGrid() {
   )
 }
 
-export const Layout = ({
+export function BasicLayout({
   globalData,
   children,
   forceTheme,
@@ -220,7 +220,7 @@ export const Layout = ({
   children: React.ReactNode
   navigationClassName?: string
   forceTheme?: 'light' | 'dark'
-}) => {
+}) {
   const panelId = React.useId()
   const [expanded, setExpanded] = React.useState(false)
   const openRef = React.useRef<React.ElementRef<'button'>>(null)

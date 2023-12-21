@@ -1,14 +1,14 @@
 'use client'
 
+import Link from 'next/link'
 import {getButtonClassName} from '@nerdfish/ui'
 
 import {ThemeToggle} from '~/components/common/theme-toggle'
-import {useGlobal} from '~/context/global-provider'
+import {GithubIcon} from '~/components/icons/github-icon'
+import {Logo} from '~/components/icons/logo'
+import {TwitterIcon} from '~/components/icons/twitter-icon'
 
-import {Link} from '../common/link'
-import {GithubIcon} from '../icons/github-icon'
-import {Logo} from '../icons/logo'
-import {TwitterIcon} from '../icons/twitter-icon'
+import {useGlobal} from '../global-provider'
 
 function Footer() {
   const {social} = useGlobal()

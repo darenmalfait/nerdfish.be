@@ -2,13 +2,13 @@ import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 
-import {Layout} from '~/components/layout/layout'
 import {getPage, getPages} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 import {stripTrailingSlash} from '~/lib/utils/string'
 
+import {BasicLayout} from '../_components/basic-layout'
 import {PagePreview} from './page-preview'
 import {PageTemplate} from './page-template'
 
@@ -77,8 +77,8 @@ export default async function Page({
   }
 
   return (
-    <Layout globalData={data.data.global}>
+    <BasicLayout globalData={data.data.global}>
       {isPreview ? <PagePreview {...data} /> : <PageTemplate {...data} />}
-    </Layout>
+    </BasicLayout>
   )
 }
