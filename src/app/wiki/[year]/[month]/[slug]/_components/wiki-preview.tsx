@@ -6,7 +6,7 @@ import {useTina} from 'tinacms/dist/react'
 import {Preview} from '~/components/misc/preview'
 import {WikiQueryQuery, WikiQueryVariables} from '~/tina/__generated__/types'
 
-import {WikiTemplate} from './wiki-template'
+import {WikiContent} from './wiki-content'
 
 function WikiPreview(props: {
   data: WikiQueryQuery
@@ -23,7 +23,7 @@ function WikiPreview(props: {
   return (
     <>
       <Preview />
-      <WikiTemplate wikiPath={props.wikiPath} data={data} />
+      <WikiContent wikiPath={props.wikiPath} data={data} />
     </>
   )
 }

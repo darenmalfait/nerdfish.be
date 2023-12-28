@@ -16,7 +16,7 @@ import {
 } from '~/lib/utils/cloudinary'
 import {BlogPostQueryQuery} from '~/tina/__generated__/types'
 
-function BlogTemplate({
+function BlogContent({
   data,
   blogPath,
 }: {
@@ -112,4 +112,4 @@ function BlogTemplate({
   )
 }
 
-export {BlogTemplate}
+export {BlogContent}
