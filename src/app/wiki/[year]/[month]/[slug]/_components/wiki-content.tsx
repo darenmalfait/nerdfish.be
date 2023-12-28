@@ -7,7 +7,7 @@ import {DateFormatter} from '~/components/common/date-formatter'
 import {PortableText} from '~/components/common/portable-text'
 import {WikiQueryQuery} from '~/tina/__generated__/types'
 
-function WikiTemplate({
+function WikiContent({
   data,
   wikiPath,
 }: {
@@ -54,4 +54,4 @@ function WikiTemplate({
   )
 }
 
-export {WikiTemplate}
+export {WikiContent}

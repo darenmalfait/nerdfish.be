@@ -1,23 +1,15 @@
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
-import {notFound} from 'next/navigation'
 
-import {getPage, getPages} from '~/lib/api/cms'
+import {getPages} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
-import {stripTrailingSlash} from '~/lib/utils/string'
 
 import {BasicLayout} from '../_components/basic-layout'
-import {PagePreview} from './page-preview'
-import {PageTemplate} from './page-template'
-
-async function fetchPage(slug?: string) {
-  const filename =
-    !slug || slug === '/' ? 'home' : stripTrailingSlash(slug.toLowerCase())
-
-  return getPage(`${filename.length ? filename : 'home'}.mdx`)
-}
+import {PageContent} from './_components/page-content'
+import {PagePreview} from './_components/page-preview'
+import {getRouteData} from './route-data'
 
 export async function generateStaticParams() {
   return ((await getPages()) ?? []).map(page => ({
@@ -30,13 +22,7 @@ export async function generateMetadata({
 }: {
   params: {slug?: string}
 }): Promise<Metadata | undefined> {
-  const loaderData = await fetchPage(params.slug)
-
-  if (!loaderData) {
-    return
-  }
-
-  const {data} = loaderData
+  const {data} = await getRouteData(params.slug ?? '')
 
   const title = data.page.seo?.title ?? (data.page.title || 'Untitled')
 
@@ -69,16 +55,16 @@ export default async function Page({
 }: {
   params: {slug?: string}
 }) {
-  const data = await fetchPage(slug)
+  const routeData = await getRouteData(slug ?? '')
   const {isEnabled: isPreview} = draftMode()
 
-  if (!data) {
-    notFound()
-  }
-
   return (
-    <BasicLayout globalData={data.data.global}>
-      {isPreview ? <PagePreview {...data} /> : <PageTemplate {...data} />}
+    <BasicLayout globalData={routeData.data.global}>
+      {isPreview ? (
+        <PagePreview {...routeData} />
+      ) : (
+        <PageContent {...routeData} />
+      )}
     </BasicLayout>
   )
 }

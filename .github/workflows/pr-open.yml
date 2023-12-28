@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['18']
+        node: ['20']
     name: Node ${{ matrix.node }} sample
     steps:
       - name: 🛑 Cancel Previous Runs
