@@ -1,63 +1,30 @@
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
-import {notFound} from 'next/navigation'
-import {padStart} from 'lodash'
 
 import {BasicLayout} from '~/app/_components/basic-layout'
-import {getWikiPost, getWikiPosts} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 
-import {WikiPreview} from './wiki-preview'
-import {WikiTemplate} from './wiki-template'
-
-function getPath(slug?: string, year?: string, month?: string) {
-  let path = `${slug}.mdx`
-
-  if (year && month) {
-    path = `${year}/${month}/${path}`
-  }
-
-  return path
-}
-
-async function fetchWiki(slug?: string, year?: string, month?: string) {
-  return getWikiPost(getPath(slug, year, month))
-}
-
-export async function generateStaticParams() {
-  return ((await getWikiPosts()) ?? []).map(({date, _sys}) => {
-    const d = new Date(date ?? '')
-
-    return {
-      year: d.getFullYear().toString(),
-      month: padStart((d.getMonth() + 1).toString(), 2, '0'),
-      slug: _sys?.filename,
-    }
-  })
-}
+import {WikiContent} from './_components/wiki-content'
+import {WikiPreview} from './_components/wiki-preview'
+import {getRouteData} from './route-data'
 
 export async function generateMetadata({
   params,
 }: {
-  params: {slug?: string; year?: string; month?: string}
+  params: {slug: string; year: string; month: string}
 }): Promise<Metadata | undefined> {
-  const loaderData = await fetchWiki(params.slug, params.year, params.month)
+  const {data} = await getRouteData(params.slug, params.year, params.month)
 
-  if (!loaderData) {
-    notFound()
-  }
-
-  const {data} = loaderData
   const title = data.wiki.seo?.title ?? (data.wiki.title || 'Untitled')
 
   return getMetaData({
     ogImage: data.wiki.seo?.seoImg
       ? data.wiki.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.wiki.seo?.cardType as any,
+          cardType: data.wiki.seo?.cardType,
           image: data.wiki.seo?.partialSeoImage
             ? buildSrc(
                 getFileNameFromUrl(data.wiki.seo.partialSeoImage) ?? '',
@@ -71,35 +38,31 @@ export async function generateMetadata({
           heading: title,
         }),
     title,
-    url: `/wiki/${getDatedSlug(data.wiki.date, params.slug ?? '')}`,
+    url: `/wiki/${getDatedSlug(data.wiki.date, params.slug)}`,
     description: data.wiki.seo?.description ?? '',
     canonical: data.wiki.seo?.canonical,
   })
 }
 
 export default async function WikiPage({
-  params: {slug, year, month},
+  params,
 }: {
-  params: {slug?: string; year?: string; month?: string}
+  params: {slug: string; year: string; month: string}
 }) {
-  const loaderData = await fetchWiki(slug, year, month)
+  const routeData = await getRouteData(params.slug, params.year, params.month)
   const {isEnabled: isPreview} = draftMode()
 
-  if (!loaderData) {
-    notFound()
-  }
-
   return (
-    <BasicLayout globalData={loaderData.data.global}>
+    <BasicLayout globalData={routeData.data.global}>
       {isPreview ? (
         <WikiPreview
-          {...loaderData}
-          wikiPath={loaderData.data.global.paths?.wiki}
+          {...routeData}
+          wikiPath={routeData.data.global.paths?.wiki}
         />
       ) : (
-        <WikiTemplate
-          {...loaderData}
-          wikiPath={loaderData.data.global.paths?.wiki}
+        <WikiContent
+          {...routeData}
+          wikiPath={routeData.data.global.paths?.wiki}
         />
       )}
     </BasicLayout>

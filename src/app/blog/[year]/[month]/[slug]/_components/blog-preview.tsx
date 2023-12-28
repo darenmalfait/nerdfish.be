@@ -9,7 +9,7 @@ import {
   BlogQueryVariables,
 } from '~/tina/__generated__/types'
 
-import {BlogTemplate} from './blog-template'
+import {BlogContent} from './blog-content'
 
 function BlogPreview(props: {
   data: BlogPostQueryQuery
@@ -26,7 +26,7 @@ function BlogPreview(props: {
   return (
     <>
       <Preview />
-      <BlogTemplate blogPath={props.blogPath} data={data} />
+      <BlogContent blogPath={props.blogPath} data={data} />
     </>
   )
 }

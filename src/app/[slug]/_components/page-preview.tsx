@@ -9,7 +9,7 @@ import {
   type ContentQueryQueryVariables,
 } from '~/tina/__generated__/types'
 
-import {PageTemplate} from './page-template'
+import {PageContent} from './page-content'
 
 function PagePreview(props: {
   data: ContentQueryQuery
@@ -25,7 +25,7 @@ function PagePreview(props: {
   return (
     <>
       <Preview />
-      <PageTemplate data={data} />
+      <PageContent data={data} />
     </>
   )
 }

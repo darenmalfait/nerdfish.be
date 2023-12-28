@@ -1,56 +1,22 @@
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
-import {notFound} from 'next/navigation'
-import {padStart} from 'lodash'
 
 import {BasicLayout} from '~/app/_components/basic-layout'
-import {getBlogPost, getBlogPosts} from '~/lib/api/cms'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 
-import {BlogPreview} from './blog-preview'
-import {BlogTemplate} from './blog-template'
-
-function getPath(slug?: string, year?: string, month?: string) {
-  let path = `${slug}.mdx`
-
-  if (year && month) {
-    path = `${year}/${month}/${path}`
-  }
-
-  return path
-}
-
-async function fetchBlog(slug?: string, year?: string, month?: string) {
-  return getBlogPost(getPath(slug, year, month))
-}
-
-export async function generateStaticParams() {
-  return ((await getBlogPosts()) ?? []).map(({date, _sys}) => {
-    const d = new Date(date ?? '')
-
-    return {
-      year: d.getFullYear().toString(),
-      month: padStart((d.getMonth() + 1).toString(), 2, '0'),
-      slug: _sys?.filename,
-    }
-  })
-}
+import {BlogContent} from './_components/blog-content'
+import {BlogPreview} from './_components/blog-preview'
+import {getRouteData} from './route-data'
 
 export async function generateMetadata({
   params,
 }: {
-  params: {slug?: string; year?: string; month?: string}
+  params: {slug: string; year: string; month: string}
 }): Promise<Metadata | undefined> {
-  const loaderData = await fetchBlog(params.slug, params.year, params.month)
-
-  if (!loaderData) {
-    return
-  }
-
-  const {data} = loaderData
+  const {data} = await getRouteData(params.slug, params.year, params.month)
 
   const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
@@ -75,35 +41,32 @@ export async function generateMetadata({
           heading: title,
         }),
     title,
-    url: `/blog/${getDatedSlug(data.blog.date, params.slug ?? '')}`,
+    url: `/blog/${getDatedSlug(data.blog.date, params.slug)}`,
     description: data.blog.seo?.description ?? '',
     canonical: data.blog.seo?.canonical,
   })
 }
 
 export default async function BlogPage({
-  params: {slug, year, month},
+  params,
 }: {
-  params: {slug?: string; year?: string; month?: string}
+  params: {slug: string; year: string; month: string}
 }) {
-  const loaderData = await fetchBlog(slug, year, month)
+  const routeData = await getRouteData(params.slug, params.year, params.month)
+
   const {isEnabled: isPreview} = draftMode()
 
-  if (!loaderData) {
-    notFound()
-  }
-
   return (
-    <BasicLayout globalData={loaderData.data.global}>
+    <BasicLayout globalData={routeData.data.global}>
       {isPreview ? (
         <BlogPreview
-          {...loaderData}
-          blogPath={loaderData.data.global.paths?.blog}
+          {...routeData}
+          blogPath={routeData.data.global.paths?.blog}
         />
       ) : (
-        <BlogTemplate
-          {...loaderData}
-          blogPath={loaderData.data.global.paths?.blog}
+        <BlogContent
+          {...routeData}
+          blogPath={routeData.data.global.paths?.blog}
         />
       )}
     </BasicLayout>
