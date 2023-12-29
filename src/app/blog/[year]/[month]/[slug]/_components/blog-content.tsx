@@ -81,7 +81,7 @@ function BlogContent({
       </Section>
       <Section>
         <Grid
-          className="prose dark:prose-invert md:prose-lg lg:prose-xl"
+          className="prose md:prose-lg lg:prose-xl dark:prose-invert"
           data-tina-field={tinaField(data.blog, 'body')}
         >
           {body ? <PortableText content={body} /> : null}
