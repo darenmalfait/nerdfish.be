@@ -1,5 +1,4 @@
 query contentQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
   }
@@ -54,7 +53,6 @@ query contentQuery($relativePath: String!) {
 }
 
 query blogPostQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   blog(relativePath: $relativePath) {
     ...BlogParts
   }
@@ -77,14 +75,12 @@ query blogPostQuery($relativePath: String!) {
 }
 
 query wikiQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   wiki(relativePath: $relativePath) {
     ...WikiParts
   }
 }
 
 query sitemapQuery {
-  ...LayoutQueryFragment
   pageConnection {
     edges {
       node {
@@ -119,5 +115,11 @@ query sitemapQuery {
         }
       }
     }
+  }
+}
+
+query globalQuery {
+  global(relativePath: "index.json") {
+    ...GlobalParts
   }
 }

@@ -3,8 +3,6 @@
 import * as React from 'react'
 import {format as formatDate} from 'date-fns'
 
-import {useGlobal} from '~/app/global-provider'
-
 function DateFormatter({
   dateString,
   format,
@@ -12,11 +10,6 @@ function DateFormatter({
   dateString: string
   format?: string
 }) {
-  const {hydrated} = useGlobal()
-
-  // Returns null on first render, so the client and server match
-  if (!hydrated) return null
-
   const date = new Date(dateString)
 
   return <time dateTime={dateString}>{formatDate(date, format ?? 'PP')}</time>

@@ -78,6 +78,12 @@ async function getPage(relativePath: string) {
   }
 }
 
+async function getGlobalData() {
+  const globalData = await tina.queries.globalQuery()
+
+  return globalData.data.global
+}
+
 async function getBlogPost(relativePath: string) {
   const blog = await tina.queries
     .blogPostQuery({
@@ -113,13 +119,14 @@ async function getSitemapData() {
 }
 
 export {
-  getBlogPosts,
-  getWikiPosts,
-  getWikiPost,
   getBlogPost,
-  getPages,
+  getBlogPosts,
+  getGlobalData,
   getPage,
-  mapPageData,
-  mapBlogData,
+  getPages,
   getSitemapData,
+  getWikiPost,
+  getWikiPosts,
+  mapBlogData,
+  mapPageData,
 }

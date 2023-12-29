@@ -4,7 +4,6 @@ import Link from 'next/link'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {useGlobal} from '~/app/global-provider'
 import {
   buildSrc,
   buildSrcSet,
@@ -27,10 +26,9 @@ function ArticleCard({
   category,
   _sys,
 }: Partial<Blog>) {
-  const {hydrated} = useGlobal()
   return (
     <Link
-      href={hydrated ? `/blog${getDatedSlug(date, _sys?.filename ?? '')}` : ''}
+      href={`/blog${getDatedSlug(date, _sys?.filename ?? '')}`}
       className="relative w-full"
     >
       <div className="group peer relative block w-full focus:outline-none">

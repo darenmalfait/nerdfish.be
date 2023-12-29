@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import {Preview} from '~/components/misc/preview'
+import {Preview} from '~/app/(base)/_components/preview'
 import {
   BlogPostQueryQuery,
   BlogQueryVariables,
@@ -15,7 +15,6 @@ function BlogPreview(props: {
   data: BlogPostQueryQuery
   query: string
   variables: BlogQueryVariables
-  blogPath?: string | null
 }) {
   const {data} = useTina<BlogPostQueryQuery>({
     query: props.query,
@@ -26,7 +25,7 @@ function BlogPreview(props: {
   return (
     <>
       <Preview />
-      <BlogContent blogPath={props.blogPath} data={data} />
+      <BlogContent data={data} />
     </>
   )
 }
