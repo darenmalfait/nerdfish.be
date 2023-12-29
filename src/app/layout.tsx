@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {GeistSans} from 'geist/font/sans'
 
 import {AppProviders} from '~/app/app-providers'
@@ -14,9 +15,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({children}: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} font-sans`}>
-        <AppProviders>{children}</AppProviders>
+        <AppProviders>
+          <React.Suspense>{children}</React.Suspense>
+        </AppProviders>
       </body>
     </html>
   )

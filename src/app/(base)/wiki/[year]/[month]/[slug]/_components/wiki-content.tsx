@@ -2,18 +2,13 @@ import * as React from 'react'
 import {Container, Grid, H1, H6, Section} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {BackLink} from '~/components/common/arrow-link'
 import {DateFormatter} from '~/components/common/date-formatter'
 import {PortableText} from '~/components/common/portable-text'
 import {WikiQueryQuery} from '~/tina/__generated__/types'
 
-function WikiContent({
-  data,
-  wikiPath,
-}: {
-  data: WikiQueryQuery
-  wikiPath?: string | null
-}) {
+import {BackToWiki} from './misc'
+
+function WikiContent({data}: {data: WikiQueryQuery}) {
   const {title, date, body} = data.wiki
 
   return (
@@ -21,7 +16,7 @@ function WikiContent({
       <Section>
         <Grid className="mb-14 mt-24 lg:mb-24">
           <div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
-            <BackLink href={wikiPath ?? ''}>All wiki</BackLink>
+            <BackToWiki />
           </div>
         </Grid>
 
