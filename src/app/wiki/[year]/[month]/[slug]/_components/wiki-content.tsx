@@ -44,7 +44,7 @@ function WikiContent({
       </Section>
       <div>
         <Grid
-          className="prose dark:prose-invert md:prose-lg lg:prose-xl"
+          className="prose md:prose-lg lg:prose-xl dark:prose-invert"
           data-tina-field={tinaField(data.wiki, 'body')}
         >
           {body ? <PortableText content={body} /> : null}
