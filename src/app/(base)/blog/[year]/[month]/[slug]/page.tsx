@@ -1,7 +1,6 @@
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import {BasicLayout} from '~/app/_components/basic-layout'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
@@ -56,19 +55,9 @@ export default async function BlogPage({
 
   const {isEnabled: isPreview} = draftMode()
 
-  return (
-    <BasicLayout globalData={routeData.data.global}>
-      {isPreview ? (
-        <BlogPreview
-          {...routeData}
-          blogPath={routeData.data.global.paths?.blog}
-        />
-      ) : (
-        <BlogContent
-          {...routeData}
-          blogPath={routeData.data.global.paths?.blog}
-        />
-      )}
-    </BasicLayout>
-  )
+  if (isPreview) {
+    return <BlogPreview {...routeData} />
+  }
+
+  return <BlogContent {...routeData} />
 }

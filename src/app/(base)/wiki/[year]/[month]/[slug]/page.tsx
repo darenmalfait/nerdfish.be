@@ -1,7 +1,6 @@
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import {BasicLayout} from '~/app/_components/basic-layout'
 import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getDatedSlug} from '~/lib/utils/routes'
 import {getMetaData} from '~/lib/utils/seo'
@@ -52,19 +51,7 @@ export default async function WikiPage({
   const routeData = await getRouteData(params.slug, params.year, params.month)
   const {isEnabled: isPreview} = draftMode()
 
-  return (
-    <BasicLayout globalData={routeData.data.global}>
-      {isPreview ? (
-        <WikiPreview
-          {...routeData}
-          wikiPath={routeData.data.global.paths?.wiki}
-        />
-      ) : (
-        <WikiContent
-          {...routeData}
-          wikiPath={routeData.data.global.paths?.wiki}
-        />
-      )}
-    </BasicLayout>
-  )
+  if (isPreview) return <WikiPreview {...routeData} />
+
+  return <WikiContent {...routeData} />
 }

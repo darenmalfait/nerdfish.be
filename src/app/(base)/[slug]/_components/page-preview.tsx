@@ -3,12 +3,12 @@
 import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import {Preview} from '~/components/misc/preview'
 import {
   type ContentQueryQuery,
   type ContentQueryQueryVariables,
 } from '~/tina/__generated__/types'
 
+import {Preview} from '../../_components/preview'
 import {PageContent} from './page-content'
 
 function PagePreview(props: {

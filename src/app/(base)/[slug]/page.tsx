@@ -6,7 +6,6 @@ import {buildSrc, getFileNameFromUrl} from '~/lib/utils/cloudinary'
 import {getMetaData} from '~/lib/utils/seo'
 import {generateOGImageUrl} from '~/lib/utils/social'
 
-import {BasicLayout} from '../_components/basic-layout'
 import {PageContent} from './_components/page-content'
 import {PagePreview} from './_components/page-preview'
 import {getRouteData} from './route-data'
@@ -58,13 +57,6 @@ export default async function Page({
   const routeData = await getRouteData(slug ?? '')
   const {isEnabled: isPreview} = draftMode()
 
-  return (
-    <BasicLayout globalData={routeData.data.global}>
-      {isPreview ? (
-        <PagePreview {...routeData} />
-      ) : (
-        <PageContent {...routeData} />
-      )}
-    </BasicLayout>
-  )
+  if (isPreview) return <PagePreview {...routeData} />
+  return <PageContent {...routeData} />
 }

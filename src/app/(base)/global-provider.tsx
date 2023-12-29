@@ -5,9 +5,7 @@ import * as React from 'react'
 import {stripPreSlash} from '~/lib/utils/string'
 import {type Global, type GlobalPaths} from '~/tina/__generated__/types'
 
-interface GlobalContextProps extends Partial<Global> {
-  hydrated: boolean
-}
+type GlobalContextProps = Partial<Global>
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
   null,
@@ -22,7 +20,6 @@ interface GlobalProviderProps extends Partial<Global> {
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
   const {navigation, paths: originalPaths, social, companyInfo} = globalProps
-  const [hydrated, setHydrated] = React.useState(false)
 
   const paths = React.useMemo(() => {
     if (!originalPaths) return undefined
@@ -40,15 +37,9 @@ function GlobalProvider({children, ...globalProps}: GlobalProviderProps) {
     }, {})
   }, [originalPaths])
 
-  React.useEffect(() => {
-    // This forces a rerender, so the date is rendered
-    // the second time but not the first
-    setHydrated(true)
-  }, [])
-
   return (
     <GlobalProviderContext.Provider
-      value={{paths, navigation, social, companyInfo, hydrated}}
+      value={{paths, navigation, social, companyInfo}}
     >
       {children}
     </GlobalProviderContext.Provider>
