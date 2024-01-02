@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['20']
-    name: Node ${{ matrix.node }} sample
+        node: ['18']
+    name: Node ${{ matrix.node }} test
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@01ce38bf961b4e243a6342cbade0dbc8ba3f0432 # 0.12.0
