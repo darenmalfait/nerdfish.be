@@ -5,6 +5,7 @@
   "author": "Daren Malfait <daren@nerdfish.be> (https://nerdfish.be)",
   "scripts": {
     "build": "tinacms dev -c \"dotenv -e ../../.env next build\"",
+    "build:tina": "tinacms build",
     "postbuild": "node ./lib/scripts/build-algolia-search.js",
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "tinacms dev --verbose -c \"dotenv -e ../../.env next dev\"",

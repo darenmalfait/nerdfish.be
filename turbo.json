@@ -61,6 +61,11 @@
     "clean": {
       "cache": false
     },
+    "build:tina": {
+      "dependsOn": [],
+      "persistent": true,
+      "cache": false
+    },
     "dev": {
       "dependsOn": [],
       "persistent": true,
