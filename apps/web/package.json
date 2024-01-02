@@ -10,7 +10,7 @@
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "tinacms dev --verbose -c \"dotenv -e ../../.env next dev\"",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
-    "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
+    "lint": "eslint . --max-warnings 0",
     "preinstall": "npx only-allow pnpm",
     "start": "tinacms dev -c \"dotenv -e ../../.env next start\"",
     "typecheck": "tsc --noEmit"

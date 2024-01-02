@@ -18,7 +18,7 @@
     "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "prepare": "husky install",
-    "typecheck": "turbo typecheck --continue",
+    "typecheck": "turbo typecheck",
     "vercel-build": " turbo build"
   },
   "devDependencies": {
