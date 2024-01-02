@@ -1,0 +1,34 @@
+{
+  "extends": "@nerdfish-website/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "~/content/*": ["content/*"],
+      "~/tina/*": ["tina/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "verbatimModuleSyntax": false,
+    "strictNullChecks": true
+  },
+  "include": [
+    "./**/*.js",
+    "./**/*.ts",
+    "./**/*.tsx",
+    ".forestry/config.ts",
+    ".forestry/types.ts",
+    ".next/types/**/*.ts",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "postcss.config.cjs",
+    "tina/**/*.ts",
+    "tina/**/*.tsx"
+  ],
+  "exclude": ["node_modules", ".next", "public", "tina/__generated__"]
+}

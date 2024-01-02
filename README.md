@@ -6,7 +6,11 @@
 
 ---
 
-This repository contains the code for nerdfish.be. The website is built using NextJS with tailwindcss and tinacms as a CMS.
+Nerdfish is an Alias for my Freelance business. 
+
+This repository contains the code for nerdfish.be. The website is built using the app-directory approach for NextJS, tailwindcss for styling and tinacms as a CMS. It's structured as a mono-repo using turbo.
+
+It uses the app-directory structure for NextJS. 
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -47,6 +51,9 @@ pnpm i
 ```
 
 To run the project locally, use the following command:
+
+This starts tinacms and the website on port 3000.
+The CMS is available at http://localhost:3000/admin.
 
 ```bash
 pnpm dev
