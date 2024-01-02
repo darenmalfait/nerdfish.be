@@ -1,4 +1,4 @@
-import {sendContactEmail} from '@nerdfish-website/email/*'
+import {sendContactEmail} from '@nerdfish-website/email'
 import {z} from 'zod'
 
 import {env} from '~/env.mjs'

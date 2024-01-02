@@ -6,13 +6,7 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./src/index.ts"
-      ]
-    }
-  },
+  "main": "./src/index.ts",
   "scripts": {
     "clean": "rm -rf node_modules .turbo",
     "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
