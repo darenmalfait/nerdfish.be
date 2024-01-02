@@ -1,12 +1,29 @@
 module.exports = {
   extends: [
-    'turbo',
-    ...[
-      'eslint-config-daren',
-      'eslint-config-daren/react',
-      'eslint-config-daren/jsx-a11y',
-      'eslint-config-daren/tailwind',
-    ].map(config => require.resolve(config)),
+    require.resolve('./react-library'),
+    'next',
+  ],
+  overrides: [
+    {
+      files: ['**/route.tsx'],
+      rules: {
+        '@next/next/no-img-element': 'off',
+        'jsx-a11y/alt-text': 'off',
+      },
+    },
+    {
+      files: [
+        'pages/**',
+        'src/pages/**',
+        'next.config.js',
+        'app/**/{head,layout,page,error,not-found}.tsx',
+        'src/app/**/{head,layout,loading,page,error,not-found}.tsx',
+        'src/app/**/*.page.tsx',
+      ],
+      rules: {
+        'import/no-default-export': 'off',
+      },
+    },
   ],
   ignorePatterns: [
     '**/.next/**',
@@ -14,8 +31,4 @@ module.exports = {
     '**/node_modules/**',
     'public/**',
   ],
-  parserOptions: {
-    tsconfigRootDir: `${__dirname}/tsconfig.json`,
-  },
-  root: true,
 }

@@ -1,12 +1,19 @@
 {
-  "extends": "@nerdfish-website/tsconfig/nextjs.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@nerdfish-website/tsconfig/react-library.json",
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"],
-      "~/content/*": ["content/*"],
-      "~/tina/*": ["tina/*"]
+      "~/*": [
+        "src/*"
+      ],
+      "~/content/*": [
+        "content/*"
+      ],
+      "~/tina/*": [
+        "tina/*"
+      ]
     },
     "plugins": [
       {
@@ -14,7 +21,11 @@
       }
     ],
     "verbatimModuleSyntax": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve"
   },
   "include": [
     "./**/*.js",
@@ -30,5 +41,10 @@
     "tina/**/*.ts",
     "tina/**/*.tsx"
   ],
-  "exclude": ["node_modules", ".next", "public", "tina/__generated__"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "public",
+    "tina/__generated__"
+  ]
 }

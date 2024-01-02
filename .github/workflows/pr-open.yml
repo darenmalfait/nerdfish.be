@@ -10,6 +10,23 @@ jobs:
       matrix:
         node: ['18']
     name: Node ${{ matrix.node }} test
+    env: 
+      NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
+      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      ALGOLIA_ADMIN_KEY: 'dummy'
+      CLOUDINARY_API_SECRET: 'dummy'
+      RECAPTCHA_SECRETKEY: 'dummy'
+      RESEND_API_KEY: 'dummy'
+      NERDFISH_SMTP: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_APP_ID: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_INDEX_NAME: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: 'dummy'
+      NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
+      NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
+      NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
+      NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
+
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@01ce38bf961b4e243a6342cbade0dbc8ba3f0432 # 0.12.0
@@ -44,24 +61,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build tina
-        env:
-          NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
-          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          ALGOLIA_ADMIN_KEY: 'dummy'
-          CLOUDINARY_API_SECRET: 'dummy'
-          RECAPTCHA_SECRETKEY: 'dummy'
-          RESEND_API_KEY: 'dummy'
-          NERDFISH_SMTP: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_APP_ID: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_INDEX_NAME: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: 'dummy'
-          NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
-          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
-          NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
-          NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
-        run: pnpm build:tina
+      - name: Build
+        run: pnpm build
 
       - name: Run TypeScript type check
         run: pnpm checks

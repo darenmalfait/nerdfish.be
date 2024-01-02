@@ -4,12 +4,14 @@
   "type": "commonjs",
   "files": [
     "node.js",
-    "next.js"
+    "next.js",
+    "react-library.js"
   ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "canary",
     "@nerdfish-website/tsconfig": "workspace:*",
     "eslint": "^8.53.0",
     "eslint-config-daren": "^4.2.0",
@@ -19,5 +21,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-unused-imports": "^3.0.0"
   }
 }

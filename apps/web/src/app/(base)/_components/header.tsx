@@ -27,7 +27,7 @@ export function Header({
   invert?: boolean
 }) {
   const {navigation} = useGlobal()
-  const pathname = usePathname() ?? '/'
+  const pathname = usePathname()
 
   return (
     <Grid className="mx-auto text-primary">
@@ -43,7 +43,9 @@ export function Header({
               <nav className="flex rounded-full px-3 text-sm font-medium lg:space-x-2">
                 {navigation?.main?.map((link, i: number) => {
                   if (!link) return null
-                  const isActive = stripPreSlash(pathname).startsWith(link.href)
+                  const isActive = stripPreSlash(pathname ?? '').startsWith(
+                    link.href,
+                  )
 
                   return (
                     <Link

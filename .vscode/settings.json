@@ -11,7 +11,6 @@
     "tooling/config-tailwind",
     "tooling/config-typescript"
   ],
-  "eslint.rules.customizations": [{"rule": "*", "severity": "warn"}],
   "json.schemas": [
     {
       "fileMatch": ["tsconfig.*.json"],

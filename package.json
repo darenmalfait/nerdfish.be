@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "build:tina": "turbo build:tina",
     "checks": "turbo lint typecheck --continue",
     "checks:fix": "turbo lint:fix typecheck --continue --force",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
