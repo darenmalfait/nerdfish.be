@@ -4,6 +4,7 @@ const {fontFamily} = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: 'class',
   plugins: [
+    require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-animate'),
     require('@tailwindcss/typography'),
     require('@nerdfish/tailwind-config'),
