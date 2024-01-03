@@ -6,6 +6,7 @@ import {Image} from '@nerdfish-website/ui/components/image'
 import {Badge, Grid, H3, Paragraph, Section} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
+import {Header} from '~/components/header'
 import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
@@ -13,8 +14,6 @@ import {
   getLowQualityUrlFor,
 } from '~/lib/utils/cloudinary'
 import {type Product} from '~/tina/__generated__/types'
-
-import {Header} from '../header'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (

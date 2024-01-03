@@ -11,6 +11,7 @@ import {cx, ExtractProps} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
+import {Header} from '~/components/header'
 import {type Block} from '~/lib/types/cms'
 import {
   buildSrc,
@@ -20,7 +21,6 @@ import {
 import {getDatedSlug} from '~/lib/utils/routes'
 import {filterWiki} from '~/lib/utils/wiki'
 
-import {Header} from '../header'
 import {PortableText} from '../portable-text'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).

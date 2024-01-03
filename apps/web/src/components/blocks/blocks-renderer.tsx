@@ -4,14 +4,14 @@ import {tinaField} from 'tinacms/dist/react'
 
 import {Block} from '~/lib/types/cms'
 
-import {BigTitle} from './blocks/big-title'
-import {Blog} from './blocks/blog'
-import {Content} from './blocks/content'
-import {Features} from './blocks/features'
-import {Hero} from './blocks/hero'
-import {KeywordList} from './blocks/keyword-list'
-import {Products} from './blocks/products'
-import {Wiki} from './blocks/wiki'
+import {BigTitle} from './big-title'
+import {Blog} from './blog'
+import {Content} from './content'
+import {Features} from './features'
+import {Hero} from './hero'
+import {KeywordList} from './keyword-list'
+import {Products} from './products'
+import {Wiki} from './wiki'
 
 function Placeholder({componentName}: {componentName: string | number}) {
   return (

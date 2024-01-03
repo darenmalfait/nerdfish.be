@@ -11,6 +11,9 @@ import parseISO from 'date-fns/parseISO'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
+import {ArticleCard} from '~/components/article-card'
+import {Header} from '~/components/header'
+import {HighlightCard} from '~/components/highlight-card'
 import {type Block} from '~/lib/types/cms'
 import {filterBlog} from '~/lib/utils/blog'
 import {
@@ -20,10 +23,6 @@ import {
 } from '~/lib/utils/cloudinary'
 import {BlogPath} from '~/lib/utils/constants'
 import {getDatedSlug} from '~/lib/utils/routes'
-
-import {ArticleCard} from '../article-card'
-import {Header} from '../header'
-import {HighlightCard} from '../highlight-card'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
