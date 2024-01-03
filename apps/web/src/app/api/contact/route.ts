@@ -31,16 +31,9 @@ export async function POST(req: Request) {
 
     const {name, email, textMessage, project} = payload
 
-    const message = `
-    name: ${name}
-    email: ${email}
-    projectType: ${project}
-    message: ${textMessage}
-    `
-
     await sendContactEmail({
       from: `${name} <${email}>`,
-      message,
+      message: `${project}: ${textMessage}`,
     })
 
     return new Response(null, {status: 200})

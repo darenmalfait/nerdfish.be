@@ -21,7 +21,7 @@ export async function sendContactEmail({
   )
 
   const data = await resend.emails.send({
-    from,
+    from: process.env.NERDFISH_SMTP,
     reply_to: from,
     to: [process.env.NERDFISH_SMTP],
     subject: 'Email from contact form nerdfish.be',
