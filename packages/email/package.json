@@ -1,0 +1,31 @@
+{
+  "name": "@nerdfish-website/email",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo",
+    "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nerdfish-website/emails": "workspace:*",
+    "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nerdfish-website/lint": "workspace:*",
+    "@nerdfish-website/tsconfig": "workspace:*",
+    "@types/node": "^20.9.0",
+    "eslint": "^8.53.0",
+    "framer-motion": "^10.16.4",
+    "prism-react-renderer": "^2.1.0",
+    "prisma": "^5.5.2",
+    "tsup": "7.2.0",
+    "typescript": "^5.2.2"
+  }
+}

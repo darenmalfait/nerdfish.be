@@ -1,0 +1,10 @@
+{
+  "extends": "@nerdfish-website/tsconfig/base.json",
+  "include": ["./**/*"],
+  "compilerOptions": {
+    "paths": {
+      "~/src/*": ["./src/*"],
+      "~/tina/*": ["./tina/*"]
+    }
+  }
+}

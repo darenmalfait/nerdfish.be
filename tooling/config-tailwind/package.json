@@ -1,0 +1,16 @@
+{
+  "name": "@nerdfish-website/tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
+  "devDependencies": {
+    "@nerdfish/tailwind-config": "^1.3.5",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^3.3.5",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

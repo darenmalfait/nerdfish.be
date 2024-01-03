@@ -1,0 +1,39 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.workingDirectories": [
+    "apps/web",
+    "packages/email",
+    "packages/emails",
+    "packages/lib",
+    "packages/ui",
+    "packages/email",
+    "tooling/config-eslint",
+    "tooling/config-tailwind",
+    "tooling/config-typescript"
+  ],
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig.*.json"],
+      "url": "https://json.schemastore.org/tsconfig"
+    },
+    {"fileMatch": ["turbo.json"], "url": "https://turbo.build/schema.json"},
+    {
+      "fileMatch": ["vercel.json"],
+      "url": "https://openapi.vercel.sh/vercel.json"
+    }
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.output": true,
+    "**/.turbo": true,
+    "**/.vercel": true,
+    "**/dist": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}

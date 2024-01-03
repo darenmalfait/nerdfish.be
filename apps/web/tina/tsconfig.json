@@ -1,0 +1,10 @@
+{
+  "extends": "@nerdfish-website/tsconfig/base.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".forestry/types.ts",
+    ".forestry/config.ts"
+  ],
+  "exclude": ["__generated__"]
+}

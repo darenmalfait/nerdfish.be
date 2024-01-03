@@ -1,0 +1,69 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": [
+        "VERCEL",
+        "VERCEL_URL",
+        "VERCEL_ENV",
+        "NODE_ENV",
+        "DATABASE_URL",
+        "NERDFISH_SMTP",
+        "RESEND_API_KEY",
+        "HEAD",
+        "SKIP_EMAILS",
+        "ALGOLIA_ADMIN_KEY",
+        "CLOUDINARY_API_SECRET",
+        "NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF",
+        "NEXT_PUBLIC_ALGOLIA_APP_ID",
+        "NEXT_PUBLIC_ALGOLIA_INDEX_NAME",
+        "NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY",
+        "NEXT_PUBLIC_CLOUDINARY_API_KEY",
+        "NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME",
+        "NEXT_PUBLIC_RECAPTCHA_SITEKEY",
+        "NEXT_PUBLIC_URL",
+        "RECAPTCHA_SECRETKEY",
+        "SENDGRID_API_KEY",
+        "NEXT_PUBLIC_TINA_CLIENT_ID",
+        "TINA_TOKEN",
+        "NEXT_PUBLIC_TINA_BRANCH"
+      ]
+    },
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "//#lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "outputMode": "errors-only"
+    },
+    "lint": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "outputMode": "errors-only"
+    },
+    "//#lint:fix": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "outputMode": "errors-only"
+    },
+    "lint:fix": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "outputMode": "errors-only"
+    },
+    "typecheck": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
+      "outputMode": "errors-only"
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": [],
+      "persistent": true,
+      "cache": false
+    }
+  }
+}
