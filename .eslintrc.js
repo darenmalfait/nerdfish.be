@@ -1,11 +1,9 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['daren', 'daren/react', 'daren/jsx-a11y', 'daren/tailwind'],
+  extends: [require.resolve('./tooling/config-eslint/node')],
+  ignorePatterns: ['apps/**', 'packages/**', 'tooling/**', 'next-env.d.ts'],
   parserOptions: {
-    project: './tsconfig.json',
-  },
-  rules: {
-    '@typescript-eslint/naming-convention': 'off',
-    'react/react-in-jsx-scope': 'off',
+    project: `${__dirname}/tsconfig.json`,
   },
 }

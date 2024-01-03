@@ -8,14 +8,31 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['20']
-    name: Node ${{ matrix.node }} sample
+        node: ['18']
+    name: Node ${{ matrix.node }} test
+    env: 
+      NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
+      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      ALGOLIA_ADMIN_KEY: 'dummy'
+      CLOUDINARY_API_SECRET: 'dummy'
+      RECAPTCHA_SECRETKEY: 'dummy'
+      RESEND_API_KEY: 'dummy'
+      NERDFISH_SMTP: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_APP_ID: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_INDEX_NAME: 'dummy'
+      NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: 'dummy'
+      NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
+      NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
+      NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
+      NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
+
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@01ce38bf961b4e243a6342cbade0dbc8ba3f0432 # 0.12.0
 
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: ⎔ Setup node
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
@@ -44,22 +61,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build tina
-        env:
-          NEXT_PUBLIC_TINA_BRANCH: ${{ secrets.NEXT_PUBLIC_TINA_BRANCH }}
-          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          ALGOLIA_ADMIN_KEY: 'dummy'
-          CLOUDINARY_API_SECRET: 'dummy'
-          RECAPTCHA_SECRETKEY: 'dummy'
-          SENDGRID_API_KEY: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_APP_ID: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_INDEX_NAME: 'dummy'
-          NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: 'dummy'
-          NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
-          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
-          NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
-          NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
-        run: pnpm build:tina
+      - name: Build
+        run: pnpm build
 
-      - run: pnpm validate
+      - name: Run TypeScript type check
+        run: pnpm checks

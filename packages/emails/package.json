@@ -1,0 +1,29 @@
+{
+  "name": "@nerdfish-website/emails",
+  "version": "0.0.18",
+  "private": true,
+  "files": [],
+  "workspaces": [
+    ".react-email"
+  ],
+  "scripts": {
+    "build": "email export",
+    "clean": "rm -rf node_modules .react-email",
+    "dev": "email dev -p 6969"
+  },
+  "dependencies": {
+    "@react-email/components": "0.0.11",
+    "@react-email/render": "^0.0.10",
+    "react-email": "1.9.5"
+  },
+  "devDependencies": {
+    "@nerdfish-website/lint": "workspace:*",
+    "@nerdfish-website/tsconfig": "workspace:*",
+    "typescript": "^5.2.2"
+  },
+  "export": {
+    ".": {
+      "import": "email/index.ts"
+    }
+  }
+}
