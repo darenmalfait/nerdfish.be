@@ -1,0 +1,8 @@
+{
+  "extends": "@nerdfish-website/tsconfig/react-library.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["emails/**/index.ts"],
+  "exclude": ["node_modules"]
+}

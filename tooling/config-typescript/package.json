@@ -1,0 +1,14 @@
+{
+  "name": "@nerdfish-website/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  }
+}
