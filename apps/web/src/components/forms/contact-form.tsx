@@ -2,22 +2,21 @@
 
 import * as React from 'react'
 import {zodResolver} from '@hookform/resolvers/zod'
+import {contactFormData} from '@nerdfish-website/lib/validations'
 import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
 import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
 import {Loader2} from 'lucide-react'
 import {useForm} from 'react-hook-form'
-import {z} from 'zod'
 
 import {env} from '~/env.mjs'
-import {useFetcher} from '~/lib/utils/form-actions'
 import {useRecaptcha} from '~/lib/utils/recaptcha'
 import {contactFormSchema} from '~/lib/validations/contact'
 
-type FormData = z.infer<typeof contactFormSchema>
+import {submitContactForm} from './contact-form.action'
 
-function BasicForm({withProject}: {withProject?: boolean}) {
+function ContactForm({withProject}: {withProject?: boolean}) {
   const {execute} = useRecaptcha()
-  const {submit, error, status} = useFetcher()
+  const [error, setError] = React.useState<string>()
 
   const {
     handleSubmit,
@@ -25,8 +24,8 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     setValue,
     getValues,
     reset,
-    formState: {errors},
-  } = useForm<FormData>({
+    formState: {errors, isSubmitting, isSubmitSuccessful},
+  } = useForm<contactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: '',
@@ -36,26 +35,32 @@ function BasicForm({withProject}: {withProject?: boolean}) {
     },
   })
 
-  async function onSubmit(data: FormData) {
-    let recaptchaResponse
+  async function onSubmit(data: contactFormData) {
+    try {
+      setError(undefined)
+      let recaptchaResponse
 
-    if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
-      recaptchaResponse = await execute()
-    }
+      if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+        try {
+          recaptchaResponse = await execute()
+        } catch {
+          throw new Error('reCAPTCHA error')
+        }
+      }
 
-    await submit(`/api/contact`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      const result = await submitContactForm({
         ...data,
         recaptchaResponse,
-      }),
-      onSuccess: () => {
-        reset()
-      },
-    })
+      })
+
+      if (!result.success) {
+        throw new Error('An error occurred while submitting the form.')
+      }
+
+      reset()
+    } catch (e) {
+      setError(e.message)
+    }
   }
 
   return (
@@ -101,17 +106,18 @@ function BasicForm({withProject}: {withProject?: boolean}) {
           <FormHelperText>
             We only use your data to get in touch with you.
           </FormHelperText>
-          {status === 'done' ? (
+          {isSubmitSuccessful && !error ? (
             <Alert
               variant="success"
               title="Message sent"
               description="Your message has been sent successfully. 🎉"
             />
           ) : (
-            <Button disabled={status !== 'idle'} type="submit">
-              {status === 'loading' ? (
-                <Loader2 className="mr-2 animate-spin" />
-              ) : null}
+            <Button
+              disabled={isSubmitting || (isSubmitSuccessful && !error)}
+              type="submit"
+            >
+              {isSubmitting ? <Loader2 className="mr-2 animate-spin" /> : null}
               Send message
             </Button>
           )}
@@ -124,15 +130,11 @@ function BasicForm({withProject}: {withProject?: boolean}) {
           />
         ) : null}
         {error ? (
-          <Alert
-            variant="danger"
-            title="Error"
-            description="There was an error submitting your form. Please try again."
-          />
+          <Alert variant="danger" title="Error" description={error} />
         ) : null}
       </fieldset>
     </form>
   )
 }
 
-export {BasicForm}
+export {ContactForm}

@@ -5,9 +5,8 @@ import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
+import {Header} from '~/components/header'
 import {Block} from '~/lib/types/cms'
-
-import {Header} from '../header'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 

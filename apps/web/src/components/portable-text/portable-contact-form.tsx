@@ -4,7 +4,7 @@ import * as React from 'react'
 import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
 import {Button, Container, H2} from '@nerdfish/ui'
 
-import {BasicForm} from '~/components/forms/basic-form'
+import {ContactForm} from '../forms/contact-form'
 
 type FormType = 'basic' | 'project' | 'coffee'
 
@@ -60,7 +60,7 @@ function PortableContactForm({heading}: {heading?: string}) {
               ?
             </H2>
           ) : null}
-          <BasicForm withProject={selectedForm === 'project'} />
+          <ContactForm withProject={selectedForm === 'project'} />
         </div>
       ) : (
         <FormSelector heading={heading} onSubmit={onFormChoice} />

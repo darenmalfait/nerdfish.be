@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import {Blocks} from '~/components/blocks-renderer'
+import {Blocks} from '~/components/blocks/blocks-renderer'
 import {mapPageData} from '~/lib/api/cms'
 import {type ContentQueryQuery} from '~/tina/__generated__/types'
 
