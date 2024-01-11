@@ -15,17 +15,17 @@
   },
   "dependencies": {
     "@nerdfish-website/emails": "workspace:*",
-    "resend": "^2.0.0"
+    "resend": "^2.1.0"
   },
   "devDependencies": {
     "@nerdfish-website/lint": "workspace:*",
     "@nerdfish-website/tsconfig": "workspace:*",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.11.0",
     "eslint": "^8.53.0",
-    "framer-motion": "^10.16.4",
-    "prism-react-renderer": "^2.1.0",
-    "prisma": "^5.5.2",
+    "framer-motion": "^10.18.0",
+    "prism-react-renderer": "^2.3.1",
+    "prisma": "^5.8.0",
     "tsup": "8.0.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   }
 }
