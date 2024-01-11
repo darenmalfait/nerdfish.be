@@ -15,12 +15,12 @@
     "typecheck": "tsc --noEmit"
   },
   "resolutions": {
-    "@headlessui/react": "^1.7.17"
+    "@headlessui/react": "^1.7.18"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.22.0",
-    "@headlessui/react": "^1.7.17",
-    "@hookform/resolvers": "^3.3.3",
+    "@algolia/client-search": "^4.22.1",
+    "@headlessui/react": "^1.7.18",
+    "@hookform/resolvers": "^3.3.4",
     "@nerdfish-website/email": "workspace:*",
     "@nerdfish-website/emails": "workspace:*",
     "@nerdfish-website/lib": "workspace:*",
@@ -36,20 +36,20 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.10",
     "@tinacms/auth": "^1.0.4",
-    "@vercel/og": "^0.6.1",
-    "algoliasearch": "^4.22.0",
-    "date-fns": "^3.0.6",
+    "@vercel/og": "^0.6.2",
+    "algoliasearch": "^4.22.1",
+    "date-fns": "^3.2.0",
     "feed": "^4.2.2",
-    "framer-motion": "^10.17.0",
+    "framer-motion": "^10.18.0",
     "geist": "^1.2.0",
     "lodash": "^4.17.21",
-    "lucide-react": "^0.303.0",
+    "lucide-react": "^0.309.0",
     "match-sorter": "^6.3.1",
     "next": "^14.0.4",
     "next-tinacms-cloudinary": "^4.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.49.2",
+    "react-hook-form": "^7.49.3",
     "react-icons": "^4.12.0",
     "react-instantsearch-core": "^7.5.0",
     "react-instantsearch-dom": "^6.40.4",
@@ -64,13 +64,13 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@svgr/webpack": "^8.1.0",
     "@tinacms/cli": "^1.5.39",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.6",
-    "@types/react": "^18.2.46",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@types/react-instantsearch-core": "^6.26.10",
     "@types/react-instantsearch-dom": "^6.12.7",
@@ -85,11 +85,11 @@
     "gray-matter": "^4.0.3",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.32",
+    "postcss": "^8.4.33",
     "postcss-import": "^16.0.0",
     "postcss-nesting": "^12.0.2",
     "shelljs": "^0.8.5",
     "tailwindcss": "^3.4.0"
   },
-  "packageManager": "pnpm@8.13.1"
+  "packageManager": "pnpm@8.14.1"
 }
