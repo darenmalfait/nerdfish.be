@@ -125,9 +125,6 @@ importers:
       react-hook-form:
         specifier: ^7.49.3
         version: 7.49.3(react@18.2.0)
-      react-icons:
-        specifier: ^4.12.0
-        version: 4.12.0(react@18.2.0)
       react-instantsearch-core:
         specifier: ^7.5.0
         version: 7.5.0(algoliasearch@4.22.1)(react@18.2.0)
@@ -444,7 +441,7 @@ importers:
         version: link:../config-typescript
       '@next/eslint-plugin-next':
         specifier: canary
-        version: 14.0.5-canary.45
+        version: 14.0.5-canary.50
       eslint:
         specifier: ^8.53.0
         version: 8.56.0
@@ -4412,8 +4409,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/eslint-plugin-next@14.0.5-canary.45:
-    resolution: {integrity: sha512-O/HdQ/MNhT7uJgow3G9jqdRTvgGrTQJ+zVNyNLuZoRduXLjJYzk0LC5OJa1ZDf6ts9xqQA0HxQKf4Bp4S0fDgA==}
+  /@next/eslint-plugin-next@14.0.5-canary.50:
+    resolution: {integrity: sha512-rarKRG7gIVbxxFz73jwI0fcgfEyb2vKbZIdDJG2OMvRbuzO3ar+5x9U1Gs9rHrfzy7pe1PtL8AqhwMv2iZa+KA==}
     dependencies:
       glob: 7.1.7
     dev: false
@@ -13690,7 +13687,6 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
