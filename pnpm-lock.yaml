@@ -126,8 +126,8 @@ importers:
         specifier: ^7.49.3
         version: 7.49.3(react@18.2.0)
       react-icons:
-        specifier: ^4.12.0
-        version: 4.12.0(react@18.2.0)
+        specifier: ^5.0.0
+        version: 5.0.0(react@18.2.0)
       react-instantsearch-core:
         specifier: ^7.5.0
         version: 7.5.0(algoliasearch@4.22.1)(react@18.2.0)
@@ -19692,6 +19692,14 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
+
+  /react-icons@5.0.0(react@18.2.0):
+    resolution: {integrity: sha512-8gBBjYRrO14BU9RuMEVptG5aB1gwNPAAgsKOuPggx2hg332pTky/r8FidEJW95cL6IG2mYCEHaYuAxw74wLefw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-instantsearch-core@6.40.4(algoliasearch@4.22.1)(react@18.2.0):
     resolution: {integrity: sha512-sEOgRU2MKL8edO85sNHvKlZ5yq9OFw++CDsEqYpHJvbWLE/2J2N49XAUY90kior09I2kBkbgowBbov+Py1AubQ==}
