@@ -4,7 +4,9 @@ import {
 } from '@nerdfish-website/emails/emails'
 import {Resend} from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+import {env} from '~/env.mjs'
+
+const resend = new Resend(env.RESEND_API_KEY)
 
 export async function sendContactEmail({
   message,
