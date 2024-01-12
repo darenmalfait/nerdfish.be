@@ -1,9 +1,9 @@
 'use server'
 
-import {sendContactEmail} from '@nerdfish-website/email'
 import {contactFormData, contactSchema} from '@nerdfish-website/lib/validations'
 
 import {env} from '~/env.mjs'
+import {sendContactEmail} from '~/lib/utils/email'
 
 export async function submitContactForm(payload: contactFormData) {
   const data = contactSchema.parse(payload)

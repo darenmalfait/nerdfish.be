@@ -2,11 +2,9 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.workingDirectories": [
     "apps/web",
-    "packages/email",
     "packages/emails",
     "packages/lib",
     "packages/ui",
-    "packages/email",
     "tooling/config-eslint",
     "tooling/config-tailwind",
     "tooling/config-typescript"

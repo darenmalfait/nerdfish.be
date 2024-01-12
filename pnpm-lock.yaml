@@ -38,9 +38,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.49.3)
-      '@nerdfish-website/email':
-        specifier: workspace:*
-        version: link:../../packages/email
       '@nerdfish-website/emails':
         specifier: workspace:*
         version: link:../../packages/emails
@@ -140,6 +137,9 @@ importers:
       react-syntax-highlighter:
         specifier: ^15.5.0
         version: 15.5.0(react@18.2.0)
+      resend:
+        specifier: ^2.1.0
+        version: 2.1.0
       sharp:
         specifier: ^0.33.1
         version: 0.33.1
@@ -237,43 +237,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0
-
-  packages/email:
-    dependencies:
-      '@nerdfish-website/emails':
-        specifier: workspace:*
-        version: link:../emails
-      resend:
-        specifier: ^2.1.0
-        version: 2.1.0
-    devDependencies:
-      '@nerdfish-website/lint':
-        specifier: workspace:*
-        version: link:../../tooling/config-eslint
-      '@nerdfish-website/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/config-typescript
-      '@types/node':
-        specifier: ^20.11.0
-        version: 20.11.0
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      framer-motion:
-        specifier: ^10.18.0
-        version: 10.18.0(react-dom@18.2.0)(react@18.2.0)
-      prism-react-renderer:
-        specifier: ^2.3.1
-        version: 2.3.1(react@18.2.0)
-      prisma:
-        specifier: ^5.8.0
-        version: 5.8.0
-      tsup:
-        specifier: 8.0.1
-        version: 8.0.1(typescript@5.3.3)
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
 
   packages/emails:
     dependencies:
@@ -441,7 +404,7 @@ importers:
         version: link:../config-typescript
       '@next/eslint-plugin-next':
         specifier: canary
-        version: 14.0.5-canary.50
+        version: 14.0.5-canary.53
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
@@ -4409,8 +4372,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/eslint-plugin-next@14.0.5-canary.50:
-    resolution: {integrity: sha512-rarKRG7gIVbxxFz73jwI0fcgfEyb2vKbZIdDJG2OMvRbuzO3ar+5x9U1Gs9rHrfzy7pe1PtL8AqhwMv2iZa+KA==}
+  /@next/eslint-plugin-next@14.0.5-canary.53:
+    resolution: {integrity: sha512-TWVnRWVllAlt3TlM+JIJAJtMIL/YaW2Koauxk29eLhn/nNAF9vGv7DsGS3ZkWW1QXvlJgIDQtTb43uanX8srzA==}
     dependencies:
       glob: 7.1.7
     dev: false
@@ -4656,38 +4619,6 @@ packages:
     resolution: {integrity: sha512-Zwq5OCzuwJC2jwqmpEQt7Ds1DTi6BWSwoGkbb1n9pO3hzb35BoJELx7c0T23iDkBGkh2e7tvOtjF3tr3OaQHDQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: false
-
-  /@prisma/debug@5.8.0:
-    resolution: {integrity: sha512-ZqPpkvbovu/kQJ1bvy57NO4dw97fpQGcbQSCtsqlwSE1UNKJP75R3BKxdznk8ZPMY+GJdMRetWNv4oAvSbWn8Q==}
-    dev: true
-
-  /@prisma/engines-version@5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848:
-    resolution: {integrity: sha512-cXcoVweYbnv8xRfkWq9oj8BECOdzHUazrSpYCa0ehp5TNz4l5Spa8jbq/VROCTzj3ZncH5D9Q2TmySYTOUeKlw==}
-    dev: true
-
-  /@prisma/engines@5.8.0:
-    resolution: {integrity: sha512-Qhqm9WWLujNEC13AuZlUO14SQ15tNLe5puaz+tOk7UqINqJ3PtqMmuSuzomiw2diGVqZ+HYiSQzlR3+pPucVHA==}
-    requiresBuild: true
-    dependencies:
-      '@prisma/debug': 5.8.0
-      '@prisma/engines-version': 5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848
-      '@prisma/fetch-engine': 5.8.0
-      '@prisma/get-platform': 5.8.0
-    dev: true
-
-  /@prisma/fetch-engine@5.8.0:
-    resolution: {integrity: sha512-1CAuE+JoYsPNggMEn6qk0zos06Uc9bYZBJ0VBPHD6R7REL05614koAbOCmn52IaYz3nobb7f25hqW6AY7rLkIw==}
-    dependencies:
-      '@prisma/debug': 5.8.0
-      '@prisma/engines-version': 5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848
-      '@prisma/get-platform': 5.8.0
-    dev: true
-
-  /@prisma/get-platform@5.8.0:
-    resolution: {integrity: sha512-Nk3rhTFZ1LYkFZJnpSvQcLPCaBWgJQfteHII6UEENOOkYlmP0k3FuswND54tzzEr4qs39wOdV9pbXKX9U2lv7A==}
-    dependencies:
-      '@prisma/debug': 5.8.0
-    dev: true
 
   /@radix-ui/colors@3.0.0:
     resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
@@ -15238,6 +15169,7 @@ packages:
       tslib: 2.6.2
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
+    dev: false
 
   /framer-motion@6.5.1(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-o1BGqqposwi7cgDrtg0dNONhkmPsUFDaLcKXigzuTFC5x58mE8iyTazxSudFzmT6MEyJKfjjU8ItoMe3W+3fiw==}
@@ -19222,15 +19154,6 @@ packages:
       '@types/prismjs': 1.26.3
       clsx: 2.1.0
       react: 18.2.0
-
-  /prisma@5.8.0:
-    resolution: {integrity: sha512-hDKoEqPt2qEUTH5yGO3l27CBnPtwvte0CGMKrpCr9+/A919JghfqJ3qgCGgMbOwdkXUOzdho0RH9tyUF3UhpMw==}
-    engines: {node: '>=16.13'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      '@prisma/engines': 5.8.0
-    dev: true
 
   /prismjs@1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
