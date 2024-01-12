@@ -13,13 +13,13 @@
   "dependencies": {
     "@next/eslint-plugin-next": "canary",
     "@nerdfish-website/tsconfig": "workspace:*",
-    "eslint": "^8.53.0",
-    "eslint-config-daren": "^4.2.0",
-    "eslint-config-next": "14.0.2",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-turbo": "^1.10.16",
+    "eslint": "^8.56.0",
+    "eslint-config-daren": "^4.2.3",
+    "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^1.11.3",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-tailwindcss": "^3.13.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
