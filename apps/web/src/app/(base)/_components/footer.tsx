@@ -16,12 +16,12 @@ function Footer() {
 
   return (
     <footer className="mt-24 px-5vw pb-8 text-primary md:pb-20">
-      <div className="flex flex-col items-center justify-between gap-8 border-t border-gray-100 pt-8 md:flex-row md:items-start md:pt-16 dark:border-white/10">
+      <div className="flex flex-col items-center justify-between gap-8 border-t border-primary/10 pt-8 md:flex-row md:items-start md:pt-16">
         <div className="flex flex-col items-center justify-center gap-4 text-center md:flex-row md:items-start md:text-left">
           <div className="flex h-12 items-center">
-            <Icons.Logo className="relative h-6 w-auto rounded-full border-2 border-white dark:border-[#111]" />
+            <Icons.Logo className="relative h-6 w-auto rounded-full" />
           </div>
-          <div className="space-y-4 divide-y divide-gray-100 dark:divide-white/10">
+          <div className="space-y-4 divide-y divide-primary/10">
             <p className="max-w-md">
               <b className="font-semibold">
                 Made by{' '}
@@ -36,20 +36,19 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div className="flex flex-row items-center gap-3 md:gap-7">
-          <ThemeToggle className="hover:bg-github/20 flex h-10 w-10 items-center justify-center rounded-full transition" />
+        <div className="flex flex-row items-center gap-3">
+          <ThemeToggle className="flex size-10 items-center justify-center transition" />
 
           {twitter ? (
             <Link
               className={getButtonClassName({
                 variant: 'ghost',
                 size: 'icon',
-                className: 'active-ring cursor-pointer !hover:bg-twitter/20',
               })}
               aria-label="Twitter feed"
               href={twitter}
             >
-              <Icons.Twitter className="h-4 w-4 duration-75 ease-linear" />
+              <Icons.Twitter className="size-4 duration-75 ease-linear" />
             </Link>
           ) : null}
           {github ? (
@@ -57,12 +56,11 @@ function Footer() {
               className={getButtonClassName({
                 variant: 'ghost',
                 size: 'icon',
-                className: 'active-ring cursor-pointer hover:bg-github/20',
               })}
               aria-label="Github Repository"
               href={github}
             >
-              <Icons.GitHub className="h-4 w-4 duration-75 ease-linear" />
+              <Icons.GitHub className="size-4 duration-75 ease-linear" />
               <span className="sr-only">Github</span>
             </Link>
           ) : null}

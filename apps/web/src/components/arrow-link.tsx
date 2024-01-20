@@ -88,7 +88,7 @@ function ArrowLink({
         <span className="mr-8 text-xl font-bold">{children}</span>
       ) : null}
 
-      <div className="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1">
+      <div className="relative inline-flex size-14 flex-none items-center justify-center p-1">
         <motion.span variants={arrowVariants[direction]}>
           <Icons.Arrow size={20} direction={direction} />
         </motion.span>

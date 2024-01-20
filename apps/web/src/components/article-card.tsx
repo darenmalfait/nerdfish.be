@@ -58,7 +58,7 @@ function ArticleCard({
         )}
 
         <div className="space-y-2">
-          <div className="mt-8 text-xl font-bold text-primary-300">
+          <div className="mt-8 text-xl font-bold text-muted">
             <DateFormatter dateString={date} format="PPP" />
           </div>
           <H3 as="div">{title}</H3>

@@ -76,7 +76,7 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
       </Section>
       <Section>
         <Grid
-          className="prose md:prose-lg lg:prose-xl dark:prose-invert"
+          className="prose dark:prose-invert md:prose-lg lg:prose-xl"
           data-tina-field={tinaField(data.blog, 'body')}
         >
           {body ? <PortableText content={body} /> : null}
