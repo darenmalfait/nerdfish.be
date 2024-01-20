@@ -1,4 +1,4 @@
-import formatDate from 'date-fns/format'
+import {formatDate} from 'date-fns'
 
 function getDatedSlug(date: string, slug: string) {
   if (!date) return slug

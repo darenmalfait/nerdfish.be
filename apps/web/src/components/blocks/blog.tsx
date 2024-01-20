@@ -6,8 +6,7 @@ import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, Container, Grid, H3, H5, Section} from '@nerdfish/ui'
 import {cx, ExtractProps} from '@nerdfish/utils'
-import formatDate from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
+import {formatDate, parseISO} from 'date-fns'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
@@ -149,7 +148,7 @@ function BlogOverview(
                         <Search
                           width="20px"
                           height="20px"
-                          className="absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
+                          className="text-primary-400 absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
                         />
                         <input
                           type="search"
@@ -159,9 +158,9 @@ function BlogOverview(
                           }}
                           name="q"
                           placeholder="Search"
-                          className="w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 text-primary-400 outline-none focus-ring"
+                          className="w-full rounded-full border-2 bg-primary py-6 pl-14 pr-16 text-primary/60 outline-none focus-ring"
                         />
-                        <div className="absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
+                        <div className="text-primary-400 absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
                           {matchingPosts.length}
                         </div>
                       </Container>

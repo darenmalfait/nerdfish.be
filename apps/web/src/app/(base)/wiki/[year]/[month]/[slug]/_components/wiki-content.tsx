@@ -39,7 +39,7 @@ function WikiContent({data}: {data: WikiQueryQuery}) {
       </Section>
       <div>
         <Grid
-          className="prose md:prose-lg lg:prose-xl dark:prose-invert"
+          className="prose dark:prose-invert md:prose-lg lg:prose-xl"
           data-tina-field={tinaField(data.wiki, 'body')}
         >
           {body ? <PortableText content={body} /> : null}

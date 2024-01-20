@@ -17,7 +17,7 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? {duration: 0} : undefined}>
-      <div className="bg-gray-900 dark:bg-gray-800">
+      <div className="bg-inverted dark:bg-muted">
         <header>
           <div
             className="absolute inset-x-0 top-2 z-40 pt-14"
@@ -42,12 +42,12 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
             layout
             id={panelId}
             style={{height: expanded ? 'auto' : '0.5rem'}}
-            className="relative z-50 overflow-hidden bg-gray-900 pt-2 dark:bg-gray-800"
+            className="relative z-50 overflow-hidden bg-inverted pt-2 dark:bg-muted"
             aria-hidden={expanded ? undefined : 'true'}
             // @ts-expect-error (https://github.com/facebook/react/issues/17157)
             inert={expanded ? undefined : ''}
           >
-            <motion.div layout className="bg-gray-900 dark:bg-gray-800">
+            <motion.div layout className="bg-inverted dark:bg-muted">
               <div ref={navRef} className="pb-16 pt-14">
                 <Header
                   invert
@@ -70,7 +70,7 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
 
         <motion.div
           layout
-          className="relative flex flex-auto overflow-hidden rounded-3xl pt-14 bg-primary"
+          className="relative flex flex-auto overflow-hidden rounded-3xl bg-primary pt-14"
         >
           <motion.div
             layout

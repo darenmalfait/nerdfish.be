@@ -29,10 +29,10 @@ function Tag({
       className={cx(
         'relative mr-4 mb-4 block h-auto w-auto cursor-pointer rounded-full transition',
         {
-          'bg-primary-600 text-primary dark:bg-gray-800': !selected,
-          'bg-accent text-white dark:bg-accent-100 dark:text-black': selected,
+          'bg-muted text-primary': !selected,
+          'bg-inverted text-inverted': selected,
           'opacity-100 focus-ring': !disabled,
-          'opacity-25': disabled,
+          'bg-muted/30 text-muted cursor-default': disabled,
           'py-3 px-6': size === 'md',
           'py-2 px-4 text-sm': size === 'sm',
         },

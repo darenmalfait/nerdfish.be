@@ -34,11 +34,7 @@ function Header({
         <div className="space-y-0">
           {title ? <H2>{title}</H2> : null}
           {subTitle ? (
-            <H2
-              variant="secondary"
-              as="p"
-              className="!text-gray-600 dark:!text-gray-300 "
-            >
+            <H2 variant="secondary" as="p">
               {subTitle}
             </H2>
           ) : null}

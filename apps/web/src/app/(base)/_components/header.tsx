@@ -7,7 +7,6 @@ import {stripPreSlash} from '@nerdfish-website/lib/utils'
 import {Icons} from '@nerdfish-website/ui/icons'
 import {Button, Container, getButtonClassName, Grid} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
-import {Rss} from 'lucide-react'
 
 import {useGlobal} from '../global-provider'
 import {Search} from './search'
@@ -18,7 +17,7 @@ export function Header({
   expanded,
   onToggle,
   toggleRef,
-  invert = false,
+  invert,
 }: {
   panelId: string
   expanded: boolean
@@ -28,6 +27,10 @@ export function Header({
 }) {
   const {navigation} = useGlobal()
   const pathname = usePathname()
+
+  const buttonStyles = invert
+    ? 'text-inverted dark:text-primary hover:bg-primary/20 dark:hover:bg-primary'
+    : ''
 
   return (
     <Grid className="mx-auto text-primary">
@@ -51,11 +54,10 @@ export function Header({
                     <Link
                       key={i}
                       className={cx(
-                        'flex h-8 items-center cursor-pointer gap-x-1.5 rounded-full px-3 transition sm:h-10 sm:px-4 dark:hover:bg-white/10 hover:bg-black/5',
-                        {
-                          'flex h-8 items-center gap-x-1.5 rounded-full bg-gray-50 px-3 text-black/80 !text-black transition shadow-outline hover:bg-gray-50 hover:text-black/90 hover:!bg-secondary  dark:bg-black/50 dark:text-white/70 dark:!text-white   dark:hover:text-white/90 sm:h-10 sm:px-4':
-                            isActive,
-                        },
+                        'flex h-8 items-center cursor-pointer gap-x-1.5 rounded-full px-3 transition sm:h-10 sm:px-4 active:bg-inverted/10',
+                        isActive
+                          ? 'flex h-8 items-center gap-x-1.5 rounded-full bg-primary px-3 text-primary transition shadow-outline hover:text-primary/90 hover:bg-muted sm:h-10 sm:px-4'
+                          : 'hover:bg-muted',
                       )}
                       href={`/${stripPreSlash(link.href)}`}
                     >
@@ -67,21 +69,13 @@ export function Header({
             </div>
           ) : null}
           <div className="flex justify-end space-x-2 md:flex-1">
-            <Search
-              className={invert ? '!text-gray-100 hover:!bg-white/10' : ''}
-            />
-            <ThemeToggle
-              variant="ghost"
-              className={invert ? '!text-gray-100 hover:!bg-white/10' : ''}
-            />
+            <Search className={buttonStyles} />
+            <ThemeToggle variant="ghost" className={buttonStyles} />
             <a
               className={getButtonClassName({
                 variant: 'ghost',
                 size: 'icon',
-                className: cx(
-                  'hidden xsm:flex active-ring',
-                  invert && '!text-gray-100 hover:!bg-white/10',
-                ),
+                className: `hidden xsm:flex active-ring ${buttonStyles}`,
               })}
               target="_blank"
               href="/rss.xml"
@@ -89,7 +83,7 @@ export function Header({
               rel="noreferrer"
             >
               <span className="sr-only">RSS feed</span>
-              <Rss className="h-4 w-4" />
+              <Icons.Rss className="size-4" />
             </a>
             <div className="hidden space-x-3 sm:flex">
               {navigation?.actions?.map((link, i: number) => {
@@ -98,9 +92,9 @@ export function Header({
                 return (
                   <Link
                     className={getButtonClassName({
-                      variant: invert ? 'secondary' : 'default',
+                      variant: 'default',
                       className: invert
-                        ? 'dark:!bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300'
+                        ? 'bg-white text-black hover:bg-white/90 hover:text-black'
                         : '',
                     })}
                     key={i}
@@ -119,20 +113,10 @@ export function Header({
               onClick={onToggle}
               aria-expanded={expanded ? 'true' : 'false'}
               aria-controls={panelId}
-              className={cx(
-                'group',
-                invert ? 'hover:!bg-white/10' : 'hover:bg-gray-900/10',
-              )}
+              className={cx('group', buttonStyles)}
               aria-label="Toggle navigation"
             >
-              <Icons.Hamburger
-                className={cx(
-                  'h-4 w-4',
-                  invert
-                    ? 'fill-white group-hover:fill-gray-200'
-                    : 'fill-gray-900 group-hover:fill-gray-700 dark:fill-white dark:group-hover:fill-gray-100',
-                )}
-              />
+              <Icons.Hamburger className="size-4" />
             </Button>
           </div>
         </div>
