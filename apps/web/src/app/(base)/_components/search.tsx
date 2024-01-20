@@ -4,9 +4,8 @@ import * as React from 'react'
 import {Combobox, Dialog, Transition} from '@headlessui/react'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
 import {Icons} from '@nerdfish-website/ui/icons'
-import {Button} from '@nerdfish/ui'
+import {Button, getInputClassName} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
-import {Search as SearchIcon} from 'lucide-react'
 import {
   Configure,
   Highlight,
@@ -48,7 +47,7 @@ function SearchResult({
       className={({active}) =>
         cx(
           'group block cursor-pointer px-4 py-3',
-          resultIndex > 0 && 'border-t border-zinc-100 dark:border-zinc-800',
+          resultIndex > 0 && 'border-t border-primary/10',
           active && 'bg-primary',
         )
       }
@@ -56,8 +55,8 @@ function SearchResult({
       <Highlight
         attribute="title"
         classNames={{
-          root: 'text-sm font-medium text-zinc-900 dark:text-white',
-          highlighted: 'bg-transparent text-nerdfish-100 underline',
+          root: 'text-sm font-medium text-primary',
+          highlighted: 'bg-transparent text-success font-bold underline',
         }}
         hit={item as any}
       />
@@ -68,8 +67,8 @@ function SearchResult({
             id={`${item.objectID}-type`}
             attribute="type"
             classNames={{
-              root: 'text-2xs truncate whitespace-nowrap text-secondary',
-              highlighted: 'bg-transparent text-nerdfish-100 underline',
+              root: 'text-2xs truncate whitespace-nowrap text-muted',
+              highlighted: 'bg-transparent text-success underline',
             }}
             hit={item as any}
           >
@@ -98,10 +97,10 @@ function SearchResults() {
     <>
       {hits.length === 0 ? (
         <div className="font-fallback p-6 text-center">
-          <Icons.NoResults className="mx-auto h-5 w-5 stroke-gray-900 dark:stroke-white" />
-          <p className="mt-2 text-xs text-zinc-700 dark:text-zinc-400">
+          <Icons.NoResults className="stroke-inverted mx-auto size-5 dark:stroke-white" />
+          <p className="mt-2 text-xs text-inverted/90">
             Nothing found for{' '}
-            <strong className="break-words font-semibold text-zinc-900 dark:text-white">
+            <strong className="break-words font-semibold text-primary">
               &lsquo;{query}&rsquo;
             </strong>
             . Please try again.
@@ -167,7 +166,7 @@ function SearchDialog({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Dialog.Panel className="group mx-auto max-w-xl rounded-xl shadow-2xl transition-all bg-secondary">
+            <Dialog.Panel className="group mx-auto max-w-xl rounded-xl bg-muted shadow-2xl transition-all">
               <Combobox
                 onChange={(item: SearchItem) => {
                   window.location = `/${stripPreSlash(
@@ -180,12 +179,12 @@ function SearchDialog({
                   <Combobox.Input
                     id="algolia_search"
                     type="search"
-                    className="h-12 w-full rounded-lg border-0 bg-primary-600 pl-4 pr-11 font-bold text-black outline-none placeholder:text-gray-500 focus:ring-0 sm:text-sm"
+                    className={getInputClassName('!ring-0 !ring-offset-0')}
                     placeholder="Search website..."
                     onChange={event => refine(event.currentTarget.value)}
                   />
-                  <SearchIcon
-                    className="pointer-events-none absolute right-4 top-3.5 h-5 w-5 text-gray-400"
+                  <Icons.Search
+                    className="pointer-events-none absolute right-4 top-3.5 size-5 text-muted/50"
                     aria-hidden="true"
                   />
                 </div>
@@ -229,7 +228,7 @@ function SearchComponent({className}: {className?: string}) {
         className={cx('active-ring', className)}
         onClick={() => setOpen(true)}
       >
-        <SearchIcon className="w-4" />
+        <Icons.Search className="size-4" />
         <div className="sr-only">Search</div>
       </Button>
       <SearchDialog open={open} setOpen={setOpen} />

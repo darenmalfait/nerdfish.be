@@ -128,7 +128,7 @@ function WikiOverview(
                         <Search
                           width="20px"
                           height="20px"
-                          className="absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0 text-primary-400"
+                          className="text-primary-400 absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
                         />
                         <input
                           type="search"
@@ -138,9 +138,9 @@ function WikiOverview(
                           }}
                           name="q"
                           placeholder="Search"
-                          className="w-full rounded-full border-2 bg-white py-6 pl-14 pr-16 text-primary-400 outline-none focus-ring"
+                          className="text-primary-400 w-full rounded-full border-2 bg-primary py-6 pl-14 pr-16 outline-none focus-ring"
                         />
-                        <div className="absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold text-primary-400 md:flex">
+                        <div className="text-primary-400 absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
                           {matchingPosts.length}
                         </div>
                       </Container>
@@ -217,16 +217,16 @@ function WikiOverview(
                           wiki.date as string,
                           wiki._sys?.filename ?? '',
                         )}`}
-                        className="line-clamp-3 text-2xl font-semibold leading-snug text-primary hover:underline hover:text-secondary"
+                        className="line-clamp-3 text-2xl font-semibold leading-snug text-primary hover:text-muted hover:underline"
                       >
                         {wiki.title}
                       </a>
                       {wiki.date ? (
-                        <p className="text-sm text-gray-400 dark:text-gray-600">
+                        <p className="text-sm text-primary/40">
                           <DateFormatter dateString={wiki.date} format="PPP" />
                         </p>
                       ) : null}
-                      <div className="mt-2 text-justify text-gray-600 dark:text-gray-300">
+                      <div className="mt-2 text-justify text-primary/40">
                         <PortableText content={wiki.excerpt} />
                       </div>
                     </article>

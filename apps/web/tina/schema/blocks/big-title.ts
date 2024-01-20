@@ -26,7 +26,7 @@ export const bigTitleBlockSchema: Template = {
           label: 'Title',
           type: 'string',
         },
-        ...((actionSchema.fields as any) || []),
+        ...((actionSchema.fields as any) ?? []),
       ],
     },
   ],

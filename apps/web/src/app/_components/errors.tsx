@@ -45,24 +45,24 @@ function ErrorPage({
               <div className="flex flex-auto flex-col justify-start lg:w-1/2 xl:pr-16">
                 <div className="max-w-xl py-16 sm:py-24">
                   <div className="text-center lg:text-left">
-                    <Paragraph className="mt-2 text-lg text-secondary">
+                    <Paragraph className="mt-2 text-lg text-muted">
                       {subTitle}
                     </Paragraph>
                   </div>
                   <div className="mt-12">
-                    <h2 className="text-sm font-semibold uppercase tracking-wide text-secondary">
+                    <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
                       Popular pages
                     </h2>
-                    <ul className="mt-4 divide-y divide-gray-200 border-y border-gray-200">
+                    <ul className="mt-4 divide-y divide-primary/20 border-y border-primary/20">
                       {links.map((link, i) => (
                         <li
                           key={i}
                           className="group relative flex items-start space-x-4 py-6"
                         >
                           <div className="shrink-0">
-                            <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-inverse">
+                            <span className="flex size-12 items-center justify-center rounded-lg bg-inverted">
                               <link.icon
-                                className="h-6 w-6 text-inverse"
+                                className="size-6 text-inverted"
                                 aria-hidden="true"
                               />
                             </span>
@@ -82,13 +82,13 @@ function ErrorPage({
                                 </a>
                               </span>
                             </h3>
-                            <p className="text-base text-secondary">
+                            <p className="text-base text-muted">
                               {link.description}
                             </p>
                           </div>
                           <div className="shrink-0 self-center">
                             <ChevronRight
-                              className="h-5 w-5 text-gray-400"
+                              className="size-5 text-muted"
                               aria-hidden="true"
                             />
                           </div>

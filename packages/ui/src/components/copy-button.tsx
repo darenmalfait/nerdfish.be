@@ -33,9 +33,9 @@ export function CopyButton({value, className, src, ...props}: CopyButtonProps) {
     >
       <span className="sr-only">Copy</span>
       {hasCopied ? (
-        <Check className="h-3 w-3 text-white" />
+        <Check className="size-3 text-white" />
       ) : (
-        <Copy className="h-3 w-3 text-white" />
+        <Copy className="size-3 text-white" />
       )}
     </button>
   )

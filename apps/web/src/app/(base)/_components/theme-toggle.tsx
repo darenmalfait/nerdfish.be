@@ -34,11 +34,7 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cx('active-ring', className)}
         onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
       >
-        {isDarkMode ? (
-          <Sun className="h-4 w-4" />
-        ) : (
-          <Moon className="h-4 w-4" />
-        )}
+        {isDarkMode ? <Sun className="size-4" /> : <Moon className="size-4" />}
         <div className="sr-only">{isDarkMode ? `Light` : `Dark`} Mode</div>
       </Button>
     )

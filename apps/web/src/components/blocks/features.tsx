@@ -24,7 +24,7 @@ function FeatureCard(
 
   return (
     <div
-      className="relative flex h-full w-full flex-col items-start gap-3 rounded-lg px-8 py-6 bg-secondary shadow-outline lg:flex-row lg:gap-6  lg:px-12  lg:py-10"
+      className="relative flex size-full flex-col items-start gap-3 rounded-lg bg-muted px-8 py-6 shadow-outline lg:flex-row lg:gap-6 lg:px-12  lg:py-10"
       {...props}
     >
       {Icon ? (
@@ -43,7 +43,7 @@ function FeatureCard(
         </H2>
         <p
           data-tina-field={tinaField(data, 'description')}
-          className="flex-auto text-lg text-secondary"
+          className="flex-auto text-lg text-muted"
         >
           {description}
         </p>
