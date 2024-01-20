@@ -54,8 +54,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@nerdfish/tailwind-config':
-        specifier: ^1.3.6
-        version: 1.3.6
+        specifier: ^2.0.0
+        version: 2.0.0
       '@nerdfish/theme':
         specifier: ^1.0.10
         version: 1.0.10
@@ -312,8 +312,8 @@ importers:
         specifier: workspace:*
         version: link:../lib
       '@nerdfish/tailwind-config':
-        specifier: ^1.3.5
-        version: 1.3.6
+        specifier: ^2.0.0
+        version: 2.0.0
       '@nerdfish/ui':
         specifier: ^2.3.5
         version: 2.3.5(@types/react@18.2.47)(react@18.2.0)
@@ -437,8 +437,8 @@ importers:
   tooling/config-tailwind:
     devDependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^1.3.5
-        version: 1.3.6
+        specifier: ^2.0.0
+        version: 2.0.0
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
         version: 0.4.4(tailwindcss@3.4.0)
@@ -4271,10 +4271,10 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /@nerdfish/tailwind-config@1.3.6:
-    resolution: {integrity: sha512-/RWuKU569u/nl3/sXpovkPWsorxw9yv7Vgp/yjjDxU5mjlEpzRYwCfA7CnoibploPKS7NISisETzS8fQOhgDqg==}
+  /@nerdfish/tailwind-config@2.0.0:
+    resolution: {integrity: sha512-VE051u+p1weyd/cUiKELWhsAo7w4K6AhABdaRIv0VbilDxVPWcldcbRw8bgpiobDf9tgNZP2XclsiL4O268yIg==}
     dependencies:
-      tailwindcss: 3.3.5
+      tailwindcss: 3.4.1
     transitivePeerDependencies:
       - ts-node
 
@@ -13618,6 +13618,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
@@ -21373,9 +21374,40 @@ packages:
       sucrase: 3.35.0
     transitivePeerDependencies:
       - ts-node
+    dev: false
 
   /tailwindcss@3.4.0:
     resolution: {integrity: sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.5.3
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.0
+      lilconfig: 2.1.0
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.33
+      postcss-import: 15.1.0(postcss@8.4.33)
+      postcss-js: 4.0.1(postcss@8.4.33)
+      postcss-load-config: 4.0.2(postcss@8.4.33)
+      postcss-nested: 6.0.1(postcss@8.4.33)
+      postcss-selector-parser: 6.0.15
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+
+  /tailwindcss@3.4.1:
+    resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
