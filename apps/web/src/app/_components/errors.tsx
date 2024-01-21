@@ -69,7 +69,7 @@ function ErrorPage({
                           </div>
                           <div className="min-w-0 flex-1">
                             <h3 className="text-base font-medium text-primary">
-                              <span className="rounded-sm focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2">
+                              <span className="focus-within:ring-accent rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                                 <a
                                   href={link.href}
                                   className="focus:outline-none"
