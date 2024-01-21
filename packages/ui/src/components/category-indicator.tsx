@@ -2,12 +2,12 @@ import * as React from 'react'
 import {cx} from '@nerdfish/utils'
 
 const colorMap: Record<string, string> = {
-  unknown: 'set-color-blog-current-unknown',
-  wiki: 'set-color-blog-current-wiki',
-  technical: 'set-color-blog-current-technical',
-  coaching: 'set-color-blog-current-coaching',
-  project: 'set-color-blog-current-project',
-  blog: 'set-color-blog-current-blog',
+  unknown: 'text-blog-unknown group-hover:ring-current',
+  wiki: 'text-blog-wiki group-hover:ring-current',
+  technical: 'text-blog-technical group-hover:ring-current',
+  coaching: 'text-blog-coaching group-hover:ring-current',
+  project: 'text-blog-project group-hover:ring-current',
+  blog: 'text-blog group-hover:ring-current',
 }
 
 function getCategoryColors(category: string = 'unkown'): string {

@@ -15,7 +15,7 @@ import {Wiki} from './wiki'
 
 function Placeholder({componentName}: {componentName: string | number}) {
   return (
-    <Section className="border border-danger bg-danger-subtle py-4 text-center">
+    <Section className="border border-danger bg-danger-muted py-4 text-center">
       <p className="mx-auto text-center text-danger">
         The component <strong>{componentName}</strong> has not been created yet.
       </p>
