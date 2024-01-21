@@ -16,6 +16,16 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-geist-sans)', ...fontFamily.sans],
       },
+      colors: {
+        blog: {
+          DEFAULT: 'var(--color-blog)',
+          unkown: 'var(--color-blog-unknown)',
+          technical: 'var(--color-blog-technical)',
+          project: 'var(--color-blog-project)',
+          wiki: 'var(--color-blog-wiki)',
+          coaching: 'var(--color-blog-coaching)',
+        },
+      },
       screens: {
         // iPad Pro vertical is 1024px exactly
         lg: '1025px',

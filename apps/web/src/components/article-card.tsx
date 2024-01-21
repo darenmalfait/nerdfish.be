@@ -52,7 +52,7 @@ function ArticleCard({
         ) : (
           <div className="aspect-h-4 aspect-w-3">
             <div className="w-full rounded-lg transition focus-ring">
-              <div className="inset-0 bg-orange-500" />
+              <div className="inset-0 bg-warning" />
             </div>
           </div>
         )}

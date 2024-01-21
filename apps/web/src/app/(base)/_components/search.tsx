@@ -97,7 +97,7 @@ function SearchResults() {
     <>
       {hits.length === 0 ? (
         <div className="font-fallback p-6 text-center">
-          <Icons.NoResults className="stroke-inverted mx-auto size-5 dark:stroke-white" />
+          <Icons.NoResults className="mx-auto size-5 stroke-inverted dark:stroke-white" />
           <p className="mt-2 text-xs text-inverted/90">
             Nothing found for{' '}
             <strong className="break-words font-semibold text-primary">
