@@ -54,8 +54,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.1.2
+        version: 2.1.2
       '@nerdfish/theme':
         specifier: ^2.1.1
         version: 2.1.1
@@ -312,8 +312,8 @@ importers:
         specifier: workspace:*
         version: link:../lib
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.1.2
+        version: 2.1.2
       '@nerdfish/ui':
         specifier: ^4.2.3
         version: 4.2.3(@types/react@18.2.48)(react@18.2.0)
@@ -437,8 +437,8 @@ importers:
   tooling/config-tailwind:
     devDependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.1.2
+        version: 2.1.2
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
         version: 0.4.4(tailwindcss@3.4.1)
@@ -4277,8 +4277,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /@nerdfish/tailwind-config@2.1.1:
-    resolution: {integrity: sha512-0h/7jTNDaKPofiUaE11AtvaN1bl6ggGJJeI28aVpoEyjKnFdYowWd03/8j2duTNIJ+BMbtYK9J7K7aoWDV76Xg==}
+  /@nerdfish/tailwind-config@2.1.2:
+    resolution: {integrity: sha512-Ok2YluiHrFA0FGioQE3qQasmbeiBR3udL2e+0OzA+xX7rNXFtBh/sYKVCMIb33heSDBsae47yM2qQFv89RxoYQ==}
     dependencies:
       tailwindcss: 3.4.1
     transitivePeerDependencies:
@@ -13595,6 +13595,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
