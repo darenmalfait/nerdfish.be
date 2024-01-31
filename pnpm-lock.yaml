@@ -18,8 +18,8 @@ importers:
         specifier: ^1.11.3
         version: 1.11.3(eslint@8.56.0)
       husky:
-        specifier: ^8.0.3
-        version: 8.0.3
+        specifier: ^9.0.7
+        version: 9.0.7
       prettier-plugin-tailwindcss:
         specifier: ^0.5.11
         version: 0.5.11(prettier@3.1.1)
@@ -217,8 +217,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       husky:
-        specifier: ^8.0.3
-        version: 8.0.3
+        specifier: ^9.0.7
+        version: 9.0.7
       npm-run-all2:
         specifier: ^5.0.0
         version: 5.0.2
@@ -15765,9 +15765,9 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
 
-  /husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
-    engines: {node: '>=14'}
+  /husky@9.0.7:
+    resolution: {integrity: sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg==}
+    engines: {node: '>=18'}
     hasBin: true
     dev: true
 
