@@ -11,7 +11,7 @@ function Image({
   alt,
   loading = 'lazy',
   ...props
-}: JSX.IntrinsicElements['img'] & {
+}: React.ComponentPropsWithoutRef<'img'> & {
   placeholder: ExtractProps<typeof ProgressiveImage>['placeholder']
 }) {
   return (
