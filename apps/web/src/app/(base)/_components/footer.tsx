@@ -15,7 +15,7 @@ function Footer() {
   const twitter = social?.twitter
 
   return (
-    <footer className="mt-24 px-5vw pb-8 text-primary md:pb-20">
+    <footer className="container mx-auto mt-24 px-4 text-primary md:pb-20">
       <div className="flex flex-col items-center justify-between gap-8 border-t border-primary/10 pt-8 md:flex-row md:items-start md:pt-16">
         <div className="flex flex-col items-center justify-center gap-4 text-center md:flex-row md:items-start md:text-left">
           <div className="flex h-12 items-center">

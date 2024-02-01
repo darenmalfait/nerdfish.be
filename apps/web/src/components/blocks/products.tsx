@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {Image} from '@nerdfish-website/ui/components/image'
-import {Badge, Grid, H3, Paragraph, Section} from '@nerdfish/ui'
+import {Badge, H3, Paragraph} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {Header} from '~/components/header'
@@ -68,28 +68,25 @@ function Products(
   const {title, subtitle, link} = header ?? {}
 
   return (
-    <>
+    <section className="container mx-auto px-4">
       {title ?? subtitle ? (
-        <Section data-tina-field={tinaField(data, 'header')} className="mb-6">
+        <div data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header
             title={title}
             subTitle={subtitle}
             cta="see all"
             ctaUrl={link}
           />
-        </Section>
+        </div>
       ) : null}
-      <Section
-        data-tina-field={tinaField(data, 'header')}
-        className="space-y-6"
-      >
-        <Grid rowGap>
+      <div data-tina-field={tinaField(data, 'header')} className="space-y-6">
+        <div className="grid grid-cols-12 gap-6">
           {allProducts.map((product, index) => (
             <Feature key={index} {...product} />
           ))}
-        </Grid>
-      </Section>
-    </>
+        </div>
+      </div>
+    </section>
   )
 }
 
