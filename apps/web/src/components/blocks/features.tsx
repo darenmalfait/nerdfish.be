@@ -12,7 +12,7 @@ const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
 function FeatureCard(
   data: Block &
-    JSX.IntrinsicElements['div'] & {
+    React.ComponentPropsWithoutRef<'div'> & {
       title: string
       description: string
       icon?: keyof typeof Icons
