@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Spacer} from '@nerdfish-website/ui/components/spacer'
-import {Grid, H2, Section} from '@nerdfish/ui'
+import {H2} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
@@ -66,32 +66,30 @@ function Features({
   }[]
 }) {
   return (
-    <>
+    <section className="container mx-auto mt-24 px-4">
       {title ?? subTitle ? (
-        <Section className="mt-24">
+        <>
           <Header title={title} subTitle={subTitle} />
           <Spacer size="2xs" />
-        </Section>
+        </>
       ) : null}
-      <Section>
-        <Grid rowGap>
-          {items?.map(({title: itemTitle, icon, description}, i) => (
-            <div key={i} className="col-span-full lg:col-span-6">
-              <FeatureCard
-                index={i}
-                icon={
-                  icon
-                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
-                    : null
-                }
-                title={itemTitle}
-                description={description}
-              />
-            </div>
-          ))}
-        </Grid>
-      </Section>
-    </>
+      <div className="grid grid-cols-12 gap-6">
+        {items?.map(({title: itemTitle, icon, description}, i) => (
+          <div key={i} className="col-span-full lg:col-span-6">
+            <FeatureCard
+              index={i}
+              icon={
+                icon
+                  ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
+                  : null
+              }
+              title={itemTitle}
+              description={description}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 

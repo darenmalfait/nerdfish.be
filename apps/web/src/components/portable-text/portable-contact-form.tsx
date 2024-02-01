@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
-import {Button, Container, H2} from '@nerdfish/ui'
+import {Button, H2} from '@nerdfish/ui'
 
 import {ContactForm} from '../forms/contact-form'
 
@@ -26,7 +26,7 @@ function FormSelector({
   }
 
   return (
-    <div className="not-prose max-w-2xl space-y-8">
+    <div className="not-prose flex flex-col space-y-8">
       {heading ? <H2>{heading}</H2> : null}
       <RadioGroup name="form-selector" value={selected} onChange={onChange}>
         <RadioGroup.Option value="project" label="talk about a project" />
@@ -48,7 +48,7 @@ function PortableContactForm({heading}: {heading?: string}) {
   }, [])
 
   return (
-    <Container size="default" className="not-prose">
+    <div className="not-prose">
       {selectedForm ? (
         <div>
           {selectedForm === 'coffee' ? (
@@ -65,7 +65,7 @@ function PortableContactForm({heading}: {heading?: string}) {
       ) : (
         <FormSelector heading={heading} onSubmit={onFormChoice} />
       )}
-    </Container>
+    </div>
   )
 }
 

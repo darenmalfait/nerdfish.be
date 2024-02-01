@@ -225,7 +225,7 @@ function SearchComponent({className}: {className?: string}) {
         variant="ghost"
         size="icon"
         type="button"
-        className={cx('active-ring', className)}
+        className={className}
         onClick={() => setOpen(true)}
       >
         <Icons.Search className="size-4" />

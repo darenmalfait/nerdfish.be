@@ -70,7 +70,7 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
 
         <motion.div
           layout
-          className="relative flex flex-auto overflow-hidden rounded-3xl bg-primary pt-14"
+          className="relative flex flex-auto overflow-hidden rounded-t-3xl bg-primary pt-14"
         >
           <motion.div
             layout
