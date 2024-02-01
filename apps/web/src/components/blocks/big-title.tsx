@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Container, DoubleLabelLink, Grid, Section} from '@nerdfish/ui'
+import {DoubleLabelLink} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {Link} from '~/components/link'
@@ -18,10 +18,10 @@ const BigTitle = (
   const {title, action} = data
 
   return (
-    <Section>
-      <Grid className="my-8 lg:my-16">
-        <Container size="full" className="space-y-6">
-          {action?.title ? (
+    <section>
+      <div className="container mx-auto my-8 flex flex-col space-y-6 px-4 lg:my-16">
+        {action?.title ? (
+          <div>
             <DoubleLabelLink
               as={Link}
               href={action.href ?? '/'}
@@ -31,16 +31,16 @@ const BigTitle = (
             >
               {action.title}
             </DoubleLabelLink>
-          ) : null}
-          <h1
-            data-tina-field={tinaField(data, 'title')}
-            className="font-sans text-6xl font-black uppercase leading-none text-primary sm:text-[11.6250vw] 2xl:text-[12rem]"
-          >
-            {title}
-          </h1>
-        </Container>
-      </Grid>
-    </Section>
+          </div>
+        ) : null}
+        <h1
+          data-tina-field={tinaField(data, 'title')}
+          className="font-sans text-6xl font-black uppercase leading-none text-primary sm:text-[11.6250vw] 2xl:text-[12rem]"
+        >
+          {title}
+        </h1>
+      </div>
+    </section>
   )
 }
 

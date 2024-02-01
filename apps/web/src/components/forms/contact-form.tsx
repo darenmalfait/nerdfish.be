@@ -107,11 +107,15 @@ function ContactForm({withProject}: {withProject?: boolean}) {
             We only use your data to get in touch with you.
           </FormHelperText>
           {isSubmitSuccessful && !error ? (
-            <Alert
-              variant="success"
-              title="Message sent"
-              description="Your message has been sent successfully. 🎉"
-            />
+            <Alert variant="success">
+              <Alert.Title>Success</Alert.Title>
+              <Alert.Description>
+                Your message has been sent successfully.{' '}
+                <span role="img" aria-label="party popper">
+                  🎉
+                </span>
+              </Alert.Description>
+            </Alert>
           ) : (
             <Button
               disabled={isSubmitting || (isSubmitSuccessful && !error)}
@@ -123,14 +127,18 @@ function ContactForm({withProject}: {withProject?: boolean}) {
           )}
         </div>
         {errors.recaptchaResponse?.message ? (
-          <Alert
-            variant="danger"
-            title="reCAPTCHA error"
-            description="Please verify that you are not a robot."
-          />
+          <Alert variant="danger">
+            <Alert.Title>reCAPTCHA error</Alert.Title>
+            <Alert.Description>
+              Please verify that you are not a robot.
+            </Alert.Description>
+          </Alert>
         ) : null}
         {error ? (
-          <Alert variant="danger" title="Error" description={error} />
+          <Alert variant="danger">
+            <Alert.Title>Error</Alert.Title>
+            <Alert.Description>{error}</Alert.Description>
+          </Alert>
         ) : null}
       </fieldset>
     </form>
