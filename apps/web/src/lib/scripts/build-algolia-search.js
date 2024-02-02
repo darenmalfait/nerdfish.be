@@ -88,6 +88,7 @@ async function getMarkdownFiles(filePath, type) {
   return Promise.all(results)
 }
 
+// eslint-disable-next-line no-extra-semi -- This is a self-invoking function
 ;(async () => {
   try {
     const client = algoliasearch(
