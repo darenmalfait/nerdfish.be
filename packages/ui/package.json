@@ -22,6 +22,8 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules .turbo",
+    "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
+    "format:fix": "prettier . --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
     "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "typecheck": "tsc --noEmit"
@@ -59,6 +61,7 @@
     "@types/react": "^18.2.48",
     "@types/react-syntax-highlighter": "^15.5.11",
     "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   }
 }
