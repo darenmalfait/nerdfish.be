@@ -31,8 +31,8 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
               expanded={expanded}
               onToggle={() => {
                 setExpanded(value => !value)
-                window.setTimeout(
-                  () => closeRef.current?.focus({preventScroll: true}),
+                window.setTimeout(() =>
+                  closeRef.current?.focus({preventScroll: true}),
                 )
               }}
             />
@@ -56,8 +56,8 @@ export function BaseLayoutTemplate({children}: {children: React.ReactNode}) {
                   expanded={expanded}
                   onToggle={() => {
                     setExpanded(value => !value)
-                    window.setTimeout(
-                      () => openRef.current?.focus({preventScroll: true}),
+                    window.setTimeout(() =>
+                      openRef.current?.focus({preventScroll: true}),
                     )
                   }}
                 />

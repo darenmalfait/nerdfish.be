@@ -5,27 +5,21 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "src/*"
-      ],
-      "~/content/*": [
-        "content/*"
-      ],
-      "~/tina/*": [
-        "tina/*"
-      ]
+      "~/*": ["src/*"],
+      "~/content/*": ["content/*"],
+      "~/tina/*": ["tina/*"],
     },
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "verbatimModuleSyntax": false,
     "strictNullChecks": true,
     "allowJs": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
   },
   "include": [
     "./**/*.js",
@@ -39,12 +33,7 @@
     "next.config.mjs",
     "postcss.config.cjs",
     "tina/**/*.ts",
-    "tina/**/*.tsx"
+    "tina/**/*.tsx",
   ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "public",
-    "tina/__generated__"
-  ]
+  "exclude": ["node_modules", ".next", "public", "tina/__generated__"],
 }

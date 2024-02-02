@@ -5,18 +5,18 @@
   "files": [
     "node.js",
     "next.js",
-    "react-library.js"
+    "react-library.js",
+    "prettier.config.js"
   ],
   "scripts": {
     "clean": "rm -rf node_modules .turbo"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "canary",
     "@nerdfish-website/tsconfig": "workspace:*",
+    "@next/eslint-plugin-next": "canary",
     "eslint": "^8.56.0",
-    "eslint-config-daren": "^4.2.3",
+    "eslint-config-daren": "^5.0.1",
     "eslint-config-next": "14.1.0",
-    "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^1.12.2",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-tailwindcss": "^3.14.1",
