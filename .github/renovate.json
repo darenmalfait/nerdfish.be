@@ -1,4 +1,9 @@
 {
   "extends": ["local>darenmalfait/daren-renovate-config:default"],
-  "packageRules": []
+  "packageRules": [
+    {
+      "matchPackageNames": ["react-email"],
+      "allowedVersions": "!/2.0.0/"
+    }
+  ]
 }
