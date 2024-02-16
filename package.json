@@ -23,6 +23,7 @@
     "vercel-build": " turbo build"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.1",
     "eslint-config-turbo": "^1.12.3",
     "husky": "^9.0.10",
