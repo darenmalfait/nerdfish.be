@@ -26,7 +26,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nerdfish/utils": "^1.6.1",
+    "@nerdfish/utils": "^1.6.2",
     "@turf/turf": "^6.5.0",
     "geojson-validation": "^1.0.2",
     "react": "^18.2.0",
