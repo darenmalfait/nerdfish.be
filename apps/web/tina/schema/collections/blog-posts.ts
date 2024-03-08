@@ -10,6 +10,12 @@ const blogPostsCollection: Collection = {
   name: 'blog',
   path: 'content/blogs',
   format: 'mdx',
+  defaultItem: () => {
+    return {
+      title: '',
+      date: new Date().toISOString(),
+    }
+  },
   ui: {
     router: async ({document}) => {
       return `/blog/${document._sys.relativePath.substring(
