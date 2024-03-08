@@ -34,6 +34,12 @@ const wikiCollection: Collection = {
       },
     },
   },
+  defaultItem: () => {
+    return {
+      title: '',
+      date: new Date().toISOString(),
+    }
+  },
   fields: [
     seo,
     {
