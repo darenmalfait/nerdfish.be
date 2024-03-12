@@ -12,14 +12,14 @@
     "dev": "email dev -p 6969"
   },
   "dependencies": {
-    "@react-email/components": "0.0.14",
+    "@react-email/components": "0.0.15",
     "@react-email/render": "^0.0.12",
     "react-email": "2.1.0"
   },
   "devDependencies": {
     "@nerdfish-website/lint": "workspace:*",
     "@nerdfish-website/tsconfig": "workspace:*",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "export": {
     ".": {
