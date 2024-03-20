@@ -19,6 +19,7 @@ It uses the app-directory structure for NextJS.
 
 - [Environment Variables](#environment-variables)
 - [Install](#install)
+- [Path To Tina](#path-to-tina)
 - [Favicon](#favicon)
 - [Commit Messages](#commit-messages)
 - [License](#license)
@@ -62,6 +63,17 @@ http://localhost:3000/admin.
 ```bash
 pnpm dev
 ```
+
+## Path To Tina
+
+If your GitHub repository uses a monorepo structure, the Path To Tina Config
+input can be used to specify the path to the tina directory in your repository.
+For example, if you have a project named my-site, and it is located in the
+projects directory of your repository, you would enter projects/my-site in this
+field and click Save Project to update the project.
+
+In this case: it's needed to fill in the `path` in the cloud configuration to
+`apps/web` to be able to index the content.
 
 ## Favicon
 
