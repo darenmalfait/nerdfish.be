@@ -57,17 +57,17 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.4
-        version: 2.1.4
+        specifier: ^2.2.0
+        version: 2.2.0
       '@nerdfish/theme':
-        specifier: ^2.1.4
-        version: 2.1.4
+        specifier: ^2.1.5
+        version: 2.1.5
       '@nerdfish/ui':
-        specifier: ^4.5.1
-        version: 4.5.1(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.6.0
+        version: 4.6.0(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@nerdfish/utils':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.6.3
+        version: 1.6.3
       '@next/env':
         specifier: ^14.1.4
         version: 14.1.4
@@ -263,8 +263,8 @@ importers:
   packages/lib:
     dependencies:
       '@nerdfish/utils':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.6.3
+        version: 1.6.3
       '@turf/turf':
         specifier: ^6.5.0
         version: 6.5.0
@@ -315,14 +315,14 @@ importers:
         specifier: workspace:*
         version: link:../lib
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.4
-        version: 2.1.4
+        specifier: ^2.2.0
+        version: 2.2.0
       '@nerdfish/ui':
-        specifier: ^4.5.1
-        version: 4.5.1(@types/react@18.2.67)(react@18.2.0)
+        specifier: ^4.6.0
+        version: 4.6.0(@types/react@18.2.67)(react@18.2.0)
       '@nerdfish/utils':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.6.3
+        version: 1.6.3
       '@radix-ui/react-slider':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
@@ -440,8 +440,8 @@ importers:
   tooling/config-tailwind:
     devDependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^2.1.4
-        version: 2.1.4
+        specifier: ^2.2.0
+        version: 2.2.0
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
         version: 0.4.4(tailwindcss@3.4.1)
@@ -4051,23 +4051,23 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /@nerdfish/tailwind-config@2.1.4:
-    resolution: {integrity: sha512-MGd/ZxNAmigwpq5s7Kg3XTO27SggUx60PqHnY86C7oUkP3TbmAnFooDRk0qEyX2jBcJBCMIHLwM4RPBxMTBsSQ==}
+  /@nerdfish/tailwind-config@2.2.0:
+    resolution: {integrity: sha512-NJHNgzgCxcnn4+Jh7fANp8AohSJybTuAcQIJcblcDJ1ReiRqAmb4Oj0Ebl+gt3zPkA8kWOHZ7gBKt1XQtXtV9A==}
     dependencies:
       tailwindcss: 3.4.1
     transitivePeerDependencies:
       - ts-node
 
-  /@nerdfish/theme@2.1.4:
-    resolution: {integrity: sha512-8Ax4gpY8A9VEN3BFe7dWcC5hbBiHy/fibFPOzYlZ5UJ1nw3F39mNSDfMX03BM5ChIIffz4f20NgSdixRYu7ulA==}
+  /@nerdfish/theme@2.1.5:
+    resolution: {integrity: sha512-WGyff6/EblgIi9gmw2IWStSDJHgjmt5sP0TPOYSoOxFI0dWOGX2hAXJKJHIVti+RqVUDed1w/iHWDJhq+HNdZw==}
     dependencies:
-      '@nerdfish/utils': 1.6.2
+      '@nerdfish/utils': 1.6.3
     dev: false
 
-  /@nerdfish/ui@4.5.1(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-JDuYUfR1Okqza/tffC8srP6CGd9lr4b0dPF4Gay1vH0obGg2FKgvr8UbhW0gyC1cKOPm4/Qyi+b+N6WzDs9SAg==}
+  /@nerdfish/ui@4.6.0(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-rosH8ZcnSHpwptvYky8DMdDL6R0ESdRttVHZnBFSS09kOKkW+aMEGwxwP9j3NWu+O7sLD3NXkQI7Hduw923WiA==}
     dependencies:
-      '@nerdfish/utils': 1.6.2
+      '@nerdfish/utils': 1.6.3
       '@radix-ui/react-accordion': 1.1.2(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-alert-dialog': 1.0.5(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-aspect-ratio': 1.0.3(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
@@ -4088,10 +4088,11 @@ packages:
       '@radix-ui/react-tooltip': 1.0.7(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       cmdk: 0.2.1(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 3.6.0
-      lucide-react: 0.336.0(react@18.2.0)
+      input-otp: 1.2.2(react-dom@18.2.0)(react@18.2.0)
+      lucide-react: 0.356.0(react@18.2.0)
       react-day-picker: 8.10.0(date-fns@3.6.0)(react@18.2.0)
       shiki: 0.14.7
-      sonner: 1.4.0(react-dom@18.2.0)(react@18.2.0)
+      sonner: 1.4.41(react-dom@18.2.0)(react@18.2.0)
       vaul: 0.9.0(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
@@ -4100,10 +4101,10 @@ packages:
       - react-dom
     dev: false
 
-  /@nerdfish/ui@4.5.1(@types/react@18.2.67)(react@18.2.0):
-    resolution: {integrity: sha512-JDuYUfR1Okqza/tffC8srP6CGd9lr4b0dPF4Gay1vH0obGg2FKgvr8UbhW0gyC1cKOPm4/Qyi+b+N6WzDs9SAg==}
+  /@nerdfish/ui@4.6.0(@types/react@18.2.67)(react@18.2.0):
+    resolution: {integrity: sha512-rosH8ZcnSHpwptvYky8DMdDL6R0ESdRttVHZnBFSS09kOKkW+aMEGwxwP9j3NWu+O7sLD3NXkQI7Hduw923WiA==}
     dependencies:
-      '@nerdfish/utils': 1.6.2
+      '@nerdfish/utils': 1.6.3
       '@radix-ui/react-accordion': 1.1.2(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-alert-dialog': 1.0.5(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-aspect-ratio': 1.0.3(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
@@ -4124,10 +4125,11 @@ packages:
       '@radix-ui/react-tooltip': 1.0.7(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       cmdk: 0.2.1(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 3.6.0
-      lucide-react: 0.336.0(react@18.2.0)
+      input-otp: 1.2.2(react-dom@18.2.0)(react@18.2.0)
+      lucide-react: 0.356.0(react@18.2.0)
       react-day-picker: 8.10.0(date-fns@3.6.0)(react@18.2.0)
       shiki: 0.14.7
-      sonner: 1.4.0(react-dom@18.2.0)(react@18.2.0)
+      sonner: 1.4.41(react-dom@18.2.0)(react@18.2.0)
       vaul: 0.9.0(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
@@ -4136,8 +4138,8 @@ packages:
       - react-dom
     dev: false
 
-  /@nerdfish/utils@1.6.2:
-    resolution: {integrity: sha512-tuqYXiaq6mPutncj4t71ddrKG4iBhFcaQOCsBq8AfT+y7HUh6tl09QRbOGjYJzoqacVnZMq4lwYYhnpNk8J2gg==}
+  /@nerdfish/utils@1.6.3:
+    resolution: {integrity: sha512-v91BmQltDco0tfs5Zb7+lWGoQ1TUhhxMKLjLGnmrFDkp/A79W/CHXtyYtHAz1vVmK21hCVMEml/zZeIv8U40wQ==}
     dependencies:
       class-variance-authority: 0.7.0
       clsx: 2.1.0
@@ -16499,6 +16501,16 @@ packages:
     resolution: {integrity: sha512-EcKzdTHVe8wFVOGEYXiW9WmJXPjqi1T+234YpJr98RiFYKHV3cdy1+3mkTE+KHTHxFFLH51SfaGOoUdW+v7ViQ==}
     dev: false
 
+  /input-otp@1.2.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9x6UurPuc9Tb+ywWFcFrG4ryvScSmfLyj8D35dl/HNpSr9jZNtWiXufU65kaDHD/KYUop7hDFH+caZCUKdYNsg==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /instantsearch-ui-components@0.4.0:
     resolution: {integrity: sha512-Isa9Ankm89e9PUXsUto6TxYzcQpXKlWZMsKLXc//dO4i9q5JS8s0Es+c+U65jRLK2j1DiVlNx/Z6HshRIZwA8w==}
     dependencies:
@@ -17526,8 +17538,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.336.0(react@18.2.0):
-    resolution: {integrity: sha512-e06J4Qrdrk3BP/hf3MnkW3LnymdthfyEtVbdEg0xPQ/olTEKfOfTv03DYmdRm1+XpaNQdCpiHT7Vi6regbxDCQ==}
+  /lucide-react@0.356.0(react@18.2.0):
+    resolution: {integrity: sha512-MDInjLrmZToccH2UxEshntujBlFwtOofGB22FN/eg39FfGVYV1TT1eMIv2j4rdaTJBpYjUuX7fEo9pwYkNFgwA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -21969,8 +21981,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /sonner@1.4.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-nvkTsIuOmi9e5Wz5If8ldasJjZNVfwiXYijBi2dbijvTQnQppvMcXTFNxL/NUFWlI2yJ1JX7TREDsg+gYm9WyA==}
+  /sonner@1.4.41(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uG511ggnnsw6gcn/X+YKkWPo5ep9il9wYi3QJxHsYe7yTZ4+cOd1wuodOUmOpFuXL+/RE3R04LczdNCDygTDgQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
