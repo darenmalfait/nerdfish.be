@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
-    "@mdxeditor/editor": "^2.18.0",
+    "@mdxeditor/editor": "^2.20.0",
     "@nerdfish-website/lib": "workspace:*",
     "@nerdfish/tailwind-config": "^2.2.0",
     "@nerdfish/ui": "^4.6.0",
@@ -40,7 +40,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
-    "lucide-react": "^0.363.0",
+    "lucide-react": "^0.365.0",
     "mapbox-gl": "^3.2.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -58,10 +58,10 @@
   "devDependencies": {
     "@nerdfish-website/lint": "workspace:*",
     "@nerdfish-website/tsconfig": "workspace:*",
-    "@types/react": "^18.2.73",
+    "@types/react": "^18.2.74",
     "@types/react-syntax-highlighter": "^15.5.11",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.4"
   }
 }
