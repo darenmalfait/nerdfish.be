@@ -114,8 +114,8 @@ importers:
         specifier: ^14.1.4
         version: 14.1.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
       next-tinacms-cloudinary:
-        specifier: ^4.4.7
-        version: 4.4.7(tinacms@1.6.1)
+        specifier: ^5.0.3
+        version: 5.0.3(tinacms@1.6.1)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -18844,10 +18844,10 @@ packages:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
     dev: false
 
-  /next-tinacms-cloudinary@4.4.7(tinacms@1.6.1):
-    resolution: {integrity: sha512-nJ0wQTn5BFb7OeZ2vKJsho9WN6ex1s8K/yBgkje/bm4ZOu2vwMHeIpSDaLCeKsLS6OTX3mZv4l0WpegEsw3wXg==}
+  /next-tinacms-cloudinary@5.0.3(tinacms@1.6.1):
+    resolution: {integrity: sha512-jPwMjxM4VfnmFI+kArjhtEQF3JsO2dOJLTgtgZYBjB8/TnknPwQu5Ppo13W/uPezCpSP2+hpqBKGIbY7bsJKUg==}
     peerDependencies:
-      tinacms: 1.5.30
+      tinacms: 1.6.3
     dependencies:
       cloudinary: 1.41.1
       multer: 1.4.5-lts.1
