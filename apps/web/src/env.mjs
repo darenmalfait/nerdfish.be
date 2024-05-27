@@ -8,7 +8,6 @@ export const env = createEnv({
    */
   server: {
     // Application
-    ALGOLIA_ADMIN_KEY: z.string().min(1),
     RECAPTCHA_SECRETKEY: z.string().min(1),
     RESEND_API_KEY: z.string().min(1),
 
@@ -31,10 +30,6 @@ export const env = createEnv({
     // Application
     NEXT_PUBLIC_URL: z.string().url(),
 
-    NEXT_PUBLIC_ALGOLIA_APP_ID: z.string().min(1),
-    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: z.string().min(1),
-    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().min(1),
-
     NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1),
 
     // CMS
@@ -56,13 +51,7 @@ export const env = createEnv({
     // Application
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
 
-    NEXT_PUBLIC_ALGOLIA_APP_ID: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
-    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
-    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY:
-      process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
-
     NEXT_PUBLIC_RECAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
-    ALGOLIA_ADMIN_KEY: process.env.ALGOLIA_ADMIN_KEY,
     RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
 

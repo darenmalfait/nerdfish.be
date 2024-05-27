@@ -5,7 +5,6 @@
   "author": "Daren Malfait <daren@nerdfish.be> (https://nerdfish.be)",
   "scripts": {
     "build": "dotenv -e ../../.env tinacms build -- -c \"dotenv -e ../../.env next build\"",
-    "postbuild": "node ./lib/scripts/build-algolia-search.js",
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "tinacms dev --verbose -c \"dotenv -e ../../.env next dev\"",
     "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
@@ -20,7 +19,6 @@
     "@headlessui/react": "^1.7.18"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.23.2",
     "@headlessui/react": "^1.7.18",
     "@hookform/resolvers": "^3.3.4",
     "@nerdfish-website/emails": "workspace:*",
@@ -38,7 +36,6 @@
     "@tailwindcss/typography": "^0.5.12",
     "@tinacms/auth": "^1.0.4",
     "@vercel/og": "^0.6.2",
-    "algoliasearch": "^4.23.2",
     "date-fns": "^3.6.0",
     "feed": "^4.2.2",
     "framer-motion": "^11.0.25",
@@ -49,7 +46,7 @@
     "next": "^14.1.4",
     "next-tinacms-cloudinary": "^5.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.2.24",
     "react-hook-form": "^7.51.2",
     "react-instantsearch-core": "^7.7.1",
     "react-instantsearch-dom": "^6.40.4",
