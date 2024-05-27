@@ -5,24 +5,33 @@ import {z} from 'zod'
 
 import {env} from '~/env.mjs'
 
-const routeContextSchema = z.object({
-  token: z.string(),
-  slug: z.string(),
-})
+function parsePreviewUrl(unsafeUrl: string) {
+  const url = new URL(unsafeUrl, 'http://localhost')
+  const secret = url.searchParams.get('token')
+
+  if (!secret) throw new Error('Missing secret')
+
+  let redirectTo
+  const unsafeRedirectTo = url.searchParams.get('slug')
+  if (unsafeRedirectTo) {
+    const {pathname, search, hash} = new URL(
+      unsafeRedirectTo,
+      'http://localhost',
+    )
+    redirectTo = `${pathname}${search}${hash}`
+  }
+
+  return {secret, redirectTo}
+}
 
 export async function GET(req: NextRequest) {
   try {
     const isLocal = env.NODE_ENV == 'development'
 
-    const searchParams = {
-      token: req.nextUrl.searchParams.get('token'),
-      slug: req.nextUrl.searchParams.get('slug'),
-    }
-
-    const params = routeContextSchema.parse(searchParams)
+    const {redirectTo, secret} = parsePreviewUrl(req.url)
 
     const isAuthorizedRes = await isUserAuthorized({
-      token: `Bearer ${params.token}`,
+      token: `Bearer ${secret}`,
       clientID: env.NEXT_PUBLIC_TINA_CLIENT_ID,
     })
 
@@ -37,7 +46,7 @@ export async function GET(req: NextRequest) {
     return new Response(null, {
       status: 307,
       headers: {
-        location: params.slug,
+        location: redirectTo,
       },
     })
   } catch (error) {
