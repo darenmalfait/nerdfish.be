@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
     require.resolve('./react-library'),
-    'next',
+    // 'next',
   ],
   overrides: [
     {
