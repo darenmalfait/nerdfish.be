@@ -41,10 +41,6 @@ The following environment variables are required to run the website:
 - `NEXT_PUBLIC_RECAPTCHA_SITEKEY`: Recaptcha public key.
 - `RECAPTCHA_SECRETKEY`: Recaptcha secret key.
 - `RESEND_API_KEY`: Found in resend.
-- `NEXT_PUBLIC_ALGOLIA_APP_ID`: Found in Algolia app settings.
-- `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`: Found in Algolia app settings.
-- `ALGOLIA_ADMIN_KEY`: Found in Algolia app settings.
-- `NEXT_PUBLIC_ALGOLIA_INDEX_NAME`: Found in Algolia app settings.
 
 ## Install
 

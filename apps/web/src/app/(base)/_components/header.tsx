@@ -9,7 +9,6 @@ import {Button} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
 import {useGlobal} from '../global-provider'
-import {Search} from './search'
 import {ThemeToggle} from './theme-toggle'
 
 export function Header({
@@ -68,7 +67,6 @@ export function Header({
           </div>
         ) : null}
         <div className="flex justify-end space-x-2 md:flex-1">
-          <Search className={buttonStyles} />
           <ThemeToggle variant="ghost" className={buttonStyles} />
           <Button
             variant="ghost"
