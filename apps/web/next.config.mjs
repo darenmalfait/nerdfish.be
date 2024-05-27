@@ -7,7 +7,7 @@ const nextConfig = {
   trailingSlash: true,
   swcMinify: true,
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [{hostname: 'res.cloudinary.com'}],
   },
   experimental: {
     serverActions: {
