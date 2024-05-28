@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
-    "@mdxeditor/editor": "^3.0.8",
+    "@mdxeditor/editor": "^3.4.0",
     "@nerdfish-website/lib": "workspace:*",
     "@nerdfish/tailwind-config": "^2.2.1",
     "@nerdfish/ui": "^4.6.2",
@@ -38,12 +38,12 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@reach/checkbox": "^0.18.0",
     "@tailwindcss/typography": "^0.5.13",
-    "chart.js": "^4.4.2",
+    "chart.js": "^4.4.3",
     "date-fns": "^3.6.0",
-    "lucide-react": "^0.365.0",
+    "lucide-react": "^0.379.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
-    "react-easy-crop": "^5.0.6",
+    "react-easy-crop": "^5.0.7",
     "react-markdown": "^9.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "rehype-raw": "^7.0.0",
@@ -57,9 +57,9 @@
     "@nerdfish-website/lint": "workspace:*",
     "@nerdfish-website/tsconfig": "workspace:*",
     "@types/react": "^18.2.74",
-    "@types/react-syntax-highlighter": "^15.5.11",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   }
 }
