@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
+    "@headlessui/react": "^2.0.4",
     "@mdxeditor/editor": "^3.0.8",
     "@nerdfish-website/lib": "workspace:*",
     "@nerdfish/tailwind-config": "^2.2.1",
