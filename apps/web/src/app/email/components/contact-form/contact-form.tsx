@@ -2,7 +2,10 @@
 
 import * as React from 'react'
 import {zodResolver} from '@hookform/resolvers/zod'
-import {ContactFormData, contactSchema} from '@nerdfish-website/lib/validations'
+import {
+  contactSchema,
+  type ContactFormData,
+} from '@nerdfish-website/lib/validations'
 import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
 import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
 import {Loader2} from 'lucide-react'

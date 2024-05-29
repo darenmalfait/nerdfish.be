@@ -3,7 +3,7 @@ import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, WikiQueryQuery} from '~/app/cms'
+import {PortableText, type WikiQueryQuery} from '~/app/cms'
 
 import {BackToWiki} from './misc'
 

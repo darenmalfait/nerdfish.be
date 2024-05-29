@@ -1,6 +1,9 @@
 'use server'
 
-import {ContactFormData, contactSchema} from '@nerdfish-website/lib/validations'
+import {
+  contactSchema,
+  type ContactFormData,
+} from '@nerdfish-website/lib/validations'
 
 import {env} from '~/env.mjs'
 
