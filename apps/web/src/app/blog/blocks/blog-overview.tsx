@@ -10,7 +10,7 @@ import {formatDate, parseISO} from 'date-fns'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block} from '~/app/cms'
+import {type Block, type PageBlocksBlog} from '~/app/cms'
 import {
   ArticleCard,
   BlogPath,
@@ -27,20 +27,7 @@ import {filterBlog} from '../utils'
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-export function BlogOverviewBlock(
-  data: Block & {
-    header?: {
-      title?: string
-      subtitle?: string
-      link?: string
-      image?: string
-    }
-    searchEnabled?: boolean
-    featuredEnabled?: boolean
-    tags?: string[]
-    count?: number
-  },
-) {
+export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
   const {
     header,
     searchEnabled,
@@ -133,7 +120,7 @@ export function BlogOverviewBlock(
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title} subTitle={subtitle} />
+                  <Header title={title?.toString()} subTitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -191,10 +178,10 @@ export function BlogOverviewBlock(
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
-              title={title}
+              title={title?.toString()}
               subTitle={subtitle}
               cta="See all articles"
-              ctaUrl={link}
+              ctaUrl={link?.toString()}
             />
             <Spacer size="2xs" />
           </div>

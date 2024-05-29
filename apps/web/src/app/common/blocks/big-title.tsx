@@ -2,20 +2,11 @@ import * as React from 'react'
 import {DoubleLabelLink} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block} from '~/app/cms'
+import {type Block, type PageBlocksBigTitle} from '~/app/cms'
 
 import {Link} from '../components'
 
-export function BigTitleBlock(
-  data: Block & {
-    title?: string
-    action?: {
-      title?: string
-      label?: string
-      href?: string
-    }
-  },
-) {
+export function BigTitleBlock(data: Block<PageBlocksBigTitle>) {
   const {title, action} = data
 
   return (

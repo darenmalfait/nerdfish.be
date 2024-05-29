@@ -10,7 +10,7 @@ import {cx} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, type Block} from '~/app/cms'
+import {PortableText, type Block, type PageBlocksWiki} from '~/app/cms'
 import {
   buildSrc,
   buildSrcSet,
@@ -24,19 +24,7 @@ import {filterWiki} from '../utils'
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-export function WikiOverviewBlock(
-  data: Block & {
-    header?: {
-      title?: string
-      subtitle?: string
-      link?: string
-      image?: string
-    }
-    searchEnabled?: boolean
-    tags?: string[]
-    count?: number
-  },
-) {
+export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
   const {header, searchEnabled, tags, count, globalData} = data
   const {wikis: allPosts = []} = globalData ?? {}
   const {title, subtitle, link} = header ?? {}
@@ -111,7 +99,7 @@ export function WikiOverviewBlock(
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title} subTitle={subtitle} />
+                  <Header title={title ?? ''} subTitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -169,10 +157,10 @@ export function WikiOverviewBlock(
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
-              title={title}
+              title={title ?? ''}
               subTitle={subtitle}
               cta="see all"
-              ctaUrl={link}
+              ctaUrl={link ?? ''}
             />
             <Spacer size="2xs" />
           </div>
