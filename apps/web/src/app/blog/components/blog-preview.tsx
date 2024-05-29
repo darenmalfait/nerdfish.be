@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import {BlogPostQueryQuery, BlogQueryVariables} from '~/app/cms'
+import {type BlogPostQueryQuery, type BlogQueryVariables} from '~/app/cms'
 import {Preview} from '~/app/cms/components'
 
 import {BlogContent} from './blog-content'

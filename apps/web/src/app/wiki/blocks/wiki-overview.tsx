@@ -10,7 +10,7 @@ import {cx} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {Block, PortableText} from '~/app/cms'
+import {PortableText, type Block} from '~/app/cms'
 import {
   buildSrc,
   buildSrcSet,

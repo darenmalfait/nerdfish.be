@@ -1,4 +1,4 @@
-import {Blog, BlogPostQueryQuery, tina} from '../cms'
+import {tina, type Blog, type BlogPostQueryQuery} from '../cms'
 
 export async function getBlogPosts() {
   const blogListData = await tina.queries.blogConnection()

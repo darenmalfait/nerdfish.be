@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
-import {Button, getButtonClassName} from '@nerdfish/ui'
+import {getButtonClassName, type Button} from '@nerdfish/ui'
 import {type ExtractProps} from '@nerdfish/utils'
 
 function PortableButton({
