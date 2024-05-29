@@ -72,7 +72,7 @@ export function FeaturesBlock({
           const {title: itemTitle, icon, description} = item
 
           return (
-            <div key={i} className="col-span-full lg:col-span-6">
+            <div key={item.title} className="col-span-full lg:col-span-6">
               <FeatureCard
                 index={i}
                 icon={
