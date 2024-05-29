@@ -1,8 +1,4 @@
-'use client'
-
 import * as React from 'react'
-import {Section} from '@nerdfish/ui'
-import {tinaField} from 'tinacms/dist/react'
 
 import {BlogOverviewBlock} from '~/app/blog'
 import {
@@ -14,65 +10,71 @@ import {
 } from '~/app/common'
 import {ProductsBlock} from '~/app/realisations'
 import {WikiOverviewBlock} from '~/app/wiki'
+import {type PageBlocks} from '~/tina/__generated__/types'
 
 import {type Block} from '../types'
 
-function Placeholder({componentName}: {componentName: string | number}) {
+function Placeholder({
+  componentName = 'unknown component',
+}: {
+  componentName?: string | number
+}) {
   return (
-    <Section className="border border-danger bg-danger-muted py-4 text-center">
+    <section className="border border-danger bg-danger-muted py-4 text-center">
       <p className="mx-auto text-center text-danger">
         The component <strong>{componentName}</strong> has not been created yet.
       </p>
-    </Section>
+    </section>
   )
 }
 
-// [key] is the name of the module in TinaCMS
-const components = {
-  PageBlocksBigTitle: BigTitleBlock,
-  PageBlocksBlog: BlogOverviewBlock,
-  PageBlocksContent: ContentBlock,
-  PageBlocksFeatures: FeaturesBlock,
-  PageBlocksHero: HeroBlock,
-  PageBlocksKeywordList: KeywordListBlock,
-  PageBlocksProducts: ProductsBlock,
-  PageBlocksWiki: WikiOverviewBlock,
-}
+type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 
-type PropsOf<T> = T extends React.ComponentType<infer Props> ? Props : never
-
-type BlockProps<T> = {
-  __typename: T
-}
-
-export function Blocks<T extends keyof typeof components>({
+export function Blocks({
   items,
   globalData,
 }: {
-  items?: (BlockProps<T> & PropsOf<(typeof components)[T]>)[]
+  items?: PageBlocks[] | null
   globalData?: Block['globalData']
 }) {
+  if (!items) return null
+
+  // Not putting this outside, because of server rendering
+  // [key] is the name of the module in TinaCMS
+  const components: {
+    [K in PageBlockType]: React.ComponentType<Block>
+  } = {
+    PageBlocksBigTitle: BigTitleBlock,
+    PageBlocksBlog: BlogOverviewBlock,
+    PageBlocksContent: ContentBlock,
+    PageBlocksFeatures: FeaturesBlock,
+    PageBlocksHero: HeroBlock,
+    PageBlocksKeywordList: KeywordListBlock,
+    PageBlocksProducts: ProductsBlock,
+    PageBlocksWiki: WikiOverviewBlock,
+  }
+
   return (
     <>
-      {(items ?? []).map((block, i) => {
-        const Component = components[block.__typename]
-
-        if (typeof Component !== 'undefined') {
+      {items.map((block, i) => {
+        if (
+          !block.__typename ||
+          !Object.keys(components).includes(block.__typename)
+        ) {
           return (
-            <div
+            <Placeholder
               key={i.toString() + block.__typename}
-              data-tina-field={tinaField(block)}
-            >
-              <Component {...(block as any)} globalData={globalData} />
-            </div>
+              componentName={block.__typename}
+            />
           )
         }
 
+        const Component = components[block.__typename]
+
         return (
-          <Placeholder
-            key={i.toString() + block.__typename}
-            componentName={block.__typename}
-          />
+          <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+            <Component {...block} globalData={globalData} />
+          </div>
         )
       })}
     </>

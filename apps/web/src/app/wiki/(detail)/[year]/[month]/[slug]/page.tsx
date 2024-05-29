@@ -56,6 +56,5 @@ export default async function WikiPage({
   const {isEnabled: isPreview} = draftMode()
 
   if (isPreview) return <WikiPreview {...routeData} />
-
   return <WikiContent {...routeData} />
 }

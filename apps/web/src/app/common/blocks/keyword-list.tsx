@@ -2,14 +2,9 @@ import * as React from 'react'
 import {H1} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block} from '~/app/cms'
+import {type Block, type PageBlocksKeywordList} from '~/app/cms'
 
-export function KeywordListBlock(
-  data: Block & {
-    title?: string
-    keywords?: string[]
-  },
-) {
+export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
   const {title, keywords} = data
 
   return (
