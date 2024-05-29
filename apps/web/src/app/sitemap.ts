@@ -1,8 +1,9 @@
 import {type MetadataRoute} from 'next'
 
 import {env} from '~/env.mjs'
-import {getSitemapData} from '~/lib/api/cms'
-import {getDatedSlug} from '~/lib/utils/routes'
+
+import {getSitemapData} from './api'
+import {getDatedSlug} from './common'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
