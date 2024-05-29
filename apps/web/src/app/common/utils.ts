@@ -1,6 +1,6 @@
-import {Metadata} from 'next'
+import {type Metadata} from 'next'
 import {stripPreSlash, stripTrailingSlash} from '@nerdfish-website/lib/utils'
-import {ogImageSchema} from '@nerdfish-website/lib/validations'
+import {type ogImageSchema} from '@nerdfish-website/lib/validations'
 import {formatDate} from 'date-fns'
 import {type z} from 'zod'
 

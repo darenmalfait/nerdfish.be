@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import {Button, ButtonProps} from '@nerdfish/ui'
+import {Button, type ButtonProps} from '@nerdfish/ui'
 import {Moon, Sun} from 'lucide-react'
 
 import {useTheme} from '~/app/theme-provider'

@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import NextLink, {LinkProps} from 'next/link'
+import NextLink, {type LinkProps} from 'next/link'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
 import {getButtonClassName} from '@nerdfish/ui'
 import Obfuscate from 'react-obfuscate'

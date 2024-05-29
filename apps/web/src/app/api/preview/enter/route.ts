@@ -1,5 +1,5 @@
 import {draftMode} from 'next/headers'
-import {NextRequest} from 'next/server'
+import {type NextRequest} from 'next/server'
 import {isUserAuthorized} from '@tinacms/auth'
 import {z} from 'zod'
 
