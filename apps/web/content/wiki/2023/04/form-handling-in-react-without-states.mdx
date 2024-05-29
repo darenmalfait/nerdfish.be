@@ -5,13 +5,14 @@ excerpt: >
   scalable way to do form handling in React.
 date: '2023-04-06T10:00:00.000Z'
 tags:
-  - react
+  - development
 ---
 
-Handling forms in React is typically done by storing the values of the form fields in state. For example:\\
+Handling forms in React is typically done by storing the values of the form
+fields in state. For example:\\
 
 ```javascript
-import * as React from 'react';
+import * as React from 'react'
 
 function ExampleForm() {
   const [firstName, setFirstName] = React.useState('')
@@ -24,18 +25,30 @@ function ExampleForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-      <input type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+      <input
+        type="text"
+        name="firstName"
+        value={firstName}
+        onChange={e => setFirstName(e.target.value)}
+      />
+      <input
+        type="text"
+        name="lastName"
+        value={lastName}
+        onChange={e => setLastName(e.target.value)}
+      />
       <button type="submit">Submit</button>
     </form>
   )
 }
 ```
 
-The browser has a built-in API called FormData that makes it easy to get the data from a form. Even if you're using React, FormData simplifies the process of obtaining the data, without needing to manage the state of each input.
+The browser has a built-in API called FormData that makes it easy to get the
+data from a form. Even if you're using React, FormData simplifies the process of
+obtaining the data, without needing to manage the state of each input.
 
 ```javascript
-import * as React from 'react';
+import * as React from 'react'
 
 function ExampleForm() {
   function handleSubmit(e) {
@@ -56,7 +69,9 @@ function ExampleForm() {
 }
 ```
 
-FormData is also a Request body type for the Fetch API. If you're using an edge function to handle form submissions, you can use FormData to quickly obtain the data from the request.
+FormData is also a Request body type for the Fetch API. If you're using an edge
+function to handle form submissions, you can use FormData to quickly obtain the
+data from the request.
 
 ```javascript
 function handleRequest(request) {

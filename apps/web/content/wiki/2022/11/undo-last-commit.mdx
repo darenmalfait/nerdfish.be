@@ -1,7 +1,7 @@
 ---
 title: undo your last git commit
 tags:
-  - git
+  - ops
 excerpt: |
   quick commands on how to reset to the previous commit
 date: '2022-11-06T23:00:00.000Z'
@@ -25,7 +25,8 @@ git reset --soft HEAD~1
 If you don't want to keep these changes, use the --hard flag. Be sure to do this
 when you're sure you don't need these changes anymore.
 
-With a soft reset, you can remove the files you didn't want to commit and recommit with the same message:
+With a soft reset, you can remove the files you didn't want to commit and
+recommit with the same message:
 
 ```shell
 git restore --staged path/to/unwanted-file
@@ -41,15 +42,18 @@ git commit -c ORIG_HEAD
 git reset --hard HEAD~1
 ```
 
-The HEAD~1 argument tells git to move the HEAD pointer to the commit before the current commit. Essentially, it's a shorthand for "the commit before the commit
+The HEAD~1 argument tells git to move the HEAD pointer to the commit before the
+current commit. Essentially, it's a shorthand for "the commit before the commit
 that HEAD currently points to".
 
 The difference between the two commands is in how they handle changes in the
 working directory and the index (also known as the "staging area").
 
-`git reset --soft HEAD~1` Will move the HEAD pointer to the previous commit, leaving the changes in the working directory and the index intact. This means that
-any changes you have made to your code since the last commit will still be
-there, you can continue to make additional changes or create a new commit to include them.
+`git reset --soft HEAD~1` Will move the HEAD pointer to the previous commit,
+leaving the changes in the working directory and the index intact. This means
+that any changes you have made to your code since the last commit will still be
+there, you can continue to make additional changes or create a new commit to
+include them.
 
 `git reset --hard HEAD~1` Will also move the HEAD pointer to the previous commit
 and discard any changes in the working directory and the index. This means any
@@ -60,11 +64,12 @@ It's essential to be very careful when using git reset --hard because it
 discards changes permanently, and you can't get it back unless you have a backup
 or version.
 
-So, `git reset --soft` allows you to undo a commit but keep all the changes while `git reset --hard` will undo the commit and discard all the changes.
+So, `git reset --soft` allows you to undo a commit but keep all the changes
+while `git reset --hard` will undo the commit and discard all the changes.
 
 ## Oops, I didn't mean to
 
-![computer panicking](https://res.cloudinary.com/darenmalfait/image/upload/v1673385607/Daren_computer_panicking_pixar_style_solid_background_097156f9-43ca-411b-8aec-dce9611b7fdb_lpqtt9.png "computer panicking")
+![computer panicking](https://res.cloudinary.com/darenmalfait/image/upload/v1673385607/Daren_computer_panicking_pixar_style_solid_background_097156f9-43ca-411b-8aec-dce9611b7fdb_lpqtt9.png 'computer panicking')
 
 If you reset a bit too much, you can redo the last step using the following:
 
