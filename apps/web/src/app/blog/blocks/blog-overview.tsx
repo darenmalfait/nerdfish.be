@@ -120,7 +120,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title?.toString()} subTitle={subtitle} />
+                  <Header title={title ?? undefined} subTitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -178,10 +178,10 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
-              title={title?.toString()}
+              title={title ?? undefined}
               subTitle={subtitle}
               cta="See all articles"
-              ctaUrl={link?.toString()}
+              ctaUrl={link ?? ''}
             />
             <Spacer size="2xs" />
           </div>
