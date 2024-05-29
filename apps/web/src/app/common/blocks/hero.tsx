@@ -1,19 +1,12 @@
 import * as React from 'react'
 import {Image} from '@nerdfish-website/ui/components/image'
 import {H2} from '@nerdfish/ui'
-import {type RichTextType} from 'tinacms'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, type Block, type Image as ImageType} from '~/app/cms'
+import {PortableText, type Block, type PageBlocksHero} from '~/app/cms'
 import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
 
-export function HeroBlock(
-  data: Block & {
-    image?: ImageType
-    text?: RichTextType
-    title?: string
-  },
-) {
+export function HeroBlock(data: Block<PageBlocksHero>) {
   const {image, text, title} = data
 
   return (
@@ -46,13 +39,13 @@ export function HeroBlock(
           >
             <Image
               className="mb-12 rounded-xl"
-              placeholder={getLowQualityUrlFor(image.src)}
-              srcSet={buildSrcSet(image.src)}
-              src={buildSrc(image.src, {
+              placeholder={getLowQualityUrlFor(image.src ?? '')}
+              srcSet={buildSrcSet(image.src ?? '')}
+              src={buildSrc(image.src ?? '', {
                 width: 500,
               })}
               loading="eager"
-              alt={image.alt}
+              alt={image.alt ?? ''}
             />
           </div>
         ) : null}

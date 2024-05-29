@@ -59,9 +59,6 @@ export default async function BlogPage({
 
   const {isEnabled: isPreview} = draftMode()
 
-  if (isPreview) {
-    return <BlogPreview {...routeData} />
-  }
-
+  if (isPreview) return <BlogPreview {...routeData} />
   return <BlogContent {...routeData} />
 }

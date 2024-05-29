@@ -6,7 +6,7 @@ import {Image} from '@nerdfish-website/ui/components/image'
 import {Badge, H3, Paragraph} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block, type Product} from '~/app/cms'
+import {type Block, type PageBlocksProducts, type Product} from '~/app/cms'
 import {buildSrc, buildSrcSet, getLowQualityUrlFor, Header} from '~/app/common'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
@@ -47,15 +47,7 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
   )
 }
 
-export function ProductsBlock(
-  data: Block & {
-    header?: {
-      title?: string
-      subtitle?: string
-      link?: string
-    }
-  },
-) {
+export function ProductsBlock(data: Block<PageBlocksProducts>) {
   const {header, globalData = {}} = data
 
   const {products: allProducts = []} = globalData
@@ -66,17 +58,17 @@ export function ProductsBlock(
       {title ?? subtitle ? (
         <div data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header
-            title={title}
+            title={title ?? ''}
             subTitle={subtitle}
             cta="see all"
-            ctaUrl={link}
+            ctaUrl={link ?? ''}
           />
         </div>
       ) : null}
       <div data-tina-field={tinaField(data, 'header')} className="space-y-6">
         <div className="grid grid-cols-12 gap-6">
-          {allProducts.map((product, index) => (
-            <Feature key={index} {...product} />
+          {allProducts.map(product => (
+            <Feature key={product.id ?? product.title} {...product} />
           ))}
         </div>
       </div>
