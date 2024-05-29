@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import {Blocks, ContentQueryQuery} from '~/app/cms'
+import {Blocks, type ContentQueryQuery} from '~/app/cms'
 
 import {mapPageData} from '../api'
 

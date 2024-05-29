@@ -3,7 +3,7 @@
 import * as React from 'react'
 import {useTina} from 'tinacms/dist/react'
 
-import {WikiQueryQuery, WikiQueryVariables} from '~/app/cms'
+import {type WikiQueryQuery, type WikiQueryVariables} from '~/app/cms'
 import {Preview} from '~/app/cms/components'
 
 import {WikiContent} from './wiki-content'

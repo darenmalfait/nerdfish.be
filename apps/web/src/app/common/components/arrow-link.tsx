@@ -1,11 +1,11 @@
 'use client'
 
 import * as React from 'react'
-import {ElementState, useElementState} from '@nerdfish-website/lib/utils'
+import {useElementState, type ElementState} from '@nerdfish-website/lib/utils'
 import {type ArrowIconProps} from '@nerdfish-website/ui/components/arrow-icon'
 import {Icons} from '@nerdfish-website/ui/icons'
 import {cx} from '@nerdfish/utils'
-import {motion, Variant} from 'framer-motion'
+import {motion, type Variant} from 'framer-motion'
 
 import {Link} from './link'
 
