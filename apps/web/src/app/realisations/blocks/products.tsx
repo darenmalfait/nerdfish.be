@@ -67,8 +67,8 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
       ) : null}
       <div data-tina-field={tinaField(data, 'header')} className="space-y-6">
         <div className="grid grid-cols-12 gap-6">
-          {allProducts.map((product, index) => (
-            <Feature key={index} {...product} />
+          {allProducts.map(product => (
+            <Feature key={product.id ?? product.title} {...product} />
           ))}
         </div>
       </div>
