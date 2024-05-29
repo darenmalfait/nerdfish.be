@@ -6,8 +6,15 @@ import {
   contactSchema,
   type ContactFormData,
 } from '@nerdfish-website/lib/validations'
-import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
-import {Alert, Button, FormHelperText, Input, Label} from '@nerdfish/ui'
+import {
+  Alert,
+  Button,
+  Description,
+  FormHelperText,
+  Input,
+  Label,
+  RadioGroup,
+} from '@nerdfish/ui'
 import {Loader2} from 'lucide-react'
 import {useForm} from 'react-hook-form'
 
@@ -23,9 +30,8 @@ function ContactForm({withProject}: {withProject?: boolean}) {
   const {
     handleSubmit,
     register,
-    setValue,
-    getValues,
     reset,
+    getValues,
     formState: {errors, isSubmitting, isSubmitSuccessful},
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -33,7 +39,7 @@ function ContactForm({withProject}: {withProject?: boolean}) {
       name: '',
       email: '',
       textMessage: '',
-      project: 'website',
+      project: 'webdesign',
     },
   })
 
@@ -83,18 +89,28 @@ function ContactForm({withProject}: {withProject?: boolean}) {
           />
           {withProject ? (
             <div className="not-prose space-y-3">
-              <Label>Project</Label>
               <RadioGroup
                 {...register('project')}
                 defaultValue={getValues('project')}
-                onChange={value => setValue('project', value)}
-                label="Project"
+                label="What are you interested in?"
+                description='Select "Other" if you have a different project in mind.'
                 aria-label="Project"
               >
-                <RadioGroup.Option value="website" label="Website" />
-                <RadioGroup.Option value="application" label="Application" />
-                <RadioGroup.Option value="event" label="Event" />
-                <RadioGroup.Option value="other" label="Other" />
+                <RadioGroup.Field>
+                  <RadioGroup.Item value="webdesign" id="webdesign" />
+                  <Label htmlFor="webdesign">Webdesign</Label>
+                  <Description>Design and development of websites.</Description>
+                </RadioGroup.Field>
+                <RadioGroup.Field>
+                  <RadioGroup.Item value="services" id="services" />
+                  <Label htmlFor="services">Services</Label>
+                  <Description>Consulting, workshops, and more.</Description>
+                </RadioGroup.Field>
+                <RadioGroup.Field>
+                  <RadioGroup.Item value="other" id="other" />
+                  <Label htmlFor="other">Other</Label>
+                  <Description>Let&apos;s talk about your project.</Description>
+                </RadioGroup.Field>
               </RadioGroup>
             </div>
           ) : null}

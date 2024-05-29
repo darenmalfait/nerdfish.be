@@ -1,12 +1,47 @@
 'use client'
 
 import * as React from 'react'
-import {RadioGroup} from '@nerdfish-website/ui/components/radio-group'
-import {Button, H2} from '@nerdfish/ui'
+import {Description, H2, Label} from '@nerdfish/ui'
 
 import {ContactForm} from '~/app/email'
 
 type FormType = 'basic' | 'project' | 'coffee'
+
+function FormOption({
+  type,
+  onSelect,
+  label,
+  description,
+}: {
+  type: FormType
+  onSelect: (type: FormType) => void
+  label: string
+  description?: string
+}) {
+  return (
+    <button
+      onClick={() => {
+        onSelect(type)
+      }}
+      className="group relative block cursor-pointer rounded-lg bg-muted px-6 py-4 shadow-sm shadow-outline hover:bg-inverted focus:outline-none sm:flex sm:justify-between"
+    >
+      <div className="pointer-events-none flex w-full items-center justify-between">
+        <div className="flex items-center">
+          <div className="text-sm">
+            <Label className="font-bold text-primary group-hover:text-inverted">
+              {label}
+            </Label>
+            {description ? (
+              <Description className="inline text-muted group-hover:text-inverted">
+                {description}
+              </Description>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </button>
+  )
+}
 
 function FormSelector({
   onSubmit,
@@ -15,27 +50,22 @@ function FormSelector({
   onSubmit: (type: FormType) => void
   heading?: string
 }) {
-  const [selected, setSelected] = React.useState<FormType>('project')
-
-  const onChange = React.useCallback((val: any) => {
-    setSelected(val)
-  }, [])
-
-  function onClick() {
-    onSubmit(selected)
-  }
-
   return (
     <div className="not-prose flex flex-col space-y-8">
       {heading ? <H2>{heading}</H2> : null}
-      <RadioGroup name="form-selector" value={selected} onChange={onChange}>
-        <RadioGroup.Option value="project" label="talk about a project" />
-        <RadioGroup.Option value="basic" label="talk about the weather" />
-        <RadioGroup.Option value="coffee" label="grab a coffee" />
-      </RadioGroup>
-      <Button type="button" name="set-form-type" onClick={onClick}>
-        Write your message
-      </Button>
+      <div className="flex flex-col space-y-4">
+        <FormOption
+          onSelect={onSubmit}
+          type="project"
+          label="skip the small talk"
+        />
+        <FormOption
+          onSelect={onSubmit}
+          type="basic"
+          label="talk about the weather"
+        />
+        <FormOption onSelect={onSubmit} type="coffee" label="grab a coffee" />
+      </div>
     </div>
   )
 }
