@@ -1,14 +1,9 @@
 import * as React from 'react'
-import {type RichTextType} from 'tinacms'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, type Block} from '~/app/cms'
+import {PortableText, type Block, type PageBlocksContent} from '~/app/cms'
 
-export function ContentBlock(
-  data: Block & {
-    body?: RichTextType
-  },
-) {
+export function ContentBlock(data: Block<PageBlocksContent>) {
   const {body} = data
 
   return (
