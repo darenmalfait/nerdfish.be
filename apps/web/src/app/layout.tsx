@@ -9,16 +9,26 @@ import '~/styles/prose.css'
 import '~/styles/components.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
 
-interface RootLayoutProps {
-  children: React.ReactNode
-}
+import {getGlobalData} from './api'
+import {BaseLayoutTemplate} from './components/base-layout'
+import {GlobalProvider} from './global-provider'
 
-export default function RootLayout({children}: RootLayoutProps) {
+const getLayoutData = React.cache(getGlobalData)
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const layoutData = await getLayoutData()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} font-sans`}>
         <AppProviders>
-          <React.Suspense>{children}</React.Suspense>
+          <GlobalProvider {...layoutData}>
+            <BaseLayoutTemplate>{children}</BaseLayoutTemplate>
+          </GlobalProvider>
         </AppProviders>
       </body>
     </html>

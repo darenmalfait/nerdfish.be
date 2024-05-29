@@ -8,4 +8,4 @@ export const contactSchema = z.object({
   recaptchaResponse: z.string().optional(),
 })
 
-export type contactFormData = z.infer<typeof contactSchema>
+export type ContactFormData = z.infer<typeof contactSchema>
