@@ -15,11 +15,7 @@
     "start": "tinacms dev -c \"dotenv -e ../../.env next start\"",
     "typecheck": "tsc --noEmit"
   },
-  "resolutions": {
-    "@headlessui/react": "^2.0.4"
-  },
   "dependencies": {
-    "@headlessui/react": "^2.0.4",
     "@hookform/resolvers": "^3.4.2",
     "@nerdfish-website/emails": "workspace:*",
     "@nerdfish-website/lib": "workspace:*",
