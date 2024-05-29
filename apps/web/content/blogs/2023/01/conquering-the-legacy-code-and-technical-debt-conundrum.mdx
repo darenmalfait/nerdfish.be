@@ -8,9 +8,7 @@ seo:
     latter is the hardest one to tackle and the most expensive one to fix.
 title: Conquering the legacy code and technical debt conundrum
 tags:
-  - insight
-  - best-practise
-  - maintenance
+  - insights
 category: blog
 heroImg: >-
   http://res.cloudinary.com/darenmalfait/image/upload/v1674771769/Daren_a_bowl_of_spaghetti_with_a_keyboard_in_front_plastic_pixa_edd7027e-f9e6-4854-8642-f2a89b53f6ee_hajpfq.png
@@ -22,40 +20,89 @@ excerpt: >-
 date: '2023-01-26T11:00:00.000Z'
 ---
 
-Having seen a ton of codebases, it's hard to imagine that there are codebases without spaghetti code. A codebase without spaghetti hasn't been around long enough. Sooner or later, code turns into legacy, and technical debt hangs above the heads of the developers having to deal with it. At least when you're not actively taking care of it.
+Having seen a ton of codebases, it's hard to imagine that there are codebases
+without spaghetti code. A codebase without spaghetti hasn't been around long
+enough. Sooner or later, code turns into legacy, and technical debt hangs above
+the heads of the developers having to deal with it. At least when you're not
+actively taking care of it.
 
-However, it's important to note that technical debt doesn't just impact developers - it can also significantly negatively impact a business in the long term. It can lead to increased costs, slower development times, and a lack of flexibility. It can also lead to a vicious cycle, where developers constantly try to keep up with the technical debt, making it difficult to progress on new projects or updates. That's why recognising legacy code is essential in reducing technical debt. This post will dive into what legacy code is and how to identify it.
+However, it's important to note that technical debt doesn't just impact
+developers - it can also significantly negatively impact a business in the long
+term. It can lead to increased costs, slower development times, and a lack of
+flexibility. It can also lead to a vicious cycle, where developers constantly
+try to keep up with the technical debt, making it difficult to progress on new
+projects or updates. That's why recognising legacy code is essential in reducing
+technical debt. This post will dive into what legacy code is and how to identify
+it.
 
-This will be hard if you don't use git or any other version control. In that case, I suggest you use git because you can get a ton of information out of your git history.
+This will be hard if you don't use git or any other version control. In that
+case, I suggest you use git because you can get a ton of information out of your
+git history.
 
-Before reading on, answer the question: What is legacy code and what has it got to do with technical debt? Then, keep your answer in mind.
+Before reading on, answer the question: What is legacy code and what has it got
+to do with technical debt? Then, keep your answer in mind.
 
-![developers](https://res.cloudinary.com/darenmalfait/image/upload/v1674774212/Daren_big_office_filled_with_monkeys_sitting_behind_a_computer__5f2140a0-2c9f-46f3-b934-c98c956a8f59_itu2ap.png "developers")
+![developers](https://res.cloudinary.com/darenmalfait/image/upload/v1674774212/Daren_big_office_filled_with_monkeys_sitting_behind_a_computer__5f2140a0-2c9f-46f3-b934-c98c956a8f59_itu2ap.png 'developers')
 
 ## Quick and dirty
 
-Technical debt often describes the cost of maintaining and improving software over time. It usually refers to the trade-offs made during software development, such as choosing to implement a quick and dirty solution instead of a more complex and robust one. This can lead to code that is more complex, harder to understand, and more challenging to maintain. The term "technical debt" conveys that, just like financial debt, there is a cost associated with short-term decisions that must be paid back in the long term.
+Technical debt often describes the cost of maintaining and improving software
+over time. It usually refers to the trade-offs made during software development,
+such as choosing to implement a quick and dirty solution instead of a more
+complex and robust one. This can lead to code that is more complex, harder to
+understand, and more challenging to maintain. The term "technical debt" conveys
+that, just like financial debt, there is a cost associated with short-term
+decisions that must be paid back in the long term.
 
 However, it's so much more than that.
 
-![tip of the iceberg](http://res.cloudinary.com/darenmalfait/image/upload/v1675447403/Daren_an_iceberg_including_the_underwater_part_plastic_pixar_st_96c95df8-864a-4db7-9c4a-50e2c6819342_ffobaj.png "tip of the iceberg")
+![tip of the iceberg](http://res.cloudinary.com/darenmalfait/image/upload/v1675447403/Daren_an_iceberg_including_the_underwater_part_plastic_pixar_st_96c95df8-864a-4db7-9c4a-50e2c6819342_ffobaj.png 'tip of the iceberg')
 
 ## The relevance of code complexity
 
-Software needs to change to ensure it works well for the people using it. As software is used and new requirements arise, it must be modified to meet those needs. However, as software evolves, its complexity increases unless steps are taken to manage it. This is because software systems have many interrelated components, and their relationships become more complex as they change. That's the two first rules of Lehman's laws of software evolution. There are eight of these laws in total, each addressing a different aspect of software evolution. Together, they provide a comprehensive understanding of how software evolves and how to manage that evolution to ensure it continues to meet the needs of its users. The first two make an obvious point. Things get complicated as time goes on.
+Software needs to change to ensure it works well for the people using it. As
+software is used and new requirements arise, it must be modified to meet those
+needs. However, as software evolves, its complexity increases unless steps are
+taken to manage it. This is because software systems have many interrelated
+components, and their relationships become more complex as they change. That's
+the two first rules of Lehman's laws of software evolution. There are eight of
+these laws in total, each addressing a different aspect of software evolution.
+Together, they provide a comprehensive understanding of how software evolves and
+how to manage that evolution to ensure it continues to meet the needs of its
+users. The first two make an obvious point. Things get complicated as time goes
+on.
 
-One of the crucial things to look at when dealing with technical debt is code complexity, but what defines code complexity?
+One of the crucial things to look at when dealing with technical debt is code
+complexity, but what defines code complexity?
 
-Factors that contribute to code complexity include the length of the code, the use of nested loops and conditional statements, the number of types and variables, and the level of abstraction in the code. However, code complexity is not the most significant contributor to technical debt. If you have a large complex file in your codebase that hasn't been touched in ages, it seems less problematic than a file that's actively changed all the time. To tackle technical debt, you must find the parts where code complexity is an issue and is most actively worked on. Those are the files that you need to prioritise.
+Factors that contribute to code complexity include the length of the code, the
+use of nested loops and conditional statements, the number of types and
+variables, and the level of abstraction in the code. However, code complexity is
+not the most significant contributor to technical debt. If you have a large
+complex file in your codebase that hasn't been touched in ages, it seems less
+problematic than a file that's actively changed all the time. To tackle
+technical debt, you must find the parts where code complexity is an issue and is
+most actively worked on. Those are the files that you need to prioritise.
 
-You can use that same logic on a function level if you have a huge file that seems to be one of the files you need to prioritise. Refactoring gigantic files is risky and should be done carefully.
+You can use that same logic on a function level if you have a huge file that
+seems to be one of the files you need to prioritise. Refactoring gigantic files
+is risky and should be done carefully.
 
 ## What is legacy code?
 
-Legacy code is usually described as old, outdated, or no longer supported by the original developer. And whilst often legacy code is seen as more complex, it is often a case of not being familiar with the code rather than complexity. In each team, only a few people write most of the code. If they depart and the remaining team members are unfamiliar with that portion of the code, it can quickly become legacy.
+Legacy code is usually described as old, outdated, or no longer supported by the
+original developer. And whilst often legacy code is seen as more complex, it is
+often a case of not being familiar with the code rather than complexity. In each
+team, only a few people write most of the code. If they depart and the remaining
+team members are unfamiliar with that portion of the code, it can quickly become
+legacy.
 
-Legacy and technical debt are not the same things, but legacy, in fact, is just a part of technical debt. It's the knowledge you lose when a developer leaves.
+Legacy and technical debt are not the same things, but legacy, in fact, is just
+a part of technical debt. It's the knowledge you lose when a developer leaves.
 
 ## So what is technical debt exactly?
 
-Technical debt is more than just bad decisions. It's an entire ecosystem based on multiple factors. It's the complexity of a codebase contains the relevance of parts of the code and individual developers' knowledge. The latter is the hardest one to tackle and the most expensive one to fix.
+Technical debt is more than just bad decisions. It's an entire ecosystem based
+on multiple factors. It's the complexity of a codebase contains the relevance of
+parts of the code and individual developers' knowledge. The latter is the
+hardest one to tackle and the most expensive one to fix.

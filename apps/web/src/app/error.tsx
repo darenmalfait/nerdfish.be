@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import {ErrorPage} from './_components/errors'
+import {ErrorPage} from './components/errors'
 
 export default function Error({error}: {error?: Error}) {
   return (
