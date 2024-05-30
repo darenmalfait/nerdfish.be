@@ -1,8 +1,8 @@
 import * as React from 'react'
+import Image from 'next/image'
 import {cx} from '@nerdfish/utils'
 
-import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
-import {Image} from '~/app/common/components/image'
+import {buildSrc} from '~/app/common'
 
 function PortableImage({
   alt = '',
@@ -20,11 +20,11 @@ function PortableImage({
       className={cx({
         'max-w-xs': compact,
       })}
-      placeholder={getLowQualityUrlFor(url)}
-      srcSet={buildSrcSet(url)}
       src={buildSrc(url, {
         width: compact ? 400 : 800,
       })}
+      width={compact ? 400 : 800}
+      height={800}
       alt={alt}
     />
   )
