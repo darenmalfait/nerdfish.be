@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   CategoryIndicator,
@@ -12,13 +13,7 @@ import {cx} from '@nerdfish/utils'
 
 import {type Blog} from '~/app/cms'
 
-import {
-  buildSrc,
-  buildSrcSet,
-  getDatedSlug,
-  getLowQualityUrlFor,
-} from '../utils'
-import {Image} from './image'
+import {buildSrc, getDatedSlug} from '../utils'
 
 function ArticleCard({
   title,
@@ -42,11 +37,10 @@ function ArticleCard({
                 'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
                 getCategoryColors(category),
               )}
-              placeholder={getLowQualityUrlFor(heroImg)}
-              srcSet={buildSrcSet(heroImg)}
               src={buildSrc(heroImg, {
-                width: 600,
+                width: 800,
               })}
+              fill
               alt={title ?? ''}
             />
           </div>
