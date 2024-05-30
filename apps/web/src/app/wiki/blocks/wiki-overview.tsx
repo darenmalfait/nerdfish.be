@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Image from 'next/image'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
@@ -10,14 +11,7 @@ import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type Block, type PageBlocksWiki} from '~/app/cms'
-import {
-  buildSrc,
-  buildSrcSet,
-  getDatedSlug,
-  getLowQualityUrlFor,
-  Header,
-} from '~/app/common'
-import {Image} from '~/app/common/components/image'
+import {buildSrc, getDatedSlug, Header} from '~/app/common'
 
 import {filterWiki} from '../utils'
 
@@ -79,11 +73,11 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
               >
                 <Image
                   className="rounded-xl"
-                  placeholder={getLowQualityUrlFor(header.image)}
-                  srcSet={buildSrcSet(header.image)}
                   src={buildSrc(header.image, {
-                    width: 500,
+                    width: 550,
                   })}
+                  width={550}
+                  height={550}
                   loading="eager"
                   alt={header.image}
                 />
