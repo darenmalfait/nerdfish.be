@@ -1,17 +1,11 @@
 import * as React from 'react'
+import Image from 'next/image'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type BlogPostQueryQuery} from '~/app/cms'
-import {
-  ArticleCard,
-  buildSrc,
-  buildSrcSet,
-  getLowQualityUrlFor,
-  Header,
-} from '~/app/common'
-import {Image} from '~/app/common/components/image'
+import {ArticleCard, buildSrc, Header} from '~/app/common'
 
 import {mapBlogData} from '../api'
 import {BackToBlog} from './misc'
@@ -59,10 +53,12 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
         >
           {heroImg ? (
             <Image
-              placeholder={getLowQualityUrlFor(heroImg)}
-              srcSet={buildSrcSet(heroImg)}
-              src={buildSrc(heroImg)}
+              src={buildSrc(heroImg, {
+                width: 900,
+              })}
               alt={title}
+              width={900}
+              height={900}
             />
           ) : null}
         </div>

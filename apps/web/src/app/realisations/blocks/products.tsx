@@ -1,13 +1,13 @@
 'use client'
 
 import * as React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {Badge, H3, Paragraph} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksProducts, type Product} from '~/app/cms'
-import {buildSrc, buildSrcSet, getLowQualityUrlFor, Header} from '~/app/common'
-import {Image} from '~/app/common/components/image'
+import {buildSrc, Header} from '~/app/common'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (
@@ -17,14 +17,15 @@ function Feature({title, link, description, soon, image}: Partial<Product>) {
         className="group relative flex min-h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-muted px-8 py-5 pt-0 text-primary shadow-outline"
       >
         {image ? (
-          <div className="z-1 mb-0 flex h-24 w-auto items-center transition-all duration-1000 group-hover:scale-125">
+          <div className="z-1 relative mb-4 flex size-16 items-center overflow-hidden rounded-xl transition-all duration-1000 group-hover:scale-125">
             <Image
-              placeholder={getLowQualityUrlFor(image)}
-              srcSet={buildSrcSet(image)}
+              className="absolute inset-0 object-cover"
               src={buildSrc(image, {
                 width: 100,
               })}
-              alt={title}
+              width={100}
+              height={100}
+              alt={title ?? 'Product image'}
             />
           </div>
         ) : null}
