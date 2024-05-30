@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {DoubleLabelLink} from '@nerdfish/ui'
+import {Icons} from '@nerdfish-website/ui/icons'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksBigTitle} from '~/app/cms'
@@ -11,18 +11,26 @@ export function BigTitleBlock(data: Block<PageBlocksBigTitle>) {
 
   return (
     <section>
-      <div className="container mx-auto my-8 flex flex-col space-y-6 px-4 lg:my-16">
-        {action?.title ? (
+      <div className="container mx-auto my-8 flex flex-col space-y-0 px-4 lg:my-16">
+        {action?.label ? (
           <div>
-            <DoubleLabelLink
-              as={Link}
+            <Link
               href={action.href ?? '/'}
-              description={action.label ?? ''}
               data-tina-field={tinaField(action)}
-              className="cursor-pointer"
+              className="inline-block w-auto cursor-pointer"
             >
-              {action.title}
-            </DoubleLabelLink>
+              <div className="group rounded-full bg-gradient-to-r from-nerdfish/50 via-blog-wiki/50 to-blog-project/50 p-[1px] brightness-90 contrast-150 dark:brightness-125 dark:contrast-100">
+                <div className="rounded-full bg-white/80 px-3 py-1 dark:bg-black/80">
+                  <span className="flex select-none items-center bg-gradient-to-r from-nerdfish via-blog-wiki to-blog-project bg-clip-text text-transparent">
+                    <span className="font-normal">{action.label}</span>
+                    <Icons.ChevronRight
+                      direction="right"
+                      className="ml-2 size-4 stroke-primary stroke-2 transition-transform group-hover:translate-x-0.5"
+                    />
+                  </span>
+                </div>
+              </div>
+            </Link>
           </div>
         ) : null}
         <h1

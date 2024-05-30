@@ -31,12 +31,14 @@ function ArticleCard({
         <CategoryIndicator category={category} />
 
         {heroImg ? (
-          <div className="aspect-h-4 aspect-w-3 rounded-lg shadow-outline">
+          <div
+            className={cx(
+              'aspect-h-4 aspect-w-3 rounded-lg focus-ring shadow-outline',
+              getCategoryColors(category),
+            )}
+          >
             <Image
-              className={cx(
-                'absolute inset-0 h-full w-full rounded-lg object-cover focus-ring',
-                getCategoryColors(category),
-              )}
+              className="absolute inset-0 size-full rounded-lg object-cover"
               src={buildSrc(heroImg, {
                 width: 800,
               })}

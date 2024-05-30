@@ -1,7 +1,5 @@
 import {type Template} from 'tinacms'
 
-import {actionSchema} from '../objects'
-
 export const bigTitleBlockSchema: Template = {
   name: 'bigTitle',
   label: 'Big Title',
@@ -18,15 +16,20 @@ export const bigTitleBlockSchema: Template = {
       name: 'title',
     },
     {
-      ...actionSchema,
       type: 'object',
+      label: 'Action',
+      name: 'action',
       fields: [
         {
-          name: 'title',
-          label: 'Title',
+          name: 'label',
+          label: 'Label',
           type: 'string',
         },
-        ...((actionSchema.fields as any) ?? []),
+        {
+          name: 'href',
+          label: 'Href',
+          type: 'string',
+        },
       ],
     },
   ],
