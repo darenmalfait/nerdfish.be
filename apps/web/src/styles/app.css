@@ -1,11 +1,11 @@
 :root {
-  --color-blog-unknown: #818890;
-  --color-blog-technical: #10b981;
-  --color-blog-project: #3b82f6;
-  --color-blog-wiki: #8b5cf6;
+  --color-blog-unknown: 210 10% 55%;
+  --color-blog-technical: 160 87% 45%;
+  --color-blog-project: 214 90% 60%;
+  --color-blog-wiki: 261 59% 60%;
   /* yellow in light mode is... hard */
-  --color-blog-coaching: #f59e0b;
-  --color-blog: #6b7280;
+  --color-blog-coaching: 40 91% 50%;
+  --color-blog: 210 10% 55%;
 }
 
 .dark {

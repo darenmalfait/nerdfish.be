@@ -18,12 +18,12 @@ module.exports = {
       },
       colors: {
         blog: {
-          DEFAULT: 'var(--color-blog)',
-          unkown: 'var(--color-blog-unknown)',
-          technical: 'var(--color-blog-technical)',
-          project: 'var(--color-blog-project)',
-          wiki: 'var(--color-blog-wiki)',
-          coaching: 'var(--color-blog-coaching)',
+          DEFAULT: 'hsl(var(--color-blog) / <alpha-value>)',
+          unkown: 'hsl(var(--color-blog-unknown) / <alpha-value>)',
+          technical: 'hsl(var(--color-blog-technical) / <alpha-value>)',
+          project: 'hsl(var(--color-blog-project) / <alpha-value>)',
+          wiki: 'hsl(var(--color-blog-wiki) / <alpha-value>)',
+          coaching: 'hsl(var(--color-blog-coaching) / <alpha-value>)',
         },
       },
       screens: {

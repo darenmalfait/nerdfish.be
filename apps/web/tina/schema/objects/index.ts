@@ -1,4 +1,3 @@
-export * from './action'
 export * from './image'
 export * from './portable-text'
 export * from './seo'
