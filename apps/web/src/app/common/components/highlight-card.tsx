@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   CategoryIndicator,
@@ -7,10 +8,9 @@ import {
 import {H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
+import {buildSrc} from '~/app/common'
 
 import {ArrowLink} from './arrow-link'
-import {Image} from './image'
 
 interface HighlightCardProps {
   title?: string
@@ -52,7 +52,7 @@ function HighlightCard({
               />
             ) : null}
             <div>
-              <H2 as="h3" className="mt-0">
+              <H2 variant="primary" as="h3" className="mt-0">
                 {title}
               </H2>
               <div className="mt-6 text-xl font-bold text-primary">
@@ -80,11 +80,10 @@ function HighlightCard({
           {image ? (
             <Image
               className="absolute inset-0 object-cover"
-              placeholder={getLowQualityUrlFor(image)}
-              srcSet={buildSrcSet(image)}
               src={buildSrc(image, {
-                width: 600,
+                width: 650,
               })}
+              fill
               alt={title ?? ''}
             />
           ) : null}
