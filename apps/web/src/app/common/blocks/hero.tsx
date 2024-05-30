@@ -1,10 +1,11 @@
 import * as React from 'react'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {H2} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type Block, type PageBlocksHero} from '~/app/cms'
 import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
+
+import {Image} from '../components/image'
 
 export function HeroBlock(data: Block<PageBlocksHero>) {
   const {image, text, title} = data

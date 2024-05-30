@@ -4,13 +4,13 @@ import {
   CategoryIndicator,
   getCategoryColors,
 } from '@nerdfish-website/ui/components/category-indicator'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
 import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
 
 import {ArrowLink} from './arrow-link'
+import {Image} from './image'
 
 interface HighlightCardProps {
   title?: string

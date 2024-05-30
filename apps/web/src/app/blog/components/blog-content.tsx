@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
@@ -12,6 +11,7 @@ import {
   getLowQualityUrlFor,
   Header,
 } from '~/app/common'
+import {Image} from '~/app/common/components/image'
 
 import {mapBlogData} from '../api'
 import {BackToBlog} from './misc'
