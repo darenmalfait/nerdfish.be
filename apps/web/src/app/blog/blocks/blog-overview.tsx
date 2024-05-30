@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Image from 'next/image'
 import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
@@ -14,13 +15,10 @@ import {
   ArticleCard,
   BlogPath,
   buildSrc,
-  buildSrcSet,
   getDatedSlug,
-  getLowQualityUrlFor,
   Header,
   HighlightCard,
 } from '~/app/common'
-import {Image} from '~/app/common/components/image'
 
 import {filterBlog} from '../utils'
 
@@ -100,11 +98,11 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
               >
                 <Image
                   className="rounded-xl"
-                  placeholder={getLowQualityUrlFor(header.image)}
-                  srcSet={buildSrcSet(header.image)}
                   src={buildSrc(header.image, {
-                    width: 500,
+                    width: 550,
                   })}
+                  width={550}
+                  height={550}
                   loading="eager"
                   alt={header.image}
                 />
