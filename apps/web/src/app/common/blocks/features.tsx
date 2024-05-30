@@ -5,48 +5,59 @@ import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block, type PageBlocksFeatures} from '~/app/cms'
+import {
+  type Block,
+  type Page,
+  type PageBlocksFeatures,
+  type PageBlocksFeaturesItems,
+} from '~/app/cms'
 
-import {Header} from '../components'
+import {ArrowLink, Header} from '../components'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
-function FeatureCard(
-  data: React.ComponentPropsWithoutRef<'div'> & {
-    title: string
-    description: string
-    icon?: keyof typeof Icons
-    index?: number
-  },
-) {
-  const {title, description, icon, index, ...props} = data
-  const Icon = icon && (dynamicHeroIcon(icon) as Icons.LucideIcon)
+function DetailLink({page}: {page?: Page}) {
+  if (!page) return null
+
+  return (
+    <ArrowLink className="mt-4 text-sm" href={`/${page._sys.filename}`}>
+      Read more
+    </ArrowLink>
+  )
+}
+
+function FeatureCard(props: PageBlocksFeaturesItems) {
+  const {title, description, icon, detail, ...rest} = props
+
+  const Icon =
+    icon && (dynamicHeroIcon(icon as keyof typeof Icons) as Icons.LucideIcon)
 
   return (
     <div
       className="relative flex size-full flex-col items-start gap-3 rounded-lg bg-muted px-8 py-6 shadow-outline lg:flex-row lg:gap-6 lg:px-12  lg:py-10"
-      {...props}
+      {...rest}
     >
       {Icon ? (
         <Icon
-          data-tina-field={tinaField(data, 'icon')}
+          data-tina-field={tinaField(props, 'icon')}
           className="flex h-8 shrink-0 text-primary lg:mt-0.5"
         />
       ) : null}
       <div>
         <H2
-          data-tina-field={tinaField(data, 'title')}
+          data-tina-field={tinaField(props, 'title')}
           as="h3"
           className="mb-4 flex flex-none items-end !text-xl font-medium tracking-normal text-primary"
         >
           {title}
         </H2>
         <p
-          data-tina-field={tinaField(data, 'description')}
+          data-tina-field={tinaField(props, 'description')}
           className="flex-auto text-lg text-muted"
         >
           {description}
         </p>
+        <DetailLink page={detail as Page} />
       </div>
     </div>
   )
@@ -66,22 +77,20 @@ export function FeaturesBlock({
         </>
       ) : null}
       <div className="grid grid-cols-12 gap-6">
-        {items?.map((item, i) => {
+        {items?.map(item => {
           if (!item) return null
 
-          const {title: itemTitle, icon, description} = item
+          const {icon, ...itemProps} = item
 
           return (
             <div key={item.title} className="col-span-full lg:col-span-6">
               <FeatureCard
-                index={i}
+                {...itemProps}
                 icon={
                   icon
                     ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
                     : null
                 }
-                title={itemTitle ?? ''}
-                description={description ?? ''}
               />
             </div>
           )

@@ -78,14 +78,14 @@ function ArrowLink({
       {...props}
       href={href ?? '#'}
       className={cx(
-        className,
         'inline-flex cursor-pointer items-center space-x-4 text-left text-lg font-bold !no-underline transition text-primary focus:outline-none',
+        className,
       )}
       ref={ref as any}
       animate={state}
     >
       {children && (direction === 'right' || direction === 'up') ? (
-        <span className="mr-8 text-xl font-bold">{children}</span>
+        <span className="mr-8 font-bold">{children}</span>
       ) : null}
 
       <div className="relative inline-flex size-14 flex-none items-center justify-center p-1">
