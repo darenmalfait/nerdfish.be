@@ -7,7 +7,6 @@ import {
   getCategoryColors,
 } from '@nerdfish-website/ui/components/category-indicator'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
@@ -19,6 +18,7 @@ import {
   getDatedSlug,
   getLowQualityUrlFor,
 } from '../utils'
+import {Image} from './image'
 
 function ArticleCard({
   title,
