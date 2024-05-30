@@ -27,7 +27,11 @@ export default async function RootLayout({
       <body className={`${GeistSans.variable} font-sans`}>
         <AppProviders>
           <GlobalProvider {...layoutData}>
-            <BaseLayoutTemplate>{children}</BaseLayoutTemplate>
+            <BaseLayoutTemplate>
+              <React.Suspense fallback={<p className="h-5" />}>
+                {children}
+              </React.Suspense>
+            </BaseLayoutTemplate>
           </GlobalProvider>
         </AppProviders>
       </body>
