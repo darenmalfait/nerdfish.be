@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
@@ -21,6 +20,7 @@ import {
   Header,
   HighlightCard,
 } from '~/app/common'
+import {Image} from '~/app/common/components/image'
 
 import {filterBlog} from '../utils'
 

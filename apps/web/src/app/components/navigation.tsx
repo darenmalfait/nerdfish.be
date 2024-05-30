@@ -3,6 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
+import {ClientOnly} from '@nerdfish-website/ui/components/client-only'
 import {Icons} from '@nerdfish-website/ui/icons'
 import {Button, Drawer, H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -71,46 +72,48 @@ export function MobileNavigation() {
   const [open, setOpen] = React.useState<boolean>(false)
 
   return (
-    <Drawer direction="top" open={open} onOpenChange={setOpen}>
-      <Drawer.Trigger asChild>
-        <Button
-          className="lg:hidden"
-          variant="ghost"
-          type="button"
-          size="icon"
-          aria-label="Toggle navigation"
-        >
-          <Icons.Hamburger className="size-4" />
-        </Button>
-      </Drawer.Trigger>
-      <Drawer.Content>
-        <div className="flex flex-col gap-12 py-6">
-          <div className="container m-auto flex flex-col items-center justify-center gap-6">
-            {navigation?.main?.map((link, i: number) => {
-              if (!link) return null
+    <ClientOnly>
+      <Drawer direction="top" open={open} onOpenChange={setOpen}>
+        <Drawer.Trigger asChild>
+          <Button
+            className="lg:hidden"
+            variant="ghost"
+            type="button"
+            size="icon"
+            aria-label="Toggle navigation"
+          >
+            <Icons.Hamburger className="size-4" />
+          </Button>
+        </Drawer.Trigger>
+        <Drawer.Content>
+          <div className="flex flex-col gap-12 py-6">
+            <div className="container m-auto flex flex-col items-center justify-center gap-6">
+              {navigation?.main?.map((link, i: number) => {
+                if (!link) return null
 
-              return (
-                <NavigationItem
-                  key={i}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </NavigationItem>
-              )
-            })}
+                return (
+                  <NavigationItem
+                    key={i}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </NavigationItem>
+                )
+              })}
+            </div>
+            <div className="flex justify-center space-x-2 md:flex-1">
+              <ThemeToggle variant="ghost" />
+              <RSSFeedButton />
+              <ActionsNavigation
+                onSelect={() => {
+                  setOpen(false)
+                }}
+              />
+            </div>
           </div>
-          <div className="flex justify-center space-x-2 md:flex-1">
-            <ThemeToggle variant="ghost" />
-            <RSSFeedButton />
-            <ActionsNavigation
-              onSelect={() => {
-                setOpen(false)
-              }}
-            />
-          </div>
-        </div>
-      </Drawer.Content>
-    </Drawer>
+        </Drawer.Content>
+      </Drawer>
+    </ClientOnly>
   )
 }
