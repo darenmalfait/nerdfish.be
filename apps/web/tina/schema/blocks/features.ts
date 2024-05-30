@@ -66,6 +66,12 @@ export const featuresBlockSchema: Template = {
             value: name,
           })),
         },
+        {
+          type: 'reference',
+          label: 'Link to detail page',
+          name: 'detail',
+          collections: ['page'],
+        },
       ],
     },
   ],
