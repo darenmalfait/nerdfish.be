@@ -2,12 +2,12 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {Badge, H3, Paragraph} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksProducts, type Product} from '~/app/cms'
 import {buildSrc, buildSrcSet, getLowQualityUrlFor, Header} from '~/app/common'
+import {Image} from '~/app/common/components/image'
 
 function Feature({title, link, description, soon, image}: Partial<Product>) {
   return (

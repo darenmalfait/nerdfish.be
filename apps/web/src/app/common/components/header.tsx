@@ -26,7 +26,7 @@ function Header({ctaUrl, cta, title, subTitle, className, as}: HeaderProps) {
         <div className="space-y-0">
           {title ? <H2>{title}</H2> : null}
           {subTitle ? (
-            <H2 variant="secondary" as="p">
+            <H2 variant="secondary" as="div">
               {subTitle}
             </H2>
           ) : null}

@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {cx} from '@nerdfish/utils'
 
 import {buildSrc, buildSrcSet, getLowQualityUrlFor} from '~/app/common'
+import {Image} from '~/app/common/components/image'
 
 function PortableImage({
   alt = '',

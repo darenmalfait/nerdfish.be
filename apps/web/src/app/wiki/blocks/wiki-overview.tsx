@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
-import {Image} from '@nerdfish-website/ui/components/image'
 import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
@@ -18,6 +17,7 @@ import {
   getLowQualityUrlFor,
   Header,
 } from '~/app/common'
+import {Image} from '~/app/common/components/image'
 
 import {filterWiki} from '../utils'
 
