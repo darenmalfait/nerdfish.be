@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import {ClientOnly} from '@nerdfish-website/ui/components/client-only'
 import {Icons} from '@nerdfish-website/ui/icons'
 
 import {MobileNavigation} from './mobile-navigation'
@@ -19,14 +20,18 @@ export function Header() {
         </div>
         <div className="hidden flex-1 justify-end md:justify-center lg:flex">
           <nav className="flex rounded-full px-3 text-sm font-medium lg:space-x-2">
-            <MainNavigation />
+            <ClientOnly>
+              <MainNavigation />
+            </ClientOnly>
           </nav>
         </div>
         <div className="flex justify-end space-x-2 md:flex-1">
           <ThemeToggle variant="ghost" />
           <RSSFeedButton className="hidden xsm:flex" />
           <ActionsNavigation className="hidden md:flex" />
-          <MobileNavigation />
+          <ClientOnly>
+            <MobileNavigation />
+          </ClientOnly>
         </div>
       </div>
     </div>

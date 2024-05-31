@@ -52,24 +52,26 @@ const MainNavigationSubItem = React.forwardRef<
 >(({href, label, description, className, ...props}, ref) => {
   return (
     <li>
-      <NavigationMenu.Link asChild>
-        <Link
-          className={cx(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15',
-            className,
-          )}
-          ref={ref}
-          href={`/${stripPreSlash(href)}`}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{label}</div>
-          {description ? (
-            <p className="line-clamp-2 text-sm leading-snug text-muted">
-              {description}
-            </p>
-          ) : null}
-        </Link>
-      </NavigationMenu.Link>
+      <NavigationMenu.Item>
+        <NavigationMenu.Link asChild>
+          <Link
+            className={cx(
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15',
+              className,
+            )}
+            ref={ref}
+            href={`/${stripPreSlash(href)}`}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none">{label}</div>
+            {description ? (
+              <p className="line-clamp-2 text-sm leading-snug text-muted">
+                {description}
+              </p>
+            ) : null}
+          </Link>
+        </NavigationMenu.Link>
+      </NavigationMenu.Item>
     </li>
   )
 })
@@ -96,16 +98,18 @@ function MainNavigationItem({href, label, sub}: GlobalNavigationMain) {
     const isActive = stripPreSlash(pathname ?? '').startsWith(href ?? '')
 
     return (
-      <NavigationMenu.Link asChild>
-        <Link
-          href={`/${stripPreSlash(href ?? '')}`}
-          className={getMainItemClassName({
-            variant: isActive ? 'active' : 'default',
-          })}
-        >
-          {label}
-        </Link>
-      </NavigationMenu.Link>
+      <NavigationMenu.Item>
+        <NavigationMenu.Link asChild>
+          <Link
+            href={`/${stripPreSlash(href ?? '')}`}
+            className={getMainItemClassName({
+              variant: isActive ? 'active' : 'default',
+            })}
+          >
+            {label}
+          </Link>
+        </NavigationMenu.Link>
+      </NavigationMenu.Item>
     )
   }
 

@@ -1,8 +1,9 @@
+'use client'
+
 import * as React from 'react'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
-import {ClientOnly} from '@nerdfish-website/ui/components/client-only'
 import {Icons} from '@nerdfish-website/ui/icons'
 import {Button, Drawer, H2, H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -100,58 +101,56 @@ export function MobileNavigation() {
   const [open, setOpen] = React.useState<boolean>(false)
 
   return (
-    <ClientOnly>
-      <Drawer direction="top" open={open} onOpenChange={setOpen}>
-        <Drawer.Trigger asChild>
-          <Button
-            className="lg:hidden"
-            variant="ghost"
-            type="button"
-            size="icon"
-            aria-label="Toggle navigation"
-          >
-            <Icons.Hamburger className="size-4" />
-          </Button>
-        </Drawer.Trigger>
-        <Drawer.Content className="dark:bg-popover">
-          <div className="container mx-auto flex flex-col gap-12 px-4 py-6">
-            <div className="flex items-center justify-between gap-2">
-              <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-                <Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
-              </Link>
-              <div className="flex flex-row items-center justify-end gap-2">
-                <ThemeToggle variant="ghost" />
-                <RSSFeedButton />
-                <ActionsNavigation
-                  onSelect={() => {
-                    setOpen(false)
-                  }}
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              {navigation?.main?.map(navItem => {
-                if (!navItem) return null
-
-                return (
-                  <MobileNavigationItem
-                    key={navItem.label}
-                    {...navItem}
-                    onClick={() => setOpen(false)}
-                  />
-                )
-              })}
-            </div>
-
-            <div className="flex gap-2">
-              <div className="flex flex-row items-center gap-3">
-                <span className="font-bold">Socials:</span>
-                <SocialLinks />
-              </div>
+    <Drawer direction="top" open={open} onOpenChange={setOpen}>
+      <Drawer.Trigger asChild>
+        <Button
+          className="lg:hidden"
+          variant="ghost"
+          type="button"
+          size="icon"
+          aria-label="Toggle navigation"
+        >
+          <Icons.Hamburger className="size-4" />
+        </Button>
+      </Drawer.Trigger>
+      <Drawer.Content className="dark:bg-popover">
+        <div className="container mx-auto flex flex-col gap-12 px-4 py-6">
+          <div className="flex items-center justify-between gap-2">
+            <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+              <Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
+            </Link>
+            <div className="flex flex-row items-center justify-end gap-2">
+              <ThemeToggle variant="ghost" />
+              <RSSFeedButton />
+              <ActionsNavigation
+                onSelect={() => {
+                  setOpen(false)
+                }}
+              />
             </div>
           </div>
-        </Drawer.Content>
-      </Drawer>
-    </ClientOnly>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {navigation?.main?.map(navItem => {
+              if (!navItem) return null
+
+              return (
+                <MobileNavigationItem
+                  key={navItem.label}
+                  {...navItem}
+                  onClick={() => setOpen(false)}
+                />
+              )
+            })}
+          </div>
+
+          <div className="flex gap-2">
+            <div className="flex flex-row items-center gap-3">
+              <span className="font-bold">Socials:</span>
+              <SocialLinks />
+            </div>
+          </div>
+        </div>
+      </Drawer.Content>
+    </Drawer>
   )
 }
