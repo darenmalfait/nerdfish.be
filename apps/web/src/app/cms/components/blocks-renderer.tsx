@@ -10,6 +10,7 @@ import {
 } from '~/app/common'
 import {ProductsBlock} from '~/app/realisations'
 import {WikiOverviewBlock} from '~/app/wiki'
+import {WorkOverviewBlock} from '~/app/work'
 import {type PageBlocks} from '~/tina/__generated__/types'
 
 import {type Block} from '../types'
@@ -52,6 +53,7 @@ export function Blocks({
     PageBlocksKeywordList: KeywordListBlock,
     PageBlocksProducts: ProductsBlock,
     PageBlocksWiki: WikiOverviewBlock,
+    PageBlocksWork: WorkOverviewBlock,
   }
 
   return (

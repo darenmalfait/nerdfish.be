@@ -5,26 +5,24 @@ import Image from 'next/image'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
-import {formatDate, parseISO} from 'date-fns'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {type Block, type PageBlocksBlog} from '~/app/cms'
+import {type Block, type PageBlocksWork} from '~/app/cms'
 import {
   ArticleCard,
-  BlogPath,
   buildSrc,
-  getDatedSlug,
   Header,
   HighlightCard,
+  WorkPath,
 } from '~/app/common'
 
-import {filterBlog} from '../utils'
+import {filterWork} from '../utils'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
+export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
   const {
     header,
     searchEnabled,
@@ -33,21 +31,22 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
     count,
     globalData = {},
   } = data
-  const {blogs: allPosts = []} = globalData
+  const {works: allWorks = []} = globalData
+
   const {title, subtitle, link} = header ?? {}
   const [query, setQuery] = React.useState('')
   const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
 
   let filteredPosts =
-    tags && tags.length > 0 ? filterBlog(allPosts, tags.join(' ')) : allPosts
-  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
+    tags && tags.length > 0 ? filterWork(allWorks, tags.join(' ')) : allWorks
+  const allTags = [...new Set(filteredPosts.flatMap(post => post.category))]
 
   if (count) {
     filteredPosts = filteredPosts.slice(0, count)
   }
 
   const matchingPosts = React.useMemo(() => {
-    return filterBlog(filteredPosts, query)
+    return filterWork(filteredPosts, query)
   }, [filteredPosts, query])
 
   const isSearching = query.length > 0
@@ -65,7 +64,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 
   const visibleTags =
     isSearching || !featuredEnabled
-      ? [...new Set(matchingPosts.flatMap(post => post.tags))]
+      ? [...new Set(matchingPosts.flatMap(post => post.category))]
       : allTags
 
   function toggleTag(tag: string) {
@@ -186,16 +185,8 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
         {!isSearching && featured && featuredEnabled ? (
           <HighlightCard
             category={featured.category}
-            href={`/${BlogPath}${getDatedSlug(
-              featured.date as string,
-              featured._sys?.filename ?? '',
-            )}`}
+            href={`/${WorkPath}/${featured.category}/${featured._sys?.filename}`}
             title={featured.title}
-            subTitle={
-              featured.date
-                ? `${formatDate(parseISO(featured.date), 'PPP')}`
-                : 'TBA'
-            }
             image={featured.heroImg}
           />
         ) : null}
@@ -208,12 +199,12 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
           </div>
         ) : (
           <div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
-            {posts.map(blog => {
+            {posts.map(work => {
               return (
-                <div key={blog.id} className="col-span-4">
+                <div key={work.id} className="col-span-4">
                   <ArticleCard
-                    href={`/${BlogPath}${getDatedSlug(blog.date, blog._sys?.filename)}`}
-                    {...blog}
+                    href={`/${WorkPath}/${work.category}/${work._sys?.filename}`}
+                    {...work}
                   />
                 </div>
               )

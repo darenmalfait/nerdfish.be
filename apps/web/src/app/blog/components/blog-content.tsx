@@ -5,7 +5,13 @@ import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type BlogPostQueryQuery} from '~/app/cms'
-import {ArticleCard, buildSrc, Header} from '~/app/common'
+import {
+  ArticleCard,
+  BlogPath,
+  buildSrc,
+  getDatedSlug,
+  Header,
+} from '~/app/common'
 
 import {mapBlogData} from '../api'
 import {BackToBlog} from './misc'
@@ -76,7 +82,11 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
             {relatedPosts.map(relatedBlog => {
               return (
                 <div key={relatedBlog.id} className="col-span-4">
-                  <ArticleCard {...relatedBlog} id={relatedBlog.id} />
+                  <ArticleCard
+                    href={`/${BlogPath}${getDatedSlug(date, relatedBlog._sys.filename)}`}
+                    {...relatedBlog}
+                    id={relatedBlog.id}
+                  />
                 </div>
               )
             })}

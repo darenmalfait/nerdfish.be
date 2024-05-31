@@ -1,4 +1,5 @@
 :root {
+  /* Blog */
   --color-blog-unknown: 210 10% 55%;
   --color-blog-technical: 160 87% 45%;
   --color-blog-project: 214 90% 60%;
@@ -6,10 +7,16 @@
   /* yellow in light mode is... hard */
   --color-blog-coaching: 40 91% 50%;
   --color-blog: 210 10% 55%;
+
+  /* Work */
+  --color-work-webdesign: 0 100% 70%;
+  --color-work-branding: 170 100% 40%;
+  --color-work-print: 230 70% 60%;
+  --color-work: 210 10% 55%;
 }
 
 .dark {
-  --color-blog-coaching: #ffd644;
+  --color-blog-coaching: 40 100% 60%;
   --color-blog-unknown: var(--colors-foreground-primary);
 }
 

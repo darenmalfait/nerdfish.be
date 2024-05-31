@@ -158,6 +158,11 @@ const globalCollection: Collection = {
         },
         {
           type: 'string',
+          label: 'Works',
+          name: 'work',
+        },
+        {
+          type: 'string',
           label: 'Contact',
           name: 'contact',
         },

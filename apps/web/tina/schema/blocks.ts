@@ -6,6 +6,7 @@ import {heroTemplate} from './blocks/hero.template'
 import {keywordListTemplate} from './blocks/keyword-list.template'
 import {productsTemplate} from './blocks/products.template'
 import {wikiTemplate} from './blocks/wiki.template'
+import {workTemplate} from './blocks/work.template'
 
 const blocks = [
   bigTitleTemplate,
@@ -14,8 +15,9 @@ const blocks = [
   featuresTemplate,
   heroTemplate,
   keywordListTemplate,
-  wikiTemplate,
   productsTemplate,
+  wikiTemplate,
+  workTemplate,
 ]
 
 export {blocks}
