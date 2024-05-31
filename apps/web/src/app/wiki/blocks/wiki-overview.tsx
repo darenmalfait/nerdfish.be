@@ -147,7 +147,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
         </div>
       ) : null}
 
-      <section className="container mx-auto max-w-3xl space-y-14 px-4 py-12 sm:space-y-16 sm:py-16">
+      <section className="container mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
@@ -180,11 +180,11 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
                   {wiki.title}
                 </a>
                 {wiki.date ? (
-                  <p className="text-sm text-primary/40">
+                  <p className="mt-2 text-sm font-bold text-muted">
                     <DateFormatter dateString={wiki.date} format="PPP" />
                   </p>
                 ) : null}
-                <div className="mt-2 text-justify text-primary/40">
+                <div className="mt-2 text-justify text-muted">
                   <PortableText content={wiki.excerpt} />
                 </div>
               </article>
