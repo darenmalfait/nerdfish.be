@@ -2,7 +2,7 @@ import {type Template} from 'tinacms'
 
 import {portableTextSchema} from '../objects'
 
-export const contentBlockSchema: Template = {
+export const contentTemplate: Template = {
   name: 'content',
   label: 'Content',
   ui: {

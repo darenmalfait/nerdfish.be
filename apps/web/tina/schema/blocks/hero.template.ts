@@ -2,7 +2,7 @@ import {type Template} from 'tinacms'
 
 import {imageSchema, portableTextSchema} from '../objects'
 
-export const heroBlockSchema: Template = {
+export const heroTemplate: Template = {
   name: 'hero',
   label: 'Hero',
   ui: {

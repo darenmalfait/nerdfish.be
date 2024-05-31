@@ -3,9 +3,9 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {Icons} from '@nerdfish-website/ui/icons'
-import {getButtonClassName} from '@nerdfish/ui'
 
 import {useGlobal} from '../global-provider'
+import {SocialLinks} from './navigation'
 import {ThemeToggle} from './theme-toggle'
 
 function Footer() {
@@ -39,31 +39,7 @@ function Footer() {
         <div className="flex flex-row items-center gap-3">
           <ThemeToggle className="flex size-10 items-center justify-center transition" />
 
-          {twitter ? (
-            <Link
-              className={getButtonClassName({
-                variant: 'ghost',
-                size: 'icon',
-              })}
-              aria-label="Twitter feed"
-              href={twitter}
-            >
-              <Icons.Twitter className="size-4 duration-75 ease-linear" />
-            </Link>
-          ) : null}
-          {github ? (
-            <Link
-              className={getButtonClassName({
-                variant: 'ghost',
-                size: 'icon',
-              })}
-              aria-label="Github Repository"
-              href={github}
-            >
-              <Icons.GitHub className="size-4 duration-75 ease-linear" />
-              <span className="sr-only">Github</span>
-            </Link>
-          ) : null}
+          <SocialLinks />
         </div>
       </div>
     </footer>

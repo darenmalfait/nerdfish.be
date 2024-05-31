@@ -1,21 +1,21 @@
-import {bigTitleBlockSchema} from './blocks/big-title'
-import {blogBlockSchema} from './blocks/blog'
-import {contentBlockSchema} from './blocks/content'
-import {featuresBlockSchema} from './blocks/features'
-import {heroBlockSchema} from './blocks/hero'
-import {keywordListBlockSchema} from './blocks/keyword-list'
-import {productsBlockSchema} from './blocks/products'
-import {wikiBlockSchema} from './blocks/wiki'
+import {bigTitleTemplate} from './blocks/big-title.template'
+import {blogTemplate} from './blocks/blog.template'
+import {contentTemplate} from './blocks/content.template'
+import {featuresTemplate} from './blocks/features.template'
+import {heroTemplate} from './blocks/hero.template'
+import {keywordListTemplate} from './blocks/keyword-list.template'
+import {productsTemplate} from './blocks/products.template'
+import {wikiTemplate} from './blocks/wiki.template'
 
 const blocks = [
-  bigTitleBlockSchema,
-  blogBlockSchema,
-  contentBlockSchema,
-  featuresBlockSchema,
-  heroBlockSchema,
-  keywordListBlockSchema,
-  wikiBlockSchema,
-  productsBlockSchema,
+  bigTitleTemplate,
+  blogTemplate,
+  contentTemplate,
+  featuresTemplate,
+  heroTemplate,
+  keywordListTemplate,
+  wikiTemplate,
+  productsTemplate,
 ]
 
 export {blocks}

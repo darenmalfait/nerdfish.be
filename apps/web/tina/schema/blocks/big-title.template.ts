@@ -1,6 +1,6 @@
 import {type Template} from 'tinacms'
 
-export const bigTitleBlockSchema: Template = {
+export const bigTitleTemplate: Template = {
   name: 'bigTitle',
   label: 'Big Title',
   ui: {

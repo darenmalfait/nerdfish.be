@@ -31,15 +31,50 @@ const globalCollection: Collection = {
           fields: [
             {
               type: 'string',
-              label: 'Link',
-              name: 'href',
+              label: 'Label',
+              name: 'label',
               required: true,
             },
             {
               type: 'string',
-              label: 'Label',
-              name: 'label',
-              required: true,
+              label: 'Link',
+              name: 'href',
+              description:
+                'If there are sub navigation items, this link will be ignored.',
+            },
+            {
+              type: 'object',
+              label: 'Sub navigation',
+              name: 'sub',
+              list: true,
+              ui: {
+                itemProps: item => {
+                  return {label: item.label}
+                },
+                defaultItem: {
+                  href: 'sub',
+                  label: 'Sub',
+                },
+              },
+              fields: [
+                {
+                  type: 'string',
+                  label: 'Label',
+                  name: 'label',
+                  required: true,
+                },
+                {
+                  type: 'string',
+                  label: 'Description',
+                  name: 'description',
+                },
+                {
+                  type: 'string',
+                  label: 'Link',
+                  name: 'href',
+                  required: true,
+                },
+              ],
             },
           ],
         },
@@ -98,6 +133,11 @@ const globalCollection: Collection = {
           type: 'string',
           label: 'Github',
           name: 'github',
+        },
+        {
+          type: 'string',
+          label: 'LinkedIn',
+          name: 'linkedIn',
         },
       ],
     },

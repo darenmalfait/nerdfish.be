@@ -2,7 +2,7 @@ import {type Template} from 'tinacms'
 
 import {tagsSchema} from '../objects'
 
-export const wikiBlockSchema: Template = {
+export const wikiTemplate: Template = {
   name: 'Wiki',
   label: 'Wiki',
   ui: {
