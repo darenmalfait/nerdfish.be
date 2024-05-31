@@ -17,6 +17,11 @@ function filterBlog(posts: Partial<Blog>[], searchString: string) {
         maxRanking: matchSorterRankings.CONTAINS,
       },
       {
+        key: 'category.*',
+        threshold: matchSorterRankings.CONTAINS,
+        maxRanking: matchSorterRankings.CONTAINS,
+      },
+      {
         key: 'excerpt',
         threshold: matchSorterRankings.CONTAINS,
         maxRanking: matchSorterRankings.CONTAINS,
