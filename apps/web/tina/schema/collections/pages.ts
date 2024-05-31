@@ -39,7 +39,7 @@ const pagesCollection: Collection = {
       type: 'object',
       list: true,
       name: 'blocks',
-      label: 'Sections',
+      label: 'Page Sections',
       ui: {
         visualSelector: true,
       },

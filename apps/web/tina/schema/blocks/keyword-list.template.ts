@@ -1,6 +1,6 @@
 import {type Template} from 'tinacms'
 
-export const keywordListBlockSchema: Template = {
+export const keywordListTemplate: Template = {
   name: 'KeywordList',
   label: 'Keywords',
   ui: {

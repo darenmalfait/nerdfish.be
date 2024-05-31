@@ -8,7 +8,7 @@ const defaultFeature = {
   icon: 'AcademicCapIcon',
 }
 
-export const featuresBlockSchema: Template = {
+export const featuresTemplate: Template = {
   name: 'features',
   label: 'Features',
   ui: {
