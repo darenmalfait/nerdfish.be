@@ -33,7 +33,7 @@ function ArticleCard({
         {heroImg ? (
           <div
             className={cx(
-              'aspect-h-4 aspect-w-3 rounded-lg shadow-outline group-focus:ring-2 group-hover:ring-2 ring-transparent group-focus:ring-current group-hover:ring-current ring-offset-2',
+              'aspect-h-4 aspect-w-3 rounded-lg shadow-outline group-focus:ring-2 group-hover:ring-2 ring-transparent ring-offset-inverted group-focus:ring-current group-hover:ring-current ring-offset-2',
               getCategoryColors(category),
             )}
           >
