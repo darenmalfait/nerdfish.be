@@ -17,18 +17,16 @@ export function BigTitleBlock(data: Block<PageBlocksBigTitle>) {
             <Link
               href={action.href ?? '/'}
               data-tina-field={tinaField(action)}
-              className="inline-block w-auto cursor-pointer"
+              className="group relative inline-block w-auto cursor-pointer rounded-full bg-gradient-to-r from-nerdfish/50 via-blog-wiki/50 to-blog-project/50 p-[1px] outline-none brightness-90 contrast-150 dark:brightness-125 dark:contrast-100"
             >
-              <div className="group rounded-full bg-gradient-to-r from-nerdfish/50 via-blog-wiki/50 to-blog-project/50 p-[1px] brightness-90 contrast-150 dark:brightness-125 dark:contrast-100">
-                <div className="rounded-full bg-white/80 px-3 py-1 dark:bg-black/80">
-                  <span className="flex select-none items-center bg-gradient-to-r from-nerdfish via-blog-wiki to-blog-project bg-clip-text text-transparent">
-                    <span className="font-normal">{action.label}</span>
-                    <Icons.ChevronRight
-                      direction="right"
-                      className="ml-2 size-4 stroke-primary stroke-2 transition-transform group-hover:translate-x-0.5"
-                    />
-                  </span>
-                </div>
+              <div className="rounded-full bg-white/80 px-3 py-1 group-focus:outline-active group-focus:after:rounded-full dark:bg-black/80">
+                <span className="flex select-none items-center bg-gradient-to-r from-nerdfish via-blog-wiki to-blog-project bg-clip-text text-transparent">
+                  <span className="font-normal">{action.label}</span>
+                  <Icons.ChevronRight
+                    direction="right"
+                    className="ml-2 size-4 stroke-primary stroke-2 transition-transform group-hover:translate-x-0.5"
+                  />
+                </span>
               </div>
             </Link>
           </div>
