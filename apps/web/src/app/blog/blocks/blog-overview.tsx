@@ -171,14 +171,13 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
         </div>
       ) : null}
 
-      <section className="container mx-auto px-4">
+      <section className="container mx-auto flex flex-col gap-12 px-4">
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
               title={title ?? undefined}
               subTitle={subtitle}
               cta="See all articles"
-              className="mb-12"
               ctaUrl={link ?? ''}
             />
           </div>
@@ -201,28 +200,26 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
           />
         ) : null}
 
-        <div className="relative mb-32">
-          {matchingPosts.length === 0 ? (
-            <div className="flex grid-cols-4 flex-col">
-              <H3 as="p" variant="secondary" className="max-w-lg">
-                No articles found for your search query.
-              </H3>
-            </div>
-          ) : (
-            <div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
-              {posts.map(blog => {
-                return (
-                  <div key={blog.id} className="col-span-4">
-                    <ArticleCard {...blog} />
-                  </div>
-                )
-              })}
-            </div>
-          )}
-        </div>
+        {matchingPosts.length === 0 ? (
+          <div className="flex grid-cols-4 flex-col">
+            <H3 as="p" variant="secondary" className="max-w-lg">
+              No articles found for your search query.
+            </H3>
+          </div>
+        ) : (
+          <div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+            {posts.map(blog => {
+              return (
+                <div key={blog.id} className="col-span-4">
+                  <ArticleCard {...blog} />
+                </div>
+              )
+            })}
+          </div>
+        )}
 
         {hasMorePosts ? (
-          <div className="mb-32 flex w-full justify-center">
+          <div className="mb-16 flex w-full justify-center">
             <Button
               variant="secondary"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
