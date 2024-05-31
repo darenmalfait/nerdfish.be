@@ -33,11 +33,11 @@ export function ActionsNavigation({
 
   return (
     <div className={cx('space-x-3', className)}>
-      {navigation?.actions?.map((link, i: number) => {
+      {navigation?.actions?.map(link => {
         if (!link) return null
 
         return (
-          <Button key={i} onClick={onSelect} asChild>
+          <Button key={link.label} onClick={onSelect} asChild>
             <Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
           </Button>
         )
