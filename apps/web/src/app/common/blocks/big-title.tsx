@@ -11,7 +11,7 @@ export function BigTitleBlock(data: Block<PageBlocksBigTitle>) {
 
   return (
     <section>
-      <div className="container mx-auto my-8 flex flex-col space-y-0 px-4 lg:my-16">
+      <div className="container mx-auto my-8 flex flex-col gap-3 px-4 lg:my-16">
         {action?.label ? (
           <div>
             <Link
