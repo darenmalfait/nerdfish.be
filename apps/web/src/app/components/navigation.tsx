@@ -2,35 +2,14 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import {usePathname} from 'next/navigation'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
-import {ClientOnly} from '@nerdfish-website/ui/components/client-only'
 import {Icons} from '@nerdfish-website/ui/icons'
-import {Button, Drawer, H2} from '@nerdfish/ui'
-import {cx} from '@nerdfish/utils'
+import {Button, NavigationMenu} from '@nerdfish/ui'
+import {cva, cx} from '@nerdfish/utils'
 
+import {type GlobalNavigationMain, type GlobalNavigationMainSub} from '../cms'
 import {useGlobal} from '../global-provider'
-import {ThemeToggle} from './theme-toggle'
-
-const NavigationItem = React.forwardRef(
-  (
-    {href, children, ...props}: React.ComponentPropsWithRef<'a'>,
-    ref: React.Ref<HTMLAnchorElement>,
-  ) => {
-    return (
-      <Link href={`/${stripPreSlash(href ?? '')}`} ref={ref} {...props}>
-        <H2
-          className="hover:text-muted"
-          blurredClassName="hidden"
-          variant="primary"
-          as="span"
-        >
-          {children}
-        </H2>
-      </Link>
-    )
-  },
-)
-NavigationItem.displayName = 'NavigationItem'
 
 export function RSSFeedButton({className}: {className?: string}) {
   return (
@@ -67,53 +46,158 @@ export function ActionsNavigation({
   )
 }
 
-export function MobileNavigation() {
-  const {navigation} = useGlobal()
-  const [open, setOpen] = React.useState<boolean>(false)
+const MainNavigationSubItem = React.forwardRef<
+  React.ElementRef<typeof Link>,
+  React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
+>(({href, label, description, className, ...props}, ref) => {
+  return (
+    <li>
+      <NavigationMenu.Link asChild>
+        <Link
+          className={cx(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15',
+            className,
+          )}
+          ref={ref}
+          href={`/${stripPreSlash(href)}`}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{label}</div>
+          {description ? (
+            <p className="line-clamp-2 text-sm leading-snug text-muted">
+              {description}
+            </p>
+          ) : null}
+        </Link>
+      </NavigationMenu.Link>
+    </li>
+  )
+})
+MainNavigationSubItem.displayName = 'MainNavigationSubItem'
+
+const getMainItemClassName = cva(
+  'relative flex h-8 cursor-pointer items-center gap-x-1.5 whitespace-nowrap rounded-full px-3 capitalize outline-none !ring-muted transition active-ring after:rounded-full focus-within:ring-2 active:bg-inverted/10 sm:h-10 sm:px-4',
+  {
+    variants: {
+      variant: {
+        default: 'hover:bg-muted',
+        active:
+          'bg-primary px-3 text-primary shadow-outline hover:bg-muted hover:text-primary/90',
+      },
+    },
+  },
+)
+
+function MainNavigationItem({href, label, sub}: GlobalNavigationMain) {
+  const pathname = usePathname()
+  if (!sub?.length && !href) return null
+
+  if (!sub?.length) {
+    const isActive = stripPreSlash(pathname ?? '').startsWith(href ?? '')
+
+    return (
+      <NavigationMenu.Link asChild>
+        <Link
+          href={`/${stripPreSlash(href ?? '')}`}
+          className={getMainItemClassName({
+            variant: isActive ? 'active' : 'default',
+          })}
+        >
+          {label}
+        </Link>
+      </NavigationMenu.Link>
+    )
+  }
+
+  const isActive = sub.some(subNavItem => {
+    if (!subNavItem) return false
+
+    return stripPreSlash(pathname ?? '').startsWith(subNavItem.href)
+  })
 
   return (
-    <ClientOnly>
-      <Drawer direction="top" open={open} onOpenChange={setOpen}>
-        <Drawer.Trigger asChild>
-          <Button
-            className="lg:hidden"
-            variant="ghost"
-            type="button"
-            size="icon"
-            aria-label="Toggle navigation"
-          >
-            <Icons.Hamburger className="size-4" />
-          </Button>
-        </Drawer.Trigger>
-        <Drawer.Content>
-          <div className="flex flex-col gap-12 py-6">
-            <div className="container m-auto flex flex-col items-center justify-center gap-6">
-              {navigation?.main?.map((link, i: number) => {
-                if (!link) return null
+    <NavigationMenu.Item>
+      <NavigationMenu.Trigger
+        className={getMainItemClassName({
+          variant: isActive ? 'active' : 'default',
+        })}
+      >
+        {label}
+      </NavigationMenu.Trigger>
+      <NavigationMenu.Content>
+        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+          {sub.map((subNavItem, i) => {
+            if (!subNavItem) return null
 
-                return (
-                  <NavigationItem
-                    key={i}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </NavigationItem>
-                )
-              })}
-            </div>
-            <div className="flex justify-center space-x-2 md:flex-1">
-              <ThemeToggle variant="ghost" />
-              <RSSFeedButton />
-              <ActionsNavigation
-                onSelect={() => {
-                  setOpen(false)
-                }}
-              />
-            </div>
-          </div>
-        </Drawer.Content>
-      </Drawer>
-    </ClientOnly>
+            return <MainNavigationSubItem key={i} {...subNavItem} />
+          })}
+        </ul>
+      </NavigationMenu.Content>
+    </NavigationMenu.Item>
+  )
+}
+
+export function SocialLinks() {
+  const {social} = useGlobal()
+
+  return (
+    <div className="flex flex-row items-center gap-3">
+      {social?.twitter ? (
+        <Button variant="ghost" size="icon" asChild>
+          <Link aria-label="Twitter feed" href={social.twitter}>
+            <Icons.Twitter className="size-4 duration-75 ease-linear" />
+          </Link>
+        </Button>
+      ) : null}
+      {social?.facebook ? (
+        <Button variant="ghost" size="icon" asChild>
+          <Link aria-label="Facebook page" href={social.facebook}>
+            <Icons.Facebook className="size-4 duration-75 ease-linear" />
+          </Link>
+        </Button>
+      ) : null}
+      {social?.instagram ? (
+        <Button variant="ghost" size="icon" asChild>
+          <Link
+            aria-label="Instagram
+          "
+            href={social.instagram}
+          >
+            <Icons.Instagram className="size-4 duration-75 ease-linear" />
+          </Link>
+        </Button>
+      ) : null}
+      {social?.linkedIn ? (
+        <Button variant="ghost" size="icon" asChild>
+          <Link aria-label="LinkedIn profile" href={social.linkedIn}>
+            <Icons.LinkedIn className="size-4 duration-75 ease-linear" />
+          </Link>
+        </Button>
+      ) : null}
+      {social?.github ? (
+        <Button variant="ghost" size="icon" asChild>
+          <Link aria-label="Github Repository" href={social.github}>
+            <Icons.GitHub className="size-4 duration-75 ease-linear" />
+            <span className="sr-only">Github</span>
+          </Link>
+        </Button>
+      ) : null}
+    </div>
+  )
+}
+
+export function MainNavigation() {
+  const {navigation} = useGlobal()
+
+  return (
+    <NavigationMenu>
+      <NavigationMenu.List className="gap-2">
+        {navigation?.main?.map(mainNavItem => {
+          if (!mainNavItem) return null
+
+          return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
+        })}
+      </NavigationMenu.List>
+    </NavigationMenu>
   )
 }

@@ -2,16 +2,28 @@
   "navigation": {
     "main": [
       {
-        "href": "blog",
-        "label": "blog"
+        "label": "Insights",
+        "href": "",
+        "sub": [
+          {
+            "label": "Blog",
+            "description": "A compilation of articles I have written about various topics",
+            "href": "blog"
+          },
+          {
+            "label": "Wiki",
+            "description": "A curated list of helpful pages serving as a comprehensive knowledge base",
+            "href": "wiki"
+          }
+        ]
       },
       {
-        "href": "wiki",
-        "label": "wiki"
+        "label": "Web Design",
+        "href": "webdesign"
       },
       {
-        "href": "products",
-        "label": "products"
+        "label": "products",
+        "href": "products"
       }
     ],
     "actions": [
@@ -23,7 +35,8 @@
   },
   "social": {
     "twitter": "https://twitter.com/darenmalfait",
-    "github": "https://github.com/darenmalfait"
+    "github": "https://github.com/darenmalfait",
+    "linkedIn": "https://www.linkedin.com/in/darenmalfait/"
   },
   "paths": {
     "wiki": "wiki",
