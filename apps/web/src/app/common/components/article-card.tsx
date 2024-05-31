@@ -25,15 +25,15 @@ function ArticleCard({
   return (
     <Link
       href={`/blog${getDatedSlug(date, _sys?.filename ?? '')}`}
-      className="relative w-full"
+      className="group relative w-full outline-none"
     >
-      <div className="group peer relative block w-full focus:outline-none">
+      <div className="peer relative block w-full outline-none">
         <CategoryIndicator category={category} />
 
         {heroImg ? (
           <div
             className={cx(
-              'aspect-h-4 aspect-w-3 rounded-lg focus-ring shadow-outline',
+              'aspect-h-4 aspect-w-3 rounded-lg shadow-outline group-focus:ring-2 group-hover:ring-2 ring-transparent group-focus:ring-current group-hover:ring-current ring-offset-2',
               getCategoryColors(category),
             )}
           >
@@ -48,8 +48,8 @@ function ArticleCard({
           </div>
         ) : (
           <div className="aspect-h-4 aspect-w-3">
-            <div className="w-full rounded-lg transition focus-ring">
-              <div className="inset-0 bg-warning" />
+            <div className="w-full rounded-lg transition">
+              <div className="inset-0 bg-nerdfish" />
             </div>
           </div>
         )}
