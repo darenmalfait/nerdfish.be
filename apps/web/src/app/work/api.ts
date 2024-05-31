@@ -11,7 +11,7 @@ export async function getWorks() {
 export function mapWorkData(data: WorkQueryQuery) {
   return {
     ...data,
-    work: data.workConnection.edges?.map((item: any) => ({
+    works: data.workConnection.edges?.map((item: any) => ({
       ...(item?.node ?? {}),
     })) as Work[],
   }
