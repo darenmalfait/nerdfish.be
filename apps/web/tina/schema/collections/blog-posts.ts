@@ -30,7 +30,7 @@ const blogPostsCollection: Collection = {
         const year = date.getFullYear()
         const month = padStart((date.getMonth() + 1).toString(), 2, '0')
 
-        let slug = values.title ? slugify(values.title.toLowerCase()) : ''
+        let slug = values.title ? slugify(values.title?.toLowerCase()) : ''
 
         if (values.date) {
           slug = `${year}/${month}/${slug}`
