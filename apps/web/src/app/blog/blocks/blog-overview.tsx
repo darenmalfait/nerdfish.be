@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import Image from 'next/image'
-import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -172,16 +171,16 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
         </div>
       ) : null}
 
-      <section className="container mx-auto mt-24 px-4">
+      <section className="container mx-auto px-4">
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
               title={title ?? undefined}
               subTitle={subtitle}
               cta="See all articles"
+              className="mb-12"
               ctaUrl={link ?? ''}
             />
-            <Spacer size="2xs" />
           </div>
         ) : null}
 
@@ -202,21 +201,23 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
           />
         ) : null}
 
-        <div className="relative mb-32 mt-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+        <div className="relative mb-32">
           {matchingPosts.length === 0 ? (
-            <div className="flex flex-col">
+            <div className="flex grid-cols-4 flex-col">
               <H3 as="p" variant="secondary" className="max-w-lg">
-                No results found.
+                No articles found for your search query.
               </H3>
             </div>
           ) : (
-            posts.map(blog => {
-              return (
-                <div key={blog.id} className="col-span-4">
-                  <ArticleCard {...blog} />
-                </div>
-              )
-            })
+            <div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+              {posts.map(blog => {
+                return (
+                  <div key={blog.id} className="col-span-4">
+                    <ArticleCard {...blog} />
+                  </div>
+                )
+              })}
+            </div>
           )}
         </div>
 

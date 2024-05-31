@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {H2} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
@@ -63,32 +62,37 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
   )
 }
 
-export function FeaturesBlock({
-  title,
-  subTitle,
-  items,
-}: Block<PageBlocksFeatures>) {
+export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
+  const {title, subTitle, items} = props
+
   return (
-    <section className="container mx-auto mt-24 px-4">
+    <section className="container mx-auto my-24 px-4">
       {title ?? subTitle ? (
-        <>
-          <Header title={title?.toString()} subTitle={subTitle} />
-          <Spacer size="2xs" />
-        </>
+        <Header
+          title={title?.toString()}
+          subTitle={subTitle}
+          className="mb-12"
+        />
       ) : null}
-      <div className="grid grid-cols-12 gap-6">
-        {items?.map(item => {
+      <div
+        className="grid grid-cols-12 gap-6"
+        data-tina-field={tinaField(props, 'items')}
+      >
+        {items?.map((item, i) => {
           if (!item) return null
 
           const {icon, ...itemProps} = item
 
           return (
-            <div key={item.title} className="col-span-full lg:col-span-6">
+            <div
+              key={`${item.title} ${i}`}
+              className="col-span-full lg:col-span-6"
+            >
               <FeatureCard
                 {...itemProps}
                 icon={
                   icon
-                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
+                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as keyof typeof Icons)
                     : null
                 }
               />

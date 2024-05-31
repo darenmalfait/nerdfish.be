@@ -3,7 +3,6 @@
 import * as React from 'react'
 import Image from 'next/image'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
-import {Spacer} from '@nerdfish-website/ui/components/spacer'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
@@ -154,9 +153,9 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
               title={title ?? ''}
               subTitle={subtitle}
               cta="see all"
+              className="mb-12"
               ctaUrl={link ?? ''}
             />
-            <Spacer size="2xs" />
           </div>
         ) : null}
 
