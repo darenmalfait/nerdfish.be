@@ -42,7 +42,7 @@ function HighlightCard({
       {...props}
     >
       <div className="group relative grid w-full grid-cols-4 gap-x-4 rounded-lg bg-muted px-8 pb-6 pt-14 shadow-outline md:grid-cols-8 md:pb-12 lg:grid-cols-12 lg:gap-x-6 lg:px-0">
-        <div className="lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
+        <div className="col-span-4 md:col-span-6 lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
           <div suppressHydrationWarning>
             {category ? (
               <CategoryIndicator
