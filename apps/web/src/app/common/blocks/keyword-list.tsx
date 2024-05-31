@@ -23,8 +23,8 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
           data-tina-field={tinaField(data, 'keywords')}
           className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
         >
-          {keywords?.map(item => (
-            <span key={item} className="block text-lg text-primary">
+          {keywords?.map((item, i) => (
+            <span key={`${item} ${i}`} className="block text-lg text-primary">
               {item}
             </span>
           ))}
