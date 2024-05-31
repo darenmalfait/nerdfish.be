@@ -55,7 +55,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
   const {title, subtitle, link} = header ?? {}
 
   return (
-    <section className="container mx-auto mb-32 px-4">
+    <section className="container mx-auto mb-16 px-4">
       {title ?? subtitle ? (
         <div data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header

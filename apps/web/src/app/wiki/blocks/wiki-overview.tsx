@@ -192,7 +192,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
         )}
 
         {hasMorePosts ? (
-          <div className="mb-32 flex w-full justify-center">
+          <div className="mb-16 flex w-full justify-center">
             <Button
               variant="secondary"
               className="space-x-2"
