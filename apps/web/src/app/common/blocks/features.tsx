@@ -92,7 +92,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
                 {...itemProps}
                 icon={
                   icon
-                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as any)
+                    ? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as keyof typeof Icons)
                     : null
                 }
               />
