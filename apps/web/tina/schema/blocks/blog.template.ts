@@ -2,11 +2,11 @@ import {type Template} from 'tinacms'
 
 import {tagsSchema} from '../objects'
 
-export const productsBlockSchema: Template = {
-  name: 'products',
-  label: 'Products',
+export const blogTemplate: Template = {
+  name: 'Blog',
+  label: 'Blog',
   ui: {
-    previewSrc: '/blocks/products.png',
+    previewSrc: '/blocks/blog.png',
   },
   fields: [
     {
@@ -30,7 +30,22 @@ export const productsBlockSchema: Template = {
           name: 'link',
           description: 'Optional CTA link',
         },
+        {
+          type: 'image',
+          label: 'Image',
+          name: 'image',
+        },
       ],
+    },
+    {
+      type: 'boolean',
+      label: 'Is search enabled?',
+      name: 'searchEnabled',
+    },
+    {
+      type: 'boolean',
+      label: 'Is featured enabled?',
+      name: 'featuredEnabled',
     },
     tagsSchema,
     {
