@@ -80,12 +80,12 @@ function MobileNavigationItem({
         {label}
       </H2>
       <ul className="mt-3 grid gap-3">
-        {sub.map((subNavItem, i) => {
+        {sub.map(subNavItem => {
           if (!subNavItem) return null
 
           return (
             <MobileNavigationSubItem
-              key={i}
+              key={subNavItem.label}
               {...subNavItem}
               onClick={onClick}
             />
