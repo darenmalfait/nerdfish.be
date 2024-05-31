@@ -18,8 +18,20 @@
         ]
       },
       {
-        "label": "Web Design",
-        "href": "webdesign"
+        "label": "Services",
+        "href": "",
+        "sub": [
+          {
+            "label": "Web Design",
+            "description": "Transform your ideas into visually stunning, user-friendly websites.",
+            "href": "webdesign"
+          },
+          {
+            "label": "Expertise",
+            "description": "I am here to help bring your vision to life.",
+            "href": "expertise"
+          }
+        ]
       },
       {
         "label": "products",
