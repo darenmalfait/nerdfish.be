@@ -25,6 +25,12 @@ module.exports = {
           wiki: 'hsl(var(--color-blog-wiki) / <alpha-value>)',
           coaching: 'hsl(var(--color-blog-coaching) / <alpha-value>)',
         },
+        work: {
+          DEFAULT: 'hsl(var(--color-work) / <alpha-value>)',
+          webdesign: 'hsl(var(--color-work-webdesign) / <alpha-value>)',
+          branding: 'hsl(var(--color-work-branding) / <alpha-value>)',
+          print: 'hsl(var(--color-work-print) / <alpha-value>)',
+        },
       },
       screens: {
         // iPad Pro vertical is 1024px exactly

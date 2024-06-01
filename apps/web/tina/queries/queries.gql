@@ -2,6 +2,7 @@ query contentQuery($relativePath: String!) {
   page(relativePath: $relativePath) {
     ...PageParts
   }
+
   blogConnection(sort: "date", last: -1) {
     edges {
       node {
@@ -18,6 +19,24 @@ query contentQuery($relativePath: String!) {
       }
     }
   }
+
+  workConnection(sort: "date", last: -1) {
+    edges {
+      node {
+        ...WorkParts
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+      }
+    }
+  }
+
   wikiConnection(sort: "date", last: -1) {
     edges {
       node {
@@ -34,6 +53,7 @@ query contentQuery($relativePath: String!) {
       }
     }
   }
+
   productConnection {
     edges {
       node {
@@ -74,6 +94,28 @@ query blogPostQuery($relativePath: String!) {
   }
 }
 
+query workQuery($relativePath: String!) {
+  work(relativePath: $relativePath) {
+    ...WorkParts
+  }
+  workConnection(sort: "date", last: -1) {
+    edges {
+      node {
+        ...WorkParts
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+      }
+    }
+  }
+}
+
 query wikiQuery($relativePath: String!) {
   wiki(relativePath: $relativePath) {
     ...WikiParts
@@ -93,6 +135,18 @@ query sitemapQuery {
     }
   }
   blogConnection {
+    edges {
+      node {
+        title
+        id
+        date
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+  workConnection {
     edges {
       node {
         title

@@ -1,8 +1,8 @@
 import {matchSorter, rankings as matchSorterRankings} from 'match-sorter'
 
-import {type Blog} from '../cms'
+import {type Work} from '../cms'
 
-function filterBlog(posts: Partial<Blog>[], searchString: string) {
+export function filterWork(posts: Partial<Work>[], searchString: string) {
   if (!searchString) return posts
 
   const options = {
@@ -10,11 +10,6 @@ function filterBlog(posts: Partial<Blog>[], searchString: string) {
       {
         key: 'title',
         threshold: matchSorterRankings.CONTAINS,
-      },
-      {
-        key: 'tags.*',
-        threshold: matchSorterRankings.CONTAINS,
-        maxRanking: matchSorterRankings.CONTAINS,
       },
       {
         key: 'category.*',
@@ -78,5 +73,3 @@ function filterBlog(posts: Partial<Blog>[], searchString: string) {
 
   return Array.from(new Set([...allResults, ...individualWordResults]))
 }
-
-export {filterBlog}

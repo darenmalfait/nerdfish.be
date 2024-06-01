@@ -1,50 +1,54 @@
 import * as React from 'react'
 import Image from 'next/image'
+import {CategoryIndicator} from '@nerdfish-website/ui/components/category-indicator'
 import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, type BlogPostQueryQuery} from '~/app/cms'
+import {PortableText, type WorkQueryQuery} from '~/app/cms'
 import {
   ArticleCard,
-  BlogPath,
   buildSrc,
   getDatedSlug,
   Header,
+  WorkPath,
 } from '~/app/common'
 
-import {mapBlogData} from '../api'
-import {BackToBlog} from './misc'
+import {mapWorkData} from '../api'
+import {BackToWork} from './misc'
 
-function BlogContent({data}: {data: BlogPostQueryQuery}) {
-  const {title, date, tags, heroImg, body} = data.blog
+function WorkContent({data}: {data: WorkQueryQuery}) {
+  const {title, date, heroImg, category, body} = data.work
 
-  const blockData = {...mapBlogData(data)}
-  const {blogs: allPosts} = blockData
+  const blockData = {...mapWorkData(data)}
+  const {works: allWorks} = blockData
 
   const relatedPosts = React.useMemo(() => {
-    return allPosts
+    return allWorks
       .filter(
-        post =>
-          post.title !== title &&
-          post.date !== date &&
-          post.tags?.some(tag => tags?.includes(tag)),
+        work =>
+          work.title !== title &&
+          work.date !== date &&
+          work.category === category,
       )
       .slice(0, 3)
-  }, [allPosts, date, tags, title])
+  }, [allWorks, category, date, title])
 
   return (
     <>
       <section>
         <div className="container mx-auto mb-14 mt-24 max-w-4xl px-4 lg:mb-24">
-          <BackToBlog />
+          <BackToWork />
         </div>
 
         <header className="container mx-auto mb-12 mt-6 max-w-4xl px-4">
-          <H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
+          <H1 data-tina-field={tinaField(data.work, 'title')}>{title}</H1>
+          <div className="relative my-6">
+            <CategoryIndicator category={category} inline />
+          </div>
           {date ? (
             <H6
-              data-tina-field={tinaField(data.blog, 'date')}
+              data-tina-field={tinaField(data.work, 'date')}
               as="p"
               variant="secondary"
             >
@@ -55,7 +59,7 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
 
         <div
           className="container mx-auto mb-12 max-w-4xl px-4"
-          data-tina-field={tinaField(data.blog, 'heroImg')}
+          data-tina-field={tinaField(data.work, 'heroImg')}
         >
           {heroImg ? (
             <Image
@@ -71,7 +75,7 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
       </section>
       <section
         className="prose container mx-auto px-4 dark:prose-invert md:prose-lg lg:prose-xl"
-        data-tina-field={tinaField(data.blog, 'body')}
+        data-tina-field={tinaField(data.work, 'body')}
       >
         {body ? <PortableText content={body} /> : null}
       </section>
@@ -79,13 +83,13 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
         <section className="container mx-auto mt-24 px-4">
           <Header title="Done reading?" subTitle="Read more related articles" />
           <div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
-            {relatedPosts.map(relatedBlog => {
+            {relatedPosts.map(relatedWork => {
               return (
-                <div key={relatedBlog.id} className="col-span-4">
+                <div key={relatedWork.id} className="col-span-4">
                   <ArticleCard
-                    href={`/${BlogPath}${getDatedSlug(date, relatedBlog._sys.filename)}`}
-                    {...relatedBlog}
-                    id={relatedBlog.id}
+                    href={`/${WorkPath}${getDatedSlug(date, relatedWork._sys.filename)}`}
+                    {...relatedWork}
+                    id={relatedWork.id}
                   />
                 </div>
               )
@@ -97,4 +101,4 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
   )
 }
 
-export {BlogContent}
+export {WorkContent}

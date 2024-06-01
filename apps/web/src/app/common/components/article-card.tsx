@@ -11,22 +11,22 @@ import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {H3} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {type Blog} from '~/app/cms'
+import {type Blog, type Work} from '~/app/cms'
 
-import {buildSrc, getDatedSlug} from '../utils'
+import {buildSrc} from '../utils'
 
 function ArticleCard({
   title,
   heroImg,
   date = '',
   category,
+  href,
   _sys,
-}: Partial<Blog>) {
+}: Partial<Blog | Work> & {
+  href: string
+}) {
   return (
-    <Link
-      href={`/blog${getDatedSlug(date, _sys?.filename ?? '')}`}
-      className="group relative w-full outline-none"
-    >
+    <Link href={href} className="group relative w-full outline-none">
       <div className="peer relative block w-full outline-none">
         <CategoryIndicator category={category} />
 
@@ -55,9 +55,11 @@ function ArticleCard({
         )}
 
         <div className="space-y-2">
-          <div className="mt-8 text-xl font-bold text-muted">
-            <DateFormatter dateString={date} format="PPP" />
-          </div>
+          {date ? (
+            <div className="mt-8 text-xl font-bold text-muted">
+              <DateFormatter dateString={date} format="PPP" />
+            </div>
+          ) : null}
           <H3 as="div">{title}</H3>
         </div>
       </div>
