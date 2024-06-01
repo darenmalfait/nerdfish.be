@@ -1,10 +1,8 @@
-import {type SchemaField} from 'tinacms'
+import {type TinaField} from 'tinacms'
 
-const tagsSchema: SchemaField = {
+export const tagsSchema: TinaField = {
   type: 'string',
   list: true,
   name: 'tags',
   label: 'Tags',
 }
-
-export {tagsSchema}

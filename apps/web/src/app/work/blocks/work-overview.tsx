@@ -2,57 +2,76 @@
 
 import * as React from 'react'
 import Image from 'next/image'
-import {DateFormatter} from '@nerdfish-website/ui/components/date-formatter'
 import {Tag} from '@nerdfish-website/ui/components/tag'
 import {Button, H3, H5} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
-import {PortableText, type Block, type PageBlocksWiki} from '~/app/cms'
-import {buildSrc, getDatedSlug, Header} from '~/app/common'
+import {type Block, type PageBlocksWork} from '~/app/cms'
+import {
+  ArticleCard,
+  buildSrc,
+  Header,
+  HighlightCard,
+  WorkPath,
+} from '~/app/common'
 
-import {filterWiki} from '../utils'
+import {filterWork} from '../utils'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
-export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
-  const {header, searchEnabled, tags, count, globalData} = data
-  const {wikis: allPosts = []} = globalData ?? {}
+export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
+  const {
+    header,
+    searchEnabled,
+    featuredEnabled,
+    tags,
+    count,
+    globalData = {},
+  } = data
+  const {works: allWorks = []} = globalData
+
   const {title, subtitle, link} = header ?? {}
   const [query, setQuery] = React.useState('')
   const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
 
   let filteredPosts =
-    tags && tags.length > 0 ? filterWiki(allPosts, tags.join(' ')) : allPosts
-
-  const allTags = [...new Set(filteredPosts.flatMap(post => post.tags))]
+    tags && tags.length > 0 ? filterWork(allWorks, tags.join(' ')) : allWorks
+  const allTags = [...new Set(filteredPosts.flatMap(post => post.category))]
 
   if (count) {
     filteredPosts = filteredPosts.slice(0, count)
   }
 
   const matchingPosts = React.useMemo(() => {
-    return filterWiki(filteredPosts, query)
+    return filterWork(filteredPosts, query)
   }, [filteredPosts, query])
 
-  const posts = matchingPosts.slice(0, indexToShow)
+  const isSearching = query.length > 0
+  const featured = filteredPosts.length > 0 ? filteredPosts[0] : null
 
-  const hasMorePosts = indexToShow < matchingPosts.length
+  const posts =
+    isSearching || !featuredEnabled
+      ? matchingPosts.slice(0, indexToShow)
+      : matchingPosts.filter(p => p.id !== featured?.id).slice(0, indexToShow)
 
-  const visibleTags = [...new Set(matchingPosts.flatMap(post => post.tags))]
+  const hasMorePosts =
+    isSearching || !featuredEnabled
+      ? indexToShow < matchingPosts.length
+      : indexToShow < matchingPosts.length - 1
+
+  const visibleTags =
+    isSearching || !featuredEnabled
+      ? [...new Set(matchingPosts.flatMap(post => post.category))]
+      : allTags
 
   function toggleTag(tag: string) {
     setQuery(q => {
-      // create a regexp so that we can replace multiple occurrences (`react node react`)
-      const expression = new RegExp(tag, 'ig')
-
-      const newQuery = expression.test(q)
-        ? q.replace(expression, '')
+      const newQuery = q.includes(tag)
+        ? q.replace(new RegExp(tag, 'ig'), '')
         : `${q} ${tag}`
-
-      // trim and remove subsequent spaces (`react   node ` => `react node`)
       return newQuery.replace(/\s+/g, ' ').trim()
     })
   }
@@ -92,7 +111,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title ?? ''} subTitle={subtitle} />
+                  <Header title={title ?? undefined} subTitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -121,7 +140,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
       ) : null}
 
       {searchEnabled && allTags.length > 0 ? (
-        <div className="container mx-auto my-16 flex flex-col px-4">
+        <div className="container mx-auto my-16 px-4">
           <H5 as="h3" className="mb-8">
             Filter articles by topic
           </H5>
@@ -146,49 +165,46 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
         </div>
       ) : null}
 
-      <section className="container mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
+      <section className="container mx-auto flex flex-col gap-12 px-4">
         {!searchEnabled && (title ?? subtitle) ? (
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
-              title={title ?? ''}
+              title={title ?? undefined}
               subTitle={subtitle}
-              cta="see all"
-              className="mb-12"
+              cta="See all articles"
               ctaUrl={link ?? ''}
             />
           </div>
         ) : null}
 
+        {!isSearching && featured && featuredEnabled ? (
+          <HighlightCard
+            category={featured.category}
+            href={`/${WorkPath}/${featured.category}/${featured._sys?.filename}`}
+            title={featured.title}
+            image={featured.heroImg}
+          />
+        ) : null}
+
         {matchingPosts.length === 0 ? (
-          <div>
+          <div className="flex grid-cols-4 flex-col">
             <H3 as="p" variant="secondary" className="max-w-lg">
-              No results found.
+              No articles found for your search query.
             </H3>
           </div>
         ) : (
-          posts.map(wiki => {
-            return (
-              <article key={wiki._sys?.filename} className="flex flex-col">
-                <a
-                  href={`/wiki${getDatedSlug(
-                    wiki.date as string,
-                    wiki._sys?.filename ?? '',
-                  )}`}
-                  className="line-clamp-3 text-2xl font-semibold leading-snug text-primary hover:text-muted hover:underline"
-                >
-                  {wiki.title}
-                </a>
-                {wiki.date ? (
-                  <p className="mt-2 text-sm font-bold text-muted">
-                    <DateFormatter dateString={wiki.date} format="PPP" />
-                  </p>
-                ) : null}
-                <div className="mt-2 text-justify text-muted">
-                  <PortableText content={wiki.excerpt} />
+          <div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+            {posts.map(work => {
+              return (
+                <div key={work.id} className="col-span-4">
+                  <ArticleCard
+                    href={`/${WorkPath}/${work.category}/${work._sys?.filename}`}
+                    {...work}
+                  />
                 </div>
-              </article>
-            )
-          })
+              )
+            })}
+          </div>
         )}
 
         {hasMorePosts ? (
@@ -207,3 +223,8 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
     </>
   )
 }
+
+/*
+eslint
+  complexity: "off",
+*/
