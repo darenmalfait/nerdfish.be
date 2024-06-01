@@ -210,7 +210,9 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
         {hasMorePosts ? (
           <div className="mb-16 flex w-full justify-center">
             <Button
+              disabled={!hasMorePosts}
               variant="secondary"
+              className="space-x-2"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
             >
               <span>Load more</span> <Plus width="20px" height="20px" />

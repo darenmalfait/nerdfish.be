@@ -194,6 +194,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
         {hasMorePosts ? (
           <div className="mb-16 flex w-full justify-center">
             <Button
+              disabled={!hasMorePosts}
               variant="secondary"
               className="space-x-2"
               onClick={() => setIndexToShow(i => i + PAGE_SIZE)}
