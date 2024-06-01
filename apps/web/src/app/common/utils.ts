@@ -26,9 +26,10 @@ export function generateOGImageUrl({
     cardType === 'secondary'
       ? new URL(`${url}/api/og/secondary`)
       : new URL(`${url}/api/og/primary`)
-  Object.entries(props).forEach(([key, value]) => {
+
+  for (const [key, value] of Object.entries(props)) {
     ogUrl.searchParams.set(key, value ?? '')
-  })
+  }
 
   return ogUrl.toString()
 }
