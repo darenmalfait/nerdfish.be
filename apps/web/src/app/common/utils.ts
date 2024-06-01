@@ -26,9 +26,10 @@ export function generateOGImageUrl({
     cardType === 'secondary'
       ? new URL(`${url}/api/og/secondary`)
       : new URL(`${url}/api/og/primary`)
-  Object.entries(props).forEach(([key, value]) => {
+
+  for (const [key, value] of Object.entries(props)) {
     ogUrl.searchParams.set(key, value ?? '')
-  })
+  }
 
   return ogUrl.toString()
 }
@@ -84,11 +85,11 @@ export function getMetaData({
   }
 }
 
-export function getDatedSlug(date: string, slug: string) {
+export function getDatedSlug(date?: string, slug?: string) {
   if (!date) return slug
 
   const dateSegment = formatDate(new Date(date), 'yyyy/MM')
-  return `/${dateSegment}/${slug || ''}/`
+  return `/${dateSegment}/${slug ?? ''}/`
 }
 
 const CLOUDINARY_REGEX =

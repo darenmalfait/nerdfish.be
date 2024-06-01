@@ -17,6 +17,11 @@ export async function getSitemapData() {
         ...item?.node,
       }))
       .reverse(),
+    works: data.workConnection.edges
+      ?.map(item => ({
+        ...item?.node,
+      }))
+      .reverse(),
     wikis: data.wikiConnection.edges
       ?.map(item => ({
         ...item?.node,

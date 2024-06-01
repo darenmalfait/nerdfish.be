@@ -4,6 +4,7 @@ import {
   type ContentQueryQuery,
   type Product,
   type Wiki,
+  type Work,
 } from '../cms'
 
 export async function getPages() {
@@ -17,13 +18,16 @@ export async function getPages() {
 export function mapPageData(data: ContentQueryQuery) {
   return {
     ...data,
-    blogs: data.blogConnection.edges?.map((item: any) => ({
+    blogs: data.blogConnection.edges?.map(item => ({
       ...(item?.node ?? {}),
     })) as Blog[],
-    wikis: data.wikiConnection.edges?.map((item: any) => ({
+    wikis: data.wikiConnection.edges?.map(item => ({
       ...(item?.node ?? {}),
     })) as Wiki[],
-    products: data.productConnection.edges?.map((item: any) => ({
+    works: data.workConnection.edges?.map(item => ({
+      ...(item?.node ?? {}),
+    })) as Work[],
+    products: data.productConnection.edges?.map(item => ({
       ...(item?.node ?? {}),
     })) as Product[],
   }

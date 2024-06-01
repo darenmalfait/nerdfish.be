@@ -3,6 +3,7 @@ import {
   type PageBlocks,
   type Product,
   type Wiki,
+  type Work,
 } from '~/tina/__generated__/types'
 
 export type Image = {
@@ -15,5 +16,6 @@ export type Block<T extends PageBlocks = PageBlocks> = T & {
     wikis?: Partial<Wiki>[]
     blogs?: Partial<Blog>[]
     products?: Partial<Product>[]
+    works?: Partial<Work>[]
   }
 }
