@@ -69,14 +69,9 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 
   function toggleTag(tag: string) {
     setQuery(q => {
-      // create a regexp so that we can replace multiple occurrences (`react node react`)
-      const expression = new RegExp(tag, 'ig')
-
-      const newQuery = expression.test(q)
-        ? q.replace(expression, '')
+      const newQuery = q.includes(tag)
+        ? q.replace(new RegExp(tag, 'ig'), '')
         : `${q} ${tag}`
-
-      // trim and remove subsequent spaces (`react   node ` => `react node`)
       return newQuery.replace(/\s+/g, ' ').trim()
     })
   }
