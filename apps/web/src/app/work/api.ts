@@ -1,4 +1,10 @@
-import {tina, type Work, type WorkQueryQuery} from '../cms'
+import {
+  tina,
+  type Work,
+  type WorkConnection,
+  type WorkConnectionEdges,
+  type WorkQueryQuery,
+} from '../cms'
 
 export async function getWorks() {
   const workListData = await tina.queries.workConnection()
@@ -11,9 +17,11 @@ export async function getWorks() {
 export function mapWorkData(data: WorkQueryQuery) {
   return {
     ...data,
-    works: data.workConnection.edges?.map((item: any) => ({
-      ...(item?.node ?? {}),
-    })) as Work[],
+    works: (data.workConnection as WorkConnection).edges?.map(
+      (item: WorkConnectionEdges) => ({
+        ...(item.node ?? {}),
+      }),
+    ) as Work[],
   }
 }
 
