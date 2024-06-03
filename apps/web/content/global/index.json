@@ -2,22 +2,6 @@
   "navigation": {
     "main": [
       {
-        "label": "Insights",
-        "href": "",
-        "sub": [
-          {
-            "label": "Blog",
-            "description": "A compilation of articles I have written about various topics",
-            "href": "blog"
-          },
-          {
-            "label": "Wiki",
-            "description": "A curated list of helpful pages serving as a comprehensive knowledge base",
-            "href": "wiki"
-          }
-        ]
-      },
-      {
         "label": "Services",
         "href": "",
         "sub": [
@@ -27,9 +11,25 @@
             "href": "webdesign"
           },
           {
-            "label": "Expertise",
-            "description": "I am here to help bring your vision to life.",
-            "href": "expertise"
+            "label": "Javascript consulting",
+            "description": "Get help with your Javascript projects, from architecture to implementation.",
+            "href": "consultancy"
+          }
+        ]
+      },
+      {
+        "label": "Insights",
+        "href": "",
+        "sub": [
+          {
+            "label": "Blog",
+            "description": "A compilation of articles I have written about various topics",
+            "href": "blog"
+          },
+          {
+            "label": "Knowledge Base",
+            "description": "A curated list of helpful pages serving as a small personal wiki.",
+            "href": "wiki"
           }
         ]
       },
