@@ -117,7 +117,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title ?? undefined} subTitle={subtitle} />
+                  <Header title={title ?? undefined} subtitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -176,7 +176,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
               title={title ?? undefined}
-              subTitle={subtitle}
+              subtitle={subtitle}
               cta="See all articles"
               ctaUrl={link ?? ''}
             />
@@ -191,7 +191,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
               featured._sys?.filename ?? '',
             )}`}
             title={featured.title}
-            subTitle={
+            subtitle={
               featured.date
                 ? `${formatDate(parseISO(featured.date), 'PPP')}`
                 : 'TBA'

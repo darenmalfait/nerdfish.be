@@ -9,11 +9,11 @@ interface HeaderProps {
   cta?: string
   as?: React.ElementType
   title?: string
-  subTitle?: React.ReactNode
+  subtitle?: React.ReactNode
   className?: string
 }
 
-function Header({ctaUrl, cta, title, subTitle, className, as}: HeaderProps) {
+function Header({ctaUrl, cta, title, subtitle, className, as}: HeaderProps) {
   const Element = as ?? 'header'
   return (
     <Element as={as}>
@@ -25,9 +25,9 @@ function Header({ctaUrl, cta, title, subTitle, className, as}: HeaderProps) {
       >
         <div className="space-y-0">
           {title ? <H2>{title}</H2> : null}
-          {subTitle ? (
+          {subtitle ? (
             <H2 variant="secondary" as="div">
-              {subTitle}
+              {subtitle}
             </H2>
           ) : null}
         </div>

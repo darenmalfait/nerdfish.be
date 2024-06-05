@@ -76,7 +76,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
         <div data-tina-field={tinaField(data, 'header')} className="mb-6">
           <Header
             title={title ?? ''}
-            subTitle={subtitle}
+            subtitle={subtitle}
             cta="see all"
             className="mb-12"
             ctaUrl={link ?? ''}

@@ -58,14 +58,14 @@ function getGridItemClasName(index: number) {
 }
 
 export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
-  const {title, subTitle, items} = props
+  const {title, subtitle, items} = props
 
   return (
     <section className="container mx-auto my-24 px-4">
-      {title ?? subTitle ? (
+      {title ?? subtitle ? (
         <Header
           title={title?.toString()}
-          subTitle={subTitle}
+          subtitle={subtitle}
           className="mb-12"
         />
       ) : null}

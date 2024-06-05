@@ -24,7 +24,7 @@ export const highlightsTemplate: Template = {
     {
       type: 'string',
       label: 'Sub Title',
-      name: 'subTitle',
+      name: 'subtitle',
     },
     {
       type: 'object',
