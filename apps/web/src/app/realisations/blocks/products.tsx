@@ -31,7 +31,7 @@ function Product({title, link, description, soon, image}: Partial<Product>) {
         ) : null}
         <h3 className="text-xl font-semibold text-primary">{title}</h3>
         <p className="max-w-lg text-muted">{description}</p>
-        <span className="block whitespace-nowrap font-bold">
+        <span className="block truncate whitespace-nowrap font-bold">
           {soon ? (
             <Badge variant="success">Soon</Badge>
           ) : (
