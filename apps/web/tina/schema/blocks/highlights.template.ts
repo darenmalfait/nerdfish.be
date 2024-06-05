@@ -1,20 +1,18 @@
-import * as Icons from 'lucide-react'
 import {type Template} from 'tinacms'
 
-const defaultFeature = {
-  title: "Here's Another Feature",
+const defaultHighlight = {
+  title: "Here's Another Highlight",
   description:
-    "This is where you might talk about the feature, if this wasn't just filler text.",
-  icon: 'AcademicCapIcon',
+    "This is where you might talk about the highlight, if this wasn't just filler text.",
 }
 
-export const featuresTemplate: Template = {
-  name: 'features',
-  label: 'Features',
+export const highlightsTemplate: Template = {
+  name: 'highlights',
+  label: 'Highlights',
   ui: {
     previewSrc: '/blocks/features.png',
     defaultItem: {
-      items: [defaultFeature, defaultFeature, defaultFeature],
+      items: [defaultHighlight, defaultHighlight, defaultHighlight],
     },
   },
   fields: [
@@ -30,7 +28,7 @@ export const featuresTemplate: Template = {
     },
     {
       type: 'object',
-      label: 'Feature Items',
+      label: 'Highlight Items',
       name: 'items',
       list: true,
       ui: {
@@ -40,7 +38,7 @@ export const featuresTemplate: Template = {
           }
         },
         defaultItem: {
-          ...defaultFeature,
+          ...defaultHighlight,
         },
       },
       fields: [
@@ -58,19 +56,9 @@ export const featuresTemplate: Template = {
           },
         },
         {
-          type: 'string',
-          label: 'Icon',
-          name: 'icon',
-          options: Object.keys(Icons).map(name => ({
-            label: name,
-            value: name,
-          })),
-        },
-        {
-          type: 'reference',
-          label: 'Link to detail page',
-          name: 'detail',
-          collections: ['page'],
+          type: 'image',
+          label: 'Image',
+          name: 'image',
         },
       ],
     },

@@ -8,6 +8,7 @@ import {
   HeroBlock,
   KeywordListBlock,
 } from '~/app/common'
+import {HighlightsBlock} from '~/app/common/blocks/highlights'
 import {ProductsBlock} from '~/app/realisations'
 import {WikiOverviewBlock} from '~/app/wiki'
 import {WorkOverviewBlock} from '~/app/work'
@@ -50,6 +51,7 @@ export function Blocks({
     PageBlocksContent: ContentBlock,
     PageBlocksFeatures: FeaturesBlock,
     PageBlocksHero: HeroBlock,
+    PageBlocksHighlights: HighlightsBlock,
     PageBlocksKeywordList: KeywordListBlock,
     PageBlocksProducts: ProductsBlock,
     PageBlocksWiki: WikiOverviewBlock,

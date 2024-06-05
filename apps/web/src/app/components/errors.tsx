@@ -11,10 +11,10 @@ import {ArrowLink, BigTitleBlock} from '../common'
 
 function ErrorPage({
   title = '404',
-  subTitle,
+  subtitle,
 }: {
   title?: string
-  subTitle?: string
+  subtitle?: string
 }) {
   const paths = global.paths
 
@@ -44,7 +44,7 @@ function ErrorPage({
             <div className="max-w-xl py-16 sm:py-24">
               <div className="text-center lg:text-left">
                 <Paragraph className="mt-2 text-lg text-muted">
-                  {subTitle}
+                  {subtitle}
                 </Paragraph>
               </div>
               <div className="mt-12">

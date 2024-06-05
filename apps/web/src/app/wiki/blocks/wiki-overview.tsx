@@ -92,7 +92,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title ?? ''} subTitle={subtitle} />
+                  <Header title={title ?? ''} subtitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -151,7 +151,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
               title={title ?? ''}
-              subTitle={subtitle}
+              subtitle={subtitle}
               cta="see all"
               className="mb-12"
               ctaUrl={link ?? ''}

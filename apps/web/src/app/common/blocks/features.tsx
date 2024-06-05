@@ -67,14 +67,14 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 }
 
 export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
-  const {title, subTitle, items} = props
+  const {title, subtitle, items} = props
 
   return (
     <section className="container mx-auto my-24 px-4">
-      {title ?? subTitle ? (
+      {title ?? subtitle ? (
         <Header
           title={title?.toString()}
-          subTitle={subTitle}
+          subtitle={subtitle}
           className="mb-12"
         />
       ) : null}
