@@ -13,7 +13,6 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    serverComponentsExternalPackages: ['@nerdfish/ui'],
   },
   eslint: {
     ignoreDuringBuilds: true,

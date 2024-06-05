@@ -1,5 +1,7 @@
+'use client'
+
 import * as React from 'react'
-import {H2} from '@nerdfish/ui'
+import {Grid, H2} from '@nerdfish/ui'
 import {camelCase, startCase} from 'lodash'
 import * as Icons from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
@@ -33,7 +35,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 
   return (
     <div
-      className="relative flex size-full flex-col items-start gap-3 rounded-lg bg-muted p-6 px-8 shadow-outline lg:flex-row lg:gap-6 lg:px-12  lg:py-10"
+      className="relative flex size-full flex-col items-start gap-3 p-6 px-8 shadow-outline lg:flex-row lg:gap-6 lg:px-12 lg:py-10"
       {...rest}
     >
       {Icon ? (
@@ -76,8 +78,8 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
           className="mb-12"
         />
       ) : null}
-      <div
-        className="grid grid-cols-12 gap-6"
+      <Grid
+        className="auto-rows-auto grid-cols-4"
         data-tina-field={tinaField(props, 'items')}
       >
         {items?.map((item, i) => {
@@ -86,9 +88,9 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
           const {icon, ...itemProps} = item
 
           return (
-            <div
+            <Grid.Card
               key={`${item.title} ${i}`}
-              className="col-span-full lg:col-span-6"
+              className="col-span-4 bg-muted lg:col-span-2"
             >
               <FeatureCard
                 {...itemProps}
@@ -98,10 +100,10 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
                     : null
                 }
               />
-            </div>
+            </Grid.Card>
           )
         })}
-      </div>
+      </Grid>
     </section>
   )
 }

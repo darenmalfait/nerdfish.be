@@ -1,50 +1,63 @@
 'use client'
 
 import * as React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import {Badge, H3, Paragraph} from '@nerdfish/ui'
+import {Icons} from '@nerdfish-website/ui/icons'
+import {Avatar, Badge, Button, Grid, Skeleton} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksProducts, type Product} from '~/app/cms'
 import {buildSrc, Header} from '~/app/common'
 
-function Feature({title, link, description, soon, image}: Partial<Product>) {
+function Product({title, link, description, soon, image}: Partial<Product>) {
   return (
-    <div className="col-span-full flex items-center justify-items-stretch lg:col-span-6">
-      <Link
-        href={link ?? '#'}
-        className="group relative flex min-h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-muted px-8 py-5 pt-0 text-primary shadow-outline"
-      >
+    <>
+      <div />
+      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-focus-within:-translate-y-10 group-hover:-translate-y-10">
         {image ? (
-          <div className="z-1 relative mb-4 flex size-16 items-center overflow-hidden rounded-xl transition-all duration-1000 group-hover:scale-125">
-            <Image
-              className="absolute inset-0 object-cover"
+          <Avatar className="size-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
+            <Avatar.Image
               src={buildSrc(image, {
                 width: 100,
               })}
-              width={100}
-              height={100}
               alt={title ?? 'Product image'}
             />
-          </div>
+            <Avatar.Fallback>
+              <Skeleton className="size-full" />
+            </Avatar.Fallback>
+          </Avatar>
         ) : null}
-        <div className="z-1 space-y-2 text-center">
-          <H3 className="m-0">{title}</H3>
-          <Paragraph>
-            <span className="text-ellipsis">{description}</span>
-            <span className="block whitespace-nowrap font-bold">
-              {soon ? (
-                <Badge variant="success">Soon</Badge>
-              ) : (
-                link?.replace('https://', '')
-              )}
-            </span>
-          </Paragraph>
+        <h3 className="text-xl font-semibold text-primary">{title}</h3>
+        <p className="max-w-lg text-muted">{description}</p>
+        <span className="block whitespace-nowrap font-bold">
+          {soon ? (
+            <Badge variant="success">Soon</Badge>
+          ) : (
+            link?.replace('https://', '')
+          )}
+        </span>
+      </div>
+      {link ? (
+        <div
+          className={cx(
+            'pointer-events-none z-10 absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100',
+          )}
+        >
+          <Button
+            variant="ghost"
+            asChild
+            size="sm"
+            className="pointer-events-auto"
+          >
+            <Link href={link}>
+              Read more
+              <Icons.ChevronRight className="ml-2 size-4" />
+            </Link>
+          </Button>
         </div>
-        <div className="bg-nerdfish-100 absolute inset-0 z-0 opacity-0 transition-opacity duration-1000 group-hover:opacity-10" />
-      </Link>
-    </div>
+      ) : null}
+    </>
   )
 }
 
@@ -68,11 +81,16 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
         </div>
       ) : null}
       <div data-tina-field={tinaField(data, 'header')} className="space-y-6">
-        <div className="grid grid-cols-12 gap-6">
+        <Grid className="auto-rows-[15rem]">
           {allProducts.map(product => (
-            <Feature key={product.id ?? product.title} {...product} />
+            <Grid.Card
+              key={product.id ?? product.title}
+              className="bg-muted lg:col-span-1"
+            >
+              <Product {...product} />
+            </Grid.Card>
           ))}
-        </div>
+        </Grid>
       </div>
     </section>
   )
