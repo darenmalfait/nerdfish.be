@@ -14,7 +14,7 @@ import {ArrowLink} from './arrow-link'
 
 interface HighlightCardProps {
   title?: string
-  subTitle?: string
+  subtitle?: string
   cta?: string
   image?: string | null
   href: string
@@ -24,7 +24,7 @@ interface HighlightCardProps {
 
 function HighlightCard({
   title,
-  subTitle,
+  subtitle,
   cta = 'Read full article',
   href,
   image,
@@ -56,7 +56,7 @@ function HighlightCard({
                 {title}
               </H2>
               <div className="mt-6 text-xl font-bold text-primary">
-                {subTitle}
+                {subtitle}
               </div>
             </div>
           </div>
