@@ -44,7 +44,7 @@ function HighlightCardContent(props: PageBlocksHighlightsItems) {
   )
 }
 
-function getGridItemClasName(index: number) {
+function getGridItemClassName(index: number) {
   const rowIndex = Math.floor(index / 2)
   const isEven = index % 2 === 0
 
@@ -76,7 +76,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
           return (
             <Grid.Card
               key={`${item.title} ${i}`}
-              className={cx(getGridItemClasName(i), !item.image && 'bg-muted')}
+              className={cx(getGridItemClassName(i), !item.image && 'bg-muted')}
             >
               <HighlightCardContent {...item} />
             </Grid.Card>
