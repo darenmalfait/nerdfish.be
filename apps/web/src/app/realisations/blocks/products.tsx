@@ -21,6 +21,7 @@ function Product({title, link, description, soon, image}: Partial<Product>) {
               src={buildSrc(image, {
                 width: 100,
               })}
+              className="object-cover"
               alt={title ?? 'Product image'}
             />
             <Avatar.Fallback>
@@ -50,13 +51,15 @@ function Product({title, link, description, soon, image}: Partial<Product>) {
             size="sm"
             className="pointer-events-auto"
           >
-            <Link href={link}>
+            <Link href={link} target="_blank" rel="noreferrer">
               Read more
               <Icons.ChevronRight className="ml-2 size-4" />
             </Link>
           </Button>
         </div>
       ) : null}
+
+      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-focus-within:bg-popover group-hover:bg-popover" />
     </>
   )
 }
