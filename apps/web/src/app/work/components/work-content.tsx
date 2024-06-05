@@ -81,7 +81,7 @@ function WorkContent({data}: {data: WorkQueryQuery}) {
       </section>
       {relatedPosts.length > 0 ? (
         <section className="container mx-auto mt-24 px-4">
-          <Header title="Done reading?" subTitle="Read more related articles" />
+          <Header title="Done reading?" subtitle="Read more related articles" />
           <div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
             {relatedPosts.map(relatedWork => {
               return (

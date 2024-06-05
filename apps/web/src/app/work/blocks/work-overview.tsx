@@ -111,7 +111,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
             >
               <div className="flex flex-auto flex-col justify-center">
                 {title ?? subtitle ? (
-                  <Header title={title ?? undefined} subTitle={subtitle} />
+                  <Header title={title ?? undefined} subtitle={subtitle} />
                 ) : null}
                 <div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
                   <Search
@@ -170,7 +170,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
           <div data-tina-field={tinaField(data, 'header')}>
             <Header
               title={title ?? undefined}
-              subTitle={subtitle}
+              subtitle={subtitle}
               cta="See all articles"
               ctaUrl={link ?? ''}
             />
