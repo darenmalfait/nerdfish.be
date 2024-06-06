@@ -6,13 +6,7 @@ import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type WorkQueryQuery} from '~/app/cms'
-import {
-  ArticleCard,
-  buildSrc,
-  getDatedSlug,
-  Header,
-  WorkPath,
-} from '~/app/common'
+import {ArticleCard, buildSrc, Header, WorkPath} from '~/app/common'
 
 import {mapWorkData} from '../api'
 import {BackToWork} from './misc'
@@ -23,7 +17,7 @@ function WorkContent({data}: {data: WorkQueryQuery}) {
   const blockData = {...mapWorkData(data)}
   const {works: allWorks} = blockData
 
-  const relatedPosts = React.useMemo(() => {
+  const relatedWorks = React.useMemo(() => {
     return allWorks
       .filter(
         work =>
@@ -79,17 +73,17 @@ function WorkContent({data}: {data: WorkQueryQuery}) {
       >
         {body ? <PortableText content={body} /> : null}
       </section>
-      {relatedPosts.length > 0 ? (
+      {relatedWorks.length > 0 ? (
         <section className="container mx-auto mt-24 px-4">
           <Header title="Done reading?" subtitle="Read more related articles" />
           <div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
-            {relatedPosts.map(relatedWork => {
+            {relatedWorks.map(work => {
               return (
-                <div key={relatedWork.id} className="col-span-4">
+                <div key={work.id} className="col-span-4">
                   <ArticleCard
-                    href={`/${WorkPath}${getDatedSlug(date, relatedWork._sys.filename)}`}
-                    {...relatedWork}
-                    id={relatedWork.id}
+                    href={`/${WorkPath}/${work.category}/${work._sys.filename}`}
+                    {...work}
+                    id={work.id}
                   />
                 </div>
               )
