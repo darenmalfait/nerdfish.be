@@ -5,7 +5,7 @@ import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
 import {Icons} from '@nerdfish-website/ui/icons'
-import {Button, Drawer, H2, H3} from '@nerdfish/ui'
+import {Button, Drawer, H2, H3, ScrollArea} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
 import {type GlobalNavigationMain, type GlobalNavigationMainSub} from '../cms'
@@ -114,42 +114,44 @@ export function MobileNavigation() {
         </Button>
       </Drawer.Trigger>
       <Drawer.Content className="dark:bg-popover">
-        <div className="container mx-auto flex flex-col gap-12 px-4 py-6">
-          <div className="flex items-center justify-between gap-2">
-            <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-              <Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
-            </Link>
-            <div className="flex flex-row items-center justify-end gap-2">
-              <ThemeToggle variant="ghost" />
-              <RSSFeedButton />
-              <ActionsNavigation
-                onSelect={() => {
-                  setOpen(false)
-                }}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {navigation?.main?.map(navItem => {
-              if (!navItem) return null
-
-              return (
-                <MobileNavigationItem
-                  key={navItem.label}
-                  {...navItem}
-                  onClick={() => setOpen(false)}
+        <ScrollArea className="h-[85vh] w-full md:h-auto">
+          <div className="container mx-auto flex flex-col gap-12 px-4 py-6">
+            <div className="flex items-center justify-between gap-2">
+              <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+                <Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
+              </Link>
+              <div className="flex flex-row items-center justify-end gap-2">
+                <ThemeToggle variant="ghost" />
+                <RSSFeedButton />
+                <ActionsNavigation
+                  onSelect={() => {
+                    setOpen(false)
+                  }}
                 />
-              )
-            })}
-          </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+              {navigation?.main?.map(navItem => {
+                if (!navItem) return null
 
-          <div className="flex gap-2">
-            <div className="flex flex-row items-center gap-3">
-              <span className="font-bold">Socials:</span>
-              <SocialLinks />
+                return (
+                  <MobileNavigationItem
+                    key={navItem.label}
+                    {...navItem}
+                    onClick={() => setOpen(false)}
+                  />
+                )
+              })}
+            </div>
+
+            <div className="flex gap-2">
+              <div className="flex flex-row items-center gap-3">
+                <span className="font-bold">Socials:</span>
+                <SocialLinks />
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollArea>
       </Drawer.Content>
     </Drawer>
   )
