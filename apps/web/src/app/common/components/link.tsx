@@ -3,7 +3,8 @@
 import * as React from 'react'
 import NextLink, {type LinkProps} from 'next/link'
 import {stripPreSlash} from '@nerdfish-website/lib/utils'
-import {getButtonClassName} from '@nerdfish/ui'
+import {Button} from '@nerdfish/ui'
+import {cx} from '@nerdfish/utils'
 import Obfuscate from 'react-obfuscate'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https']
@@ -46,31 +47,28 @@ const Link = React.forwardRef<
 
   if (isButton) {
     return (
-      <NextLink
-        passHref
-        ref={ref}
-        as={NextLink as any}
-        size="sm"
-        {...(props as any)}
-        className={getButtonClassName({
-          className: `${props.className} cursor-pointer`,
-        })}
-        href={slug}
-        target={isExternal ? '_blank' : undefined}
-        suppressHydrationWarning
-      />
+      <Button asChild>
+        <NextLink
+          passHref
+          ref={ref}
+          size="sm"
+          {...(props as any)}
+          className={cx('cursor-pointer', props.className)}
+          href={slug}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+        />
+      </Button>
     )
   }
 
   return (
     <NextLink
-      passHref
       ref={ref}
-      as={NextLink as any}
       {...props}
       href={slug}
       target={isExternal ? '_blank' : undefined}
-      suppressHydrationWarning
+      rel={isExternal ? 'noopener noreferrer' : undefined}
     />
   )
 })
