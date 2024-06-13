@@ -1,5 +1,5 @@
 {
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
@@ -31,45 +31,45 @@
     },
     "//#format": {
       "outputs": ["node_modules/.cache/prettiercache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "format": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/prettiercache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "//#format:fix": {
       "outputs": ["node_modules/.cache/prettiercache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "format:fix": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/prettiercache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "//#lint": {
       "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "lint": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "//#lint:fix": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "lint:fix": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "typecheck": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"],
-      "outputMode": "errors-only"
+      "outputLogs": "errors-only"
     },
     "clean": {
       "cache": false
