@@ -8,8 +8,6 @@ import {
 import {H2} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 
-import {buildSrc} from '~/app/common'
-
 import {ArrowLink} from './arrow-link'
 
 interface HighlightCardProps {
@@ -80,9 +78,7 @@ function HighlightCard({
           {image ? (
             <Image
               className="absolute inset-0 object-cover"
-              src={buildSrc(image, {
-                width: 650,
-              })}
+              src={image}
               fill
               alt={title ?? ''}
             />

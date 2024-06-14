@@ -13,8 +13,6 @@ import {cx} from '@nerdfish/utils'
 
 import {type Blog, type Work} from '~/app/cms'
 
-import {buildSrc} from '../utils'
-
 function ArticleCard({
   title,
   heroImg,
@@ -39,9 +37,7 @@ function ArticleCard({
           >
             <Image
               className="absolute inset-0 size-full rounded-lg object-cover"
-              src={buildSrc(heroImg, {
-                width: 800,
-              })}
+              src={heroImg}
               fill
               alt={title ?? ''}
             />

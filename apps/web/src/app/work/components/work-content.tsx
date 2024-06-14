@@ -6,7 +6,7 @@ import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type WorkQueryQuery} from '~/app/cms'
-import {ArticleCard, buildSrc, Header, WorkPath} from '~/app/common'
+import {ArticleCard, Header, WorkPath} from '~/app/common'
 
 import {mapWorkData} from '../api'
 import {BackToWork} from './misc'
@@ -56,14 +56,7 @@ function WorkContent({data}: {data: WorkQueryQuery}) {
           data-tina-field={tinaField(data.work, 'heroImg')}
         >
           {heroImg ? (
-            <Image
-              src={buildSrc(heroImg, {
-                width: 900,
-              })}
-              alt={title}
-              width={900}
-              height={900}
-            />
+            <Image src={heroImg} alt={title} width={900} height={900} />
           ) : null}
         </div>
       </section>

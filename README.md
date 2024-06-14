@@ -35,9 +35,6 @@ The following environment variables are required to run the website:
 - `TINA_TOKEN`: This is retrieved from your project at app.tina.io.
 - `NEXT_PUBLIC_TINA_BRANCH`: This is set by default CI with
   Netlify/Vercel/Github, but can be overridden.
-- `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`: Found in cloudinary.
-- `NEXT_PUBLIC_CLOUDINARY_API_KEY`: Found in cloudinary.
-- `CLOUDINARY_API_SECRET`: Found in cloudinary.
 - `NEXT_PUBLIC_RECAPTCHA_SITEKEY`: Recaptcha public key.
 - `RECAPTCHA_SECRETKEY`: Recaptcha secret key.
 - `RESEND_API_KEY`: Found in resend.
