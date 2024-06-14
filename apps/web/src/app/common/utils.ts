@@ -14,21 +14,12 @@ export function getDomainUrl(): string | undefined {
   }
 }
 
-export function generateOGImageUrl({
-  cardType = 'primary',
-  ...props
-}: z.infer<typeof ogImageSchema> & {
-  cardType?: string | null
-}) {
+export function generateOGImageUrl({...props}: z.infer<typeof ogImageSchema>) {
   const url = getDomainUrl()
-
-  const ogUrl =
-    cardType === 'secondary'
-      ? new URL(`${url}/api/og/secondary`)
-      : new URL(`${url}/api/og/primary`)
+  const ogUrl = new URL(`${url}/api/og`)
 
   for (const [key, value] of Object.entries(props)) {
-    ogUrl.searchParams.set(key, value ?? '')
+    ogUrl.searchParams.set(key, value)
   }
 
   return ogUrl.toString()

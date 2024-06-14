@@ -21,8 +21,6 @@ export async function generateMetadata({
     ogImage: data.wiki.seo?.seoImg
       ? data.wiki.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.wiki.seo?.cardType,
-          image: data.wiki.seo?.partialSeoImage,
           heading: title,
         }),
     title,

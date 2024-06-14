@@ -21,8 +21,6 @@ export async function generateMetadata({
     ogImage: data.work.seo?.seoImg
       ? data.work.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.work.seo?.cardType,
-          image: data.work.seo?.partialSeoImage ?? data.work.heroImg,
           heading: title,
         }),
     title,
