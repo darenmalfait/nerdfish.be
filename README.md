@@ -9,10 +9,10 @@
 Nerdfish is an Alias for my Freelance business.
 
 This repository contains the code for nerdfish.be. The website is built using
-the app-directory approach for NextJS, tailwindcss for styling and tinacms as a
+the app-directory approach for Next.js, tailwindcss for styling and tinacms as a
 CMS. It's structured as a mono-repo using turbo.
 
-It uses the app-directory structure for NextJS.
+It uses the app-directory structure for Next.js.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
