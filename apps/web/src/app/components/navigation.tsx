@@ -95,7 +95,7 @@ function MainNavigationItem({href, label, sub}: GlobalNavigationMain) {
   if (!sub?.length && !href) return null
 
   if (!sub?.length) {
-    const isActive = stripPreSlash(pathname ?? '').startsWith(href ?? '')
+    const isActive = stripPreSlash(pathname).startsWith(href ?? '')
 
     return (
       <NavigationMenu.Item>
@@ -116,7 +116,7 @@ function MainNavigationItem({href, label, sub}: GlobalNavigationMain) {
   const isActive = sub.some(subNavItem => {
     if (!subNavItem) return false
 
-    return stripPreSlash(pathname ?? '').startsWith(subNavItem.href)
+    return stripPreSlash(pathname).startsWith(subNavItem.href)
   })
 
   return (

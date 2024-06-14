@@ -2,8 +2,6 @@ import * as React from 'react'
 import Image from 'next/image'
 import {cx} from '@nerdfish/utils'
 
-import {buildSrc} from '~/app/common'
-
 function PortableImage({
   alt = '',
   src = '',
@@ -20,9 +18,7 @@ function PortableImage({
       className={cx({
         'max-w-xs': compact,
       })}
-      src={buildSrc(url, {
-        width: compact ? 400 : 800,
-      })}
+      src={url}
       width={compact ? 400 : 800}
       height={800}
       alt={alt}

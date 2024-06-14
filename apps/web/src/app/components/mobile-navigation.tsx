@@ -18,7 +18,7 @@ const MobileNavigationSubItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({href, label, description, className, ...props}, ref) => {
   const pathname = usePathname()
-  const isActive = stripPreSlash(pathname ?? '').startsWith(href)
+  const isActive = stripPreSlash(pathname).startsWith(href)
 
   return (
     <li>
@@ -50,7 +50,7 @@ function MobileNavigationItem({
   if (!sub?.length && !href) return null
 
   if (!sub?.length) {
-    const isActive = stripPreSlash(pathname ?? '').startsWith(href ?? '')
+    const isActive = stripPreSlash(pathname).startsWith(href ?? '')
 
     return (
       <Link href={`/${stripPreSlash(href ?? '')}`} onClick={onClick}>

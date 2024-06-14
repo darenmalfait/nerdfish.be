@@ -4,7 +4,6 @@ import {H1} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type Block, type PageBlocksHero} from '~/app/cms'
-import {buildSrc} from '~/app/common'
 
 export function HeroBlock(data: Block<PageBlocksHero>) {
   const {image, text, title} = data
@@ -30,13 +29,11 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
           ) : null}
         </div>
         <div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
-          {image ? (
+          {image?.src ? (
             <div className="relative max-w-3xl flex-none sm:max-w-xl xl:max-w-3xl 2xl:max-w-none">
               <Image
                 className="inset-0 mb-12 rounded-xl"
-                src={buildSrc(image.src ?? '', {
-                  width: 700,
-                })}
+                src={image.src}
                 width={700}
                 height={700}
                 loading="eager"

@@ -4,13 +4,7 @@ import {draftMode} from 'next/headers'
 
 import {BlogContent} from '~/app/blog/components/blog-content'
 import {BlogPreview} from '~/app/blog/components/blog-preview'
-import {
-  buildSrc,
-  generateOGImageUrl,
-  getDatedSlug,
-  getFileNameFromUrl,
-  getMetaData,
-} from '~/app/common'
+import {generateOGImageUrl, getDatedSlug, getMetaData} from '~/app/common'
 
 import {getRouteData} from './route-data'
 
@@ -27,20 +21,6 @@ export async function generateMetadata({
     ogImage: data.blog.seo?.seoImg
       ? data.blog.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.blog.seo?.cardType,
-          image:
-            data.blog.seo?.partialSeoImage ?? data.blog.heroImg
-              ? buildSrc(
-                  getFileNameFromUrl(
-                    data.blog.seo?.partialSeoImage ?? data.blog.heroImg ?? '',
-                  ) ?? '',
-                  {
-                    width: data.blog.seo?.cardType === 'secondary' ? 1100 : 800,
-                    height: data.blog.seo?.cardType === 'secondary' ? 430 : 630,
-                    format: 'png',
-                  },
-                )
-              : undefined,
           heading: title,
         }),
     title,

@@ -2,13 +2,7 @@ import * as React from 'react'
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import {
-  buildSrc,
-  generateOGImageUrl,
-  getDatedSlug,
-  getFileNameFromUrl,
-  getMetaData,
-} from '~/app/common'
+import {generateOGImageUrl, getDatedSlug, getMetaData} from '~/app/common'
 import {WikiContent} from '~/app/wiki/components/wiki-content'
 import {WikiPreview} from '~/app/wiki/components/wiki-preview'
 
@@ -27,17 +21,6 @@ export async function generateMetadata({
     ogImage: data.wiki.seo?.seoImg
       ? data.wiki.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.wiki.seo?.cardType,
-          image: data.wiki.seo?.partialSeoImage
-            ? buildSrc(
-                getFileNameFromUrl(data.wiki.seo.partialSeoImage) ?? '',
-                {
-                  width: data.wiki.seo.cardType === 'secondary' ? 1100 : 800,
-                  height: data.wiki.seo.cardType === 'secondary' ? 430 : 630,
-                  format: 'png',
-                },
-              )
-            : undefined,
           heading: title,
         }),
     title,

@@ -5,13 +5,7 @@ import {H1, H6} from '@nerdfish/ui'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type BlogPostQueryQuery} from '~/app/cms'
-import {
-  ArticleCard,
-  BlogPath,
-  buildSrc,
-  getDatedSlug,
-  Header,
-} from '~/app/common'
+import {ArticleCard, BlogPath, getDatedSlug, Header} from '~/app/common'
 
 import {mapBlogData} from '../api'
 import {BackToBlog} from './misc'
@@ -58,14 +52,7 @@ function BlogContent({data}: {data: BlogPostQueryQuery}) {
           data-tina-field={tinaField(data.blog, 'heroImg')}
         >
           {heroImg ? (
-            <Image
-              src={buildSrc(heroImg, {
-                width: 900,
-              })}
-              alt={title}
-              width={900}
-              height={900}
-            />
+            <Image src={heroImg} alt={title} width={900} height={900} />
           ) : null}
         </div>
       </section>

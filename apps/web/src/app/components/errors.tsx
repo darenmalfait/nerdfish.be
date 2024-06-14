@@ -99,6 +99,7 @@ function ErrorPage({
 
           <div className="relative mx-auto flex w-full items-center overflow-hidden rounded-full sm:w-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
             <Image
+              placeholder="blur"
               width={200}
               className="mx-auto w-full max-w-96 rounded-md"
               src={errorImage}
