@@ -2,13 +2,7 @@ import * as React from 'react'
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import {
-  buildSrc,
-  generateOGImageUrl,
-  getDatedSlug,
-  getFileNameFromUrl,
-  getMetaData,
-} from '~/app/common'
+import {generateOGImageUrl, getDatedSlug, getMetaData} from '~/app/common'
 import {WorkContent} from '~/app/work/components/work-content'
 import {WorkPreview} from '~/app/work/components/work-preview'
 
@@ -27,20 +21,6 @@ export async function generateMetadata({
     ogImage: data.work.seo?.seoImg
       ? data.work.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.work.seo?.cardType,
-          image:
-            data.work.seo?.partialSeoImage ?? data.work.heroImg
-              ? buildSrc(
-                  getFileNameFromUrl(
-                    data.work.seo?.partialSeoImage ?? data.work.heroImg ?? '',
-                  ) ?? '',
-                  {
-                    width: data.work.seo?.cardType === 'secondary' ? 1100 : 800,
-                    height: data.work.seo?.cardType === 'secondary' ? 430 : 630,
-                    format: 'png',
-                  },
-                )
-              : undefined,
           heading: title,
         }),
     title,

@@ -10,7 +10,7 @@ import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
 import {PortableText, type Block, type PageBlocksWiki} from '~/app/cms'
-import {buildSrc, getDatedSlug, Header} from '~/app/common'
+import {getDatedSlug, Header} from '~/app/common'
 
 import {filterWiki} from '../utils'
 
@@ -72,9 +72,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
               >
                 <Image
                   className="rounded-xl"
-                  src={buildSrc(header.image, {
-                    width: 550,
-                  })}
+                  src={header.image}
                   width={550}
                   height={550}
                   loading="eager"

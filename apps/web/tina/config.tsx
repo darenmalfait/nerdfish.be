@@ -12,17 +12,17 @@ const config = defineStaticConfig({
   token: process.env.TINA_TOKEN ?? '',
   media: {
     // If you wanted cloudinary do this
-    loadCustomStore: async () => {
-      const pack = await import('next-tinacms-cloudinary')
+    // loadCustomStore: async () => {
+    //   const pack = await import('next-tinacms-cloudinary')
 
-      //  as any because the types are wrong
-      return pack.TinaCloudCloudinaryMediaStore as any
-    },
-    // this is the config for the tina cloud media store
-    // tina: {
-    //   publicFolder: 'public',
-    //   mediaRoot: 'uploads',
+    //   //  as any because the types are wrong
+    //   return pack.TinaCloudCloudinaryMediaStore as any
     // },
+    // this is the config for the tina cloud media store
+    tina: {
+      publicFolder: 'public',
+      mediaRoot: 'uploads',
+    },
   },
   admin: {
     authHooks: {

@@ -8,7 +8,7 @@ import {cx} from '@nerdfish/utils'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksProducts, type Product} from '~/app/cms'
-import {buildSrc, Header} from '~/app/common'
+import {Header} from '~/app/common'
 
 function Product({title, link, description, soon, image}: Partial<Product>) {
   return (
@@ -18,9 +18,7 @@ function Product({title, link, description, soon, image}: Partial<Product>) {
         {image ? (
           <Avatar className="size-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
             <Avatar.Image
-              src={buildSrc(image, {
-                width: 100,
-              })}
+              src={image}
               className="object-cover"
               alt={title ?? 'Product image'}
             />

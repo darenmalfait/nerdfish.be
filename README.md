@@ -9,10 +9,10 @@
 Nerdfish is an Alias for my Freelance business.
 
 This repository contains the code for nerdfish.be. The website is built using
-the app-directory approach for NextJS, tailwindcss for styling and tinacms as a
+the app-directory approach for Next.js, tailwindcss for styling and tinacms as a
 CMS. It's structured as a mono-repo using turbo.
 
-It uses the app-directory structure for NextJS.
+It uses the app-directory structure for Next.js.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -35,9 +35,6 @@ The following environment variables are required to run the website:
 - `TINA_TOKEN`: This is retrieved from your project at app.tina.io.
 - `NEXT_PUBLIC_TINA_BRANCH`: This is set by default CI with
   Netlify/Vercel/Github, but can be overridden.
-- `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`: Found in cloudinary.
-- `NEXT_PUBLIC_CLOUDINARY_API_KEY`: Found in cloudinary.
-- `CLOUDINARY_API_SECRET`: Found in cloudinary.
 - `NEXT_PUBLIC_RECAPTCHA_SITEKEY`: Recaptcha public key.
 - `RECAPTCHA_SECRETKEY`: Recaptcha secret key.
 - `RESEND_API_KEY`: Found in resend.
