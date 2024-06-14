@@ -13,7 +13,6 @@ import {type Block, type PageBlocksBlog} from '~/app/cms'
 import {
   ArticleCard,
   BlogPath,
-  buildSrc,
   getDatedSlug,
   Header,
   HighlightCard,
@@ -97,9 +96,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
               >
                 <Image
                   className="rounded-xl"
-                  src={buildSrc(header.image, {
-                    width: 550,
-                  })}
+                  src={header.image}
                   width={550}
                   height={550}
                   loading="eager"

@@ -9,13 +9,7 @@ import {Plus, Search} from 'lucide-react'
 import {tinaField} from 'tinacms/dist/react'
 
 import {type Block, type PageBlocksWork} from '~/app/cms'
-import {
-  ArticleCard,
-  buildSrc,
-  Header,
-  HighlightCard,
-  WorkPath,
-} from '~/app/common'
+import {ArticleCard, Header, HighlightCard, WorkPath} from '~/app/common'
 
 import {filterWork} from '../utils'
 
@@ -91,9 +85,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
               >
                 <Image
                   className="rounded-xl"
-                  src={buildSrc(header.image, {
-                    width: 550,
-                  })}
+                  src={header.image}
                   width={550}
                   height={550}
                   loading="eager"

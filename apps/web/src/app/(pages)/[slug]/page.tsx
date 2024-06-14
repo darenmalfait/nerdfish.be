@@ -2,12 +2,7 @@ import * as React from 'react'
 import {type Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import {
-  buildSrc,
-  generateOGImageUrl,
-  getFileNameFromUrl,
-  getMetaData,
-} from '~/app/common'
+import {generateOGImageUrl, getMetaData} from '~/app/common'
 
 import {getPages} from '../api'
 import {PageContent} from '../components/page-content'
@@ -33,17 +28,6 @@ export async function generateMetadata({
     ogImage: data.page.seo?.seoImg
       ? data.page.seo.seoImg
       : generateOGImageUrl({
-          cardType: data.page.seo?.cardType,
-          image: data.page.seo?.partialSeoImage
-            ? buildSrc(
-                getFileNameFromUrl(data.page.seo.partialSeoImage) ?? '',
-                {
-                  width: data.page.seo.cardType === 'secondary' ? 1100 : 800,
-                  height: data.page.seo.cardType === 'secondary' ? 430 : 630,
-                  format: 'png',
-                },
-              )
-            : undefined,
           heading: title,
         }),
     title,
