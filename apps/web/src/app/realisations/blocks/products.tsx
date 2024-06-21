@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {Icons} from '@nerdfish-website/ui/icons'
-import {Avatar, Badge, Button, ButtonGroup, Grid, Skeleton} from '@nerdfish/ui'
+import {Avatar, Badge, Button, Grid, Skeleton} from '@nerdfish/ui'
 import {cx} from '@nerdfish/utils'
 import {tinaField} from 'tinacms/dist/react'
 
@@ -47,38 +47,40 @@ function Product({
         </span>
       </div>
       {hasExternalLink ? (
-        <ButtonGroup
+        <div
           className={cx(
             'pointer-events-none z-10 absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100',
           )}
         >
-          {link ? (
-            <Button
-              variant="default"
-              asChild
-              size="xs"
-              className="pointer-events-auto"
-            >
-              <Link href={link} target="_blank" rel="noreferrer">
-                <Icons.Globe className="mr-2 size-4" />
-                Website
-              </Link>
-            </Button>
-          ) : null}
-          {sourceUrl ? (
-            <Button
-              variant="default"
-              asChild
-              size="xs"
-              className="pointer-events-auto"
-            >
-              <Link href={sourceUrl} target="_blank" rel="noreferrer">
-                <Icons.GitHub className="mr-2 size-4" />
-                Source
-              </Link>
-            </Button>
-          ) : null}
-        </ButtonGroup>
+          <div className="flex gap-2">
+            {link ? (
+              <Button
+                variant="default"
+                asChild
+                size="xs"
+                className="pointer-events-auto"
+              >
+                <Link href={link} target="_blank" rel="noreferrer">
+                  <Icons.Globe className="mr-2 size-4" />
+                  Website
+                </Link>
+              </Button>
+            ) : null}
+            {sourceUrl ? (
+              <Button
+                variant="default"
+                asChild
+                size="xs"
+                className="pointer-events-auto"
+              >
+                <Link href={sourceUrl} target="_blank" rel="noreferrer">
+                  <Icons.GitHub className="mr-2 size-4" />
+                  Source
+                </Link>
+              </Button>
+            ) : null}
+          </div>
+        </div>
       ) : null}
 
       <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-focus-within:bg-popover group-hover:bg-popover" />
