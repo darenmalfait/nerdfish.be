@@ -39,6 +39,11 @@ const productsCollection: Collection = {
       name: 'link',
     },
     {
+      type: 'string',
+      label: 'Source',
+      name: 'sourceUrl',
+    },
+    {
       type: 'boolean',
       label: 'Soon',
       name: 'soon',
