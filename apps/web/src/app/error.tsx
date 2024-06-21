@@ -6,9 +6,6 @@ import {ErrorPage} from './components/errors'
 
 export default function Error({error}: {error?: Error}) {
   return (
-    <ErrorPage
-      title="500 - Oh no, something went wrong!"
-      subtitle={error?.message}
-    />
+    <ErrorPage title="Oh no, something went wrong!" subtitle={error?.message} />
   )
 }
