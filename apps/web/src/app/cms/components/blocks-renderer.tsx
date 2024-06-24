@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import {BlogOverviewBlock} from '~/app/blog'
 import {
-  BigTitleBlock,
   ContentBlock,
   FeaturesBlock,
   HeroBlock,
@@ -46,7 +45,6 @@ export function Blocks({
   const components: {
     [K in PageBlockType]: React.ComponentType<Block>
   } = {
-    PageBlocksBigTitle: BigTitleBlock,
     PageBlocksBlog: BlogOverviewBlock,
     PageBlocksContent: ContentBlock,
     PageBlocksFeatures: FeaturesBlock,
