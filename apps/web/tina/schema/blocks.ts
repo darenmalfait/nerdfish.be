@@ -1,4 +1,3 @@
-import {bigTitleTemplate} from './blocks/big-title.template'
 import {blogTemplate} from './blocks/blog.template'
 import {contentTemplate} from './blocks/content.template'
 import {featuresTemplate} from './blocks/features.template'
@@ -10,7 +9,6 @@ import {wikiTemplate} from './blocks/wiki.template'
 import {workTemplate} from './blocks/work.template'
 
 const blocks = [
-  bigTitleTemplate,
   blogTemplate,
   contentTemplate,
   featuresTemplate,
