@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mdxeditor/editor": "^3.4.2",
+    "@mdxeditor/editor": "^3.6.1",
     "@nerdfish-website/lib": "workspace:*",
     "@nerdfish/tailwind-config": "^2.2.4",
     "@nerdfish/ui": "^5.0.1",
@@ -37,7 +37,7 @@
     "@reach/checkbox": "^0.18.0",
     "@tailwindcss/typography": "^0.5.13",
     "date-fns": "^3.6.0",
-    "lucide-react": "^0.395.0",
+    "lucide-react": "^0.396.0",
     "react": "^18.3.1",
     "react-easy-crop": "^5.0.7",
     "react-markdown": "^9.0.1",
@@ -56,6 +56,6 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8.57.0",
     "prettier": "^3.3.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   }
 }
