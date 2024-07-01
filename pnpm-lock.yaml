@@ -132,8 +132,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4)
       tinacms:
-        specifier: ^1.6.3
-        version: 1.6.3(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.6.4
+        version: 1.6.4(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tiny-invariant:
         specifier: ^1.3.3
         version: 1.3.3
@@ -148,8 +148,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.5.2)
       '@tinacms/cli':
-        specifier: ^1.5.45
-        version: 1.5.45(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.9.4)(terser@5.28.1)
+        specifier: ^1.5.46
+        version: 1.5.46(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.9.4)(terser@5.28.1)
       '@types/lodash':
         specifier: ^4.17.5
         version: 4.17.5
@@ -449,20 +449,12 @@ packages:
     resolution: {integrity: sha512-+UpDgowcmqe36d4NwqvKsyPMlOLNGMsfMmQ5WGCu+siCe3t3dfe9njrzGfdN4qq+bcNUt0+Vw6haRxBOycs4dw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/core@7.24.4':
-    resolution: {integrity: sha512-MBVlMXP+kkl5394RBLSxxk/iLTeVGuXTV3cIDXavPpMMqnSnt6apKgan/U8O3USWZCWZT/TbgfEpKa4uMgN4Dg==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/core@7.24.5':
     resolution: {integrity: sha512-tVQRucExLQ02Boi4vdPp49svNGcfL2GhdTCT9aldhXgCJVAI21EtRfBettiuLUwce/7r6bFdgs6JFkcdTiFttA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/generator@7.23.6':
     resolution: {integrity: sha512-qrSfCYxYQB5owCmGLbl8XRpX1ytXlpueOb0N0UmQwA073KZxejgQTzAmJezxvpwQD9uGtK2shHdi55QT+MbjIw==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/generator@7.24.4':
-    resolution: {integrity: sha512-Xd6+v6SnjWVx/nus+y0l1sxMOTOMBkyL4+BIdbALyatQnAe/SRVjANeDPSCYaX+i1iJmuGSKf3Z+E+V/va1Hvw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/generator@7.24.6':
@@ -612,10 +604,6 @@ packages:
 
   '@babel/helpers@7.23.7':
     resolution: {integrity: sha512-6AMnjCoC8wjqBzDHkuqpa7jAKwvMo4dC+lr/TFBz+ucfulO1XMpDnwWPGBNwClOKZ8h6xn5N81W/R5OrcKtCbQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helpers@7.24.4':
-    resolution: {integrity: sha512-FewdlZbSiwaVGlgT1DPANDuCHaDMiOo+D/IDYRFYjHOuv66xMSJ7fQwwODwRNAPkADIO/z1EoF/l2BCWlWABDw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helpers@7.24.6':
@@ -1200,10 +1188,6 @@ packages:
 
   '@babel/traverse@7.23.7':
     resolution: {integrity: sha512-tY3mM8rH9jM0YHFGyfC0/xf+SB5eKUu7HPj7/k3fpi9dAlsMc5YbQvDi0Sh2QTPXqMhyaAtzAr807TIyfQrmyg==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/traverse@7.24.1':
-    resolution: {integrity: sha512-xuU6o9m68KeqZbQuDt2TcKSxUw/mrsvavlEqQ1leZ/B+C9tk6E4sRWy97WaXgvq5E+nU3cXMxv3WKOCanVMCmQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/traverse@7.24.6':
@@ -3709,38 +3693,38 @@ packages:
   '@tanstack/virtual-core@3.5.0':
     resolution: {integrity: sha512-KnPRCkQTyqhanNC0K63GBG3wA8I+D1fQuVnAvcBF8f13akOKeQp1gSbu6f77zCxhEk727iV5oQnbHLYzHrECLg==}
 
-  '@tinacms/app@1.2.41':
-    resolution: {integrity: sha512-ub7J5XXXElsoVbpFAW7fP8PtPZw/aIMa4zIQeg9/FRqI5wQkSUw+f3+jKEnXEXV7qjdqiNN2FSv4LBps3G5N6w==}
+  '@tinacms/app@1.2.42':
+    resolution: {integrity: sha512-yG6kYKplf9TJfySDYF3zty+tl3cR5+j2I8GH0bQj6mlQiCBBCpruJaSxyZTDqgMM8bDcj0DV2z+4ggHTJPHZSQ==}
 
   '@tinacms/auth@1.0.4':
     resolution: {integrity: sha512-M+lX+oIJpmxtyRprQ9hlQk2J/32XduESJDQ0dA3m8g8Z6QhSlP/7Eg09ocgFSCyJDj50tit8hpLTrbtlEpz4+A==}
 
-  '@tinacms/cli@1.5.45':
-    resolution: {integrity: sha512-bmlPvrlJuv3PL/gcz7Mh9Wbz2TfomxvCPGik2xkDMR/BXgS9GwHiFVjRyPQrXU8V+2DBsUBjWP0AWi6KYWT/CA==}
+  '@tinacms/cli@1.5.46':
+    resolution: {integrity: sha512-iTssMQiW411Z0WMWL6mxVv/sEwaFW0uqf0Oac+agqphTGLDprHsmgAmqg2vU6dAMfWXIBxcuN6teqPN15HklBg==}
     hasBin: true
 
-  '@tinacms/datalayer@1.2.34':
-    resolution: {integrity: sha512-I2WxY5VpXKSWZa0pvU37C3XMHpCZLacWHwU23oZqlFNeLV7h7z3IZFn7DmalgS4N0UKbfq3PDs+qzDlYkI79jg==}
+  '@tinacms/datalayer@1.2.35':
+    resolution: {integrity: sha512-xq06Loy2Tk7DIvW5/ezIcpRmlNQsRM3VWRTA3BWLtK/4mEt19161N4346pdVkVZSZoHne7X33EIgRo120kqFzg==}
 
-  '@tinacms/graphql@1.4.34':
-    resolution: {integrity: sha512-KQaICxVSFktC0O1iLa55TvLGtGhvjyLJ4W7BGvhDeIQE7pf8i5AEmXLytnbOckKehsRjAmAhvHUhIotvbncJ6g==}
+  '@tinacms/graphql@1.4.35':
+    resolution: {integrity: sha512-dUl+888E2hL+BJMtNDLN6EkH/ckqJw/zhOgwK62lzoGhfX5qo8ed3q2KfU9mF0WyhBoeoAA08fmDNmYyaNgVrA==}
 
-  '@tinacms/mdx@1.3.24':
-    resolution: {integrity: sha512-jvM16Dpu917SS1pRLG67rqnaGicoNqcvQA+RhI+exylYlULqXSGb3FVgWsSAjUORoYom20oFbhB0Q9hGXjBWtQ==}
+  '@tinacms/mdx@1.3.25':
+    resolution: {integrity: sha512-KtOLhNIJwWYjjGKlWCp6FvD4RuluJhJu3wMe2nmeCBnBm/bZrxCqxXOX+MXMVxPdPlv+cybPsv6r5XaOxC7dHg==}
 
   '@tinacms/metrics@1.0.2':
     resolution: {integrity: sha512-PoXdZDXi3C4GqnPoTAEQWfKR1XxocOzTBje8dpTxTQ2J9WIeSUXKg8Gd1kNUVgW4XIZH6vtWqhqr1Ir8/O9M8w==}
     peerDependencies:
       fs-extra: ^9.0.1
 
-  '@tinacms/schema-tools@1.4.15':
-    resolution: {integrity: sha512-fVeYpxKTRdf7mc4+BDj0HmEQ2Pi+iapXFj0QIdlIvj5TmHsQELt8rTkpiwbUELj07Un5iD/+dYIrwZWbIrPoBw==}
+  '@tinacms/schema-tools@1.4.16':
+    resolution: {integrity: sha512-GNXSPG7oc9FAr0dZtautRJsmeOmhDyws0NZQDAUGIcAZ3mXlNcdGsdxC0AmC6U4xdCha1AF87VU7BrlsMgHEKg==}
     peerDependencies:
       react: '>=16.14.0'
       yup: ^0.32.0
 
-  '@tinacms/search@1.0.19':
-    resolution: {integrity: sha512-rop9eB9m5R1WMpgo7JT4RA7O59zPc4ENQdb2tmTMjKK0w4rz9merZHH3ls7PJCOQr/IzVjx0umWyeXR9G7tqFg==}
+  '@tinacms/search@1.0.20':
+    resolution: {integrity: sha512-GuOl/UACARHTm3Y9exvCrF9yKJPChpxHGXRR/ArR4sJev6RXzglkbYblxh/cVdfdgezDSxjs2gEFJy2WFmP2Sg==}
 
   '@tinacms/sharedctx@1.0.2':
     resolution: {integrity: sha512-YApW5GZDauOGRw+edUk7XE8xq84qZbeiT9MsylhlLfDo3oPWvJVtPUHjbXQo45pSyHHEAIfDF0AcNANp193cXw==}
@@ -8254,8 +8238,8 @@ packages:
       react: '>=16.8.1'
       react-dom: '>=16.8.1'
 
-  react-icons@4.12.0:
-    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+  react-icons@5.2.1:
+    resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
     peerDependencies:
       react: '*'
 
@@ -9101,8 +9085,8 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  tinacms@1.6.3:
-    resolution: {integrity: sha512-zlSyihY6k1wMEoaKnBb6qDfUr7E9eAhwJfK+u96ITVVq+qFbkNgBV/poINyjuURw1ulou8pYNyUabXt+EwEiZw==}
+  tinacms@1.6.4:
+    resolution: {integrity: sha512-wK8vdXRcw2ytwCKv2CQtOw1X88YNc0oj6+FFJgBeJgKP2Lu6xyahVZfM70LvH7XPamv/7PQD2Vw9qsE4n+c3Jg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -9882,26 +9866,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/core@7.24.4':
-    dependencies:
-      '@ampproject/remapping': 2.2.1
-      '@babel/code-frame': 7.24.2
-      '@babel/generator': 7.24.4
-      '@babel/helper-compilation-targets': 7.23.6
-      '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.4)
-      '@babel/helpers': 7.24.4
-      '@babel/parser': 7.24.4
-      '@babel/template': 7.24.0
-      '@babel/traverse': 7.24.1
-      '@babel/types': 7.24.0
-      convert-source-map: 2.0.0
-      debug: 4.3.4
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.1
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/core@7.24.5':
     dependencies:
       '@ampproject/remapping': 2.2.1
@@ -9927,13 +9891,6 @@ snapshots:
       '@babel/types': 7.24.0
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.20
-      jsesc: 2.5.2
-
-  '@babel/generator@7.24.4':
-    dependencies:
-      '@babel/types': 7.24.6
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
 
   '@babel/generator@7.24.6':
@@ -10046,15 +10003,6 @@ snapshots:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/helper-validator-identifier': 7.22.20
 
-  '@babel/helper-module-transforms@7.23.3(@babel/core@7.24.4)':
-    dependencies:
-      '@babel/core': 7.24.4
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-module-imports': 7.22.15
-      '@babel/helper-simple-access': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/helper-validator-identifier': 7.22.20
-
   '@babel/helper-module-transforms@7.23.3(@babel/core@7.24.5)':
     dependencies:
       '@babel/core': 7.24.5
@@ -10141,14 +10089,6 @@ snapshots:
       '@babel/template': 7.22.15
       '@babel/traverse': 7.23.7
       '@babel/types': 7.23.6
-    transitivePeerDependencies:
-      - supports-color
-
-  '@babel/helpers@7.24.4':
-    dependencies:
-      '@babel/template': 7.24.0
-      '@babel/traverse': 7.24.6
-      '@babel/types': 7.24.6
     transitivePeerDependencies:
       - supports-color
 
@@ -10695,14 +10635,14 @@ snapshots:
       '@babel/core': 7.23.7
       '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.23.7)
 
-  '@babel/plugin-transform-react-jsx-self@7.23.3(@babel/core@7.24.4)':
+  '@babel/plugin-transform-react-jsx-self@7.23.3(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
       '@babel/helper-plugin-utils': 7.22.5
 
-  '@babel/plugin-transform-react-jsx-source@7.23.3(@babel/core@7.24.4)':
+  '@babel/plugin-transform-react-jsx-source@7.23.3(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
       '@babel/helper-plugin-utils': 7.22.5
 
   '@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.23.7)':
@@ -10967,21 +10907,6 @@ snapshots:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.24.4
       '@babel/types': 7.23.6
-      debug: 4.3.4
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-
-  '@babel/traverse@7.24.1':
-    dependencies:
-      '@babel/code-frame': 7.24.2
-      '@babel/generator': 7.24.6
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-function-name': 7.23.0
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.24.6
-      '@babel/types': 7.24.6
       debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
@@ -14081,9 +14006,9 @@ snapshots:
 
   '@stitches/core@1.2.8': {}
 
-  '@svgr/babel-plugin-add-jsx-attribute@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-add-jsx-attribute@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.23.7)':
     dependencies:
@@ -14093,69 +14018,69 @@ snapshots:
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-remove-jsx-attribute@8.0.0(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-remove-jsx-attribute@8.0.0(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-remove-jsx-empty-expression@8.0.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-remove-jsx-empty-expression@8.0.0(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-remove-jsx-empty-expression@8.0.0(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
-  '@svgr/babel-plugin-replace-jsx-attribute-value@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-replace-jsx-attribute-value@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-replace-jsx-attribute-value@8.0.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-svg-dynamic-title@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-svg-dynamic-title@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-svg-dynamic-title@8.0.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-svg-em-dimensions@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-svg-em-dimensions@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-svg-em-dimensions@8.0.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-transform-react-native-svg@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-transform-react-native-svg@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-transform-react-native-svg@8.1.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-plugin-transform-svg-component@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-plugin-transform-svg-component@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
+      '@babel/core': 7.24.5
 
   '@svgr/babel-plugin-transform-svg-component@8.0.0(@babel/core@7.23.7)':
     dependencies:
       '@babel/core': 7.23.7
 
-  '@svgr/babel-preset@6.5.1(@babel/core@7.24.4)':
+  '@svgr/babel-preset@6.5.1(@babel/core@7.24.5)':
     dependencies:
-      '@babel/core': 7.24.4
-      '@svgr/babel-plugin-add-jsx-attribute': 6.5.1(@babel/core@7.24.4)
-      '@svgr/babel-plugin-remove-jsx-attribute': 8.0.0(@babel/core@7.24.4)
-      '@svgr/babel-plugin-remove-jsx-empty-expression': 8.0.0(@babel/core@7.24.4)
-      '@svgr/babel-plugin-replace-jsx-attribute-value': 6.5.1(@babel/core@7.24.4)
-      '@svgr/babel-plugin-svg-dynamic-title': 6.5.1(@babel/core@7.24.4)
-      '@svgr/babel-plugin-svg-em-dimensions': 6.5.1(@babel/core@7.24.4)
-      '@svgr/babel-plugin-transform-react-native-svg': 6.5.1(@babel/core@7.24.4)
-      '@svgr/babel-plugin-transform-svg-component': 6.5.1(@babel/core@7.24.4)
+      '@babel/core': 7.24.5
+      '@svgr/babel-plugin-add-jsx-attribute': 6.5.1(@babel/core@7.24.5)
+      '@svgr/babel-plugin-remove-jsx-attribute': 8.0.0(@babel/core@7.24.5)
+      '@svgr/babel-plugin-remove-jsx-empty-expression': 8.0.0(@babel/core@7.24.5)
+      '@svgr/babel-plugin-replace-jsx-attribute-value': 6.5.1(@babel/core@7.24.5)
+      '@svgr/babel-plugin-svg-dynamic-title': 6.5.1(@babel/core@7.24.5)
+      '@svgr/babel-plugin-svg-em-dimensions': 6.5.1(@babel/core@7.24.5)
+      '@svgr/babel-plugin-transform-react-native-svg': 6.5.1(@babel/core@7.24.5)
+      '@svgr/babel-plugin-transform-svg-component': 6.5.1(@babel/core@7.24.5)
 
   '@svgr/babel-preset@8.1.0(@babel/core@7.23.7)':
     dependencies:
@@ -14200,8 +14125,8 @@ snapshots:
 
   '@svgr/plugin-jsx@6.5.1(@svgr/core@6.3.1)':
     dependencies:
-      '@babel/core': 7.24.4
-      '@svgr/babel-preset': 6.5.1(@babel/core@7.24.4)
+      '@babel/core': 7.24.5
+      '@svgr/babel-preset': 6.5.1(@babel/core@7.24.5)
       '@svgr/core': 6.3.1
       '@svgr/hast-util-to-babel-ast': 6.5.1
       svg-parser: 2.0.4
@@ -14348,14 +14273,14 @@ snapshots:
 
   '@tanstack/virtual-core@3.5.0': {}
 
-  '@tinacms/app@1.2.41(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(yup@0.32.11)':
+  '@tinacms/app@1.2.42(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(yup@0.32.11)':
     dependencies:
       '@codemirror/language': 6.0.0
       '@graphiql/toolkit': 0.8.4(@types/node@20.14.9)(graphql@15.8.0)
       '@headlessui/react': 1.6.6(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@heroicons/react': 1.0.6(react@17.0.2)
       '@monaco-editor/react': 4.4.5(monaco-editor@0.31.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@tinacms/mdx': 1.3.24(react@17.0.2)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.25(react@17.0.2)(yup@0.32.11)
       '@xstate/react': 3.0.0(@types/react@18.3.3)(react@17.0.2)
       final-form: 4.20.10
       graphiql: 3.0.0-alpha.1(@codemirror/language@6.0.0)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(graphql@15.8.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -14366,7 +14291,7 @@ snapshots:
       react-dom: 17.0.2(react@17.0.2)
       react-router-dom: 6.3.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       tailwindcss: 3.4.4
-      tinacms: 1.6.3(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      tinacms: 1.6.4(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       typescript: 4.9.5
       zod: 3.23.8
     transitivePeerDependencies:
@@ -14398,7 +14323,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@tinacms/cli@1.5.45(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.9.4)(terser@5.28.1)':
+  '@tinacms/cli@1.5.46(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.9.4)(terser@5.28.1)':
     dependencies:
       '@graphql-codegen/core': 2.6.8(graphql@15.8.0)
       '@graphql-codegen/plugin-helpers': 5.0.4(graphql@15.8.0)
@@ -14414,12 +14339,12 @@ snapshots:
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.4.4)
       '@tailwindcss/line-clamp': 0.3.1(tailwindcss@3.4.4)
       '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.4)
-      '@tinacms/app': 1.2.41(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(yup@0.32.11)
-      '@tinacms/datalayer': 1.2.34(react@18.3.1)
-      '@tinacms/graphql': 1.4.34(react@18.3.1)
+      '@tinacms/app': 1.2.42(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/node@20.14.9)(@types/react-dom@18.3.0)(@types/react@18.3.3)(yup@0.32.11)
+      '@tinacms/datalayer': 1.2.35(react@18.3.1)
+      '@tinacms/graphql': 1.4.35(react@18.3.1)
       '@tinacms/metrics': 1.0.2(encoding@0.1.13)(fs-extra@9.1.0)
-      '@tinacms/schema-tools': 1.4.15(react@18.3.1)(yup@0.32.11)
-      '@tinacms/search': 1.0.19(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@18.3.1)(yup@0.32.11)
+      '@tinacms/search': 1.0.20(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)
       '@vitejs/plugin-react': 3.1.0(vite@4.5.1(@types/node@20.14.9)(terser@5.28.1))
       ajv: 6.12.6
       altair-express-middleware: 4.0.6
@@ -14459,7 +14384,7 @@ snapshots:
       readable-stream: 4.5.2
       rollup-plugin-visualizer: 5.12.0(rollup@4.9.4)
       tailwindcss: 3.4.4
-      tinacms: 1.6.3(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      tinacms: 1.6.4(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typanion: 3.13.0
       typescript: 4.3.5
       url-pattern: 1.0.3
@@ -14500,18 +14425,18 @@ snapshots:
       - ts-node
       - xstate
 
-  '@tinacms/datalayer@1.2.34(react@18.3.1)':
+  '@tinacms/datalayer@1.2.35(react@18.3.1)':
     dependencies:
-      '@tinacms/graphql': 1.4.34(react@18.3.1)
+      '@tinacms/graphql': 1.4.35(react@18.3.1)
     transitivePeerDependencies:
       - react
       - supports-color
 
-  '@tinacms/graphql@1.4.34(react@17.0.2)':
+  '@tinacms/graphql@1.4.35(react@17.0.2)':
     dependencies:
       '@iarna/toml': 2.2.5
-      '@tinacms/mdx': 1.3.24(react@17.0.2)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.15(react@17.0.2)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.25(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@17.0.2)(yup@0.32.11)
       abstract-level: 1.0.3
       body-parser: 1.20.2
       cors: 2.8.5
@@ -14539,11 +14464,11 @@ snapshots:
       - react
       - supports-color
 
-  '@tinacms/graphql@1.4.34(react@18.3.1)':
+  '@tinacms/graphql@1.4.35(react@18.3.1)':
     dependencies:
       '@iarna/toml': 2.2.5
-      '@tinacms/mdx': 1.3.24(react@18.3.1)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.15(react@18.3.1)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.25(react@18.3.1)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@18.3.1)(yup@0.32.11)
       abstract-level: 1.0.3
       body-parser: 1.20.2
       cors: 2.8.5
@@ -14571,9 +14496,9 @@ snapshots:
       - react
       - supports-color
 
-  '@tinacms/mdx@1.3.24(react@17.0.2)(yup@0.32.11)':
+  '@tinacms/mdx@1.3.25(react@17.0.2)(yup@0.32.11)':
     dependencies:
-      '@tinacms/schema-tools': 1.4.15(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@17.0.2)(yup@0.32.11)
       acorn: 8.8.2
       ccount: 2.0.1
       estree-util-is-identifier-name: 2.1.0
@@ -14608,9 +14533,9 @@ snapshots:
       - supports-color
       - yup
 
-  '@tinacms/mdx@1.3.24(react@18.3.1)(yup@0.32.11)':
+  '@tinacms/mdx@1.3.25(react@18.3.1)(yup@0.32.11)':
     dependencies:
-      '@tinacms/schema-tools': 1.4.15(react@18.3.1)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@18.3.1)(yup@0.32.11)
       acorn: 8.8.2
       ccount: 2.0.1
       estree-util-is-identifier-name: 2.1.0
@@ -14652,7 +14577,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@tinacms/schema-tools@1.4.15(react@17.0.2)(yup@0.32.11)':
+  '@tinacms/schema-tools@1.4.16(react@17.0.2)(yup@0.32.11)':
     dependencies:
       picomatch-browser: 2.2.6
       react: 17.0.2
@@ -14660,7 +14585,7 @@ snapshots:
       yup: 0.32.11
       zod: 3.23.8
 
-  '@tinacms/schema-tools@1.4.15(react@18.3.1)(yup@0.32.11)':
+  '@tinacms/schema-tools@1.4.16(react@18.3.1)(yup@0.32.11)':
     dependencies:
       picomatch-browser: 2.2.6
       react: 18.3.1
@@ -14668,10 +14593,10 @@ snapshots:
       yup: 0.32.11
       zod: 3.23.8
 
-  '@tinacms/search@1.0.19(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)':
+  '@tinacms/search@1.0.20(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)':
     dependencies:
-      '@tinacms/graphql': 1.4.34(react@17.0.2)
-      '@tinacms/schema-tools': 1.4.15(react@17.0.2)(yup@0.32.11)
+      '@tinacms/graphql': 1.4.35(react@17.0.2)
+      '@tinacms/schema-tools': 1.4.16(react@17.0.2)(yup@0.32.11)
       abstract-level: 1.0.3
       memory-level: 1.0.0
       module-error: 1.0.2
@@ -14685,10 +14610,10 @@ snapshots:
       - supports-color
       - yup
 
-  '@tinacms/search@1.0.19(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)':
+  '@tinacms/search@1.0.20(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)':
     dependencies:
-      '@tinacms/graphql': 1.4.34(react@18.3.1)
-      '@tinacms/schema-tools': 1.4.15(react@18.3.1)(yup@0.32.11)
+      '@tinacms/graphql': 1.4.35(react@18.3.1)
+      '@tinacms/schema-tools': 1.4.16(react@18.3.1)(yup@0.32.11)
       abstract-level: 1.0.3
       memory-level: 1.0.0
       module-error: 1.0.2
@@ -17362,9 +17287,9 @@ snapshots:
 
   '@vitejs/plugin-react@3.1.0(vite@4.5.1(@types/node@20.14.9)(terser@5.28.1))':
     dependencies:
-      '@babel/core': 7.24.4
-      '@babel/plugin-transform-react-jsx-self': 7.23.3(@babel/core@7.24.4)
-      '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.24.4)
+      '@babel/core': 7.24.5
+      '@babel/plugin-transform-react-jsx-self': 7.23.3(@babel/core@7.24.5)
+      '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.24.5)
       magic-string: 0.27.0
       react-refresh: 0.14.0
       vite: 4.5.1(@types/node@20.14.9)(terser@5.28.1)
@@ -22354,11 +22279,11 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-icons@4.12.0(react@17.0.2):
+  react-icons@5.2.1(react@17.0.2):
     dependencies:
       react: 17.0.2
 
-  react-icons@4.12.0(react@18.3.1):
+  react-icons@5.2.1(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -23587,7 +23512,7 @@ snapshots:
 
   through@2.3.8: {}
 
-  tinacms@1.6.3(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
+  tinacms@1.6.4(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@floating-ui/dom': 1.5.3
       '@floating-ui/react-dom': 2.1.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -23601,9 +23526,9 @@ snapshots:
       '@react-types/combobox': 3.10.0(react@17.0.2)
       '@react-types/shared': 3.23.1(react@17.0.2)
       '@sambego/storybook-styles': 1.0.0
-      '@tinacms/mdx': 1.3.24(react@17.0.2)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.15(react@17.0.2)(yup@0.32.11)
-      '@tinacms/search': 1.0.19(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.25(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@17.0.2)(yup@0.32.11)
+      '@tinacms/search': 1.0.20(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.2(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@udecode/plate-headless': 21.5.0(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(scheduler@0.19.0)(slate-history@0.93.0(slate@0.94.1))(slate-hyperscript@0.77.0(slate@0.94.1))(slate-react@0.97.2(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(slate@0.94.1))(slate@0.94.1)
       atob: 2.1.2
@@ -23632,7 +23557,7 @@ snapshots:
       react-dom: 17.0.2(react@17.0.2)
       react-dropzone: 14.2.3(react@17.0.2)
       react-final-form: 6.5.9(final-form@4.20.10)(react@17.0.2)
-      react-icons: 4.12.0(react@17.0.2)
+      react-icons: 5.2.1(react@17.0.2)
       react-onclickoutside: 6.13.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-router-dom: 6.3.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-textarea-autosize: 8.5.2(@types/react@18.3.3)(react@17.0.2)
@@ -23661,7 +23586,7 @@ snapshots:
       - react-native
       - supports-color
 
-  tinacms@1.6.3(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  tinacms@1.6.4(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@floating-ui/dom': 1.5.3
       '@floating-ui/react-dom': 2.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -23675,9 +23600,9 @@ snapshots:
       '@react-types/combobox': 3.10.0(react@18.3.1)
       '@react-types/shared': 3.23.1(react@18.3.1)
       '@sambego/storybook-styles': 1.0.0
-      '@tinacms/mdx': 1.3.24(react@18.3.1)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.15(react@18.3.1)(yup@0.32.11)
-      '@tinacms/search': 1.0.19(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.25(react@18.3.1)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.16(react@18.3.1)(yup@0.32.11)
+      '@tinacms/search': 1.0.20(encoding@0.1.13)(react@18.3.1)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@udecode/plate-headless': 21.5.0(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.19.0)(slate-history@0.93.0(slate@0.94.1))(slate-hyperscript@0.77.0(slate@0.94.1))(slate-react@0.97.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate@0.94.1))(slate@0.94.1)
       atob: 2.1.2
@@ -23706,7 +23631,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-dropzone: 14.2.3(react@18.3.1)
       react-final-form: 6.5.9(final-form@4.20.10)(react@18.3.1)
-      react-icons: 4.12.0(react@18.3.1)
+      react-icons: 5.2.1(react@18.3.1)
       react-onclickoutside: 6.13.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom: 6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-textarea-autosize: 8.5.2(@types/react@18.3.3)(react@18.3.1)
