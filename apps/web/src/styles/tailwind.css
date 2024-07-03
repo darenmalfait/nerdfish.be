@@ -3,19 +3,19 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
-  html {
-    @apply min-h-screen max-w-full overscroll-none font-sans;
-  }
+	html {
+		@apply min-h-screen max-w-full overscroll-none font-sans;
+	}
 
-  body {
-    @apply min-h-screen bg-primary;
-  }
+	body {
+		@apply bg-primary min-h-screen;
+	}
 
-  .prose pre {
-    @apply bg-muted;
-  }
+	.prose pre {
+		@apply bg-muted;
+	}
 
-  .prose pre {
-    @apply bg-muted;
-  }
+	.prose pre {
+		@apply bg-muted;
+	}
 }

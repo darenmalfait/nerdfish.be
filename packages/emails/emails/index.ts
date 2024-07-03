@@ -1,3 +1,3 @@
-export {ContactEmail} from './contact-email'
+export { ContactEmail } from './contact-email'
 
-export {renderAsync} from '@react-email/render'
+export { renderAsync } from '@react-email/render'

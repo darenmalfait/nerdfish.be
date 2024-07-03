@@ -1,14 +1,11 @@
-import * as React from 'react'
+import { mapPageData } from '../api'
+import { Blocks, type ContentQueryQuery, type PageBlocks } from '~/app/cms'
 
-import {Blocks, type ContentQueryQuery, type PageBlocks} from '~/app/cms'
-
-import {mapPageData} from '../api'
-
-export function PageContent({data}: {data: ContentQueryQuery}) {
-  return (
-    <Blocks
-      items={data.page.blocks as PageBlocks[]}
-      globalData={{...mapPageData(data)}}
-    />
-  )
+export function PageContent({ data }: { data: ContentQueryQuery }) {
+	return (
+		<Blocks
+			items={data.page.blocks as PageBlocks[]}
+			globalData={{ ...mapPageData(data) }}
+		/>
+	)
 }

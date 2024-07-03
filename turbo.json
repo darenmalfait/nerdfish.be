@@ -1,83 +1,83 @@
 {
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-      "env": [
-        "VERCEL",
-        "VERCEL_URL",
-        "VERCEL_ENV",
-        "NODE_ENV",
-        "DATABASE_URL",
-        "NERDFISH_SMTP",
-        "RESEND_API_KEY",
-        "HEAD",
-        "SKIP_EMAILS",
-        "CLOUDINARY_API_SECRET",
-        "NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF",
-        "NEXT_PUBLIC_CLOUDINARY_API_KEY",
-        "NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME",
-        "NEXT_PUBLIC_RECAPTCHA_SITEKEY",
-        "NEXT_PUBLIC_URL",
-        "RECAPTCHA_SECRETKEY",
-        "SENDGRID_API_KEY",
-        "NEXT_PUBLIC_TINA_CLIENT_ID",
-        "TINA_TOKEN",
-        "NEXT_PUBLIC_TINA_BRANCH"
-      ]
-    },
-    "topo": {
-      "dependsOn": ["^topo"]
-    },
-    "//#format": {
-      "outputs": ["node_modules/.cache/prettiercache"],
-      "outputLogs": "errors-only"
-    },
-    "format": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/prettiercache"],
-      "outputLogs": "errors-only"
-    },
-    "//#format:fix": {
-      "outputs": ["node_modules/.cache/prettiercache"],
-      "outputLogs": "errors-only"
-    },
-    "format:fix": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/prettiercache"],
-      "outputLogs": "errors-only"
-    },
-    "//#lint": {
-      "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputLogs": "errors-only"
-    },
-    "lint": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputLogs": "errors-only"
-    },
-    "//#lint:fix": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputLogs": "errors-only"
-    },
-    "lint:fix": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.eslintcache"],
-      "outputLogs": "errors-only"
-    },
-    "typecheck": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
-      "outputLogs": "errors-only"
-    },
-    "clean": {
-      "cache": false
-    },
-    "dev": {
-      "dependsOn": [],
-      "persistent": true,
-      "cache": false
-    }
-  }
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+			"env": [
+				"VERCEL",
+				"VERCEL_URL",
+				"VERCEL_ENV",
+				"NODE_ENV",
+				"DATABASE_URL",
+				"NERDFISH_SMTP",
+				"RESEND_API_KEY",
+				"HEAD",
+				"SKIP_EMAILS",
+				"CLOUDINARY_API_SECRET",
+				"NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF",
+				"NEXT_PUBLIC_CLOUDINARY_API_KEY",
+				"NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME",
+				"NEXT_PUBLIC_RECAPTCHA_SITEKEY",
+				"NEXT_PUBLIC_URL",
+				"RECAPTCHA_SECRETKEY",
+				"SENDGRID_API_KEY",
+				"NEXT_PUBLIC_TINA_CLIENT_ID",
+				"TINA_TOKEN",
+				"NEXT_PUBLIC_TINA_BRANCH"
+			]
+		},
+		"topo": {
+			"dependsOn": ["^topo"]
+		},
+		"//#format": {
+			"outputs": ["node_modules/.cache/prettiercache"],
+			"outputLogs": "errors-only"
+		},
+		"format": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/prettiercache"],
+			"outputLogs": "errors-only"
+		},
+		"//#format:fix": {
+			"outputs": ["node_modules/.cache/prettiercache"],
+			"outputLogs": "errors-only"
+		},
+		"format:fix": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/prettiercache"],
+			"outputLogs": "errors-only"
+		},
+		"//#lint": {
+			"outputs": ["node_modules/.cache/.eslintcache"],
+			"outputLogs": "errors-only"
+		},
+		"lint": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/.eslintcache"],
+			"outputLogs": "errors-only"
+		},
+		"//#lint:fix": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/.eslintcache"],
+			"outputLogs": "errors-only"
+		},
+		"lint:fix": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/.eslintcache"],
+			"outputLogs": "errors-only"
+		},
+		"typecheck": {
+			"dependsOn": ["^topo"],
+			"outputs": ["node_modules/.cache/tsbuildinfo.json"],
+			"outputLogs": "errors-only"
+		},
+		"clean": {
+			"cache": false
+		},
+		"dev": {
+			"dependsOn": [],
+			"persistent": true,
+			"cache": false
+		}
+	}
 }
