@@ -2,6 +2,7 @@
   "name": "@nerdfish-website/emails",
   "version": "0.0.18",
   "private": true,
+  "type": "module",
   "files": [],
   "workspaces": [
     ".react-email"
@@ -17,8 +18,6 @@
     "react-email": "2.1.4"
   },
   "devDependencies": {
-    "@nerdfish-website/lint": "workspace:*",
-    "@nerdfish-website/tsconfig": "workspace:*",
     "typescript": "^5.5.2"
   },
   "export": {

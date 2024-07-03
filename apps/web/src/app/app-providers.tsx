@@ -1,20 +1,20 @@
 'use client'
 
+import { ThemeProvider as NerdfishThemeProvider } from '@nerdfish/theme'
 import * as React from 'react'
-import {ThemeProvider as NerdfishThemeProvider} from '@nerdfish/theme'
 
-import {ThemeProvider} from './theme-provider'
+import { ThemeProvider } from './theme-provider'
 
 interface AppProvidersProps {
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
-function AppProviders({children}: AppProvidersProps) {
-  return (
-    <ThemeProvider>
-      <NerdfishThemeProvider>{children}</NerdfishThemeProvider>
-    </ThemeProvider>
-  )
+function AppProviders({ children }: AppProvidersProps) {
+	return (
+		<ThemeProvider>
+			<NerdfishThemeProvider>{children}</NerdfishThemeProvider>
+		</ThemeProvider>
+	)
 }
 
-export {AppProviders}
+export { AppProviders }

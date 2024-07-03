@@ -1,45 +1,43 @@
 'use server'
 
 import {
-  contactSchema,
-  type ContactFormData,
+	contactSchema,
+	type ContactFormData,
 } from '@nerdfish-website/lib/validations'
 
-import {env} from '~/env.mjs'
-
-import {sendContactEmail} from '../../utils/email'
+import { sendContactEmail } from '../../utils/email'
 
 export async function submitContactForm(payload: ContactFormData) {
-  const data = contactSchema.parse(payload)
+	const data = contactSchema.parse(payload)
 
-  if (!payload.recaptchaResponse) throw new Error('Recaptcha is required')
+	if (!payload.recaptchaResponse) throw new Error('Recaptcha is required')
 
-  const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
+	const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
 
-  const recaptchaRes = await fetch(recaptchaUrl, {method: 'POST'})
+	const recaptchaRes = await fetch(recaptchaUrl, { method: 'POST' })
 
-  if (!recaptchaRes.ok) {
-    console.error(recaptchaRes)
+	if (!recaptchaRes.ok) {
+		console.error(recaptchaRes)
 
-    throw new Error('Recaptcha failed')
-  }
+		throw new Error('Recaptcha failed')
+	}
 
-  const recaptchaJson = await recaptchaRes.json()
+	const recaptchaJson = await recaptchaRes.json()
 
-  if (!recaptchaJson.success) {
-    console.error(recaptchaJson)
+	if (!recaptchaJson.success) {
+		console.error(recaptchaJson)
 
-    throw new Error('Recaptcha failed')
-  }
+		throw new Error('Recaptcha failed')
+	}
 
-  const {name, email, textMessage, project} = data
+	const { name, email, textMessage, project } = data
 
-  await sendContactEmail({
-    from: `${name} <${email}>`,
-    message: `${project}: ${textMessage}`,
-  })
+	await sendContactEmail({
+		from: `${name} <${email}>`,
+		message: `${project}: ${textMessage}`,
+	})
 
-  return {
-    success: true,
-  }
+	return {
+		success: true,
+	}
 }

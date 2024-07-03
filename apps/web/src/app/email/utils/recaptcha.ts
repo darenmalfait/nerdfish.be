@@ -2,101 +2,102 @@
 
 import * as React from 'react'
 
-import {env} from '~/env.mjs'
-
 /**
  * Function to clean the recaptcha_[language] script injected by the recaptcha.js
  */
 function cleanGstaticRecaptchaScript() {
-  const script = document.querySelector(
-    `script[src^='https://www.gstatic.com/recaptcha/releases']`,
-  )
+	const script = document.querySelector(
+		`script[src^='https://www.gstatic.com/recaptcha/releases']`,
+	)
 
-  if (script) {
-    script.remove()
-  }
+	if (script) {
+		script.remove()
+	}
 }
 
 function cleanGoogleRecaptcha(scriptId: string) {
-  // remove badge
-  const nodeBadge = document.querySelector('.grecaptcha-badge')
-  if (nodeBadge?.parentNode) {
-    document.body.removeChild(nodeBadge.parentNode)
-  }
+	// remove badge
+	const nodeBadge = document.querySelector('.grecaptcha-badge')
+	if (nodeBadge?.parentNode) {
+		document.body.removeChild(nodeBadge.parentNode)
+	}
 
-  // remove script
-  const script = document.querySelector(`#${scriptId}`)
-  if (script) {
-    script.remove()
-  }
+	// remove script
+	const script = document.querySelector(`#${scriptId}`)
+	if (script) {
+		script.remove()
+	}
 
-  cleanGstaticRecaptchaScript()
+	cleanGstaticRecaptchaScript()
 }
 
 interface RecaptchaProps {
-  execute: any
+	execute: any
 }
 
 export function useRecaptcha(): RecaptchaProps {
-  const [greCaptchaInstance, setGreCaptchaInstance] = React.useState<null | {
-    execute: any
-  }>(null)
+	const [greCaptchaInstance, setGreCaptchaInstance] = React.useState<null | {
+		execute: any
+	}>(null)
 
-  React.useEffect(() => {
-    if (!env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
-      console.error('Error: RECAPTCHA_SITEKEY is not set')
-      return
-    }
+	React.useEffect(() => {
+		if (!process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+			console.error('Error: RECAPTCHA_SITEKEY is not set')
+			return
+		}
 
-    const loadScriptByURL = (id: string, url: string) => {
-      const isScriptExist = document.getElementById(id)
+		const loadScriptByURL = (id: string, url: string) => {
+			const isScriptExist = document.getElementById(id)
 
-      if (!isScriptExist) {
-        const script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = url
-        script.id = id
+			if (!isScriptExist) {
+				const script = document.createElement('script')
+				script.type = 'text/javascript'
+				script.src = url
+				script.id = id
 
-        document.body.appendChild(script)
+				document.body.appendChild(script)
 
-        script.onload = () => {
-          if (!(window as any).grecaptcha) {
-            console.error('Error: grecaptcha is not defined')
+				script.onload = () => {
+					if (!(window as any).grecaptcha) {
+						console.error('Error: grecaptcha is not defined')
 
-            return
-          }
+						return
+					}
 
-          const grecaptcha = (window as any).grecaptcha
+					const grecaptcha = (window as any).grecaptcha
 
-          grecaptcha.ready(() => {
-            setGreCaptchaInstance(grecaptcha)
-          })
-        }
-      }
-    }
+					grecaptcha.ready(() => {
+						setGreCaptchaInstance(grecaptcha)
+					})
+				}
+			}
+		}
 
-    const scriptId = 'recaptcha-key'
+		const scriptId = 'recaptcha-key'
 
-    // load the script by passing the URL
-    loadScriptByURL(
-      scriptId,
-      `https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
-    )
+		// load the script by passing the URL
+		loadScriptByURL(
+			scriptId,
+			`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
+		)
 
-    return () => {
-      cleanGoogleRecaptcha(scriptId)
-    }
-  }, [])
+		return () => {
+			cleanGoogleRecaptcha(scriptId)
+		}
+	}, [])
 
-  const execute = React.useCallback(async () => {
-    if (!greCaptchaInstance?.execute) {
-      console.error('Error: grecaptcha is not defined')
-    }
+	const execute = React.useCallback(async () => {
+		if (!greCaptchaInstance?.execute) {
+			console.error('Error: grecaptcha is not defined')
+		}
 
-    return greCaptchaInstance?.execute(env.NEXT_PUBLIC_RECAPTCHA_SITEKEY, {
-      action: 'submit',
-    })
-  }, [greCaptchaInstance])
+		return greCaptchaInstance?.execute(
+			process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
+			{
+				action: 'submit',
+			},
+		)
+	}, [greCaptchaInstance])
 
-  return {execute}
+	return { execute }
 }

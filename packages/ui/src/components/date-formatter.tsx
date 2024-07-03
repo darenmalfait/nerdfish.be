@@ -1,18 +1,17 @@
 'use client'
 
-import * as React from 'react'
-import {format as formatDate} from 'date-fns'
+import { format as formatDate } from 'date-fns'
 
 function DateFormatter({
-  dateString,
-  format,
+	dateString,
+	format,
 }: {
-  dateString: string
-  format?: string
+	dateString: string
+	format?: string
 }) {
-  const date = new Date(dateString)
+	const date = new Date(dateString)
 
-  return <time dateTime={dateString}>{formatDate(date, format ?? 'PP')}</time>
+	return <time dateTime={dateString}>{formatDate(date, format ?? 'PP')}</time>
 }
 
-export {DateFormatter}
+export { DateFormatter }
