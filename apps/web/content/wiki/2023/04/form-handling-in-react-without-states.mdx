@@ -15,31 +15,31 @@ fields in state. For example:\\
 import * as React from 'react'
 
 function ExampleForm() {
-  const [firstName, setFirstName] = React.useState('')
-  const [lastName, setLastName] = React.useState('')
+	const [firstName, setFirstName] = React.useState('')
+	const [lastName, setLastName] = React.useState('')
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    // Do something with the data
-  }
+	function handleSubmit(e) {
+		e.preventDefault()
+		// Do something with the data
+	}
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="firstName"
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-      />
-      <input
-        type="text"
-        name="lastName"
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-      />
-      <button type="submit">Submit</button>
-    </form>
-  )
+	return (
+		<form onSubmit={handleSubmit}>
+			<input
+				type="text"
+				name="firstName"
+				value={firstName}
+				onChange={(e) => setFirstName(e.target.value)}
+			/>
+			<input
+				type="text"
+				name="lastName"
+				value={lastName}
+				onChange={(e) => setLastName(e.target.value)}
+			/>
+			<button type="submit">Submit</button>
+		</form>
+	)
 }
 ```
 
@@ -51,21 +51,21 @@ obtaining the data, without needing to manage the state of each input.
 import * as React from 'react'
 
 function ExampleForm() {
-  function handleSubmit(e) {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const firstName = formData.get('firstName')
-    const lastName = formData.get('lastName')
-    // Do something with the data
-  }
+	function handleSubmit(e) {
+		e.preventDefault()
+		const formData = new FormData(e.target)
+		const firstName = formData.get('firstName')
+		const lastName = formData.get('lastName')
+		// Do something with the data
+	}
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <button type="submit">Submit</button>
-    </form>
-  )
+	return (
+		<form onSubmit={handleSubmit}>
+			<input type="text" name="firstName" />
+			<input type="text" name="lastName" />
+			<button type="submit">Submit</button>
+		</form>
+	)
 }
 ```
 

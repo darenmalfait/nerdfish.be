@@ -1,30 +1,28 @@
 'use client'
 
-import * as React from 'react'
-import {useTina} from 'tinacms/dist/react'
+import { useTina } from 'tinacms/dist/react'
 
-import {type BlogPostQueryQuery, type BlogQueryVariables} from '~/app/cms'
-import {Preview} from '~/app/cms/components'
-
-import {BlogContent} from './blog-content'
+import { BlogContent } from './blog-content'
+import { type BlogPostQueryQuery, type BlogQueryVariables } from '~/app/cms'
+import { Preview } from '~/app/cms/components'
 
 function BlogPreview(props: {
-  data: BlogPostQueryQuery
-  query: string
-  variables: BlogQueryVariables
+	data: BlogPostQueryQuery
+	query: string
+	variables: BlogQueryVariables
 }) {
-  const {data} = useTina<BlogPostQueryQuery>({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  })
+	const { data } = useTina<BlogPostQueryQuery>({
+		query: props.query,
+		variables: props.variables,
+		data: props.data,
+	})
 
-  return (
-    <>
-      <Preview />
-      <BlogContent data={data} />
-    </>
-  )
+	return (
+		<>
+			<Preview />
+			<BlogContent data={data} />
+		</>
+	)
 }
 
-export {BlogPreview}
+export { BlogPreview }
