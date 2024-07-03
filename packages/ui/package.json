@@ -2,6 +2,7 @@
   "name": "@nerdfish-website/ui",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "exports": {
     "./types": "./src/types.ts",
     "./icons": "./src/icons.tsx",
@@ -50,11 +51,9 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@nerdfish-website/lint": "workspace:*",
-    "@nerdfish-website/tsconfig": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "eslint": "^8.57.0",
+    "eslint": "^9.4.0",
     "prettier": "^3.3.2",
     "typescript": "^5.5.2"
   }

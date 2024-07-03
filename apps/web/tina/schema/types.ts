@@ -1,8 +1,8 @@
-import {type TinaField} from 'tinacms'
+import { type TinaField } from 'tinacms'
 
 type ObjectField = TinaField & {
-  type: 'object'
-  fields: TinaField[]
+	type: 'object'
+	fields: TinaField[]
 }
 
-export type {ObjectField}
+export type { ObjectField }

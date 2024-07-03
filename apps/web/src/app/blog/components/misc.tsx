@@ -1,14 +1,12 @@
 'use client'
 
-import * as React from 'react'
-
-import {BackLink} from '~/app/common'
-import {useGlobal} from '~/app/global-provider'
+import { BackLink } from '~/app/common'
+import { useGlobal } from '~/app/global-provider'
 
 export function BackToBlog() {
-  const {paths} = useGlobal()
+	const { paths } = useGlobal()
 
-  if (!paths?.blog) return null
+	if (!paths?.blog) return null
 
-  return <BackLink href={paths.blog}>All blog articles</BackLink>
+	return <BackLink href={paths.blog}>All blog articles</BackLink>
 }

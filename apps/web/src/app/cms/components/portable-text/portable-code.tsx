@@ -1,10 +1,9 @@
-import * as React from 'react'
-import {Code} from '@nerdfish-website/ui/components/code'
+import { Code } from '@nerdfish-website/ui/components/code.tsx'
 
-function PortableCode({lang, value}: {lang?: string; value?: string}) {
-  if (!value) return null
+function PortableCode({ lang, value }: { lang?: string; value?: string }) {
+	if (!value) return null
 
-  return <Code code={value} lang={lang} />
+	return <Code code={value} lang={lang} />
 }
 
-export {PortableCode}
+export { PortableCode }
