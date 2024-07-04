@@ -1,3 +1,5 @@
+import { cx } from '@nerdfish/utils'
+import { DotPattern } from '@nerdfish-website/ui/components/dot-pattern.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -54,7 +56,14 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title, action } = data
 
 	return (
-		<div className="isolate my-8 flex min-h-[80vh] flex-col items-center justify-center lg:my-16">
+		<div className="relative isolate my-8 flex min-h-[80vh] flex-col items-center justify-center lg:my-16">
+			<DotPattern
+				width={32}
+				height={32}
+				className={cx(
+					'w-full [mask-image:radial-gradient(800px_circle_at_center,white,transparent)]',
+				)}
+			/>
 			<Title title={title} action={action ?? {}} />
 			<div className="container mx-auto px-4 lg:flex lg:items-center lg:gap-x-10">
 				<div className="mx-auto w-full lg:mx-0 lg:max-w-2xl lg:flex-auto">
