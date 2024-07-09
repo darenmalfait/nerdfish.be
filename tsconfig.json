@@ -1,5 +1,5 @@
 {
-	"extends": ["@nerdfish/config/typescript"],
+	"extends": "@nerdfish/config/typescript",
 	"include": [
 		"@nerdfish/config/reset.d.ts",
 		"**/*.ts",
