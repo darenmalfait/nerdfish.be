@@ -4,15 +4,11 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./types": "./src/types.ts",
     "./icons": "./src/icons.tsx",
     "./components/*": "./src/components/*"
   },
   "typesVersions": {
     "*": {
-      "types": [
-        "./src/types.ts"
-      ],
       "icons": [
         "./src/icons.tsx"
       ],
