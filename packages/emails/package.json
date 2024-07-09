@@ -13,12 +13,12 @@
     "dev": "email dev -p 6969"
   },
   "dependencies": {
-    "@react-email/components": "0.0.19",
-    "@react-email/render": "^0.0.15",
-    "react-email": "2.1.4"
+    "@react-email/components": "0.0.20",
+    "@react-email/render": "^0.0.16",
+    "react-email": "2.1.5"
   },
   "devDependencies": {
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   },
   "export": {
     ".": {
