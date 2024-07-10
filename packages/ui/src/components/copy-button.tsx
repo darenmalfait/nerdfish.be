@@ -1,7 +1,6 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { copyToClipboardWithMeta } from '@nerdfish-website/lib/utils'
 import { Check, Copy } from 'lucide-react'
 import * as React from 'react'
 
@@ -31,7 +30,7 @@ export function CopyButton({
 				className,
 			)}
 			onClick={async () => {
-				await copyToClipboardWithMeta(value)
+				await navigator.clipboard.writeText(value)
 				setHasCopied(true)
 			}}
 			{...props}
