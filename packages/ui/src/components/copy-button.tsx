@@ -26,7 +26,7 @@ export function CopyButton({
 	return (
 		<button
 			className={cx(
-				'bg-background hover:bg-muted relative z-20 inline-flex h-6 w-6 items-center justify-center rounded-md border text-sm font-medium transition-all focus:outline-none',
+				'relative z-20 inline-flex h-6 w-6 items-center justify-center rounded-md border border-white text-sm font-medium transition-all hover:bg-white/10 focus:outline-none',
 				className,
 			)}
 			onClick={async () => {
