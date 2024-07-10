@@ -7,7 +7,7 @@ import { PortableButton } from './portable-button'
 import { PortableCode } from './portable-code'
 import { PortableContactForm } from './portable-contact-form'
 import { PortableImage } from './portable-image'
-import { Link } from '~/app/common'
+import { PortableLink } from './portable-link'
 
 function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
 	return (
@@ -19,7 +19,7 @@ function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
 					ContactForm: PortableContactForm,
 					code_block: PortableCode,
 					image: PortableImage,
-					a: Link,
+					a: PortableLink,
 				} as any
 			}
 		/>
