@@ -4,12 +4,14 @@ import { tinaField } from 'tinacms/dist/react'
 
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
+import { ReadingProgress } from '~/app/common'
 
 function WikiContent({ data }: { data: WikiQueryQuery }) {
 	const { title, date, body } = data.wiki
 
 	return (
 		<>
+			<ReadingProgress offset={400} />
 			<section>
 				<div className="container mx-auto mb-14 mt-24 max-w-4xl px-4 lg:mb-24">
 					<BackToWiki />
