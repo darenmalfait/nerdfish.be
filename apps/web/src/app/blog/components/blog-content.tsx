@@ -76,7 +76,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 							return (
 								<div key={relatedBlog.id} className="col-span-4">
 									<ArticleCard
-										href={`/${BlogPath}${getDatedSlug(date, relatedBlog._sys.filename)}`}
+										href={`/${BlogPath}${getDatedSlug(relatedBlog.date, relatedBlog._sys.filename)}`}
 										{...relatedBlog}
 										id={relatedBlog.id}
 									/>
