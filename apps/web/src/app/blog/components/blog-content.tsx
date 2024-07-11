@@ -7,7 +7,13 @@ import { tinaField } from 'tinacms/dist/react'
 import { mapBlogData } from '../api'
 import { BackToBlog } from './misc'
 import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
-import { ArticleCard, BlogPath, getDatedSlug, Header } from '~/app/common'
+import {
+	ArticleCard,
+	BlogPath,
+	getDatedSlug,
+	Header,
+	ReadingProgress,
+} from '~/app/common'
 
 function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	const { title, date, tags, heroImg, body } = data.blog
@@ -28,6 +34,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 
 	return (
 		<>
+			<ReadingProgress offset={1200} />
 			<section>
 				<div className="container mx-auto mb-14 mt-24 max-w-4xl px-4 lg:mb-24">
 					<BackToBlog />
