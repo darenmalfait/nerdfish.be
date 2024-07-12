@@ -18,11 +18,11 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.3.2))(eslint@9.6.0)(prettier@3.3.2)(typescript@5.5.3)
       eslint:
-        specifier: ^9.4.0
+        specifier: ^9.6.0
         version: 9.6.0
       eslint-config-turbo:
-        specifier: ^2.0.4
-        version: 2.0.4(eslint@9.6.0)
+        specifier: ^2.0.6
+        version: 2.0.6(eslint@9.6.0)
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -172,7 +172,7 @@ importers:
         specifier: ^7.4.2
         version: 7.4.2
       eslint:
-        specifier: ^9.4.0
+        specifier: ^9.6.0
         version: 9.6.0
       gray-matter:
         specifier: ^4.0.3
@@ -310,7 +310,7 @@ importers:
         specifier: ^15.5.13
         version: 15.5.13
       eslint:
-        specifier: ^9.4.0
+        specifier: ^9.6.0
         version: 9.6.0
       prettier:
         specifier: ^3.3.2
@@ -5757,8 +5757,8 @@ packages:
     peerDependencies:
       eslint: '>6.6.0'
 
-  eslint-config-turbo@2.0.4:
-    resolution: {integrity: sha512-zGvU+bxoNWVvSl0prGItrnH9FgeNzKEAjRmv8ruqql1psI37T8IoLF/XeOzT3CzzYzJxuI3wW1yb2agDFYQdHQ==}
+  eslint-config-turbo@2.0.6:
+    resolution: {integrity: sha512-PkRjFnZUZWPcrYT4Xoi5OWOUtnn6xVGh88I6TsayiH4AQZuLs/MDmzfJRK+PiWIrI7Q7sbsVEQP+nUyyRE3uAw==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -5804,8 +5804,8 @@ packages:
     peerDependencies:
       eslint: '>6.6.0'
 
-  eslint-plugin-turbo@2.0.4:
-    resolution: {integrity: sha512-Ozn//vTXJeqIEvEkThM2vuuldMckPqAne7vg/S3GxF+BBY516cjdp7+dYpCU5Q0083hVm638c8542ubccNE+8w==}
+  eslint-plugin-turbo@2.0.6:
+    resolution: {integrity: sha512-yGnpMvyBxI09ZrF5bGpaniBz57MiExTCsRnNxP+JnbMFD+xU3jG3ukRzehVol8LYNdC/G7E4HoH+x7OEpoSGAQ==}
     peerDependencies:
       eslint: '>6.6.0'
 
@@ -19026,10 +19026,10 @@ snapshots:
       eslint: 9.6.0
       eslint-plugin-turbo: 1.10.12(eslint@9.6.0)
 
-  eslint-config-turbo@2.0.4(eslint@9.6.0):
+  eslint-config-turbo@2.0.6(eslint@9.6.0):
     dependencies:
       eslint: 9.6.0
-      eslint-plugin-turbo: 2.0.4(eslint@9.6.0)
+      eslint-plugin-turbo: 2.0.6(eslint@9.6.0)
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -19101,7 +19101,7 @@ snapshots:
       dotenv: 16.0.3
       eslint: 9.6.0
 
-  eslint-plugin-turbo@2.0.4(eslint@9.6.0):
+  eslint-plugin-turbo@2.0.6(eslint@9.6.0):
     dependencies:
       dotenv: 16.0.3
       eslint: 9.6.0
