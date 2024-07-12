@@ -114,8 +114,8 @@ function BackLink({
 		<Tag
 			href={href}
 			className={cx(
+				'text-primary flex space-x-4 focus:outline-none',
 				className,
-				'text-primary flex space-x-4 font-bold focus:outline-none',
 			)}
 			ref={ref as any}
 			animate={state}

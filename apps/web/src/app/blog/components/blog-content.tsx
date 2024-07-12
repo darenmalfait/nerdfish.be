@@ -1,4 +1,5 @@
-import { H1, H6 } from '@nerdfish/ui'
+import { H1 } from '@nerdfish/ui'
+import { cx } from '@nerdfish/utils'
 import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
 import Image from 'next/image'
 import * as React from 'react'
@@ -14,6 +15,8 @@ import {
 	Header,
 	ReadingProgress,
 } from '~/app/common'
+
+const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl'
 
 function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	const { title, date, tags, heroImg, body } = data.blog
@@ -35,24 +38,27 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	return (
 		<>
 			<ReadingProgress offset={1200} />
-			<section>
-				<div className="container mx-auto mb-14 mt-24 max-w-4xl px-4 lg:mb-24">
-					<BackToBlog />
+			<section className="container mx-auto mb-8 mt-24 px-4">
+				<div className="flex w-full flex-col gap-8 xl:flex-row">
+					<div className="flex-1">
+						<BackToBlog />
+					</div>
+					<div className={cx('flex flex-col', prose)}>
+						{date ? (
+							<span
+								className="text-muted text-base"
+								data-tina-field={tinaField(data.blog, 'date')}
+							>
+								Published{' '}
+								<DateFormatter dateString={date} format="dd MMMM yyyy" />
+							</span>
+						) : null}
+						<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
+					</div>
+					<div className="flex-1" />
 				</div>
-
-				<header className="container mx-auto mb-12 mt-6 max-w-4xl px-4">
-					<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
-					{date ? (
-						<H6
-							data-tina-field={tinaField(data.blog, 'date')}
-							as="p"
-							variant="secondary"
-						>
-							<DateFormatter dateString={date} format="dd MMMM yyyy" />
-						</H6>
-					) : null}
-				</header>
-
+			</section>
+			<section className="container mx-auto mb-14 mt-24 px-4">
 				<div
 					className="container mx-auto mb-12 max-w-4xl px-4"
 					data-tina-field={tinaField(data.blog, 'heroImg')}
@@ -63,7 +69,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 				</div>
 			</section>
 			<section
-				className="prose dark:prose-invert md:prose-lg lg:prose-xl container mx-auto px-4"
+				className={cx('container mx-auto px-4', prose)}
 				data-tina-field={tinaField(data.blog, 'body')}
 			>
 				{body ? <PortableText content={body} /> : null}
