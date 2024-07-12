@@ -1,5 +1,8 @@
 'use client'
 
+import { Button } from '@nerdfish/ui'
+import { Icons } from '@nerdfish-website/ui/icons'
+import Link from 'next/link'
 import { BackLink } from '~/app/common'
 import { useGlobal } from '~/app/global-provider'
 
@@ -8,5 +11,17 @@ export function BackToBlog() {
 
 	if (!paths?.blog) return null
 
-	return <BackLink href={paths.blog}>All blog articles</BackLink>
+	return (
+		<>
+			<Button variant="outline" asChild>
+				<Link className="xl:hidden" href={paths.blog}>
+					<Icons.ChevronLeft className="mr-2" />
+					All blog articles
+				</Link>
+			</Button>
+			<BackLink href={paths.blog} className="hidden xl:flex">
+				All blog articles
+			</BackLink>
+		</>
+	)
 }
