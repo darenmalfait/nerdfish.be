@@ -56,7 +56,7 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title, action } = data
 
 	return (
-		<div className="relative isolate my-8 flex min-h-[80vh] flex-col items-center justify-center lg:my-16">
+		<div className="max-w-8xl relative isolate mx-auto my-8 flex min-h-[80vh] flex-col items-center justify-center lg:my-16">
 			<DotPattern
 				width={32}
 				height={32}
