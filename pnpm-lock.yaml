@@ -64,10 +64,10 @@ importers:
         version: 14.2.5
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.4.7)
+        version: 0.4.2(tailwindcss@3.4.9)
       '@tailwindcss/typography':
-        specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.7)
+        specifier: ^0.5.14
+        version: 0.5.14(tailwindcss@3.4.9)
       '@tinacms/auth':
         specifier: ^1.0.6
         version: 1.0.6(encoding@0.1.13)
@@ -124,7 +124,7 @@ importers:
         version: 1.6.6
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.7)
+        version: 1.0.7(tailwindcss@3.4.9)
       tinacms:
         specifier: ^1.6.7
         version: 1.6.7(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(abstract-level@1.0.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(typescript@5.5.4)
@@ -199,8 +199,8 @@ importers:
         specifier: ^0.8.5
         version: 0.8.5
       tailwindcss:
-        specifier: ^3.4.7
-        version: 3.4.7
+        specifier: ^3.4.9
+        version: 3.4.9
 
   packages/emails:
     dependencies:
@@ -264,8 +264,8 @@ importers:
         specifier: ^0.18.0
         version: 0.18.0(react@18.3.1)
       '@tailwindcss/typography':
-        specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.7)
+        specifier: ^0.5.14
+        version: 0.5.14(tailwindcss@3.4.9)
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
@@ -294,11 +294,11 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
       tailwindcss:
-        specifier: 3.4.7
-        version: 3.4.7
+        specifier: 3.4.9
+        version: 3.4.9
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.7)
+        version: 1.0.7(tailwindcss@3.4.9)
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -326,16 +326,16 @@ importers:
         version: 2.2.4
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
-        version: 0.4.4(tailwindcss@3.4.7)
+        version: 0.4.4(tailwindcss@3.4.9)
       '@tailwindcss/typography':
-        specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.7)
+        specifier: ^0.5.14
+        version: 0.5.14(tailwindcss@3.4.9)
       tailwindcss:
-        specifier: ^3.4.7
-        version: 3.4.7
+        specifier: ^3.4.9
+        version: 3.4.9
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.7)
+        version: 1.0.7(tailwindcss@3.4.9)
 
 packages:
 
@@ -3759,8 +3759,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
 
-  '@tailwindcss/typography@0.5.13':
-    resolution: {integrity: sha512-ADGcJ8dX21dVVHIwTRgzrcunY6YY9uSlAHHGVKvkA+vLc5qLwEszvKts40lx7z0qc4clpjclwLeK5rVCV2P/uw==}
+  '@tailwindcss/typography@0.5.14':
+    resolution: {integrity: sha512-ZvOCjUbsJBjL9CxQBn+VEnFpouzuKhxh2dH8xMIWHILL+HfOYtlAkWcyoon8LlzE53d2Yo6YO6pahKKNW3q1YQ==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
@@ -8847,8 +8847,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  tailwindcss@3.4.7:
-    resolution: {integrity: sha512-rxWZbe87YJb4OcSopb7up2Ba4U82BoiSGUdoDr3Ydrg9ckxFS/YWsvhN323GMcddgU65QRy7JndC7ahhInhvlQ==}
+  tailwindcss@3.4.9:
+    resolution: {integrity: sha512-1SEOvRr6sSdV5IDf9iC+NU4dhwdqzF4zKKq3sAbasUWHEM6lsMhX+eNN5gkPx1BvLFEnZQEUFbXnGj8Qlp83Pg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -13880,21 +13880,21 @@ snapshots:
 
   '@swc/types@0.1.5': {}
 
-  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.7)':
+  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.9)':
     dependencies:
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.9
 
-  '@tailwindcss/line-clamp@0.4.4(tailwindcss@3.4.7)':
+  '@tailwindcss/line-clamp@0.4.4(tailwindcss@3.4.9)':
     dependencies:
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.9
 
-  '@tailwindcss/typography@0.5.13(tailwindcss@3.4.7)':
+  '@tailwindcss/typography@0.5.14(tailwindcss@3.4.9)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.9
 
   '@tanstack/react-virtual@3.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -13963,8 +13963,8 @@ snapshots:
       '@graphql-tools/load': 7.8.14(graphql@15.8.0)
       '@rollup/pluginutils': 5.1.0(rollup@4.19.1)
       '@svgr/core': 8.1.0(typescript@5.5.4)
-      '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.4.7)
-      '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.7)
+      '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.4.9)
+      '@tailwindcss/typography': 0.5.14(tailwindcss@3.4.9)
       '@tinacms/app': 2.0.2(@babel/core@7.24.5)(@babel/template@7.24.6)(@codemirror/language@6.10.0)(@types/node@20.14.15)(@types/react-dom@18.3.0)(@types/react@18.3.3)(abstract-level@1.0.3)(encoding@0.1.13)(scheduler@0.23.2)(yup@0.32.11)
       '@tinacms/graphql': 1.4.39(react@18.3.1)(typescript@5.5.4)
       '@tinacms/metrics': 1.0.5(encoding@0.1.13)(fs-extra@9.1.0)
@@ -13996,7 +13996,7 @@ snapshots:
       progress: 2.0.3
       prompts: 2.4.2
       readable-stream: 4.5.2
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.9
       tinacms: 2.1.0(@babel/core@7.24.5)(@babel/template@7.24.6)(@types/react-dom@18.3.0)(@types/react@18.3.3)(abstract-level@1.0.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(typescript@5.5.4)
       typanion: 3.13.0
       typescript: 5.5.4
@@ -21253,9 +21253,9 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.6
 
-  tailwindcss-animate@1.0.7(tailwindcss@3.4.7):
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.9):
     dependencies:
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.9
 
   tailwindcss@3.4.0:
     dependencies:
@@ -21311,7 +21311,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwindcss@3.4.7:
+  tailwindcss@3.4.9:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
