@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: ^19.3.0
-        version: 19.3.0(@types/node@20.14.15)(typescript@5.5.4)
+        specifier: ^19.4.0
+        version: 19.4.0(@types/node@20.14.15)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
@@ -30,7 +30,7 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       turbo:
-        specifier: ^2.0.11
+        specifier: ^2.0.12
         version: 2.0.12
 
   apps/web:
@@ -81,7 +81,7 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
       framer-motion:
-        specifier: ^11.3.21
+        specifier: ^11.3.24
         version: 11.3.24(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       geist:
         specifier: ^1.3.1
@@ -90,8 +90,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       lucide-react:
-        specifier: ^0.424.0
-        version: 0.424.0(react@18.3.1)
+        specifier: ^0.427.0
+        version: 0.427.0(react@18.3.1)
       match-sorter:
         specifier: ^6.3.4
         version: 6.3.4
@@ -108,8 +108,8 @@ importers:
         specifier: ^7.52.2
         version: 7.52.2(react@18.3.1)
       react-obfuscate:
-        specifier: ^3.6.9
-        version: 3.6.9(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.7.0
+        version: 3.7.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-syntax-highlighter:
         specifier: ^15.5.0
         version: 15.5.0(react@18.3.1)
@@ -148,7 +148,7 @@ importers:
         specifier: ^4.17.7
         version: 4.17.7
       '@types/node':
-        specifier: ^20.14.14
+        specifier: ^20.14.15
         version: 20.14.15
       '@types/react':
         specifier: ^18.3.3
@@ -164,7 +164,7 @@ importers:
         version: 5.1.34
       autoprefixer:
         specifier: ^10.4.20
-        version: 10.4.20(postcss@8.4.40)
+        version: 10.4.20(postcss@8.4.41)
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -184,14 +184,14 @@ importers:
         specifier: ^6.2.2
         version: 6.2.2
       postcss:
-        specifier: ^8.4.40
-        version: 8.4.40
+        specifier: ^8.4.41
+        version: 8.4.41
       postcss-import:
         specifier: ^16.1.0
-        version: 16.1.0(postcss@8.4.40)
+        version: 16.1.0(postcss@8.4.41)
       postcss-nesting:
         specifier: ^12.1.5
-        version: 12.1.5(postcss@8.4.40)
+        version: 12.1.5(postcss@8.4.41)
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
@@ -234,11 +234,11 @@ importers:
         version: 3.23.8
     devDependencies:
       '@types/node':
-        specifier: ^20.14.14
+        specifier: ^20.14.15
         version: 20.14.15
       tsup:
         specifier: 8.2.4
-        version: 8.2.4(@swc/core@1.3.101)(jiti@1.21.0)(postcss@8.4.40)(typescript@5.5.4)(yaml@2.4.5)
+        version: 8.2.4(@swc/core@1.3.101(@swc/helpers@0.5.5))(jiti@1.21.0)(postcss@8.4.41)(typescript@5.5.4)(yaml@2.4.5)
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -246,8 +246,8 @@ importers:
   packages/ui:
     dependencies:
       '@mdxeditor/editor':
-        specifier: ^3.10.1
-        version: 3.10.1(@codemirror/language@6.10.0)(@lezer/common@1.2.1)(@lezer/highlight@1.2.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react@18.3.1)(yjs@13.6.10)
+        specifier: ^3.11.0
+        version: 3.11.0(@codemirror/language@6.10.0)(@lezer/common@1.2.1)(@lezer/highlight@1.2.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react@18.3.1)(yjs@13.6.10)
       '@nerdfish-website/lib':
         specifier: workspace:*
         version: link:../lib
@@ -270,8 +270,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       lucide-react:
-        specifier: ^0.424.0
-        version: 0.424.0(react@18.3.1)
+        specifier: ^0.427.0
+        version: 0.427.0(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1224,8 +1224,8 @@ packages:
       react: ^16.8.0 || ^17 || ^18
       react-dom: ^16.8.0 || ^17 || ^18
 
-  '@commitlint/cli@19.3.0':
-    resolution: {integrity: sha512-LgYWOwuDR7BSTQ9OLZ12m7F/qhNY+NpAyPBgo4YNMkACE7lGuUnuQq1yi9hz1KA4+3VqpOYl8H1rY/LYK43v7g==}
+  '@commitlint/cli@19.4.0':
+    resolution: {integrity: sha512-sJX4J9UioVwZHq7JWM9tjT5bgWYaIN3rC4FP7YwfEwBYiIO+wMyRttRvQLNkow0vCdM0D67r9NEWU0Ui03I4Eg==}
     engines: {node: '>=v18'}
     hasBin: true
 
@@ -1257,8 +1257,8 @@ packages:
     resolution: {integrity: sha512-xrzMmz4JqwGyKQKTpFzlN0dx0TAiT7Ran1fqEBgEmEj+PU98crOFtysJgY+QdeSagx6EDRigQIXJVnfrI0ratA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/load@19.2.0':
-    resolution: {integrity: sha512-XvxxLJTKqZojCxaBQ7u92qQLFMMZc4+p9qrIq/9kJDy8DOrEa7P1yx7Tjdc2u2JxIalqT4KOGraVgCE7eCYJyQ==}
+  '@commitlint/load@19.4.0':
+    resolution: {integrity: sha512-I4lCWaEZYQJ1y+Y+gdvbGAx9pYPavqZAZ3/7/8BpWh+QjscAn8AjsUpLV2PycBsEx7gupq5gM4BViV9xwTIJuw==}
     engines: {node: '>=v18'}
 
   '@commitlint/message@19.0.0':
@@ -1269,8 +1269,8 @@ packages:
     resolution: {integrity: sha512-Il+tNyOb8VDxN3P6XoBBwWJtKKGzHlitEuXA5BP6ir/3loWlsSqDr5aecl6hZcC/spjq4pHqNh0qPlfeWu38QA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/read@19.2.1':
-    resolution: {integrity: sha512-qETc4+PL0EUv7Q36lJbPG+NJiBOGg7SSC7B5BsPWOmei+Dyif80ErfWQ0qXoW9oCh7GTpTNRoaVhiI8RbhuaNw==}
+  '@commitlint/read@19.4.0':
+    resolution: {integrity: sha512-r95jLOEZzKDakXtnQub+zR3xjdnrl2XzerPwm7ch1/cc5JGq04tyaNpa6ty0CRCWdVrk4CZHhqHozb8yZwy2+g==}
     engines: {node: '>=v18'}
 
   '@commitlint/resolve-extends@19.1.0':
@@ -2098,74 +2098,74 @@ packages:
   '@juggle/resize-observer@3.4.0':
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
 
-  '@lexical/clipboard@0.16.1':
-    resolution: {integrity: sha512-0dWs/SwKS5KPpuf6fUVVt9vSCl6HAqcDGhSITw/okv0rrIlXTUT6WhVsMJtXfFxTyVvwMeOecJHvQH3i/jRQtA==}
+  '@lexical/clipboard@0.17.0':
+    resolution: {integrity: sha512-wYtC6VJhuSxUZc69VTU+vBgzB4HQqhve2hLrr3v+3tR2aimx3KnKphCCP1TexCntxpEnOTPXafEgpOW/EVQE+Q==}
 
-  '@lexical/code@0.16.1':
-    resolution: {integrity: sha512-pOC28rRZ2XkmI2nIJm50DbKaCJtk5D0o7r6nORYp4i0z+lxt5Sf2m82DL9ksUHJRqKy87pwJDpoWvJ2SAI0ohw==}
+  '@lexical/code@0.17.0':
+    resolution: {integrity: sha512-8zrgHzf27aYySfUVeSKw8YP/LkRlXHSwD03BKlkSZAb4HX/WC60SGmdXUhtyTIBucqe0pnuGsRYfR9euD0/tfw==}
 
-  '@lexical/devtools-core@0.16.1':
-    resolution: {integrity: sha512-8CvGERGL7ySDVGLU+YPeq+JupIXsOFlXa3EuJ88koLKqXxYenwMleZgGqayFp6lCP78xqPKnATVeoOZUt/NabQ==}
+  '@lexical/devtools-core@0.17.0':
+    resolution: {integrity: sha512-0ftqWsoCb96oTc8Ok+uvjGAXZpsN9oc6ml3d46BdufdZyxHXC4qU3YVoPfLkgAHzH+4fQlNypu7u3Ym3dZ2rJg==}
     peerDependencies:
       react: '>=17.x'
       react-dom: '>=17.x'
 
-  '@lexical/dragon@0.16.1':
-    resolution: {integrity: sha512-Rvd60GIYN5kpjjBumS34EnNbBaNsoseI0AlzOdtIV302jiHPCLH0noe9kxzu9nZy+MZmjZy8Dx2zTbQT2mueRw==}
+  '@lexical/dragon@0.17.0':
+    resolution: {integrity: sha512-XSsrHVwhjBIVF9VN9MFm6Go8fquj5H/jlYuyNzemHq0tOli8NaoSovGc5q0LwXr88RPsuIt1jluazR7Q1+kxTQ==}
 
-  '@lexical/hashtag@0.16.1':
-    resolution: {integrity: sha512-G+YOxStAKs3q1utqm9KR4D4lCkwIH52Rctm4RgaVTI+4lvTaybeDRGFV75P/pI/qlF7/FvAYHTYEzCjtC3GNMQ==}
+  '@lexical/hashtag@0.17.0':
+    resolution: {integrity: sha512-E6nSoz9haB6JypQtYxG5OYr36AHgam/FBMu77OWNl1KsJbkP8nInm+P22QFsNnEvs4Hk6/0FJ5g42+lTEnGmIg==}
 
-  '@lexical/history@0.16.1':
-    resolution: {integrity: sha512-WQhScx0TJeKSQAnEkRpIaWdUXqirrNrom2MxbBUc/32zEUMm9FzV7nRGknvUabEFUo7vZq6xTZpOExQJqHInQA==}
+  '@lexical/history@0.17.0':
+    resolution: {integrity: sha512-SfeUKAXf9pZpqee9rMOTt33V0J0p/AS9TZLT9Un9dU6wAaHfv6NFax1ND0JoG1a9YkTc539mufxVLNjsNRc0ag==}
 
-  '@lexical/html@0.16.1':
-    resolution: {integrity: sha512-vbtAdCvQ3PaAqa5mFmtmrvbiAvjCu1iXBAJ0bsHqFXCF2Sba5LwHVe8dUAOTpfEZEMbiHfjul6b5fj4vNPGF2A==}
+  '@lexical/html@0.17.0':
+    resolution: {integrity: sha512-sI458CEP/j+Gd2YEo1+vTax31ZAjdq5jmRJMgSKxzKlkVYAUY9eH5u3Y3awPLwLVXJHiIopMX02GeZytibuTiw==}
 
-  '@lexical/link@0.16.1':
-    resolution: {integrity: sha512-zG36gEnEqbIe6tK/MhXi7wn/XMY/zdivnPcOY5WyC3derkEezeLSSIFsC1u5UNeK5pbpNMSy4LDpLhi1Ww4Y5w==}
+  '@lexical/link@0.17.0':
+    resolution: {integrity: sha512-Kux6yvPit6y0ksPpwimv3seVrXAsggkqB6oT6oAVBaDpYuygVEwNDqg/rCTtB3mHQ4eeuU33mdK7MSXZ34bZRQ==}
 
-  '@lexical/list@0.16.1':
-    resolution: {integrity: sha512-i9YhLAh5N6YO9dP+R1SIL9WEdCKeTiQQYVUzj84vDvX5DIBxMPUjTmMn3LXu9T+QO3h1s2L/vJusZASrl45eAw==}
+  '@lexical/list@0.17.0':
+    resolution: {integrity: sha512-anDuSUykTv+lqyCwl1m+sThrB15OKCa00Eo68/d2HQSHDD3KNWgSx709dcR17bD9oT204yOhMJbQGywuzcEyGQ==}
 
-  '@lexical/mark@0.16.1':
-    resolution: {integrity: sha512-CZRGMLcxn5D+jzf1XnH+Z+uUugmpg1mBwTbGybCPm8UWpBrKDHkrscfMgWz62iRWz0cdVjM5+0zWpNElxFTRjQ==}
+  '@lexical/mark@0.17.0':
+    resolution: {integrity: sha512-Ynqh9KHXUcB9qLOTGC9s+bbWtawOwRStkeIeAugTqrwckyYWeDaePpyJ6IhBBJy1E1CfpiZn71NDeP+FuRjnXQ==}
 
-  '@lexical/markdown@0.16.1':
-    resolution: {integrity: sha512-0sBLttMvfQO/hVaIqpHdvDowpgV2CoRuWo2CNwvRLZPPWvPVjL4Nkb73wmi8zAZsAOTbX2aw+g4m/+k5oJqNig==}
+  '@lexical/markdown@0.17.0':
+    resolution: {integrity: sha512-6IuJ2l5p/Ma+VBUIStIRXwTC01GEzx21gvqqywuqBUzAOiMr1oRM+DGsQgrzZrcjX+LzUlZ5ZgjuWtK8XKVAZw==}
 
-  '@lexical/offset@0.16.1':
-    resolution: {integrity: sha512-/i2J04lQmFeydUZIF8tKXLQTXiJDTQ6GRnkfv1OpxU4amc0rwGa7+qAz/PuF1n58rP6InpLmSHxgY5JztXa2jw==}
+  '@lexical/offset@0.17.0':
+    resolution: {integrity: sha512-onE6SD2mIAwBLTT5v5fVBVtRg/NpQj+o10vTWJ1ImvEUERpSoCyHMTy3IMoSMuCRwuOG9C0cFEret2u+QS8Icw==}
 
-  '@lexical/overflow@0.16.1':
-    resolution: {integrity: sha512-xh5YpoxwA7K4wgMQF/Sjl8sdjaxqesLCtH5ZrcMsaPlmucDIEEs+i8xxk+kDUTEY7y+3FvRxs4lGNgX8RVWkvQ==}
+  '@lexical/overflow@0.17.0':
+    resolution: {integrity: sha512-dh+nQAmeobKvZFodWyzNh1ZjX043Patk/1Lwct9XmtAGMUdXL+tB0bbguWVcDfY8OYu1CTQGfbdq2oMEJYzwsg==}
 
-  '@lexical/plain-text@0.16.1':
-    resolution: {integrity: sha512-GjY4ylrBZIaAVIF8IFnmW0XGyHAuRmWA6gKB8iTTlsjgFrCHFIYC74EeJSp309O0Hflg9rRBnKoX1TYruFHVwA==}
+  '@lexical/plain-text@0.17.0':
+    resolution: {integrity: sha512-AEk+3ttbRyRi7m9UbU1CdLUtGsXh4FFZkBC12twV3U82lZHOdHocLlTutP+lcbYlGjeq6UF43NxOSGzsYEunsA==}
 
-  '@lexical/react@0.16.1':
-    resolution: {integrity: sha512-SsGgLt9iKfrrMRy9lFb6ROVPUYOgv6b+mCn9Al+TLqs/gBReDBi3msA7m526nrtBUKYUnjHdQ1QXIJzuKgOxcg==}
+  '@lexical/react@0.17.0':
+    resolution: {integrity: sha512-HZ3joq+5g2++2vo/6scTd60Y2bsu8ya8EUdopyudnmGZGKAcAPue9pLOlBaEpsYZ7vqTuGjiPgtEBfFzDy9rlg==}
     peerDependencies:
       react: '>=17.x'
       react-dom: '>=17.x'
 
-  '@lexical/rich-text@0.16.1':
-    resolution: {integrity: sha512-4uEVXJur7tdSbqbmsToCW4YVm0AMh4y9LK077Yq2O9hSuA5dqpI8UbTDnxZN2D7RfahNvwlqp8eZKFB1yeiJGQ==}
+  '@lexical/rich-text@0.17.0':
+    resolution: {integrity: sha512-XJc8gQBSwppCkESQaNcGtyTaPXZaeCQDcUVpnDjDK0vM/ZZN8TErxbujwbSqA3kO2dBds9N8WxNboSwuncMBcQ==}
 
-  '@lexical/selection@0.16.1':
-    resolution: {integrity: sha512-+nK3RvXtyQvQDq7AZ46JpphmM33pwuulwiRfeXR5T9iFQTtgWOEjsAi/KKX7vGm70BxACfiSxy5QCOgBWFwVJg==}
+  '@lexical/selection@0.17.0':
+    resolution: {integrity: sha512-UTjlvyhFY/lmHtBaIaVRwYnRfO9gR4I32+PT7vHQr4v3VfcgS63YEGSgEZy3Gh1pfeJqaZATN58+jCuMAQXlWQ==}
 
-  '@lexical/table@0.16.1':
-    resolution: {integrity: sha512-GWb0/MM1sVXpi1p2HWWOBldZXASMQ4c6WRNYnRmq7J/aB5N66HqQgJGKp3m66Kz4k1JjhmZfPs7F018qIBhnFQ==}
+  '@lexical/table@0.17.0':
+    resolution: {integrity: sha512-RQF7IG0rGL2/bPaPFUIMgDA3QMdDflvXSnE7Udgbj9yMqSKhYkaERVfNyoLckDUSuusGJd6XV+qum6JWn0nSNA==}
 
-  '@lexical/text@0.16.1':
-    resolution: {integrity: sha512-Os/nKQegORTrKKN6vL3/FMVszyzyqaotlisPynvTaHTUC+yY4uyjM2hlF93i5a2ixxyiPLF9bDroxUP96TMPXg==}
+  '@lexical/text@0.17.0':
+    resolution: {integrity: sha512-kFH0V6yjW8YswmoY7vHT4zHFDflGfamuUxTPHROpdnq/JMjHeaVwtmFBdrP0gknaC8XMRXdr3EsemQ7cbOoDPA==}
 
-  '@lexical/utils@0.16.1':
-    resolution: {integrity: sha512-BVyJxDQi/rIxFTDjf2zE7rMDKSuEaeJ4dybHRa/hRERt85gavGByQawSLeQlTjLaYLVsy+x7wCcqh2fNhlLf0g==}
+  '@lexical/utils@0.17.0':
+    resolution: {integrity: sha512-B/n0rRGDmdMrqi2qnprLt6SntC6jb4JItLmPl8zDDdg7/HxMdLq3F93vogeiXQJn0mlNqgiENWHvLAy5K2C2uQ==}
 
-  '@lexical/yjs@0.16.1':
-    resolution: {integrity: sha512-QHw1bmzB/IypIV1tRWMH4hhwE1xX7wV+HxbzBS8oJAkoU5AYXM/kyp/sQicgqiwVfpai1Px7zatOoUDFgbyzHQ==}
+  '@lexical/yjs@0.17.0':
+    resolution: {integrity: sha512-xJv3frcK/jskssLbzdY4yfBaM7+LWaZD4YjYkJ/bvRDTey2w+McF+SvsJ/yBA8YF1oaL3rT+0aIQJ7rfH+AxjA==}
     peerDependencies:
       yjs: '>=13.5.22'
 
@@ -2220,8 +2220,8 @@ packages:
   '@lezer/yaml@1.0.3':
     resolution: {integrity: sha512-GuBLekbw9jDBDhGur82nuwkxKQ+a3W5H0GfaAthDXcAu+XdpS43VlnxA9E9hllkpSP5ellRDKjLLj7Lu9Wr6xA==}
 
-  '@mdxeditor/editor@3.10.1':
-    resolution: {integrity: sha512-4s92ALIUXNkW7m570nonK26or1YI+0GOFfVD8R0v9vjcbiEjKtfY1zsum6x/KLM1awMKImMSyRru5Esy5Vgc6Q==}
+  '@mdxeditor/editor@3.11.0':
+    resolution: {integrity: sha512-x7T9H5/o7L7FAMSqd4rcy3UcBw+L5OvKUJ+LrJw0mWbS9/10SQD52mmcQUi2ug5I0XjYpF38Rm4KNfjVLbOq/A==}
     engines: {node: '>=16'}
     peerDependencies:
       react: ^18.2.0
@@ -5581,10 +5581,6 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  escalade@3.1.1:
-    resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
-    engines: {node: '>=6'}
-
   escalade@3.1.2:
     resolution: {integrity: sha512-ErCHMCae19vR8vQGe50xIsVomy19rg6gFu3+r3jkEO46suLMWBksvVyoGgQV+jOfl84ZSOSlmv6Gxa89PmTGmA==}
     engines: {node: '>=6'}
@@ -6712,8 +6708,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  lexical@0.16.1:
-    resolution: {integrity: sha512-+R05d3+N945OY8pTUjTqQrWoApjC+ctzvjnmNETtx9WmVAaiW0tQVG+AYLt5pDGY8dQXtd4RPorvnxBTECt9SA==}
+  lexical@0.17.0:
+    resolution: {integrity: sha512-cCFmANO5rIf34NF0go/hxp5S3V5Z8G2Rsa1FJy50qF2WM5EJNJ/MqN75TApjfgMkfrbO6gau3X12nCqwsT7aDg==}
 
   lib0@0.2.88:
     resolution: {integrity: sha512-KyroiEvCeZcZEMx5Ys+b4u4eEBbA1ch7XUaBhYpwa/nPMrzTjUhI4RfcytmQfYoTBPcdyx+FX6WFNIoNuJzJfQ==}
@@ -6852,8 +6848,8 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  lucide-react@0.424.0:
-    resolution: {integrity: sha512-x2Nj2aytk1iOyHqt4hKenfVlySq0rYxNeEf8hE0o+Yh0iE36Rqz0rkngVdv2uQtjZ70LAE73eeplhhptYt9x4Q==}
+  lucide-react@0.427.0:
+    resolution: {integrity: sha512-lv9s6c5BDF/ccuA0EgTdskTxIe11qpwBDmzRZHJAKtp8LTewAvDvOM+pTES9IpbBuTqkjiMhOmGpJ/CB+mKjFw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
@@ -7739,9 +7735,6 @@ packages:
   peberminta@0.9.0:
     resolution: {integrity: sha512-XIxfHpEuSJbITd1H3EeQwpcZbTLHc+VVr8ANI9t5sit565tsI4/xK3KWTUFE2e6QiangUkh3B0jihzmGnNrRsQ==}
 
-  picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
@@ -7856,8 +7849,8 @@ packages:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.4.40:
-    resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
+  postcss@8.4.41:
+    resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prebuild-install@7.1.1:
@@ -8130,8 +8123,8 @@ packages:
       '@types/react': '>=18'
       react: '>=18'
 
-  react-obfuscate@3.6.9:
-    resolution: {integrity: sha512-WteD1ZBuuyGuzvzt0pVSYS9FRodB5PDFSWUTKFs2QHez4Ud3N4K1+1vyMAYg88DPeKvmzvgoLSTCsKvJhwOz+A==}
+  react-obfuscate@3.7.0:
+    resolution: {integrity: sha512-y/sd0W8VuzoH6kGXjwdFCvCRxqBeffyaxrqyfWjACY8Ejl9sGaJbRf1iJXHYkQU4Va81G2triRkgHhsfNIx5FQ==}
     engines: {node: '>= 0.10.0'}
     peerDependencies:
       prop-types: '>= 15'
@@ -11027,12 +11020,12 @@ snapshots:
     transitivePeerDependencies:
       - '@lezer/common'
 
-  '@commitlint/cli@19.3.0(@types/node@20.14.15)(typescript@5.5.4)':
+  '@commitlint/cli@19.4.0(@types/node@20.14.15)(typescript@5.5.4)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.2.0(@types/node@20.14.15)(typescript@5.5.4)
-      '@commitlint/read': 19.2.1
+      '@commitlint/load': 19.4.0(@types/node@20.14.15)(typescript@5.5.4)
+      '@commitlint/read': 19.4.0
       '@commitlint/types': 19.0.3
       execa: 8.0.1
       yargs: 17.7.2
@@ -11078,7 +11071,7 @@ snapshots:
       '@commitlint/rules': 19.0.3
       '@commitlint/types': 19.0.3
 
-  '@commitlint/load@19.2.0(@types/node@20.14.15)(typescript@5.5.4)':
+  '@commitlint/load@19.4.0(@types/node@20.14.15)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -11102,7 +11095,7 @@ snapshots:
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
 
-  '@commitlint/read@19.2.1':
+  '@commitlint/read@19.4.0':
     dependencies:
       '@commitlint/top-level': 19.0.0
       '@commitlint/types': 19.0.3
@@ -11787,147 +11780,147 @@ snapshots:
 
   '@juggle/resize-observer@3.4.0': {}
 
-  '@lexical/clipboard@0.16.1':
+  '@lexical/clipboard@0.17.0':
     dependencies:
-      '@lexical/html': 0.16.1
-      '@lexical/list': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/html': 0.17.0
+      '@lexical/list': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/code@0.16.1':
+  '@lexical/code@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
       prismjs: 1.29.0
 
-  '@lexical/devtools-core@0.16.1(react@18.3.1)':
+  '@lexical/devtools-core@0.17.0(react@18.3.1)':
     dependencies:
-      '@lexical/html': 0.16.1
-      '@lexical/link': 0.16.1
-      '@lexical/mark': 0.16.1
-      '@lexical/table': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/html': 0.17.0
+      '@lexical/link': 0.17.0
+      '@lexical/mark': 0.17.0
+      '@lexical/table': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
       react: 18.3.1
 
-  '@lexical/dragon@0.16.1':
+  '@lexical/dragon@0.17.0':
     dependencies:
-      lexical: 0.16.1
+      lexical: 0.17.0
 
-  '@lexical/hashtag@0.16.1':
+  '@lexical/hashtag@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/history@0.16.1':
+  '@lexical/history@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/html@0.16.1':
+  '@lexical/html@0.17.0':
     dependencies:
-      '@lexical/selection': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/selection': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/link@0.16.1':
+  '@lexical/link@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/list@0.16.1':
+  '@lexical/list@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/mark@0.16.1':
+  '@lexical/mark@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/markdown@0.16.1':
+  '@lexical/markdown@0.17.0':
     dependencies:
-      '@lexical/code': 0.16.1
-      '@lexical/link': 0.16.1
-      '@lexical/list': 0.16.1
-      '@lexical/rich-text': 0.16.1
-      '@lexical/text': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/code': 0.17.0
+      '@lexical/link': 0.17.0
+      '@lexical/list': 0.17.0
+      '@lexical/rich-text': 0.17.0
+      '@lexical/text': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/offset@0.16.1':
+  '@lexical/offset@0.17.0':
     dependencies:
-      lexical: 0.16.1
+      lexical: 0.17.0
 
-  '@lexical/overflow@0.16.1':
+  '@lexical/overflow@0.17.0':
     dependencies:
-      lexical: 0.16.1
+      lexical: 0.17.0
 
-  '@lexical/plain-text@0.16.1':
+  '@lexical/plain-text@0.17.0':
     dependencies:
-      '@lexical/clipboard': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/clipboard': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/react@0.16.1(react@18.3.1)(yjs@13.6.10)':
+  '@lexical/react@0.17.0(react@18.3.1)(yjs@13.6.10)':
     dependencies:
-      '@lexical/clipboard': 0.16.1
-      '@lexical/code': 0.16.1
-      '@lexical/devtools-core': 0.16.1(react@18.3.1)
-      '@lexical/dragon': 0.16.1
-      '@lexical/hashtag': 0.16.1
-      '@lexical/history': 0.16.1
-      '@lexical/link': 0.16.1
-      '@lexical/list': 0.16.1
-      '@lexical/mark': 0.16.1
-      '@lexical/markdown': 0.16.1
-      '@lexical/overflow': 0.16.1
-      '@lexical/plain-text': 0.16.1
-      '@lexical/rich-text': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/table': 0.16.1
-      '@lexical/text': 0.16.1
-      '@lexical/utils': 0.16.1
-      '@lexical/yjs': 0.16.1(yjs@13.6.10)
-      lexical: 0.16.1
+      '@lexical/clipboard': 0.17.0
+      '@lexical/code': 0.17.0
+      '@lexical/devtools-core': 0.17.0(react@18.3.1)
+      '@lexical/dragon': 0.17.0
+      '@lexical/hashtag': 0.17.0
+      '@lexical/history': 0.17.0
+      '@lexical/link': 0.17.0
+      '@lexical/list': 0.17.0
+      '@lexical/mark': 0.17.0
+      '@lexical/markdown': 0.17.0
+      '@lexical/overflow': 0.17.0
+      '@lexical/plain-text': 0.17.0
+      '@lexical/rich-text': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/table': 0.17.0
+      '@lexical/text': 0.17.0
+      '@lexical/utils': 0.17.0
+      '@lexical/yjs': 0.17.0(yjs@13.6.10)
+      lexical: 0.17.0
       react: 18.3.1
       react-error-boundary: 3.1.4(react@18.3.1)
     transitivePeerDependencies:
       - yjs
 
-  '@lexical/rich-text@0.16.1':
+  '@lexical/rich-text@0.17.0':
     dependencies:
-      '@lexical/clipboard': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/clipboard': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/selection@0.16.1':
+  '@lexical/selection@0.17.0':
     dependencies:
-      lexical: 0.16.1
+      lexical: 0.17.0
 
-  '@lexical/table@0.16.1':
+  '@lexical/table@0.17.0':
     dependencies:
-      '@lexical/utils': 0.16.1
-      lexical: 0.16.1
+      '@lexical/utils': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/text@0.16.1':
+  '@lexical/text@0.17.0':
     dependencies:
-      lexical: 0.16.1
+      lexical: 0.17.0
 
-  '@lexical/utils@0.16.1':
+  '@lexical/utils@0.17.0':
     dependencies:
-      '@lexical/list': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/table': 0.16.1
-      lexical: 0.16.1
+      '@lexical/list': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/table': 0.17.0
+      lexical: 0.17.0
 
-  '@lexical/yjs@0.16.1(yjs@13.6.10)':
+  '@lexical/yjs@0.17.0(yjs@13.6.10)':
     dependencies:
-      '@lexical/offset': 0.16.1
-      lexical: 0.16.1
+      '@lexical/offset': 0.17.0
+      lexical: 0.17.0
       yjs: 13.6.10
 
   '@lezer/common@1.2.1': {}
@@ -12022,7 +12015,7 @@ snapshots:
       '@lezer/highlight': 1.2.0
       '@lezer/lr': 1.4.0
 
-  '@mdxeditor/editor@3.10.1(@codemirror/language@6.10.0)(@lezer/common@1.2.1)(@lezer/highlight@1.2.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react@18.3.1)(yjs@13.6.10)':
+  '@mdxeditor/editor@3.11.0(@codemirror/language@6.10.0)(@lezer/common@1.2.1)(@lezer/highlight@1.2.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react@18.3.1)(yjs@13.6.10)':
     dependencies:
       '@codemirror/lang-markdown': 6.2.3
       '@codemirror/language-data': 6.5.1(@codemirror/view@6.23.0)
@@ -12030,15 +12023,15 @@ snapshots:
       '@codemirror/state': 6.4.0
       '@codemirror/view': 6.23.0
       '@codesandbox/sandpack-react': 2.10.0(@lezer/common@1.2.1)(react@18.3.1)
-      '@lexical/clipboard': 0.16.1
-      '@lexical/link': 0.16.1
-      '@lexical/list': 0.16.1
-      '@lexical/markdown': 0.16.1
-      '@lexical/plain-text': 0.16.1
-      '@lexical/react': 0.16.1(react@18.3.1)(yjs@13.6.10)
-      '@lexical/rich-text': 0.16.1
-      '@lexical/selection': 0.16.1
-      '@lexical/utils': 0.16.1
+      '@lexical/clipboard': 0.17.0
+      '@lexical/link': 0.17.0
+      '@lexical/list': 0.17.0
+      '@lexical/markdown': 0.17.0
+      '@lexical/plain-text': 0.17.0
+      '@lexical/react': 0.17.0(react@18.3.1)(yjs@13.6.10)
+      '@lexical/rich-text': 0.17.0
+      '@lexical/selection': 0.17.0
+      '@lexical/utils': 0.17.0
       '@mdxeditor/gurx': 1.1.1
       '@radix-ui/colors': 3.0.0
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -12053,7 +12046,7 @@ snapshots:
       codemirror: 6.0.1(@lezer/common@1.2.1)
       downshift: 7.6.2(react@18.3.1)
       js-yaml: 4.1.0
-      lexical: 0.16.1
+      lexical: 0.17.0
       mdast-util-directive: 3.0.0
       mdast-util-from-markdown: 2.0.0
       mdast-util-frontmatter: 2.0.1
@@ -16010,14 +16003,14 @@ snapshots:
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
 
-  autoprefixer@10.4.20(postcss@8.4.40):
+  autoprefixer@10.4.20(postcss@8.4.41):
     dependencies:
       browserslist: 4.23.3
       caniuse-lite: 1.0.30001651
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
-      postcss: 8.4.40
+      postcss: 8.4.41
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -17071,8 +17064,6 @@ snapshots:
       '@esbuild/win32-arm64': 0.23.0
       '@esbuild/win32-ia32': 0.23.0
       '@esbuild/win32-x64': 0.23.0
-
-  escalade@3.1.1: {}
 
   escalade@3.1.2: {}
 
@@ -18275,7 +18266,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  lexical@0.16.1: {}
+  lexical@0.17.0: {}
 
   lib0@0.2.88:
     dependencies:
@@ -18398,7 +18389,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  lucide-react@0.424.0(react@18.3.1):
+  lucide-react@0.427.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -19895,8 +19886,6 @@ snapshots:
 
   peberminta@0.9.0: {}
 
-  picocolors@1.0.0: {}
-
   picocolors@1.0.1: {}
 
   picomatch-browser@2.2.6: {}
@@ -19920,50 +19909,50 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-import@15.1.0(postcss@8.4.40):
+  postcss-import@15.1.0(postcss@8.4.41):
     dependencies:
-      postcss: 8.4.40
+      postcss: 8.4.41
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-import@16.1.0(postcss@8.4.40):
+  postcss-import@16.1.0(postcss@8.4.41):
     dependencies:
-      postcss: 8.4.40
+      postcss: 8.4.41
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.4.40):
+  postcss-js@4.0.1(postcss@8.4.41):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.40
+      postcss: 8.4.41
 
-  postcss-load-config@4.0.2(postcss@8.4.40):
+  postcss-load-config@4.0.2(postcss@8.4.41):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
-      postcss: 8.4.40
+      postcss: 8.4.41
 
-  postcss-load-config@6.0.1(jiti@1.21.0)(postcss@8.4.40)(yaml@2.4.5):
+  postcss-load-config@6.0.1(jiti@1.21.0)(postcss@8.4.41)(yaml@2.4.5):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
       jiti: 1.21.0
-      postcss: 8.4.40
+      postcss: 8.4.41
       yaml: 2.4.5
 
-  postcss-nested@6.0.1(postcss@8.4.40):
+  postcss-nested@6.0.1(postcss@8.4.41):
     dependencies:
-      postcss: 8.4.40
+      postcss: 8.4.41
       postcss-selector-parser: 6.1.0
 
-  postcss-nesting@12.1.5(postcss@8.4.40):
+  postcss-nesting@12.1.5(postcss@8.4.41):
     dependencies:
       '@csstools/selector-resolve-nested': 1.1.0(postcss-selector-parser@6.1.0)
       '@csstools/selector-specificity': 3.1.1(postcss-selector-parser@6.1.0)
-      postcss: 8.4.40
+      postcss: 8.4.41
       postcss-selector-parser: 6.1.0
 
   postcss-selector-parser@6.0.10:
@@ -19990,7 +19979,7 @@ snapshots:
       picocolors: 1.0.1
       source-map-js: 1.2.0
 
-  postcss@8.4.40:
+  postcss@8.4.41:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.0.1
@@ -20301,7 +20290,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  react-obfuscate@3.6.9(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-obfuscate@3.7.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       prop-types: 15.8.1
       react: 18.3.1
@@ -21273,11 +21262,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.1
-      postcss: 8.4.40
-      postcss-import: 15.1.0(postcss@8.4.40)
-      postcss-js: 4.0.1(postcss@8.4.40)
-      postcss-load-config: 4.0.2(postcss@8.4.40)
-      postcss-nested: 6.0.1(postcss@8.4.40)
+      postcss: 8.4.41
+      postcss-import: 15.1.0(postcss@8.4.41)
+      postcss-js: 4.0.1(postcss@8.4.41)
+      postcss-load-config: 4.0.2(postcss@8.4.41)
+      postcss-nested: 6.0.1(postcss@8.4.41)
       postcss-selector-parser: 6.1.0
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -21299,12 +21288,12 @@ snapshots:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
-      postcss: 8.4.40
-      postcss-import: 15.1.0(postcss@8.4.40)
-      postcss-js: 4.0.1(postcss@8.4.40)
-      postcss-load-config: 4.0.2(postcss@8.4.40)
-      postcss-nested: 6.0.1(postcss@8.4.40)
+      picocolors: 1.0.1
+      postcss: 8.4.41
+      postcss-import: 15.1.0(postcss@8.4.41)
+      postcss-js: 4.0.1(postcss@8.4.41)
+      postcss-load-config: 4.0.2(postcss@8.4.41)
+      postcss-nested: 6.0.1(postcss@8.4.41)
       postcss-selector-parser: 6.1.0
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -21327,11 +21316,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.1
-      postcss: 8.4.40
-      postcss-import: 15.1.0(postcss@8.4.40)
-      postcss-js: 4.0.1(postcss@8.4.40)
-      postcss-load-config: 4.0.2(postcss@8.4.40)
-      postcss-nested: 6.0.1(postcss@8.4.40)
+      postcss: 8.4.41
+      postcss-import: 15.1.0(postcss@8.4.41)
+      postcss-js: 4.0.1(postcss@8.4.41)
+      postcss-load-config: 4.0.2(postcss@8.4.41)
+      postcss-nested: 6.0.1(postcss@8.4.41)
       postcss-selector-parser: 6.1.0
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -21585,7 +21574,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.2.4(@swc/core@1.3.101)(jiti@1.21.0)(postcss@8.4.40)(typescript@5.5.4)(yaml@2.4.5):
+  tsup@8.2.4(@swc/core@1.3.101(@swc/helpers@0.5.5))(jiti@1.21.0)(postcss@8.4.41)(typescript@5.5.4)(yaml@2.4.5):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.0)
       cac: 6.7.14
@@ -21597,7 +21586,7 @@ snapshots:
       globby: 11.1.0
       joycon: 3.1.1
       picocolors: 1.0.1
-      postcss-load-config: 6.0.1(jiti@1.21.0)(postcss@8.4.40)(yaml@2.4.5)
+      postcss-load-config: 6.0.1(jiti@1.21.0)(postcss@8.4.41)(yaml@2.4.5)
       resolve-from: 5.0.0
       rollup: 4.19.1
       source-map: 0.8.0-beta.0
@@ -21605,7 +21594,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       '@swc/core': 1.3.101(@swc/helpers@0.5.5)
-      postcss: 8.4.40
+      postcss: 8.4.41
       typescript: 5.5.4
     transitivePeerDependencies:
       - jiti
@@ -21874,7 +21863,7 @@ snapshots:
   update-browserslist-db@1.0.13(browserslist@4.23.0):
     dependencies:
       browserslist: 4.23.0
-      escalade: 3.1.1
+      escalade: 3.1.2
       picocolors: 1.0.1
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
@@ -22038,7 +22027,7 @@ snapshots:
   vite@4.5.1(@types/node@20.14.15)(terser@5.28.1):
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.4.40
+      postcss: 8.4.41
       rollup: 3.29.4
     optionalDependencies:
       '@types/node': 20.14.15
@@ -22224,7 +22213,7 @@ snapshots:
   yargs@17.7.2:
     dependencies:
       cliui: 8.0.1
-      escalade: 3.1.1
+      escalade: 3.1.2
       get-caller-file: 2.0.5
       require-directory: 2.1.1
       string-width: 4.2.3
