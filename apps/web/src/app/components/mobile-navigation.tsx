@@ -25,8 +25,8 @@ const MobileNavigationSubItem = React.forwardRef<
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<H3
 					className={cx(
-						'hover:text-muted capitalize',
-						isActive && 'text-muted',
+						'hover:text-nerdfish border-b-4 border-transparent capitalize',
+						isActive && 'border-b-nerdfish',
 					)}
 					as="span"
 				>
