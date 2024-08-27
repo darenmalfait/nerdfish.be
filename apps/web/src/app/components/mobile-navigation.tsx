@@ -56,8 +56,8 @@ function MobileNavigationItem({
 			<Link href={`/${stripPreSlash(href ?? '')}`} onClick={onClick}>
 				<H2
 					className={cx(
-						'hover:text-muted capitalize',
-						isActive && 'text-muted',
+						'hover:text-nerdfish border-b-4 border-transparent capitalize',
+						isActive && 'border-b-nerdfish',
 					)}
 					blurredClassName="hidden"
 					variant="primary"
