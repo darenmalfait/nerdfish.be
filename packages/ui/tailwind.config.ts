@@ -5,7 +5,6 @@ module.exports = {
 	content: [
 		'src/**/*.{ts,tsx}',
 		'../../node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}',
-		'../../packages/ui/**/*.{ts,tsx}',
 	],
 	plugins: [
 		require('tailwindcss-animate'),
