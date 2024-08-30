@@ -1,6 +1,6 @@
 'use client'
 
-import { Description, H2, Label } from '@nerdfish/ui'
+import { FieldDescription, FieldLabel, H2 } from '@nerdfish/ui'
 import * as React from 'react'
 
 import { ContactForm } from '~/app/email'
@@ -28,13 +28,16 @@ function FormOption({
 			<div className="pointer-events-none flex w-full items-center justify-between">
 				<div className="flex items-center">
 					<div className="text-sm">
-						<Label className="text-primary group-hover:text-inverted font-bold">
+						<FieldLabel
+							htmlFor={type}
+							className="text-primary group-hover:text-inverted font-bold"
+						>
 							{label}
-						</Label>
+						</FieldLabel>
 						{description ? (
-							<Description className="text-muted group-hover:text-inverted inline">
+							<FieldDescription className="text-muted group-hover:text-inverted inline">
 								{description}
-							</Description>
+							</FieldDescription>
 						) : null}
 					</div>
 				</div>

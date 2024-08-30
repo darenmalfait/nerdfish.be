@@ -76,7 +76,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 					className="mb-12"
 				/>
 			) : null}
-			<Grid
+			<Grid.Root
 				className="auto-rows-auto grid-cols-4"
 				data-tina-field={tinaField(props, 'items')}
 			>
@@ -101,7 +101,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 						</Grid.Card>
 					)
 				})}
-			</Grid>
+			</Grid.Root>
 		</section>
 	)
 }
