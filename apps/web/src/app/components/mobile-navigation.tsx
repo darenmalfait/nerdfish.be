@@ -101,7 +101,7 @@ export function MobileNavigation() {
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
-		<Drawer direction="top" open={open} onOpenChange={setOpen}>
+		<Drawer.Root direction="top" open={open} onOpenChange={setOpen}>
 			<Drawer.Trigger asChild>
 				<Button
 					className="lg:hidden"
@@ -153,6 +153,6 @@ export function MobileNavigation() {
 					</div>
 				</ScrollArea>
 			</Drawer.Content>
-		</Drawer>
+		</Drawer.Root>
 	)
 }

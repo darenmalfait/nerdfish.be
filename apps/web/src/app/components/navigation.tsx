@@ -194,7 +194,7 @@ export function MainNavigation() {
 	const { navigation } = useGlobal()
 
 	return (
-		<NavigationMenu>
+		<NavigationMenu.Root>
 			<NavigationMenu.List className="gap-2">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
@@ -202,6 +202,6 @@ export function MainNavigation() {
 					return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
 				})}
 			</NavigationMenu.List>
-		</NavigationMenu>
+		</NavigationMenu.Root>
 	)
 }
