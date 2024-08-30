@@ -1,5 +1,4 @@
-import { Button } from '@nerdfish/ui'
-import { type ExtractProps } from '@nerdfish/utils'
+import { Button, type ButtonProps } from '@nerdfish/ui'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import Link from 'next/link'
 
@@ -8,10 +7,7 @@ function PortableButton({
 	href,
 	variant = 'default',
 	...props
-}: { text: string; href?: string } & Pick<
-	ExtractProps<typeof Button>,
-	'variant'
->) {
+}: { text: string; href?: string } & Pick<ButtonProps, 'variant'>) {
 	const isExternal = href?.startsWith('http')
 	const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`
 

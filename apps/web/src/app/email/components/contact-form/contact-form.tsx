@@ -4,10 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	Alert,
 	Button,
-	Description,
+	FieldDescription,
+	FieldLabel,
 	FormHelperText,
 	Input,
-	Label,
 	RadioGroup,
 } from '@nerdfish/ui'
 import {
@@ -91,7 +91,7 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 					/>
 					{withProject ? (
 						<div className="not-prose space-y-3">
-							<RadioGroup
+							<RadioGroup.Root
 								{...register('project')}
 								defaultValue={getValues('project')}
 								label="What are you interested in?"
@@ -100,20 +100,26 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 							>
 								<RadioGroup.Field>
 									<RadioGroup.Item value="webdesign" id="webdesign" />
-									<Label htmlFor="webdesign">Webdesign</Label>
-									<Description>Design and development of websites.</Description>
+									<FieldLabel htmlFor="webdesign">Webdesign</FieldLabel>
+									<FieldDescription>
+										Design and development of websites.
+									</FieldDescription>
 								</RadioGroup.Field>
 								<RadioGroup.Field>
 									<RadioGroup.Item value="services" id="services" />
-									<Label htmlFor="services">Services</Label>
-									<Description>Consulting, workshops, and more.</Description>
+									<FieldLabel htmlFor="services">Services</FieldLabel>
+									<FieldDescription>
+										Consulting, workshops, and more.
+									</FieldDescription>
 								</RadioGroup.Field>
 								<RadioGroup.Field>
 									<RadioGroup.Item value="other" id="other" />
-									<Label htmlFor="other">Other</Label>
-									<Description>Let&apos;s talk about your project.</Description>
+									<FieldLabel htmlFor="other">Other</FieldLabel>
+									<FieldDescription>
+										Let&apos;s talk about your project.
+									</FieldDescription>
 								</RadioGroup.Field>
-							</RadioGroup>
+							</RadioGroup.Root>
 						</div>
 					) : null}
 					<Input
@@ -127,7 +133,7 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 						We only use your data to get in touch with you.
 					</FormHelperText>
 					{isSubmitSuccessful && !error ? (
-						<Alert variant="success">
+						<Alert.Root variant="success">
 							<Alert.Title>Success</Alert.Title>
 							<Alert.Description>
 								Your message has been sent successfully.{' '}
@@ -135,7 +141,7 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 									🎉
 								</span>
 							</Alert.Description>
-						</Alert>
+						</Alert.Root>
 					) : (
 						<Button
 							disabled={isSubmitting || (isSubmitSuccessful && !error)}
@@ -147,18 +153,18 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 					)}
 				</div>
 				{errors.recaptchaResponse?.message ? (
-					<Alert variant="danger">
+					<Alert.Root variant="danger">
 						<Alert.Title>reCAPTCHA error</Alert.Title>
 						<Alert.Description>
 							Please verify that you are not a robot.
 						</Alert.Description>
-					</Alert>
+					</Alert.Root>
 				) : null}
 				{error ? (
-					<Alert variant="danger">
+					<Alert.Root variant="danger">
 						<Alert.Title>Error</Alert.Title>
 						<Alert.Description>{error}</Alert.Description>
-					</Alert>
+					</Alert.Root>
 				) : null}
 			</fieldset>
 		</form>

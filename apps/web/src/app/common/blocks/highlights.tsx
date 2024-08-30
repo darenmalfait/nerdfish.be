@@ -67,7 +67,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 					className="mb-12"
 				/>
 			) : null}
-			<Grid data-tina-field={tinaField(props, 'items')}>
+			<Grid.Root data-tina-field={tinaField(props, 'items')}>
 				{items?.map((item, i) => {
 					if (!item) return null
 
@@ -80,7 +80,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 						</Grid.Card>
 					)
 				})}
-			</Grid>
+			</Grid.Root>
 		</section>
 	)
 }
