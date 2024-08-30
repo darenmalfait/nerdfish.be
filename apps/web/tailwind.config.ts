@@ -9,7 +9,7 @@ module.exports = {
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 		'src/**/*.{ts,tsx}',
 		'../../node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}',
-		'../../packages/ui/**/*.{ts,tsx}',
+		'../../packages/ui/src/**/*.{ts,tsx}',
 	],
 	theme: {
 		extend: {
