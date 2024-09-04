@@ -101,7 +101,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 							)}
 						>
 							<div className="flex flex-auto flex-col justify-center">
-								{title ?? subtitle ? (
+								{(title ?? subtitle) ? (
 									<Header title={title ?? undefined} subtitle={subtitle} />
 								) : null}
 								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
