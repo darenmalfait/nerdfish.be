@@ -95,7 +95,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 
 	return (
 		<section className="container mx-auto mb-16 px-4">
-			{title ?? subtitle ? (
+			{(title ?? subtitle) ? (
 				<div data-tina-field={tinaField(data, 'header')} className="mb-6">
 					<Header
 						title={title ?? ''}

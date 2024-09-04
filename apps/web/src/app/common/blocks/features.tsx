@@ -69,7 +69,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 
 	return (
 		<section className="container mx-auto my-24 px-4">
-			{title ?? subtitle ? (
+			{(title ?? subtitle) ? (
 				<Header
 					title={title?.toString()}
 					subtitle={subtitle}
