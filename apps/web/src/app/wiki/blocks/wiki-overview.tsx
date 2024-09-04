@@ -87,7 +87,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							)}
 						>
 							<div className="flex flex-auto flex-col justify-center">
-								{title ?? subtitle ? (
+								{(title ?? subtitle) ? (
 									<Header title={title ?? ''} subtitle={subtitle} />
 								) : null}
 								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
