@@ -1,10 +1,9 @@
 /* eslint-disable complexity */
 'use client'
 
-import { Button, EmptyState, H5 } from '@nerdfish/ui'
+import { Button, EmptyState } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
-import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
 import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
@@ -13,7 +12,8 @@ import { tinaField } from 'tinacms/dist/react'
 
 import { filterWiki } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
-import { getDatedSlug, Header } from '~/app/common'
+import { getDatedSlug, Header, nonNullable } from '~/app/common'
+import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -28,7 +28,9 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 	let filteredPosts =
 		tags && tags.length > 0 ? filterWiki(allPosts, tags.join(' ')) : allPosts
 
-	const allTags = [...new Set(filteredPosts.flatMap((post) => post.tags))]
+	const allTags = [
+		...new Set(filteredPosts.flatMap((post) => post.tags)),
+	].filter(nonNullable)
 
 	if (count) {
 		filteredPosts = filteredPosts.slice(0, count)
@@ -40,7 +42,11 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 
 	const posts = matchingPosts.slice(0, indexToShow)
 	const hasMorePosts = indexToShow < matchingPosts.length
-	const visibleTags = [...new Set(matchingPosts.flatMap((post) => post.tags))]
+
+	const enabledTags = [
+		...new Set(matchingPosts.flatMap((post) => post.tags)),
+	].filter(nonNullable)
+	const selectedTags = allTags.filter((tag) => query.includes(tag))
 
 	function toggleTag(tag: string) {
 		setQuery((q) => {
@@ -118,29 +124,13 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
-				<div className="container mx-auto my-16 flex flex-col px-4">
-					<H5 as="h3" className="mb-8">
-						Filter articles by topic
-					</H5>
-					<div className="col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10">
-						{allTags.map((tag) => {
-							if (!tag) {
-								return null
-							}
-
-							const selected = query.includes(tag)
-							return (
-								<Tag
-									key={tag}
-									tag={tag}
-									selected={selected}
-									onClick={() => toggleTag(tag)}
-									disabled={visibleTags.includes(tag) ? false : !selected}
-								/>
-							)
-						})}
-					</div>
-				</div>
+				<TagFilter
+					title="Filter knowledge base by topic"
+					tags={allTags}
+					enabledTags={enabledTags}
+					onToggleTag={toggleTag}
+					selectedTags={selectedTags}
+				/>
 			) : null}
 
 			<section className="container mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
