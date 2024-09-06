@@ -1,8 +1,9 @@
 'use client'
 
-import { Button, H3, H5 } from '@nerdfish/ui'
+import { Button, EmptyState, H5 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
+import { Icons } from '@nerdfish-website/ui/icons'
 import { formatDate, parseISO } from 'date-fns'
 import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
@@ -197,11 +198,18 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				) : null}
 
 				{matchingPosts.length === 0 ? (
-					<div className="flex grid-cols-4 flex-col">
-						<H3 as="p" variant="secondary" className="max-w-lg">
-							No articles found for your search query.
-						</H3>
-					</div>
+					<EmptyState.Root>
+						<EmptyState.Icon>
+							<Icons.Article />
+						</EmptyState.Icon>
+						<EmptyState.Title>No articles found</EmptyState.Title>
+						<EmptyState.Description>
+							Try searching for something else.
+						</EmptyState.Description>
+						<EmptyState.Actions>
+							<Button onClick={() => setQuery('')}>Clear search</Button>
+						</EmptyState.Actions>
+					</EmptyState.Root>
 				) : (
 					<div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{posts.map((blog) => {
