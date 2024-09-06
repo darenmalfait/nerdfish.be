@@ -104,6 +104,12 @@ export function TagFilter({
 			</H5>
 			<Tags
 				{...tagsProps}
+				tags={selectedTags}
+				selectedTags={selectedTags}
+				className="flex lg:hidden"
+			/>
+			<Tags
+				{...tagsProps}
 				selectedTags={selectedTags}
 				className="hidden lg:flex"
 			/>
