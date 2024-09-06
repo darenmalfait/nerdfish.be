@@ -1,8 +1,7 @@
 'use client'
 
-import { Button, EmptyState, H5 } from '@nerdfish/ui'
+import { Button, EmptyState } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
 import { formatDate, parseISO } from 'date-fns'
 import { Plus, Search } from 'lucide-react'
@@ -18,7 +17,9 @@ import {
 	getDatedSlug,
 	Header,
 	HighlightCard,
+	nonNullable,
 } from '~/app/common'
+import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -39,7 +40,10 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 
 	let filteredPosts =
 		tags && tags.length > 0 ? filterBlog(allPosts, tags.join(' ')) : allPosts
-	const allTags = [...new Set(filteredPosts.flatMap((post) => post.tags))]
+
+	const allTags = [
+		...new Set(filteredPosts.flatMap((post) => post.tags)),
+	].filter(nonNullable)
 
 	if (count) {
 		filteredPosts = filteredPosts.slice(0, count)
@@ -62,10 +66,14 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 			? indexToShow < matchingPosts.length
 			: indexToShow < matchingPosts.length - 1
 
-	const visibleTags =
+	const enabledTags =
 		isSearching || !featuredEnabled
-			? [...new Set(matchingPosts.flatMap((post) => post.tags))]
+			? [...new Set(matchingPosts.flatMap((post) => post.tags))].filter(
+					nonNullable,
+				)
 			: allTags
+
+	const selectedTags = allTags.filter((tag) => query.includes(tag))
 
 	function toggleTag(tag: string) {
 		setQuery((q) => {
@@ -143,29 +151,13 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
-				<div className="container mx-auto my-16 px-4">
-					<H5 as="h3" className="mb-8">
-						Filter articles by topic
-					</H5>
-					<div className="col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10">
-						{allTags.map((tag) => {
-							if (!tag) {
-								return null
-							}
-
-							const selected = query.includes(tag)
-							return (
-								<Tag
-									key={tag}
-									tag={tag}
-									selected={selected}
-									onClick={() => toggleTag(tag)}
-									disabled={visibleTags.includes(tag) ? false : !selected}
-								/>
-							)
-						})}
-					</div>
-				</div>
+				<TagFilter
+					title="Filter articles by topic"
+					tags={allTags}
+					enabledTags={enabledTags}
+					onToggleTag={toggleTag}
+					selectedTags={selectedTags}
+				/>
 			) : null}
 
 			<section className="container mx-auto flex flex-col gap-12 px-4">
