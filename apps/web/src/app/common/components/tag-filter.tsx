@@ -1,4 +1,4 @@
-import { Button, Drawer, H5 } from '@nerdfish/ui'
+import { Button, Drawer, H5, ScrollArea } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
@@ -98,7 +98,13 @@ export function TagFilter({
 						<Drawer.Header>
 							<Drawer.Title>{title}</Drawer.Title>
 						</Drawer.Header>
-						<Tags {...tagsProps} className="p-4" selectedTags={selectedTags} />
+						<ScrollArea className="h-[30vh] w-full md:h-auto">
+							<Tags
+								{...tagsProps}
+								className="p-4"
+								selectedTags={selectedTags}
+							/>
+						</ScrollArea>
 					</Drawer.Content>
 				</Drawer.Root>
 			</H5>
