@@ -114,22 +114,22 @@ export function MobileNavigation() {
 				</Button>
 			</Drawer.Trigger>
 			<Drawer.Content className="dark:bg-popover">
-				<ScrollArea className="h-[85vh] w-full md:h-auto">
-					<div className="container mx-auto flex flex-col gap-12 px-4 py-6">
-						<div className="flex items-center justify-between gap-2">
-							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-								<Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
-							</Link>
-							<div className="flex flex-row items-center justify-end gap-2">
-								<ThemeToggle variant="ghost" />
-								<RSSFeedButton />
-								<ActionsNavigation
-									onSelect={() => {
-										setOpen(false)
-									}}
-								/>
-							</div>
+				<div className="container mx-auto flex flex-col gap-12 px-4 py-6">
+					<div className="flex items-center justify-between gap-2">
+						<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+							<Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
+						</Link>
+						<div className="flex flex-row items-center justify-end gap-2">
+							<ThemeToggle variant="ghost" />
+							<RSSFeedButton />
+							<ActionsNavigation
+								onSelect={() => {
+									setOpen(false)
+								}}
+							/>
 						</div>
+					</div>
+					<ScrollArea className="h-[60vh] w-full md:h-auto">
 						<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
@@ -143,15 +143,15 @@ export function MobileNavigation() {
 								)
 							})}
 						</div>
+					</ScrollArea>
 
-						<div className="flex gap-2">
-							<div className="flex flex-row items-center gap-3">
-								<span className="font-bold">Socials:</span>
-								<SocialLinks />
-							</div>
+					<div className="flex gap-2">
+						<div className="flex flex-row items-center gap-3">
+							<span className="font-bold">Socials:</span>
+							<SocialLinks />
 						</div>
 					</div>
-				</ScrollArea>
+				</div>
 			</Drawer.Content>
 		</Drawer.Root>
 	)
