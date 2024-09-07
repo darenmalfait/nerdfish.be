@@ -101,7 +101,7 @@ export function MobileNavigation() {
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
-		<Drawer.Root direction="top" open={open} onOpenChange={setOpen}>
+		<Drawer.Root direction="right" open={open} onOpenChange={setOpen}>
 			<Drawer.Trigger asChild>
 				<Button
 					className="lg:hidden"
@@ -113,8 +113,8 @@ export function MobileNavigation() {
 					<Icons.Hamburger className="size-4" />
 				</Button>
 			</Drawer.Trigger>
-			<Drawer.Content className="dark:bg-popover">
-				<div className="container mx-auto flex flex-col gap-12 px-4 py-6">
+			<Drawer.Content>
+				<div className="container mx-auto flex h-full w-screen flex-col gap-12 px-4 py-4">
 					<div className="flex items-center justify-between gap-2">
 						<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
 							<Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
@@ -129,7 +129,7 @@ export function MobileNavigation() {
 							/>
 						</div>
 					</div>
-					<ScrollArea className="h-[60vh] w-full md:h-auto">
+					<ScrollArea className="w-full flex-1 md:h-auto">
 						<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
@@ -145,7 +145,7 @@ export function MobileNavigation() {
 						</div>
 					</ScrollArea>
 
-					<div className="flex gap-2">
+					<div className="sticky bottom-0 flex gap-2">
 						<div className="flex flex-row items-center gap-3">
 							<span className="font-bold">Socials:</span>
 							<SocialLinks />
