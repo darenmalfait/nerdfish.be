@@ -24,14 +24,14 @@
     "vercel-build": " turbo build"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.4.1",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@nerdfish/config": "^1.0.4",
     "eslint": "^9.9.1",
     "eslint-config-turbo": "^2.1.0",
-    "husky": "^9.1.5",
+    "husky": "^9.1.6",
     "prettier": "^3.3.3",
-    "turbo": "^2.1.1"
+    "turbo": "^2.1.2"
   },
   "packageManager": "pnpm@9.10.0"
 }
