@@ -28,10 +28,10 @@ function Title(props: {
 					<Link
 						href={action.href ?? '/'}
 						data-tina-field={tinaField(action)}
-						className="from-nerdfish/50 via-blog-wiki/50 to-blog-project/50 group relative inline-block w-auto cursor-pointer rounded-full bg-gradient-to-r p-[1px] outline-none brightness-90 contrast-150 dark:brightness-125 dark:contrast-100"
+						className="from-accent/50 via-blog-wiki/50 to-blog-project/50 group relative inline-block w-auto cursor-pointer rounded-full bg-gradient-to-r p-[1px] outline-none brightness-90 contrast-150 dark:brightness-125 dark:contrast-100"
 					>
 						<div className="group-focus:outline-active rounded-full bg-white/80 px-3 py-1 group-focus:after:rounded-full dark:bg-black/80">
-							<span className="from-nerdfish via-blog-wiki to-blog-project flex select-none items-center bg-gradient-to-r bg-clip-text text-transparent">
+							<span className="from-accent via-blog-wiki to-blog-project flex select-none items-center bg-gradient-to-r bg-clip-text text-transparent">
 								<span className="font-normal">{action.label}</span>
 								<Icons.ChevronRight
 									direction="right"

@@ -1,9 +1,17 @@
 'use client'
 
-import { Button, EmptyState } from '@nerdfish/ui'
+import {
+	Button,
+	EmptyState,
+	EmptyStateActions,
+	EmptyStateDescription,
+	EmptyStateIcon,
+	EmptyStateTitle,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
-import { formatDate, parseISO } from 'date-fns'
+import { formatDate } from 'date-fns/format'
+import { parseISO } from 'date-fns/parseISO'
 import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
 import * as React from 'react'
@@ -190,18 +198,18 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				) : null}
 
 				{matchingPosts.length === 0 ? (
-					<EmptyState.Root>
-						<EmptyState.Icon>
+					<EmptyState>
+						<EmptyStateIcon>
 							<Icons.Article />
-						</EmptyState.Icon>
-						<EmptyState.Title>No articles found</EmptyState.Title>
-						<EmptyState.Description>
+						</EmptyStateIcon>
+						<EmptyStateTitle>No articles found</EmptyStateTitle>
+						<EmptyStateDescription>
 							Try searching for something else.
-						</EmptyState.Description>
-						<EmptyState.Actions>
+						</EmptyStateDescription>
+						<EmptyStateActions>
 							<Button onClick={() => setQuery('')}>Clear search</Button>
-						</EmptyState.Actions>
-					</EmptyState.Root>
+						</EmptyStateActions>
+					</EmptyState>
 				) : (
 					<div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{posts.map((blog) => {

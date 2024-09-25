@@ -1,6 +1,15 @@
 'use client'
 
-import { Avatar, Badge, Button, Grid, Skeleton } from '@nerdfish/ui'
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage,
+	Badge,
+	Button,
+	Grid,
+	GridCard,
+	Skeleton,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
@@ -24,16 +33,16 @@ function Product({
 			<div />
 			<div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-focus-within:-translate-y-10 group-hover:-translate-y-10">
 				{image ? (
-					<Avatar.Root className="text-primary size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
-						<Avatar.Image
+					<Avatar className="text-primary size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
+						<AvatarImage
 							src={image}
 							className="object-cover"
 							alt={title ?? 'Product image'}
 						/>
-						<Avatar.Fallback>
+						<AvatarFallback>
 							<Skeleton className="size-full" />
-						</Avatar.Fallback>
-					</Avatar.Root>
+						</AvatarFallback>
+					</Avatar>
 				) : null}
 				<h3 className="text-primary text-xl font-semibold">{title}</h3>
 				<p className="text-muted max-w-lg">{description}</p>
@@ -107,16 +116,16 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 				</div>
 			) : null}
 			<div data-tina-field={tinaField(data, 'header')} className="space-y-6">
-				<Grid.Root className="auto-rows-[15rem]">
+				<Grid className="auto-rows-[15rem]">
 					{allProducts.map((product) => (
-						<Grid.Card
+						<GridCard
 							key={product.id ?? product.title}
 							className="bg-muted lg:col-span-1"
 						>
 							<Product {...product} />
-						</Grid.Card>
+						</GridCard>
 					))}
-				</Grid.Root>
+				</Grid>
 			</div>
 		</section>
 	)

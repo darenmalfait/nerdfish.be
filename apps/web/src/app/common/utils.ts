@@ -1,6 +1,6 @@
 import { stripPreSlash, stripTrailingSlash } from '@nerdfish-website/lib/utils'
 import { type ogImageSchema } from '@nerdfish-website/lib/validations'
-import { formatDate } from 'date-fns'
+import { formatDate } from 'date-fns/format'
 import { type Metadata } from 'next'
 import { type z } from 'zod'
 

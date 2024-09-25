@@ -30,12 +30,12 @@ function ArticleCard({
 				{heroImg ? (
 					<div
 						className={cx(
-							'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-lg ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-2 group-focus:ring-current',
+							'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-3xl ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-2 group-focus:ring-current',
 							getCategoryColors(category),
 						)}
 					>
 						<Image
-							className="absolute inset-0 size-full rounded-lg object-cover"
+							className="absolute inset-0 size-full rounded-3xl object-cover"
 							src={heroImg}
 							fill
 							alt={title ?? ''}
@@ -43,8 +43,8 @@ function ArticleCard({
 					</div>
 				) : (
 					<div className="aspect-h-4 aspect-w-3">
-						<div className="w-full rounded-lg transition">
-							<div className="bg-nerdfish inset-0" />
+						<div className="w-full rounded-3xl transition">
+							<div className="bg-accent inset-0" />
 						</div>
 					</div>
 				)}

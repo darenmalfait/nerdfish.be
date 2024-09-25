@@ -33,7 +33,7 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 	return (
 		<div className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent">
 			<div
-				className="bg-nerdfish h-1 transition-transform duration-150"
+				className="bg-accent h-1 transition-transform duration-150"
 				style={{
 					transform: `translateX(${completion - 100}%)`,
 				}}

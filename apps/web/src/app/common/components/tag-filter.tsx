@@ -1,4 +1,13 @@
-import { Button, Drawer, H5, ScrollArea } from '@nerdfish/ui'
+import {
+	Button,
+	Drawer,
+	DrawerContent,
+	DrawerHeader,
+	DrawerTitle,
+	DrawerTrigger,
+	H5,
+	ScrollArea,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
@@ -85,19 +94,19 @@ export function TagFilter({
 		<div className="container mx-auto my-16 px-4">
 			<H5 as="h3" className="mb-8 flex items-center justify-between gap-2">
 				{title}
-				<Drawer.Root>
-					<Drawer.Trigger asChild className="lg:hidden">
+				<Drawer>
+					<DrawerTrigger asChild className="lg:hidden">
 						<Button
-							variant={selectedTags.length > 0 ? 'nerdfish' : 'secondary'}
+							variant={selectedTags.length > 0 ? 'accent' : 'secondary'}
 							size="icon"
 						>
 							<Icons.Filter size="sm" className="size-4" />
 						</Button>
-					</Drawer.Trigger>
-					<Drawer.Content className="p-4">
-						<Drawer.Header>
-							<Drawer.Title>{title}</Drawer.Title>
-						</Drawer.Header>
+					</DrawerTrigger>
+					<DrawerContent className="p-4">
+						<DrawerHeader>
+							<DrawerTitle>{title}</DrawerTitle>
+						</DrawerHeader>
 						<ScrollArea className="h-[30vh] w-full md:h-auto">
 							<Tags
 								{...tagsProps}
@@ -105,8 +114,8 @@ export function TagFilter({
 								selectedTags={selectedTags}
 							/>
 						</ScrollArea>
-					</Drawer.Content>
-				</Drawer.Root>
+					</DrawerContent>
+				</Drawer>
 			</H5>
 			<Tags
 				{...tagsProps}
