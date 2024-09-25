@@ -1,10 +1,9 @@
 'use client'
 
-import { Grid, H2 } from '@nerdfish/ui'
+import { Grid, GridCard, H2 } from '@nerdfish/ui'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { ArrowLink, Header } from '../components'
 import {
 	type Block,
@@ -76,7 +75,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 					className="mb-12"
 				/>
 			) : null}
-			<Grid.Root
+			<Grid
 				className="auto-rows-auto grid-cols-4"
 				data-tina-field={tinaField(props, 'items')}
 			>
@@ -86,7 +85,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 					const { icon, ...itemProps } = item
 
 					return (
-						<Grid.Card
+						<GridCard
 							key={`${item.title} ${i}`}
 							className="bg-muted col-span-4 lg:col-span-2"
 						>
@@ -98,10 +97,10 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 										: null
 								}
 							/>
-						</Grid.Card>
+						</GridCard>
 					)
 				})}
-			</Grid.Root>
+			</Grid>
 		</section>
 	)
 }

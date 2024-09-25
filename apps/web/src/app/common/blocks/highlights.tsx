@@ -1,10 +1,9 @@
 'use client'
 
-import { Grid, H3, Paragraph } from '@nerdfish/ui'
+import { Grid, GridCard, H3, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import Image from 'next/image'
 import { tinaField } from 'tinacms/dist/react'
-
 import { Header } from '../components'
 import {
 	type Block,
@@ -67,20 +66,20 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 					className="mb-12"
 				/>
 			) : null}
-			<Grid.Root data-tina-field={tinaField(props, 'items')}>
+			<Grid data-tina-field={tinaField(props, 'items')}>
 				{items?.map((item, i) => {
 					if (!item) return null
 
 					return (
-						<Grid.Card
+						<GridCard
 							key={`${item.title} ${i}`}
 							className={cx(getGridItemClassName(i), !item.image && 'bg-muted')}
 						>
 							<HighlightCardContent {...item} />
-						</Grid.Card>
+						</GridCard>
 					)
 				})}
-			</Grid.Root>
+			</Grid>
 		</section>
 	)
 }

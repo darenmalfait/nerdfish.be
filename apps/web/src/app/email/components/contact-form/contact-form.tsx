@@ -3,12 +3,22 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	Alert,
+	AlertDescription,
+	AlertTitle,
 	Button,
-	FieldDescription,
-	FieldLabel,
-	FormHelperText,
+	Description,
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 	Input,
 	RadioGroup,
+	RadioGroupField,
+	RadioGroupItem,
+	Textarea,
 } from '@nerdfish/ui'
 import {
 	contactSchema,
@@ -25,13 +35,7 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 	const { execute } = useRecaptcha()
 	const [error, setError] = React.useState<string>()
 
-	const {
-		handleSubmit,
-		register,
-		reset,
-		getValues,
-		formState: { errors, isSubmitting, isSubmitSuccessful },
-	} = useForm<ContactFormData>({
+	const form = useForm<ContactFormData>({
 		resolver: zodResolver(contactSchema),
 		defaultValues: {
 			name: '',
@@ -63,7 +67,7 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 				throw new Error('An error occurred while submitting the form.')
 			}
 
-			reset()
+			form.reset()
 		} catch (e) {
 			if (e instanceof Error) {
 				console.error(e.message)
@@ -74,100 +78,164 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 	}
 
 	return (
-		<form noValidate onSubmit={handleSubmit(onSubmit)}>
-			<fieldset>
-				<div className="mb-8 space-y-8">
-					<Input
-						label="Name"
-						id="name"
-						error={errors.name?.message}
-						{...register('name')}
-					/>
-					<Input
-						label="Email"
-						id="email"
-						error={errors.email?.message}
-						{...register('email')}
-					/>
-					{withProject ? (
-						<div className="not-prose space-y-3">
-							<RadioGroup.Root
-								{...register('project')}
-								defaultValue={getValues('project')}
-								label="What are you interested in?"
-								description='Select "Other" if you have a different project in mind.'
-								aria-label="Project"
+		<Form {...form}>
+			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
+				<fieldset>
+					<div className="mb-8 space-y-8">
+						<FormField
+							control={form.control}
+							name="name"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Name</FormLabel>
+
+									<FormControl>
+										<Input {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+
+						<FormField
+							control={form.control}
+							name="email"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Your email address</FormLabel>
+
+									<FormControl>
+										<Input type="email" {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+
+						{withProject ? (
+							<FormField
+								control={form.control}
+								name="project"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>What are you interested in?</FormLabel>
+
+										<FormControl>
+											<RadioGroup
+												onValueChange={field.onChange}
+												defaultValue={field.value}
+											>
+												<FormItem>
+													<RadioGroupField>
+														<FormControl>
+															<RadioGroupItem value="webdesign" />
+														</FormControl>
+														<FormLabel>
+															Webdesign
+															<FormDescription>
+																Design and development of websites.
+															</FormDescription>
+														</FormLabel>
+													</RadioGroupField>
+												</FormItem>
+
+												<FormItem>
+													<RadioGroupField>
+														<FormControl>
+															<RadioGroupItem value="services" />
+														</FormControl>
+														<FormLabel>
+															Services
+															<FormDescription>
+																Consulting, workshops, and more.
+															</FormDescription>
+														</FormLabel>
+													</RadioGroupField>
+												</FormItem>
+
+												<FormItem>
+													<RadioGroupField>
+														<FormControl>
+															<RadioGroupItem value="other" />
+														</FormControl>
+														<FormLabel>
+															Other
+															<FormDescription>
+																Let&apos;s talk about your project.
+															</FormDescription>
+														</FormLabel>
+													</RadioGroupField>
+												</FormItem>
+											</RadioGroup>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						) : null}
+
+						<FormField
+							control={form.control}
+							name="textMessage"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Message</FormLabel>
+
+									<FormControl>
+										<Textarea {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+
+						<Description>
+							We only use your data to get in touch with you.
+						</Description>
+
+						{form.formState.isSubmitSuccessful && !error ? (
+							<Alert variant="success">
+								<AlertTitle>Success</AlertTitle>
+								<AlertDescription>
+									Your message has been sent successfully.{' '}
+									<span role="img" aria-label="party popper">
+										🎉
+									</span>
+								</AlertDescription>
+							</Alert>
+						) : (
+							<Button
+								disabled={
+									form.formState.isSubmitting ||
+									(form.formState.isSubmitSuccessful && !error)
+								}
+								type="submit"
 							>
-								<RadioGroup.Field>
-									<RadioGroup.Item value="webdesign" id="webdesign" />
-									<FieldLabel htmlFor="webdesign">Webdesign</FieldLabel>
-									<FieldDescription>
-										Design and development of websites.
-									</FieldDescription>
-								</RadioGroup.Field>
-								<RadioGroup.Field>
-									<RadioGroup.Item value="services" id="services" />
-									<FieldLabel htmlFor="services">Services</FieldLabel>
-									<FieldDescription>
-										Consulting, workshops, and more.
-									</FieldDescription>
-								</RadioGroup.Field>
-								<RadioGroup.Field>
-									<RadioGroup.Item value="other" id="other" />
-									<FieldLabel htmlFor="other">Other</FieldLabel>
-									<FieldDescription>
-										Let&apos;s talk about your project.
-									</FieldDescription>
-								</RadioGroup.Field>
-							</RadioGroup.Root>
-						</div>
+								{form.formState.isSubmitting ? (
+									<Loader2 className="mr-2 animate-spin" />
+								) : null}
+								Send message
+							</Button>
+						)}
+					</div>
+					{form.formState.errors.recaptchaResponse?.message ? (
+						<Alert variant="danger">
+							<AlertTitle>reCAPTCHA error</AlertTitle>
+							<AlertDescription>
+								Please verify that you are not a robot.
+							</AlertDescription>
+						</Alert>
 					) : null}
-					<Input
-						type="textarea"
-						label="Message"
-						id="message"
-						error={errors.textMessage?.message}
-						{...register('textMessage')}
-					/>
-					<FormHelperText>
-						We only use your data to get in touch with you.
-					</FormHelperText>
-					{isSubmitSuccessful && !error ? (
-						<Alert.Root variant="success">
-							<Alert.Title>Success</Alert.Title>
-							<Alert.Description>
-								Your message has been sent successfully.{' '}
-								<span role="img" aria-label="party popper">
-									🎉
-								</span>
-							</Alert.Description>
-						</Alert.Root>
-					) : (
-						<Button
-							disabled={isSubmitting || (isSubmitSuccessful && !error)}
-							type="submit"
-						>
-							{isSubmitting ? <Loader2 className="mr-2 animate-spin" /> : null}
-							Send message
-						</Button>
-					)}
-				</div>
-				{errors.recaptchaResponse?.message ? (
-					<Alert.Root variant="danger">
-						<Alert.Title>reCAPTCHA error</Alert.Title>
-						<Alert.Description>
-							Please verify that you are not a robot.
-						</Alert.Description>
-					</Alert.Root>
-				) : null}
-				{error ? (
-					<Alert.Root variant="danger">
-						<Alert.Title>Error</Alert.Title>
-						<Alert.Description>{error}</Alert.Description>
-					</Alert.Root>
-				) : null}
-			</fieldset>
-		</form>
+
+					{error ? (
+						<Alert variant="danger">
+							<AlertTitle>Error</AlertTitle>
+							<AlertDescription>{error}</AlertDescription>
+						</Alert>
+					) : null}
+				</fieldset>
+			</form>
+		</Form>
 	)
 }
 

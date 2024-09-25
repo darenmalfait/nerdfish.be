@@ -1,6 +1,6 @@
 'use client'
 
-import { FieldDescription, FieldLabel, H2 } from '@nerdfish/ui'
+import { Description, H2, Label } from '@nerdfish/ui'
 import * as React from 'react'
 
 import { ContactForm } from '~/app/email'
@@ -20,24 +20,25 @@ function FormOption({
 }) {
 	return (
 		<button
+			type="button"
 			onClick={() => {
 				onSelect(type)
 			}}
-			className="bg-muted shadow-outline hover:bg-inverted group relative block cursor-pointer rounded-lg px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+			className="bg-muted shadow-outline hover:bg-inverted group relative block cursor-pointer rounded-3xl px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
 		>
 			<div className="pointer-events-none flex w-full items-center justify-between">
 				<div className="flex items-center">
 					<div className="text-sm">
-						<FieldLabel
+						<Label
 							htmlFor={type}
 							className="text-primary group-hover:text-inverted font-bold"
 						>
 							{label}
-						</FieldLabel>
+						</Label>
 						{description ? (
-							<FieldDescription className="text-muted group-hover:text-inverted inline">
+							<Description className="text-muted group-hover:text-inverted inline">
 								{description}
-							</FieldDescription>
+							</Description>
 						) : null}
 					</div>
 				</div>

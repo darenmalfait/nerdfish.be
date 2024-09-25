@@ -1,6 +1,14 @@
 'use client'
 
-import { Button, NavigationMenu } from '@nerdfish/ui'
+import {
+	Button,
+	NavigationMenu,
+	NavigationMenuContent,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuList,
+	NavigationMenuTrigger,
+} from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
@@ -52,8 +60,8 @@ const MainNavigationSubItem = React.forwardRef<
 >(({ href, label, description, className, ...props }, ref) => {
 	return (
 		<li>
-			<NavigationMenu.Item>
-				<NavigationMenu.Link asChild>
+			<NavigationMenuItem>
+				<NavigationMenuLink asChild>
 					<Link
 						className={cx(
 							'hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
@@ -70,8 +78,8 @@ const MainNavigationSubItem = React.forwardRef<
 							</p>
 						) : null}
 					</Link>
-				</NavigationMenu.Link>
-			</NavigationMenu.Item>
+				</NavigationMenuLink>
+			</NavigationMenuItem>
 		</li>
 	)
 })
@@ -98,8 +106,8 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 		const isActive = stripPreSlash(pathname).startsWith(href ?? '')
 
 		return (
-			<NavigationMenu.Item>
-				<NavigationMenu.Link asChild>
+			<NavigationMenuItem>
+				<NavigationMenuLink asChild>
 					<Link
 						href={`/${stripPreSlash(href ?? '')}`}
 						className={getMainItemClassName({
@@ -108,8 +116,8 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 					>
 						{label}
 					</Link>
-				</NavigationMenu.Link>
-			</NavigationMenu.Item>
+				</NavigationMenuLink>
+			</NavigationMenuItem>
 		)
 	}
 
@@ -120,15 +128,15 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 	})
 
 	return (
-		<NavigationMenu.Item>
-			<NavigationMenu.Trigger
+		<NavigationMenuItem>
+			<NavigationMenuTrigger
 				className={getMainItemClassName({
 					variant: isActive ? 'active' : 'default',
 				})}
 			>
 				{label}
-			</NavigationMenu.Trigger>
-			<NavigationMenu.Content>
+			</NavigationMenuTrigger>
+			<NavigationMenuContent>
 				<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
 					{sub.map((subNavItem, i) => {
 						if (!subNavItem) return null
@@ -136,8 +144,8 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 						return <MainNavigationSubItem key={i} {...subNavItem} />
 					})}
 				</ul>
-			</NavigationMenu.Content>
-		</NavigationMenu.Item>
+			</NavigationMenuContent>
+		</NavigationMenuItem>
 	)
 }
 
@@ -194,14 +202,14 @@ export function MainNavigation() {
 	const { navigation } = useGlobal()
 
 	return (
-		<NavigationMenu.Root>
-			<NavigationMenu.List className="gap-2">
+		<NavigationMenu>
+			<NavigationMenuList className="gap-2">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
 
 					return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
 				})}
-			</NavigationMenu.List>
-		</NavigationMenu.Root>
+			</NavigationMenuList>
+		</NavigationMenu>
 	)
 }

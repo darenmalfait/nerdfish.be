@@ -1,6 +1,6 @@
 'use client'
 
-import { format as formatDate } from 'date-fns'
+import { format as formatDate } from 'date-fns/format'
 
 function DateFormatter({
 	dateString,

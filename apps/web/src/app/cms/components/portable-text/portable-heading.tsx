@@ -40,7 +40,7 @@ export function PortableHeading({
 					variant="ghost"
 					size="iconSm"
 					className={cx(
-						'text-nerdfish ml-2 hidden group-hover:flex',
+						'text-accent ml-2 hidden group-hover:flex',
 						hasCopied && 'flex',
 					)}
 					onClick={async () => {

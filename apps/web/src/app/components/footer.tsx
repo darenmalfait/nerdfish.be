@@ -25,8 +25,8 @@ const FooterNavigationSubItem = React.forwardRef<
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<span
 					className={cx(
-						'hover:text-nerdfish border-b-4 border-transparent capitalize',
-						isActive && 'border-b-nerdfish',
+						'hover:text-accent border-b-4 border-transparent capitalize',
+						isActive && 'border-b-accent',
 					)}
 				>
 					{label}
@@ -48,8 +48,8 @@ function FooterNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 			<Link href={`/${stripPreSlash(href ?? '')}`}>
 				<H3
 					className={cx(
-						'hover:text-nerdfish border-b-4 border-transparent capitalize',
-						isActive && 'border-b-nerdfish',
+						'hover:text-accent border-b-4 border-transparent capitalize',
+						isActive && 'border-b-accent',
 					)}
 					blurredClassName="hidden"
 					variant="primary"
