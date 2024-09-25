@@ -1,13 +1,20 @@
 'use client'
 
-import { Button, Drawer, H2, H3, ScrollArea } from '@nerdfish/ui'
+import {
+	Button,
+	Drawer,
+	DrawerContent,
+	DrawerTrigger,
+	H2,
+	H3,
+	ScrollArea,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { ActionsNavigation, RSSFeedButton, SocialLinks } from './navigation'
@@ -25,8 +32,8 @@ const MobileNavigationSubItem = React.forwardRef<
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<H3
 					className={cx(
-						'hover:text-nerdfish border-b-4 border-transparent capitalize',
-						isActive && 'border-b-nerdfish',
+						'hover:text-accent border-b-4 border-transparent capitalize',
+						isActive && 'border-b-accent',
 					)}
 					as="span"
 				>
@@ -56,8 +63,8 @@ function MobileNavigationItem({
 			<Link href={`/${stripPreSlash(href ?? '')}`} onClick={onClick}>
 				<H2
 					className={cx(
-						'hover:text-nerdfish border-b-4 border-transparent capitalize',
-						isActive && 'border-b-nerdfish',
+						'hover:text-accent border-b-4 border-transparent capitalize',
+						isActive && 'border-b-accent',
 					)}
 					blurredClassName="hidden"
 					variant="primary"
@@ -101,8 +108,8 @@ export function MobileNavigation() {
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
-		<Drawer.Root direction="right" open={open} onOpenChange={setOpen}>
-			<Drawer.Trigger asChild>
+		<Drawer direction="right" open={open} onOpenChange={setOpen}>
+			<DrawerTrigger asChild>
 				<Button
 					className="lg:hidden"
 					variant="ghost"
@@ -112,8 +119,8 @@ export function MobileNavigation() {
 				>
 					<Icons.Hamburger className="size-4" />
 				</Button>
-			</Drawer.Trigger>
-			<Drawer.Content>
+			</DrawerTrigger>
+			<DrawerContent>
 				<div className="container mx-auto flex h-full w-screen flex-col gap-12 px-4 py-4">
 					<div className="flex items-center justify-between gap-2">
 						<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
@@ -152,7 +159,7 @@ export function MobileNavigation() {
 						</div>
 					</div>
 				</div>
-			</Drawer.Content>
-		</Drawer.Root>
+			</DrawerContent>
+		</Drawer>
 	)
 }

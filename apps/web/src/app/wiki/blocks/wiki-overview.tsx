@@ -1,7 +1,14 @@
 /* eslint-disable complexity */
 'use client'
 
-import { Button, EmptyState } from '@nerdfish/ui'
+import {
+	Button,
+	EmptyState,
+	EmptyStateActions,
+	EmptyStateDescription,
+	EmptyStateIcon,
+	EmptyStateTitle,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
@@ -147,18 +154,18 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				) : null}
 
 				{matchingPosts.length === 0 ? (
-					<EmptyState.Root>
-						<EmptyState.Icon>
+					<EmptyState>
+						<EmptyStateIcon>
 							<Icons.Book />
-						</EmptyState.Icon>
-						<EmptyState.Title>No wiki pages found</EmptyState.Title>
-						<EmptyState.Description>
+						</EmptyStateIcon>
+						<EmptyStateTitle>No wiki pages found</EmptyStateTitle>
+						<EmptyStateDescription>
 							Try searching for something else.
-						</EmptyState.Description>
-						<EmptyState.Actions>
+						</EmptyStateDescription>
+						<EmptyStateActions>
 							<Button onClick={() => setQuery('')}>Clear search</Button>
-						</EmptyState.Actions>
-					</EmptyState.Root>
+						</EmptyStateActions>
+					</EmptyState>
 				) : (
 					posts.map((wiki) => {
 						return (
