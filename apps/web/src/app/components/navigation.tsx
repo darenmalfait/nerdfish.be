@@ -15,7 +15,6 @@ import { Icons } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 
@@ -45,7 +44,17 @@ export function ActionsNavigation({
 				if (!link) return null
 
 				return (
-					<Button key={link.label} onClick={onSelect} asChild>
+					<Button
+						key={link.label}
+						onClick={onSelect}
+						variant="accentuate"
+						style={
+							{
+								'--colors-background-primary': 'var(--colors-background-muted)',
+							} as React.CSSProperties
+						}
+						asChild
+					>
 						<Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
 					</Button>
 				)

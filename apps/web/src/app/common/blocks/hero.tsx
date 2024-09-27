@@ -1,10 +1,7 @@
-import { cx } from '@nerdfish/utils'
-import { DotPattern } from '@nerdfish-website/ui/components/dot-pattern.tsx'
 import { Icons } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
-
 import { BigTitle } from '../components/big-title'
 import {
 	PortableText,
@@ -22,7 +19,7 @@ function Title(props: {
 	if (!title && !action?.label) return null
 
 	return (
-		<div className="container mx-auto flex flex-col gap-3 px-4">
+		<div className="flex flex-col space-y-3">
 			{action?.label ? (
 				<div>
 					<Link
@@ -43,7 +40,7 @@ function Title(props: {
 				</div>
 			) : null}
 			<BigTitle
-				className="relative font-black"
+				className="relative font-black text-white"
 				data-tina-field={tinaField(props, 'title')}
 			>
 				{title}
@@ -56,29 +53,18 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title, action } = data
 
 	return (
-		<div className="max-w-8xl relative isolate mx-auto my-8 flex min-h-[80vh] flex-col items-center justify-center lg:my-16">
-			<DotPattern
-				width={32}
-				height={32}
-				className={cx(
-					'w-full [mask-image:radial-gradient(800px_circle_at_center,white,transparent)]',
-				)}
-			/>
-			<Title title={title} action={action ?? {}} />
-			<div className="container mx-auto px-4 lg:flex lg:items-center lg:gap-x-10">
-				<div className="mx-auto w-full lg:mx-0 lg:max-w-2xl lg:flex-auto">
-					{text ? (
-						<div
-							data-tina-field={tinaField(data, 'text')}
-							className="prose prose-lg dark:prose-invert mb-12 mt-8"
-						>
+		<header className="relative">
+			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
+			<div className="container relative mx-auto px-4">
+				<div className="pb-24 pt-32 sm:pb-32 md:pb-48">
+					<Title title={title} action={action ?? {}} />
+					<div className="dark mt-8 max-w-lg">
+						<div className="prose dark:prose-invert prose-xl mb-12 mt-8 !text-white">
 							<PortableText content={text} />
 						</div>
-					) : null}
-				</div>
-				<div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+					</div>
 					{image?.src ? (
-						<div className="relative max-w-3xl flex-none sm:max-w-xl xl:max-w-3xl 2xl:max-w-none">
+						<div className="absolute bottom-0 right-0 w-full max-w-[50%] flex-none">
 							<Image
 								className="inset-0 mb-12 rounded-xl"
 								src={image.src}
@@ -91,6 +77,6 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 					) : null}
 				</div>
 			</div>
-		</div>
+		</header>
 	)
 }

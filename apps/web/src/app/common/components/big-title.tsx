@@ -13,7 +13,7 @@ export const BigTitle = React.forwardRef<
 		<Tag
 			{...props}
 			className={cx(
-				'text-primary font-sans text-6xl font-black uppercase leading-none sm:text-[11.6250vw] 2xl:text-[12rem]',
+				'text-primary font-sans text-6xl font-black capitalize leading-none sm:text-[11.6250vw] 2xl:text-[12rem]',
 				className,
 			)}
 			ref={ref}
