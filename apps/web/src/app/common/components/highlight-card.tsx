@@ -6,7 +6,6 @@ import {
 } from '@nerdfish-website/ui/components/category-indicator.tsx'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { ArrowLink } from './arrow-link'
 
 interface HighlightCardProps {
