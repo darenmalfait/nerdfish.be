@@ -24,7 +24,7 @@ function FormOption({
 			onClick={() => {
 				onSelect(type)
 			}}
-			className="bg-muted shadow-outline hover:bg-inverted group relative block cursor-pointer rounded-3xl px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+			className="bg-muted shadow-outline hover:bg-inverted rounded-semi group relative block cursor-pointer px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
 		>
 			<div className="pointer-events-none flex w-full items-center justify-between">
 				<div className="flex items-center">

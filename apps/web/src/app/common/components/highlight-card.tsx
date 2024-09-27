@@ -32,13 +32,13 @@ function HighlightCard({
 	return (
 		<Link
 			className={cx(
-				'block rounded-3xl no-underline lg:bg-transparent',
+				'rounded-semi block no-underline lg:bg-transparent',
 				className,
 			)}
 			href={href}
 			{...props}
 		>
-			<div className="bg-muted shadow-outline group relative grid w-full grid-cols-4 gap-x-4 rounded-3xl px-8 pb-6 pt-14 md:grid-cols-8 md:pb-12 lg:grid-cols-12 lg:gap-x-6 lg:px-0">
+			<div className="bg-muted shadow-outline rounded-semi group relative grid w-full grid-cols-4 gap-x-4 px-8 pb-6 pt-14 md:grid-cols-8 md:pb-12 lg:grid-cols-12 lg:gap-x-6 lg:px-0">
 				<div className="col-span-4 md:col-span-6 lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-between">
 					<div suppressHydrationWarning>
 						{category ? (
@@ -64,11 +64,11 @@ function HighlightCard({
 								{cta}
 								<div
 									className={cx(
-										'focus-ring absolute inset-0 z-10 rounded-3xl',
+										'focus-ring rounded-semi absolute inset-0 z-10',
 										getCategoryColors(category ?? 'unknown'),
 									)}
 								/>
-								<div className="-z-1 absolute inset-0 rounded-3xl" />
+								<div className="-z-1 rounded-semi absolute inset-0" />
 							</ArrowLink>
 						</div>
 					) : null}
