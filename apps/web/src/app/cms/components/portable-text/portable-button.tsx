@@ -18,7 +18,6 @@ function PortableButton({
 			<Button
 				variant={variant}
 				asChild
-				accentuate
 				className="cursor-pointer no-underline"
 				size="xl"
 			>

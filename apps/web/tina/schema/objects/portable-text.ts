@@ -41,6 +41,7 @@ const portableTextSchema: RichTextType = {
 					label: 'Variant',
 					options: [
 						{ label: 'Default', value: 'default' },
+						{ label: 'Accentuate', value: 'accentuate' },
 						{ label: 'Danger', value: 'danger' },
 						{ label: 'Success', value: 'success' },
 						{ label: 'Outline', value: 'outline' },
