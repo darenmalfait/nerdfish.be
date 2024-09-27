@@ -73,9 +73,12 @@ export function Blocks({
 				const Component = components[block.__typename]
 
 				return (
-					<div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
-						<Component {...block} globalData={globalData} />
-					</div>
+					<Component
+						data-tinafield={`blocks.${i}`}
+						key={i + block.__typename}
+						{...block}
+						globalData={globalData}
+					/>
 				)
 			})}
 		</>

@@ -86,14 +86,24 @@ function PortableContactForm({ heading }: { heading?: string }) {
 			{selectedForm ? (
 				<div>
 					{selectedForm === 'coffee' ? (
-						<H2>
+						<H2 className="mb-2">
 							grab a coffee{' '}
 							<span role="img" aria-label="Coffee">
 								☕
 							</span>
 							?
 						</H2>
-					) : null}
+					) : (
+						<H2 className="mb-2">
+							Contact me{' '}
+							<span role="img" aria-label="Coffee">
+								👋
+							</span>
+						</H2>
+					)}
+					<Description className="mb-8">
+						Fill out the form below to get in touch
+					</Description>
 					<ContactForm withProject={selectedForm === 'project'} />
 				</div>
 			) : (
