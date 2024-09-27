@@ -1,6 +1,6 @@
 'use client'
 
-import { H3 } from '@nerdfish/ui'
+import { H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
@@ -25,7 +25,7 @@ const FooterNavigationSubItem = React.forwardRef<
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<span
 					className={cx(
-						'hover:text-accent border-b-4 border-transparent capitalize',
+						'hover:text-accent text-muted border-b-4 border-transparent capitalize',
 						isActive && 'border-b-accent',
 					)}
 				>
@@ -91,7 +91,7 @@ function Footer() {
 	const twitter = social?.twitter
 
 	return (
-		<div className="bg-muted mt-24">
+		<div className="mt-16 pt-8">
 			<footer
 				className="text-primary container mx-auto px-4"
 				aria-labelledby="footer-heading"
@@ -99,24 +99,17 @@ function Footer() {
 				<h2 id="footer-heading" className="sr-only">
 					Footer
 				</h2>
-				<div className="mx-auto px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-					<div className="gap-8 xl:grid xl:grid-cols-3 xl:gap-16">
-						<div className="space-y-8">
+				<div className="mx-auto pb-8">
+					<div className="gap-8 xl:grid xl:gap-16">
+						<div className="space-y-4">
 							<div className="flex items-center">
 								<div className="flex h-12 items-center">
 									<Icons.Logo className="relative h-6 w-auto rounded-full" />
 								</div>
 							</div>
-							<p className="text-muted text-base leading-6">
-								Made by{' '}
-								<Link
-									className="underline"
-									href={twitter ?? github ?? 'https://www.nerdfish.be'}
-								>
-									nerdfish
-								</Link>
-								, development with user experience in mind.
-							</p>
+							<div className="-mx-4">
+								<SocialLinks />
+							</div>
 						</div>
 						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
 							{navigation?.main?.map((navItem) => {
@@ -126,10 +119,20 @@ function Footer() {
 							})}
 						</div>
 					</div>
-					<div className="mt-16 flex items-center border-t border-black/10 pt-8 sm:mt-20 md:justify-start lg:mt-24 dark:border-white/10">
+					<Separator className="my-8" />
+					<div className="flex items-center md:justify-between">
+						<p className="text-muted text-base leading-6">
+							Made by{' '}
+							<Link
+								className="underline"
+								href={twitter ?? github ?? 'https://www.nerdfish.be'}
+							>
+								nerdfish
+							</Link>
+							, development with user experience in mind.
+						</p>
 						<div className="flex flex-row items-center gap-3">
 							<ThemeToggle className="flex size-10 items-center justify-center transition" />
-							<SocialLinks />
 						</div>
 					</div>
 				</div>
