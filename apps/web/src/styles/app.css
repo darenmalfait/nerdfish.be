@@ -39,3 +39,12 @@
 a {
 	color: var(--colors-accent);
 }
+
+main section:first-of-type {
+	padding-top: 128px;
+}
+
+/* Remove padding top from first section after header */
+main header + section:first-of-type {
+	padding-top: 0 !important;
+}
