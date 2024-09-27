@@ -64,7 +64,7 @@ const MainNavigationSubItem = React.forwardRef<
 				<NavigationMenuLink asChild>
 					<Link
 						className={cx(
-							'hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
+							'hover:bg-inverted/5 dark:hover:bg-inverted/15 focus:bg-inverted/5 dark:focus:bg-inverted/15 rounded-semi block select-none space-y-1 p-3 leading-none no-underline outline-none transition-colors',
 							className,
 						)}
 						ref={ref}
@@ -86,7 +86,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative flex h-8 cursor-pointer items-center gap-x-1.5 whitespace-nowrap rounded-full px-3 capitalize outline-none !ring-muted transition active-ring after:rounded-full focus-within:ring-2 active:bg-inverted/10 sm:h-10 sm:px-4',
+	'relative flex h-8 cursor-pointer items-center gap-x-1.5 whitespace-nowrap rounded-semi px-3 capitalize outline-none !ring-muted transition active-ring after:rounded-full focus-within:ring-2 active:bg-inverted/10 sm:h-10 sm:px-4',
 	{
 		variants: {
 			variant: {
