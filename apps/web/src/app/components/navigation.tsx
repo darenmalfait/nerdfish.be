@@ -86,13 +86,13 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative flex h-8 cursor-pointer items-center gap-x-1.5 whitespace-nowrap rounded-semi px-3 capitalize outline-none !ring-muted transition active-ring after:rounded-full focus-within:ring-2 active:bg-inverted/10 sm:h-10 sm:px-4',
+	'relative flex h-8 cursor-pointer items-center gap-x-1.5 whitespace-nowrap rounded-semi px-3 capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10 sm:px-4',
 	{
 		variants: {
 			variant: {
-				default: 'hover:bg-muted',
-				active:
-					'bg-primary px-3 text-primary shadow-outline hover:bg-muted hover:text-primary/90',
+				active: 'hover:bg-white',
+				default:
+					'bg-muted px-3 text-primary hover:bg-muted hover:text-primary/90',
 			},
 		},
 	},
@@ -110,9 +110,11 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 				<NavigationMenuLink asChild>
 					<Link
 						href={`/${stripPreSlash(href ?? '')}`}
-						className={getMainItemClassName({
-							variant: isActive ? 'active' : 'default',
-						})}
+						className={cx(
+							getMainItemClassName({
+								variant: isActive ? 'active' : 'default',
+							}),
+						)}
 					>
 						{label}
 					</Link>

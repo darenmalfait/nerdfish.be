@@ -9,19 +9,19 @@ import { ThemeToggle } from './theme-toggle'
 
 export function Header() {
 	return (
-		<div className="container mx-auto px-4">
-			<div className="relative flex items-center gap-4">
-				<div className="flex flex-1">
+		<div className="container sticky top-8 z-50 mx-auto px-4">
+			<div className="bg-muted relative mx-auto flex w-fit items-center justify-center gap-4 rounded-full px-3 py-2">
+				<div className="flex">
 					<Link href="/" aria-label="Home">
-						<Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
+						<Icons.Logo className="h-5 w-auto" />
 					</Link>
 				</div>
-				<div className="hidden flex-1 justify-end md:justify-center lg:flex">
+				<div className="hidden justify-end md:justify-center lg:flex">
 					<nav className="flex rounded-full px-3 text-sm font-medium lg:space-x-2">
 						<MainNavigation />
 					</nav>
 				</div>
-				<div className="flex justify-end space-x-2 md:flex-1">
+				<div className="flex justify-end space-x-2">
 					<ThemeToggle variant="ghost" />
 					<RSSFeedButton className="xsm:flex hidden" />
 					<ActionsNavigation className="hidden md:flex" />
