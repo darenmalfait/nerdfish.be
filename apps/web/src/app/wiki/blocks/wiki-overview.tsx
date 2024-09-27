@@ -8,6 +8,7 @@ import {
 	EmptyStateDescription,
 	EmptyStateIcon,
 	EmptyStateTitle,
+	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
@@ -100,30 +101,21 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 								},
 							)}
 						>
-							<div className="flex flex-auto flex-col justify-center">
+							<div className="flex flex-auto flex-col justify-center space-y-4">
 								{(title ?? subtitle) ? (
 									<Header title={title ?? ''} subtitle={subtitle} />
 								) : null}
-								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
-									<Search
-										width="20px"
-										height="20px"
-										className="text-muted absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
-									/>
-									<input
-										type="search"
-										value={query}
-										onChange={(event) => {
-											setQuery(event.currentTarget.value.toLowerCase())
-										}}
-										name="q"
-										placeholder="Search"
-										className="bg-primary text-primary/60 focus-ring w-full rounded-full border-2 py-6 pl-14 pr-16 outline-none"
-									/>
-									<div className="text-muted absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
-										{matchingPosts.length}
-									</div>
-								</div>
+								<Input
+									type="search"
+									value={query}
+									onChange={(event) => {
+										setQuery(event.currentTarget.value.toLowerCase())
+									}}
+									name="q"
+									placeholder="Search"
+									icon={Search}
+									inputSize="lg"
+								/>
 							</div>
 						</div>
 					</div>
