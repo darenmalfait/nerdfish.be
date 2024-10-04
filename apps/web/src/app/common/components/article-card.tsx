@@ -15,10 +15,9 @@ import { type Blog, type Work } from '~/app/cms'
 function ArticleCard({
 	title,
 	heroImg,
-	date = '',
+	date,
 	category,
 	href,
-	_sys,
 }: Partial<Blog | Work> & {
 	href: string
 }) {
@@ -49,9 +48,9 @@ function ArticleCard({
 					</div>
 				)}
 
-				<div className="space-y-2">
+				<div className="mt-8 space-y-2">
 					{date ? (
-						<div className="text-muted mt-8 text-xl font-bold">
+						<div className="text-muted text-xl font-bold">
 							<DateFormatter dateString={date} format="PPP" />
 						</div>
 					) : null}
