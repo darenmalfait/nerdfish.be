@@ -1,11 +1,3 @@
 {
-	"extends": "../../tsconfig.json",
-	"include": [
-		"@nerdfish/config/reset.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.js",
-		"**/*.jsx"
-	],
-	"exclude": ["node_modules"]
+	"extends": "../../tsconfig.json"
 }

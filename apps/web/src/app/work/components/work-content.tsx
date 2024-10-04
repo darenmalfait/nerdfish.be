@@ -1,4 +1,5 @@
-import { H1, H6 } from '@nerdfish/ui'
+import { H1 } from '@nerdfish/ui'
+import { cx } from '@nerdfish/utils'
 import { CategoryIndicator } from '@nerdfish-website/ui/components/category-indicator.tsx'
 import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
 import Image from 'next/image'
@@ -9,6 +10,8 @@ import { mapWorkData } from '../api'
 import { BackToWork } from './misc'
 import { PortableText, type WorkQueryQuery } from '~/app/cms'
 import { ArticleCard, Header, WorkPath } from '~/app/common'
+
+const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
 function WorkContent({ data }: { data: WorkQueryQuery }) {
 	const { title, date, heroImg, category, body } = data.work
@@ -29,38 +32,40 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 
 	return (
 		<>
-			<section>
-				<div className="container mx-auto mb-14 mt-24 max-w-4xl px-4 lg:mb-24">
+			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
+				<div className="mb-14">
 					<BackToWork />
 				</div>
 
-				<header className="container mx-auto mb-12 mt-6 max-w-4xl px-4">
-					<H1 data-tina-field={tinaField(data.work, 'title')}>{title}</H1>
-					<div className="relative my-6">
-						<CategoryIndicator category={category} inline />
-					</div>
+				<header className={cx('flex flex-col', prose)}>
 					{date ? (
-						<H6
+						<span
+							className="text-muted mb-4 text-lg"
 							data-tina-field={tinaField(data.work, 'date')}
-							as="p"
-							variant="secondary"
 						>
 							<DateFormatter dateString={date} format="dd MMMM yyyy" />
-						</H6>
+						</span>
 					) : null}
+					<H1 className="!mb-0" data-tina-field={tinaField(data.work, 'title')}>
+						{title}
+					</H1>
+					<div className="relative">
+						<CategoryIndicator category={category} inline />
+					</div>
 				</header>
-
-				<div
-					className="container mx-auto mb-12 max-w-4xl px-4"
-					data-tina-field={tinaField(data.work, 'heroImg')}
-				>
-					{heroImg ? (
-						<Image src={heroImg} alt={title} width={900} height={900} />
-					) : null}
-				</div>
 			</section>
+			{heroImg ? (
+				<section className={cx(prose, 'mx-auto mb-12 px-4')}>
+					<div
+						className="rounded-semi overflow-hidden"
+						data-tina-field={tinaField(data.work, 'heroImg')}
+					>
+						<Image src={heroImg} alt={title} width={900} height={900} />
+					</div>
+				</section>
+			) : null}
 			<section
-				className="prose dark:prose-invert md:prose-lg lg:prose-xl container mx-auto px-4"
+				className="prose dark:prose-invert md:prose-lg lg:prose-xl container mx-auto max-w-4xl px-4"
 				data-tina-field={tinaField(data.work, 'body')}
 			>
 				{body ? <PortableText content={body} /> : null}

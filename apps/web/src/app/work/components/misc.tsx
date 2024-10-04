@@ -1,6 +1,8 @@
 'use client'
 
-import { BackLink } from '~/app/common'
+import { Button } from '@nerdfish/ui'
+import { Icons } from '@nerdfish-website/ui/icons'
+import Link from 'next/link'
 import { useGlobal } from '~/app/global-provider'
 
 export function BackToWork() {
@@ -8,5 +10,12 @@ export function BackToWork() {
 
 	if (!paths?.work) return null
 
-	return <BackLink href={paths.work}>See more work</BackLink>
+	return (
+		<Button variant="outline" asChild>
+			<Link href={paths.work}>
+				<Icons.ChevronLeft className="mr-2" />
+				More work
+			</Link>
+		</Button>
+	)
 }
