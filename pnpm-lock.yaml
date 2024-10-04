@@ -51,11 +51,11 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
       '@nerdfish/theme':
-        specifier: ^2.2.0
-        version: 2.2.0
+        specifier: ^2.3.0
+        version: 2.3.0
       '@nerdfish/ui':
-        specifier: ^7.3.0
-        version: 7.3.0(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^7.3.1
+        version: 7.3.1(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -249,8 +249,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
       '@nerdfish/ui':
-        specifier: ^7.3.0
-        version: 7.3.0(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^7.3.1
+        version: 7.3.1(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2334,11 +2334,11 @@ packages:
   '@nerdfish/tailwind-config@3.2.0':
     resolution: {integrity: sha512-PMr/757ZNiFKgDo6WSuQ3nQPj3KtaJjKjO10Ci2N/6D0aibN6a41/GMsyML5F+DpSCK1zafwD3EY0eV39xBSEg==}
 
-  '@nerdfish/theme@2.2.0':
-    resolution: {integrity: sha512-2LtroYU84bytMq+PvOAPLInw2qJlSiexE3Ylbvdr87KuhviIgGHhOgyVDOJ5SutDeMmb7DRdP7iZEXqQ2zKcbQ==}
+  '@nerdfish/theme@2.3.0':
+    resolution: {integrity: sha512-PaPOkIKV+QzCk19CJOQTpuy1F6xdnLIgDIoDNJwMm8apDdmf5KqLU0naa/9Lk+cQRjQVtGU8Nw/WqS9N5GYDLA==}
 
-  '@nerdfish/ui@7.3.0':
-    resolution: {integrity: sha512-itwwzWXmNgfXO121WWM/bazZik87daxskhOzF09t52qbb4OWijLat5xb9QF7GGEXKnmGXd8TBldZS41oc7uztw==}
+  '@nerdfish/ui@7.3.1':
+    resolution: {integrity: sha512-CUA1ml6AqVEL5WbtiLrgURemMLMYi6McI1cPqXIGvdjHWXlx67UNmUuTJzv/Vu3IG3Fp4Q0lXKqw6rv5HcrUUQ==}
     peerDependencies:
       react: '>=18.3.1'
       react-dom: '>=18.3.1'
@@ -13361,11 +13361,11 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@nerdfish/theme@2.2.0':
+  '@nerdfish/theme@2.3.0':
     dependencies:
       '@nerdfish/utils': 2.0.0
 
-  '@nerdfish/ui@7.3.0(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@nerdfish/ui@7.3.1(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@nerdfish/utils': 2.0.0
       '@radix-ui/react-accordion': 1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
