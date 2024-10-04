@@ -19,15 +19,15 @@
 	},
 	"include": [
 		"./**/*.js",
+		"./**/*.jsx",
 		"./**/*.ts",
 		"./**/*.tsx",
-		".forestry/config.ts",
-		".forestry/types.ts",
-		".next/types/**/*.ts",
 		".next/types/**/*.ts",
 		"next-env.d.ts",
 		"next.config.mjs",
 		"postcss.config.cjs",
+		".forestry/config.ts",
+		".forestry/types.ts",
 		"tina/**/*.ts",
 		"tina/**/*.tsx"
 	],

@@ -16,7 +16,7 @@ import {
 	ReadingProgress,
 } from '~/app/common'
 
-const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl'
+const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
 function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	const { title, date, tags, heroImg, body } = data.blog
@@ -38,36 +38,33 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	return (
 		<>
 			<ReadingProgress offset={1200} />
-			<section className="container mx-auto mb-8 mt-24 px-4">
-				<div className="flex w-full flex-col gap-8 xl:flex-row">
-					<div className="flex-1">
-						<BackToBlog />
-					</div>
-					<div className={cx('flex flex-col', prose)}>
-						{date ? (
-							<span
-								className="text-muted text-base"
-								data-tina-field={tinaField(data.blog, 'date')}
-							>
-								Published{' '}
-								<DateFormatter dateString={date} format="dd MMMM yyyy" />
-							</span>
-						) : null}
-						<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
-					</div>
-					<div className="flex-1" />
+			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
+				<div className="mb-14">
+					<BackToBlog />
 				</div>
-			</section>
-			<section className="container mx-auto mb-14 mt-24 px-4">
-				<div
-					className="container mx-auto mb-12 max-w-4xl px-4"
-					data-tina-field={tinaField(data.blog, 'heroImg')}
-				>
-					{heroImg ? (
-						<Image src={heroImg} alt={title} width={900} height={900} />
+				<header className={cx('flex max-w-4xl flex-col', prose)}>
+					{date ? (
+						<span
+							className="text-muted mb-4 text-lg"
+							data-tina-field={tinaField(data.blog, 'date')}
+						>
+							Published{' '}
+							<DateFormatter dateString={date} format="dd MMMM yyyy" />
+						</span>
 					) : null}
-				</div>
+					<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
+				</header>
 			</section>
+			{heroImg ? (
+				<section className={cx(prose, 'mx-auto mb-12 px-4')}>
+					<div
+						className="rounded-semi overflow-hidden"
+						data-tina-field={tinaField(data.blog, 'heroImg')}
+					>
+						<Image src={heroImg} alt={title} width={900} height={900} />
+					</div>
+				</section>
+			) : null}
 			<section
 				className={cx('container mx-auto px-4', prose)}
 				data-tina-field={tinaField(data.blog, 'body')}
