@@ -13,7 +13,7 @@ export function BackToWiki() {
 	return (
 		<Button variant="outline" asChild>
 			<Link href={paths.wiki}>
-				<Icons.ChevronLeft className="mr-2" />
+				<Icons.ChevronLeft className="mr-2 size-4" />
 				All wiki pages
 			</Link>
 		</Button>

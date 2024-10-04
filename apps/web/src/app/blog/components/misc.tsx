@@ -13,7 +13,7 @@ export function BackToBlog() {
 	return (
 		<Button variant="outline" asChild>
 			<Link href={paths.blog}>
-				<Icons.ChevronLeft className="mr-2" />
+				<Icons.ChevronLeft className="mr-2 size-4" />
 				All blog articles
 			</Link>
 		</Button>
