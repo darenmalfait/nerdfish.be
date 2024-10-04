@@ -16,7 +16,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 		<>
 			<ReadingProgress offset={400} />
 			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
-				<div className="mb-14">
+				<div className="mb-6">
 					<BackToWiki />
 				</div>
 
