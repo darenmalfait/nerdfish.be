@@ -1,46 +1,52 @@
 'use client'
 
+import {
+	Button,
+	type ButtonProps,
+	Tooltip,
+	TooltipProvider,
+	TooltipTrigger,
+	TooltipContent,
+	useCopyToClipboard,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Check, Copy } from 'lucide-react'
-import * as React from 'react'
+import React from 'react'
+import { Icons } from '../icons'
 
-interface CopyButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-	value: string
-	src?: string
-}
+const COPY_TIMOUT = 3000
 
 export function CopyButton({
-	value,
+	code,
 	className,
-	src,
 	...props
-}: CopyButtonProps) {
-	const [hasCopied, setHasCopied] = React.useState(false)
+}: ButtonProps & {
+	code: string
+}) {
+	const { handleCopy, copiedText } = useCopyToClipboard()
 
-	React.useEffect(() => {
-		setTimeout(() => {
-			setHasCopied(false)
-		}, 2000)
-	}, [hasCopied])
+	const label = copiedText ? 'Copied' : 'Copy'
 
 	return (
-		<button
-			className={cx(
-				'relative z-20 inline-flex h-6 w-6 items-center justify-center rounded-md border border-white text-sm font-medium transition-all hover:bg-white/10 focus:outline-none',
-				className,
-			)}
-			onClick={async () => {
-				await navigator.clipboard.writeText(value)
-				setHasCopied(true)
-			}}
-			{...props}
-		>
-			<span className="sr-only">Copy</span>
-			{hasCopied ? (
-				<Check className="size-3 text-white" />
-			) : (
-				<Copy className="size-3 text-white" />
-			)}
-		</button>
+		<TooltipProvider>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<Button
+						size="iconSm"
+						{...props}
+						className={cx('absolute right-2 top-2', className)}
+						variant={copiedText ? 'success' : 'ghost'}
+						aria-label="copy"
+						onClick={() => handleCopy(code, COPY_TIMOUT)}
+					>
+						{copiedText ? (
+							<Icons.Check className="size-4" />
+						) : (
+							<Icons.Copy className="size-4" />
+						)}
+					</Button>
+				</TooltipTrigger>
+				<TooltipContent>{label}</TooltipContent>
+			</Tooltip>
+		</TooltipProvider>
 	)
 }

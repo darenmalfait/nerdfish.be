@@ -1,6 +1,8 @@
 'use client'
 
-import { BackLink } from '~/app/common'
+import { Button } from '@nerdfish/ui'
+import { Icons } from '@nerdfish-website/ui/icons'
+import Link from 'next/link'
 import { useGlobal } from '~/app/global-provider'
 
 export function BackToWiki() {
@@ -8,5 +10,12 @@ export function BackToWiki() {
 
 	if (!paths?.wiki) return null
 
-	return <BackLink href={paths.wiki}>All wiki</BackLink>
+	return (
+		<Button variant="outline" asChild>
+			<Link href={paths.wiki}>
+				<Icons.ChevronLeft className="mr-2" />
+				All wiki pages
+			</Link>
+		</Button>
+	)
 }
