@@ -1,7 +1,6 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { CategoryIndicator } from '@nerdfish-website/ui/components/category-indicator.tsx'
-import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -38,14 +37,6 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 				</div>
 
 				<header className={cx('flex flex-col', prose)}>
-					{date ? (
-						<span
-							className="text-muted mb-4 text-lg"
-							data-tina-field={tinaField(data.work, 'date')}
-						>
-							<DateFormatter dateString={date} format="dd MMMM yyyy" />
-						</span>
-					) : null}
 					<H1 className="!mb-0" data-tina-field={tinaField(data.work, 'title')}>
 						{title}
 					</H1>
@@ -80,6 +71,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 									<ArticleCard
 										href={`/${WorkPath}/${work.category}/${work._sys.filename}`}
 										{...work}
+										date={undefined}
 										id={work.id}
 									/>
 								</div>
