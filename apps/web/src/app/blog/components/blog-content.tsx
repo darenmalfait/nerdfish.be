@@ -39,7 +39,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 		<>
 			<ReadingProgress offset={1200} />
 			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
-				<div className="mb-14">
+				<div className="mb-6">
 					<BackToBlog />
 				</div>
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
