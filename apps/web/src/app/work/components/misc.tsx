@@ -13,7 +13,7 @@ export function BackToWork() {
 	return (
 		<Button variant="outline" asChild>
 			<Link href={paths.work}>
-				<Icons.ChevronLeft className="mr-2" />
+				<Icons.ChevronLeft className="mr-2 size-4" />
 				More work
 			</Link>
 		</Button>
