@@ -191,6 +191,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 									<ArticleCard
 										href={`/${WorkPath}/${work.category}/${work._sys?.filename}`}
 										{...work}
+										date={undefined}
 									/>
 								</div>
 							)
