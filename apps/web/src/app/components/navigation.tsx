@@ -48,11 +48,6 @@ export function ActionsNavigation({
 						key={link.label}
 						onClick={onSelect}
 						variant="accentuate"
-						style={
-							{
-								'--colors-background-primary': 'var(--colors-background-muted)',
-							} as React.CSSProperties
-						}
 						asChild
 					>
 						<Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
