@@ -1,5 +1,6 @@
 'use client'
 
+import { Gauge, GaugeText } from '@nerdfish/ui'
 import * as React from 'react'
 
 export function ReadingProgress({ offset = 0 }: { offset?: number }) {
@@ -15,9 +16,11 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 			if (scrollHeight) {
 				// max scroll completion is 100%
 				setCompletion(
-					Math.min(
-						Number((currentProgress / scrollHeight).toFixed(2)) * 100,
-						100,
+					Math.round(
+						Math.min(
+							Number((currentProgress / scrollHeight).toFixed(2)) * 100,
+							100,
+						),
 					),
 				)
 			}
@@ -31,13 +34,25 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 	}, [offset])
 
 	return (
-		<div className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent">
-			<div
-				className="bg-accent h-1 transition-transform duration-150"
-				style={{
-					transform: `translateX(${completion - 100}%)`,
-				}}
-			/>
-		</div>
+		<>
+			{/* handhelds */}
+			<div className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent xl:hidden">
+				<div
+					className="bg-accent h-1 transition-transform duration-150"
+					style={{
+						transform: `translateX(${completion - 100}%)`,
+					}}
+				/>
+			</div>
+			{/* bigger screen */}
+			<div className="fixed bottom-4 right-4 z-50 hidden flex-col items-center gap-4 xl:flex">
+				<Gauge value={completion}>
+					<GaugeText fontSize={24} value={`${completion}%`} />
+				</Gauge>
+				<span className="text-muted-foreground max-w-[100px] text-center text-sm">
+					reading progress
+				</span>
+			</div>
+		</>
 	)
 }
