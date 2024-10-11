@@ -21,6 +21,7 @@ import { tinaField } from 'tinacms/dist/react'
 import { filterWiki } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
 import { getDatedSlug, Header, nonNullable } from '~/app/common'
+import { BlockSection } from '~/app/common/blocks/components/block-section'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -71,9 +72,9 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 	}
 
 	return (
-		<>
+		<BlockSection>
 			{searchEnabled ? (
-				<section className="container mx-auto px-4">
+				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
 						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
@@ -112,6 +113,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 										setQuery(event.currentTarget.value.toLowerCase())
 									}}
 									name="q"
+									className="shadow-outline"
 									placeholder="Search"
 									icon={Search}
 									inputSize="lg"
@@ -119,7 +121,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
@@ -132,7 +134,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				/>
 			) : null}
 
-			<section className="container mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
+			<div className="mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
 						<Header
@@ -161,7 +163,10 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				) : (
 					posts.map((wiki) => {
 						return (
-							<article key={wiki._sys?.filename} className="flex flex-col">
+							<article
+								key={wiki._sys?.filename}
+								className="mx-auto flex flex-col"
+							>
 								<a
 									href={`/wiki${getDatedSlug(
 										wiki.date as string,
@@ -196,7 +201,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						</Button>
 					</div>
 				) : null}
-			</section>
-		</>
+			</div>
+		</BlockSection>
 	)
 }

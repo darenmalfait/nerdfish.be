@@ -17,6 +17,7 @@ import { tinaField } from 'tinacms/dist/react'
 
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
 import { Header } from '~/app/common'
+import { BlockSection } from '~/app/common/blocks/components/block-section'
 
 function Product({
 	title,
@@ -116,7 +117,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 	const { title, subtitle, link } = header ?? {}
 
 	return (
-		<section className="container mx-auto mb-16 px-4">
+		<BlockSection>
 			{(title ?? subtitle) ? (
 				<div data-tina-field={tinaField(data, 'header')} className="mb-6">
 					<Header
@@ -145,6 +146,6 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 					</ul>
 				</Grid>
 			</div>
-		</section>
+		</BlockSection>
 	)
 }

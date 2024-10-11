@@ -57,7 +57,7 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 	const { title, skills: skillsList, description } = data
 
 	return (
-		<section className="container mx-auto px-4 py-32">
+		<section className="container mx-auto px-4 py-24 md:py-32">
 			<div className="flex flex-col items-center text-center">
 				{title ? (
 					<H1

@@ -1,13 +1,13 @@
 import { H1 } from '@nerdfish/ui'
 import { tinaField } from 'tinacms/dist/react'
-
+import { BlockSection } from './components/block-section'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms'
 
 export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 	const { title, keywords } = data
 
 	return (
-		<section className="container mx-auto px-4 py-32">
+		<BlockSection data-tina-field={tinaField(data, 'keywords')}>
 			<div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-x-16 lg:space-y-0">
 				<div className="w-full max-w-sm xl:max-w-lg">
 					<H1
@@ -29,6 +29,6 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 					))}
 				</ul>
 			</div>
-		</section>
+		</BlockSection>
 	)
 }
