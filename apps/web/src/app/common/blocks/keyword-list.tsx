@@ -18,16 +18,16 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 						{title}
 					</H1>
 				</div>
-				<div
+				<ul
 					data-tina-field={tinaField(data, 'keywords')}
 					className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3"
 				>
 					{keywords?.map((item, i) => (
-						<span key={`${item} ${i}`} className="text-primary block text-lg">
+						<li key={`${item} ${i}`} className="text-primary block text-lg">
 							{item}
-						</span>
+						</li>
 					))}
-				</div>
+				</ul>
 			</div>
 		</section>
 	)
