@@ -134,7 +134,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				/>
 			) : null}
 
-			<div className="mx-auto space-y-14 px-4 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
+			<div className="mx-auto space-y-14 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
 						<Header
@@ -161,32 +161,31 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						</EmptyStateActions>
 					</EmptyState>
 				) : (
-					posts.map((wiki) => {
-						return (
-							<article
-								key={wiki._sys?.filename}
-								className="mx-auto flex flex-col"
-							>
-								<a
-									href={`/wiki${getDatedSlug(
-										wiki.date as string,
-										wiki._sys?.filename ?? '',
-									)}`}
-									className="text-primary hover:text-muted line-clamp-3 text-2xl font-semibold leading-snug hover:underline"
-								>
-									{wiki.title}
-								</a>
-								{wiki.date ? (
-									<p className="text-muted mt-2 text-sm font-bold">
-										<DateFormatter dateString={wiki.date} format="PPP" />
-									</p>
-								) : null}
-								<div className="text-muted mt-2 text-justify">
-									<PortableText content={wiki.excerpt} />
-								</div>
-							</article>
-						)
-					})
+					<ul className="space-y-14">
+						{posts.map((wiki) => {
+							return (
+								<li key={wiki._sys?.filename} className="mx-auto flex flex-col">
+									<a
+										href={`/wiki${getDatedSlug(
+											wiki.date as string,
+											wiki._sys?.filename ?? '',
+										)}`}
+										className="text-primary hover:text-muted line-clamp-3 text-2xl font-semibold leading-snug hover:underline"
+									>
+										{wiki.title}
+									</a>
+									{wiki.date ? (
+										<p className="text-muted mt-2 text-sm font-bold">
+											<DateFormatter dateString={wiki.date} format="PPP" />
+										</p>
+									) : null}
+									<div className="text-muted mt-2 text-justify">
+										<PortableText content={wiki.excerpt} />
+									</div>
+								</li>
+							)
+						})}
+					</ul>
 				)}
 
 				{hasMorePosts ? (
