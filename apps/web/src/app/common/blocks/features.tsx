@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid, GridCard, H2 } from '@nerdfish/ui'
+import { Grid, H3 } from '@nerdfish/ui'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { tinaField } from 'tinacms/dist/react'
@@ -18,7 +18,10 @@ function DetailLink({ page }: { page?: Page }) {
 	if (!page) return null
 
 	return (
-		<ArrowLink className="mt-4 text-sm" href={`/${page._sys.filename}`}>
+		<ArrowLink
+			className="text-accent mt-4 text-sm"
+			href={`/${page._sys.filename}`}
+		>
 			Read more
 		</ArrowLink>
 	)
@@ -31,25 +34,26 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 		icon && (dynamicHeroIcon(icon as keyof typeof Icons) as Icons.LucideIcon)
 
 	return (
-		<div
-			className="shadow-outline relative flex size-full flex-col items-start gap-3 p-6 px-8 lg:flex-row lg:gap-6 lg:px-12 lg:py-10"
-			{...rest}
-		>
+		<li className="relative flex size-full flex-col items-start" {...rest}>
 			{Icon ? (
-				<Icon
-					data-tina-field={tinaField(props, 'icon')}
-					className="text-primary flex h-8 shrink-0 lg:mt-0.5"
-				/>
+				<div
+					className="bg-accent rounded-semi aspect-1 mb-6 flex items-center justify-center p-2 text-white lg:mt-0.5"
+					aria-hidden
+				>
+					<Icon
+						data-tina-field={tinaField(props, 'icon')}
+						className="flex h-5 shrink-0"
+					/>
+				</div>
 			) : null}
 			<div className="flex h-full flex-col justify-between">
 				<div>
-					<H2
+					<H3
 						data-tina-field={tinaField(props, 'title')}
-						as="h3"
-						className="text-primary mb-4 flex flex-none items-end !text-xl font-medium tracking-normal"
+						className="text-primary mb-4 flex flex-none items-end"
 					>
 						{title}
-					</H2>
+					</H3>
 					<p
 						data-tina-field={tinaField(props, 'description')}
 						className="text-muted flex-auto text-lg"
@@ -59,7 +63,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 				</div>
 				<DetailLink page={detail as Page} />
 			</div>
-		</div>
+		</li>
 	)
 }
 
@@ -76,30 +80,33 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 				/>
 			) : null}
 			<Grid
-				className="auto-rows-auto grid-cols-4"
+				className="auto-rows-auto grid-cols-3 gap-x-8 gap-y-12"
 				data-tina-field={tinaField(props, 'items')}
+				asChild
 			>
-				{items?.map((item, i) => {
-					if (!item) return null
+				<ul>
+					{items?.map((item, i) => {
+						if (!item) return null
 
-					const { icon, ...itemProps } = item
+						const { icon, ...itemProps } = item
 
-					return (
-						<GridCard
-							key={`${item.title} ${i}`}
-							className="bg-muted col-span-4 lg:col-span-2"
-						>
-							<FeatureCard
-								{...itemProps}
-								icon={
-									icon
-										? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as keyof typeof Icons)
-										: null
-								}
-							/>
-						</GridCard>
-					)
-				})}
+						return (
+							<div
+								key={`${item.title} ${i}`}
+								className="col-span-3 bg-none lg:col-span-1"
+							>
+								<FeatureCard
+									{...itemProps}
+									icon={
+										icon
+											? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as keyof typeof Icons)
+											: null
+									}
+								/>
+							</div>
+						)
+					})}
+				</ul>
 			</Grid>
 		</section>
 	)
