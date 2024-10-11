@@ -184,19 +184,19 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 						</H3>
 					</div>
 				) : (
-					<div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<ul className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{posts.map((work) => {
 							return (
-								<div key={work.id} className="col-span-4">
+								<li key={work.id} className="col-span-4">
 									<ArticleCard
 										href={`/${WorkPath}/${work.category}/${work._sys?.filename}`}
 										{...work}
 										date={undefined}
 									/>
-								</div>
+								</li>
 							)
 						})}
-					</div>
+					</ul>
 				)}
 
 				{hasMorePosts ? (
