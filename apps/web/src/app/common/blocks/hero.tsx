@@ -53,7 +53,7 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title, action } = data
 
 	return (
-		<header className="relative">
+		<section className="relative">
 			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
 			<div className="container relative mx-auto px-4">
 				<div className="pb-24 pt-32 sm:pb-32 md:pb-48">
@@ -77,6 +77,6 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 					) : null}
 				</div>
 			</div>
-		</header>
+		</section>
 	)
 }
