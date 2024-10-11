@@ -91,7 +91,7 @@ export function TagFilter({
 	...tagsProps
 }: TagsProps & { title: string }) {
 	return (
-		<div className="container mx-auto my-16 px-4">
+		<div className="my-16">
 			<H5 as="h3" className="mb-8 flex items-center justify-between gap-2">
 				{title}
 				<Drawer>
