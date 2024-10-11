@@ -202,18 +202,18 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						</EmptyStateActions>
 					</EmptyState>
 				) : (
-					<div className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<ul className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{posts.map((blog) => {
 							return (
-								<div key={blog.id} className="col-span-4">
+								<li key={blog.id} className="col-span-4">
 									<ArticleCard
 										href={`/${BlogPath}${getDatedSlug(blog.date, blog._sys?.filename)}`}
 										{...blog}
 									/>
-								</div>
+								</li>
 							)
 						})}
-					</div>
+					</ul>
 				)}
 
 				{hasMorePosts ? (

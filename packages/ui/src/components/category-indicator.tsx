@@ -47,6 +47,7 @@ function CategoryIndicator({
 					className,
 				)}
 			>
+				<span className="sr-only">Category:</span>
 				{category}
 			</span>
 		</div>
