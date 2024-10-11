@@ -1,6 +1,13 @@
 'use client'
 
-import { Button, type ButtonProps } from '@nerdfish/ui'
+import {
+	Button,
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+	type ButtonProps,
+} from '@nerdfish/ui'
 import { Moon, Sun } from 'lucide-react'
 import * as React from 'react'
 
@@ -24,18 +31,36 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
 
 		return (
-			<Button
-				ref={ref}
-				type="button"
-				size="icon"
-				variant={variant ?? 'ghost'}
-				{...props}
-				className={className}
-				onClick={() => setTheme(isDarkMode ? 'light' : 'dark')}
-			>
-				{isDarkMode ? <Sun className="size-4" /> : <Moon className="size-4" />}
-				<div className="sr-only">{isDarkMode ? `Light` : `Dark`} Mode</div>
-			</Button>
+			<DropdownMenu>
+				<DropdownMenuTrigger asChild>
+					<Button
+						ref={ref}
+						type="button"
+						size="icon"
+						variant={variant ?? 'ghost'}
+						{...props}
+						className={className}
+					>
+						{isDarkMode ? (
+							<Sun className="size-4" />
+						) : (
+							<Moon className="size-4" />
+						)}
+						<div className="sr-only">{isDarkMode ? `Light` : `Dark`} Mode</div>
+					</Button>
+				</DropdownMenuTrigger>
+				<DropdownMenuContent>
+					<DropdownMenuItem onClick={() => setTheme('light')}>
+						Light
+					</DropdownMenuItem>
+					<DropdownMenuItem onClick={() => setTheme('dark')}>
+						Dark
+					</DropdownMenuItem>
+					<DropdownMenuItem onClick={() => setTheme('system')}>
+						System
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
 		)
 	},
 )
