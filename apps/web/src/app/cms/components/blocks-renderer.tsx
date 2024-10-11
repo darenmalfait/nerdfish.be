@@ -7,6 +7,7 @@ import {
 	FeaturesBlock,
 	HeroBlock,
 	KeywordListBlock,
+	SkillsBlock,
 } from '~/app/common'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { ProductsBlock } from '~/app/realisations'
@@ -51,6 +52,7 @@ export function Blocks({
 		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
+		PageBlocksSkills: SkillsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
 	}
