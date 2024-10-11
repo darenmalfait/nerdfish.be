@@ -99,7 +99,7 @@ function Footer() {
 				<h2 id="footer-heading" className="sr-only">
 					Footer
 				</h2>
-				<div className="mx-auto pb-8">
+				<nav className="mx-auto pb-8">
 					<div className="gap-8 xl:grid xl:gap-16">
 						<div className="space-y-4">
 							<div className="flex items-center">
@@ -135,7 +135,7 @@ function Footer() {
 							<ThemeToggle className="flex size-10 items-center justify-center transition" />
 						</div>
 					</div>
-				</div>
+				</nav>
 			</footer>
 		</div>
 	)
