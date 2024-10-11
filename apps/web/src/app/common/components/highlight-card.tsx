@@ -72,7 +72,7 @@ function HighlightCard({
 						</div>
 					) : null}
 				</div>
-				<div className="aspect-h-4 aspect-w-3 relative col-span-full mt-12 h-0 lg:col-span-4 lg:col-start-8 lg:mt-0">
+				<div className="aspect-h-4 aspect-w-3 rounded-semi relative col-span-full mt-12 h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0">
 					{image ? (
 						<Image
 							className="absolute inset-0 object-cover"
