@@ -15,6 +15,7 @@ import {
 	Header,
 	ReadingProgress,
 } from '~/app/common'
+import { AnimatedText } from '~/app/common/components/animated-text'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -52,7 +53,12 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 							<DateFormatter dateString={date} format="dd MMMM yyyy" />
 						</span>
 					) : null}
-					<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
+					<H1
+						data-tina-field={tinaField(data.blog, 'title')}
+						className="w-auto"
+					>
+						<AnimatedText value={title} letterClassName="hover:text-primary" />
+					</H1>
 				</header>
 				{heroImg ? (
 					<div className={cx(prose, 'mx-auto my-12')}>
