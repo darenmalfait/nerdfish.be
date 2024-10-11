@@ -37,7 +37,7 @@ function Product({
 						<AvatarImage
 							src={image}
 							className="object-cover"
-							alt={title ?? 'Product image'}
+							alt={`${title} logo`}
 						/>
 						<AvatarFallback>
 							<Skeleton className="size-full" />
@@ -46,7 +46,10 @@ function Product({
 				) : null}
 				<h3 className="text-primary text-xl font-semibold">{title}</h3>
 				<p className="text-muted max-w-lg">{description}</p>
-				<span className="block truncate whitespace-nowrap font-bold">
+				<span
+					className="block truncate whitespace-nowrap font-bold"
+					aria-hidden
+				>
 					{soon ? (
 						<Badge variant="success">Soon</Badge>
 					) : (
@@ -68,7 +71,12 @@ function Product({
 								size="xs"
 								className="pointer-events-auto"
 							>
-								<Link href={link} target="_blank" rel="noreferrer">
+								<Link
+									href={link}
+									target="_blank"
+									rel="noreferrer"
+									aria-label={`link to ${title}`}
+								>
 									<Icons.Globe className="mr-2 size-4" />
 									Website
 								</Link>
@@ -81,7 +89,12 @@ function Product({
 								size="xs"
 								className="pointer-events-auto"
 							>
-								<Link href={sourceUrl} target="_blank" rel="noreferrer">
+								<Link
+									href={sourceUrl}
+									target="_blank"
+									rel="noreferrer"
+									aria-label={`source code for ${title}`}
+								>
 									<Icons.GitHub className="mr-2 size-4" />
 									Source
 								</Link>
@@ -116,15 +129,20 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 				</div>
 			) : null}
 			<div data-tina-field={tinaField(data, 'header')} className="space-y-6">
-				<Grid className="auto-rows-[15rem]">
-					{allProducts.map((product) => (
-						<GridCard
-							key={product.id ?? product.title}
-							className="bg-muted lg:col-span-1"
-						>
-							<Product {...product} />
-						</GridCard>
-					))}
+				<Grid asChild className="auto-rows-[15rem]">
+					<ul>
+						{allProducts.map((product) => (
+							<GridCard
+								key={product.id ?? product.title}
+								className="bg-muted lg:col-span-1"
+								asChild
+							>
+								<li>
+									<Product {...product} />
+								</li>
+							</GridCard>
+						))}
+					</ul>
 				</Grid>
 			</div>
 		</section>
