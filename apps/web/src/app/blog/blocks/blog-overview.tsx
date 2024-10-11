@@ -27,6 +27,7 @@ import {
 	HighlightCard,
 	nonNullable,
 } from '~/app/common'
+import { BlockSection } from '~/app/common/blocks/components/block-section'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -98,9 +99,9 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 	}
 
 	return (
-		<>
+		<BlockSection>
 			{searchEnabled ? (
-				<section className="container mx-auto px-4">
+				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
 						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
@@ -138,6 +139,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 									onChange={(event) => {
 										setQuery(event.currentTarget.value.toLowerCase())
 									}}
+									className="shadow-outline"
 									name="q"
 									placeholder="Search"
 									icon={Search}
@@ -146,7 +148,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
@@ -159,7 +161,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				/>
 			) : null}
 
-			<section className="container mx-auto flex flex-col gap-12 px-4">
+			<div className="flex flex-col gap-12">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
 						<Header
@@ -228,8 +230,8 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						</Button>
 					</div>
 				) : null}
-			</section>
-		</>
+			</div>
+		</BlockSection>
 	)
 }
 

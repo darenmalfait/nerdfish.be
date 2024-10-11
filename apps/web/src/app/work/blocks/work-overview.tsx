@@ -11,6 +11,7 @@ import { tinaField } from 'tinacms/dist/react'
 import { filterWork } from '../utils'
 import { type Block, type PageBlocksWork } from '~/app/cms'
 import { ArticleCard, Header, HighlightCard, WorkPath } from '~/app/common'
+import { BlockSection } from '~/app/common/blocks/components/block-section'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -70,9 +71,9 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 	}
 
 	return (
-		<>
+		<BlockSection>
 			{searchEnabled ? (
-				<section className="container mx-auto px-4">
+				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
 						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
@@ -127,11 +128,11 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
-				<div className="container mx-auto my-16 px-4">
+				<div className="my-16">
 					<H5 as="h3" className="mb-8">
 						Filter articles by topic
 					</H5>
@@ -156,7 +157,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 				</div>
 			) : null}
 
-			<section className="container mx-auto flex flex-col gap-12 px-4">
+			<div className="flex flex-col gap-12">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
 						<Header
@@ -211,8 +212,8 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 						</Button>
 					</div>
 				) : null}
-			</section>
-		</>
+			</div>
+		</BlockSection>
 	)
 }
 

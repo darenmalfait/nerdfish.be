@@ -5,6 +5,7 @@ import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { tinaField } from 'tinacms/dist/react'
 import { ArrowLink, Header } from '../components'
+import { BlockSection } from './components/block-section'
 import {
 	type Block,
 	type Page,
@@ -71,7 +72,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 	const { title, subtitle, items } = props
 
 	return (
-		<section className="container mx-auto my-24 px-4">
+		<BlockSection data-tina-field={tinaField(props, 'items')}>
 			{(title ?? subtitle) ? (
 				<Header
 					title={title?.toString()}
@@ -108,6 +109,6 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 					})}
 				</ul>
 			</Grid>
-		</section>
+		</BlockSection>
 	)
 }
