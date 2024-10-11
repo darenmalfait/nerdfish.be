@@ -2,6 +2,7 @@ import { H1 } from '@nerdfish/ui'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 
+import { AnimatedText } from '../../components/animated-text'
 import {
 	FigmaIcon,
 	CSSIcon,
@@ -58,13 +59,15 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 	return (
 		<section className="container mx-auto px-4 py-32">
 			<div className="flex flex-col items-center text-center">
-				<H1
-					data-tina-field={tinaField(data, 'title')}
-					as="h2"
-					className="mb-12 w-full font-bold"
-				>
-					{title}
-				</H1>
+				{title ? (
+					<H1
+						data-tina-field={tinaField(data, 'title')}
+						as="h2"
+						className="mb-12 w-auto font-bold"
+					>
+						<AnimatedText value={title} letterClassName="hover:text-primary" />
+					</H1>
+				) : null}
 				{description ? (
 					<div className="prose text-primary mb-12 max-w-3xl">
 						<PortableText content={description} />
