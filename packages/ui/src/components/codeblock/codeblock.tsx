@@ -28,7 +28,7 @@ export function CodeBlock(props: { children: any; lang?: string }) {
 				}}
 			>
 				<MockupWindow>
-					<CopyButton code={rawCode} />
+					<CopyButton aria-label="copy code" code={rawCode} />
 					<Highlight
 						codeString={rawCode}
 						language={props.lang ?? 'typescript'}

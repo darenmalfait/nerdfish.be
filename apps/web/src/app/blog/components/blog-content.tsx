@@ -36,7 +36,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	}, [allPosts, date, tags, title])
 
 	return (
-		<>
+		<article>
 			<ReadingProgress offset={1200} />
 			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
 				<div className="mb-6">
@@ -45,7 +45,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
 						<span
-							className="text-muted mb-4 text-lg"
+							className="text-muted mb-2 text-lg"
 							data-tina-field={tinaField(data.blog, 'date')}
 						>
 							Published{' '}
@@ -54,17 +54,25 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 					) : null}
 					<H1 data-tina-field={tinaField(data.blog, 'title')}>{title}</H1>
 				</header>
-			</section>
-			{heroImg ? (
-				<section className={cx(prose, 'mx-auto mb-12 px-4')}>
-					<div
-						className="rounded-semi overflow-hidden"
-						data-tina-field={tinaField(data.blog, 'heroImg')}
-					>
-						<Image src={heroImg} alt={title} width={900} height={900} />
+				{heroImg ? (
+					<div className={cx(prose, 'mx-auto my-12')}>
+						<div
+							className="rounded-semi overflow-hidden"
+							data-tina-field={tinaField(data.blog, 'heroImg')}
+						>
+							{/* TODO: add aria description */}
+							<Image
+								aria-hidden
+								src={heroImg}
+								alt={title}
+								width={900}
+								height={900}
+							/>
+						</div>
 					</div>
-				</section>
-			) : null}
+				) : null}
+			</section>
+
 			<section
 				className={cx('container mx-auto px-4', prose)}
 				data-tina-field={tinaField(data.blog, 'body')}
@@ -74,22 +82,22 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 			{relatedPosts.length > 0 ? (
 				<section className="container mx-auto mt-24 px-4">
 					<Header title="Done reading?" subtitle="Read more related articles" />
-					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<ul className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{relatedPosts.map((relatedBlog) => {
 							return (
-								<div key={relatedBlog.id} className="col-span-4">
+								<li key={relatedBlog.id} className="col-span-4">
 									<ArticleCard
 										href={`/${BlogPath}${getDatedSlug(relatedBlog.date, relatedBlog._sys.filename)}`}
 										{...relatedBlog}
 										id={relatedBlog.id}
 									/>
-								</div>
+								</li>
 							)
 						})}
-					</div>
+					</ul>
 				</section>
 			) : null}
-		</>
+		</article>
 	)
 }
 
