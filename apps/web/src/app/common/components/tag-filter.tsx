@@ -9,7 +9,7 @@ import {
 	ScrollArea,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
+import { Tag } from '@nerdfish-website/ui/components'
 import { Icons } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 

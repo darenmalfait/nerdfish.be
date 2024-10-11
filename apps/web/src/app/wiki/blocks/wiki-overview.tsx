@@ -11,17 +11,15 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
+import { Section, DateFormatter } from '@nerdfish-website/ui/components'
 import { Icons } from '@nerdfish-website/ui/icons'
 import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { filterWiki } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
 import { getDatedSlug, Header, nonNullable } from '~/app/common'
-import { BlockSection } from '~/app/common/blocks/components/block-section'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -72,7 +70,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 	}
 
 	return (
-		<BlockSection>
+		<Section>
 			{searchEnabled ? (
 				<div>
 					<div
@@ -201,6 +199,6 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 					</div>
 				) : null}
 			</div>
-		</BlockSection>
+		</Section>
 	)
 }

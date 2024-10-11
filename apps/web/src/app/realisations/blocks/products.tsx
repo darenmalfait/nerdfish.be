@@ -11,13 +11,12 @@ import {
 	Skeleton,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { Section } from '@nerdfish-website/ui/components'
 import { Icons } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
-
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
 import { Header } from '~/app/common'
-import { BlockSection } from '~/app/common/blocks/components/block-section'
 
 function Product({
 	title,
@@ -117,7 +116,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 	const { title, subtitle, link } = header ?? {}
 
 	return (
-		<BlockSection>
+		<Section>
 			{(title ?? subtitle) ? (
 				<div data-tina-field={tinaField(data, 'header')} className="mb-6">
 					<Header
@@ -146,6 +145,6 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 					</ul>
 				</Grid>
 			</div>
-		</BlockSection>
+		</Section>
 	)
 }

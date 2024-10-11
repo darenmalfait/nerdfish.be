@@ -1,8 +1,7 @@
 import { H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
+import { DateFormatter } from '@nerdfish-website/ui/components'
 import { tinaField } from 'tinacms/dist/react'
-
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
 import { ReadingProgress } from '~/app/common'

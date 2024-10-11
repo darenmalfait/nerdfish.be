@@ -5,8 +5,8 @@ import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
 	getCategoryColors,
-} from '@nerdfish-website/ui/components/category-indicator.tsx'
-import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
+	DateFormatter,
+} from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import Link from 'next/link'
 
