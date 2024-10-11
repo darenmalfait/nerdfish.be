@@ -2,6 +2,7 @@ import { H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import * as React from 'react'
 
+import { AnimatedText } from './animated-text'
 import { ArrowLink } from './arrow-link'
 
 interface HeaderProps {
@@ -24,7 +25,14 @@ function Header({ ctaUrl, cta, title, subtitle, className, as }: HeaderProps) {
 				)}
 			>
 				<div className="space-y-0">
-					{title ? <H2>{title}</H2> : null}
+					{title ? (
+						<H2>
+							<AnimatedText
+								value={title}
+								letterClassName="hover:text-primary"
+							/>
+						</H2>
+					) : null}
 					{subtitle ? (
 						<H2 variant="secondary" as="div">
 							{subtitle}

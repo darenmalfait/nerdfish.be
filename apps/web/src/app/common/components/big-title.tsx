@@ -1,24 +1,26 @@
 import { cx } from '@nerdfish/utils'
+import capitalize from 'lodash/capitalize'
 import * as React from 'react'
+import { AnimatedText } from './animated-text'
 
 export const BigTitle = React.forwardRef<
 	HTMLHeadingElement,
-	React.ComponentPropsWithRef<'h1'> & {
+	Omit<React.ComponentPropsWithRef<'h1'>, 'children'> & {
 		as?: React.ElementType
+		value?: string
 	}
->(function BigTitle({ as, className, ...props }, ref) {
-	const Tag = as ?? 'h1'
-
+>(function BigTitle({ as, className, value, ...props }, ref) {
 	return (
-		<Tag
+		<AnimatedText
+			as={as ?? 'h1'}
 			{...props}
 			className={cx(
-				'text-primary font-sans text-6xl font-black capitalize leading-none sm:text-[11.6250vw] 2xl:text-[12rem]',
+				'text-primary font-sans text-4xl font-black leading-none sm:text-[11.6250vw] 2xl:text-[12rem]',
 				className,
 			)}
+			value={capitalize(value)}
+			aria-label={value}
 			ref={ref}
-		>
-			{props.children}
-		</Tag>
+		/>
 	)
 })
