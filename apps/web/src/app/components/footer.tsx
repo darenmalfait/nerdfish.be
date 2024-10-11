@@ -1,13 +1,22 @@
 'use client'
 
-import { H3, Separator } from '@nerdfish/ui'
+import {
+	H3,
+	Separator,
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Icons } from '@nerdfish-website/ui/icons'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import fish from '../../assets/images/nerdfish.png'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { SocialLinks } from './navigation'
@@ -85,10 +94,7 @@ function FooterNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 }
 
 function Footer() {
-	const { social, navigation } = useGlobal()
-
-	const github = social?.github
-	const twitter = social?.twitter
+	const { navigation } = useGlobal()
 
 	return (
 		<div className="mt-16 pt-8">
@@ -123,10 +129,29 @@ function Footer() {
 					<div className="flex items-center md:justify-between">
 						<p className="text-muted text-base leading-6">
 							Made by{' '}
-							<Link
-								className="underline"
-								href={twitter ?? github ?? 'https://www.nerdfish.be'}
-							>
+							<span aria-hidden>
+								<TooltipProvider>
+									<Tooltip>
+										<TooltipTrigger>
+											<Link
+												className="underline"
+												href="https://www.nerdfish.be"
+											>
+												nerdfish
+											</Link>
+										</TooltipTrigger>
+										<TooltipContent className="bg-inverted shadow-outline">
+											<Image
+												src={fish}
+												alt="nerdy fish"
+												width={100}
+												height={100}
+											/>
+										</TooltipContent>
+									</Tooltip>
+								</TooltipProvider>
+							</span>
+							<Link className="sr-only" href="https://www.nerdfish.be">
 								nerdfish
 							</Link>
 							, development with user experience in mind.
