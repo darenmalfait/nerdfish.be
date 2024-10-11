@@ -36,7 +36,10 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 	return (
 		<>
 			{/* handhelds */}
-			<div className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent xl:hidden">
+			<div
+				aria-hidden
+				className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent xl:hidden"
+			>
 				<div
 					className="bg-accent h-1 transition-transform duration-150"
 					style={{
@@ -45,7 +48,10 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 				/>
 			</div>
 			{/* bigger screen */}
-			<div className="fixed bottom-4 right-4 z-50 hidden flex-col items-center gap-4 xl:flex">
+			<div
+				aria-hidden
+				className="fixed bottom-4 right-4 z-50 hidden flex-col items-center gap-4 xl:flex"
+			>
 				<Gauge value={completion}>
 					<GaugeText fontSize={24} value={`${completion}%`} />
 				</Gauge>

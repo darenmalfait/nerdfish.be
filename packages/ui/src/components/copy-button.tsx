@@ -32,10 +32,10 @@ export function CopyButton({
 				<TooltipTrigger asChild>
 					<Button
 						size="iconSm"
+						aria-label="copy"
 						{...props}
 						className={cx('absolute right-2 top-2', className)}
 						variant={copiedText ? 'success' : 'ghost'}
-						aria-label="copy"
 						onClick={() => handleCopy(code, COPY_TIMOUT)}
 					>
 						{copiedText ? (
