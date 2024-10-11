@@ -2,10 +2,10 @@
 
 import { Grid, GridCard, H3, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { Section } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import { tinaField } from 'tinacms/dist/react'
 import { Header } from '../components'
-import { BlockSection } from './components/block-section'
 import {
 	type Block,
 	type PageBlocksHighlights,
@@ -59,7 +59,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 	const { title, subtitle, items } = props
 
 	return (
-		<BlockSection data-tina-field={tinaField(props, 'items')}>
+		<Section data-tina-field={tinaField(props, 'items')}>
 			{(title ?? subtitle) ? (
 				<Header
 					title={title?.toString()}
@@ -81,6 +81,6 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 					)
 				})}
 			</Grid>
-		</BlockSection>
+		</Section>
 	)
 }

@@ -2,16 +2,14 @@
 
 import { Button, H3, H5 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Tag } from '@nerdfish-website/ui/components/tag.tsx'
+import { Section, Tag } from '@nerdfish-website/ui/components'
 import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { filterWork } from '../utils'
 import { type Block, type PageBlocksWork } from '~/app/cms'
 import { ArticleCard, Header, HighlightCard, WorkPath } from '~/app/common'
-import { BlockSection } from '~/app/common/blocks/components/block-section'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -71,7 +69,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 	}
 
 	return (
-		<BlockSection>
+		<Section>
 			{searchEnabled ? (
 				<div>
 					<div
@@ -213,7 +211,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 					</div>
 				) : null}
 			</div>
-		</BlockSection>
+		</Section>
 	)
 }
 

@@ -1,6 +1,6 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter } from '@nerdfish-website/ui/components/date-formatter.tsx'
+import { DateFormatter } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

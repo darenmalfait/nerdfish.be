@@ -1,10 +1,9 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { CategoryIndicator } from '@nerdfish-website/ui/components/category-indicator.tsx'
+import { CategoryIndicator } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { mapWorkData } from '../api'
 import { BackToWork } from './misc'
 import { PortableText, type WorkQueryQuery } from '~/app/cms'

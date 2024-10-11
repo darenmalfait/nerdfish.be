@@ -5,7 +5,7 @@
   "type": "module",
   "exports": {
     "./icons": "./src/icons.tsx",
-    "./components/*": "./src/components/*"
+    "./components": "./src/components/index.ts"
   },
   "typesVersions": {
     "*": {
