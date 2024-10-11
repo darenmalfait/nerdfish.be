@@ -2,7 +2,7 @@
 
 import { cx } from '@nerdfish/utils'
 import { useElementState, type ElementState } from '@nerdfish-website/lib/utils'
-import { type ArrowIconProps } from '@nerdfish-website/ui/components/arrow-icon.tsx'
+import { type ArrowIconProps } from '@nerdfish-website/ui/components'
 import { Icons } from '@nerdfish-website/ui/icons'
 import { motion, type Variant } from 'framer-motion'
 import * as React from 'react'

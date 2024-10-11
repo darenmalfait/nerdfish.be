@@ -3,7 +3,7 @@ import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
 	getCategoryColors,
-} from '@nerdfish-website/ui/components/category-indicator.tsx'
+} from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLink } from './arrow-link'

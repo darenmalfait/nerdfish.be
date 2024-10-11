@@ -1,7 +1,7 @@
 import { cx } from '@nerdfish/utils'
 import * as React from 'react'
 
-export const BlockSection = React.forwardRef<
+export const Section = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'section'>
 >(({ className, ...props }, ref) => {
@@ -17,4 +17,4 @@ export const BlockSection = React.forwardRef<
 	)
 })
 
-BlockSection.displayName = 'BlockSection'
+Section.displayName = 'Section'

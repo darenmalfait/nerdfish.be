@@ -10,6 +10,7 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { Section } from '@nerdfish-website/ui/components'
 import { Icons } from '@nerdfish-website/ui/icons'
 import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
@@ -27,7 +28,6 @@ import {
 	HighlightCard,
 	nonNullable,
 } from '~/app/common'
-import { BlockSection } from '~/app/common/blocks/components/block-section'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -99,7 +99,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 	}
 
 	return (
-		<BlockSection>
+		<Section>
 			{searchEnabled ? (
 				<div>
 					<div
@@ -231,7 +231,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 					</div>
 				) : null}
 			</div>
-		</BlockSection>
+		</Section>
 	)
 }
 
