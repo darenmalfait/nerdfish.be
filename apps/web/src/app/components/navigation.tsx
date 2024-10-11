@@ -111,16 +111,17 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 		return (
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
-					<Link
-						href={`/${stripPreSlash(href ?? '')}`}
+					<Button
+						variant="ghost"
 						className={cx(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
 							}),
 						)}
+						asChild
 					>
-						{label}
-					</Link>
+						<Link href={`/${stripPreSlash(href ?? '')}`}>{label}</Link>
+					</Button>
 				</NavigationMenuLink>
 			</NavigationMenuItem>
 		)
