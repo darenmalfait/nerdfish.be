@@ -147,6 +147,7 @@ export function Chat() {
 						<Button
 							size="sm"
 							variant="outline"
+							className="whitespace-nowrap"
 							onClick={() => {
 								setInput(q.question)
 							}}
