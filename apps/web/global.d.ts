@@ -7,6 +7,7 @@ declare namespace NodeJS {
 		// Server
 		NODE_ENV: 'development' | 'production' | 'test'
 		RESEND_API_KEY: string
+
 		NERDFISH_SMTP: string
 		TINA_TOKEN: string
 		RECAPTCHA_SECRETKEY: string
@@ -15,6 +16,10 @@ declare namespace NodeJS {
 		NEXT_PUBLIC_URL: string
 		NEXT_PUBLIC_TINA_CLIENT_ID: string
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: string
+
+		// Groq
+		GROQ_API_KEY?: string
+		CHAT_SYSTEM_PROMPT?: string
 
 		// CI/CD
 		// NEXT_PUBLIC_TINA_BRANCH?: string // custom branch env override
