@@ -46,15 +46,21 @@ const FooterNavigationSubItem = React.forwardRef<
 })
 FooterNavigationSubItem.displayName = 'FooterNavigationSubItem'
 
-function FooterNavigationItem({ href, label, sub }: GlobalNavigationMain) {
+const FooterNavigationItem = React.forwardRef<
+	React.ElementRef<typeof Link>,
+	Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> &
+		GlobalNavigationMain
+>(({ href, label, sub, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(href ?? '')
+		const isActive = stripPreSlash(pathname).startsWith(
+			stripPreSlash(href ?? ''),
+		)
 
 		return (
-			<Link href={`/${stripPreSlash(href ?? '')}`}>
+			<Link href={`/${stripPreSlash(href ?? '')}`} ref={ref} {...props}>
 				<H3
 					className={cx(
 						'hover:text-accent border-b-4 border-transparent capitalize',
@@ -91,7 +97,8 @@ function FooterNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 			</ul>
 		</div>
 	)
-}
+})
+FooterNavigationItem.displayName = 'FooterNavigationItem'
 
 function Footer() {
 	const { navigation } = useGlobal()
@@ -123,6 +130,8 @@ function Footer() {
 
 								return <FooterNavigationItem key={navItem.label} {...navItem} />
 							})}
+
+							<FooterNavigationItem aria-label="AI" label="AI" href="/ai" />
 						</div>
 					</div>
 					<Separator className="my-8" />
