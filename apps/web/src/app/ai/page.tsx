@@ -22,9 +22,10 @@ export default function AiPage() {
 	return (
 		<Section>
 			<Header className="mb-3" title="AI" subtitle="Beta" />
-			<Paragraph className="mb-6 font-medium">
+			<Paragraph className="mb-6 max-w-3xl font-medium">
 				Disclaimer: This is not actually me, but AI. Answers might be highly
-				inaccurate, it is a fun experiment.
+				inaccurate, Since this is mostly an experiment, I&apos;m also using a
+				free tier of the AI, so it might not always work.
 			</Paragraph>
 			<Chat />
 		</Section>
