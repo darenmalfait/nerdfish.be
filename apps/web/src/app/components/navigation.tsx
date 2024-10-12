@@ -110,7 +110,10 @@ const MainNavigationItem = React.forwardRef<
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(href ?? '')
+		const isActive = stripPreSlash(pathname).startsWith(
+			stripPreSlash(href ?? ''),
+		)
+
 		return (
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
