@@ -15,6 +15,7 @@ import { Icons } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { useScramble } from 'use-scramble'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 
@@ -101,13 +102,15 @@ const getMainItemClassName = cva(
 	},
 )
 
-function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
+const MainNavigationItem = React.forwardRef<
+	React.ElementRef<'a'>,
+	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
+>(({ href, label, sub, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
 		const isActive = stripPreSlash(pathname).startsWith(href ?? '')
-
 		return (
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
@@ -120,7 +123,9 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 						)}
 						asChild
 					>
-						<Link href={`/${stripPreSlash(href ?? '')}`}>{label}</Link>
+						<Link {...props} ref={ref} href={`/${stripPreSlash(href ?? '')}`}>
+							{label}
+						</Link>
 					</Button>
 				</NavigationMenuLink>
 			</NavigationMenuItem>
@@ -153,7 +158,9 @@ function MainNavigationItem({ href, label, sub }: GlobalNavigationMain) {
 			</NavigationMenuContent>
 		</NavigationMenuItem>
 	)
-}
+})
+
+MainNavigationItem.displayName = 'MainNavigationItem'
 
 export function SocialLinks() {
 	const { social } = useGlobal()
@@ -204,6 +211,30 @@ export function SocialLinks() {
 	)
 }
 
+function AINavigationItem() {
+	const { ref, replay } = useScramble({
+		text: '[AI]',
+		speed: 0.6,
+		tick: 1,
+		step: 1,
+		scramble: 4,
+		seed: 0,
+		playOnMount: false,
+	})
+
+	return (
+		<NavigationMenuItem asChild>
+			<MainNavigationItem
+				ref={ref}
+				onMouseEnter={replay}
+				aria-label="AI"
+				label="[AI]"
+				href="/ai"
+			/>
+		</NavigationMenuItem>
+	)
+}
+
 export function MainNavigation() {
 	const { navigation } = useGlobal()
 
@@ -215,6 +246,7 @@ export function MainNavigation() {
 
 					return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
 				})}
+				<AINavigationItem />
 			</NavigationMenuList>
 		</NavigationMenu>
 	)
