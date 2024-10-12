@@ -118,7 +118,7 @@ export function Chat() {
 										.replace(' .', '.')
 										.replace(
 											/(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?/=~_|!:,.;]*)[-A-Z0-9+&@#/%=~_|])/gi,
-											"<a href='$1' target='_blank' rel='noopener noreferrer' class='bg-skeptic-100 rounded-lg px-2 text-skeptic-900 hover:bg-skeptic-200 mx-1 transition-all'>$3</a>",
+											'<a href="$&" target="_blank" rel="noopener noreferrer" class="underline">$&</a>',
 										),
 								}}
 							/>
