@@ -45,22 +45,26 @@ const MobileNavigationSubItem = React.forwardRef<
 })
 MobileNavigationSubItem.displayName = 'MobileNavigationSubItem'
 
-function MobileNavigationItem({
-	href,
-	label,
-	sub,
-	onClick,
-}: GlobalNavigationMain & {
-	onClick: () => void
-}) {
+const MobileNavigationItem = React.forwardRef<
+	React.ElementRef<typeof Link>,
+	Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> &
+		GlobalNavigationMain
+>(({ href, label, sub, onClick, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(href ?? '')
+		const isActive = stripPreSlash(pathname).startsWith(
+			stripPreSlash(href ?? ''),
+		)
 
 		return (
-			<Link href={`/${stripPreSlash(href ?? '')}`} onClick={onClick}>
+			<Link
+				href={`/${stripPreSlash(href ?? '')}`}
+				onClick={onClick}
+				{...props}
+				ref={ref}
+			>
 				<H2
 					className={cx(
 						'hover:text-accent border-b-4 border-transparent capitalize',
@@ -101,7 +105,8 @@ function MobileNavigationItem({
 			</ul>
 		</div>
 	)
-}
+})
+MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 export function MobileNavigation() {
 	const { navigation } = useGlobal()
@@ -149,6 +154,11 @@ export function MobileNavigation() {
 									/>
 								)
 							})}
+							<MobileNavigationItem
+								label="AI"
+								href="/ai"
+								onClick={() => setOpen(false)}
+							/>
 						</div>
 					</ScrollArea>
 
