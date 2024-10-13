@@ -11,10 +11,11 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { HamburgerIcon } from 'tinacms'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { ActionsNavigation, RSSFeedButton, SocialLinks } from './navigation'
@@ -122,14 +123,14 @@ export function MobileNavigation() {
 					size="icon"
 					aria-label="Toggle navigation"
 				>
-					<Icons.Hamburger className="size-4" />
+					<HamburgerIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent>
 				<div className="container mx-auto flex h-full w-screen flex-col gap-12 px-6 py-6">
 					<div className="flex items-center justify-between gap-2">
 						<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-							<Icons.Logo className="h-5 w-auto transition-transform hover:scale-105" />
+							<Logo className="h-5 w-auto transition-transform hover:scale-105" />
 						</Link>
 						<div className="flex flex-row items-center justify-end gap-2">
 							<ThemeToggle variant="ghost" />

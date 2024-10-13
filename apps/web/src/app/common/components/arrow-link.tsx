@@ -2,8 +2,7 @@
 
 import { cx } from '@nerdfish/utils'
 import { useElementState, type ElementState } from '@nerdfish-website/lib/utils'
-import { type ArrowIconProps } from '@nerdfish-website/ui/components'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { ArrowIcon, type ArrowIconProps } from '@nerdfish-website/ui/icons'
 import { motion, type Variant } from 'framer-motion'
 import * as React from 'react'
 
@@ -90,7 +89,7 @@ function ArrowLink({
 
 			<div className="relative inline-flex size-14 flex-none items-center justify-center p-1">
 				<motion.span variants={arrowVariants[direction]}>
-					<Icons.Arrow size={20} direction={direction} />
+					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
 
@@ -121,7 +120,7 @@ function BackLink({
 			animate={state}
 		>
 			<motion.span variants={arrowVariants.left}>
-				<Icons.Arrow size={20} direction="left" />
+				<ArrowIcon size={20} direction="left" />
 			</motion.span>
 			<span>{children}</span>
 		</Tag>

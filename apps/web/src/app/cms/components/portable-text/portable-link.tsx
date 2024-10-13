@@ -1,5 +1,5 @@
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { ExternalLinkIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 
@@ -16,7 +16,7 @@ function PortableLink({ url, children }: { url?: string; children: string }) {
 			target={isExternal ? '_blank' : undefined}
 		>
 			{children}
-			{isExternal ? <Icons.ExternalLink className="ml-1 h-4 w-4" /> : null}
+			{isExternal ? <ExternalLinkIcon className="ml-1 h-4 w-4" /> : null}
 		</Link>
 	)
 }

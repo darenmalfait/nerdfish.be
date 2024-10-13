@@ -10,7 +10,7 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { Logo } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -117,7 +117,7 @@ function Footer() {
 						<div className="space-y-4">
 							<div className="flex items-center">
 								<div className="flex h-12 items-center">
-									<Icons.Logo className="relative h-6 w-auto rounded-full" />
+									<Logo className="relative h-6 w-auto rounded-full" />
 								</div>
 							</div>
 							<div className="-mx-4">
