@@ -10,7 +10,7 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Tag } from '@nerdfish-website/ui/components'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { FilterIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 
 function FilterTag({
@@ -100,7 +100,7 @@ export function TagFilter({
 							variant={selectedTags.length > 0 ? 'accent' : 'secondary'}
 							size="icon"
 						>
-							<Icons.Filter size="sm" className="size-4" />
+							<FilterIcon size="sm" className="size-4" />
 						</Button>
 					</DrawerTrigger>
 					<DrawerContent className="p-4">

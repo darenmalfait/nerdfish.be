@@ -1,4 +1,3 @@
-export * from './arrow-icon'
 export * from './category-indicator'
 export * from './client-only'
 export * from './codeblock'

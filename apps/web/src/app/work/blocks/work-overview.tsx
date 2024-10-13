@@ -3,7 +3,7 @@
 import { Button, H3, H5 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section, Tag } from '@nerdfish-website/ui/components'
-import { Plus, Search } from 'lucide-react'
+import { PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -104,7 +104,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 									<Header title={title ?? undefined} subtitle={subtitle} />
 								) : null}
 								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
-									<Search
+									<SearchIcon
 										width="20px"
 										height="20px"
 										className="text-muted absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
@@ -206,7 +206,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <Plus width="20px" height="20px" />
+							<span>Load more</span> <PlusIcon width="20px" height="20px" />
 						</Button>
 					</div>
 				) : null}

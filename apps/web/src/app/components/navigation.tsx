@@ -11,7 +11,14 @@ import {
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import {
+	FacebookIcon,
+	GithubIcon,
+	InstagramIcon,
+	LinkedinIcon,
+	RssIcon,
+	TwitterIcon,
+} from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -24,7 +31,7 @@ export function RSSFeedButton({ className }: { className?: string }) {
 		<Button variant="ghost" size="icon" className={className} asChild>
 			<a target="_blank" href="/rss.xml" aria-label="rss feed" rel="noreferrer">
 				<span className="sr-only">RSS feed</span>
-				<Icons.Rss className="size-4" />
+				<RssIcon className="size-4" />
 			</a>
 		</Button>
 	)
@@ -173,14 +180,14 @@ export function SocialLinks() {
 			{social?.twitter ? (
 				<Button variant="ghost" size="icon" asChild>
 					<Link aria-label="Twitter feed" href={social.twitter}>
-						<Icons.Twitter className="size-4 duration-75 ease-linear" />
+						<TwitterIcon className="size-4 duration-75 ease-linear" />
 					</Link>
 				</Button>
 			) : null}
 			{social?.facebook ? (
 				<Button variant="ghost" size="icon" asChild>
 					<Link aria-label="Facebook page" href={social.facebook}>
-						<Icons.Facebook className="size-4 duration-75 ease-linear" />
+						<FacebookIcon className="size-4 duration-75 ease-linear" />
 					</Link>
 				</Button>
 			) : null}
@@ -191,21 +198,21 @@ export function SocialLinks() {
           "
 						href={social.instagram}
 					>
-						<Icons.Instagram className="size-4 duration-75 ease-linear" />
+						<InstagramIcon className="size-4 duration-75 ease-linear" />
 					</Link>
 				</Button>
 			) : null}
 			{social?.linkedIn ? (
 				<Button variant="ghost" size="icon" asChild>
 					<Link aria-label="LinkedIn profile" href={social.linkedIn}>
-						<Icons.LinkedIn className="size-4 duration-75 ease-linear" />
+						<LinkedinIcon className="size-4 duration-75 ease-linear" />
 					</Link>
 				</Button>
 			) : null}
 			{social?.github ? (
 				<Button variant="ghost" size="icon" asChild>
 					<Link aria-label="Github Repository" href={social.github}>
-						<Icons.GitHub className="size-4 duration-75 ease-linear" />
+						<GithubIcon className="size-4 duration-75 ease-linear" />
 						<span className="sr-only">Github</span>
 					</Link>
 				</Button>

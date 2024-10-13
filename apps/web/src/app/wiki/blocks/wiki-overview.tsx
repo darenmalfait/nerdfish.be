@@ -12,8 +12,7 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section, DateFormatter } from '@nerdfish-website/ui/components'
-import { Icons } from '@nerdfish-website/ui/icons'
-import { Plus, Search } from 'lucide-react'
+import { BookIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -113,7 +112,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 									name="q"
 									className="shadow-outline"
 									placeholder="Search"
-									icon={Search}
+									icon={SearchIcon}
 									inputSize="lg"
 								/>
 							</div>
@@ -148,7 +147,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				{matchingPosts.length === 0 ? (
 					<EmptyState>
 						<EmptyStateIcon>
-							<Icons.Book />
+							<BookIcon />
 						</EmptyStateIcon>
 						<EmptyStateTitle>No wiki pages found</EmptyStateTitle>
 						<EmptyStateDescription>
@@ -194,7 +193,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <Plus width="20px" height="20px" />
+							<span>Load more</span> <PlusIcon width="20px" height="20px" />
 						</Button>
 					</div>
 				) : null}

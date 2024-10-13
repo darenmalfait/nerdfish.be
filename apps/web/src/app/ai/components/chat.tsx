@@ -2,7 +2,7 @@
 
 import { Button, Input, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { SpinnerIcon } from '@nerdfish-website/ui/icons'
 import { useChat } from 'ai/react'
 import { ArrowUpIcon } from 'lucide-react'
 import * as React from 'react'
@@ -180,11 +180,7 @@ export function Chat() {
 							variant="success"
 							aria-label="Send"
 						>
-							{isLoading ? (
-								<Icons.Spinner className="size-4 animate-spin" />
-							) : (
-								<ArrowUpIcon className="size-4" />
-							)}
+							{isLoading ? <SpinnerIcon /> : <ArrowUpIcon className="size-4" />}
 						</Button>
 					}
 				/>
