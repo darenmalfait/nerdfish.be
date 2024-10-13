@@ -11,10 +11,9 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
-import { Plus, Search } from 'lucide-react'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -142,7 +141,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 									className="shadow-outline"
 									name="q"
 									placeholder="Search"
-									icon={Search}
+									icon={SearchIcon}
 									inputSize="lg"
 								/>
 							</div>
@@ -193,7 +192,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				{matchingPosts.length === 0 ? (
 					<EmptyState>
 						<EmptyStateIcon>
-							<Icons.Article />
+							<NewspaperIcon />
 						</EmptyStateIcon>
 						<EmptyStateTitle>No articles found</EmptyStateTitle>
 						<EmptyStateDescription>
@@ -226,7 +225,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <Plus width="20px" height="20px" />
+							<span>Load more</span> <PlusIcon width="20px" height="20px" />
 						</Button>
 					</div>
 				) : null}

@@ -2,7 +2,7 @@
 
 import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { CheckIcon, LinkIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import slugify from 'slugify'
 
@@ -52,9 +52,9 @@ export function PortableHeading({
 				>
 					<span className="sr-only">Copy</span>
 					{hasCopied ? (
-						<Icons.Check className="text-success size-4" />
+						<CheckIcon className="text-success size-4" />
 					) : (
-						<Icons.Link className="size-4" />
+						<LinkIcon className="size-4" />
 					)}
 				</Button>
 			) : null}

@@ -12,7 +12,7 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { GithubIcon, GlobeIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
@@ -77,7 +77,7 @@ function Product({
 									rel="noreferrer"
 									aria-label={`link to ${title}`}
 								>
-									<Icons.Globe className="mr-2 size-4" />
+									<GlobeIcon className="mr-2 size-4" />
 									Website
 								</Link>
 							</Button>
@@ -95,7 +95,7 @@ function Product({
 									rel="noreferrer"
 									aria-label={`source code for ${title}`}
 								>
-									<Icons.GitHub className="mr-2 size-4" />
+									<GithubIcon className="mr-2 size-4" />
 									Source
 								</Link>
 							</Button>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Separator } from '@nerdfish/ui'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 
 import { MobileNavigation } from './mobile-navigation'
@@ -16,7 +16,7 @@ export function Header() {
 					<div className="relative flex w-full items-center py-[2.125rem]">
 						<Button asChild variant="link" className="-mx-2">
 							<Link href="/" aria-label="Home">
-								<Icons.Logo className="h-5 w-auto" />
+								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>
 						<div className="ml-auto flex items-center">

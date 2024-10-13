@@ -1,5 +1,5 @@
 import { Button, H1, Paragraph } from '@nerdfish/ui'
-import { Icons } from '@nerdfish-website/ui/icons'
+import { ChevronLeftIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -28,7 +28,7 @@ function ErrorPage({
 			</div>
 			<Button asChild>
 				<Link href="/" className="mx-auto flex w-auto">
-					<Icons.ChevronLeft className="mr-2 size-4" />
+					<ChevronLeftIcon className="mr-2 size-4" />
 					Go back home
 				</Link>
 			</Button>

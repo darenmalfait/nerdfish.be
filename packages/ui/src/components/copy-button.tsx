@@ -10,8 +10,7 @@ import {
 	useCopyToClipboard,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import React from 'react'
-import { Icons } from '../icons'
+import { Check, Copy } from '../icons'
 
 const COPY_TIMOUT = 3000
 
@@ -39,9 +38,9 @@ export function CopyButton({
 						onClick={() => handleCopy(code, COPY_TIMOUT)}
 					>
 						{copiedText ? (
-							<Icons.Check className="size-4" />
+							<Check className="size-4" />
 						) : (
-							<Icons.Copy className="size-4" />
+							<Copy className="size-4" />
 						)}
 					</Button>
 				</TooltipTrigger>
