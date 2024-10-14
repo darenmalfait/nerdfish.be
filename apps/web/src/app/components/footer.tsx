@@ -13,14 +13,12 @@ import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Logo } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import fish from '../../assets/images/nerdfish.png'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { SocialLinks } from './navigation'
-import { ThemeToggle } from './theme-toggle'
 
 const FooterNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -100,6 +98,53 @@ const FooterNavigationItem = React.forwardRef<
 })
 FooterNavigationItem.displayName = 'FooterNavigationItem'
 
+function Disclaimer() {
+	const currentYear = new Date().getFullYear()
+
+	return (
+		<div className="space-y-6 pb-8">
+			<p className="text-muted max-w-2xl text-lg lg:text-xl">
+				Made by{' '}
+				<span aria-hidden>
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger>
+								<Link
+									className="cursor-pointer font-medium text-white transition duration-300 hover:opacity-70"
+									href="https://www.nerdfish.be"
+								>
+									nerdfish
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent className="bg-inverted shadow-outline">
+								<Image src={fish} alt="nerdy fish" width={100} height={100} />
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
+				</span>
+				<Link className="sr-only" href="https://www.nerdfish.be">
+					nerdfish
+				</Link>
+				, development with user experience in mind. The code is{' '}
+				<Link
+					className="cursor-pointer font-medium text-white transition duration-300 hover:opacity-70"
+					href="https://github.com/darenmalfait/nerdfish.be"
+					target="_blank"
+				>
+					open-source
+				</Link>
+				.
+			</p>
+			<div className="-mx-4">
+				<SocialLinks />
+			</div>
+			<div className="text-muted flex justify-start text-xs font-normal">
+				© Daren Malfait BV {currentYear}.
+			</div>
+		</div>
+	)
+}
+
 function Footer() {
 	const { navigation } = useGlobal()
 
@@ -120,9 +165,6 @@ function Footer() {
 									<Logo className="relative h-6 w-auto rounded-full" />
 								</div>
 							</div>
-							<div className="-mx-4">
-								<SocialLinks />
-							</div>
 						</div>
 						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
 							{navigation?.main?.map((navItem) => {
@@ -134,42 +176,9 @@ function Footer() {
 							<FooterNavigationItem aria-label="AI" label="AI" href="/ai" />
 						</div>
 					</div>
-					<Separator className="my-8" />
-					<div className="flex items-center md:justify-between">
-						<p className="text-muted text-base leading-6">
-							Made by{' '}
-							<span aria-hidden>
-								<TooltipProvider>
-									<Tooltip>
-										<TooltipTrigger>
-											<Link
-												className="underline"
-												href="https://www.nerdfish.be"
-											>
-												nerdfish
-											</Link>
-										</TooltipTrigger>
-										<TooltipContent className="bg-inverted shadow-outline">
-											<Image
-												src={fish}
-												alt="nerdy fish"
-												width={100}
-												height={100}
-											/>
-										</TooltipContent>
-									</Tooltip>
-								</TooltipProvider>
-							</span>
-							<Link className="sr-only" href="https://www.nerdfish.be">
-								nerdfish
-							</Link>
-							, development with user experience in mind.
-						</p>
-						<div className="flex flex-row items-center gap-3">
-							<ThemeToggle className="flex size-10 items-center justify-center transition" />
-						</div>
-					</div>
 				</nav>
+				<Separator className="my-8" />
+				<Disclaimer />
 			</footer>
 		</div>
 	)
