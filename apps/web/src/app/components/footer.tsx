@@ -102,7 +102,7 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="space-y-6 pb-8">
+		<div className="space-y-6 py-8">
 			<p className="text-muted max-w-2xl text-lg lg:text-xl">
 				Made by{' '}
 				<span aria-hidden>
@@ -149,7 +149,7 @@ function Footer() {
 	const { navigation } = useGlobal()
 
 	return (
-		<div className="mt-16 pt-8">
+		<div className="mt-16 py-8">
 			<footer
 				className="text-primary container mx-auto px-4"
 				aria-labelledby="footer-heading"
@@ -177,7 +177,7 @@ function Footer() {
 						</div>
 					</div>
 				</nav>
-				<Separator className="my-8" />
+				<Separator />
 				<Disclaimer />
 			</footer>
 		</div>
