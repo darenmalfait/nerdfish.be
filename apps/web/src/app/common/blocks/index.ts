@@ -1,5 +1,6 @@
 export * from './content'
 export * from './features'
 export * from './hero'
+export * from './highlight'
 export * from './keyword-list'
 export * from './skills'
