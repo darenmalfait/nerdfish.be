@@ -11,11 +11,10 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Logo } from '@nerdfish-website/ui/icons'
+import { Logo, MenuIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { HamburgerIcon } from 'tinacms'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { ActionsNavigation, RSSFeedButton, SocialLinks } from './navigation'
@@ -123,7 +122,7 @@ export function MobileNavigation() {
 					size="icon"
 					aria-label="Toggle navigation"
 				>
-					<HamburgerIcon className="size-4" />
+					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent>
