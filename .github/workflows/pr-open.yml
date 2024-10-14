@@ -10,12 +10,9 @@ jobs:
       NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
       NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-      CLOUDINARY_API_SECRET: 'dummy'
       RECAPTCHA_SECRETKEY: 'dummy'
       RESEND_API_KEY: 'dummy'
       NERDFISH_SMTP: 'dummy'
-      NEXT_PUBLIC_CLOUDINARY_API_KEY: 'dummy'
-      NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: 'dummy'
       NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
       NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
 
