@@ -6,6 +6,7 @@ import {
 	ContentBlock,
 	FeaturesBlock,
 	HeroBlock,
+	HighlightBlock,
 	KeywordListBlock,
 	SkillsBlock,
 } from '~/app/common'
@@ -49,6 +50,7 @@ export function Blocks({
 		PageBlocksContent: ContentBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
+		PageBlocksHighlight: HighlightBlock,
 		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
