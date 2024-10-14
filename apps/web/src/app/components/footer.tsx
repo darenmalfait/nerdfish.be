@@ -110,7 +110,7 @@ function Disclaimer() {
 						<Tooltip>
 							<TooltipTrigger>
 								<Link
-									className="cursor-pointer font-medium text-white transition duration-300 hover:opacity-70"
+									className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
 									href="https://www.nerdfish.be"
 								>
 									nerdfish
@@ -127,7 +127,7 @@ function Disclaimer() {
 				</Link>
 				, development with user experience in mind. The code is{' '}
 				<Link
-					className="cursor-pointer font-medium text-white transition duration-300 hover:opacity-70"
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://github.com/darenmalfait/nerdfish.be"
 					target="_blank"
 				>
