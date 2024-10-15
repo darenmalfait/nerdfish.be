@@ -183,10 +183,39 @@ const globalCollection: Collection = {
 					label: 'VAT',
 					name: 'vat',
 				},
+			],
+		},
+		{
+			type: 'object',
+			label: 'Cal.com',
+			name: 'calcom',
+			fields: [
 				{
 					type: 'string',
-					label: 'Calcom',
-					name: 'calcom',
+					label: 'Profile Name',
+					name: 'profileName',
+				},
+				{
+					type: 'object',
+					name: 'types',
+					list: true,
+					fields: [
+						{
+							type: 'string',
+							label: 'Slug',
+							name: 'slug',
+						},
+						{
+							type: 'string',
+							label: 'Title',
+							name: 'title',
+						},
+						{
+							type: 'number',
+							label: 'Duration',
+							name: 'duration',
+						},
+					],
 				},
 			],
 		},

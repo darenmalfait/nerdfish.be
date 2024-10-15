@@ -24,34 +24,28 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-import { PortableText, type Block, type PageBlocksBooking } from '~/app/cms'
+import {
+	type GlobalCalcomTypes,
+	PortableText,
+	type Block,
+	type PageBlocksBooking,
+} from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 import { useTheme } from '~/app/theme-provider'
 
-const bookingTypes = {
-	'30min': {
-		title: '30 Minute Session',
-		time: 30,
-		link: '30min',
-	},
-	'1hour': {
-		title: '1 Hour Session',
-		time: 60,
-		link: '1hour',
-	},
-} as const
-
-type BookingType = keyof typeof bookingTypes
-
-function EmbeddedCal({ bookingType }: { bookingType: BookingType }) {
+function EmbeddedCal({
+	bookingType,
+}: {
+	bookingType: GlobalCalcomTypes['slug']
+}) {
 	const [calLoading, setCalLoading] = React.useState<boolean>(true)
 	const { theme } = useTheme()
-	const { companyInfo } = useGlobal()
+	const { calcom } = useGlobal()
 
 	React.useEffect(() => {
 		async function loadCal() {
 			const cal = await getCalApi({
-				namespace: `${companyInfo?.calcom}/${bookingType}`,
+				namespace: `${calcom?.profileName}/${bookingType}`,
 			})
 			cal('ui', {
 				styles: {
@@ -67,9 +61,9 @@ function EmbeddedCal({ bookingType }: { bookingType: BookingType }) {
 		}
 
 		void loadCal()
-	}, [bookingType, companyInfo?.calcom, theme])
+	}, [bookingType, calcom?.profileName, theme])
 
-	if (!companyInfo?.calcom) return null
+	if (!calcom?.profileName) return null
 
 	return (
 		<div className="overflow-hidden">
@@ -80,7 +74,7 @@ function EmbeddedCal({ bookingType }: { bookingType: BookingType }) {
 			) : null}
 			<Cal
 				style={{ width: '100%', height: '100%', overflow: 'scroll' }}
-				calLink={`${companyInfo.calcom}/${bookingType}`}
+				calLink={`${calcom.profileName}/${bookingType}`}
 				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
 			/>
 		</div>
@@ -92,12 +86,12 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const { companyInfo } = useGlobal()
+	const { calcom } = useGlobal()
 
-	const bookingType = searchParams.get('booking') as BookingType | null
+	const bookingType = searchParams.get('booking')
 
 	const setBookingType = React.useCallback(
-		async (type: BookingType | null) => {
+		async (type: GlobalCalcomTypes['slug'] | null) => {
 			const params = new URLSearchParams(searchParams)
 
 			if (type) params.set('booking', type)
@@ -109,7 +103,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 	)
 
 	const getBookingLink = React.useCallback(
-		(type: BookingType) => {
+		(type: string) => {
 			const params = new URLSearchParams(searchParams)
 			params.set('booking', type)
 
@@ -118,7 +112,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 		[searchParams],
 	)
 
-	if (!companyInfo?.calcom) return null
+	if (!calcom?.profileName) return null
 
 	return (
 		<div
@@ -168,45 +162,47 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							</div>
 							<nav>
 								<ul className="flex flex-col">
-									{Object.entries(bookingTypes).map(([type, booking]) => (
-										<li
-											className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
-											key={type}
-										>
-											<Link
-												href={getBookingLink(booking.link)}
-												className="outline-none"
-												aria-label={`Book ${booking.title}`}
+									{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
+										({ slug, title: bookingTitle, duration }) => (
+											<li
+												className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+												key={slug}
 											>
-												<div className="flex w-full items-start justify-between gap-4 p-5">
-													<div className="flex flex-col gap-2">
-														<div className="text-lg font-semibold">
-															{booking.title}
+												<Link
+													href={getBookingLink(slug ?? '')}
+													className="outline-none"
+													aria-label={`Book ${bookingTitle}`}
+												>
+													<div className="flex w-full items-start justify-between gap-4 p-5">
+														<div className="flex flex-col gap-2">
+															<div className="text-lg font-semibold">
+																{bookingTitle}
+															</div>
+															<div>
+																<Badge
+																	variant="secondary"
+																	className="inline-flex w-auto items-center gap-2"
+																>
+																	<ClockIcon className="size-3" />
+																	{duration} minutes
+																</Badge>
+															</div>
 														</div>
 														<div>
-															<Badge
-																variant="secondary"
-																className="inline-flex w-auto items-center gap-2"
-															>
-																<ClockIcon className="size-3" />
-																{booking.time} minutes
-															</Badge>
+															<ArrowRightIcon className="size-4 opacity-20 transition group-hover:opacity-100" />
 														</div>
 													</div>
-													<div>
-														<ArrowRightIcon className="size-4 opacity-20 transition group-hover:opacity-100" />
-													</div>
-												</div>
-											</Link>
-										</li>
-									))}
+												</Link>
+											</li>
+										),
+									)}
 								</ul>
 							</nav>
 						</div>
 
 						<Dialog
 							// if valid booking type, open dialog
-							open={!!Object.keys(bookingTypes).includes(bookingType as any)}
+							open={!!calcom.types?.find((type) => type?.slug === bookingType)}
 							onOpenChange={(nextState) => {
 								if (!nextState) {
 									return setBookingType(null)
