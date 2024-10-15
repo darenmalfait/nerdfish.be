@@ -18,7 +18,13 @@ import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { filterWiki } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
-import { getDatedSlug, Header, nonNullable } from '~/app/common'
+import {
+	getDatedSlug,
+	SectionHeader,
+	nonNullable,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '~/app/common'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -101,7 +107,12 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						>
 							<div className="flex flex-auto flex-col justify-center space-y-4">
 								{(title ?? subtitle) ? (
-									<Header title={title ?? ''} subtitle={subtitle} />
+									<SectionHeader>
+										{title ? <SectionHeaderTitle animatedText={title} /> : null}
+										{subtitle ? (
+											<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+										) : null}
+									</SectionHeader>
 								) : null}
 								<Input
 									type="search"
@@ -134,13 +145,17 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 			<div className="mx-auto space-y-14 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
-						<Header
-							title={title ?? ''}
-							subtitle={subtitle}
-							cta="see all"
-							className="mb-12"
-							ctaUrl={link ?? ''}
-						/>
+						<SectionHeader
+							cta={{
+								title: 'See all articles',
+								url: link ?? '',
+							}}
+						>
+							{title ? <SectionHeaderTitle animatedText={title} /> : null}
+							{subtitle ? (
+								<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+							) : null}
+						</SectionHeader>
 					</div>
 				) : null}
 
