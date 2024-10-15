@@ -55,7 +55,13 @@ const portableTextSchema: RichTextType = {
 		{
 			name: 'ContactForm',
 			label: 'Contact form',
-			fields: [],
+			fields: [
+				{
+					type: 'rich-text',
+					name: 'content',
+					label: 'content',
+				},
+			],
 		},
 	],
 }
