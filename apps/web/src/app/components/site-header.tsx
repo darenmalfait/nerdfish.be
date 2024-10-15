@@ -8,7 +8,7 @@ import { MobileNavigation } from './mobile-navigation'
 import { ActionsNavigation, MainNavigation, RSSFeedButton } from './navigation'
 import { ThemeToggle } from './theme-toggle'
 
-export function Header() {
+export function SiteHeader() {
 	return (
 		<div className="w-full">
 			<header className="relative z-50 w-full flex-none">
