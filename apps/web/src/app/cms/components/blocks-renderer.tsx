@@ -10,6 +10,7 @@ import {
 	KeywordListBlock,
 	SkillsBlock,
 } from '~/app/common'
+import { BookingBlock } from '~/app/common/blocks/booking'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { ProductsBlock } from '~/app/realisations'
 import { WikiOverviewBlock } from '~/app/wiki'
@@ -47,6 +48,7 @@ export function Blocks({
 		[K in PageBlockType]: React.ComponentType<Block>
 	} = {
 		PageBlocksBlog: BlogOverviewBlock,
+		PageBlocksBooking: BookingBlock,
 		PageBlocksContent: ContentBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,

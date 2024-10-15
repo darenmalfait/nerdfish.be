@@ -8,7 +8,7 @@ export function ContentBlock(data: Block<PageBlocksContent>) {
 
 	return (
 		<Section data-tina-field={tinaField(data, 'body')}>
-			<div className="prose dark:prose-invert prose-lg lg:prose-xl mx-auto">
+			<div className="prose dark:prose-invert prose-lg lg:prose-xl mx-auto max-w-3xl">
 				{body ? <PortableText content={body} /> : null}
 			</div>
 		</Section>

@@ -1,4 +1,5 @@
 import { blogTemplate } from './blocks/blog.template'
+import { bookingTemplate } from './blocks/booking.template'
 import { contentTemplate } from './blocks/content.template'
 import { featuresTemplate } from './blocks/features.template'
 import { heroTemplate } from './blocks/hero.template'
@@ -10,8 +11,9 @@ import { skillsTemplate } from './blocks/skills.template'
 import { wikiTemplate } from './blocks/wiki.template'
 import { workTemplate } from './blocks/work.template'
 
-const blocks = [
+export const blocks = [
 	blogTemplate,
+	bookingTemplate,
 	contentTemplate,
 	featuresTemplate,
 	heroTemplate,
@@ -23,5 +25,3 @@ const blocks = [
 	wikiTemplate,
 	workTemplate,
 ]
-
-export { blocks }
