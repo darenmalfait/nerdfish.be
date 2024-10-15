@@ -1,69 +1,69 @@
 {
-  "navigation": {
-    "main": [
-      {
-        "label": "Services",
-        "href": "",
-        "sub": [
-          {
-            "label": "Web Design",
-            "description": "Transform your ideas into visually stunning, user-friendly websites.",
-            "href": "webdesign"
-          },
-          {
-            "label": "Javascript consulting",
-            "description": "Get help with your Javascript projects, from architecture to implementation.",
-            "href": "consultancy"
-          },
-          {
-            "label": "3D Printing",
-            "description": "Precise custom prints for prototypes, functional parts, and unique designs. Fast, reliable, and tailored to your needs. ",
-            "href": "3d-printing"
-          }
-        ]
-      },
-      {
-        "label": "Insights",
-        "href": "",
-        "sub": [
-          {
-            "label": "Blog",
-            "description": "A compilation of articles I have written about various topics",
-            "href": "blog"
-          },
-          {
-            "label": "Knowledge Base",
-            "description": "A curated list of helpful pages serving as a small personal wiki.",
-            "href": "wiki"
-          }
-        ]
-      },
-      {
-        "label": "work",
-        "href": "work"
-      }
-    ],
-    "actions": [
-      {
-        "href": "contact",
-        "label": "contact"
-      }
-    ]
-  },
-  "social": {
-    "twitter": "https://twitter.com/darenmalfait",
-    "github": "https://github.com/darenmalfait",
-    "linkedIn": "https://www.linkedin.com/in/darenmalfait/"
-  },
-  "paths": {
-    "wiki": "wiki",
-    "blog": "blog",
-    "work": "work",
-    "contact": "contact"
-  },
-  "companyInfo": {
-    "companyName": "Daren Malfait BV",
-    "vat": "BE0794123756",
-    "calcom": "nerdfish"
-  }
+	"navigation": {
+		"main": [
+			{
+				"label": "Services",
+				"href": "",
+				"sub": [
+					{
+						"label": "Web Design",
+						"description": "Transform your ideas into visually stunning, user-friendly websites.",
+						"href": "webdesign"
+					},
+					{
+						"label": "Javascript consulting",
+						"description": "Get help with your Javascript projects, from architecture to implementation.",
+						"href": "consultancy"
+					},
+					{
+						"label": "3D Printing",
+						"description": "Precise custom prints for prototypes, functional parts, and unique designs. Fast, reliable, and tailored to your needs. ",
+						"href": "3d-printing"
+					}
+				]
+			},
+			{
+				"label": "Thoughts",
+				"href": "",
+				"sub": [
+					{
+						"label": "Blog",
+						"description": "A compilation of articles I have written about various topics",
+						"href": "blog"
+					},
+					{
+						"label": "Knowledge Base",
+						"description": "A curated list of helpful pages serving as a small personal wiki.",
+						"href": "wiki"
+					}
+				]
+			},
+			{
+				"label": "work",
+				"href": "work"
+			}
+		],
+		"actions": [
+			{
+				"href": "contact",
+				"label": "contact"
+			}
+		]
+	},
+	"social": {
+		"twitter": "https://twitter.com/darenmalfait",
+		"github": "https://github.com/darenmalfait",
+		"linkedIn": "https://www.linkedin.com/in/darenmalfait/"
+	},
+	"paths": {
+		"wiki": "wiki",
+		"blog": "blog",
+		"work": "work",
+		"contact": "contact"
+	},
+	"companyInfo": {
+		"companyName": "Daren Malfait BV",
+		"vat": "BE0794123756",
+		"calcom": "nerdfish"
+	}
 }
