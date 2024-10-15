@@ -31,7 +31,7 @@ import { useForm } from 'react-hook-form'
 import { useRecaptcha } from '../../utils/recaptcha'
 import { submitContactForm } from './actions'
 
-function ContactForm({ withProject }: { withProject?: boolean }) {
+function ContactForm() {
 	const { execute } = useRecaptcha()
 	const [error, setError] = React.useState<string>()
 
@@ -112,67 +112,65 @@ function ContactForm({ withProject }: { withProject?: boolean }) {
 							)}
 						/>
 
-						{withProject ? (
-							<FormField
-								control={form.control}
-								name="project"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>What are you interested in?</FormLabel>
+						<FormField
+							control={form.control}
+							name="project"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>What are you interested in?</FormLabel>
 
-										<FormControl>
-											<RadioGroup
-												onValueChange={field.onChange}
-												defaultValue={field.value}
-											>
-												<FormItem>
-													<RadioGroupField>
-														<FormControl>
-															<RadioGroupItem value="webdesign" />
-														</FormControl>
-														<FormLabel>
-															Webdesign
-															<FormDescription>
-																Design and development of websites.
-															</FormDescription>
-														</FormLabel>
-													</RadioGroupField>
-												</FormItem>
+									<FormControl>
+										<RadioGroup
+											onValueChange={field.onChange}
+											defaultValue={field.value}
+										>
+											<FormItem>
+												<RadioGroupField>
+													<FormControl>
+														<RadioGroupItem value="webdesign" />
+													</FormControl>
+													<FormLabel>
+														Webdesign
+														<FormDescription>
+															Design and development of websites.
+														</FormDescription>
+													</FormLabel>
+												</RadioGroupField>
+											</FormItem>
 
-												<FormItem>
-													<RadioGroupField>
-														<FormControl>
-															<RadioGroupItem value="services" />
-														</FormControl>
-														<FormLabel>
-															Services
-															<FormDescription>
-																Consulting, workshops, and more.
-															</FormDescription>
-														</FormLabel>
-													</RadioGroupField>
-												</FormItem>
+											<FormItem>
+												<RadioGroupField>
+													<FormControl>
+														<RadioGroupItem value="services" />
+													</FormControl>
+													<FormLabel>
+														Services
+														<FormDescription>
+															Consulting, workshops, and more.
+														</FormDescription>
+													</FormLabel>
+												</RadioGroupField>
+											</FormItem>
 
-												<FormItem>
-													<RadioGroupField>
-														<FormControl>
-															<RadioGroupItem value="other" />
-														</FormControl>
-														<FormLabel>
-															Other
-															<FormDescription>
-																Let&apos;s talk about your project.
-															</FormDescription>
-														</FormLabel>
-													</RadioGroupField>
-												</FormItem>
-											</RadioGroup>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						) : null}
+											<FormItem>
+												<RadioGroupField>
+													<FormControl>
+														<RadioGroupItem value="other" />
+													</FormControl>
+													<FormLabel>
+														Other
+														<FormDescription>
+															Let&apos;s talk about your project.
+														</FormDescription>
+													</FormLabel>
+												</RadioGroupField>
+											</FormItem>
+										</RadioGroup>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
 
 						<FormField
 							control={form.control}
