@@ -9,7 +9,7 @@ function Title(props: { title?: string | null }) {
 	if (!title) return null
 
 	return (
-		<div className="flex flex-col space-y-3">
+		<div className="animate-in fade-in flex flex-col space-y-3 duration-700">
 			<BigTitle
 				className="relative font-black text-white"
 				data-tina-field={tinaField(props, 'title')}
@@ -26,17 +26,18 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 		<section className="relative">
 			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
 			<div className="container relative mx-auto px-8 lg:px-4">
-				<div className="pb-24 pt-32 sm:pb-32 md:pb-48">
+				<div className="pb-24 pt-32 duration-700 sm:pb-32 md:pb-48">
 					<Title title={title} />
 					<div className="dark mt-8 max-w-lg">
-						<div className="prose dark:prose-invert lg:prose-xl mb-12 mt-8 !text-white">
+						<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in mb-12 mt-8 !text-white duration-1000">
 							<PortableText content={text} />
 						</div>
 					</div>
 					{image?.src ? (
-						<div className="absolute bottom-0 right-0 w-full max-w-[50%] flex-none">
+						<div className="animate-in fade-in zoom-in-150 absolute bottom-0 right-0 w-full max-w-[50%] flex-none duration-700">
 							<Image
-								className="inset-0 mb-12 rounded-xl"
+								// sticker effect
+								className="inset-0 mb-12 rounded-xl [filter:drop-shadow(0px_0px_3px_#000)]"
 								src={image.src}
 								width={700}
 								height={700}
