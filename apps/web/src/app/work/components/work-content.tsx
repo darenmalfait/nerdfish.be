@@ -7,7 +7,13 @@ import { tinaField } from 'tinacms/dist/react'
 import { mapWorkData } from '../api'
 import { BackToWork } from './misc'
 import { PortableText, type WorkQueryQuery } from '~/app/cms'
-import { ArticleCard, Header, WorkPath } from '~/app/common'
+import {
+	ArticleCard,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+	WorkPath,
+} from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -62,7 +68,12 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 			</section>
 			{relatedWorks.length > 0 ? (
 				<section className="container mx-auto mt-24 px-4">
-					<Header title="Done reading?" subtitle="Read more related articles" />
+					<SectionHeader>
+						<SectionHeaderTitle animatedText="Done reading?" />
+						<SectionHeaderSubtitle>
+							Read more related articles
+						</SectionHeaderSubtitle>
+					</SectionHeader>
 					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{relatedWorks.map((work) => {
 							return (

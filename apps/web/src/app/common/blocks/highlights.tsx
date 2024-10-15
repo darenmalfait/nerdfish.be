@@ -5,7 +5,11 @@ import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import { tinaField } from 'tinacms/dist/react'
-import { Header } from '../components'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '../components'
 import {
 	type Block,
 	type PageBlocksHighlights,
@@ -61,11 +65,12 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 	return (
 		<Section data-tina-field={tinaField(props, 'items')}>
 			{(title ?? subtitle) ? (
-				<Header
-					title={title?.toString()}
-					subtitle={subtitle}
-					className="mb-12"
-				/>
+				<SectionHeader>
+					{title ? <SectionHeaderTitle animatedText={title} /> : null}
+					{subtitle ? (
+						<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+					) : null}
+				</SectionHeader>
 			) : null}
 			<Grid data-tina-field={tinaField(props, 'items')}>
 				{items?.map((item, i) => {

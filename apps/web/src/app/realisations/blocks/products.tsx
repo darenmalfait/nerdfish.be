@@ -16,7 +16,11 @@ import { GithubIcon, GlobeIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
-import { Header } from '~/app/common'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '~/app/common'
 
 function Product({
 	title,
@@ -119,13 +123,17 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 		<Section>
 			{(title ?? subtitle) ? (
 				<div data-tina-field={tinaField(data, 'header')} className="mb-6">
-					<Header
-						title={title ?? ''}
-						subtitle={subtitle}
-						cta="see all"
-						className="mb-12"
-						ctaUrl={link ?? ''}
-					/>
+					<SectionHeader
+						cta={{
+							title: 'See all products',
+							url: link ?? '',
+						}}
+					>
+						{title ? <SectionHeaderTitle animatedText={title} /> : null}
+						{subtitle ? (
+							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+						) : null}
+					</SectionHeader>
 				</div>
 			) : null}
 			<div data-tina-field={tinaField(data, 'header')} className="space-y-6">

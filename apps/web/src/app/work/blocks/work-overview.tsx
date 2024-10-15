@@ -9,7 +9,14 @@ import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { filterWork } from '../utils'
 import { type Block, type PageBlocksWork } from '~/app/cms'
-import { ArticleCard, Header, HighlightCard, WorkPath } from '~/app/common'
+import {
+	ArticleCard,
+	SectionHeader,
+	HighlightCard,
+	WorkPath,
+	SectionHeaderTitle,
+	SectionHeaderSubtitle,
+} from '~/app/common'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -101,7 +108,12 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 						>
 							<div className="flex flex-auto flex-col justify-center">
 								{(title ?? subtitle) ? (
-									<Header title={title ?? undefined} subtitle={subtitle} />
+									<SectionHeader>
+										{title ? <SectionHeaderTitle animatedText={title} /> : null}
+										{subtitle ? (
+											<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+										) : null}
+									</SectionHeader>
 								) : null}
 								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
 									<SearchIcon
@@ -155,20 +167,24 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 				</div>
 			) : null}
 
-			<div className="flex flex-col gap-12">
+			<div className="flex flex-col">
 				{!searchEnabled && (title ?? subtitle) ? (
-					<div data-tina-field={tinaField(data, 'header')}>
-						<Header
-							title={title ?? undefined}
-							subtitle={subtitle}
-							cta="See all articles"
-							ctaUrl={link ?? ''}
-						/>
-					</div>
+					<SectionHeader
+						cta={{
+							title: 'See all articles',
+							url: link ?? '',
+						}}
+					>
+						{title ? <SectionHeaderTitle animatedText={title} /> : null}
+						{subtitle ? (
+							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+						) : null}
+					</SectionHeader>
 				) : null}
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
+						className="mb-12"
 						category={featured.category}
 						href={`/${WorkPath}/${featured.category}/${featured._sys?.filename}`}
 						title={featured.title}

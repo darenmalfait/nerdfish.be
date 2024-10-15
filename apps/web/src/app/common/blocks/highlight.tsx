@@ -3,7 +3,11 @@
 import { Card, CardContent, CardHeader } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { tinaField } from 'tinacms/dist/react'
-import { Header } from '../components'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '../components'
 import { PortableText, type Block, type PageBlocksHighlight } from '~/app/cms'
 
 export function HighlightBlock(props: Block<PageBlocksHighlight>) {
@@ -12,20 +16,27 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 	return (
 		<div className="bg-accent/20 rounded-semi mx-2">
 			<Section>
-				<Card className="rounded-semi bg-primary relative overflow-hidden p-8">
+				<Card className="rounded-semi bg-primary relative overflow-hidden">
 					{(title ?? subtitle) ? (
-						<CardHeader
-							data-tina-field={tinaField(props, 'title')}
-							className="bg-transparent"
-						>
-							<Header
-								data-tina-field={tinaField(props, 'subtitle')}
-								title={title?.toString()}
-								subtitle={subtitle}
-							/>
+						<CardHeader className="bg-transparent p-6">
+							<SectionHeader className="mb-0">
+								{title ? (
+									<SectionHeaderTitle
+										data-tina-field={tinaField(props, 'title')}
+										animatedText={title}
+									/>
+								) : null}
+								{subtitle ? (
+									<SectionHeaderSubtitle
+										data-tina-field={tinaField(props, 'subtitle')}
+									>
+										{subtitle}
+									</SectionHeaderSubtitle>
+								) : null}
+							</SectionHeader>
 						</CardHeader>
 					) : null}
-					<CardContent className="prose dark:prose-invert">
+					<CardContent className="prose dark:prose-invert p-6">
 						<PortableText
 							content={content}
 							data-tina-field={tinaField(props, 'content')}
