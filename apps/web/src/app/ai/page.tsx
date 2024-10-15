@@ -2,6 +2,7 @@ import { Paragraph } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
 import { generateOGImageUrl, getMetaData, Header } from '../common'
+import { BookingBlock } from '../common/blocks/booking'
 import { Chat } from './components/chat'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
@@ -20,14 +21,20 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default function AiPage() {
 	return (
-		<Section>
-			<Header className="mb-3" title="AI" subtitle="Beta" />
-			<Paragraph className="mb-6 max-w-3xl font-medium">
-				Disclaimer: This is not actually me, but AI. Answers might be highly
-				inaccurate, Since this is mostly an experiment, I&apos;m also using a
-				free tier of the AI, so it might not always work.
-			</Paragraph>
-			<Chat />
-		</Section>
+		<>
+			<Section>
+				<Header className="mb-3" title="AI" subtitle="Beta" />
+				<Paragraph className="mb-6 max-w-3xl font-medium">
+					Disclaimer: This is not actually me, but AI. Answers might be highly
+					inaccurate, Since this is mostly an experiment, I&apos;m also using a
+					free tier of the AI, so it might not always work.
+				</Paragraph>
+				<Chat />
+			</Section>
+			<BookingBlock
+				title="Rather really speak to me?"
+				subtitle="Book a meeting"
+			/>
+		</>
 	)
 }
