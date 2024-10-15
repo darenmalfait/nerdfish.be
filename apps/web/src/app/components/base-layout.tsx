@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Footer } from './footer'
-import { Header } from './header'
+import { SiteHeader } from './site-header'
 
 export function BaseLayoutTemplate({
 	children,
@@ -10,7 +10,7 @@ export function BaseLayoutTemplate({
 }) {
 	return (
 		<>
-			<Header />
+			<SiteHeader />
 
 			<main className="w-full flex-auto">{children}</main>
 
