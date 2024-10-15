@@ -23,7 +23,16 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	React.useEffect(() => {
 		async function loadCal() {
-			await getCalApi()
+			const cal = await getCalApi()
+			cal('ui', {
+				styles: {
+					branding: { brandColor: '#D46536' },
+					body: { background: 'transparent' },
+				},
+				hideEventTypeDetails: false,
+				layout: 'month_view',
+			})
+
 			setCalLoading(false)
 		}
 
