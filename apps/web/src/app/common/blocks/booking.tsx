@@ -12,6 +12,11 @@ import {
 	Dialog,
 	DialogContent,
 	Skeleton,
+	Drawer,
+	useMediaQuery,
+	DrawerHeader,
+	DrawerContent,
+	ScrollArea,
 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
@@ -78,6 +83,41 @@ function EmbeddedCal({
 				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
 			/>
 		</div>
+	)
+}
+
+function DrawerDialog({
+	open,
+	onOpenChange,
+	children,
+}: {
+	open: boolean
+	onOpenChange: (open: boolean) => void
+	children: React.ReactNode
+}) {
+	const isDesktop = useMediaQuery('(min-width: 768px)')
+
+	if (isDesktop) {
+		return (
+			<Dialog open={open} onOpenChange={onOpenChange}>
+				<DialogContent className="rounded-semi bg-primary overflow-hidden p-0 transition-all">
+					<ScrollArea className="h-fit max-h-[85vh] overflow-auto">
+						{children}
+					</ScrollArea>
+				</DialogContent>
+			</Dialog>
+		)
+	}
+
+	return (
+		<Drawer open={open} onOpenChange={onOpenChange}>
+			<DrawerContent className="bg-primary transition-all">
+				<DrawerHeader className="bg-transparent pb-0" />
+				<ScrollArea className="h-fit max-h-[85vh] overflow-auto">
+					{children}
+				</ScrollArea>
+			</DrawerContent>
+		</Drawer>
 	)
 }
 
@@ -199,9 +239,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 								</ul>
 							</nav>
 						</div>
-
-						<Dialog
-							// if valid booking type, open dialog
+						<DrawerDialog
 							open={!!calcom.types?.find((type) => type?.slug === bookingType)}
 							onOpenChange={(nextState) => {
 								if (!nextState) {
@@ -209,10 +247,8 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 								}
 							}}
 						>
-							<DialogContent className="bg-muted h-fit max-h-[85vh] w-full transform overflow-scroll rounded p-0 text-left align-middle transition-all sm:w-[60%]">
-								{bookingType ? <EmbeddedCal bookingType={bookingType} /> : null}
-							</DialogContent>
-						</Dialog>
+							{bookingType ? <EmbeddedCal bookingType={bookingType} /> : null}
+						</DrawerDialog>
 					</CardContent>
 				</Card>
 			</Section>
