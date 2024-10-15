@@ -1,7 +1,13 @@
 import { Paragraph } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
-import { generateOGImageUrl, getMetaData, Header } from '../common'
+import {
+	generateOGImageUrl,
+	getMetaData,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '../common'
 import { BookingBlock } from '../common/blocks/booking'
 import { Chat } from './components/chat'
 
@@ -23,7 +29,10 @@ export default function AiPage() {
 	return (
 		<>
 			<Section>
-				<Header className="mb-3" title="AI" subtitle="Beta" />
+				<SectionHeader>
+					<SectionHeaderTitle animatedText="AI" />
+					<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
+				</SectionHeader>
 				<Paragraph className="mb-6 max-w-3xl font-medium">
 					Disclaimer: This is not actually me, but AI. Answers might be highly
 					inaccurate, Since this is mostly an experiment, I&apos;m also using a

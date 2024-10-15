@@ -5,7 +5,11 @@ import { Card, CardContent, CardHeader, Skeleton } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { Header } from '../components'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '../components'
 import { PortableText, type Block, type PageBlocksBooking } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 import { useTheme } from '~/app/theme-provider'
@@ -34,17 +38,27 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 			data-tina-field={tinaField(props, 'title')}
 		>
 			<Section>
-				<Card className="rounded-semi bg-primary relative mx-auto max-w-3xl overflow-hidden p-8">
+				<Card className="rounded-semi bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
 					{(title ?? subtitle) ? (
-						<CardHeader>
-							<Header
-								data-tina-field={tinaField(props, 'subtitle')}
-								title={title?.toString()}
-								subtitle={subtitle}
-							/>
+						<CardHeader className="p-6">
+							<SectionHeader className="mb-0">
+								{title ? (
+									<SectionHeaderTitle
+										data-tina-field={tinaField(props, 'title')}
+										animatedText={title}
+									/>
+								) : null}
+								{subtitle ? (
+									<SectionHeaderSubtitle
+										data-tina-field={tinaField(props, 'subtitle')}
+									>
+										{subtitle}
+									</SectionHeaderSubtitle>
+								) : null}
+							</SectionHeader>
 						</CardHeader>
 					) : null}
-					<CardContent>
+					<CardContent className="p-6">
 						<div className="prose dark:prose-invert">
 							<PortableText
 								content={content}
@@ -52,7 +66,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							/>
 						</div>
 						{calLoading ? (
-							<div className="border-booker border-booker-width bg-default aspect-2 px- mx-auto w-full max-w-3xl rounded-md">
+							<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
 								<Skeleton className="h-full w-full" />
 							</div>
 						) : null}

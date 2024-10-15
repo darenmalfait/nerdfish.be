@@ -23,9 +23,11 @@ import {
 	ArticleCard,
 	BlogPath,
 	getDatedSlug,
-	Header,
+	SectionHeader,
 	HighlightCard,
 	nonNullable,
+	SectionHeaderTitle,
+	SectionHeaderSubtitle,
 } from '~/app/common'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
@@ -130,7 +132,12 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						>
 							<div className="flex flex-auto flex-col justify-center space-y-4">
 								{(title ?? subtitle) ? (
-									<Header title={title ?? undefined} subtitle={subtitle} />
+									<SectionHeader>
+										{title ? <SectionHeaderTitle animatedText={title} /> : null}
+										{subtitle ? (
+											<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+										) : null}
+									</SectionHeader>
 								) : null}
 								<Input
 									type="search"
@@ -160,20 +167,26 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				/>
 			) : null}
 
-			<div className="flex flex-col gap-12">
+			<div className="flex flex-col">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
-						<Header
-							title={title ?? undefined}
-							subtitle={subtitle}
-							cta="See all articles"
-							ctaUrl={link ?? ''}
-						/>
+						<SectionHeader
+							cta={{
+								title: 'See all articles',
+								url: link ?? '',
+							}}
+						>
+							{title ? <SectionHeaderTitle animatedText={title} /> : null}
+							{subtitle ? (
+								<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+							) : null}
+						</SectionHeader>
 					</div>
 				) : null}
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
+						className="mb-12"
 						category={featured.category}
 						href={`/${BlogPath}${getDatedSlug(
 							featured.date as string,

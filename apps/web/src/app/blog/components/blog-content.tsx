@@ -4,7 +4,6 @@ import { DateFormatter } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { mapBlogData } from '../api'
 import { BackToBlog } from './misc'
 import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
@@ -12,8 +11,10 @@ import {
 	ArticleCard,
 	BlogPath,
 	getDatedSlug,
-	Header,
+	SectionHeader,
 	ReadingProgress,
+	SectionHeaderTitle,
+	SectionHeaderSubtitle,
 } from '~/app/common'
 import { AnimatedText } from '~/app/common/components/animated-text'
 
@@ -87,7 +88,12 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 			</section>
 			{relatedPosts.length > 0 ? (
 				<section className="container mx-auto mt-24 px-4">
-					<Header title="Done reading?" subtitle="Read more related articles" />
+					<SectionHeader>
+						<SectionHeaderTitle animatedText="Done reading?" />
+						<SectionHeaderSubtitle>
+							Read more related articles
+						</SectionHeaderSubtitle>
+					</SectionHeader>
 					<ul className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{relatedPosts.map((relatedBlog) => {
 							return (
