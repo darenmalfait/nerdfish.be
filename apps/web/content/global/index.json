@@ -63,7 +63,21 @@
 	},
 	"companyInfo": {
 		"companyName": "Daren Malfait BV",
-		"vat": "BE0794123756",
-		"calcom": "nerdfish"
+		"vat": "BE0794123756"
+	},
+	"calcom": {
+		"profileName": "nerdfish",
+		"types": [
+			{
+				"slug": "30min",
+				"title": "30 Minute Session",
+				"duration": 30
+			},
+			{
+				"slug": "1hour",
+				"title": "1 Hour Session",
+				"duration": 60
+			}
+		]
 	}
 }
