@@ -19,7 +19,7 @@ interface GlobalProviderProps extends Partial<Global> {
 // import { GlobalProvider } from "path-to-context/GlobalProviderContext"
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
-	const { navigation, paths: originalPaths, social, companyInfo } = globalProps
+	const { paths: originalPaths, ...rest } = globalProps
 
 	const paths = React.useMemo(() => {
 		if (!originalPaths) return undefined
@@ -38,9 +38,7 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
 	}, [originalPaths])
 
 	return (
-		<GlobalProviderContext.Provider
-			value={{ paths, navigation, social, companyInfo }}
-		>
+		<GlobalProviderContext.Provider value={{ paths, ...rest }}>
 			{children}
 		</GlobalProviderContext.Provider>
 	)
