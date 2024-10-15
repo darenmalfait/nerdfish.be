@@ -1,8 +1,22 @@
 'use client'
 
 import Cal, { getCalApi } from '@calcom/embed-react'
-import { Card, CardContent, CardHeader, Skeleton } from '@nerdfish/ui'
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage,
+	Badge,
+	Card,
+	CardContent,
+	CardHeader,
+	Dialog,
+	DialogContent,
+	Skeleton,
+} from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
+import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
+import Link from 'next/link'
+import { useSearchParams, useRouter } from 'next/navigation'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
@@ -14,16 +28,31 @@ import { PortableText, type Block, type PageBlocksBooking } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 import { useTheme } from '~/app/theme-provider'
 
-export function BookingBlock(props: Block<PageBlocksBooking>) {
-	const [calLoading, setCalLoading] = React.useState<boolean>(true)
-	const { title, subtitle, content } = props
+const bookingTypes = {
+	'30min': {
+		title: '30 Minute Session',
+		time: 30,
+		link: '30min',
+	},
+	'1hour': {
+		title: '1 Hour Session',
+		time: 60,
+		link: '1hour',
+	},
+} as const
 
-	const { companyInfo } = useGlobal()
+type BookingType = keyof typeof bookingTypes
+
+function EmbeddedCal({ bookingType }: { bookingType: BookingType }) {
+	const [calLoading, setCalLoading] = React.useState<boolean>(true)
 	const { theme } = useTheme()
+	const { companyInfo } = useGlobal()
 
 	React.useEffect(() => {
 		async function loadCal() {
-			const cal = await getCalApi()
+			const cal = await getCalApi({
+				namespace: `${companyInfo?.calcom}/${bookingType}`,
+			})
 			cal('ui', {
 				styles: {
 					branding: { brandColor: '#D46536' },
@@ -31,13 +60,63 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 				},
 				hideEventTypeDetails: false,
 				layout: 'month_view',
+				theme: theme === 'system' ? 'auto' : (theme as any),
 			})
 
 			setCalLoading(false)
 		}
 
 		void loadCal()
-	}, [])
+	}, [bookingType, companyInfo?.calcom, theme])
+
+	if (!companyInfo?.calcom) return null
+
+	return (
+		<div className="overflow-hidden">
+			{calLoading ? (
+				<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
+					<Skeleton className="h-full w-full" />
+				</div>
+			) : null}
+			<Cal
+				style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+				calLink={`${companyInfo.calcom}/${bookingType}`}
+				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
+			/>
+		</div>
+	)
+}
+
+export function BookingBlock(props: Block<PageBlocksBooking>) {
+	const { title, subtitle, content } = props
+
+	const router = useRouter()
+	const searchParams = useSearchParams()
+	const { companyInfo } = useGlobal()
+
+	const bookingType = searchParams.get('booking') as BookingType | null
+
+	const setBookingType = React.useCallback(
+		async (type: BookingType | null) => {
+			const params = new URLSearchParams(searchParams)
+
+			if (type) params.set('booking', type)
+			else params.delete('booking')
+
+			router.push(`?${params.toString()}`)
+		},
+		[router, searchParams],
+	)
+
+	const getBookingLink = React.useCallback(
+		(type: BookingType) => {
+			const params = new URLSearchParams(searchParams)
+			params.set('booking', type)
+
+			return `?${params.toString()}`
+		},
+		[searchParams],
+	)
 
 	if (!companyInfo?.calcom) return null
 
@@ -74,16 +153,70 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 								data-tina-field={tinaField(props, 'content')}
 							/>
 						</div>
-						{calLoading ? (
-							<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
-								<Skeleton className="h-full w-full" />
+
+						<div className="mx-auto max-w-3xl">
+							<div className="mb-8 w-full text-center">
+								<Avatar className="shadow-outline mx-auto size-24">
+									<AvatarImage
+										src="/images/avatar.jpg"
+										className="bg-muted object-cover"
+									/>
+									<AvatarFallback>
+										<Skeleton className="h-full w-full" />
+									</AvatarFallback>
+								</Avatar>
 							</div>
-						) : null}
-						<Cal
-							className="rounded-semi w-full border-none"
-							calLink={companyInfo.calcom}
-							config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
-						/>
+							<nav>
+								<ul className="flex flex-col">
+									{Object.entries(bookingTypes).map(([type, booking]) => (
+										<li
+											className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+											key={type}
+										>
+											<Link
+												href={getBookingLink(booking.link)}
+												className="outline-none"
+												aria-label={`Book ${booking.title}`}
+											>
+												<div className="flex w-full items-start justify-between gap-4 p-5">
+													<div className="flex flex-col gap-2">
+														<div className="text-lg font-semibold">
+															{booking.title}
+														</div>
+														<div>
+															<Badge
+																variant="secondary"
+																className="inline-flex w-auto items-center gap-2"
+															>
+																<ClockIcon className="size-3" />
+																{booking.time} minutes
+															</Badge>
+														</div>
+													</div>
+													<div>
+														<ArrowRightIcon className="size-4 opacity-20 transition group-hover:opacity-100" />
+													</div>
+												</div>
+											</Link>
+										</li>
+									))}
+								</ul>
+							</nav>
+						</div>
+
+						<Dialog
+							// if valid booking type, open dialog
+							open={!!Object.keys(bookingTypes).includes(bookingType as any)}
+							onOpenChange={(nextState) => {
+								if (!nextState) {
+									return setBookingType(null)
+								}
+							}}
+						>
+							<DialogContent className="bg-muted h-fit max-h-[85vh] w-full transform overflow-scroll rounded p-0 text-left align-middle transition-all sm:w-[60%]">
+								{bookingType ? <EmbeddedCal bookingType={bookingType} /> : null}
+							</DialogContent>
+						</Dialog>
 					</CardContent>
 				</Card>
 			</Section>
