@@ -99,6 +99,8 @@ const FooterNavigationItem = React.forwardRef<
 FooterNavigationItem.displayName = 'FooterNavigationItem'
 
 function Disclaimer() {
+	const { companyInfo } = useGlobal()
+
 	const currentYear = new Date().getFullYear()
 
 	return (
@@ -139,13 +141,13 @@ function Disclaimer() {
 				<SocialLinks />
 			</div>
 			<div className="text-muted flex justify-start text-xs font-normal">
-				© Daren Malfait BV {currentYear}.
+				© {companyInfo?.companyName} {currentYear}.
 			</div>
 		</div>
 	)
 }
 
-function Footer() {
+export function Footer() {
 	const { navigation } = useGlobal()
 
 	return (
@@ -183,5 +185,3 @@ function Footer() {
 		</div>
 	)
 }
-
-export { Footer }
