@@ -183,6 +183,11 @@ const globalCollection: Collection = {
 					label: 'VAT',
 					name: 'vat',
 				},
+				{
+					type: 'string',
+					label: 'Calcom',
+					name: 'calcom',
+				},
 			],
 		},
 	],
