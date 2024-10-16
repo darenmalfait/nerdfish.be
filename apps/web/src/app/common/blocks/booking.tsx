@@ -192,6 +192,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							<div className="mb-8 w-full text-center">
 								<Avatar className="shadow-outline mx-auto size-24">
 									<AvatarImage
+										alt="Darens avatar"
 										src="/images/avatar.jpg"
 										className="bg-muted object-cover"
 									/>

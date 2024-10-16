@@ -1,21 +1,12 @@
 'use client'
 
-import {
-	H3,
-	Separator,
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from '@nerdfish/ui'
+import { H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { Logo } from '@nerdfish-website/ui/icons'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import fish from '../../assets/images/nerdfish.png'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { SocialLinks } from './navigation'
@@ -107,24 +98,10 @@ function Disclaimer() {
 		<div className="space-y-6 py-8">
 			<p className="text-muted max-w-2xl text-lg lg:text-xl">
 				Made by{' '}
-				<span aria-hidden>
-					<TooltipProvider>
-						<Tooltip>
-							<TooltipTrigger>
-								<Link
-									className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
-									href="https://www.nerdfish.be"
-								>
-									nerdfish
-								</Link>
-							</TooltipTrigger>
-							<TooltipContent className="bg-inverted shadow-outline">
-								<Image src={fish} alt="nerdy fish" width={100} height={100} />
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
-				</span>
-				<Link className="sr-only" href="https://www.nerdfish.be">
+				<Link
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					href="https://www.nerdfish.be"
+				>
 					nerdfish
 				</Link>
 				, development with user experience in mind. The code is{' '}
