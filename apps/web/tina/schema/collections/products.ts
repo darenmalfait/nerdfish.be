@@ -1,6 +1,5 @@
+import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
-import { type Collection } from 'tinacms'
-
 import { tagsSchema } from '../objects'
 
 const productsCollection: Collection = {
