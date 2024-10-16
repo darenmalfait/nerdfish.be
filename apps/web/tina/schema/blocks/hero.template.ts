@@ -1,5 +1,4 @@
-import { type Template } from 'tinacms'
-
+import { type Template } from '@tinacms/schema-tools'
 import { imageSchema, portableTextSchema } from '../objects'
 
 export const heroTemplate: Template = {
@@ -19,6 +18,6 @@ export const heroTemplate: Template = {
 			name: 'title',
 		},
 		portableTextSchema,
-		imageSchema,
+		{ ...imageSchema, type: 'object' },
 	],
 }

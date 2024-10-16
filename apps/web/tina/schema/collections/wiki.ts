@@ -1,8 +1,7 @@
+import { type Collection } from '@tinacms/schema-tools'
 import { parseISO } from 'date-fns'
 import { padStart } from 'lodash'
 import slugify from 'slugify'
-import { type Collection } from 'tinacms'
-
 import { portableTextSchema, seo, tagsSchema } from '../objects'
 
 const wikiCollection: Collection = {
