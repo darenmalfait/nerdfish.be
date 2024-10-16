@@ -1,16 +1,19 @@
+import { Skeleton } from '@nerdfish/ui'
 import Image from 'next/image'
+import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { BigTitle } from '../components/big-title'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
-function Title(props: { title?: string | null }) {
-	const { title } = props
+function Title(props: { title?: string | null; loading?: boolean }) {
+	const { title, loading } = props
 
 	if (!title) return null
 
 	return (
 		<div className="animate-in fade-in flex flex-col space-y-3 duration-700">
 			<BigTitle
+				loading={loading}
 				className="relative font-black text-white"
 				data-tina-field={tinaField(props, 'title')}
 				value={title}
@@ -19,18 +22,26 @@ function Title(props: { title?: string | null }) {
 	)
 }
 
-export function HeroBlock(data: Block<PageBlocksHero>) {
-	const { image, text, title } = data
+export function HeroBlockContent(
+	data: Block<PageBlocksHero> & {
+		loading?: boolean
+	},
+) {
+	const { image, text, title, loading } = data
 
 	return (
 		<section className="relative">
 			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
 			<div className="container relative mx-auto px-8 lg:px-4">
 				<div className="pb-24 pt-32 duration-700 sm:pb-32 md:pb-48">
-					<Title title={title} />
+					<Title title={title} loading={loading} />
 					<div className="dark mt-8 max-w-lg">
 						<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in mb-12 mt-8 !text-white duration-1000">
-							<PortableText content={text} />
+							{loading ? (
+								<Skeleton count={4} />
+							) : (
+								<PortableText content={text} />
+							)}
 						</div>
 					</div>
 					{image?.src ? (
@@ -49,5 +60,13 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 				</div>
 			</div>
 		</section>
+	)
+}
+
+export function HeroBlock(data: Block<PageBlocksHero>) {
+	return (
+		<React.Suspense fallback={<HeroBlockContent {...data} loading />}>
+			<HeroBlockContent {...data} />
+		</React.Suspense>
 	)
 }
