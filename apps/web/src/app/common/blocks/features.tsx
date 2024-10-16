@@ -40,7 +40,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 		icon && (dynamicHeroIcon(icon as keyof typeof Icons) as Icons.LucideIcon)
 
 	return (
-		<li className="relative flex size-full flex-col items-start" {...rest}>
+		<div className="relative flex size-full flex-col items-start" {...rest}>
 			{Icon ? (
 				<div
 					className="bg-accent rounded-semi aspect-1 mb-6 flex items-center justify-center p-2 text-white lg:mt-0.5"
@@ -69,7 +69,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 				</div>
 				<DetailLink page={detail as Page} />
 			</div>
-		</li>
+		</div>
 	)
 }
 
@@ -98,7 +98,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 						const { icon, ...itemProps } = item
 
 						return (
-							<div
+							<li
 								key={`${item.title} ${i}`}
 								className="col-span-3 bg-none lg:col-span-1"
 							>
@@ -110,7 +110,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 											: null
 									}
 								/>
-							</div>
+							</li>
 						)
 					})}
 				</ul>

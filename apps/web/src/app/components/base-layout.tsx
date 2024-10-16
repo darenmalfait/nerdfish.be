@@ -12,7 +12,9 @@ export function BaseLayoutTemplate({
 		<>
 			<SiteHeader />
 
-			<main className="w-full flex-auto">{children}</main>
+			<main role="main" className="w-full flex-auto">
+				{children}
+			</main>
 
 			<Footer />
 		</>

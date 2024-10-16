@@ -24,26 +24,14 @@ function ArticleCard({
 }) {
 	return (
 		<div className="group relative w-full outline-none">
-			<div className="sr-only">
-				<h3>
-					<Link href={href}>{title}</Link>
-				</h3>
-				{date ? (
-					<p>
-						<DateFormatter dateString={date} format="PPP" />
-					</p>
-				) : null}
-				{category ? <p>category: {category}</p> : null}
-				{seo?.description ? <p>{seo.description}</p> : null}
-			</div>
-			<Link href={href} aria-hidden>
-				<div className="peer relative block w-full outline-none">
+			<Link href={href} className="group outline-none" aria-label={title}>
+				<div aria-hidden className="peer relative block w-full outline-none">
 					<CategoryIndicator category={category} />
 
 					{heroImg ? (
 						<div
 							className={cx(
-								'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-2 group-focus:ring-current',
+								'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 								getCategoryColors(category),
 							)}
 						>
@@ -72,6 +60,15 @@ function ArticleCard({
 					</div>
 				</div>
 			</Link>
+			<div className="sr-only">
+				{date ? (
+					<p>
+						<DateFormatter dateString={date} format="PPP" />
+					</p>
+				) : null}
+				{category ? <p>category: {category}</p> : null}
+				{seo?.description ? <p>{seo.description}</p> : null}
+			</div>
 		</div>
 	)
 }
