@@ -9,14 +9,14 @@ export function BaseLayoutTemplate({
 	children: React.ReactNode
 }) {
 	return (
-		<>
+		<div className="flex min-h-screen flex-col">
 			<SiteHeader />
 
-			<main role="main" className="w-full flex-auto">
+			<main role="main" className="w-full flex-1 flex-auto">
 				{children}
 			</main>
 
 			<Footer />
-		</>
+		</div>
 	)
 }
