@@ -250,7 +250,7 @@ export function MainNavigation() {
 
 	return (
 		<NavigationMenu>
-			<NavigationMenuList className="gap-2">
+			<NavigationMenuList className="gap-2" aria-label="Pages">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
 
