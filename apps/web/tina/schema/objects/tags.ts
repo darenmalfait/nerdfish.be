@@ -1,6 +1,6 @@
-import { type TinaField } from 'tinacms'
+import { type StringField } from '@tinacms/schema-tools'
 
-export const tagsSchema: TinaField = {
+export const tagsSchema: StringField = {
 	type: 'string',
 	list: true,
 	name: 'tags',

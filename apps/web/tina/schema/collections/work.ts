@@ -1,6 +1,5 @@
+import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
-import { type Collection } from 'tinacms'
-
 import { portableTextSchema, seo } from '../objects'
 
 const workCollection: Collection = {
@@ -53,7 +52,9 @@ const workCollection: Collection = {
 			type: 'string',
 			label: 'Excerpt',
 			name: 'excerpt',
-			component: 'textarea',
+			ui: {
+				component: 'textarea',
+			},
 		},
 		{
 			type: 'datetime',

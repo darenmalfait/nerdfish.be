@@ -1,10 +1,7 @@
-'use client'
-
-import { type RichTextType } from 'tinacms'
-
+import { type RichTextField } from '@tinacms/schema-tools'
 import { imageSchema } from './image'
 
-const portableTextSchema: RichTextType = {
+export const portableTextSchema: RichTextField = {
 	label: 'Text',
 	name: 'text',
 	type: 'rich-text',
@@ -65,5 +62,3 @@ const portableTextSchema: RichTextType = {
 		},
 	],
 }
-
-export { portableTextSchema }

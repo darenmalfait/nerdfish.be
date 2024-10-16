@@ -1,5 +1,4 @@
-import { type Template } from 'tinacms'
-
+import { type Template } from '@tinacms/schema-tools'
 import { tagsSchema } from '../objects'
 
 export const productsTemplate: Template = {

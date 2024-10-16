@@ -1,4 +1,4 @@
-import { type Collection } from 'tinacms'
+import { type Collection } from '@tinacms/schema-tools'
 
 const globalCollection: Collection = {
 	label: 'Global',

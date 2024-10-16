@@ -1,7 +1,6 @@
-import { type ObjectField } from '../types'
+import { type Template } from '@tinacms/schema-tools'
 
-const imageSchema: ObjectField = {
-	type: 'object',
+export const imageSchema: Template = {
 	label: 'Image',
 	name: 'image',
 	fields: [
@@ -17,5 +16,3 @@ const imageSchema: ObjectField = {
 		},
 	],
 }
-
-export { imageSchema }

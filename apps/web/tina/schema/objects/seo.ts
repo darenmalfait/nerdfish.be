@@ -1,6 +1,6 @@
-import { type SchemaField } from 'tinacms'
+import { type ObjectField } from '@tinacms/schema-tools'
 
-const seo: SchemaField = {
+export const seo: ObjectField = {
 	name: 'seo',
 	label: 'SEO',
 	type: 'object',
@@ -35,5 +35,3 @@ const seo: SchemaField = {
 		},
 	],
 }
-
-export { seo }
