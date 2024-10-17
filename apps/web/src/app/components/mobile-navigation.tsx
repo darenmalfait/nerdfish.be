@@ -8,6 +8,7 @@ import {
 	H2,
 	H3,
 	ScrollArea,
+	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
@@ -126,14 +127,15 @@ export function MobileNavigation() {
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent>
-				<div className="container mx-auto flex h-full w-screen flex-col gap-12 px-6 py-6">
-					<div className="flex items-center justify-between gap-2">
-						<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-							<Logo className="h-5 w-auto transition-transform hover:scale-105" />
-						</Link>
-						<div className="flex flex-row items-center justify-end gap-2">
-							<ThemeToggle variant="ghost" />
-							<RSSFeedButton />
+				<div className="container mx-auto flex h-full w-screen flex-col gap-6 px-6">
+					<div className="flex flex-col gap-4">
+						<div className="flex items-center justify-start gap-8">
+							<Button asChild variant="link" className="-mx-2">
+								<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+									<Logo className="h-5 w-auto" />
+								</Link>
+							</Button>
+
 							<ActionsNavigation
 								onSelect={() => {
 									setOpen(false)
@@ -141,33 +143,44 @@ export function MobileNavigation() {
 							/>
 						</div>
 					</div>
+
+					<Separator />
+
 					<ScrollArea className="w-full flex-1 md:h-auto">
-						<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 
 								return (
-									<MobileNavigationItem
-										key={navItem.label}
-										{...navItem}
-										onClick={() => setOpen(false)}
-									/>
+									<li key={navItem.label}>
+										<MobileNavigationItem
+											{...navItem}
+											onClick={() => setOpen(false)}
+										/>
+									</li>
 								)
 							})}
-							<MobileNavigationItem
-								label="AI"
-								href="/ai"
-								onClick={() => setOpen(false)}
-							/>
-						</div>
-					</ScrollArea>
-
-					<div className="sticky bottom-0 flex gap-2">
-						<div className="flex flex-row items-center gap-3">
+							<li>
+								<MobileNavigationItem
+									label="AI"
+									href="/ai"
+									onClick={() => setOpen(false)}
+								/>
+							</li>
+						</ul>
+						<ul className="-mx-3 mt-12 flex flex-row items-center justify-start gap-2">
+							<li>
+								<ThemeToggle variant="ghost" />
+							</li>
+							<li>
+								<RSSFeedButton />
+							</li>
+						</ul>
+						<div className="mt-4 flex flex-row items-center gap-3">
 							<span className="font-bold">Socials:</span>
 							<SocialLinks />
 						</div>
-					</div>
+					</ScrollArea>
 				</div>
 			</DrawerContent>
 		</Drawer>
