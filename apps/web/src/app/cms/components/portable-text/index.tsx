@@ -10,7 +10,9 @@ import { PortableHeading } from './portable-heading'
 import { PortableImage } from './portable-image'
 import { PortableLink } from './portable-link'
 
-function PortableText(props: ExtractProps<typeof TinaMarkdown>) {
+function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
+	if (!props?.content) return null
+
 	return (
 		<TinaMarkdown
 			{...props}
