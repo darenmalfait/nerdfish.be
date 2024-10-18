@@ -27,7 +27,7 @@ export default async function RootLayout({
 				<AppProviders>
 					<GlobalProvider {...layoutData}>
 						<BaseLayoutTemplate>
-							<React.Suspense fallback={<p className="h-5" />}>
+							<React.Suspense fallback={<div className="min-h-screen" />}>
 								{children}
 							</React.Suspense>
 						</BaseLayoutTemplate>

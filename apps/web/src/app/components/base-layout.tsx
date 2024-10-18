@@ -12,7 +12,7 @@ export function BaseLayoutTemplate({
 		<div className="flex min-h-screen flex-col">
 			<SiteHeader />
 
-			<main role="main" className="min-h-screen w-full flex-1">
+			<main role="main" className="w-full flex-1">
 				{children}
 			</main>
 
