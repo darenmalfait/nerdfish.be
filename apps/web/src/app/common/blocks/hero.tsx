@@ -4,7 +4,7 @@ import { tinaField } from 'tinacms/dist/react'
 import { BigTitle } from '../components/big-title'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
-function HeroLayout({ children }: { children: React.ReactNode }) {
+function BlockLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<section className="relative">
 			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
@@ -17,7 +17,7 @@ function HeroLayout({ children }: { children: React.ReactNode }) {
 	)
 }
 
-function HeroContentLayout({ children }: { children?: React.ReactNode }) {
+function BlockContent({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
@@ -29,35 +29,22 @@ function HeroContentLayout({ children }: { children?: React.ReactNode }) {
 	)
 }
 
-function HeroTitle(props: { title?: string | null }) {
-	const { title } = props
-
-	if (!title) return null
+function BlockHeader({ children }: { children: React.ReactNode }) {
+	if (!children) return null
 
 	return (
-		<div
-			className="animate-in fade-in flex flex-col space-y-3 duration-700"
-			data-tina-field={tinaField(props, 'title')}
-		>
-			<BigTitle className="relative font-black text-white" value={title} />
+		<div className="animate-in fade-in flex flex-col space-y-3 duration-700">
+			{children}
 		</div>
 	)
 }
 
-function HeroImage({ image }: { image?: Block<PageBlocksHero>['image'] }) {
-	if (!image?.src) return null
+function BlockImage({ children }: { children?: React.ReactNode }) {
+	if (!children) return null
 
 	return (
 		<div className="animate-in fade-in zoom-in-150 absolute bottom-0 right-0 w-full max-w-[50%] flex-none duration-700">
-			<Image
-				// sticker effect
-				className="inset-0 mb-12 rounded-xl [filter:drop-shadow(0px_0px_3px_#000)]"
-				src={image.src}
-				width={700}
-				height={700}
-				loading="eager"
-				alt={image.alt ?? ''}
-			/>
+			{children}
 		</div>
 	)
 }
@@ -66,15 +53,35 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title } = data
 
 	return (
-		<HeroLayout>
-			<HeroTitle title={title} />
-			<HeroContentLayout>
+		<BlockLayout>
+			<BlockHeader>
+				{title ? (
+					<BigTitle
+						data-tina-field={tinaField(data, 'title')}
+						className="relative font-black text-white"
+						value={title}
+					/>
+				) : null}
+			</BlockHeader>
+			<BlockContent>
 				<PortableText
 					data-tina-field={tinaField(text, 'text')}
 					content={text}
 				/>
-			</HeroContentLayout>
-			<HeroImage image={image} />
-		</HeroLayout>
+			</BlockContent>
+			<BlockImage>
+				{image?.src ? (
+					<Image
+						// sticker effect
+						className="inset-0 mb-12 rounded-xl [filter:drop-shadow(0px_0px_3px_#000)]"
+						src={image.src}
+						width={700}
+						height={700}
+						loading="eager"
+						alt={image.alt ?? ''}
+					/>
+				) : null}
+			</BlockImage>
+		</BlockLayout>
 	)
 }
