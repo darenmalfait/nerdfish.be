@@ -17,6 +17,35 @@ import { WikiOverviewBlock } from '~/app/wiki'
 import { WorkOverviewBlock } from '~/app/work'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
+const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'
+
+const getComponent = (componentKey: string) => {
+	// Not putting this outside, because of server rendering
+	// [key] is the name of the module in TinaCMS
+	const componentsMap: {
+		[K in PageBlockType]: React.ComponentType<Block>
+	} = {
+		PageBlocksBlog: BlogOverviewBlock,
+		PageBlocksBooking: BookingBlock,
+		PageBlocksContent: ContentBlock,
+		PageBlocksFeatures: FeaturesBlock,
+		PageBlocksHero: HeroBlock,
+		PageBlocksHighlight: HighlightBlock,
+		PageBlocksHighlights: HighlightsBlock,
+		PageBlocksKeywordList: KeywordListBlock,
+		PageBlocksProducts: ProductsBlock,
+		PageBlocksSkills: SkillsBlock,
+		PageBlocksWiki: WikiOverviewBlock,
+		PageBlocksWork: WorkOverviewBlock,
+	} as const
+
+	if (!Object.keys(componentsMap).includes(componentKey)) {
+		return false
+	}
+	// Should be safe, as we check for the existence of the key in the previous if
+	return componentsMap[componentKey as keyof typeof componentsMap]
+}
+
 function Placeholder({
 	componentName = 'unknown component',
 }: {
@@ -33,6 +62,26 @@ function Placeholder({
 
 type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 
+function BlockComponent({
+	block,
+	globalData,
+}: {
+	block: PageBlocks
+	globalData?: Block['globalData']
+}) {
+	if (!block.__typename) return null
+
+	const Component = getComponent(block.__typename)
+
+	if (!Component) {
+		return FALLBACK_COMPONENT_ENABLED ? (
+			<Placeholder componentName={block.__typename} />
+		) : null
+	}
+
+	return <Component {...block} globalData={globalData} />
+}
+
 export function Blocks({
 	items,
 	globalData,
@@ -42,50 +91,10 @@ export function Blocks({
 }) {
 	if (!items) return null
 
-	// Not putting this outside, because of server rendering
-	// [key] is the name of the module in TinaCMS
-	const components: {
-		[K in PageBlockType]: React.ComponentType<Block>
-	} = {
-		PageBlocksBlog: BlogOverviewBlock,
-		PageBlocksBooking: BookingBlock,
-		PageBlocksContent: ContentBlock,
-		PageBlocksFeatures: FeaturesBlock,
-		PageBlocksHero: HeroBlock,
-		PageBlocksHighlight: HighlightBlock,
-		PageBlocksHighlights: HighlightsBlock,
-		PageBlocksKeywordList: KeywordListBlock,
-		PageBlocksProducts: ProductsBlock,
-		PageBlocksSkills: SkillsBlock,
-		PageBlocksWiki: WikiOverviewBlock,
-		PageBlocksWork: WorkOverviewBlock,
-	}
-
 	return (
 		<>
 			{items.map((block, i) => {
-				if (
-					!block.__typename ||
-					!Object.keys(components).includes(block.__typename)
-				) {
-					return (
-						<Placeholder
-							key={i.toString() + block.__typename}
-							componentName={block.__typename}
-						/>
-					)
-				}
-
-				const Component = components[block.__typename]
-
-				return (
-					<Component
-						data-tinafield={`blocks.${i}`}
-						key={i + block.__typename}
-						{...block}
-						globalData={globalData}
-					/>
-				)
+				return <BlockComponent key={i} block={block} globalData={globalData} />
 			})}
 		</>
 	)
