@@ -17,17 +17,19 @@ export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 
 	return (
 		<div className="bg-muted rounded-semi relative mx-2">
-			<button
-				type="button"
-				className="group absolute left-1/2 top-24 z-10 mx-auto block -translate-x-1/2 p-10"
-				onClick={() => {
-					ref.current?.scrollIntoView({ behavior: 'smooth' })
-				}}
-			>
-				<ScrollIndicator className="animate-in fade-in-0 slide-in-from-bottom group-hover:border-muted group-hover:text-primary block duration-700">
-					<span className="sr-only">Scroll down</span>
-				</ScrollIndicator>
-			</button>
+			<div className="absolute top-12 flex w-full justify-center md:top-24">
+				<button
+					type="button"
+					className="group z-10 p-10"
+					onClick={() => {
+						ref.current?.scrollIntoView({ behavior: 'smooth' })
+					}}
+				>
+					<ScrollIndicator className="animate-in fade-in-0 slide-in-from-bottom group-hover:text-primary z-10 block duration-700 group-hover:border-black dark:group-hover:border-white">
+						<span className="sr-only">Scroll down</span>
+					</ScrollIndicator>
+				</button>
+			</div>
 			<Section>
 				<TextReveal
 					ref={ref}
