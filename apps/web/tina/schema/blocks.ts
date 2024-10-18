@@ -8,6 +8,7 @@ import { highlightsTemplate } from './blocks/highlights.template'
 import { keywordListTemplate } from './blocks/keyword-list.template'
 import { productsTemplate } from './blocks/products.template'
 import { skillsTemplate } from './blocks/skills.template'
+import { textRevealTemplate } from './blocks/text-reveal'
 import { wikiTemplate } from './blocks/wiki.template'
 import { workTemplate } from './blocks/work.template'
 
@@ -22,6 +23,7 @@ export const blocks = [
 	keywordListTemplate,
 	productsTemplate,
 	skillsTemplate,
+	textRevealTemplate,
 	wikiTemplate,
 	workTemplate,
 ]
