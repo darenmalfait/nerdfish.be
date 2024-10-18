@@ -1,11 +1,10 @@
-import { Skeleton } from '@nerdfish/ui'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { BigTitle, bigTitleClassNames } from '../components/big-title'
+import { BigTitle } from '../components/big-title'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
-function Layout({ children }: { children: React.ReactNode }) {
+function HeroLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<section className="relative">
 			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
@@ -18,7 +17,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 	)
 }
 
-function ContentLayout({ children }: { children?: React.ReactNode }) {
+function HeroContentLayout({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
@@ -30,7 +29,7 @@ function ContentLayout({ children }: { children?: React.ReactNode }) {
 	)
 }
 
-function Title(props: { title?: string | null }) {
+function HeroTitle(props: { title?: string | null }) {
 	const { title } = props
 
 	if (!title) return null
@@ -67,28 +66,15 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 	const { image, text, title } = data
 
 	return (
-		<React.Suspense
-			fallback={
-				<Layout>
-					<span className={bigTitleClassNames}>
-						<Skeleton className="w-full max-w-3xl" />
-					</span>
-					<ContentLayout>
-						<Skeleton count={3} />
-					</ContentLayout>
-				</Layout>
-			}
-		>
-			<Layout>
-				<Title title={title} />
-				<ContentLayout>
-					<PortableText
-						data-tina-field={tinaField(text, 'text')}
-						content={text}
-					/>
-				</ContentLayout>
-				<HeroImage image={image} />
-			</Layout>
-		</React.Suspense>
+		<HeroLayout>
+			<HeroTitle title={title} />
+			<HeroContentLayout>
+				<PortableText
+					data-tina-field={tinaField(text, 'text')}
+					content={text}
+				/>
+			</HeroContentLayout>
+			<HeroImage image={image} />
+		</HeroLayout>
 	)
 }
