@@ -12,6 +12,7 @@ import {
 } from '~/app/common'
 import { BookingBlock } from '~/app/common/blocks/booking'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
+import { TextRevealBlock } from '~/app/common/blocks/text-reveal'
 import { ProductsBlock } from '~/app/realisations'
 import { WikiOverviewBlock } from '~/app/wiki'
 import { WorkOverviewBlock } from '~/app/work'
@@ -35,6 +36,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
+		PageBlocksTextReveal: TextRevealBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
 	} as const
