@@ -14,7 +14,7 @@ export const ScrollIndicator = React.forwardRef<
 			className={cx(
 				'text-muted relative h-[15px] w-[43px] md:h-[38px] md:w-[26px]',
 				'before:hidden md:border-2 md:before:block',
-				'border-muted/40 before:animate-scrollIndicator before:empty-content before:bg-inverted rounded-full transition-all before:absolute before:left-1/2 before:top-1.5 before:h-[7px] before:w-[2px] before:-translate-x-1/2 before:rounded-full before:delay-700',
+				'before:animate-scrollIndicator before:empty-content before:bg-inverted rounded-full border-black/40 transition-all before:absolute before:left-1/2 before:top-1.5 before:h-[7px] before:w-[2px] before:-translate-x-1/2 before:rounded-full before:delay-700 dark:border-white/40',
 				className,
 			)}
 		>
@@ -23,7 +23,7 @@ export const ScrollIndicator = React.forwardRef<
 				stroke="currentColor"
 				className={cx(
 					'md:hidden',
-					'border-muted/40 absolute inset-0 animate-bounce duration-1000 ease-in-out',
+					'border-muted absolute inset-0 animate-bounce duration-1000 ease-in-out dark:border-white/40',
 				)}
 				viewBox="0 0 43 15"
 			>
