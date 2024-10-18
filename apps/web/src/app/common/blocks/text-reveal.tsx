@@ -11,8 +11,10 @@ export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 	if (!label) return null
 
 	return (
-		<Section>
-			<TextReveal data-tina-field={tinaField(props, 'label')} text={label} />
-		</Section>
+		<div className="bg-muted rounded-semi mx-2">
+			<Section>
+				<TextReveal data-tina-field={tinaField(props, 'label')} text={label} />
+			</Section>
+		</div>
 	)
 }
