@@ -263,6 +263,9 @@ importers:
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
+      '@radix-ui/react-slot':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react@18.3.11)(react@18.3.1)
       '@reach/checkbox':
         specifier: ^0.18.0
         version: 0.18.0(react@18.3.1)
