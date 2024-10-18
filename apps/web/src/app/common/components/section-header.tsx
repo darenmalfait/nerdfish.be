@@ -10,6 +10,8 @@ export const SectionHeaderTitle = React.forwardRef<
 		animatedText?: string
 	}
 >(function SectionHeaderTitle({ animatedText, children, ...props }, ref) {
+	if (!animatedText && !children) return null
+
 	return (
 		<H2 ref={ref} {...props}>
 			{animatedText ? (
@@ -27,6 +29,8 @@ export const SectionHeaderSubtitle = React.forwardRef<
 	React.ElementRef<typeof H2>,
 	React.ComponentPropsWithoutRef<typeof H2>
 >(function SectionHeaderSubtitle({ children, ...props }, ref) {
+	if (!children) return null
+
 	return (
 		<H2 variant="secondary" as="div" ref={ref} {...props}>
 			{children}
@@ -45,6 +49,9 @@ export const SectionHeader = React.forwardRef<
 	}
 >(function SectionHeader({ cta, as, className, children, ...props }, ref) {
 	const Element = as ?? 'header'
+
+	if (!children) return null
+
 	return (
 		<Element
 			as={as}

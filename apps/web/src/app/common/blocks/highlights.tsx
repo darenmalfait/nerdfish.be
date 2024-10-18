@@ -63,15 +63,11 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 	const { title, subtitle, items } = props
 
 	return (
-		<Section data-tina-field={tinaField(props, 'items')}>
-			{(title ?? subtitle) ? (
-				<SectionHeader>
-					{title ? <SectionHeaderTitle animatedText={title} /> : null}
-					{subtitle ? (
-						<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-					) : null}
-				</SectionHeader>
-			) : null}
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle animatedText={title ?? undefined} />
+				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+			</SectionHeader>
 			<Grid data-tina-field={tinaField(props, 'items')}>
 				{items?.map((item, i) => {
 					if (!item) return null

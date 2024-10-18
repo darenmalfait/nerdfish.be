@@ -4,6 +4,7 @@ import { Grid, H3 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
+import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
 	ArrowLink,
@@ -77,15 +78,11 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 	const { title, subtitle, items } = props
 
 	return (
-		<Section data-tina-field={tinaField(props, 'items')}>
-			{(title ?? subtitle) ? (
-				<SectionHeader>
-					{title ? <SectionHeaderTitle animatedText={title} /> : null}
-					{subtitle ? (
-						<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-					) : null}
-				</SectionHeader>
-			) : null}
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle animatedText={title ?? undefined} />
+				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+			</SectionHeader>
 			<Grid
 				className="auto-rows-auto grid-cols-3 gap-x-8 gap-y-12"
 				data-tina-field={tinaField(props, 'items')}
