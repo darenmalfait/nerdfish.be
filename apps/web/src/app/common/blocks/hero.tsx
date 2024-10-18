@@ -1,19 +1,33 @@
+import { cx } from '@nerdfish/utils'
+import { Section } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { BigTitle } from '../components/big-title'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
-function BlockLayout({ children }: { children: React.ReactNode }) {
+type Variant = 'default' | 'secondary'
+
+function BlockLayout({
+	children,
+	variant = 'default',
+}: {
+	children: React.ReactNode
+	variant: Variant
+}) {
 	return (
-		<section className="relative">
-			<div className="rounded-semi from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
-			<div className="container relative mx-auto px-8 lg:px-4">
-				<div className="pb-24 pt-32 duration-700 sm:pb-32 md:pb-48">
-					{children}
-				</div>
+		<Section className="relative max-w-none">
+			{variant === 'default' ? (
+				<div className="rounded-semi -z-1 from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
+			) : null}
+			<div
+				className={cx('container mx-auto px-8 lg:px-4', {
+					dark: variant === 'default',
+				})}
+			>
+				{children}
 			</div>
-		</section>
+		</Section>
 	)
 }
 
@@ -21,8 +35,8 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="dark mt-8 max-w-lg">
-			<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in mb-12 mt-8 !text-white duration-1000">
+		<div className="mt-8 max-w-lg">
+			<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in !text-primary mb-12 mt-8 duration-1000">
 				{children}
 			</div>
 		</div>
@@ -50,22 +64,22 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 }
 
 export function HeroBlock(data: Block<PageBlocksHero>) {
-	const { image, text, title } = data
+	const { image, text, title, variant } = data
 
 	return (
-		<BlockLayout>
+		<BlockLayout variant={(variant ?? 'default') as Variant}>
 			<BlockHeader>
 				{title ? (
 					<BigTitle
 						data-tina-field={tinaField(data, 'title')}
-						className="relative font-black text-white"
+						className="text-primary relative font-black"
 						value={title}
 					/>
 				) : null}
 			</BlockHeader>
 			<BlockContent>
 				<PortableText
-					data-tina-field={tinaField(text, 'text')}
+					data-tina-field={tinaField(data, 'text')}
 					content={text}
 				/>
 			</BlockContent>

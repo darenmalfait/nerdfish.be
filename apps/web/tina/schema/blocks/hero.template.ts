@@ -14,6 +14,12 @@ export const heroTemplate: Template = {
 	fields: [
 		{
 			type: 'string',
+			label: 'Variant',
+			name: 'variant',
+			options: ['default', 'secondary'],
+		},
+		{
+			type: 'string',
 			label: 'Title',
 			name: 'title',
 		},
