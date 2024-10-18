@@ -15,7 +15,7 @@ export const BigTitle = React.forwardRef<
 			as={as ?? 'h1'}
 			{...props}
 			className={cx(
-				'text-primary font-sans text-4xl font-black leading-none sm:text-[11.6250vw] 2xl:text-[12rem]',
+				'text-primary font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]',
 				className,
 			)}
 			value={capitalize(value)}
