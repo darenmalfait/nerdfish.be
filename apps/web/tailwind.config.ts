@@ -41,6 +41,25 @@ module.exports = {
 				112: '25rem',
 				120: '27rem',
 			},
+			keyframes: {
+				scrollIndicator: {
+					'0%': {
+						transform: 'translate3d(-1px, 0, 0)',
+						opacity: '0',
+					},
+					'20%': {
+						transform: 'translate3d(-1px, 0, 0)',
+						opacity: '1',
+					},
+					'100%': {
+						transform: 'translate3d(-1px, 8px, 0)',
+						opacity: '0',
+					},
+				},
+			},
+			animation: {
+				scrollIndicator: 'scrollIndicator 2s ease infinite',
+			},
 		},
 	},
 	plugins: [
