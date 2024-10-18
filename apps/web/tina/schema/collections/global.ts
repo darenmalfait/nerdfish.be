@@ -74,6 +74,13 @@ const globalCollection: Collection = {
 									name: 'href',
 									required: true,
 								},
+								{
+									type: 'boolean',
+									label: 'Highlight feature',
+									description:
+										'Highlighted features will take up more space in the navigation',
+									name: 'highlight',
+								},
 							],
 						},
 					],
