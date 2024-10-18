@@ -161,25 +161,19 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 		>
 			<Section>
 				<Card className="rounded-semi bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
-					{(title ?? subtitle) ? (
-						<CardHeader className="p-6">
-							<SectionHeader className="mb-0">
-								{title ? (
-									<SectionHeaderTitle
-										data-tina-field={tinaField(props, 'title')}
-										animatedText={title}
-									/>
-								) : null}
-								{subtitle ? (
-									<SectionHeaderSubtitle
-										data-tina-field={tinaField(props, 'subtitle')}
-									>
-										{subtitle}
-									</SectionHeaderSubtitle>
-								) : null}
-							</SectionHeader>
-						</CardHeader>
-					) : null}
+					<CardHeader>
+						<SectionHeader className="mb-0">
+							<SectionHeaderTitle
+								data-tina-field={tinaField(props, 'title')}
+								animatedText={title ?? undefined}
+							/>
+							<SectionHeaderSubtitle
+								data-tina-field={tinaField(props, 'subtitle')}
+							>
+								{subtitle}
+							</SectionHeaderSubtitle>
+						</SectionHeader>
+					</CardHeader>
 					<CardContent className="p-6">
 						<div className="prose dark:prose-invert">
 							<PortableText
