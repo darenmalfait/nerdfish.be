@@ -64,7 +64,7 @@ export const SectionHeader = React.forwardRef<
 		>
 			<div className="space-y-0">{children}</div>
 
-			{cta ? (
+			{cta?.url ? (
 				<ArrowLink href={cta.url} direction="right">
 					{cta.title}
 				</ArrowLink>
