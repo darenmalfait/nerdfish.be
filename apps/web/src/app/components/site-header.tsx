@@ -3,18 +3,21 @@
 import { Button, Separator } from '@nerdfish/ui'
 import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
+import { useTranslation } from '../[locale]/translation-provider'
 import { MobileNavigation } from './mobile-navigation'
 import { ActionsNavigation, MainNavigation, RSSFeedButton } from './navigation'
 import { ThemeToggle } from './theme-toggle'
 
 export function SiteHeader() {
+	const { currentLocale } = useTranslation()
+
 	return (
 		<div className="w-full">
 			<header className="relative z-50 w-full flex-none">
 				<nav className="mx-auto w-full px-4 lg:container">
 					<div className="relative flex w-full items-center py-[2.125rem]">
 						<Button asChild variant="link" className="-mx-2">
-							<Link href="/" aria-label="Home">
+							<Link href={`/${currentLocale}`} aria-label="Home">
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>

@@ -9,13 +9,11 @@ import {
 } from '@nerdfish/ui'
 import { GlobeIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useTranslation } from '../[locale]/translation-provider'
 import { i18n, supportedLanguages } from '~/i18n-config'
 
 export default function LocaleSwitcher() {
-	const pathname = usePathname()
-
-	const currentLocale = pathname.split('/')[1]
+	const { currentLocale } = useTranslation()
 
 	return (
 		<DropdownMenu>

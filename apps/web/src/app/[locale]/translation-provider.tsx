@@ -2,9 +2,11 @@
 
 import * as React from 'react'
 import { type Dictionary } from '~/get-dictionary'
+import { type Locale } from '~/i18n-config'
 
 interface TranslationContextProps {
 	t: (key: keyof Dictionary) => string
+	currentLocale: Locale
 }
 
 const TranslationContext = React.createContext<TranslationContextProps | null>(
@@ -15,6 +17,7 @@ TranslationContext.displayName = 'TranslationContext'
 interface TranslationProviderProps {
 	children: React.ReactNode
 	dictionary: Dictionary
+	currentLocale: Locale
 }
 
 // import { TranslationProvider } from "path-to-context/TranslationContext"
@@ -22,6 +25,7 @@ interface TranslationProviderProps {
 function TranslationProvider({
 	children,
 	dictionary,
+	currentLocale,
 }: TranslationProviderProps) {
 	const t = React.useCallback(
 		(key: keyof Dictionary) => {
@@ -31,7 +35,9 @@ function TranslationProvider({
 	)
 
 	return (
-		<TranslationContext.Provider value={{ t }}>
+		<TranslationContext.Provider
+			value={React.useMemo(() => ({ t, currentLocale }), [t, currentLocale])}
+		>
 			{children}
 		</TranslationContext.Provider>
 	)
