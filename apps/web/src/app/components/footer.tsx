@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
+import LocaleSwitcher from './locale-switcher'
 import { SocialLinks } from './navigation'
 
 const FooterNavigationSubItem = React.forwardRef<
@@ -137,14 +138,15 @@ export function Footer() {
 					Footer
 				</h2>
 				<nav className="mx-auto pb-8">
-					<div className="gap-8 xl:grid xl:gap-16">
-						<div className="space-y-4">
-							<div className="flex items-center">
-								<div className="flex h-12 items-center">
-									<Logo className="relative h-6 w-auto rounded-full" />
-								</div>
+					<div className="mb-12 space-y-4">
+						<div className="flex items-center justify-between">
+							<div className="flex h-12 items-center">
+								<Logo className="relative h-6 w-auto rounded-full" />
 							</div>
+							<LocaleSwitcher />
 						</div>
+					</div>
+					<div className="gap-8 xl:grid xl:gap-16">
 						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null

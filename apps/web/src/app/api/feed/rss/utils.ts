@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
 
-import { getBlogPosts } from '~/app/blog'
+import { getBlogPosts } from '~/app/[locale]/blog'
 import { BlogPath, getDatedSlug } from '~/app/common'
 
 export async function buildFeed() {

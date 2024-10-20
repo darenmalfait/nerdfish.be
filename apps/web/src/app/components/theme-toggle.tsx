@@ -11,10 +11,12 @@ import {
 import { Moon, Sun } from 'lucide-react'
 import * as React from 'react'
 
+import { useTranslation } from '../[locale]/translation-provider'
 import { useTheme } from '~/app/theme-provider'
 
 const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ variant, asChild, size, className, ...props }, ref) => {
+		const { t } = useTranslation()
 		const [mounted, setMounted] = React.useState(false)
 		const { theme, setTheme, systemTheme } = useTheme()
 
@@ -51,13 +53,13 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem onClick={() => setTheme('light')}>
-						Light
+						{t('theme.light')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('dark')}>
-						Dark
+						{t('theme.dark')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('system')}>
-						System
+						{t('theme.system')}
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
