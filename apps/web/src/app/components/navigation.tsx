@@ -71,20 +71,21 @@ const MainNavigationSubItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({ href, label, description, className, ...props }, ref) => {
 	return (
-		<NavigationMenuItem>
+		<NavigationMenuItem className="w-full">
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'hover:bg-muted focus:bg-muted rounded-semi block select-none space-y-1 p-4 leading-none no-underline outline-none transition-colors',
+						'focus-within:outline-active rounded-semi bg-muted group relative flex h-full w-full select-none flex-col justify-end space-y-1 p-4 leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
 					href={`/${stripPreSlash(href)}`}
 					{...props}
 				>
+					<div className="bg-inverted/5 rounded-semi absolute inset-0 hidden group-hover:block" />
 					<div className="text-sm font-medium leading-none">{label}</div>
 					{description ? (
-						<p className="text-muted line-clamp-2 text-sm leading-snug">
+						<p className="text-muted mb-0 line-clamp-2 text-sm leading-snug">
 							{description}
 						</p>
 					) : null}
@@ -146,9 +147,6 @@ const MainNavigationItem = React.forwardRef<
 		return stripPreSlash(pathname).startsWith(subNavItem.href)
 	})
 
-	const highlightedSubItems = sub.filter((item) => item?.highlight)
-	const nonHighlightedSubItems = sub.filter((item) => !item?.highlight)
-
 	return (
 		<NavigationMenuItem>
 			<NavigationMenuTrigger
@@ -158,37 +156,24 @@ const MainNavigationItem = React.forwardRef<
 			>
 				{label}
 			</NavigationMenuTrigger>
-			<NavigationMenuContent>
+			<NavigationMenuContent className="bg-primary rounded-semi">
 				<ul
 					className={cx(
-						'grid gap-3 p-6 md:w-[400px] lg:w-[500px]',
-						highlightedSubItems.length && 'lg:grid-cols-[.75fr_1fr]',
+						'grid gap-2 p-2 md:w-[400px] lg:w-[500px]',
+						'lg:grid-cols-3 lg:grid-rows-2',
 					)}
 				>
-					{highlightedSubItems.map((item) => {
-						if (!item) return null
-
-						return (
-							<li key={item.label} className="dark row-span-3">
-								<NavigationMenuLink asChild>
-									<Link
-										className="from-accent/50 via-blog-wiki/50 text-primary to-blog-project/50 rounded-semi bg-primary focus-within:outline-active flex h-full w-full select-none flex-col justify-end bg-gradient-to-b p-6 no-underline transition-transform ease-out hover:scale-105"
-										href={`/${stripPreSlash(item.href)}`}
-									>
-										<div className="mb-2 text-lg font-medium">{item.label}</div>
-										<p className="text-muted-foreground text-sm leading-tight">
-											{item.description}
-										</p>
-									</Link>
-								</NavigationMenuLink>
-							</li>
-						)
-					})}
-					{nonHighlightedSubItems.map((subNavItem) => {
+					{sub.map((subNavItem) => {
 						if (!subNavItem) return null
 
 						return (
-							<li key={subNavItem.label}>
+							<li
+								key={subNavItem.label}
+								className={cx('rounded-semi col-span-3 flex h-full w-full', {
+									'lg:col-span-2 first:lg:col-span-1 first:lg:row-span-2':
+										sub.length > 2,
+								})}
+							>
 								<MainNavigationSubItem {...subNavItem} />
 							</li>
 						)
