@@ -253,7 +253,7 @@ function AINavigationItem() {
 				onMouseEnter={replay}
 				aria-label="AI"
 				label="[AI]"
-				href="/ai"
+				href="/en/ai"
 			/>
 		</NavigationMenuItem>
 	)
