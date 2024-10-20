@@ -1,0 +1,83 @@
+{
+	"navigation": {
+		"main": [
+			{
+				"label": "Diensten",
+				"href": "",
+				"sub": [
+					{
+						"label": "Webdesign",
+						"description": "Transformeer uw ideeën in visueel verbluffende, gebruiksvriendelijke websites.",
+						"href": "/nl/webdesign"
+					},
+					{
+						"label": "Javascript consultancy",
+						"description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
+						"href": "/nl/consultancy"
+					},
+					{
+						"label": "Branding",
+						"description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
+						"href": "/nl/branding"
+					}
+				]
+			},
+			{
+				"label": "Gedachten",
+				"href": "",
+				"sub": [
+					{
+						"label": "Blog",
+						"description": "Een verzameling artikelen die ik heb geschreven over verschillende onderwerpen",
+						"href": "/en/blog"
+					},
+					{
+						"label": "Knowledge Base",
+						"description": "Een samengestelde lijst van nuttige pagina's die dient als een kleine persoonlijke wiki.",
+						"href": "/en/wiki"
+					}
+				]
+			},
+			{
+				"label": "Werk",
+				"href": "/nl/werk"
+			}
+		],
+		"actions": [
+			{
+				"label": "Contact",
+				"href": "/nl/contact"
+			}
+		]
+	},
+	"social": {
+		"twitter": "https://twitter.com/darenmalfait",
+		"github": "https://github.com/darenmalfait",
+		"linkedIn": "https://www.linkedin.com/in/darenmalfait/"
+	},
+	"paths": {
+		"wiki": "/nl/wiki",
+		"blog": "/nl/blog",
+		"work": "/nl/werk",
+		"contact": "/nl/contact"
+	},
+	"companyInfo": {
+		"companyName": "Daren Malfait BV",
+		"vat": "BE0794123756"
+	},
+	"calcom": {
+		"profileName": "nerdfish",
+		"types": [
+			{
+				"slug": "30min",
+				"title": "Sessie van 30 minuten",
+				"duration": 30
+			},
+			{
+				"slug": "1hour",
+				"title": "Sessie van 1 uur",
+				"duration": 60
+			}
+		]
+	}
+}

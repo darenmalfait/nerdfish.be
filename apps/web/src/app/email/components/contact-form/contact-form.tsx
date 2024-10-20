@@ -30,8 +30,10 @@ import { useForm } from 'react-hook-form'
 
 import { useRecaptcha } from '../../utils/recaptcha'
 import { submitContactForm } from './actions'
+import { useTranslation } from '~/app/[locale]/translation-provider'
 
 function ContactForm() {
+	const { t } = useTranslation()
 	const { execute } = useRecaptcha()
 	const [error, setError] = React.useState<string>()
 
@@ -64,7 +66,7 @@ function ContactForm() {
 			})
 
 			if (!result.success) {
-				throw new Error('An error occurred while submitting the form.')
+				throw new Error(t('contact.genericError'))
 			}
 
 			form.reset()
@@ -72,7 +74,7 @@ function ContactForm() {
 			if (e instanceof Error) {
 				console.error(e.message)
 			} else {
-				console.error('An error occurred while submitting the form.')
+				console.error(t('contact.genericError'))
 			}
 		}
 	}
@@ -87,7 +89,7 @@ function ContactForm() {
 							name="name"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Name</FormLabel>
+									<FormLabel>{t('contact.name')}</FormLabel>
 
 									<FormControl>
 										<Input {...field} />
@@ -102,7 +104,7 @@ function ContactForm() {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Your email address</FormLabel>
+									<FormLabel>{t('contact.email')}</FormLabel>
 
 									<FormControl>
 										<Input type="email" {...field} />
@@ -117,7 +119,7 @@ function ContactForm() {
 							name="project"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>What are you interested in?</FormLabel>
+									<FormLabel>{t('contact.project')}</FormLabel>
 
 									<FormControl>
 										<RadioGroup
@@ -130,9 +132,9 @@ function ContactForm() {
 														<RadioGroupItem value="webdesign" />
 													</FormControl>
 													<FormLabel>
-														Webdesign
+														{t('contact.webdesign')}
 														<FormDescription>
-															Design and development of websites.
+															{t('contact.webdesignDescription')}
 														</FormDescription>
 													</FormLabel>
 												</RadioGroupField>
@@ -144,9 +146,9 @@ function ContactForm() {
 														<RadioGroupItem value="services" />
 													</FormControl>
 													<FormLabel>
-														Services
+														{t('contact.services')}
 														<FormDescription>
-															Consulting, workshops, and more.
+															{t('contact.servicesDescription')}
 														</FormDescription>
 													</FormLabel>
 												</RadioGroupField>
@@ -158,9 +160,9 @@ function ContactForm() {
 														<RadioGroupItem value="other" />
 													</FormControl>
 													<FormLabel>
-														Other
+														{t('contact.other')}
 														<FormDescription>
-															Let&apos;s talk about your project.
+															{t('contact.otherDescription')}
 														</FormDescription>
 													</FormLabel>
 												</RadioGroupField>
@@ -187,15 +189,13 @@ function ContactForm() {
 							)}
 						/>
 
-						<Description>
-							We only use your data to get in touch with you.
-						</Description>
+						<Description>{t('contact.dataUsage')}</Description>
 
 						{form.formState.isSubmitSuccessful && !error ? (
 							<Alert variant="success">
 								<AlertTitle>Success</AlertTitle>
 								<AlertDescription>
-									Your message has been sent successfully.{' '}
+									{t('contact.success')}
 									<span role="img" aria-label="party popper">
 										🎉
 									</span>
@@ -212,16 +212,14 @@ function ContactForm() {
 								{form.formState.isSubmitting ? (
 									<Loader2 className="mr-2 animate-spin" />
 								) : null}
-								Send message
+								{t('contact.send')}
 							</Button>
 						)}
 					</div>
 					{form.formState.errors.recaptchaResponse?.message ? (
 						<Alert variant="danger">
 							<AlertTitle>reCAPTCHA error</AlertTitle>
-							<AlertDescription>
-								Please verify that you are not a robot.
-							</AlertDescription>
+							<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
 						</Alert>
 					) : null}
 
