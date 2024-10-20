@@ -35,7 +35,10 @@ export default async function RootLayout({
 		<html lang={params.locale} suppressHydrationWarning>
 			<body className={`${GeistSans.variable} font-sans`}>
 				<AppProviders>
-					<TranslationProvider dictionary={dictionary}>
+					<TranslationProvider
+						dictionary={dictionary}
+						currentLocale={params.locale}
+					>
 						<GlobalProvider {...layoutData}>
 							<BaseLayoutTemplate>
 								<React.Suspense fallback={<div className="min-h-screen" />}>
