@@ -20,6 +20,7 @@ export type Dictionary = {
 	'theme.dark': string
 	'theme.light': string
 	'theme.system': string
+	'features.readMore': string
 }
 
 // We enumerate all dictionaries here for better linting and typescript support
