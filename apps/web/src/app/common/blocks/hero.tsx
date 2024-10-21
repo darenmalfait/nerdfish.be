@@ -35,8 +35,8 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="mt-8 max-w-lg">
-			<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in !text-primary mb-12 mt-8 duration-1000">
+		<div className="mt-2 max-w-lg">
+			<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in !text-primary mb-12 mt-0 duration-1000">
 				{children}
 			</div>
 		</div>
