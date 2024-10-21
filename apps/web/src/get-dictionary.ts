@@ -3,6 +3,20 @@ import 'server-only'
 import { i18n, type Locale } from './i18n-config'
 
 export type Dictionary = {
+	'ai.chat.initialMessage': string
+	'ai.premadeQuestions.whoAreYou': string
+	'ai.premadeQuestions.whoAreYouQuestion': string
+	'ai.premadeQuestions.favoriteLanguage': string
+	'ai.premadeQuestions.favoriteLanguageQuestion': string
+	'ai.premadeQuestions.experience': string
+	'ai.premadeQuestions.experienceQuestion': string
+	'ai.premadeQuestions.currentJob': string
+	'ai.premadeQuestions.currentJobQuestion': string
+	'ai.booking.title': string
+	'ai.booking.subtitle': string
+	'ai.description': string
+	'ai.meta.description': string
+	'ai.meta.title': string
 	'contact.dataUsage': string
 	'contact.email': string
 	'contact.genericError': string

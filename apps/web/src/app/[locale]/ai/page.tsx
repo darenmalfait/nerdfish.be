@@ -10,22 +10,32 @@ import {
 } from '../../common'
 import { BookingBlock } from '../../common/blocks/booking'
 import { Chat } from './components/chat'
+import { getDictionary } from '~/get-dictionary'
+import { type WithLocale } from '~/i18n-config'
 
-export async function generateMetadata(): Promise<Metadata | undefined> {
-	const title = 'Nerdfish - Daren Malfait AI'
+export async function generateMetadata({
+	params,
+}: {
+	params: WithLocale<{}>
+}): Promise<Metadata | undefined> {
+	const dictionary = await getDictionary(params.locale)
+
+	const title = dictionary['ai.meta.title']
 
 	return getMetaData({
 		ogImage: generateOGImageUrl({
 			heading: title,
 		}),
 		title,
-		url: '/ai',
-		description: 'Ask Daren Malfait anything',
-		canonical: '/ai',
+		url: `/${params.locale}/ai`,
+		description: dictionary['ai.meta.description'],
+		canonical: `/${params.locale}/ai`,
 	})
 }
 
-export default function AiPage() {
+export default async function AiPage({ params }: { params: WithLocale<{}> }) {
+	const dictionary = await getDictionary(params.locale)
+
 	return (
 		<>
 			<Section>
@@ -34,15 +44,13 @@ export default function AiPage() {
 					<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
 				</SectionHeader>
 				<Paragraph className="mb-6 max-w-3xl font-medium">
-					Disclaimer: This is not actually me, but AI. Answers might be highly
-					inaccurate, Since this is mostly an experiment, I&apos;m also using a
-					free tier of the AI, so it might not always work.
+					{dictionary['ai.description']}
 				</Paragraph>
 				<Chat />
 			</Section>
 			<BookingBlock
-				title="Rather really speak to me?"
-				subtitle="Book a meeting"
+				title={dictionary['ai.booking.title']}
+				subtitle={dictionary['ai.booking.subtitle']}
 			/>
 		</>
 	)
