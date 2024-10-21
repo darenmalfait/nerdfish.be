@@ -129,7 +129,7 @@ export function MobileNavigation() {
 			</DrawerTrigger>
 			<DrawerContent hideCloseButton>
 				<div className="flex h-full w-screen flex-col">
-					<DrawerHeader className="bg-primary flex items-center justify-between gap-8">
+					<DrawerHeader className="bg-primary flex items-center justify-between gap-8 py-[2.125rem]">
 						<Button asChild variant="link" className="-mx-2">
 							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
 								<Logo className="h-5 w-auto" />
