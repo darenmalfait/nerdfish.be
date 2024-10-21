@@ -16,12 +16,12 @@ function BlockLayout({
 	variant: Variant
 }) {
 	return (
-		<Section className="relative max-w-none">
+		<Section className={cx('relative max-w-none')}>
 			{variant === 'default' ? (
 				<div className="rounded-semi -z-1 from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
 			) : null}
 			<div
-				className={cx('container relative mx-auto px-8 lg:px-4', {
+				className={cx('relative px-4 lg:container lg:mx-auto', {
 					dark: variant === 'default',
 				})}
 			>
