@@ -3,16 +3,17 @@
 import {
 	Button,
 	Drawer,
+	DrawerClose,
 	DrawerContent,
+	DrawerHeader,
 	DrawerTrigger,
 	H2,
 	H3,
 	ScrollArea,
-	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Logo, MenuIcon } from '@nerdfish-website/ui/icons'
+import { Logo, MenuIcon, XIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -126,27 +127,30 @@ export function MobileNavigation() {
 					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent>
-				<div className="container mx-auto flex h-full w-screen flex-col gap-6 px-6">
-					<div className="flex flex-col gap-4">
-						<div className="flex items-center justify-start gap-8">
-							<Button asChild variant="link" className="-mx-2">
-								<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-									<Logo className="h-5 w-auto" />
-								</Link>
-							</Button>
+			<DrawerContent hideCloseButton>
+				<div className="flex h-full w-screen flex-col">
+					<DrawerHeader className="bg-primary flex items-center justify-between gap-8">
+						<Button asChild variant="link" className="-mx-2">
+							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+								<Logo className="h-5 w-auto" />
+							</Link>
+						</Button>
 
+						<div className="flex items-center gap-2">
 							<ActionsNavigation
 								onSelect={() => {
 									setOpen(false)
 								}}
 							/>
+							<DrawerClose asChild className="-mr-2">
+								<Button variant="ghost" type="button" size="icon">
+									<XIcon className="size-4" />
+								</Button>
+							</DrawerClose>
 						</div>
-					</div>
+					</DrawerHeader>
 
-					<Separator />
-
-					<ScrollArea className="w-full flex-1 md:h-auto">
+					<ScrollArea className="w-full flex-1 px-6 md:h-auto">
 						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
@@ -176,7 +180,7 @@ export function MobileNavigation() {
 								<RSSFeedButton />
 							</li>
 						</ul>
-						<div className="mt-4 flex flex-row items-center gap-3">
+						<div className="mt-4 flex flex-row items-center gap-3 pb-6">
 							<span className="font-bold">Socials:</span>
 							<SocialLinks />
 						</div>
