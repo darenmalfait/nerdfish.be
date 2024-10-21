@@ -10,7 +10,8 @@ import * as React from 'react'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import LocaleSwitcher from './locale-switcher'
-import { SocialLinks } from './navigation'
+import { RSSFeedButton, SocialLinks } from './navigation'
+import { ThemeToggle } from './theme-toggle'
 
 const FooterNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -143,7 +144,17 @@ export function Footer() {
 							<div className="flex h-12 items-center">
 								<Logo className="relative h-6 w-auto rounded-full" />
 							</div>
-							<LocaleSwitcher />
+							<ul className="flex items-center gap-4">
+								<li>
+									<ThemeToggle variant="ghost" />
+								</li>
+								<li>
+									<RSSFeedButton className="xsm:flex hidden" />
+								</li>
+								<li>
+									<LocaleSwitcher />
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div className="gap-8 xl:grid xl:gap-16">

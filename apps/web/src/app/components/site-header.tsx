@@ -5,7 +5,7 @@ import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { useTranslation } from '../[locale]/translation-provider'
 import { MobileNavigation } from './mobile-navigation'
-import { ActionsNavigation, MainNavigation, RSSFeedButton } from './navigation'
+import { ActionsNavigation, MainNavigation } from './navigation'
 import { ThemeToggle } from './theme-toggle'
 
 export function SiteHeader() {
@@ -31,7 +31,6 @@ export function SiteHeader() {
 							/>
 							<div className="flex flex-1 justify-end space-x-2 sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
-								<RSSFeedButton className="xsm:flex hidden" />
 								<ActionsNavigation className="hidden md:flex" />
 								<MobileNavigation />
 							</div>

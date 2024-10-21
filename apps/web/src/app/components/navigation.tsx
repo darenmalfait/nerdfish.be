@@ -191,48 +191,54 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<div className="flex flex-row items-center gap-3">
+		<ul className="flex flex-row items-center gap-3">
 			{social?.twitter ? (
-				<Button variant="ghost" size="icon" asChild>
-					<Link aria-label="Twitter feed" href={social.twitter}>
-						<TwitterIcon className="size-4 duration-75 ease-linear" />
-					</Link>
-				</Button>
+				<li>
+					<Button variant="ghost" size="icon" asChild>
+						<Link aria-label="Twitter feed" href={social.twitter}>
+							<TwitterIcon className="size-4 duration-75 ease-linear" />
+						</Link>
+					</Button>
+				</li>
 			) : null}
 			{social?.facebook ? (
-				<Button variant="ghost" size="icon" asChild>
-					<Link aria-label="Facebook page" href={social.facebook}>
-						<FacebookIcon className="size-4 duration-75 ease-linear" />
-					</Link>
-				</Button>
+				<li>
+					<Button variant="ghost" size="icon" asChild>
+						<Link aria-label="Facebook page" href={social.facebook}>
+							<FacebookIcon className="size-4 duration-75 ease-linear" />
+						</Link>
+					</Button>
+				</li>
 			) : null}
 			{social?.instagram ? (
-				<Button variant="ghost" size="icon" asChild>
-					<Link
-						aria-label="Instagram
-          "
-						href={social.instagram}
-					>
-						<InstagramIcon className="size-4 duration-75 ease-linear" />
-					</Link>
-				</Button>
+				<li>
+					<Button variant="ghost" size="icon" asChild>
+						<Link aria-label="Instagram" href={social.instagram}>
+							<InstagramIcon className="size-4 duration-75 ease-linear" />
+						</Link>
+					</Button>
+				</li>
 			) : null}
 			{social?.linkedIn ? (
-				<Button variant="ghost" size="icon" asChild>
-					<Link aria-label="LinkedIn profile" href={social.linkedIn}>
-						<LinkedinIcon className="size-4 duration-75 ease-linear" />
-					</Link>
-				</Button>
+				<li>
+					<Button variant="ghost" size="icon" asChild>
+						<Link aria-label="LinkedIn profile" href={social.linkedIn}>
+							<LinkedinIcon className="size-4 duration-75 ease-linear" />
+						</Link>
+					</Button>
+				</li>
 			) : null}
 			{social?.github ? (
-				<Button variant="ghost" size="icon" asChild>
-					<Link aria-label="Github Repository" href={social.github}>
-						<GithubIcon className="size-4 duration-75 ease-linear" />
-						<span className="sr-only">Github</span>
-					</Link>
-				</Button>
+				<li>
+					<Button variant="ghost" size="icon" asChild>
+						<Link aria-label="Github Repository" href={social.github}>
+							<GithubIcon className="size-4 duration-75 ease-linear" />
+							<span className="sr-only">Github</span>
+						</Link>
+					</Button>
+				</li>
 			) : null}
-		</div>
+		</ul>
 	)
 }
 
