@@ -16,10 +16,9 @@ import { BookIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { filterWiki } from '../utils'
+import { filterWiki, getWikiPath } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
 import {
-	getDatedSlug,
 	SectionHeader,
 	nonNullable,
 	SectionHeaderSubtitle,
@@ -178,10 +177,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							return (
 								<li key={wiki._sys?.filename} className="mx-auto flex flex-col">
 									<a
-										href={`/wiki${getDatedSlug(
-											wiki.date as string,
-											wiki._sys?.filename ?? '',
-										)}`}
+										href={getWikiPath(wiki)}
 										className="text-primary hover:text-muted line-clamp-3 text-2xl font-semibold leading-snug hover:underline"
 									>
 										{wiki.title}

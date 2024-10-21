@@ -1,7 +1,8 @@
 import { type MetadataRoute } from 'next'
 
+import { getBlogPath } from './[locale]/blog/utils'
+import { getWikiPath } from './[locale]/wiki/utils'
 import { getSitemapData } from './api'
-import { getDatedSlug } from './common'
 
 const BASE_URL = process.env.NEXT_PUBLIC_URL
 
@@ -33,14 +34,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}) ?? []),
 		...(data.blogs?.map((blog) => {
 			return {
-				url: `${BASE_URL}/blog/${getDatedSlug(blog.date, blog._sys?.filename)}`,
+				url: `${BASE_URL}${getBlogPath(blog)}`,
 				lastModified: new Date(),
 				priority: 0.8,
 			}
 		}) ?? []),
 		...(data.wikis?.map((wiki) => {
 			return {
-				url: `${BASE_URL}/wiki/${getDatedSlug(wiki.date, wiki._sys?.filename)}`,
+				url: `${BASE_URL}${getWikiPath(wiki)}`,
 				lastModified: new Date(wiki.date ?? ''),
 				priority: 0.5,
 			}

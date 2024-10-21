@@ -1,6 +1,5 @@
 import { stripPreSlash, stripTrailingSlash } from '@nerdfish-website/lib/utils'
 import { type ogImageSchema } from '@nerdfish-website/lib/validations'
-import { formatDate } from 'date-fns/format'
 import { type Metadata } from 'next'
 import { type z } from 'zod'
 
@@ -78,11 +77,4 @@ export function getMetaData({
 
 export function nonNullable<T>(value: T): value is NonNullable<T> {
 	return value !== null && value !== undefined
-}
-
-export function getDatedSlug(date?: string, slug?: string) {
-	if (!date) return slug
-
-	const dateSegment = formatDate(new Date(date), 'yyyy/MM')
-	return `/${dateSegment}/${slug ?? ''}/`
 }
