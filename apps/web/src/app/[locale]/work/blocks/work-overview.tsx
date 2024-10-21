@@ -7,7 +7,7 @@ import { PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { filterWork } from '../utils'
+import { filterWork, getWorkPath } from '../utils'
 import { type Block, type PageBlocksWork } from '~/app/cms'
 import {
 	ArticleCard,
@@ -204,7 +204,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 							return (
 								<li key={work.id} className="col-span-4">
 									<ArticleCard
-										href={`/${WorkPath}/${work.category}/${work._sys?.filename}`}
+										href={getWorkPath(work)}
 										{...work}
 										date={undefined}
 									/>

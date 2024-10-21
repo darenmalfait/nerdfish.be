@@ -1,31 +1,18 @@
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
-import { getWikiPosts } from '~/app/[locale]/wiki'
 import { WorkContent } from '~/app/[locale]/work/components/work-content'
 import { WorkPreview } from '~/app/[locale]/work/components/work-preview'
-import { generateOGImageUrl, getDatedSlug, getMetaData } from '~/app/common'
-import { i18n } from '~/i18n-config'
-
-export async function generateStaticParams() {
-	return ((await getWikiPosts()) ?? []).map((post) => {
-		const locale = i18n.defaultLocale
-
-		return {
-			category: post._sys?.relativePath.split('/')[1],
-			slug: post._sys?.filename,
-			locale,
-		}
-	})
-}
+import { generateOGImageUrl, getMetaData } from '~/app/common'
+import { type WithLocale } from '~/i18n-config'
 
 export async function generateMetadata({
 	params,
 }: {
-	params: { slug: string; category: string }
+	params: WithLocale<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-	const { data } = await getRouteData(params.slug, params.category)
-
+	const { data } = await getRouteData(params.slug.join('/'))
 	const title = data.work.seo?.title ?? (data.work.title || 'Untitled')
 
 	return getMetaData({
@@ -35,7 +22,7 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		title,
-		url: `/work/${getDatedSlug(data.work.date, params.slug)}`,
+		url: getWorkPath(data.work),
 		description: data.work.seo?.description ?? '',
 		canonical: data.work.seo?.canonical,
 	})
@@ -44,9 +31,9 @@ export async function generateMetadata({
 export default async function WorkPage({
 	params,
 }: {
-	params: { slug: string; category: string }
+	params: WithLocale<{ slug: string[] }>
 }) {
-	const routeData = await getRouteData(params.slug, params.category)
+	const routeData = await getRouteData(params.slug.join('/'))
 
 	const { isEnabled: isPreview } = draftMode()
 

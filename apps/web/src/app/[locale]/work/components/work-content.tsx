@@ -5,6 +5,7 @@ import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { mapWorkData } from '../api'
+import { getWorkPath } from '../utils'
 import { BackToWork } from './misc'
 import { PortableText, type WorkQueryQuery } from '~/app/cms'
 import {
@@ -12,7 +13,6 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-	WorkPath,
 } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
@@ -79,7 +79,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 							return (
 								<div key={work.id} className="col-span-4">
 									<ArticleCard
-										href={`/${WorkPath}/${work.category}/${work._sys.filename}`}
+										href={getWorkPath(work)}
 										{...work}
 										date={undefined}
 										id={work.id}

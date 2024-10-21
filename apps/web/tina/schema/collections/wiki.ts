@@ -1,6 +1,4 @@
 import { type Collection } from '@tinacms/schema-tools'
-import { parseISO } from 'date-fns'
-import { padStart } from 'lodash'
 import slugify from 'slugify'
 import { portableTextSchema, seo, tagsSchema } from '../objects'
 
@@ -19,15 +17,7 @@ const wikiCollection: Collection = {
 		filename: {
 			readonly: true,
 			slugify: (values) => {
-				const date = parseISO(values.date)
-				const year = date.getFullYear()
-				const month = padStart((date.getMonth() + 1).toString(), 2, '0')
-
-				let slug = values.title ? slugify(values.title?.toLowerCase()) : ''
-
-				if (values.date) {
-					slug = `${year}/${month}/${slug}`
-				}
+				const slug = values.title ? slugify(values.title?.toLowerCase()) : ''
 
 				return slug
 			},

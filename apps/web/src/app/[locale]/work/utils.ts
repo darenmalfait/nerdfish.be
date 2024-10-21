@@ -1,6 +1,6 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-
-import { type Work } from '../../cms'
+import { type SystemInfo, type Work } from '../../cms'
+import { WorkPath } from '~/app/common'
 
 export function filterWork(posts: Partial<Work>[], searchString: string) {
 	if (!searchString) return posts
@@ -72,4 +72,11 @@ export function filterWork(posts: Partial<Work>[], searchString: string) {
 	}
 
 	return Array.from(new Set([...allResults, ...individualWordResults]))
+}
+
+export function getWorkPath(
+	work: Omit<Partial<Work>, '_sys'> & { _sys?: Partial<SystemInfo> },
+) {
+	const path = work._sys?.breadcrumbs?.join('/')
+	return path ? `/${WorkPath}/${path}` : ''
 }

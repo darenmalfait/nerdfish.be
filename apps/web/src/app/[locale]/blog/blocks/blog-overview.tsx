@@ -17,12 +17,10 @@ import { parseISO } from 'date-fns/parseISO'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { filterBlog } from '../utils'
+import { filterBlog, getBlogPath } from '../utils'
 import { type Block, type PageBlocksBlog } from '~/app/cms'
 import {
 	ArticleCard,
-	BlogPath,
-	getDatedSlug,
 	SectionHeader,
 	HighlightCard,
 	nonNullable,
@@ -188,10 +186,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 					<HighlightCard
 						className="mb-12"
 						category={featured.category}
-						href={`/${BlogPath}${getDatedSlug(
-							featured.date as string,
-							featured._sys?.filename ?? '',
-						)}`}
+						href={getBlogPath(featured)}
 						title={featured.title}
 						subtitle={
 							featured.date
@@ -220,10 +215,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						{posts.map((blog) => {
 							return (
 								<li key={blog.id} className="col-span-4">
-									<ArticleCard
-										href={`/${BlogPath}${getDatedSlug(blog.date, blog._sys?.filename)}`}
-										{...blog}
-									/>
+									<ArticleCard href={getBlogPath(blog)} {...blog} />
 								</li>
 							)
 						})}

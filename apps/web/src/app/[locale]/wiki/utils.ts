@@ -1,6 +1,7 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 
-import { type Wiki } from '~/app/cms'
+import { type SystemInfo, type Wiki } from '~/app/cms'
+import { WikiPath } from '~/app/common'
 
 export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 	if (!searchString) return posts
@@ -72,4 +73,11 @@ export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 	}
 
 	return Array.from(new Set([...allResults, ...individualWordResults]))
+}
+
+export function getWikiPath(
+	wiki: Omit<Partial<Wiki>, '_sys'> & { _sys?: Partial<SystemInfo> },
+) {
+	const path = wiki._sys?.breadcrumbs?.join('/')
+	return path ? `/${WikiPath}/${path}` : ''
 }

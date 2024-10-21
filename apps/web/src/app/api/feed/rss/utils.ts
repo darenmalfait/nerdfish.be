@@ -1,7 +1,6 @@
 import { Feed } from 'feed'
-
 import { getBlogPosts } from '~/app/[locale]/blog'
-import { BlogPath, getDatedSlug } from '~/app/common'
+import { getBlogPath } from '~/app/[locale]/blog/utils'
 
 export async function buildFeed() {
 	const feed = new Feed({
@@ -20,10 +19,7 @@ export async function buildFeed() {
 	const posts = (await getBlogPosts()) ?? []
 
 	posts.reverse().forEach((post) => {
-		const link = `${process.env.NEXT_PUBLIC_URL}/${BlogPath}${getDatedSlug(
-			new Date(post.date ?? '').toDateString(),
-			post._sys?.filename ?? '',
-		)}`
+		const link = `${process.env.NEXT_PUBLIC_URL}${getBlogPath(post)}`
 
 		feed.addItem({
 			title: post.title ?? '',

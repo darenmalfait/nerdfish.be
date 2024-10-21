@@ -1,35 +1,17 @@
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
-
 import { getRouteData } from './route-data'
-import { getBlogPosts } from '~/app/[locale]/blog/api'
 import { BlogContent } from '~/app/[locale]/blog/components/blog-content'
 import { BlogPreview } from '~/app/[locale]/blog/components/blog-preview'
-import { generateOGImageUrl, getDatedSlug, getMetaData } from '~/app/common'
-import { i18n } from '~/i18n-config'
-
-export async function generateStaticParams() {
-	return ((await getBlogPosts()) ?? []).map((post) => {
-		const locale = i18n.defaultLocale
-		const parts = getDatedSlug(post.date, post._sys?.filename)?.split('/')
-
-		if (!parts) return null
-
-		return {
-			year: parts[1],
-			month: parts[2],
-			slug: parts[3],
-			locale,
-		}
-	})
-}
+import { generateOGImageUrl, getMetaData } from '~/app/common'
+import { type WithLocale } from '~/i18n-config'
 
 export async function generateMetadata({
 	params,
 }: {
-	params: { slug: string; year: string; month: string }
+	params: WithLocale<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-	const { data } = await getRouteData(params.slug, params.year, params.month)
+	const { data } = await getRouteData(params.slug.join('/'))
 
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
@@ -40,7 +22,7 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		title,
-		url: `/blog/${getDatedSlug(data.blog.date, params.slug)}`,
+		url: `/blog/${params.slug.join('/')}`,
 		description: data.blog.seo?.description ?? '',
 		canonical: data.blog.seo?.canonical,
 	})
@@ -49,9 +31,9 @@ export async function generateMetadata({
 export default async function BlogPage({
 	params,
 }: {
-	params: { slug: string; year: string; month: string }
+	params: WithLocale<{ slug: string[] }>
 }) {
-	const routeData = await getRouteData(params.slug, params.year, params.month)
+	const routeData = await getRouteData(params.slug.join('/'))
 
 	const { isEnabled: isPreview } = draftMode()
 
