@@ -21,7 +21,7 @@ function BlockLayout({
 				<div className="rounded-semi -z-1 from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
 			) : null}
 			<div
-				className={cx('container mx-auto px-8 lg:px-4', {
+				className={cx('container relative mx-auto px-8 lg:px-4', {
 					dark: variant === 'default',
 				})}
 			>
@@ -87,7 +87,7 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 				{image?.src ? (
 					<Image
 						// sticker effect
-						className="inset-0 mb-12 rounded-xl [filter:drop-shadow(0px_0px_3px_#000)]"
+						className="absolute right-0 top-full max-w-[100%] -translate-y-1/4 rounded-xl [filter:drop-shadow(0px_0px_2px_#fff)] lg:-translate-y-1/2 dark:[filter:drop-shadow(0px_0px_2px_#000)]"
 						src={image.src}
 						width={700}
 						height={700}
