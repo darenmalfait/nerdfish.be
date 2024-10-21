@@ -23,7 +23,9 @@ const workCollection: Collection = {
 		filename: {
 			readonly: true,
 			slugify: (values) => {
-				return `${values.category}/${values.title ? slugify(values.title?.toLowerCase()) : ''}`
+				const slug = values.title ? slugify(values.title?.toLowerCase()) : ''
+
+				return slug
 			},
 		},
 	},

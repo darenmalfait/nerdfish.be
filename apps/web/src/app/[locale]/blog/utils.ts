@@ -1,8 +1,8 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import { type SystemInfo, type Blog } from '../../cms'
+import { BlogPath } from '~/app/common'
 
-import { type Blog } from '../../cms'
-
-function filterBlog(posts: Partial<Blog>[], searchString: string) {
+export function filterBlog(posts: Partial<Blog>[], searchString: string) {
 	if (!searchString) return posts
 
 	const options = {
@@ -79,4 +79,9 @@ function filterBlog(posts: Partial<Blog>[], searchString: string) {
 	return Array.from(new Set([...allResults, ...individualWordResults]))
 }
 
-export { filterBlog }
+export function getBlogPath(
+	blog: Omit<Partial<Blog>, '_sys'> & { _sys?: Partial<SystemInfo> },
+) {
+	const path = blog._sys?.breadcrumbs?.join('/')
+	return path ? `/${BlogPath}/${path}` : ''
+}

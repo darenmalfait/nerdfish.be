@@ -5,12 +5,11 @@ import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { mapBlogData } from '../api'
+import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
 import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
 import {
 	ArticleCard,
-	BlogPath,
-	getDatedSlug,
 	SectionHeader,
 	ReadingProgress,
 	SectionHeaderTitle,
@@ -99,7 +98,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 							return (
 								<li key={relatedBlog.id} className="col-span-4">
 									<ArticleCard
-										href={`/${BlogPath}${getDatedSlug(relatedBlog.date, relatedBlog._sys.filename)}`}
+										href={getBlogPath(relatedBlog)}
 										{...relatedBlog}
 										id={relatedBlog.id}
 									/>

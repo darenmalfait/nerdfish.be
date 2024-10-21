@@ -130,6 +130,7 @@ query sitemapQuery {
 				id
 				_sys {
 					filename
+					breadcrumbs
 				}
 			}
 		}
@@ -142,6 +143,7 @@ query sitemapQuery {
 				date
 				_sys {
 					filename
+					breadcrumbs
 				}
 			}
 		}
@@ -155,6 +157,7 @@ query sitemapQuery {
 				category
 				_sys {
 					filename
+					breadcrumbs
 				}
 			}
 		}
@@ -167,6 +170,7 @@ query sitemapQuery {
 				date
 				_sys {
 					filename
+					breadcrumbs
 				}
 			}
 		}
