@@ -23,6 +23,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { useScramble } from 'use-scramble'
+import { useTranslation } from '../[locale]/translation-provider'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 
@@ -236,6 +237,8 @@ export function SocialLinks() {
 }
 
 function AINavigationItem() {
+	const { currentLocale } = useTranslation()
+
 	const { ref, replay } = useScramble({
 		text: '[AI]',
 		speed: 0.6,
@@ -253,7 +256,7 @@ function AINavigationItem() {
 				onMouseEnter={replay}
 				aria-label="AI"
 				label="[AI]"
-				href="/en/ai"
+				href={`/${currentLocale}/ai`}
 			/>
 		</NavigationMenuItem>
 	)

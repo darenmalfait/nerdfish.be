@@ -7,25 +7,7 @@ import { useChat } from 'ai/react'
 import { ArrowUpIcon } from 'lucide-react'
 import * as React from 'react'
 import { z } from 'zod'
-
-const premadeQuestions = [
-	{
-		buttonName: 'Who are you',
-		question: 'Who are you?',
-	},
-	{
-		buttonName: 'Favorite language',
-		question: "What's your favorite programming language?",
-	},
-	{
-		buttonName: 'Experience',
-		question: 'Tell me about your work experience.',
-	},
-	{
-		buttonName: 'Current job',
-		question: 'Tell me about your current position.',
-	},
-]
+import { useTranslation } from '../../translation-provider'
 
 const ChatMessage = React.forwardRef<
 	HTMLParagraphElement,
@@ -62,6 +44,7 @@ const messageSchema = z
 	.regex(/.*[^ ].*/)
 
 export function Chat() {
+	const { t } = useTranslation()
 	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
 
 	const {
@@ -76,6 +59,28 @@ export function Chat() {
 		api: '/api/ai',
 		body: {},
 	})
+
+	const premadeQuestions = React.useMemo(
+		() => [
+			{
+				buttonName: t('ai.premadeQuestions.whoAreYou'),
+				question: t('ai.premadeQuestions.whoAreYouQuestion'),
+			},
+			{
+				buttonName: t('ai.premadeQuestions.favoriteLanguage'),
+				question: t('ai.premadeQuestions.favoriteLanguageQuestion'),
+			},
+			{
+				buttonName: t('ai.premadeQuestions.experience'),
+				question: t('ai.premadeQuestions.experienceQuestion'),
+			},
+			{
+				buttonName: t('ai.premadeQuestions.currentJob'),
+				question: t('ai.premadeQuestions.currentJobQuestion'),
+			},
+		],
+		[t],
+	)
 
 	const scrollToBottom = React.useCallback(() => {
 		if (!scrollBottomAnchor.current) return
@@ -96,7 +101,7 @@ export function Chat() {
 				className="flex h-[40vh] flex-col gap-6 overflow-y-auto pb-8"
 			>
 				<ChatMessage role="assistant">
-					Hi, how can I help you today?
+					{t('ai.chat.initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
 					if (message.role === 'user') {
