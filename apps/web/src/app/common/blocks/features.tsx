@@ -12,6 +12,7 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
+import { useTranslation } from '~/app/[locale]/translation-provider'
 import {
 	type Block,
 	type Page,
@@ -22,14 +23,15 @@ import {
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
 function DetailLink({ page }: { page?: Page }) {
+	const { t } = useTranslation()
 	if (!page) return null
 
 	return (
 		<ArrowLink
 			className="text-accent mt-4 text-sm"
-			href={`/${page._sys.filename}`}
+			href={`/${page._sys.breadcrumbs.join('/')}`}
 		>
-			Read more
+			{t('features.readMore')}
 		</ArrowLink>
 	)
 }
