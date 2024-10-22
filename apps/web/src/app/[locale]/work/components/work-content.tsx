@@ -2,6 +2,7 @@ import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
+	ArticleCardCategory,
 	ArticleCardContent,
 	ArticleCardDescription,
 	ArticleCardImage,
@@ -90,6 +91,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 											category={work.category}
 										/>
 										<ArticleCardContent>
+											<ArticleCardCategory value={work.category} />
 											<ArticleCardTitle>{work.title}</ArticleCardTitle>
 											<ArticleCardDescription>
 												{work.seo?.description}

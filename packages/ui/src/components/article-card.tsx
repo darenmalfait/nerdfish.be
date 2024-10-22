@@ -1,6 +1,6 @@
 'use client'
 
-import { H3 } from '@nerdfish/ui'
+import { Badge, H3 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	getCategoryColors,
@@ -102,6 +102,29 @@ export const ArticleCardDescription = React.forwardRef<
 
 ArticleCardDescription.displayName = 'ArticleCardDescription'
 
+export const ArticleCardCategory = React.forwardRef<
+	HTMLDivElement,
+	React.ComponentPropsWithoutRef<'div'> & {
+		value?: string | null
+	}
+>(({ value, className, ...props }, ref) => {
+	if (!value) return null
+
+	return (
+		<Badge
+			ref={ref}
+			variant="default"
+			{...props}
+			className={cx('bg-muted', getCategoryColors(value), className)}
+		>
+			<span className="sr-only">Category: </span>
+			{value}
+		</Badge>
+	)
+})
+
+ArticleCardCategory.displayName = 'ArticleCardCategory'
+
 export const ArticleCard = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'> & {
@@ -116,7 +139,7 @@ export const ArticleCard = React.forwardRef<
 			{...props}
 		>
 			<Link href={href} className="group outline-none" aria-label={title}>
-				<div className="peer relative block w-full outline-none">
+				<div aria-hidden className="peer relative block w-full outline-none">
 					{children}
 				</div>
 			</Link>
