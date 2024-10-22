@@ -1,4 +1,11 @@
 ---
+seo:
+  title: cleanup lingering git branches
+  description: >-
+    When branches are deleted on the remote (origin), your local repository
+    won't automatically recognize the change. You'll still have locally cached
+    copies of those branches (which can be useful), but running git branch -a
+    will continue to display them as if they are still present on the remote.
 title: cleanup lingering git branches
 tags:
   - git
@@ -10,7 +17,7 @@ excerpt: >
 date: 2024-10-22T14:34:59.093Z
 ---
 
-When branches are deleted on the remote (origin), your local repository won't automatically recognise the change. 
+When branches are deleted on the remote (origin), your local repository won't automatically recognise the change.
 
 You'll still have locally cached copies of those branches (which can be useful), but running git branch -a will continue to display them as if they are still present on the remote.
 
