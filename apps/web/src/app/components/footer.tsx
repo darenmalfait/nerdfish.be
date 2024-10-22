@@ -144,7 +144,7 @@ export function Footer() {
 							<div className="flex h-12 items-center">
 								<Logo className="relative h-6 w-auto rounded-full" />
 							</div>
-							<ul className="flex items-center gap-4">
+							<ul className="flex items-center gap-2">
 								<li>
 									<ThemeToggle variant="ghost" />
 								</li>
