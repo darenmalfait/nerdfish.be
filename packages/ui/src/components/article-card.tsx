@@ -1,0 +1,128 @@
+'use client'
+
+import { H3 } from '@nerdfish/ui'
+import { cx } from '@nerdfish/utils'
+import {
+	getCategoryColors,
+	DateFormatter,
+} from '@nerdfish-website/ui/components'
+import Image from 'next/image'
+import Link from 'next/link'
+import * as React from 'react'
+
+export function ArticleCardImage({
+	src,
+	alt,
+	category,
+}: {
+	src?: string | null
+	category?: string | null
+	alt?: string | null
+}) {
+	return (
+		<div
+			className={cx(
+				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				category && getCategoryColors(category),
+			)}
+		>
+			{src ? (
+				<Image
+					className="rounded-semi absolute inset-0 size-full object-cover"
+					src={src}
+					fill
+					alt={alt ?? ''}
+				/>
+			) : (
+				<div className="bg-accent inset-0" />
+			)}
+		</div>
+	)
+}
+
+ArticleCardImage.displayName = 'ArticleCardImage'
+
+export const ArticleCardContent = React.forwardRef<
+	HTMLDivElement,
+	React.ComponentPropsWithoutRef<'div'>
+>(({ className, ...props }, ref) => {
+	return (
+		<div ref={ref} {...props} className={cx('mt-8 space-y-2', className)} />
+	)
+})
+
+ArticleCardContent.displayName = 'ArticleCardContent'
+
+export const ArticleCardTitle = React.forwardRef<
+	HTMLHeadingElement,
+	React.ComponentPropsWithoutRef<typeof H3>
+>((props, ref) => {
+	return <H3 ref={ref} {...props} />
+})
+
+ArticleCardTitle.displayName = 'ArticleCardTitle'
+
+export const ArticleCardDate = React.forwardRef<
+	HTMLDivElement,
+	React.ComponentPropsWithoutRef<'div'> & {
+		value?: string
+	}
+>(({ value, className, ...props }, ref) => {
+	if (!value) return null
+
+	return (
+		<div
+			ref={ref}
+			{...props}
+			className={cx('text-muted text-xl font-bold', className)}
+		>
+			<DateFormatter dateString={value} format="PPP" />
+		</div>
+	)
+})
+
+ArticleCardDate.displayName = 'ArticleCardDate'
+
+export const ArticleCardDescription = React.forwardRef<
+	HTMLParagraphElement,
+	React.ComponentPropsWithoutRef<'p'>
+>(({ children, className, ...props }, ref) => {
+	if (!children) return null
+
+	return (
+		<p
+			ref={ref}
+			{...props}
+			className={cx('text-muted line-clamp-2', className)}
+		>
+			{children}
+		</p>
+	)
+})
+
+ArticleCardDescription.displayName = 'ArticleCardDescription'
+
+export const ArticleCard = React.forwardRef<
+	HTMLDivElement,
+	React.ComponentPropsWithoutRef<'div'> & {
+		href: string
+		title: string
+	}
+>(({ href, title, children, className, ...props }, ref) => {
+	return (
+		<div
+			ref={ref}
+			className={cx('group relative w-full outline-none', className)}
+			{...props}
+		>
+			<Link href={href} className="group outline-none" aria-label={title}>
+				<div className="peer relative block w-full outline-none">
+					{children}
+				</div>
+			</Link>
+			<div className="sr-only">{children}</div>
+		</div>
+	)
+})
+
+ArticleCard.displayName = 'ArticleCard'
