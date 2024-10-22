@@ -57,7 +57,12 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="animate-in fade-in zoom-in-150 w-full max-w-[50%] flex-none duration-700">
+		<div
+			className={cx(
+				'animate-in fade-in zoom-in-150 w-full max-w-[50%] flex-none duration-700',
+				'top-1/2 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%]',
+			)}
+		>
 			{children}
 		</div>
 	)
@@ -72,7 +77,7 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 				{image?.src ? (
 					<Image
 						// sticker effect
-						className="top-full mt-12 max-w-[100%] -translate-y-1/4 rounded-xl [filter:drop-shadow(0px_0px_2px_#fff)] sm:absolute sm:right-0 sm:mt-0 sm:max-w-[50%] lg:-translate-y-1/2 dark:[filter:drop-shadow(0px_0px_2px_#000)]"
+						className="[filter:drop-shadow(0px_0px_2px_#fff)] dark:[filter:drop-shadow(0px_0px_2px_#000)]"
 						src={image.src}
 						width={700}
 						height={700}
