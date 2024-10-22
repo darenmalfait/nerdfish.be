@@ -17,6 +17,7 @@ import { Logo, MenuIcon, XIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { useTranslation } from '../[locale]/translation-provider'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import { ActionsNavigation, RSSFeedButton, SocialLinks } from './navigation'
@@ -27,14 +28,14 @@ const MobileNavigationSubItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({ href, label, description, className, ...props }, ref) => {
 	const pathname = usePathname()
-	const isActive = stripPreSlash(pathname).startsWith(href)
+	const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
 
 	return (
 		<li>
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<H3
 					className={cx(
-						'hover:text-accent border-b-4 border-transparent capitalize',
+						'hover:text-accent border-b-4 border-transparent font-normal capitalize',
 						isActive && 'border-b-accent',
 					)}
 					as="span"
@@ -112,6 +113,7 @@ MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 export function MobileNavigation() {
 	const { navigation } = useGlobal()
+	const { currentLocale } = useTranslation()
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
@@ -167,7 +169,7 @@ export function MobileNavigation() {
 							<li>
 								<MobileNavigationItem
 									label="AI"
-									href="/ai"
+									href={`/${currentLocale}/ai`}
 									onClick={() => setOpen(false)}
 								/>
 							</li>
