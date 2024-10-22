@@ -57,7 +57,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="animate-in fade-in zoom-in-150 absolute bottom-0 right-0 w-full max-w-[50%] flex-none duration-700">
+		<div className="animate-in fade-in zoom-in-150 w-full max-w-[50%] flex-none duration-700">
 			{children}
 		</div>
 	)
@@ -68,6 +68,19 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 
 	return (
 		<BlockLayout variant={(variant ?? 'default') as Variant}>
+			<BlockImage>
+				{image?.src ? (
+					<Image
+						// sticker effect
+						className="top-full mt-12 max-w-[100%] -translate-y-1/4 rounded-xl [filter:drop-shadow(0px_0px_2px_#fff)] sm:absolute sm:right-0 sm:mt-0 sm:max-w-[50%] lg:-translate-y-1/2 dark:[filter:drop-shadow(0px_0px_2px_#000)]"
+						src={image.src}
+						width={700}
+						height={700}
+						loading="eager"
+						alt={image.alt ?? ''}
+					/>
+				) : null}
+			</BlockImage>
 			<BlockHeader>
 				{title ? (
 					<BigTitle
@@ -83,19 +96,6 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 					content={text}
 				/>
 			</BlockContent>
-			<BlockImage>
-				{image?.src ? (
-					<Image
-						// sticker effect
-						className="absolute right-0 top-full max-w-[100%] -translate-y-1/4 rounded-xl [filter:drop-shadow(0px_0px_2px_#fff)] lg:-translate-y-1/2 dark:[filter:drop-shadow(0px_0px_2px_#000)]"
-						src={image.src}
-						width={700}
-						height={700}
-						loading="eager"
-						alt={image.alt ?? ''}
-					/>
-				) : null}
-			</BlockImage>
 		</BlockLayout>
 	)
 }
