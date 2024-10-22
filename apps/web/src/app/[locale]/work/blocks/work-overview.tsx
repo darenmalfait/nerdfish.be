@@ -2,7 +2,15 @@
 
 import { Button, H3, H5 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section, Tag } from '@nerdfish-website/ui/components'
+import {
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardDescription,
+	ArticleCardImage,
+	ArticleCardTitle,
+	Section,
+	Tag,
+} from '@nerdfish-website/ui/components'
 import { PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
@@ -10,7 +18,6 @@ import { tinaField } from 'tinacms/dist/react'
 import { filterWork, getWorkPath } from '../utils'
 import { type Block, type PageBlocksWork } from '~/app/cms'
 import {
-	ArticleCard,
 	SectionHeader,
 	HighlightCard,
 	WorkPath,
@@ -205,9 +212,19 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 								<li key={work.id} className="col-span-4">
 									<ArticleCard
 										href={getWorkPath(work)}
-										{...work}
-										date={undefined}
-									/>
+										title={work.title ?? ''}
+									>
+										<ArticleCardImage
+											src={work.heroImg}
+											category={work.category}
+										/>
+										<ArticleCardContent>
+											<ArticleCardTitle>{work.title}</ArticleCardTitle>
+											<ArticleCardDescription>
+												{work.seo?.description}
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
 								</li>
 							)
 						})}

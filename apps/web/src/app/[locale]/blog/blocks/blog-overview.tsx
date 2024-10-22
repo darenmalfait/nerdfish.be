@@ -10,7 +10,14 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import {
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardDescription,
+	ArticleCardImage,
+	ArticleCardTitle,
+	Section,
+} from '@nerdfish-website/ui/components'
 import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
@@ -20,7 +27,6 @@ import { tinaField } from 'tinacms/dist/react'
 import { filterBlog, getBlogPath } from '../utils'
 import { type Block, type PageBlocksBlog } from '~/app/cms'
 import {
-	ArticleCard,
 	SectionHeader,
 	HighlightCard,
 	nonNullable,
@@ -215,7 +221,21 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						{posts.map((blog) => {
 							return (
 								<li key={blog.id} className="col-span-4">
-									<ArticleCard href={getBlogPath(blog)} {...blog} />
+									<ArticleCard
+										href={getBlogPath(blog)}
+										title={blog.title ?? ''}
+									>
+										<ArticleCardImage
+											src={blog.heroImg}
+											category={blog.category}
+										/>
+										<ArticleCardContent>
+											<ArticleCardTitle>{blog.title}</ArticleCardTitle>
+											<ArticleCardDescription>
+												{blog.seo?.description}
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
 								</li>
 							)
 						})}
@@ -223,7 +243,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				)}
 
 				{hasMorePosts ? (
-					<div className="mb-16 flex w-full justify-center">
+					<div className="mt-32 flex w-full justify-center">
 						<Button
 							disabled={!hasMorePosts}
 							variant="secondary"

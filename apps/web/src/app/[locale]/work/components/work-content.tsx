@@ -1,6 +1,13 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { CategoryIndicator } from '@nerdfish-website/ui/components'
+import {
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardDescription,
+	ArticleCardImage,
+	ArticleCardTitle,
+	CategoryIndicator,
+} from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -9,7 +16,6 @@ import { getWorkPath } from '../utils'
 import { BackToWork } from './misc'
 import { PortableText, type WorkQueryQuery } from '~/app/cms'
 import {
-	ArticleCard,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
@@ -78,12 +84,18 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 						{relatedWorks.map((work) => {
 							return (
 								<div key={work.id} className="col-span-4">
-									<ArticleCard
-										href={getWorkPath(work)}
-										{...work}
-										date={undefined}
-										id={work.id}
-									/>
+									<ArticleCard href={getWorkPath(work)} title={work.title}>
+										<ArticleCardImage
+											src={work.heroImg}
+											category={work.category}
+										/>
+										<ArticleCardContent>
+											<ArticleCardTitle>{work.title}</ArticleCardTitle>
+											<ArticleCardDescription>
+												{work.seo?.description}
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
 								</div>
 							)
 						})}

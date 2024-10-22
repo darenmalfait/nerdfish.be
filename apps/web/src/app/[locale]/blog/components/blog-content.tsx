@@ -1,6 +1,13 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter } from '@nerdfish-website/ui/components'
+import {
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardDescription,
+	ArticleCardImage,
+	ArticleCardTitle,
+	DateFormatter,
+} from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -9,7 +16,6 @@ import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
 import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
 import {
-	ArticleCard,
 	SectionHeader,
 	ReadingProgress,
 	SectionHeaderTitle,
@@ -99,9 +105,19 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 								<li key={relatedBlog.id} className="col-span-4">
 									<ArticleCard
 										href={getBlogPath(relatedBlog)}
-										{...relatedBlog}
-										id={relatedBlog.id}
-									/>
+										title={relatedBlog.title}
+									>
+										<ArticleCardImage
+											src={relatedBlog.heroImg}
+											category={relatedBlog.category}
+										/>
+										<ArticleCardContent>
+											<ArticleCardTitle>{relatedBlog.title}</ArticleCardTitle>
+											<ArticleCardDescription>
+												{relatedBlog.seo?.description}
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
 								</li>
 							)
 						})}
