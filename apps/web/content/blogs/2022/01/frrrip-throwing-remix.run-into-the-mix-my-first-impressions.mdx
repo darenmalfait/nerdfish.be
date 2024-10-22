@@ -9,7 +9,6 @@ title: frrrip throwing remix.run into the mix my first impressions
 tags:
   - technologies
   - react
-  - remix
   - javascript
 category: technical
 heroImg: /uploads/blog/remix.png
@@ -110,15 +109,15 @@ has already been fetched.
 An example of a loader:
 
 ```typescript
-import {json, type LoaderFunction} from 'remix'
+import { json, type LoaderFunction } from 'remix'
 
-export const loader: LoaderFunction = async ({request, params}) => {
-  const example = await getExampleData()
+export const loader: LoaderFunction = async ({ request, params }) => {
+	const example = await getExampleData()
 
-  return json<LoaderData>(
-    {example},
-    {status: 200, headers: {'Cache-Control': 'private, max-age=3600'}},
-  )
+	return json<LoaderData>(
+		{ example },
+		{ status: 200, headers: { 'Cache-Control': 'private, max-age=3600' } },
+	)
 }
 ```
 
@@ -183,19 +182,19 @@ And then, we create a server-side Action to handle the form submission. When no
 `action` is provided to a form, it will submit to the page itself.
 
 ```typescript
-export const action: ActionFunction = async ({request}) => {
-  if (request.method === 'POST') {
-    const formData = await request.formData()
-    const email = formData.get('email')
+export const action: ActionFunction = async ({ request }) => {
+	if (request.method === 'POST') {
+		const formData = await request.formData()
+		const email = formData.get('email')
 
-    // handle server side validation
-    if (!email) {
-      return json({errors: 'no email provided'}, 500)
-    }
+		// handle server side validation
+		if (!email) {
+			return json({ errors: 'no email provided' }, 500)
+		}
 
-    // subscribe login return 500 when things go wrong
-    return json({ok: true}, 200)
-  }
+		// subscribe login return 500 when things go wrong
+		return json({ ok: true }, 200)
+	}
 }
 ```
 
