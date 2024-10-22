@@ -12,6 +12,7 @@ import {
 import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
+	ArticleCardCategory,
 	ArticleCardContent,
 	ArticleCardDescription,
 	ArticleCardImage,
@@ -230,6 +231,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 											category={blog.category}
 										/>
 										<ArticleCardContent>
+											<ArticleCardCategory value={blog.category} />
 											<ArticleCardTitle>{blog.title}</ArticleCardTitle>
 											<ArticleCardDescription>
 												{blog.seo?.description}
