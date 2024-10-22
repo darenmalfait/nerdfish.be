@@ -9,9 +9,16 @@ import {
 	EmptyStateIcon,
 	EmptyStateTitle,
 	Input,
+	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section, DateFormatter } from '@nerdfish-website/ui/components'
+import {
+	Section,
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardTitle,
+	ArticleCardDescription,
+} from '@nerdfish-website/ui/components'
 import { BookIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
@@ -172,24 +179,24 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						</EmptyStateActions>
 					</EmptyState>
 				) : (
-					<ul className="space-y-14">
-						{posts.map((wiki) => {
+					<ul>
+						{posts.map((wiki, i) => {
 							return (
 								<li key={wiki._sys?.filename} className="mx-auto flex flex-col">
-									<a
+									<ArticleCard
 										href={getWikiPath(wiki)}
-										className="text-primary hover:text-muted line-clamp-3 text-2xl font-semibold leading-snug hover:underline"
+										title={wiki.title ?? ''}
 									>
-										{wiki.title}
-									</a>
-									{wiki.date ? (
-										<p className="text-muted mt-2 text-sm font-bold">
-											<DateFormatter dateString={wiki.date} format="PPP" />
-										</p>
-									) : null}
-									<div className="text-muted mt-2 text-justify">
-										<PortableText content={wiki.excerpt} />
-									</div>
+										<ArticleCardContent className="mt-0">
+											<ArticleCardTitle className="group-hover:underline">
+												{wiki.title}
+											</ArticleCardTitle>
+											<ArticleCardDescription>
+												<PortableText content={wiki.excerpt} />
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
+									{i < posts.length - 1 ? <Separator className="my-8" /> : null}
 								</li>
 							)
 						})}
