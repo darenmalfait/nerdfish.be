@@ -56,8 +56,8 @@ ArticleCardContent.displayName = 'ArticleCardContent'
 export const ArticleCardTitle = React.forwardRef<
 	HTMLHeadingElement,
 	React.ComponentPropsWithoutRef<typeof H3>
->((props, ref) => {
-	return <H3 ref={ref} {...props} />
+>(({ className, ...props }, ref) => {
+	return <H3 ref={ref} {...props} className={cx('line-clamp-2', className)} />
 })
 
 ArticleCardTitle.displayName = 'ArticleCardTitle'
