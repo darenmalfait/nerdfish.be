@@ -10,7 +10,7 @@ seo:
     essential to understand the distinctions between the two, though.
 title: JavaScript fundamentals functional vs object-oriented programming
 tags:
-  - best-practices
+  - opinion
   - javascript
 category: technical
 heroImg: /uploads/blog/javascript-fundamentals.png
@@ -43,19 +43,19 @@ create a Cat class, for example:
 
 ```javascript
 class Cat {
-  constructor(name, age, color) {
-    this.name = name
-    this.age = age
-    this.color = color
-  }
+	constructor(name, age, color) {
+		this.name = name
+		this.age = age
+		this.color = color
+	}
 
-  meow() {
-    console.log('Meow!')
-  }
+	meow() {
+		console.log('Meow!')
+	}
 
-  purr() {
-    console.log('Purr...')
-  }
+	purr() {
+		console.log('Purr...')
+	}
 }
 ```
 
@@ -89,13 +89,13 @@ For example, to describe a cat, we could create a function like this:
 
 ```javascript
 function describeCat(name, age, color) {
-  return {
-    name,
-    age,
-    color,
-    meow: () => console.log('Meow!'),
-    purr: () => console.log('Purr...'),
-  }
+	return {
+		name,
+		age,
+		color,
+		meow: () => console.log('Meow!'),
+		purr: () => console.log('Purr...'),
+	}
 }
 ```
 
