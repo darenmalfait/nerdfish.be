@@ -90,13 +90,13 @@ export const ArticleCardDescription = React.forwardRef<
 	if (!children) return null
 
 	return (
-		<p
+		<div
 			ref={ref}
 			{...props}
 			className={cx('text-muted line-clamp-2', className)}
 		>
 			{children}
-		</p>
+		</div>
 	)
 })
 
