@@ -1,12 +1,7 @@
+import { LoadingAnimation } from '@nerdfish/ui'
+import { Section } from '@nerdfish-website/ui/components'
 import { GeistSans } from 'geist/font/sans'
 import * as React from 'react'
-
-import '~/styles/tailwind.css'
-import '~/styles/app.css'
-import '~/styles/prose.css'
-import '~/styles/components.css'
-import '@nerdfish/theme/dist/nerdfishui.css'
-
 import { getGlobalData } from '../api'
 import { BaseLayoutTemplate } from '../components/base-layout'
 import { GlobalProvider } from '../global-provider'
@@ -14,6 +9,12 @@ import { AppProviders } from './app-providers'
 import { TranslationProvider } from './translation-provider'
 import { getDictionary } from '~/get-dictionary'
 import { i18n, type WithLocale } from '~/i18n-config'
+
+import '~/styles/tailwind.css'
+import '~/styles/app.css'
+import '~/styles/prose.css'
+import '~/styles/components.css'
+import '@nerdfish/theme/dist/nerdfishui.css'
 
 const getLayoutData = React.cache(getGlobalData)
 
@@ -41,7 +42,13 @@ export default async function RootLayout({
 					>
 						<GlobalProvider {...layoutData}>
 							<BaseLayoutTemplate>
-								<React.Suspense fallback={<div className="min-h-screen" />}>
+								<React.Suspense
+									fallback={
+										<Section className="animate-in fade-in-0 flex min-h-screen justify-center duration-1000">
+											<LoadingAnimation className="size-8" variant="square" />
+										</Section>
+									}
+								>
 									{children}
 								</React.Suspense>
 							</BaseLayoutTemplate>
