@@ -4,7 +4,7 @@ seo:
   description: Snippet for a flexible useReducer in React.js
 title: Flexible useReducer in Reactjs
 tags:
-  - development
+  - coding
 excerpt: |
   Snippet for a flexible useReducer in React.js
 date: '2022-12-25T23:00:00.000Z'
@@ -27,28 +27,28 @@ Here's how useReducer works:
 Here's an example of how you might use useReducer in a React component:
 
 ```javascript
-import {useReducer} from 'react'
+import { useReducer } from 'react'
 
 function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return {count: state.count + 1}
-    case 'decrement':
-      return {count: state.count - 1}
-    default:
-      throw new Error()
-  }
+	switch (action.type) {
+		case 'increment':
+			return { count: state.count + 1 }
+		case 'decrement':
+			return { count: state.count - 1 }
+		default:
+			throw new Error()
+	}
 }
 
 function Counter() {
-  const [state, dispatch] = useReducer(reducer, {count: 0})
-  return (
-    <>
-      Count: {state.count}
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
-      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-    </>
-  )
+	const [state, dispatch] = useReducer(reducer, { count: 0 })
+	return (
+		<>
+			Count: {state.count}
+			<button onClick={() => dispatch({ type: 'increment' })}>+</button>
+			<button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+		</>
+	)
 }
 ```
 
@@ -64,23 +64,23 @@ It's cleaner than `useState` with an object.
 import * as React from 'react' // import React and its hooks
 
 const initialState = {
-  // store initial state
-  key: 'value',
+	// store initial state
+	key: 'value',
 }
 
 function Component() {
-  const [store, setStore] = React.useReducer(reducer, initialState) // useReducer hook
+	const [store, setStore] = React.useReducer(reducer, initialState) // useReducer hook
 
-  function updateStore(values) {
-    // update store function
-    setStore(values)
-  }
+	function updateStore(values) {
+		// update store function
+		setStore(values)
+	}
 
-  return <div />
+	return <div />
 }
 
 function reducer(state, newState) {
-  // reducer function to update store
-  return {...state, ...newState}
+	// reducer function to update store
+	return { ...state, ...newState }
 }
 ```
