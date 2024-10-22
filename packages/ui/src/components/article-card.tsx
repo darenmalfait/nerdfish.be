@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, H3 } from '@nerdfish/ui'
+import { Badge, H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	getCategoryColors,
@@ -22,10 +22,12 @@ export function ArticleCardImage({
 	return (
 		<div
 			className={cx(
-				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi relative ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
 			)}
 		>
+			<Skeleton className="rounded-semi absolute inset-0 size-full object-cover" />
+
 			{src ? (
 				<Image
 					className="rounded-semi absolute inset-0 size-full object-cover"
@@ -33,9 +35,7 @@ export function ArticleCardImage({
 					fill
 					alt={alt ?? ''}
 				/>
-			) : (
-				<div className="bg-accent inset-0" />
-			)}
+			) : null}
 		</div>
 	)
 }
