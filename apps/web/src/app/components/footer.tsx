@@ -7,6 +7,7 @@ import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { useTranslation } from '../[locale]/translation-provider'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import LocaleSwitcher from './locale-switcher'
@@ -18,7 +19,8 @@ const FooterNavigationSubItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({ href, label, description, className, ...props }, ref) => {
 	const pathname = usePathname()
-	const isActive = stripPreSlash(pathname).startsWith(href)
+
+	const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
 
 	return (
 		<li>
@@ -43,6 +45,7 @@ const FooterNavigationItem = React.forwardRef<
 		GlobalNavigationMain
 >(({ href, label, sub, ...props }, ref) => {
 	const pathname = usePathname()
+
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
@@ -127,6 +130,7 @@ function Disclaimer() {
 }
 
 export function Footer() {
+	const { currentLocale } = useTranslation()
 	const { navigation } = useGlobal()
 
 	return (
@@ -165,7 +169,11 @@ export function Footer() {
 								return <FooterNavigationItem key={navItem.label} {...navItem} />
 							})}
 
-							<FooterNavigationItem aria-label="AI" label="AI" href="/ai" />
+							<FooterNavigationItem
+								aria-label="AI"
+								label="AI"
+								href={`/${currentLocale}/ai`}
+							/>
 						</div>
 					</div>
 				</nav>
