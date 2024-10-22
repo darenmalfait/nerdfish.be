@@ -2,6 +2,7 @@ import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
+	ArticleCardCategory,
 	ArticleCardContent,
 	ArticleCardDescription,
 	ArticleCardImage,
@@ -112,6 +113,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 											category={relatedBlog.category}
 										/>
 										<ArticleCardContent>
+											<ArticleCardCategory value={relatedBlog.category} />
 											<ArticleCardTitle>{relatedBlog.title}</ArticleCardTitle>
 											<ArticleCardDescription>
 												{relatedBlog.seo?.description}
