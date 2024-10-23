@@ -41,12 +41,12 @@ function SkillItem({ skill }: { skill?: string | null }) {
 
 	return (
 		<li className="col-span-1">
-			<div className="flex flex-col items-center gap-2 text-center">
+			<div className="flex flex-col items-center text-center">
 				<SkillIcon
-					className="h-24 w-24 brightness-0 grayscale dark:invert"
+					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
 					aria-hidden
 				/>
-				<span className="capitalize">{skill}</span>
+				<span className="font-bold capitalize">{skill}</span>
 			</div>
 		</li>
 	)
@@ -67,7 +67,7 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<div className="mx-auto max-w-7xl">
-			<ul className="grid w-full grid-cols-2 gap-12 md:grid-cols-3 lg:grid-cols-7">
+			<ul className="gap-lg grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
 				{children}
 			</ul>
 		</div>
@@ -77,7 +77,7 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 const BlockContent = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
-	return <div className="prose text-primary mb-12 max-w-3xl">{children}</div>
+	return <div className="prose text-primary mb-xl max-w-3xl">{children}</div>
 }
 
 export function SkillsBlock(data: Block<PageBlocksSkills>) {
@@ -89,7 +89,7 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 				<H1
 					data-tina-field={tinaField(data, 'title')}
 					as="h2"
-					className="mb-12 w-auto font-bold"
+					className="mb-md w-auto font-bold"
 				>
 					<AnimatedText value={title} letterClassName="hover:text-primary" />
 				</H1>

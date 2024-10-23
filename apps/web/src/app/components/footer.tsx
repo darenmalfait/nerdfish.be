@@ -80,7 +80,7 @@ const FooterNavigationItem = React.forwardRef<
 			>
 				{label}
 			</H3>
-			<ul className="mt-3 grid gap-3">
+			<ul className="mt-md gap-sm grid">
 				{sub.map((subNavItem) => {
 					if (!subNavItem) return null
 
@@ -100,7 +100,7 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="space-y-6 py-8">
+		<div className="space-y-md py-lg">
 			<p className="text-muted max-w-2xl text-lg lg:text-xl">
 				Made by{' '}
 				<Link
@@ -134,21 +134,21 @@ export function Footer() {
 	const { navigation } = useGlobal()
 
 	return (
-		<div className="mt-16 py-8">
+		<div className="mt-xl py-lg">
 			<footer
-				className="text-primary container mx-auto px-4"
+				className="text-primary px-md container mx-auto"
 				aria-labelledby="footer-heading"
 			>
 				<h2 id="footer-heading" className="sr-only">
 					Footer
 				</h2>
-				<nav className="mx-auto pb-8">
+				<nav className="pb-lg mx-auto">
 					<div className="mb-12 space-y-4">
 						<div className="flex items-center justify-between">
 							<div className="flex h-12 items-center">
 								<Logo className="relative h-6 w-auto rounded-full" />
 							</div>
-							<ul className="flex items-center gap-2">
+							<ul className="gap-sm flex items-center">
 								<li>
 									<ThemeToggle variant="ghost" />
 								</li>
@@ -161,8 +161,8 @@ export function Footer() {
 							</ul>
 						</div>
 					</div>
-					<div className="gap-8 xl:grid xl:gap-16">
-						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
+					<div className="gap-lg xl:grid">
+						<div className="mt-lg grid grid-cols-3 gap-8 xl:col-span-2">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 
@@ -177,7 +177,7 @@ export function Footer() {
 						</div>
 					</div>
 				</nav>
-				<Separator />
+				<Separator className="my-lg" />
 				<Disclaimer />
 			</footer>
 		</div>

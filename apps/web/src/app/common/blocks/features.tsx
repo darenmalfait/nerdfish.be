@@ -46,7 +46,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 		<div className="relative flex size-full flex-col items-start" {...rest}>
 			{Icon ? (
 				<div
-					className="bg-accent rounded-semi aspect-1 mb-6 flex items-center justify-center p-2 text-white lg:mt-0.5"
+					className="bg-accent rounded-semi aspect-1 mb-md p-sm flex items-center justify-center text-white"
 					aria-hidden
 				>
 					<Icon
@@ -59,7 +59,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 				<div>
 					<H3
 						data-tina-field={tinaField(props, 'title')}
-						className="text-primary mb-4 flex flex-none items-end"
+						className="text-primary mb-sm flex flex-none items-end"
 					>
 						{title}
 					</H3>
@@ -86,7 +86,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Grid
-				className="auto-rows-auto grid-cols-3 gap-x-8 gap-y-12"
+				className="gap-xl auto-rows-auto grid-cols-3"
 				data-tina-field={tinaField(props, 'items')}
 				asChild
 			>

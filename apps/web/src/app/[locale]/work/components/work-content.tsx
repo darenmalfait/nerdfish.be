@@ -8,6 +8,7 @@ import {
 	ArticleCardImage,
 	ArticleCardTitle,
 	CategoryIndicator,
+	Section,
 } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
@@ -21,6 +22,7 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '~/app/common'
+import { AnimatedText } from '~/app/common/components/animated-text'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -42,44 +44,55 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 	}, [allWorks, category, date, title])
 
 	return (
-		<>
-			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
-				<div className="mb-6">
+		<article>
+			<Section className="max-w-4xl">
+				<div className="mb-lg">
 					<BackToWork />
 				</div>
-
-				<header className={cx('flex flex-col', prose)}>
-					<H1 className="!mb-0" data-tina-field={tinaField(data.work, 'title')}>
-						{title}
+				<header className={cx('!mb-lg flex max-w-4xl flex-col', prose)}>
+					<H1
+						data-tina-field={tinaField(data.work, 'title')}
+						className="!m-0 w-auto"
+					>
+						<AnimatedText value={title} letterClassName="hover:text-primary" />
 					</H1>
-					<div className="relative">
+					<div className="mt-xs relative">
 						<CategoryIndicator category={category} inline />
 					</div>
 				</header>
-			</section>
-			{heroImg ? (
-				<section className={cx(prose, 'mx-auto mb-12 px-4')}>
-					<div
-						className="rounded-semi overflow-hidden"
-						data-tina-field={tinaField(data.work, 'heroImg')}
-					>
-						<Image src={heroImg} alt={title} width={900} height={900} />
+				{heroImg ? (
+					<div className={cx(prose, 'mb-xl mx-auto')}>
+						<div
+							className="rounded-semi overflow-hidden"
+							data-tina-field={tinaField(data.work, 'heroImg')}
+						>
+							{/* TODO: add aria description */}
+							<Image
+								aria-hidden
+								src={heroImg}
+								alt={title}
+								width={900}
+								height={900}
+							/>
+						</div>
 					</div>
-				</section>
-			) : null}
-			<section
-				className="prose dark:prose-invert md:prose-lg lg:prose-xl container mx-auto max-w-4xl px-4"
-				data-tina-field={tinaField(data.work, 'body')}
-			>
-				{body ? <PortableText content={body} /> : null}
-			</section>
+				) : null}
+
+				{body ? (
+					<div className={prose}>
+						<PortableText
+							data-tina-field={tinaField(data.work, 'body')}
+							content={body}
+						/>
+					</div>
+				) : null}
+			</Section>
+
 			{relatedWorks.length > 0 ? (
-				<section className="container mx-auto mt-24 px-4">
+				<Section>
 					<SectionHeader>
 						<SectionHeaderTitle animatedText="Done reading?" />
-						<SectionHeaderSubtitle>
-							Read more related articles
-						</SectionHeaderSubtitle>
+						<SectionHeaderSubtitle>See related work</SectionHeaderSubtitle>
 					</SectionHeader>
 					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
 						{relatedWorks.map((work) => {
@@ -102,9 +115,9 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 							)
 						})}
 					</div>
-				</section>
+				</Section>
 			) : null}
-		</>
+		</article>
 	)
 }
 

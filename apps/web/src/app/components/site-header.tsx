@@ -14,9 +14,9 @@ export function SiteHeader() {
 	return (
 		<div className="w-full">
 			<header className="relative z-50 w-full flex-none">
-				<nav className="mx-auto w-full px-4 lg:container">
-					<div className="relative flex w-full items-center py-[2.125rem]">
-						<Button asChild variant="link" className="-mx-2">
+				<nav className="px-md mx-auto w-full lg:container">
+					<div className="py-lg relative flex w-full items-center">
+						<Button asChild variant="link" className="-mx-sm">
 							<Link href={`/${currentLocale}`} aria-label="Home">
 								<Logo className="h-5 w-auto" />
 							</Link>
@@ -27,9 +27,9 @@ export function SiteHeader() {
 							</div>
 							<Separator
 								orientation="vertical"
-								className="mx-2 hidden h-6 lg:block"
+								className="mx-md hidden h-6 lg:block"
 							/>
-							<div className="flex flex-1 justify-end space-x-2 sm:flex-grow-0">
+							<div className="space-x-md flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
 								<ActionsNavigation className="hidden md:flex" />
 								<MobileNavigation />

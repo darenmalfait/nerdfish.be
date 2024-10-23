@@ -43,7 +43,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 					<SectionHeaderTitle animatedText="AI" />
 					<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Paragraph className="mb-6 max-w-3xl font-medium">
+				<Paragraph className="mb-lg max-w-3xl font-medium">
 					{dictionary['ai.description']}
 				</Paragraph>
 				<Chat />
