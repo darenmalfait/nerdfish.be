@@ -138,7 +138,7 @@ export function MobileNavigation() {
 							</Link>
 						</Button>
 
-						<div className="gap-md flex items-center">
+						<div className="gap-sm flex items-center">
 							<ActionsNavigation
 								onSelect={() => {
 									setOpen(false)
@@ -174,7 +174,7 @@ export function MobileNavigation() {
 								/>
 							</li>
 						</ul>
-						<ul className="-mx-sm mt-xl gap-sm flex flex-row items-center justify-start">
+						<ul className="mt-xl gap-sm flex flex-row items-center justify-start">
 							<li>
 								<ThemeToggle variant="ghost" />
 							</li>
