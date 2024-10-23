@@ -27,9 +27,9 @@ export function SiteHeader() {
 							</div>
 							<Separator
 								orientation="vertical"
-								className="mx-md hidden h-6 lg:block"
+								className="mx-sm hidden h-6 lg:block"
 							/>
-							<div className="space-x-md flex flex-1 justify-end sm:flex-grow-0">
+							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
 								<ActionsNavigation className="hidden md:flex" />
 								<MobileNavigation />

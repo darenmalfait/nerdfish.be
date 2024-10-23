@@ -119,7 +119,7 @@ function Disclaimer() {
 				</Link>
 				.
 			</p>
-			<div className="-mx-4">
+			<div className="-mx-md">
 				<SocialLinks />
 			</div>
 			<div className="text-muted flex justify-start text-xs font-normal">
@@ -143,7 +143,7 @@ export function Footer() {
 					Footer
 				</h2>
 				<nav className="pb-lg mx-auto">
-					<div className="mb-12 space-y-4">
+					<div className="space-y-md mb-12">
 						<div className="flex items-center justify-between">
 							<div className="flex h-12 items-center">
 								<Logo className="relative h-6 w-auto rounded-full" />
@@ -162,7 +162,7 @@ export function Footer() {
 						</div>
 					</div>
 					<div className="gap-lg xl:grid">
-						<div className="mt-lg grid grid-cols-3 gap-8 xl:col-span-2">
+						<div className="mt-lg gap-lg grid grid-cols-3 xl:col-span-2">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 

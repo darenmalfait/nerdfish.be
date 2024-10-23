@@ -48,7 +48,7 @@ export function ActionsNavigation({
 	const { navigation } = useGlobal()
 
 	return (
-		<ul className={cx('space-x-sm', className)}>
+		<ul className={cx('space-x-xs', className)}>
 			{navigation?.actions?.map((link) => {
 				if (!link) return null
 
@@ -188,7 +188,7 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="gap-sm flex flex-row items-center">
+		<ul className="gap-xs flex flex-row items-center">
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" size="icon" asChild>
@@ -270,7 +270,7 @@ export function MainNavigation() {
 
 	return (
 		<NavigationMenu>
-			<NavigationMenuList className="gap-sm" aria-label="Pages">
+			<NavigationMenuList className="space-x-xs" aria-label="Pages">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
 
