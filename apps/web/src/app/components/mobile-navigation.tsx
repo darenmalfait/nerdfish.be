@@ -93,7 +93,7 @@ const MobileNavigationItem = React.forwardRef<
 			>
 				{label}
 			</H2>
-			<ul className="mt-3 grid gap-3">
+			<ul className="mt-md gap-sm grid">
 				{sub.map((subNavItem) => {
 					if (!subNavItem) return null
 
@@ -131,20 +131,20 @@ export function MobileNavigation() {
 			</DrawerTrigger>
 			<DrawerContent hideCloseButton>
 				<div className="flex h-screen flex-col">
-					<DrawerHeader className="z-10 flex items-center justify-between gap-8 py-[2.125rem] backdrop-blur-none">
+					<DrawerHeader className="py-lg gap-lg z-10 flex items-center justify-between backdrop-blur-none">
 						<Button asChild variant="link" className="-mx-2">
 							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>
 
-						<div className="flex items-center gap-2">
+						<div className="gap-md flex items-center">
 							<ActionsNavigation
 								onSelect={() => {
 									setOpen(false)
 								}}
 							/>
-							<DrawerClose asChild className="-mr-2">
+							<DrawerClose asChild className="-mr-sm">
 								<Button variant="ghost" type="button" size="icon">
 									<XIcon className="size-4" />
 								</Button>
@@ -152,8 +152,8 @@ export function MobileNavigation() {
 						</div>
 					</DrawerHeader>
 
-					<ScrollArea className="w-full flex-1 px-6 md:h-auto">
-						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+					<ScrollArea className="px-md w-full flex-1 md:h-auto">
+						<ul className="gap-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 
@@ -174,7 +174,7 @@ export function MobileNavigation() {
 								/>
 							</li>
 						</ul>
-						<ul className="-mx-3 mt-12 flex flex-row items-center justify-start gap-2">
+						<ul className="-mx-sm mt-xl gap-sm flex flex-row items-center justify-start">
 							<li>
 								<ThemeToggle variant="ghost" />
 							</li>
@@ -182,7 +182,7 @@ export function MobileNavigation() {
 								<RSSFeedButton />
 							</li>
 						</ul>
-						<div className="mt-4 flex flex-row items-center gap-3 pb-6">
+						<div className="mt-md gap-sm pb-lg flex flex-row items-center">
 							<span className="font-bold">Socials:</span>
 							<SocialLinks />
 						</div>

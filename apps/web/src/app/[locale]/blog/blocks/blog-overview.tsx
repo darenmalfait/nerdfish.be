@@ -110,12 +110,12 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
-						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
+						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
 					>
 						{header?.image ? (
 							<div
 								data-tina-field={tinaField(data, 'header')}
-								className="col-span-full mb-12 px-10 lg:col-span-5 lg:col-start-7 lg:mb-0"
+								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
 							>
 								<Image
 									className="rounded-xl"
@@ -129,13 +129,13 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						) : null}
 						<div
 							className={cx(
-								'col-span-full pt-6 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
+								'pt-lg col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
 									'lg:col-span-5 lg:col-start-1': header?.image,
 								},
 							)}
 						>
-							<div className="flex flex-auto flex-col justify-center space-y-4">
+							<div className="flex flex-auto flex-col justify-center">
 								{(title ?? subtitle) ? (
 									<SectionHeader>
 										{title ? <SectionHeaderTitle animatedText={title} /> : null}
@@ -191,7 +191,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
-						className="mb-12"
+						className="mb-xl"
 						category={featured.category}
 						href={getBlogPath(featured)}
 						title={featured.title}
@@ -218,7 +218,7 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 						</EmptyStateActions>
 					</EmptyState>
 				) : (
-					<ul className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
 						{posts.map((blog) => {
 							return (
 								<li key={blog.id} className="col-span-4">
@@ -245,14 +245,14 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				)}
 
 				{hasMorePosts ? (
-					<div className="mt-32 flex w-full justify-center">
+					<div className="mt-2xl flex w-full justify-center">
 						<Button
 							disabled={!hasMorePosts}
 							variant="secondary"
-							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <PlusIcon width="20px" height="20px" />
+							<span className="mr-2">Load more</span>{' '}
+							<PlusIcon className="size-4" />
 						</Button>
 					</div>
 				) : null}

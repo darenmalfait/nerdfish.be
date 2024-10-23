@@ -46,9 +46,7 @@ export const ArticleCardContent = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
-	return (
-		<div ref={ref} {...props} className={cx('mt-8 space-y-2', className)} />
-	)
+	return <div ref={ref} {...props} className={cx('my-md', className)} />
 })
 
 ArticleCardContent.displayName = 'ArticleCardContent'
@@ -57,7 +55,13 @@ export const ArticleCardTitle = React.forwardRef<
 	HTMLHeadingElement,
 	React.ComponentPropsWithoutRef<typeof H3>
 >(({ className, ...props }, ref) => {
-	return <H3 ref={ref} {...props} className={cx('line-clamp-2', className)} />
+	return (
+		<H3
+			ref={ref}
+			{...props}
+			className={cx('mb-sm !mt-0 line-clamp-2', className)}
+		/>
+	)
 })
 
 ArticleCardTitle.displayName = 'ArticleCardTitle'
@@ -74,7 +78,7 @@ export const ArticleCardDate = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('text-muted text-xl font-bold', className)}
+			className={cx('text-muted mb-sm text-xl font-bold', className)}
 		>
 			<DateFormatter dateString={value} format="PPP" />
 		</div>
@@ -93,7 +97,7 @@ export const ArticleCardDescription = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('text-muted line-clamp-2', className)}
+			className={cx('text-muted mt-0 line-clamp-2', className)}
 		>
 			{children}
 		</div>
@@ -115,7 +119,7 @@ export const ArticleCardCategory = React.forwardRef<
 			ref={ref}
 			variant="default"
 			{...props}
-			className={cx('bg-muted', getCategoryColors(value), className)}
+			className={cx('bg-muted mb-md', getCategoryColors(value), className)}
 		>
 			<span className="sr-only">Category: </span>
 			{value}

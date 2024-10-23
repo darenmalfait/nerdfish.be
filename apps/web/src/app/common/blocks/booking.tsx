@@ -100,7 +100,7 @@ function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-semi bg-primary overflow-hidden p-0 transition-all">
+				<DialogContent className="rounded-semi bg-primary overflow-hidden !p-0 transition-all">
 					<ScrollArea className="h-fit max-h-[85vh] overflow-auto">
 						{children}
 					</ScrollArea>
@@ -156,13 +156,13 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	return (
 		<div
-			className="bg-muted rounded-semi mx-2"
+			className="bg-muted rounded-semi mx-sm"
 			data-tina-field={tinaField(props, 'title')}
 		>
 			<Section>
 				<Card className="rounded-semi bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
-					<CardHeader>
-						<SectionHeader className="mb-0">
+					<CardHeader className="p-lg pb-0">
+						<SectionHeader>
 							<SectionHeaderTitle
 								data-tina-field={tinaField(props, 'title')}
 								animatedText={title ?? undefined}
@@ -174,7 +174,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							</SectionHeaderSubtitle>
 						</SectionHeader>
 					</CardHeader>
-					<CardContent className="p-6">
+					<CardContent className="p-lg pt-0">
 						<div className="prose dark:prose-invert">
 							<PortableText
 								content={content}
@@ -183,7 +183,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 						</div>
 
 						<div className="mx-auto max-w-3xl">
-							<div className="mb-8 w-full text-center">
+							<div className="mb-lg w-full text-center">
 								<Avatar className="shadow-outline mx-auto size-24">
 									<AvatarImage
 										alt="Darens avatar"
@@ -200,7 +200,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 									{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 										({ slug, title: bookingTitle, duration }) => (
 											<li
-												className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+												className="bg-muted hover:bg-inverted/10 shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
 												key={slug}
 											>
 												<Link
@@ -209,16 +209,16 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 													aria-label={`Book ${bookingTitle}`}
 												>
 													<div className="flex w-full items-start justify-between gap-4 p-5">
-														<div className="flex flex-col gap-2">
-															<div className="text-lg font-semibold">
+														<div className="flex flex-col">
+															<div className="mb-sm text-lg font-semibold">
 																{bookingTitle}
 															</div>
 															<div>
 																<Badge
 																	variant="secondary"
-																	className="inline-flex w-auto items-center gap-2"
+																	className="inline-flex w-auto items-center"
 																>
-																	<ClockIcon className="size-3" />
+																	<ClockIcon className="mr-sm size-3" />
 																	{duration} minutes
 																</Badge>
 															</div>

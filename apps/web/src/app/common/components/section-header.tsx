@@ -57,12 +57,12 @@ export const SectionHeader = React.forwardRef<
 			as={as}
 			ref={ref}
 			className={cx(
-				'mb-12 flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0',
+				'space-y-md mb-lg flex flex-col lg:flex-row lg:items-end lg:justify-between lg:space-y-0',
 				className,
 			)}
 			{...props}
 		>
-			<div className="space-y-0">{children}</div>
+			<div className="space-y-xs">{children}</div>
 
 			{cta?.url ? (
 				<ArrowLink href={cta.url} direction="right">

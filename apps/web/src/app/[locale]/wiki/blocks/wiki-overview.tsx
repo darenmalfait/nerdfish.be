@@ -86,12 +86,12 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
-						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
+						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
 					>
 						{header?.image ? (
 							<div
 								data-tina-field={tinaField(data, 'header')}
-								className="col-span-full mb-12 px-10 lg:col-span-5 lg:col-start-7 lg:mb-0"
+								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
 							>
 								<Image
 									className="rounded-xl"
@@ -105,13 +105,13 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						) : null}
 						<div
 							className={cx(
-								'col-span-full pt-6 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
+								'pt-lg col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
 									'lg:col-span-5 lg:col-start-1': header?.image,
 								},
 							)}
 						>
-							<div className="flex flex-auto flex-col justify-center space-y-4">
+							<div className="flex flex-auto flex-col justify-center">
 								{(title ?? subtitle) ? (
 									<SectionHeader>
 										{title ? <SectionHeaderTitle animatedText={title} /> : null}
@@ -126,8 +126,8 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 									onChange={(event) => {
 										setQuery(event.currentTarget.value.toLowerCase())
 									}}
-									name="q"
 									className="shadow-outline"
+									name="q"
 									placeholder="Search"
 									icon={SearchIcon}
 									inputSize="lg"
@@ -148,7 +148,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				/>
 			) : null}
 
-			<div className="mx-auto space-y-14 py-12 sm:space-y-16 sm:py-16 lg:max-w-3xl">
+			<div className="mx-auto flex flex-col lg:max-w-3xl">
 				{!searchEnabled && (title ?? subtitle) ? (
 					<div data-tina-field={tinaField(data, 'header')}>
 						<SectionHeader
@@ -187,7 +187,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 										href={getWikiPath(wiki)}
 										title={wiki.title ?? ''}
 									>
-										<ArticleCardContent className="mt-0">
+										<ArticleCardContent className="my-0">
 											<ArticleCardTitle className="group-hover:underline">
 												{wiki.title}
 											</ArticleCardTitle>
@@ -204,14 +204,14 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				)}
 
 				{hasMorePosts ? (
-					<div className="mb-16 flex w-full justify-center">
+					<div className="mt-2xl flex w-full justify-center">
 						<Button
 							disabled={!hasMorePosts}
 							variant="secondary"
-							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <PlusIcon width="20px" height="20px" />
+							<span className="mr-2">Load more</span>{' '}
+							<PlusIcon className="size-4" />
 						</Button>
 					</div>
 				) : null}

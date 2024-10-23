@@ -83,7 +83,7 @@ function ContactForm() {
 		<Form {...form}>
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<fieldset>
-					<div className="mb-8 space-y-8">
+					<div className="mb-lg space-y-lg">
 						<FormField
 							control={form.control}
 							name="name"

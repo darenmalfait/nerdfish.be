@@ -34,8 +34,8 @@ function HighlightCardContent(props: PageBlocksHighlightsItems) {
 					</div>
 				</div>
 			) : null}
-			<div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-				<H3 className="text-primary text-xl font-semibold">{title}</H3>
+			<div className="p-md pointer-events-none z-10 flex transform-gpu flex-col transition-all duration-300 group-hover:-translate-y-10">
+				<H3 className="text-primary mb-sm text-xl font-semibold">{title}</H3>
 				<Paragraph className="text-muted max-w-lg">{description}</Paragraph>
 			</div>
 

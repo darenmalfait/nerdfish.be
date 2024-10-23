@@ -48,22 +48,19 @@ export function ActionsNavigation({
 	const { navigation } = useGlobal()
 
 	return (
-		<div className={cx('space-x-3', className)}>
+		<ul className={cx('space-x-sm', className)}>
 			{navigation?.actions?.map((link) => {
 				if (!link) return null
 
 				return (
-					<Button
-						key={link.label}
-						onClick={onSelect}
-						variant="accentuate"
-						asChild
-					>
-						<Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
-					</Button>
+					<li key={link.label}>
+						<Button onClick={onSelect} variant="accentuate" asChild>
+							<Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
+						</Button>
+					</li>
 				)
 			})}
-		</div>
+		</ul>
 	)
 }
 
@@ -76,7 +73,7 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'focus-within:outline-active rounded-semi bg-muted group relative flex h-full w-full select-none flex-col justify-end space-y-1 p-4 leading-none no-underline outline-none transition-colors',
+						'focus-within:outline-active rounded-semi bg-muted p-md group relative flex h-full w-full select-none flex-col justify-end space-y-1 leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
@@ -98,12 +95,12 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative flex h-8 cursor-pointer bg-transparent font-semibold hover:text-primary items-center gap-x-1.5 whitespace-nowrap rounded-semi px-3 capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10 sm:px-4',
+	'relative flex h-8 cursor-pointer bg-transparent font-semibold hover:text-primary items-center gap-x-sm whitespace-nowrap rounded-semi  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
 	{
 		variants: {
 			variant: {
 				active: 'text-muted',
-				default: 'px-3 text-primary',
+				default: 'text-primary',
 			},
 		},
 	},
@@ -160,7 +157,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuContent className="bg-primary rounded-semi">
 				<ul
 					className={cx(
-						'grid gap-2 p-2 md:w-[400px] lg:w-[500px]',
+						'gap-sm p-sm grid md:w-[400px] lg:w-[500px]',
 						'lg:grid-cols-3 lg:grid-rows-2',
 					)}
 				>
@@ -191,7 +188,7 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="flex flex-row items-center gap-3">
+		<ul className="gap-sm flex flex-row items-center">
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" size="icon" asChild>
@@ -273,7 +270,7 @@ export function MainNavigation() {
 
 	return (
 		<NavigationMenu>
-			<NavigationMenuList className="gap-2" aria-label="Pages">
+			<NavigationMenuList className="gap-sm" aria-label="Pages">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
 

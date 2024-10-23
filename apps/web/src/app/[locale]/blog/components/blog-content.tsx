@@ -8,6 +8,7 @@ import {
 	ArticleCardImage,
 	ArticleCardTitle,
 	DateFormatter,
+	Section,
 } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
@@ -46,14 +47,14 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 	return (
 		<article>
 			<ReadingProgress offset={1200} />
-			<section className="container mx-auto mb-8 mt-24 max-w-4xl px-4">
-				<div className="mb-6">
+			<Section className="max-w-4xl">
+				<div className="mb-lg">
 					<BackToBlog />
 				</div>
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
 						<span
-							className="text-muted mb-2 text-lg"
+							className="text-muted mb-xs text-lg"
 							data-tina-field={tinaField(data.blog, 'date')}
 						>
 							Published{' '}
@@ -62,13 +63,13 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 					) : null}
 					<H1
 						data-tina-field={tinaField(data.blog, 'title')}
-						className="w-auto"
+						className="!mb-lg w-auto"
 					>
 						<AnimatedText value={title} letterClassName="hover:text-primary" />
 					</H1>
 				</header>
 				{heroImg ? (
-					<div className={cx(prose, 'mx-auto my-12')}>
+					<div className={cx(prose, 'mb-xl mx-auto')}>
 						<div
 							className="rounded-semi overflow-hidden"
 							data-tina-field={tinaField(data.blog, 'heroImg')}
@@ -84,23 +85,26 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 						</div>
 					</div>
 				) : null}
-			</section>
 
-			<section
-				className={cx('container mx-auto px-4', prose)}
-				data-tina-field={tinaField(data.blog, 'body')}
-			>
-				{body ? <PortableText content={body} /> : null}
-			</section>
+				{body ? (
+					<div className={prose}>
+						<PortableText
+							data-tina-field={tinaField(data.blog, 'body')}
+							content={body}
+						/>
+					</div>
+				) : null}
+			</Section>
+
 			{relatedPosts.length > 0 ? (
-				<section className="container mx-auto mt-24 px-4">
+				<Section>
 					<SectionHeader>
 						<SectionHeaderTitle animatedText="Done reading?" />
 						<SectionHeaderSubtitle>
 							Read more related articles
 						</SectionHeaderSubtitle>
 					</SectionHeader>
-					<ul className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<ul className="gap-x-lg gap-y-xl relative grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
 						{relatedPosts.map((relatedBlog) => {
 							return (
 								<li key={relatedBlog.id} className="col-span-4">
@@ -124,7 +128,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 							)
 						})}
 					</ul>
-				</section>
+				</Section>
 			) : null}
 		</article>
 	)

@@ -15,7 +15,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<div className="bg-accent/20 rounded-semi mx-2">
+		<div className="bg-accent/20 rounded-semi mx-sm">
 			<Section>
 				<Card className="rounded-semi bg-primary relative overflow-hidden">
 					{children}
@@ -30,7 +30,7 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 
 	return (
 		<BlockLayout>
-			<CardHeader className="bg-transparent p-6">
+			<CardHeader className="!p-lg bg-transparent !pb-0">
 				<SectionHeader className="mb-0">
 					<SectionHeaderTitle
 						data-tina-field={tinaField(props, 'title')}
@@ -41,7 +41,7 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 					</SectionHeaderSubtitle>
 				</SectionHeader>
 			</CardHeader>
-			<CardContent className="prose dark:prose-invert p-6">
+			<CardContent className="prose dark:prose-invert !p-lg !pt-0">
 				<PortableText
 					content={content}
 					data-tina-field={tinaField(props, 'content')}
