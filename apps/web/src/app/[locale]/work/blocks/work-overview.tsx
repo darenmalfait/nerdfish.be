@@ -1,6 +1,14 @@
 'use client'
 
-import { Button, H3, H5 } from '@nerdfish/ui'
+import {
+	Button,
+	EmptyStateIcon,
+	EmptyState,
+	Input,
+	EmptyStateTitle,
+	EmptyStateDescription,
+	EmptyStateActions,
+} from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
@@ -10,9 +18,8 @@ import {
 	ArticleCardImage,
 	ArticleCardTitle,
 	Section,
-	Tag,
 } from '@nerdfish-website/ui/components'
-import { PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
+import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -21,10 +28,11 @@ import { type Block, type PageBlocksWork } from '~/app/cms'
 import {
 	SectionHeader,
 	HighlightCard,
-	WorkPath,
 	SectionHeaderTitle,
 	SectionHeaderSubtitle,
+	nonNullable,
 } from '~/app/common'
+import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -38,47 +46,58 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 		count,
 		globalData = {},
 	} = data
-	const { works: allWorks = [] } = globalData
-
+	const { works: allWork = [] } = globalData
 	const { title, subtitle, link } = header ?? {}
 	const [query, setQuery] = React.useState('')
 	const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
 
-	let filteredPosts =
-		tags && tags.length > 0 ? filterWork(allWorks, tags.join(' ')) : allWorks
-	const allTags = [...new Set(filteredPosts.flatMap((post) => post.category))]
+	let filteredWork =
+		tags && tags.length > 0 ? filterWork(allWork, tags.join(' ')) : allWork
+
+	const allCategories = [
+		...new Set(filteredWork.flatMap((post) => post.category)),
+	].filter(nonNullable)
 
 	if (count) {
-		filteredPosts = filteredPosts.slice(0, count)
+		filteredWork = filteredWork.slice(0, count)
 	}
 
-	const matchingPosts = React.useMemo(() => {
-		return filterWork(filteredPosts, query)
-	}, [filteredPosts, query])
+	const matchingWork = React.useMemo(() => {
+		return filterWork(filteredWork, query)
+	}, [filteredWork, query])
 
 	const isSearching = query.length > 0
-	const featured = filteredPosts.length > 0 ? filteredPosts[0] : null
+	const featured = filteredWork.length > 0 ? filteredWork[0] : null
 
-	const posts =
+	const works =
 		isSearching || !featuredEnabled
-			? matchingPosts.slice(0, indexToShow)
-			: matchingPosts.filter((p) => p.id !== featured?.id).slice(0, indexToShow)
+			? matchingWork.slice(0, indexToShow)
+			: matchingWork.filter((p) => p.id !== featured?.id).slice(0, indexToShow)
 
-	const hasMorePosts =
+	const hasMore =
 		isSearching || !featuredEnabled
-			? indexToShow < matchingPosts.length
-			: indexToShow < matchingPosts.length - 1
+			? indexToShow < matchingWork.length
+			: indexToShow < matchingWork.length - 1
 
-	const visibleTags =
+	const enabledTags =
 		isSearching || !featuredEnabled
-			? [...new Set(matchingPosts.flatMap((post) => post.category))]
-			: allTags
+			? [...new Set(matchingWork.flatMap((post) => post.category))].filter(
+					nonNullable,
+				)
+			: allCategories
+
+	const selectedTags = allCategories.filter((tag) => query.includes(tag))
 
 	function toggleTag(tag: string) {
 		setQuery((q) => {
-			const newQuery = q.includes(tag)
-				? q.replace(new RegExp(tag, 'ig'), '')
+			// create a regexp so that we can replace multiple occurrences (`react node react`)
+			const expression = new RegExp(tag, 'ig')
+
+			const newQuery = expression.test(q)
+				? q.replace(expression, '')
 				: `${q} ${tag}`
+
+			// trim and remove subsequent spaces (`react   node ` => `react node`)
 			return newQuery.replace(/\s+/g, ' ').trim()
 		})
 	}
@@ -89,12 +108,12 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
-						className="relative mx-auto mb-24 grid h-auto grid-cols-4 justify-center gap-x-4 md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:gap-x-6 lg:pb-12"
+						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
 					>
 						{header?.image ? (
 							<div
 								data-tina-field={tinaField(data, 'header')}
-								className="col-span-full mb-12 px-10 lg:col-span-5 lg:col-start-7 lg:mb-0"
+								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
 							>
 								<Image
 									className="rounded-xl"
@@ -108,7 +127,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 						) : null}
 						<div
 							className={cx(
-								'col-span-full pt-6 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
+								'pt-lg col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
 									'lg:col-span-5 lg:col-start-1': header?.image,
 								},
@@ -123,92 +142,77 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 										) : null}
 									</SectionHeader>
 								) : null}
-								<div className="relative w-full pb-8 pt-6 text-center lg:py-8 lg:text-left">
-									<SearchIcon
-										width="20px"
-										height="20px"
-										className="text-muted absolute left-6 top-0 flex h-full items-center justify-center border-none bg-transparent p-0"
-									/>
-									<input
-										type="search"
-										value={query}
-										onChange={(event) => {
-											setQuery(event.currentTarget.value.toLowerCase())
-										}}
-										name="q"
-										placeholder="Search"
-										className="bg-primary text-primary/60 focus-ring w-full rounded-full border-2 py-6 pl-14 pr-16 outline-none"
-									/>
-									<div className="text-muted absolute right-0 top-0 hidden h-full w-14 items-center justify-between text-lg font-bold md:flex">
-										{matchingPosts.length}
-									</div>
-								</div>
+								<Input
+									type="search"
+									value={query}
+									onChange={(event) => {
+										setQuery(event.currentTarget.value.toLowerCase())
+									}}
+									className="shadow-outline"
+									name="q"
+									placeholder="Search"
+									icon={SearchIcon}
+									inputSize="lg"
+								/>
 							</div>
 						</div>
 					</div>
 				</div>
 			) : null}
 
-			{searchEnabled && allTags.length > 0 ? (
-				<div className="my-16">
-					<H5 as="h3" className="mb-8">
-						Filter articles by topic
-					</H5>
-					<div className="col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10">
-						{allTags.map((tag) => {
-							if (!tag) {
-								return null
-							}
-
-							const selected = query.includes(tag)
-							return (
-								<Tag
-									key={tag}
-									tag={tag}
-									selected={selected}
-									onClick={() => toggleTag(tag)}
-									disabled={visibleTags.includes(tag) ? false : !selected}
-								/>
-							)
-						})}
-					</div>
-				</div>
+			{searchEnabled && allCategories.length > 0 ? (
+				<TagFilter
+					title="Filter articles by topic"
+					tags={allCategories}
+					enabledTags={enabledTags}
+					onToggleTag={toggleTag}
+					selectedTags={selectedTags}
+				/>
 			) : null}
 
 			<div className="flex flex-col">
 				{!searchEnabled && (title ?? subtitle) ? (
-					<SectionHeader
-						cta={{
-							title: 'See all articles',
-							url: link ?? '',
-						}}
-					>
-						{title ? <SectionHeaderTitle animatedText={title} /> : null}
-						{subtitle ? (
-							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-						) : null}
-					</SectionHeader>
+					<div data-tina-field={tinaField(data, 'header')}>
+						<SectionHeader
+							cta={{
+								title: 'See all work',
+								url: link ?? '',
+							}}
+						>
+							{title ? <SectionHeaderTitle animatedText={title} /> : null}
+							{subtitle ? (
+								<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+							) : null}
+						</SectionHeader>
+					</div>
 				) : null}
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
-						className="mb-12"
+						className="mb-xl"
 						category={featured.category}
-						href={`/${WorkPath}/${featured.category}/${featured._sys?.filename}`}
+						href={getWorkPath(featured)}
 						title={featured.title}
 						image={featured.heroImg}
 					/>
 				) : null}
 
-				{matchingPosts.length === 0 ? (
-					<div className="flex grid-cols-4 flex-col">
-						<H3 as="p" variant="secondary" className="max-w-lg">
-							No articles found for your search query.
-						</H3>
-					</div>
+				{matchingWork.length === 0 ? (
+					<EmptyState>
+						<EmptyStateIcon>
+							<NewspaperIcon />
+						</EmptyStateIcon>
+						<EmptyStateTitle>No work found</EmptyStateTitle>
+						<EmptyStateDescription>
+							Try searching for something else.
+						</EmptyStateDescription>
+						<EmptyStateActions>
+							<Button onClick={() => setQuery('')}>Clear search</Button>
+						</EmptyStateActions>
+					</EmptyState>
 				) : (
-					<ul className="grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
-						{posts.map((work) => {
+					<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
+						{works.map((work) => {
 							return (
 								<li key={work.id} className="col-span-4">
 									<ArticleCard
@@ -223,7 +227,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 											<ArticleCardCategory value={work.category} />
 											<ArticleCardTitle>{work.title}</ArticleCardTitle>
 											<ArticleCardDescription>
-												{work.seo?.description}
+												{work.excerpt}
 											</ArticleCardDescription>
 										</ArticleCardContent>
 									</ArticleCard>
@@ -233,15 +237,15 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 					</ul>
 				)}
 
-				{hasMorePosts ? (
-					<div className="mb-16 flex w-full justify-center">
+				{hasMore ? (
+					<div className="mt-2xl flex w-full justify-center">
 						<Button
-							disabled={!hasMorePosts}
+							disabled={!hasMore}
 							variant="secondary"
-							className="space-x-2"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span>Load more</span> <PlusIcon width="20px" height="20px" />
+							<span className="mr-2">Load more</span>{' '}
+							<PlusIcon className="size-4" />
 						</Button>
 					</div>
 				) : null}

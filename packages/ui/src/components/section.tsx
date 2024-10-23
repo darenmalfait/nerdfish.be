@@ -13,7 +13,7 @@ export const Section = React.forwardRef<
 	return (
 		<Component
 			ref={ref}
-			className={cx('container mx-auto px-4 py-24 md:py-32', className)}
+			className={cx('py-3xl px-md container mx-auto', className)}
 			{...props}
 		/>
 	)

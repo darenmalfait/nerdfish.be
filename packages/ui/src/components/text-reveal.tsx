@@ -16,7 +16,7 @@ function Word({
 	const opacity = useTransform(progress, range, [0, 1])
 
 	return (
-		<span className="xl:lg-3 relative mx-1 lg:mx-2.5">
+		<span className="mx-sm relative">
 			<span className="absolute opacity-30">{children}</span>
 			<motion.span style={{ opacity }} className="text-primary">
 				{children}
@@ -48,7 +48,7 @@ export const TextReveal = React.forwardRef<
 			<div className="sticky top-0 mx-auto flex h-[40%] items-center bg-transparent">
 				<p
 					ref={targetRef}
-					className="text-primary/20 flex flex-wrap p-5 text-2xl font-bold md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl"
+					className="text-primary/20 p-md flex flex-wrap text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl"
 				>
 					{words.map((word, i) => {
 						const start = i / words.length

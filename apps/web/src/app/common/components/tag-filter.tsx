@@ -91,8 +91,8 @@ export function TagFilter({
 	...tagsProps
 }: TagsProps & { title: string }) {
 	return (
-		<div className="my-16">
-			<H5 as="h3" className="mb-8 flex items-center justify-between gap-2">
+		<div className="my-xl">
+			<H5 as="h3" className="mb-sm flex items-center justify-between gap-2">
 				{title}
 				<Drawer>
 					<DrawerTrigger asChild className="lg:hidden">
@@ -103,7 +103,7 @@ export function TagFilter({
 							<FilterIcon size="sm" className="size-4" />
 						</Button>
 					</DrawerTrigger>
-					<DrawerContent className="p-4">
+					<DrawerContent className="p-md">
 						<DrawerHeader>
 							<DrawerTitle>{title}</DrawerTitle>
 						</DrawerHeader>

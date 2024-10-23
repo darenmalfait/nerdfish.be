@@ -95,10 +95,10 @@ export function Chat() {
 	}, [scrollToBottom, messages])
 
 	return (
-		<div className="rounded-semi shadow-outline flex flex-col gap-4 bg-transparent p-6">
+		<div className="rounded-semi shadow-outline flex flex-col bg-transparent p-6">
 			<div
 				ref={scrollBottomAnchor}
-				className="flex h-[40vh] flex-col gap-6 overflow-y-auto pb-8"
+				className="gap-lg pb-xl flex h-[40vh] flex-col overflow-y-auto"
 			>
 				<ChatMessage role="assistant">
 					{t('ai.chat.initialMessage')}
@@ -144,7 +144,7 @@ export function Chat() {
 				) : null}
 			</div>
 			<ul
-				className="questions mt-8 flex gap-1 overflow-x-auto overflow-y-visible px-1 py-2"
+				className="questions mt-xl mb-sm gap-sm py-sm px-xs flex overflow-x-auto overflow-y-visible"
 				aria-label="Premade questions"
 			>
 				{premadeQuestions.map((q) => (
@@ -175,7 +175,7 @@ export function Chat() {
 						event.target.value.length < 80 && handleInputChange(event)
 					}
 					inputSize="lg"
-					className="w-full pr-6"
+					className="!pr-md w-full"
 					placeholder="Ask a question"
 					addOnTrailing={
 						<Button
