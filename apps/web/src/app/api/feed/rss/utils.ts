@@ -34,7 +34,7 @@ export async function buildFeed() {
 				},
 			],
 			date: new Date(post.date ?? ''),
-			image: post.heroImg ?? undefined,
+			image: `${process.env.NEXT_PUBLIC_URL}${post.heroImg ?? ''}`,
 		})
 	})
 
