@@ -18,7 +18,7 @@ function BlockLayout({
 	return (
 		<Section className={cx('relative max-w-none')}>
 			{variant === 'default' ? (
-				<div className="rounded-semi -z-1 from-accent/50 via-blog-wiki/50 to-blog-project/50 absolute inset-2 bottom-0 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[28%] via-[70%] ring-1 ring-inset ring-black/5 sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))]" />
+				<div className="rounded-semi -z-1 absolute inset-2 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70" />
 			) : null}
 			<div
 				className={cx('px-md relative lg:container lg:mx-auto', {
