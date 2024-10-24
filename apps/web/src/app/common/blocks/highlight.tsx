@@ -15,7 +15,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<div className="bg-accent/20 rounded-semi mx-sm">
+		<div className="rounded-semi mx-sm bg-muted">
 			<Section>
 				<Card className="rounded-semi bg-primary relative overflow-hidden">
 					{children}
