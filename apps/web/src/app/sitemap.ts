@@ -2,6 +2,7 @@ import { type MetadataRoute } from 'next'
 
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
+import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './api'
 
 const BASE_URL = process.env.NEXT_PUBLIC_URL
@@ -18,16 +19,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		},
 		...(data.pages?.map((page) => {
 			return {
-				url: `${BASE_URL}/${
-					page._sys?.filename !== 'home' ? page._sys?.filename : ''
-				}`,
+				url: `${BASE_URL}/${page._sys?.breadcrumbs.join('/')}`,
 				lastModified: new Date(),
 				priority: 1,
 			}
 		}) ?? []),
 		...(data.works?.map((work) => {
 			return {
-				url: `${BASE_URL}/work/${work.category ?? ''}/${work._sys?.filename}`,
+				url: `${BASE_URL}${getWorkPath(work)}`,
 				lastModified: new Date(),
 				priority: 0.9,
 			}
