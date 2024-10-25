@@ -77,24 +77,24 @@ function ArrowLink({
 			{...props}
 			href={href ?? '#'}
 			className={cx(
-				'text-primary inline-flex cursor-pointer items-center space-x-4 text-left text-lg font-bold !no-underline transition focus:outline-none',
+				'text-primary space-x-md inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
 				className,
 			)}
 			ref={ref as any}
 			animate={state}
 		>
 			{children && (direction === 'right' || direction === 'up') ? (
-				<span className="mr-8 font-bold">{children}</span>
+				<span className="mr-lg font-bold">{children}</span>
 			) : null}
 
-			<div className="relative inline-flex size-14 flex-none items-center justify-center p-1">
+			<div className="p-sm relative inline-flex size-14 flex-none items-center justify-center">
 				<motion.span variants={arrowVariants[direction]}>
 					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
 
 			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-8 text-xl font-bold">{children}</span>
+				<span className="ml-lg text-xl font-bold">{children}</span>
 			) : null}
 		</Tag>
 	)

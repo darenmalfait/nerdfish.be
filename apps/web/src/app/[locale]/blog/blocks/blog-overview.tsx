@@ -33,6 +33,13 @@ import {
 	nonNullable,
 	SectionHeaderTitle,
 	SectionHeaderSubtitle,
+	HighlightCardImage,
+	HighlightCardContent,
+	HighlightCardCategory,
+	HighlightCardTitle,
+	HighlightCardSubtitle,
+	HighlightCardCTA,
+	HighlightCardDescription,
 } from '~/app/common'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
@@ -191,17 +198,30 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
-						className="mb-xl"
-						category={featured.category}
 						href={getBlogPath(featured)}
-						title={featured.title}
-						subtitle={
-							featured.date
-								? `${formatDate(parseISO(featured.date), 'PPP')}`
-								: 'TBA'
-						}
-						image={featured.heroImg}
-					/>
+						className="mb-xl"
+						title={featured.title ?? ''}
+					>
+						<HighlightCardContent>
+							<HighlightCardCategory value={featured.category} />
+							<HighlightCardTitle>{featured.title}</HighlightCardTitle>
+							<HighlightCardSubtitle>
+								{featured.date
+									? `${formatDate(parseISO(featured.date), 'PPP')}`
+									: 'TBA'}
+							</HighlightCardSubtitle>
+							<HighlightCardDescription>
+								{featured.excerpt}
+							</HighlightCardDescription>
+							<HighlightCardCTA
+								category={featured.category}
+								href={getBlogPath(featured)}
+							>
+								Read more
+							</HighlightCardCTA>
+						</HighlightCardContent>
+						<HighlightCardImage src={featured.heroImg} />
+					</HighlightCard>
 				) : null}
 
 				{matchingPosts.length === 0 ? (
