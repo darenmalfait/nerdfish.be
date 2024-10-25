@@ -200,7 +200,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 									{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 										({ slug, title: bookingTitle, duration }) => (
 											<li
-												className="bg-muted hover:bg-inverted/10 shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+												className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
 												key={slug}
 											>
 												<Link
