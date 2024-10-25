@@ -31,6 +31,10 @@ import {
 	SectionHeaderTitle,
 	SectionHeaderSubtitle,
 	nonNullable,
+	HighlightCardImage,
+	HighlightCardContent,
+	HighlightCardCategory,
+	HighlightCardTitle,
 } from '~/app/common'
 import { TagFilter } from '~/app/common/components/tag-filter'
 
@@ -189,12 +193,16 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 
 				{!isSearching && featured && featuredEnabled ? (
 					<HighlightCard
-						className="mb-xl"
-						category={featured.category}
 						href={getWorkPath(featured)}
-						title={featured.title}
-						image={featured.heroImg}
-					/>
+						className="mb-xl"
+						title={featured.title ?? ''}
+					>
+						<HighlightCardContent>
+							<HighlightCardCategory value={featured.category} />
+							<HighlightCardTitle>{featured.title}</HighlightCardTitle>
+						</HighlightCardContent>
+						<HighlightCardImage src={featured.heroImg} />
+					</HighlightCard>
 				) : null}
 
 				{matchingWork.length === 0 ? (
