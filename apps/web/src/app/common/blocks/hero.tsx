@@ -59,8 +59,8 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	return (
 		<div
 			className={cx(
-				'animate-in fade-in mb-md zoom-in-150 w-full max-w-[50%] flex-none duration-700 md:mb-0',
-				'top-1/2 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%] 2xl:-right-1/4',
+				'animate-in fade-in mb-md zoom-in-150 w-auto max-w-[50%] flex-none duration-700 md:mb-0',
+				'top-1/2 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%]',
 			)}
 		>
 			{children}
