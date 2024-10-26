@@ -15,6 +15,7 @@ import {
 	FormLabel,
 	FormMessage,
 	Input,
+	LoadingAnimation,
 	RadioGroup,
 	RadioGroupField,
 	RadioGroupItem,
@@ -24,7 +25,6 @@ import {
 	contactSchema,
 	type ContactFormData,
 } from '@nerdfish-website/lib/validations'
-import { Loader2 } from 'lucide-react'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -210,7 +210,7 @@ function ContactForm() {
 								type="submit"
 							>
 								{form.formState.isSubmitting ? (
-									<Loader2 className="mr-2 animate-spin" />
+									<LoadingAnimation className="mr-2 size-4" variant="classic" />
 								) : null}
 								{t('contact.send')}
 							</Button>

@@ -44,7 +44,7 @@ export default async function RootLayout({
 							<BaseLayoutTemplate>
 								<React.Suspense
 									fallback={
-										<Section className="animate-in fade-in-0 flex min-h-screen justify-center duration-1000">
+										<Section className="motion-preset-fade motion-duration-1000 flex min-h-screen justify-center">
 											<LoadingAnimation className="size-8" variant="square" />
 										</Section>
 									}

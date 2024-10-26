@@ -36,7 +36,7 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 
 	return (
 		<div className="max-w-lg">
-			<div className="prose dark:prose-invert lg:prose-xl animate-in fade-in !text-primary mt-0 duration-1000">
+			<div className="motion-preset-fade motion-preset-slide-up motion-delay-[300ms] prose dark:prose-invert lg:prose-xl !text-primary mt-0">
 				{children}
 			</div>
 		</div>
@@ -47,7 +47,7 @@ function BlockHeader({ children }: { children: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="animate-in fade-in mb-xs flex flex-col duration-700">
+		<div className="motion-preset-fade motion-preset-slide-up motion-delay-[150ms] mb-xs flex flex-col">
 			{children}
 		</div>
 	)
@@ -59,7 +59,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	return (
 		<div
 			className={cx(
-				'animate-in fade-in mb-md zoom-in-150 w-auto max-w-[50%] flex-none duration-700 md:mb-0',
+				'motion-preset-shrink motion-preset-focus mb-md w-auto max-w-[50%] flex-none md:mb-0',
 				'top-1/2 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%]',
 			)}
 		>

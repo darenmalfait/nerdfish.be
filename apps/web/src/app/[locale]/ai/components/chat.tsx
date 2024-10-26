@@ -1,8 +1,7 @@
 'use client'
 
-import { Button, Input, Skeleton } from '@nerdfish/ui'
+import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { SpinnerIcon } from '@nerdfish-website/ui/icons'
 import { useChat } from 'ai/react'
 import { ArrowUpIcon } from 'lucide-react'
 import * as React from 'react'
@@ -185,7 +184,11 @@ export function Chat() {
 							variant="success"
 							aria-label="Send"
 						>
-							{isLoading ? <SpinnerIcon /> : <ArrowUpIcon className="size-4" />}
+							{isLoading ? (
+								<LoadingAnimation variant="classic" className="size-4" />
+							) : (
+								<ArrowUpIcon className="size-4" />
+							)}
 						</Button>
 					}
 				/>
