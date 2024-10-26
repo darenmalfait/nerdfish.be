@@ -1,5 +1,3 @@
-import { cx } from '@nerdfish/utils'
-import { Loader2, type LucideProps } from 'lucide-react'
 import * as React from 'react'
 export * from 'lucide-react'
 export * from './components/arrow-icon'
@@ -246,19 +244,6 @@ export const NoResultsIcon = React.forwardRef<
 	)
 })
 NoResultsIcon.displayName = 'NoResultsIcon'
-
-export const SpinnerIcon = React.forwardRef<SVGSVGElement, LucideProps>(
-	({ className, ...props }, ref) => {
-		return (
-			<Loader2
-				{...props}
-				ref={ref}
-				className={cx('size-4 animate-spin', className)}
-			/>
-		)
-	},
-)
-SpinnerIcon.displayName = 'SpinnerIcon'
 
 export const GithubIcon = React.forwardRef<
 	SVGSVGElement,

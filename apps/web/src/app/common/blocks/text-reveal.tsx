@@ -25,7 +25,7 @@ export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 						ref.current?.scrollIntoView({ behavior: 'smooth' })
 					}}
 				>
-					<ScrollIndicator className="animate-in fade-in-0 slide-in-from-bottom group-hover:text-primary z-10 block duration-700 group-hover:border-black dark:group-hover:border-white">
+					<ScrollIndicator className="motion-preset-fade motion-preset-slide-up motion-duration-700 group-hover:text-primary z-10 block group-hover:border-black dark:group-hover:border-white">
 						<span className="sr-only">Scroll down</span>
 					</ScrollIndicator>
 				</button>
