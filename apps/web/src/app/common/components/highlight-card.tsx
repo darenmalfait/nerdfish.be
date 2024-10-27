@@ -27,7 +27,7 @@ export const HighlightCardImage = React.forwardRef<
 		>
 			{src ? (
 				<Image
-					className="absolute inset-0 object-cover"
+					className="motion-blur-in-3xl motion-duration-500 absolute inset-0 object-cover"
 					src={src}
 					fill
 					alt={alt ?? ''}

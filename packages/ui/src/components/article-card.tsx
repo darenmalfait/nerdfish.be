@@ -22,7 +22,7 @@ export function ArticleCardImage({
 	return (
 		<div
 			className={cx(
-				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi relative ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
 			)}
 		>
@@ -30,7 +30,7 @@ export function ArticleCardImage({
 
 			{src ? (
 				<Image
-					className="rounded-semi absolute inset-0 size-full object-cover"
+					className="rounded-semi motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
 					src={src}
 					fill
 					alt={alt ?? ''}
