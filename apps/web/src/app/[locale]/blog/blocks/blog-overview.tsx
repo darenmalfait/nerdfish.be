@@ -267,8 +267,9 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 				{hasMorePosts ? (
 					<div className="mt-2xl flex w-full justify-center">
 						<Button
+							size="xl"
 							disabled={!hasMorePosts}
-							variant="secondary"
+							variant="outline"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
 							<span className="mr-2">Load more</span>{' '}
