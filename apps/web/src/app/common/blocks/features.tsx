@@ -1,13 +1,14 @@
 'use client'
 
-import { Grid, H3 } from '@nerdfish/ui'
+import { Button, Grid, H3 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
+import { ArrowUpRight } from '@nerdfish-website/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
+import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
-	ArrowLink,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
@@ -27,12 +28,14 @@ function DetailLink({ page }: { page?: Page }) {
 	if (!page) return null
 
 	return (
-		<ArrowLink
-			className="text-accent mt-4 text-sm"
-			href={`/${page._sys.breadcrumbs.join('/')}`}
-		>
-			{t('features.readMore')}
-		</ArrowLink>
+		<div className="mt-md">
+			<Button className="group" asChild>
+				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
+					{t('features.readMore')}
+					<ArrowUpRight className="ml-sm size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+				</Link>
+			</Button>
+		</div>
 	)
 }
 
