@@ -14,7 +14,6 @@ import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
-	ArticleCardDescription,
 	ArticleCardImage,
 	ArticleCardTitle,
 	Section,
@@ -253,9 +252,6 @@ export function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
 										<ArticleCardContent>
 											<ArticleCardCategory value={blog.category} />
 											<ArticleCardTitle>{blog.title}</ArticleCardTitle>
-											<ArticleCardDescription>
-												{blog.seo?.description}
-											</ArticleCardDescription>
 										</ArticleCardContent>
 									</ArticleCard>
 								</li>
