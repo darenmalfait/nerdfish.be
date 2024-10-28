@@ -46,7 +46,7 @@ export const ArticleCardContent = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
-	return <div ref={ref} {...props} className={cx('my-md', className)} />
+	return <div ref={ref} {...props} className={cx('mt-md', className)} />
 })
 
 ArticleCardContent.displayName = 'ArticleCardContent'
@@ -119,7 +119,7 @@ export const ArticleCardCategory = React.forwardRef<
 			ref={ref}
 			variant="default"
 			{...props}
-			className={cx('bg-muted mb-md', getCategoryColors(value), className)}
+			className={cx('bg-muted mb-sm', getCategoryColors(value), className)}
 		>
 			<span className="sr-only">Category: </span>
 			{value}
