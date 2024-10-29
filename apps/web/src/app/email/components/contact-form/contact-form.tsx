@@ -25,6 +25,7 @@ import {
 	contactSchema,
 	type ContactFormData,
 } from '@nerdfish-website/lib/validations'
+import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -92,7 +93,7 @@ function ContactForm() {
 									<FormLabel>{t('contact.name')}</FormLabel>
 
 									<FormControl>
-										<Input {...field} />
+										<Input inputSize="lg" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -107,7 +108,7 @@ function ContactForm() {
 									<FormLabel>{t('contact.email')}</FormLabel>
 
 									<FormControl>
-										<Input type="email" {...field} />
+										<Input inputSize="lg" type="email" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -182,7 +183,7 @@ function ContactForm() {
 									<FormLabel>Message</FormLabel>
 
 									<FormControl>
-										<Textarea {...field} />
+										<Textarea inputSize="lg" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -203,6 +204,8 @@ function ContactForm() {
 							</Alert>
 						) : (
 							<Button
+								className="group"
+								size="lg"
 								disabled={
 									form.formState.isSubmitting ||
 									(form.formState.isSubmitSuccessful && !error)
@@ -213,6 +216,7 @@ function ContactForm() {
 									<LoadingAnimation className="mr-2 size-4" variant="classic" />
 								) : null}
 								{t('contact.send')}
+								<ArrowRightIcon className="ml-sm group-hover:translate-x-sm size-4 transition-all" />
 							</Button>
 						)}
 					</div>
