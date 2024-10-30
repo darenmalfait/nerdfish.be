@@ -1,35 +1,37 @@
 'use client'
 
 import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
+import { cva, type VariantProps } from '@nerdfish/utils'
 import { useChat } from 'ai/react'
 import { ArrowUpIcon } from 'lucide-react'
 import * as React from 'react'
 import { z } from 'zod'
 import { useTranslation } from '../../translation-provider'
 
+const chatMessageVariants = cva(
+	'rounded-semi animate-rubber relative px-5 py-2.5',
+	{
+		variants: {
+			role: {
+				user: 'bg-success text-success ml-auto w-8/12 max-w-fit rounded-br-none',
+				assistant:
+					'bg-accent text-white mr-auto w-11/12 max-w-fit rounded-tl-none',
+				system: 'mr-auto w-full max-w-[400px] rounded-tl-none',
+				error:
+					'bg-danger text-danger mr-auto w-11/12 max-w-fit rounded-tl-none',
+			},
+		},
+		defaultVariants: {
+			role: 'assistant',
+		},
+	},
+)
+
 const ChatMessage = React.forwardRef<
 	HTMLParagraphElement,
-	React.ComponentPropsWithoutRef<'p'> & {
-		role: 'user' | 'assistant' | 'system' | 'error'
-	}
+	React.ComponentPropsWithoutRef<'p'> & VariantProps<typeof chatMessageVariants>
 >(({ className, role, ...props }, ref) => (
-	<div
-		ref={ref}
-		className={cx(
-			'rounded-semi animate-rubber relative px-5 py-2.5',
-			{
-				'bg-success text-success ml-auto w-8/12 max-w-fit rounded-br-none':
-					role === 'user',
-				'bg-accent mr-auto w-11/12 max-w-fit rounded-tl-none text-white':
-					role === 'assistant',
-				'mr-auto w-full max-w-[400px] rounded-tl-none': role === 'system',
-				'bg-danger text-danger mr-auto w-11/12 max-w-fit rounded-tl-none':
-					role === 'error',
-			},
-			className,
-		)}
-	>
+	<div ref={ref} className={chatMessageVariants({ role, className })}>
 		<p className="whitespace-pre-line text-base font-medium" {...props} />
 	</div>
 ))
@@ -99,7 +101,7 @@ export function Chat() {
 				ref={scrollBottomAnchor}
 				className="gap-lg pb-xl flex h-[40vh] flex-col overflow-y-auto"
 			>
-				<ChatMessage role="assistant">
+				<ChatMessage role="assistant" className="animate-none">
 					{t('ai.chat.initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
