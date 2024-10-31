@@ -82,9 +82,13 @@ export function ArticleOverviewProvider({
 		})
 	}, [])
 
-	const tags = [
-		...new Set(allArticles.flatMap((article) => article.tags)),
-	].filter(nonNullable)
+	const tags = React.useMemo(
+		() =>
+			[...new Set(allArticles.flatMap((article) => article.tags))].filter(
+				nonNullable,
+			),
+		[allArticles],
+	)
 
 	return (
 		<ArticleOverviewContext.Provider
