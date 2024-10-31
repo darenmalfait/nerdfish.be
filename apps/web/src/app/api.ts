@@ -19,9 +19,11 @@ export async function getSitemapData() {
 		pages: data.pageConnection.edges?.map((item) => ({
 			...item?.node,
 		})),
-		blogs: data.blogConnection.edges?.map((item) => ({
-			...item?.node,
-		})),
+		blogs: data.blogConnection.edges
+			?.map((item) => ({
+				...item?.node,
+			}))
+			.reverse(),
 		works: data.workConnection.edges
 			?.map((item) => ({
 				...item?.node,
