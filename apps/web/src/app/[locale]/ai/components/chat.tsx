@@ -101,7 +101,7 @@ export function Chat() {
 				ref={scrollBottomAnchor}
 				className="gap-lg pb-xl flex h-[40vh] flex-col overflow-y-auto"
 			>
-				<ChatMessage role="assistant" className="animate-none">
+				<ChatMessage role="assistant" className="!animate-none">
 					{t('ai.chat.initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
@@ -139,7 +139,7 @@ export function Chat() {
 				) : null}
 
 				{isLoading && messages[messages.length - 1]?.role === 'user' ? (
-					<ChatMessage role="system" className="animate-none">
+					<ChatMessage role="system" className="!animate-none">
 						<Skeleton className="rounded-semi absolute inset-0 h-10 rounded-tl-none" />
 					</ChatMessage>
 				) : null}
