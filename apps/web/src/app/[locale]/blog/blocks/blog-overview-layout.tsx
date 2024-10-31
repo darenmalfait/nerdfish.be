@@ -32,7 +32,7 @@ export function BlockLayout({
 	items: PartialDeep<Blog>[]
 	header: Block<PageBlocksBlog>['header']
 }) {
-	const articles = mapBlogToArticle(items)
+	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
