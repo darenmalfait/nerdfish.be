@@ -7,7 +7,6 @@ import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { useTranslation } from '../[locale]/translation-provider'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 import LocaleSwitcher from './locale-switcher'
@@ -130,7 +129,6 @@ function Disclaimer() {
 }
 
 export function Footer() {
-	const { currentLocale } = useTranslation()
 	const { navigation } = useGlobal()
 
 	return (
@@ -168,12 +166,6 @@ export function Footer() {
 
 								return <FooterNavigationItem key={navItem.label} {...navItem} />
 							})}
-
-							<FooterNavigationItem
-								aria-label="AI"
-								label="AI"
-								href={`/${currentLocale}/ai`}
-							/>
 						</div>
 					</div>
 				</nav>
