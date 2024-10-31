@@ -14,6 +14,7 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
+	H3,
 	Input,
 	LoadingAnimation,
 	RadioGroup,
@@ -33,7 +34,22 @@ import { useRecaptcha } from '../../utils/recaptcha'
 import { submitContactForm } from './actions'
 import { useTranslation } from '~/app/[locale]/translation-provider'
 
-function ContactForm() {
+function Fieldset({
+	children,
+	title,
+}: {
+	children: React.ReactNode
+	title: string
+}) {
+	return (
+		<fieldset className="p-lg mb-lg rounded-semi shadow-outline">
+			<H3 className="mb-lg">{title}</H3>
+			<div className="space-y-md">{children}</div>
+		</fieldset>
+	)
+}
+
+export function ContactForm() {
 	const { t } = useTranslation()
 	const { execute } = useRecaptcha()
 	const [error, setError] = React.useState<string>()
@@ -83,8 +99,8 @@ function ContactForm() {
 	return (
 		<Form {...form}>
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
-				<fieldset>
-					<div className="mb-lg space-y-lg">
+				<div>
+					<Fieldset title={t('contact.fieldset.customer')}>
 						<FormField
 							control={form.control}
 							name="name"
@@ -114,7 +130,9 @@ function ContactForm() {
 								</FormItem>
 							)}
 						/>
+					</Fieldset>
 
+					<Fieldset title={t('contact.fieldset.project')}>
 						<FormField
 							control={form.control}
 							name="project"
@@ -174,13 +192,15 @@ function ContactForm() {
 								</FormItem>
 							)}
 						/>
+					</Fieldset>
 
+					<Fieldset title={t('contact.fieldset.message')}>
 						<FormField
 							control={form.control}
 							name="textMessage"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Message</FormLabel>
+									<FormLabel>{t('contact.message')}</FormLabel>
 
 									<FormControl>
 										<Textarea inputSize="lg" {...field} />
@@ -189,54 +209,52 @@ function ContactForm() {
 								</FormItem>
 							)}
 						/>
+					</Fieldset>
 
-						<Description>{t('contact.dataUsage')}</Description>
+					<Description>{t('contact.dataUsage')}</Description>
 
-						{form.formState.isSubmitSuccessful && !error ? (
-							<Alert variant="success">
-								<AlertTitle>Success</AlertTitle>
-								<AlertDescription>
-									{t('contact.success')}
-									<span role="img" aria-label="party popper">
-										🎉
-									</span>
-								</AlertDescription>
-							</Alert>
-						) : (
-							<Button
-								className="group"
-								size="lg"
-								disabled={
-									form.formState.isSubmitting ||
-									(form.formState.isSubmitSuccessful && !error)
-								}
-								type="submit"
-							>
-								{form.formState.isSubmitting ? (
-									<LoadingAnimation className="mr-2 size-4" variant="classic" />
-								) : null}
-								{t('contact.send')}
-								<ArrowRightIcon className="ml-sm group-hover:translate-x-sm size-4 transition-all" />
-							</Button>
-						)}
-					</div>
-					{form.formState.errors.recaptchaResponse?.message ? (
-						<Alert variant="danger">
-							<AlertTitle>reCAPTCHA error</AlertTitle>
-							<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
+					{form.formState.isSubmitSuccessful && !error ? (
+						<Alert variant="success">
+							<AlertTitle>Success</AlertTitle>
+							<AlertDescription>
+								{t('contact.success')}
+								<span role="img" aria-label="party popper">
+									🎉
+								</span>
+							</AlertDescription>
 						</Alert>
-					) : null}
+					) : (
+						<Button
+							className="mt-md group"
+							size="lg"
+							disabled={
+								form.formState.isSubmitting ||
+								(form.formState.isSubmitSuccessful && !error)
+							}
+							type="submit"
+						>
+							{form.formState.isSubmitting ? (
+								<LoadingAnimation className="mr-2 size-4" variant="classic" />
+							) : null}
+							{t('contact.send')}
+							<ArrowRightIcon className="ml-sm group-hover:translate-x-sm size-4 transition-all" />
+						</Button>
+					)}
+				</div>
+				{form.formState.errors.recaptchaResponse?.message ? (
+					<Alert variant="danger" className="mt-lg">
+						<AlertTitle>reCAPTCHA error</AlertTitle>
+						<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
+					</Alert>
+				) : null}
 
-					{error ? (
-						<Alert variant="danger">
-							<AlertTitle>Error</AlertTitle>
-							<AlertDescription>{error}</AlertDescription>
-						</Alert>
-					) : null}
-				</fieldset>
+				{error ? (
+					<Alert variant="danger" className="mt-lg">
+						<AlertTitle>Error</AlertTitle>
+						<AlertDescription>{error}</AlertDescription>
+					</Alert>
+				) : null}
 			</form>
 		</Form>
 	)
 }
-
-export { ContactForm }
