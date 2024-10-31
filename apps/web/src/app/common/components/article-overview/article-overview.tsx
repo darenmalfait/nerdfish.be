@@ -153,7 +153,9 @@ export const ArticleOverviewFilter = React.forwardRef<
 				)
 			: tags
 
-	const selectedTags = tags.filter((tag) => filter.includes(tag))
+	const selectedTags = tags.filter((tag) =>
+		filter.split(' ').some((term) => term.toLowerCase() === tag.toLowerCase()),
+	)
 
 	return (
 		<div ref={ref} className={cx('mb-lg', className)} {...props}>
