@@ -37,6 +37,13 @@ const globalCollection: Collection = {
 						},
 						{
 							type: 'string',
+							label: 'Variant',
+							name: 'variant',
+							description: 'The variant of the navigation item',
+							options: ['ghost', 'accentuate'],
+						},
+						{
+							type: 'string',
 							label: 'Link',
 							name: 'href',
 							description:
