@@ -235,10 +235,15 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 
 	const featured = articles.length > 0 ? articles[0] : undefined
 
-	const articlesToShow =
-		isSearching || !featuredArticleEnabled
-			? articles.slice(0, indexToShow)
-			: articles.filter((p) => p.id !== featured?.id).slice(0, indexToShow)
+	const filteredArticles = React.useMemo(
+		() =>
+			isSearching || !featuredArticleEnabled
+				? articles
+				: articles.filter((p) => p.id !== featured?.id),
+		[isSearching, featuredArticleEnabled, articles, featured?.id],
+	)
+
+	const articlesToShow = filteredArticles.slice(0, indexToShow)
 
 	return (
 		<div ref={ref} {...props}>
