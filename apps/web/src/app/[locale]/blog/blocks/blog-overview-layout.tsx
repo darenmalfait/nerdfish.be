@@ -36,9 +36,8 @@ export function BlockLayout({
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
-			const blogs = items.filter((post) =>
-				toFilter.some((article) => article.id === post.id),
-			)
+			const toFilterIds = new Set(toFilter.map((article) => article.id))
+			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
 
 			return mapBlogToArticle(filterBlog(blogs, searchString))
 		},
