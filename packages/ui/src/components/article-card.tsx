@@ -108,21 +108,25 @@ ArticleCardDescription.displayName = 'ArticleCardDescription'
 
 export const ArticleCardCategory = React.forwardRef<
 	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		value?: string | null
-	}
->(({ value, className, ...props }, ref) => {
-	if (!value) return null
+	React.ComponentPropsWithoutRef<'div'>
+>(({ children, className, ...props }, ref) => {
+	if (!children) return null
+
+	const value = typeof children === 'string' ? children : undefined
 
 	return (
 		<Badge
 			ref={ref}
 			variant="default"
 			{...props}
-			className={cx('bg-muted mb-sm', getCategoryColors(value), className)}
+			className={cx(
+				'bg-muted mb-sm relative',
+				getCategoryColors(value),
+				className,
+			)}
 		>
 			<span className="sr-only">Category: </span>
-			{value}
+			{children}
 		</Badge>
 	)
 })
@@ -132,8 +136,8 @@ ArticleCardCategory.displayName = 'ArticleCardCategory'
 export const ArticleCard = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'> & {
-		href: string
-		title: string
+		href?: string
+		title?: string
 	}
 >(({ href, title, children, className, ...props }, ref) => {
 	return (
@@ -142,11 +146,17 @@ export const ArticleCard = React.forwardRef<
 			className={cx('group relative w-full outline-none', className)}
 			{...props}
 		>
-			<Link href={href} className="group outline-none" aria-label={title}>
+			{href ? (
+				<Link href={href} className="group outline-none" aria-label={title}>
+					<div aria-hidden className="peer relative block w-full outline-none">
+						{children}
+					</div>
+				</Link>
+			) : (
 				<div aria-hidden className="peer relative block w-full outline-none">
 					{children}
 				</div>
-			</Link>
+			)}
 			<div className="sr-only">{children}</div>
 		</div>
 	)

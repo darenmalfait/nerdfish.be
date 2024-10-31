@@ -18,7 +18,7 @@ export async function buildFeed() {
 
 	const posts = (await getBlogPosts()) ?? []
 
-	posts.reverse().forEach((post) => {
+	posts.forEach((post) => {
 		const link = `${process.env.NEXT_PUBLIC_URL}${getBlogPath(post)}`
 
 		feed.addItem({

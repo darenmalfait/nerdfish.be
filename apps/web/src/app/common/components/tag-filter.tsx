@@ -90,9 +90,11 @@ export function TagFilter({
 	selectedTags = [],
 	...tagsProps
 }: TagsProps & { title: string }) {
+	if (tagsProps.tags.length === 0) return null
+
 	return (
-		<div className="my-xl">
-			<H5 as="h3" className="mb-sm flex items-center justify-between gap-2">
+		<div>
+			<H5 as="h3" className="mb-md gap-sm flex items-center justify-between">
 				{title}
 				<Drawer>
 					<DrawerTrigger asChild className="lg:hidden">

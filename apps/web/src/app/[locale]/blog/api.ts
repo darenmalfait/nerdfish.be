@@ -3,9 +3,11 @@ import { tina, type Blog, type BlogPostQueryQuery } from '../../cms'
 export async function getBlogPosts() {
 	const blogListData = await tina.queries.blogConnection()
 
-	return blogListData.data.blogConnection.edges?.map((item) => ({
-		...item?.node,
-	}))
+	return blogListData.data.blogConnection.edges
+		?.map((item) => ({
+			...item?.node,
+		}))
+		.reverse()
 }
 
 export function mapBlogData(data: BlogPostQueryQuery) {

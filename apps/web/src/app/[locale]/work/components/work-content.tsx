@@ -104,7 +104,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 											category={work.category}
 										/>
 										<ArticleCardContent>
-											<ArticleCardCategory value={work.category} />
+											<ArticleCardCategory>{work.category}</ArticleCardCategory>
 											<ArticleCardTitle>{work.title}</ArticleCardTitle>
 											<ArticleCardDescription>
 												{work.seo?.description}
