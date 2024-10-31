@@ -70,15 +70,14 @@ export function ArticleOverviewProvider({
 
 	const toggleFilter = React.useCallback((tag: string) => {
 		setFilter((current) => {
-			// create a regexp so that we can replace multiple occurrences (`react node react`)
-			const expression = new RegExp(tag, 'ig')
+			const currentTags = current.split(' ').filter(Boolean)
+			const tagExists = currentTags.includes(tag)
 
-			const newQuery = expression.test(current)
-				? current.replace(expression, '')
-				: `${current} ${tag}`
+			const newTags = tagExists
+				? currentTags.filter((t) => t !== tag)
+				: [...currentTags, tag]
 
-			// trim and remove subsequent spaces (`react   node ` => `react node`)
-			return newQuery.replace(/\s+/g, ' ').trim()
+			return newTags.join(' ')
 		})
 	}, [])
 
