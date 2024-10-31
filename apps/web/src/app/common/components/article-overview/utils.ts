@@ -1,14 +1,16 @@
-import { randomUUID } from 'crypto'
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
-import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type Blog } from '../../cms'
-import { BlogPath, nonNullable } from '~/app/common'
-import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
+import {
+	matchSorter,
+	type KeyAttributesOptions,
+	rankings as matchSorterRankings,
+} from 'match-sorter'
+import { type Article } from './article-overview-provider'
 
-export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
-	if (!searchString) return posts
+export function filterArticles(articles: Article[], searchString: string) {
+	if (!searchString) return articles
 
-	const options = {
+	const options: {
+		keys: KeyAttributesOptions<Article>[]
+	} = {
 		keys: [
 			{
 				key: 'title',
@@ -29,16 +31,14 @@ export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 				threshold: matchSorterRankings.CONTAINS,
 				maxRanking: matchSorterRankings.CONTAINS,
 			},
-			{
-				key: 'body.*.children.*.text',
-				threshold: matchSorterRankings.CONTAINS,
-				maxRanking: matchSorterRankings.CONTAINS,
-			},
 		],
 	}
 
-	const allResults = matchSorter(posts, searchString, options)
-	const searches = new Set(searchString.split(' '))
+	//  sanitizing the search string to handle edge cases like multiple spaces and special characters.
+	const sanitizedSearch = searchString.trim().replace(/\s+/g, ' ')
+	const allResults = matchSorter(articles, sanitizedSearch, options)
+	const searches = new Set(sanitizedSearch.split(' '))
+
 	if (searches.size < 2) {
 		// if there's only one word then we're done
 		return allResults
@@ -64,7 +64,7 @@ export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 
 	// go through each word and further filter the results
 	let individualWordResults = matchSorter(
-		posts,
+		articles,
 		firstWord,
 		individualWordOptions,
 	)
@@ -80,27 +80,4 @@ export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 	}
 
 	return Array.from(new Set([...allResults, ...individualWordResults]))
-}
-
-export function getBlogPath(blog: PartialDeep<Blog>) {
-	const path = blog._sys?.breadcrumbs?.join('/')
-	return path ? `/${BlogPath}/${path}` : ''
-}
-
-export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {
-	return posts.map((post) => ({
-		id: post.id ?? randomUUID(),
-		title: post.title ?? 'untitled',
-		description: post.excerpt,
-		href: getBlogPath(post),
-		tags: post.tags?.filter(nonNullable) ?? [],
-		category: post.category,
-		date: post.date,
-		image: post.heroImg
-			? {
-					src: post.heroImg,
-					alt: post.title ?? 'untitled',
-				}
-			: undefined,
-	}))
 }

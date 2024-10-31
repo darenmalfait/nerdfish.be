@@ -1,6 +1,5 @@
 import {
 	tina,
-	type Blog,
 	type ContentQueryQuery,
 	type Product,
 	type Wiki,
@@ -19,9 +18,6 @@ export async function getPages() {
 export function mapPageData(data: ContentQueryQuery) {
 	return {
 		...data,
-		blogs: data.blogConnection.edges?.map((item) => ({
-			...(item?.node ?? {}),
-		})) as Blog[],
 		wikis: data.wikiConnection.edges?.map((item) => ({
 			...(item?.node ?? {}),
 		})) as Wiki[],

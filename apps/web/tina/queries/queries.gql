@@ -3,23 +3,6 @@ query contentQuery($relativePath: String!) {
 		...PageParts
 	}
 
-	blogConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...BlogParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
-
 	workConnection(sort: "date", last: -1) {
 		edges {
 			node {
