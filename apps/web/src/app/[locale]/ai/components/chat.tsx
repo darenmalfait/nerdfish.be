@@ -2,8 +2,8 @@
 
 import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
 import { cva, type VariantProps } from '@nerdfish/utils'
+import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
 import { useChat } from 'ai/react'
-import { ArrowUpIcon } from 'lucide-react'
 import * as React from 'react'
 import { z } from 'zod'
 import { useTranslation } from '../../translation-provider'
@@ -96,7 +96,7 @@ export function Chat() {
 	}, [scrollToBottom, messages])
 
 	return (
-		<div className="rounded-semi shadow-outline flex flex-col bg-transparent p-6">
+		<div className="rounded-semi bg-primary shadow-outline p-lg flex flex-col">
 			<div
 				ref={scrollBottomAnchor}
 				className="gap-lg pb-xl flex h-[40vh] flex-col overflow-y-auto"
@@ -183,13 +183,13 @@ export function Chat() {
 							disabled={!input || !!error || isLoading}
 							size="icon"
 							type="submit"
-							variant="success"
+							variant="accent"
 							aria-label="Send"
 						>
 							{isLoading ? (
 								<LoadingAnimation variant="classic" className="size-4" />
 							) : (
-								<ArrowUpIcon className="size-4" />
+								<SendHorizonalIcon className="size-4" />
 							)}
 						</Button>
 					}

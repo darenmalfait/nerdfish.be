@@ -12,11 +12,13 @@ export type Dictionary = {
 	'ai.premadeQuestions.experienceQuestion': string
 	'ai.premadeQuestions.currentJob': string
 	'ai.premadeQuestions.currentJobQuestion': string
-	'ai.booking.title': string
 	'ai.booking.subtitle': string
+	'ai.booking.title': string
 	'ai.description': string
 	'ai.meta.description': string
 	'ai.meta.title': string
+	'ai.page.description': string
+	'ai.page.title': string
 	'contact.dataUsage': string
 	'contact.email': string
 	'contact.fieldset.customer': string

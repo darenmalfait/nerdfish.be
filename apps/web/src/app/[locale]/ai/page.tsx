@@ -4,11 +4,11 @@ import { type Metadata } from 'next'
 import {
 	generateOGImageUrl,
 	getMetaData,
+	HeroBlock,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../../common'
-import { BookingBlock } from '../../common/blocks/booking'
 import { Chat } from './components/chat'
 import { getDictionary } from '~/get-dictionary'
 import { type WithLocale } from '~/i18n-config'
@@ -38,20 +38,21 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 
 	return (
 		<>
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle animatedText="AI" />
-					<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Paragraph className="mb-lg max-w-3xl font-medium">
-					{dictionary['ai.description']}
-				</Paragraph>
-				<Chat />
-			</Section>
-			<BookingBlock
-				title={dictionary['ai.booking.title']}
-				subtitle={dictionary['ai.booking.subtitle']}
-			/>
+			<HeroBlock variant="secondary" title={dictionary['ai.page.title']}>
+				{dictionary['ai.page.description']}
+			</HeroBlock>
+			<div className="bg-muted rounded-semi mx-sm">
+				<Section>
+					<SectionHeader>
+						<SectionHeaderTitle animatedText="AI" />
+						<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
+					</SectionHeader>
+					<Paragraph className="mb-lg max-w-3xl font-medium">
+						{dictionary['ai.description']}
+					</Paragraph>
+					<Chat />
+				</Section>
+			</div>
 		</>
 	)
 }
