@@ -56,9 +56,15 @@ module.exports = {
 						opacity: '0',
 					},
 				},
+				'background-position-spin': {
+					'0%': { backgroundPosition: 'top center' },
+					'100%': { backgroundPosition: 'bottom center' },
+				},
 			},
 			animation: {
 				scrollIndicator: 'scrollIndicator 2s ease infinite',
+				'background-position-spin':
+					'background-position-spin 3000ms infinite alternate',
 			},
 		},
 	},
