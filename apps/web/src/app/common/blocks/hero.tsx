@@ -68,8 +68,12 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	)
 }
 
-export function HeroBlock(data: Block<PageBlocksHero>) {
-	const { image, text, title, variant } = data
+export function HeroBlock(
+	data: Block<PageBlocksHero> & {
+		children?: React.ReactNode
+	},
+) {
+	const { image, text, title, variant, children } = data
 
 	return (
 		<BlockLayout variant={(variant ?? 'default') as Variant}>
@@ -100,6 +104,7 @@ export function HeroBlock(data: Block<PageBlocksHero>) {
 					data-tina-field={tinaField(data, 'text')}
 					content={text}
 				/>
+				{children}
 			</BlockContent>
 		</BlockLayout>
 	)
