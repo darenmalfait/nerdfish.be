@@ -286,28 +286,37 @@ export const ArticlesOverviewEmptyState = React.forwardRef<
 		description?: string
 		clearSearch?: string
 	}
->(({ icon: Icon, title, description, clearSearch, ...props }, ref) => {
-	const { setFilter, articles } = useArticleOverview()
+>(
+	(
+		{ icon: Icon, title, description, clearSearch, className, ...props },
+		ref,
+	) => {
+		const { setFilter, articles } = useArticleOverview()
 
-	if (articles.length > 0) return null
+		if (articles.length > 0) return null
 
-	return (
-		<div ref={ref} {...props}>
-			<EmptyState>
-				<EmptyStateIcon>{Icon ? <Icon /> : <NewspaperIcon />}</EmptyStateIcon>
-				<EmptyStateTitle>{title ?? 'No articles found'}</EmptyStateTitle>
-				<EmptyStateDescription>
-					{description ?? 'Try searching for something else.'}
-				</EmptyStateDescription>
-				<EmptyStateActions>
-					<Button onClick={() => setFilter('')}>
-						{clearSearch ?? 'Clear search'}
-					</Button>
-				</EmptyStateActions>
-			</EmptyState>
-		</div>
-	)
-})
+		return (
+			<div
+				ref={ref}
+				className={cx('pt-xl !col-span-full', className)}
+				{...props}
+			>
+				<EmptyState>
+					<EmptyStateIcon>{Icon ? <Icon /> : <NewspaperIcon />}</EmptyStateIcon>
+					<EmptyStateTitle>{title ?? 'No articles found'}</EmptyStateTitle>
+					<EmptyStateDescription>
+						{description ?? 'Try searching for something else.'}
+					</EmptyStateDescription>
+					<EmptyStateActions>
+						<Button onClick={() => setFilter('')}>
+							{clearSearch ?? 'Clear search'}
+						</Button>
+					</EmptyStateActions>
+				</EmptyState>
+			</div>
+		)
+	},
+)
 ArticlesOverviewEmptyState.displayName = 'ArticlesOverviewEmptyState'
 
 export const ArticleOverview = React.forwardRef<
