@@ -19,7 +19,11 @@ export type Dictionary = {
 	'ai.meta.title': string
 	'contact.dataUsage': string
 	'contact.email': string
+	'contact.fieldset.customer': string
+	'contact.fieldset.message': string
+	'contact.fieldset.project': string
 	'contact.genericError': string
+	'contact.message': string
 	'contact.name': string
 	'contact.other': string
 	'contact.otherDescription': string
