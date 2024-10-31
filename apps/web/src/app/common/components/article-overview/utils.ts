@@ -1,10 +1,16 @@
-import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import {
+	matchSorter,
+	type KeyAttributesOptions,
+	rankings as matchSorterRankings,
+} from 'match-sorter'
 import { type Article } from './article-overview-provider'
 
 export function filterArticles(articles: Article[], searchString: string) {
 	if (!searchString) return articles
 
-	const options = {
+	const options: {
+		keys: KeyAttributesOptions<Article>[]
+	} = {
 		keys: [
 			{
 				key: 'title',
@@ -28,8 +34,11 @@ export function filterArticles(articles: Article[], searchString: string) {
 		],
 	}
 
-	const allResults = matchSorter(articles, searchString, options)
-	const searches = new Set(searchString.split(' '))
+	//  sanitizing the search string to handle edge cases like multiple spaces and special characters.
+	const sanitizedSearch = searchString.trim().replace(/\s+/g, ' ')
+	const allResults = matchSorter(articles, sanitizedSearch, options)
+	const searches = new Set(sanitizedSearch.split(' '))
+
 	if (searches.size < 2) {
 		// if there's only one word then we're done
 		return allResults
