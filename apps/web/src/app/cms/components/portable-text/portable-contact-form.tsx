@@ -11,7 +11,7 @@ export function PortableContactForm({
 	content?: ExtractProps<typeof TinaMarkdown>['content']
 }) {
 	return (
-		<div className="not-prose [&:not(:first-child)]:!mt-lg">
+		<div className="not-prose [&:not(:first-child)]:!mb-xl">
 			{content ? (
 				<div className="mb-lg">
 					<TinaMarkdown content={content} />
