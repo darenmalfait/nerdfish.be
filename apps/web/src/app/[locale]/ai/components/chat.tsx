@@ -139,7 +139,7 @@ export function Chat() {
 				) : null}
 
 				{isLoading && messages[messages.length - 1]?.role === 'user' ? (
-					<ChatMessage role="system">
+					<ChatMessage role="system" className="animate-none">
 						<Skeleton className="rounded-semi absolute inset-0 h-10 rounded-tl-none" />
 					</ChatMessage>
 				) : null}
