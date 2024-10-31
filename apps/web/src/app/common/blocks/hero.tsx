@@ -36,7 +36,7 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 
 	return (
 		<div className="max-w-lg">
-			<div className="motion-preset-fade motion-preset-slide-up motion-delay-[300ms] prose dark:prose-invert lg:prose-xl !text-primary mt-0">
+			<div className="motion-preset-fade motion-preset-slide-up motion-delay-[600ms] prose dark:prose-invert lg:prose-xl !text-primary mt-0">
 				{children}
 			</div>
 		</div>
@@ -47,7 +47,7 @@ function BlockHeader({ children }: { children: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="motion-preset-fade motion-preset-slide-up motion-delay-[150ms] mb-xs flex flex-col">
+		<div className="motion-preset-fade motion-preset-slide-up motion-delay-[300ms] mb-xs flex flex-col">
 			{children}
 		</div>
 	)
