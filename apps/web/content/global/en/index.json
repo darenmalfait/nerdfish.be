@@ -41,12 +41,28 @@
 			{
 				"label": "Work",
 				"href": "/en/work"
-			}
-		],
-		"actions": [
+			},
 			{
 				"label": "Contact",
-				"href": "/en/contact"
+				"variant": "accentuate",
+				"href": "",
+				"sub": [
+					{
+						"label": "Email me",
+						"description": "Send me an email",
+						"href": "/en/contact"
+					},
+					{
+						"label": "Schedule a call",
+						"description": "Schedule a call with me",
+						"href": "/en/schedule-a-meeting"
+					},
+					{
+						"label": "Chat with me",
+						"description": "Speak with an AI version of me",
+						"href": "/en/ai"
+					}
+				]
 			}
 		]
 	},

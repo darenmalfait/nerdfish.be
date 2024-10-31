@@ -41,14 +41,31 @@
 			{
 				"label": "Werk",
 				"href": "/nl/werk"
-			}
-		],
-		"actions": [
+			},
 			{
 				"label": "Contact",
-				"href": "/nl/contact"
+				"variant": "accentuate",
+				"href": "",
+				"sub": [
+					{
+						"label": "Email mij",
+						"description": "Stuur me een email",
+						"href": "/nl/contact"
+					},
+					{
+						"label": "Plan een gesprek",
+						"description": "Plan een gesprek met me",
+						"href": "/nl/plan-een-meeting"
+					},
+					{
+						"label": "Chat with me",
+						"description": "Spreek met een AI versie van mezelf",
+						"href": "/nl/ai"
+					}
+				]
 			}
-		]
+		],
+		"actions": []
 	},
 	"social": {
 		"twitter": "https://twitter.com/darenmalfait",

@@ -2,6 +2,7 @@
 
 import {
 	Button,
+	type ButtonProps,
 	NavigationMenu,
 	NavigationMenuContent,
 	NavigationMenuItem,
@@ -22,8 +23,6 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { useScramble } from 'use-scramble'
-import { useTranslation } from '../[locale]/translation-provider'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '../global-provider'
 
@@ -109,7 +108,7 @@ const getMainItemClassName = cva(
 const MainNavigationItem = React.forwardRef<
 	React.ElementRef<'a'>,
 	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
->(({ href, label, sub, ...props }, ref) => {
+>(({ href, label, sub, variant, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
@@ -122,7 +121,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
 					<Button
-						variant="ghost"
+						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 						className={cx(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
@@ -147,13 +146,17 @@ const MainNavigationItem = React.forwardRef<
 
 	return (
 		<NavigationMenuItem>
-			<NavigationMenuTrigger
-				className={getMainItemClassName({
-					variant: isActive ? 'active' : 'default',
-				})}
+			<Button
+				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
+				className={cx(
+					getMainItemClassName({
+						variant: isActive ? 'active' : 'default',
+					}),
+				)}
+				asChild
 			>
-				{label}
-			</NavigationMenuTrigger>
+				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
+			</Button>
 			<NavigationMenuContent className="bg-primary rounded-semi">
 				<ul
 					className={cx(
@@ -239,44 +242,17 @@ export function SocialLinks() {
 	)
 }
 
-function AINavigationItem() {
-	const { currentLocale } = useTranslation()
-
-	const { ref, replay } = useScramble({
-		text: '[AI]',
-		speed: 0.6,
-		tick: 1,
-		step: 1,
-		scramble: 4,
-		seed: 0,
-		playOnMount: false,
-	})
-
-	return (
-		<NavigationMenuItem asChild>
-			<MainNavigationItem
-				ref={ref}
-				onMouseEnter={replay}
-				aria-label="AI"
-				label="[AI]"
-				href={`/${currentLocale}/ai`}
-			/>
-		</NavigationMenuItem>
-	)
-}
-
 export function MainNavigation() {
 	const { navigation } = useGlobal()
 
 	return (
 		<NavigationMenu>
-			<NavigationMenuList className="space-x-xs" aria-label="Pages">
+			<NavigationMenuList className="space-x-md" aria-label="Pages">
 				{navigation?.main?.map((mainNavItem) => {
 					if (!mainNavItem) return null
 
 					return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
 				})}
-				<AINavigationItem />
 			</NavigationMenuList>
 		</NavigationMenu>
 	)
