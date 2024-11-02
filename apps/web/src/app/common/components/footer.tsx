@@ -9,11 +9,11 @@ import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { RSSFeedButton, SocialLinks } from './navigation'
 import { ThemeToggle } from './theme-toggle'
-import { useGlobal } from '~/app/[locale]/global-provider'
 import {
 	type GlobalNavigationMain,
 	type GlobalNavigationMainSub,
 } from '~/app/cms'
+import { useGlobal } from '~/app/global-provider'
 import { LocaleSwitcher } from '~/app/i18n'
 
 const FooterNavigationSubItem = React.forwardRef<
