@@ -1,4 +1,4 @@
-import { i18n, type Locale } from '~/i18n-config'
+import { i18n, type Locale } from '../i18n'
 import tina from '~/tina/__generated__/client'
 
 export async function getGlobalData(locale: Locale = i18n.defaultLocale) {

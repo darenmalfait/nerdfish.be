@@ -9,10 +9,10 @@ import {
 } from '@nerdfish/ui'
 import { GlobeIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
-import { useTranslation } from '../[locale]/translation-provider'
-import { i18n, supportedLanguages } from '~/i18n-config'
+import { i18n, supportedLanguages } from '../i18n-config'
+import { useTranslation } from './translation-provider'
 
-export default function LocaleSwitcher() {
+export function LocaleSwitcher() {
 	const { currentLocale } = useTranslation()
 
 	return (

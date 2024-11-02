@@ -3,10 +3,10 @@
 import { Button, Separator } from '@nerdfish/ui'
 import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
-import { useTranslation } from '../[locale]/translation-provider'
+import { ActionsNavigation, MainNavigation } from '../navigation'
+import { ThemeToggle } from '../theme-toggle'
 import { MobileNavigation } from './mobile-navigation'
-import { ActionsNavigation, MainNavigation } from './navigation'
-import { ThemeToggle } from './theme-toggle'
+import { useTranslation } from '~/app/i18n'
 
 export function SiteHeader() {
 	const { currentLocale } = useTranslation()

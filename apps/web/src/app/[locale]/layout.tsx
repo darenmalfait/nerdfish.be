@@ -3,12 +3,11 @@ import { Section } from '@nerdfish-website/ui/components'
 import { GeistSans } from 'geist/font/sans'
 import * as React from 'react'
 import { getGlobalData } from '../cms/api'
-import { BaseLayoutTemplate } from '../components/base-layout'
+import { Footer, SiteHeader } from '../common'
+import { getDictionary } from '../i18n/get-dictionary'
 import { AppProviders } from './app-providers'
 import { GlobalProvider } from './global-provider'
-import { TranslationProvider } from './translation-provider'
-import { getDictionary } from '~/get-dictionary'
-import { i18n, type WithLocale } from '~/i18n-config'
+import { i18n, TranslationProvider, type WithLocale } from '~/app/i18n'
 
 import '~/styles/tailwind.css'
 import '~/styles/app.css'
@@ -41,17 +40,23 @@ export default async function RootLayout({
 						currentLocale={params.locale}
 					>
 						<GlobalProvider {...layoutData}>
-							<BaseLayoutTemplate>
-								<React.Suspense
-									fallback={
-										<Section className="motion-preset-fade motion-duration-1000 flex min-h-screen justify-center">
-											<LoadingAnimation className="size-8" variant="square" />
-										</Section>
-									}
-								>
-									{children}
-								</React.Suspense>
-							</BaseLayoutTemplate>
+							<div className="flex min-h-screen flex-col">
+								<SiteHeader />
+
+								<main role="main" className="w-full flex-1">
+									<React.Suspense
+										fallback={
+											<Section className="motion-preset-fade motion-duration-1000 flex min-h-screen justify-center">
+												<LoadingAnimation className="size-8" variant="square" />
+											</Section>
+										}
+									>
+										{children}
+									</React.Suspense>
+								</main>
+
+								<Footer />
+							</div>
 						</GlobalProvider>
 					</TranslationProvider>
 				</AppProviders>

@@ -13,13 +13,13 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-import { useTranslation } from '~/app/[locale]/translation-provider'
 import {
 	type Block,
 	type Page,
 	type PageBlocksFeatures,
 	type PageBlocksFeaturesItems,
 } from '~/app/cms'
+import { useTranslation } from '~/app/i18n'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
