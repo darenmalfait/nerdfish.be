@@ -15,7 +15,7 @@ import {
 } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { AnimatedText } from '../components/animated-text'
+import { AnimatedText } from '../components'
 import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'
 import { type skills } from '~/tina/schema/blocks/skills.template'
 

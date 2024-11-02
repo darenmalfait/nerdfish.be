@@ -6,7 +6,7 @@ import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
 import { useChat } from 'ai/react'
 import * as React from 'react'
 import { z } from 'zod'
-import { useTranslation } from '../../translation-provider'
+import { useTranslation } from '~/app/i18n'
 
 const chatMessageVariants = cva(
 	'rounded-semi animate-rubber relative px-5 py-2.5',

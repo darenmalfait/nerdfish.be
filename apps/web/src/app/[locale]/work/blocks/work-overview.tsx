@@ -35,8 +35,8 @@ import {
 	HighlightCardContent,
 	HighlightCardCategory,
 	HighlightCardTitle,
+	TagFilter,
 } from '~/app/common'
-import { TagFilter } from '~/app/common/components/tag-filter'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6

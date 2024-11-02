@@ -5,7 +5,7 @@ import { getRouteData } from './route-data'
 import { WorkContent } from '~/app/[locale]/work/components/work-content'
 import { WorkPreview } from '~/app/[locale]/work/components/work-preview'
 import { generateOGImageUrl, getMetaData } from '~/app/common'
-import { type WithLocale } from '~/i18n-config'
+import { type WithLocale } from '~/app/i18n'
 
 export async function generateMetadata({
 	params,

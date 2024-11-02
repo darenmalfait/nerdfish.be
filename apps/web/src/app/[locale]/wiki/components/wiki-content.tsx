@@ -4,8 +4,7 @@ import { DateFormatter, Section } from '@nerdfish-website/ui/components'
 import { tinaField } from 'tinacms/dist/react'
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
-import { ReadingProgress } from '~/app/common'
-import { AnimatedText } from '~/app/common/components/animated-text'
+import { ReadingProgress, AnimatedText } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 

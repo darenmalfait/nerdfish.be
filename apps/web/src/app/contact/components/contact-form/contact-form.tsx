@@ -32,7 +32,7 @@ import { useForm } from 'react-hook-form'
 
 import { useRecaptcha } from '../../utils/recaptcha'
 import { submitContactForm } from './actions'
-import { useTranslation } from '~/app/[locale]/translation-provider'
+import { useTranslation } from '~/app/i18n'
 
 function Fieldset({
 	children,

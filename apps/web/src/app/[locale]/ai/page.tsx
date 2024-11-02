@@ -10,8 +10,8 @@ import {
 	SectionHeaderTitle,
 } from '../../common'
 import { Chat } from './components/chat'
-import { getDictionary } from '~/get-dictionary'
-import { type WithLocale } from '~/i18n-config'
+import { type WithLocale } from '~/app/i18n'
+import { getDictionary } from '~/app/i18n/get-dictionary'
 
 export async function generateMetadata({
 	params,

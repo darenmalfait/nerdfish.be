@@ -23,8 +23,11 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
 import { useGlobal } from '~/app/[locale]/global-provider'
+import {
+	type GlobalNavigationMain,
+	type GlobalNavigationMainSub,
+} from '~/app/cms'
 
 export function RSSFeedButton({ className }: { className?: string }) {
 	return (

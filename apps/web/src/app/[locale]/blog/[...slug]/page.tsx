@@ -4,7 +4,7 @@ import { getRouteData } from './route-data'
 import { BlogContent } from '~/app/[locale]/blog/components/blog-content'
 import { BlogPreview } from '~/app/[locale]/blog/components/blog-preview'
 import { generateOGImageUrl, getMetaData } from '~/app/common'
-import { type WithLocale } from '~/i18n-config'
+import { type WithLocale } from '~/app/i18n'
 
 export async function generateMetadata({
 	params,
