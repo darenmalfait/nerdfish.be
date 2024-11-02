@@ -24,8 +24,6 @@ import Link from 'next/link'
 import { useSearchParams, useRouter } from 'next/navigation'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { useGlobal } from '~/app/[locale]/global-provider'
-import { useTheme } from '~/app/[locale]/theme-provider'
 import {
 	type GlobalCalcomTypes,
 	PortableText,
@@ -37,6 +35,8 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '~/app/common'
+import { useGlobal } from '~/app/global-provider'
+import { useTheme } from '~/app/theme-provider'
 
 function EmbeddedCal({
 	bookingType,
