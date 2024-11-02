@@ -10,8 +10,8 @@ import {
 } from '@nerdfish/ui'
 import { Moon, Sun } from 'lucide-react'
 import * as React from 'react'
-import { useTheme } from '~/app/[locale]/theme-provider'
 import { useTranslation } from '~/app/i18n'
+import { useTheme } from '~/app/theme-provider'
 
 const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ variant, asChild, size, className, ...props }, ref) => {
