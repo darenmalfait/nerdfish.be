@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { type Block } from '../types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
+import { BookingBlock } from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'
@@ -15,7 +16,6 @@ import {
 } from '~/app/common'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { TextRevealBlock } from '~/app/common/blocks/text-reveal'
-import { BookingBlock } from '~/app/contact'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
 const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'

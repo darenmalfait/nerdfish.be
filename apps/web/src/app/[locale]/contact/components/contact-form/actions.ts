@@ -5,7 +5,7 @@ import {
 	type ContactFormData,
 } from '@nerdfish-website/lib/validations'
 
-import { sendContactEmail } from '../../utils/email'
+import { sendContactEmail } from '~/app/email'
 
 export async function submitContactForm(payload: ContactFormData) {
 	const data = contactSchema.parse(payload)
