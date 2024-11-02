@@ -13,9 +13,9 @@ import {
 	KeywordListBlock,
 	SkillsBlock,
 } from '~/app/common'
-import { BookingBlock } from '~/app/common/blocks/booking'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { TextRevealBlock } from '~/app/common/blocks/text-reveal'
+import { BookingBlock } from '~/app/contact'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
 const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'
