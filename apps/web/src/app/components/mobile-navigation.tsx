@@ -18,9 +18,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { type GlobalNavigationMain, type GlobalNavigationMainSub } from '../cms'
-import { useGlobal } from '../global-provider'
 import { ActionsNavigation, RSSFeedButton, SocialLinks } from './navigation'
 import { ThemeToggle } from './theme-toggle'
+import { useGlobal } from '~/app/[locale]/global-provider'
 
 const MobileNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,

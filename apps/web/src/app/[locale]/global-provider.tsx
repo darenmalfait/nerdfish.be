@@ -2,8 +2,7 @@
 
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import * as React from 'react'
-
-import { type Global, type GlobalPaths } from './cms'
+import { type Global, type GlobalPaths } from '../cms'
 
 type GlobalContextProps = Partial<Global>
 
