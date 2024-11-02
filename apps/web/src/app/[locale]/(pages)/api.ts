@@ -5,7 +5,7 @@ import {
 	type Wiki,
 	type Work,
 } from '../../cms'
-import { i18n, type Locale } from '~/i18n-config'
+import { i18n, type Locale } from '~/app/i18n'
 
 export async function getPages() {
 	const pageDate = await tina.queries.pageConnection()

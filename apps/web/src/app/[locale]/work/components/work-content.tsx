@@ -21,8 +21,8 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
+	AnimatedText,
 } from '~/app/common'
-import { AnimatedText } from '~/app/common/components/animated-text'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 

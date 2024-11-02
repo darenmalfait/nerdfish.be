@@ -2,7 +2,7 @@ import { stripTrailingSlash } from '@nerdfish-website/lib/utils'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
 import { getPage } from '../api'
-import { type Locale } from '~/i18n-config'
+import { type Locale } from '~/app/i18n'
 
 // slug is empty string when on the homepage
 export const getRouteData = React.cache(async function getRouteData(

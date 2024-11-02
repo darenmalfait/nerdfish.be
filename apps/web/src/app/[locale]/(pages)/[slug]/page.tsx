@@ -6,7 +6,7 @@ import { PageContent } from '../components/page-content'
 import { PagePreview } from '../components/page-preview'
 import { getRouteData } from './route-data'
 import { generateOGImageUrl, getMetaData } from '~/app/common'
-import { i18n, type WithLocale } from '~/i18n-config'
+import { i18n, type WithLocale } from '~/app/i18n'
 
 export async function generateStaticParams() {
 	return ((await getPages()) ?? []).map((page) => {

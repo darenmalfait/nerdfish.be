@@ -1,12 +1,35 @@
 import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
+import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { BigTitle } from '../components/big-title'
+import { AnimatedText } from '../components'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
 type Variant = 'default' | 'secondary'
+
+const bigTitleClassNames =
+	'text-primary font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]'
+
+export const BigTitle = React.forwardRef<
+	HTMLHeadingElement,
+	Omit<React.ComponentPropsWithRef<'h1'>, 'children'> & {
+		as?: React.ElementType
+		value?: string
+	}
+>(function BigTitle({ as, className, value, ...props }, ref) {
+	return (
+		<AnimatedText
+			as={as ?? 'h1'}
+			{...props}
+			className={cx(bigTitleClassNames, className)}
+			value={capitalize(value)}
+			aria-label={value}
+			ref={ref}
+		/>
+	)
+})
 
 function BlockLayout({
 	children,
