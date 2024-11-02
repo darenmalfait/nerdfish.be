@@ -31,8 +31,8 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 
 import { submitContactForm } from './actions'
-import { useRecaptcha } from '~/app/email/utils'
 import { useTranslation } from '~/app/i18n'
+import { useRecaptcha } from '~/app/recaptcha'
 
 function Fieldset({
 	children,
