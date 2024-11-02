@@ -30,8 +30,8 @@ import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 
-import { useRecaptcha } from '../../utils/recaptcha'
 import { submitContactForm } from './actions'
+import { useRecaptcha } from '~/app/email/utils'
 import { useTranslation } from '~/app/i18n'
 
 function Fieldset({
