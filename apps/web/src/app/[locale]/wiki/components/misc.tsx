@@ -3,7 +3,7 @@
 import { Button } from '@nerdfish/ui'
 import { ChevronLeftIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
-import { useGlobal } from '~/app/global-provider'
+import { useGlobal } from '~/app/[locale]/global-provider'
 
 export function BackToWiki() {
 	const { paths } = useGlobal()

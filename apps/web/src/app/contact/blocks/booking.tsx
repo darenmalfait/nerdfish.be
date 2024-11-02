@@ -24,18 +24,18 @@ import Link from 'next/link'
 import { useSearchParams, useRouter } from 'next/navigation'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '../components'
+import { useGlobal } from '~/app/[locale]/global-provider'
 import {
 	type GlobalCalcomTypes,
 	PortableText,
 	type Block,
 	type PageBlocksBooking,
 } from '~/app/cms'
-import { useGlobal } from '~/app/global-provider'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '~/app/common'
 import { useTheme } from '~/app/theme-provider'
 
 function EmbeddedCal({

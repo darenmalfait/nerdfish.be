@@ -1,9 +1,8 @@
 import { type MetadataRoute } from 'next'
-
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
-import { getSitemapData } from './api'
+import { getSitemapData } from './cms/api'
 
 const BASE_URL = process.env.NEXT_PUBLIC_URL
 
