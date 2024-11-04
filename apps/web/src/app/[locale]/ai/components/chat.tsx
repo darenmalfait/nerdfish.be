@@ -3,9 +3,11 @@
 import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
 import { cva, type VariantProps } from '@nerdfish/utils'
 import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
+import { type ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import * as React from 'react'
 import { z } from 'zod'
+import { EmbeddedCal } from '../../contact'
 import { useTranslation } from '~/app/i18n'
 
 const chatMessageVariants = cva(
@@ -29,12 +31,34 @@ const chatMessageVariants = cva(
 
 const ChatMessage = React.forwardRef<
 	HTMLParagraphElement,
-	React.ComponentPropsWithoutRef<'p'> & VariantProps<typeof chatMessageVariants>
->(({ className, role, ...props }, ref) => (
-	<div ref={ref} className={chatMessageVariants({ role, className })}>
-		<p className="whitespace-pre-line text-base font-medium" {...props} />
-	</div>
-))
+	React.ComponentPropsWithoutRef<'p'> &
+		VariantProps<typeof chatMessageVariants> & {
+			toolInvocations?: ToolInvocation[]
+		}
+>(({ className, role, toolInvocations, ...props }, ref) => {
+	if (toolInvocations?.length) {
+		return (
+			<div className="gap-sm flex flex-col">
+				{toolInvocations.map((toolInvocation) => {
+					const { toolName, toolCallId, args } = toolInvocation
+
+					return (
+						<div key={toolCallId} className="w-full">
+							{toolName === 'booking' ? (
+								<EmbeddedCal bookingType={args.bookingType} />
+							) : null}
+						</div>
+					)
+				})}
+			</div>
+		)
+	}
+	return (
+		<div ref={ref} className={chatMessageVariants({ role, className })}>
+			<p className="whitespace-pre-line text-base font-medium" {...props} />
+		</div>
+	)
+})
 
 ChatMessage.displayName = 'ChatMessage'
 
@@ -107,7 +131,7 @@ export function Chat() {
 				{messages.map((message) => {
 					if (message.role === 'user') {
 						return (
-							<ChatMessage key={message.id} role="user">
+							<ChatMessage key={message.id} role={message.role}>
 								{message.content}
 							</ChatMessage>
 						)
@@ -116,6 +140,7 @@ export function Chat() {
 							<ChatMessage
 								key={message.id}
 								role="assistant"
+								toolInvocations={message.toolInvocations}
 								dangerouslySetInnerHTML={{
 									__html: message.content
 										.replace(/ *【.*】 */g, '')
