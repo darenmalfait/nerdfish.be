@@ -1,6 +1,5 @@
 'use client'
 
-import Cal, { getCalApi } from '@calcom/embed-react'
 import {
 	Avatar,
 	AvatarFallback,
@@ -24,6 +23,7 @@ import Link from 'next/link'
 import { useSearchParams, useRouter } from 'next/navigation'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import { EmbeddedCal } from '../components/embedded-cal'
 import {
 	type GlobalCalcomTypes,
 	PortableText,
@@ -36,55 +36,6 @@ import {
 	SectionHeaderTitle,
 } from '~/app/common'
 import { useGlobal } from '~/app/global-provider'
-import { useTheme } from '~/app/theme-provider'
-
-function EmbeddedCal({
-	bookingType,
-}: {
-	bookingType: GlobalCalcomTypes['slug']
-}) {
-	const [calLoading, setCalLoading] = React.useState<boolean>(true)
-	const { theme } = useTheme()
-	const { calcom } = useGlobal()
-
-	React.useEffect(() => {
-		async function loadCal() {
-			const cal = await getCalApi({
-				namespace: `${calcom?.profileName}/${bookingType}`,
-			})
-			cal('ui', {
-				styles: {
-					branding: { brandColor: '#D46536' },
-					body: { background: 'transparent' },
-				},
-				hideEventTypeDetails: false,
-				layout: 'month_view',
-				theme: theme === 'system' ? 'auto' : (theme as any),
-			})
-
-			setCalLoading(false)
-		}
-
-		void loadCal()
-	}, [bookingType, calcom?.profileName, theme])
-
-	if (!calcom?.profileName) return null
-
-	return (
-		<div className="overflow-hidden">
-			{calLoading ? (
-				<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
-					<Skeleton className="h-full w-full" />
-				</div>
-			) : null}
-			<Cal
-				style={{ width: '100%', height: '100%', overflow: 'scroll' }}
-				calLink={`${calcom.profileName}/${bookingType}`}
-				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
-			/>
-		</div>
-	)
-}
 
 function DrawerDialog({
 	open,
