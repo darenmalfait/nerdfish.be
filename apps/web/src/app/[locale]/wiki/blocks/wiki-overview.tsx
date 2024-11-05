@@ -139,13 +139,15 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 			) : null}
 
 			{searchEnabled && allTags.length > 0 ? (
-				<TagFilter
-					title="Filter knowledge base by topic"
-					tags={allTags}
-					enabledTags={enabledTags}
-					onToggleTag={toggleTag}
-					selectedTags={selectedTags}
-				/>
+				<div className="mb-lg">
+					<TagFilter
+						title="Filter knowledge base by topic"
+						tags={allTags}
+						enabledTags={enabledTags}
+						onToggleTag={toggleTag}
+						selectedTags={selectedTags}
+					/>
+				</div>
 			) : null}
 
 			<div className="mx-auto flex flex-col lg:max-w-3xl">

@@ -165,13 +165,15 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 			) : null}
 
 			{searchEnabled && allCategories.length > 0 ? (
-				<TagFilter
-					title="Filter articles by topic"
-					tags={allCategories}
-					enabledTags={enabledTags}
-					onToggleTag={toggleTag}
-					selectedTags={selectedTags}
-				/>
+				<div className="mb-lg">
+					<TagFilter
+						title="Filter work by topic"
+						tags={allCategories}
+						enabledTags={enabledTags}
+						onToggleTag={toggleTag}
+						selectedTags={selectedTags}
+					/>
+				</div>
 			) : null}
 
 			<div className="flex flex-col">
