@@ -7,6 +7,7 @@ import { highlightTemplate } from './blocks/highlight.template'
 import { highlightsTemplate } from './blocks/highlights.template'
 import { keywordListTemplate } from './blocks/keyword-list.template'
 import { productsTemplate } from './blocks/products.template'
+import { sayHelloTemplate } from './blocks/say-hello.template'
 import { skillsTemplate } from './blocks/skills.template'
 import { textRevealTemplate } from './blocks/text-reveal'
 import { wikiTemplate } from './blocks/wiki.template'
@@ -22,6 +23,7 @@ export const blocks = [
 	highlightTemplate,
 	keywordListTemplate,
 	productsTemplate,
+	sayHelloTemplate,
 	skillsTemplate,
 	textRevealTemplate,
 	wikiTemplate,

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { type Block } from '../types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import { BookingBlock } from '~/app/[locale]/contact'
+import { BookingBlock, SayHelloBlock } from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'
@@ -35,6 +35,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
+		PageBlocksSayHello: SayHelloBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTextReveal: TextRevealBlock,
 		PageBlocksWiki: WikiOverviewBlock,
