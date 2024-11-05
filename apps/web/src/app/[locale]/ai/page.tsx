@@ -9,7 +9,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../../common'
-import { SayHelloBlock } from '../contact'
 import { Chat } from './components/chat'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
@@ -54,7 +53,6 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 					<Chat />
 				</Section>
 			</div>
-			<SayHelloBlock />
 		</>
 	)
 }
