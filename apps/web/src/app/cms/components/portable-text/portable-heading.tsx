@@ -1,8 +1,5 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import { CheckIcon, LinkIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import slugify from 'slugify'
 
@@ -35,29 +32,6 @@ export function PortableHeading({
 	return (
 		<Heading id={id} className="group flex items-center">
 			{children}
-			{type === 'h2' && id ? (
-				<Button
-					variant="ghost"
-					size="iconSm"
-					className={cx(
-						'text-accent ml-2 hidden group-hover:flex',
-						hasCopied && 'flex',
-					)}
-					onClick={async () => {
-						const url = `${window.location.origin}${window.location.pathname}#${id}`
-						await navigator.clipboard.writeText(url)
-						setHasCopied(true)
-					}}
-					aria-label="Link to this section"
-				>
-					<span className="sr-only">Copy</span>
-					{hasCopied ? (
-						<CheckIcon className="text-success size-4" />
-					) : (
-						<LinkIcon className="size-4" />
-					)}
-				</Button>
-			) : null}
 		</Heading>
 	)
 }
