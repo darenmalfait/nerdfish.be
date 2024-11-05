@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai'
-import { type CoreMessage, streamText } from 'ai'
+import { type CoreMessage, streamText, tool } from 'ai'
 import { z } from 'zod'
 
 const groq = createOpenAI({
@@ -17,12 +17,14 @@ export async function POST(req: Request) {
 	const result = await streamText({
 		model: groq('llama3-8b-8192'),
 		tools: {
-			booking: {
+			booking: tool({
 				parameters: z.object({
-					bookingType: z.enum(['30min', '1hour']),
+					bookingType: z
+						.enum(['30min', '1hour'])
+						.describe('The length of the meeting'),
 				}),
 				description: 'Book a video call meeting with the user',
-			},
+			}),
 		},
 		messages: [
 			// Set an optional system message. This sets the behavior of the
