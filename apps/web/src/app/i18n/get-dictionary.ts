@@ -4,14 +4,16 @@ import { i18n, type Locale } from '~/app/i18n'
 
 export type Dictionary = {
 	'ai.chat.initialMessage': string
-	'ai.premadeQuestions.whoAreYou': string
-	'ai.premadeQuestions.whoAreYouQuestion': string
-	'ai.premadeQuestions.favoriteLanguage': string
-	'ai.premadeQuestions.favoriteLanguageQuestion': string
-	'ai.premadeQuestions.experience': string
-	'ai.premadeQuestions.experienceQuestion': string
 	'ai.premadeQuestions.currentJob': string
 	'ai.premadeQuestions.currentJobQuestion': string
+	'ai.premadeQuestions.experience': string
+	'ai.premadeQuestions.experienceQuestion': string
+	'ai.premadeQuestions.favoriteLanguage': string
+	'ai.premadeQuestions.favoriteLanguageQuestion': string
+	'ai.premadeQuestions.scheduleCall': string
+	'ai.premadeQuestions.scheduleCallQuestion': string
+	'ai.premadeQuestions.whoAreYou': string
+	'ai.premadeQuestions.whoAreYouQuestion': string
 	'ai.booking.subtitle': string
 	'ai.booking.title': string
 	'ai.description': string

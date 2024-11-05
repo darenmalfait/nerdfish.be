@@ -3,10 +3,9 @@
 import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
 import { cva, type VariantProps } from '@nerdfish/utils'
 import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
-import { type ToolInvocation } from 'ai'
+import { type Message, type ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import * as React from 'react'
-import { z } from 'zod'
 import { EmbeddedCal } from '../../contact'
 import { useTranslation } from '~/app/i18n'
 
@@ -40,12 +39,12 @@ const ChatMessage = React.forwardRef<
 		return (
 			<div className="gap-sm flex flex-col">
 				{toolInvocations.map((toolInvocation) => {
-					const { toolName, toolCallId, args } = toolInvocation
+					const { toolName, toolCallId } = toolInvocation
 
 					return (
 						<div key={toolCallId} className="w-full">
 							{toolName === 'booking' ? (
-								<EmbeddedCal bookingType={args.bookingType} />
+								<EmbeddedCal bookingType="30min" />
 							) : null}
 						</div>
 					)
@@ -62,13 +61,7 @@ const ChatMessage = React.forwardRef<
 
 ChatMessage.displayName = 'ChatMessage'
 
-const messageSchema = z
-	.string()
-	.min(1)
-	.max(80)
-	.regex(/.*[^ ].*/)
-
-export function Chat() {
+export function Chat({ initialMessages }: { initialMessages?: Message[] }) {
 	const { t } = useTranslation()
 	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
 
@@ -81,6 +74,7 @@ export function Chat() {
 		handleInputChange,
 		error,
 	} = useChat({
+		initialMessages,
 		api: '/api/ai',
 		body: {},
 	})
@@ -102,6 +96,10 @@ export function Chat() {
 			{
 				buttonName: t('ai.premadeQuestions.currentJob'),
 				question: t('ai.premadeQuestions.currentJobQuestion'),
+			},
+			{
+				buttonName: t('ai.premadeQuestions.scheduleCall'),
+				question: t('ai.premadeQuestions.scheduleCallQuestion'),
 			},
 		],
 		[t],
@@ -131,7 +129,11 @@ export function Chat() {
 				{messages.map((message) => {
 					if (message.role === 'user') {
 						return (
-							<ChatMessage key={message.id} role={message.role}>
+							<ChatMessage
+								key={message.id}
+								toolInvocations={message.toolInvocations}
+								role={message.role}
+							>
 								{message.content}
 							</ChatMessage>
 						)
@@ -189,12 +191,7 @@ export function Chat() {
 					</li>
 				))}
 			</ul>
-			<form
-				onSubmit={async (e) => {
-					e.preventDefault()
-					if (messageSchema.safeParse(input).success) return handleSubmit()
-				}}
-			>
+			<form onSubmit={handleSubmit}>
 				<Input
 					value={input}
 					onChange={(event) =>
