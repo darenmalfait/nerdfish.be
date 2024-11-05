@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai'
-import { type CoreMessage, streamText, tool } from 'ai'
+import { convertToCoreMessages, type Message, streamText, tool } from 'ai'
 import { z } from 'zod'
 
 const groq = createOpenAI({
@@ -7,37 +7,38 @@ const groq = createOpenAI({
 	apiKey: process.env.GROQ_API_KEY ?? '',
 })
 
-const systemPrompt = process.env.CHAT_SYSTEM_PROMPT ?? ''
-
 export const runtime = 'edge'
 
 export async function POST(req: Request) {
-	const { messages }: { messages: CoreMessage[] } = await req.json()
+	const { messages }: { messages: Message[] } = await req.json()
 
-	const result = await streamText({
-		model: groq('llama3-8b-8192'),
-		tools: {
-			booking: tool({
-				parameters: z.object({
-					bookingType: z
-						.enum(['30min', '1hour'])
-						.describe('The length of the meeting'),
+	const coreMessages = convertToCoreMessages(messages)
+
+	try {
+		const result = await streamText({
+			model: groq('llama3-8b-8192'),
+			system: process.env.CHAT_SYSTEM_PROMPT ?? '',
+			messages: coreMessages,
+			experimental_activeTools: ['booking'],
+			tools: {
+				booking: tool({
+					parameters: z.object({
+						title: z.string(),
+					}),
+					description: 'Book a video call meeting with the user',
+					execute: async () => {
+						return {
+							content: 'Here you go!',
+						}
+					},
 				}),
-				description: 'Book a video call meeting with the user',
-			}),
-		},
-		messages: [
-			// Set an optional system message. This sets the behavior of the
-			// assistant and can be used to provide specific instructions for
-			// how it should behave throughout the conversation.
-			{
-				role: 'system',
-				content: systemPrompt,
 			},
-			// Add a user message, this is the message the user sent
-			...messages,
-		],
-	})
+			toolChoice: 'auto',
+		})
 
-	return result.toDataStreamResponse()
+		return result.toDataStreamResponse()
+	} catch (error) {
+		console.error('error', error)
+		return new Response('Internal server error', { status: 500 })
+	}
 }
