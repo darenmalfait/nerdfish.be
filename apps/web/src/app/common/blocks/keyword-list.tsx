@@ -1,34 +1,14 @@
-import { H1 } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { Headline } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import { SectionHeader, SectionHeaderTitle } from '../components'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<Section>
-			<div className="flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-x-16 lg:space-y-0">
-				{children}
-			</div>
-		</Section>
-	)
-}
-
-const BlockHeader = ({ children }: { children: React.ReactNode }) => {
-	if (!children) return null
-
-	return <div className="w-full max-w-sm xl:max-w-lg">{children}</div>
-}
-
-const KeywordList = ({ children }: { children: React.ReactNode }) => {
-	if (!children) return null
-
-	return (
-		<ul className="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-			{children}
-		</ul>
+		<section className="py-md fle flex-col items-center">{children}</section>
 	)
 }
 
@@ -37,26 +17,12 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 
 	return (
 		<BlockLayout>
-			<BlockHeader>
-				<H1
-					data-tina-field={tinaField(data, 'title')}
-					as="h2"
-					className="w-full font-bold"
-				>
-					{title}
-				</H1>
-			</BlockHeader>
-			<KeywordList>
-				{keywords?.map((item, i) => (
-					<li
-						key={`${item} ${i}`}
-						className="text-primary block text-lg"
-						data-tina-field={tinaField(data, 'keywords')}
-					>
-						{item}
-					</li>
-				))}
-			</KeywordList>
+			<SectionHeader>
+				<SectionHeaderTitle>{title}</SectionHeaderTitle>
+			</SectionHeader>
+			<div data-tina-field={tinaField(data, 'keywords')}>
+				<Headline>{keywords?.join(' - ') as string}</Headline>
+			</div>
 		</BlockLayout>
 	)
 }
