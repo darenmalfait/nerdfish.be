@@ -22,7 +22,6 @@ export function SayHelloBlock(props: PageBlocksSayHello) {
 
 	return (
 		<Section>
-			<div className="h-[25vh]" />
 			<ScrollStage pages={1.5}>
 				<Waves />
 				<Actor start={0} end={WAVE_END}>
