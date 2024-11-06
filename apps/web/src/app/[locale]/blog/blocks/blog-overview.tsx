@@ -17,8 +17,8 @@ import {
 } from '~/app/common'
 
 export async function BlogOverviewBlockContent(data: Block<PageBlocksBlog>) {
-	const { header, searchEnabled, featuredEnabled, tags, count } = data
-	const blogs = (await getBlogPosts()) ?? []
+	const { header, searchEnabled, featuredEnabled, tags, count, locale } = data
+	const blogs = (await getBlogPosts({ locale })) ?? []
 
 	const posts = count ? blogs.slice(0, count) : blogs
 	const items = filterBlog(posts, tags?.join(' ') ?? '')

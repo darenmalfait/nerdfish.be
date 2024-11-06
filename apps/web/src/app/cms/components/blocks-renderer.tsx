@@ -68,9 +68,11 @@ type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 function BlockComponent({
 	block,
 	globalData,
+	locale,
 }: {
 	block: PageBlocks
 	globalData?: Block['globalData']
+	locale?: Block['locale']
 }) {
 	if (!block.__typename) return null
 
@@ -82,22 +84,31 @@ function BlockComponent({
 		) : null
 	}
 
-	return <Component {...block} globalData={globalData} />
+	return <Component locale={locale} globalData={globalData} {...block} />
 }
 
 export function Blocks({
 	items,
 	globalData,
+	locale,
 }: {
 	items?: PageBlocks[] | null
 	globalData?: Block['globalData']
+	locale?: Block['locale']
 }) {
 	if (!items) return null
 
 	return (
 		<>
 			{items.map((block, i) => {
-				return <BlockComponent key={i} block={block} globalData={globalData} />
+				return (
+					<BlockComponent
+						key={i}
+						block={block}
+						locale={locale}
+						globalData={globalData}
+					/>
+				)
 			})}
 		</>
 	)

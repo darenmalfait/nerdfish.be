@@ -17,7 +17,7 @@ import { Logo, MenuIcon, XIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { ActionsNavigation, RSSFeedButton, SocialLinks } from '../navigation'
+import { ActionsNavigation, SocialLinks } from '../navigation'
 import { ThemeToggle } from '../theme-toggle'
 import {
 	type GlobalNavigationMain,
@@ -171,9 +171,6 @@ export function MobileNavigation() {
 						<ul className="mt-xl gap-sm flex flex-row items-center justify-start">
 							<li>
 								<ThemeToggle variant="ghost" />
-							</li>
-							<li>
-								<RSSFeedButton />
 							</li>
 						</ul>
 						<div className="mt-md gap-sm pb-lg flex flex-row items-center">
