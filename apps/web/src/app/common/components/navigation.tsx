@@ -17,7 +17,6 @@ import {
 	GithubIcon,
 	InstagramIcon,
 	LinkedinIcon,
-	RssIcon,
 	TwitterIcon,
 } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
@@ -28,17 +27,6 @@ import {
 	type GlobalNavigationMainSub,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
-
-export function RSSFeedButton({ className }: { className?: string }) {
-	return (
-		<Button variant="ghost" size="icon" className={className} asChild>
-			<a target="_blank" href="/rss.xml" aria-label="rss feed" rel="noreferrer">
-				<span className="sr-only">RSS feed</span>
-				<RssIcon className="size-4" />
-			</a>
-		</Button>
-	)
-}
 
 export function ActionsNavigation({
 	className,

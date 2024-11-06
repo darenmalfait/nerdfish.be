@@ -8,12 +8,14 @@ import {
 	type ContentQueryQuery,
 	type ContentQueryQueryVariables,
 } from '~/app/cms'
+import { useTranslation } from '~/app/i18n'
 
 function PagePreview(props: {
 	data: ContentQueryQuery
 	query: string
 	variables: ContentQueryQueryVariables
 }) {
+	const { currentLocale } = useTranslation()
 	const { data } = useTina<ContentQueryQuery>({
 		query: props.query,
 		variables: props.variables,
@@ -23,7 +25,7 @@ function PagePreview(props: {
 	return (
 		<>
 			<Preview />
-			<PageContent data={data} />
+			<PageContent locale={currentLocale} data={data} />
 		</>
 	)
 }

@@ -32,11 +32,13 @@ import {
 	SectionHeaderTitle,
 	TagFilter,
 } from '~/app/common'
+import { useTranslation } from '~/app/i18n'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
 export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
+	const { t } = useTranslation()
 	const { header, searchEnabled, tags, count, globalData } = data
 	const { wikis: allPosts = [] } = globalData ?? {}
 	const { title, subtitle, link } = header ?? {}
@@ -155,7 +157,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 					<div data-tina-field={tinaField(data, 'header')}>
 						<SectionHeader
 							cta={{
-								title: 'See all articles',
+								title: t('global.allArticles'),
 								url: link ?? '',
 							}}
 						>

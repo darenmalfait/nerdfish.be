@@ -50,5 +50,5 @@ export default async function Page({
 	const { isEnabled: isPreview } = draftMode()
 
 	if (isPreview) return <PagePreview {...routeData} />
-	return <PageContent {...routeData} />
+	return <PageContent locale={locale} {...routeData} />
 }

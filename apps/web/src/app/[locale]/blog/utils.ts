@@ -84,7 +84,11 @@ export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 
 export function getBlogPath(blog: PartialDeep<Blog>) {
 	const path = blog._sys?.breadcrumbs?.join('/')
-	return path ? `/${BlogPath}/${path}` : ''
+
+	const locale = blog._sys?.breadcrumbs?.[0]
+	const newPath = path?.replace(`${locale}/`, '/')
+
+	return newPath ? `${locale ? `/${locale}` : ''}/${BlogPath}${newPath}` : ''
 }
 
 export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {

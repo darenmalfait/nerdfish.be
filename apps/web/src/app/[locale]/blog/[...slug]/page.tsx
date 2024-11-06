@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 import { BlogContent } from '~/app/[locale]/blog/components/blog-content'
 import { BlogPreview } from '~/app/[locale]/blog/components/blog-preview'
@@ -11,7 +12,8 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-	const { data } = await getRouteData(params.slug.join('/'))
+	const { locale } = params
+	const { data } = await getRouteData(params.slug.join('/'), locale)
 
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
@@ -22,7 +24,7 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		title,
-		url: `/blog/${params.slug.join('/')}`,
+		url: getBlogPath(data.blog),
 		description: data.blog.seo?.description ?? '',
 		canonical: data.blog.seo?.canonical,
 	})
@@ -33,7 +35,7 @@ export default async function BlogPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const routeData = await getRouteData(params.slug.join('/'))
+	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
 
