@@ -21,6 +21,8 @@ export type Dictionary = {
 	'ai.meta.title': string
 	'ai.page.description': string
 	'ai.page.title': string
+	'blog.related.title': string
+	'blog.related.subtitle': string
 	'contact.dataUsage': string
 	'contact.email': string
 	'contact.fieldset.customer': string

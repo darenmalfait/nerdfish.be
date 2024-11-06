@@ -75,6 +75,9 @@ query contentQuery($relativePath: String!) {
 query blogPostQuery($relativePath: String!) {
 	blog(relativePath: $relativePath) {
 		...BlogParts
+		_sys {
+			relativePath
+		}
 	}
 }
 
