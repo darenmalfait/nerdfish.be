@@ -1,4 +1,5 @@
 import { Skeleton } from '@nerdfish/ui'
+import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -10,18 +11,49 @@ import * as React from 'react'
 import { getBlogPosts } from '../api'
 import { filterBlog } from '../utils'
 import { BlockLayout } from './blog-overview-layout'
-import { type Block, type PageBlocksBlog } from '~/app/cms'
+import { type Blog, type Block, type PageBlocksBlog } from '~/app/cms'
 import {
 	ArticleOverviewContentGrid,
 	ArticlesOverviewEmptyState,
 } from '~/app/common'
 
-export async function BlogOverviewBlockContent(data: Block<PageBlocksBlog>) {
-	const { header, searchEnabled, featuredEnabled, tags, count, locale } = data
-	const blogs = (await getBlogPosts({ locale })) ?? []
+function isSameBlog(blog: PartialDeep<Blog>, relatedTo?: PartialDeep<Blog>) {
+	return blog._sys?.relativePath === relatedTo?._sys?.relativePath
+}
 
-	const posts = count ? blogs.slice(0, count) : blogs
-	const items = filterBlog(posts, tags?.join(' ') ?? '')
+export async function BlogOverviewBlockContent(
+	data: Block<PageBlocksBlog> & {
+		relatedTo?: PartialDeep<Blog>
+	},
+) {
+	const {
+		header,
+		searchEnabled,
+		featuredEnabled,
+		tags,
+		count,
+		locale,
+		relatedTo,
+	} = data
+	const localizedBlogs = (await getBlogPosts({ locale })) ?? []
+
+	const relatedBlogs =
+		relatedTo &&
+		localizedBlogs
+			.filter((blog) => !isSameBlog(blog, relatedTo))
+			.filter((blog) => blog.tags?.some((tag) => relatedTo.tags?.includes(tag)))
+
+	const blogs = relatedTo
+		? relatedBlogs?.length
+			? relatedBlogs
+			: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
+		: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
+
+	const limitedBlogs = count ? blogs.slice(0, count) : blogs
+
+	const items = relatedTo
+		? limitedBlogs
+		: filterBlog(limitedBlogs, tags?.join(' ') ?? '')
 
 	return (
 		<BlockLayout
@@ -37,7 +69,11 @@ export async function BlogOverviewBlockContent(data: Block<PageBlocksBlog>) {
 	)
 }
 
-export async function BlogOverviewBlock(data: Block<PageBlocksBlog>) {
+export async function BlogOverviewBlock(
+	data: Block<PageBlocksBlog> & {
+		relatedTo?: PartialDeep<Blog>
+	},
+) {
 	const { header, searchEnabled, featuredEnabled } = data
 
 	return (
