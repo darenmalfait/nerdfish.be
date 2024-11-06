@@ -291,8 +291,9 @@ export const ArticlesOverviewEmptyState = React.forwardRef<
 		{ icon: Icon, title, description, clearSearch, className, ...props },
 		ref,
 	) => {
-		const { setFilter, articles } = useArticleOverview()
+		const { setFilter, articles, searchEnabled } = useArticleOverview()
 
+		if (!searchEnabled) return null
 		if (articles.length > 0) return null
 
 		return (
