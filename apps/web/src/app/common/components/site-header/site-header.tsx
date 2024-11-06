@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ActionsNavigation, MainNavigation } from '../navigation'
 import { ThemeToggle } from '../theme-toggle'
 import { MobileNavigation } from './mobile-navigation'
-import { useTranslation } from '~/app/i18n'
+import { LocaleSwitcher, useTranslation } from '~/app/i18n'
 
 export function SiteHeader() {
 	const { currentLocale } = useTranslation()
@@ -32,6 +32,7 @@ export function SiteHeader() {
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
 								<ActionsNavigation className="hidden md:flex" />
+								<LocaleSwitcher compact />
 								<MobileNavigation />
 							</div>
 						</div>
