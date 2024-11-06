@@ -76,22 +76,6 @@ query blogPostQuery($relativePath: String!) {
 	blog(relativePath: $relativePath) {
 		...BlogParts
 	}
-	blogConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...BlogParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
 }
 
 query workQuery($relativePath: String!) {
