@@ -16,10 +16,6 @@ const nextConfig = {
 	async rewrites() {
 		return [
 			{
-				source: '/rss.xml',
-				destination: '/api/feed/rss',
-			},
-			{
 				source: '/admin',
 				destination: '/admin/index.html',
 			},

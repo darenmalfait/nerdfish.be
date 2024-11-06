@@ -7,7 +7,7 @@ import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { RSSFeedButton, SocialLinks } from './navigation'
+import { SocialLinks } from './navigation'
 import { ThemeToggle } from './theme-toggle'
 import {
 	type GlobalNavigationMain,
@@ -152,9 +152,6 @@ export function Footer() {
 							<ul className="gap-sm flex items-center">
 								<li>
 									<ThemeToggle variant="ghost" />
-								</li>
-								<li>
-									<RSSFeedButton className="xsm:flex hidden" />
 								</li>
 								<li>
 									<LocaleSwitcher />

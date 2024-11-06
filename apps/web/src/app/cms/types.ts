@@ -1,5 +1,5 @@
+import { type Locale } from '../i18n'
 import {
-	type Blog,
 	type PageBlocks,
 	type Product,
 	type Wiki,
@@ -12,9 +12,9 @@ export type Image = {
 }
 
 export type Block<T extends PageBlocks = any> = T & {
+	locale?: Locale
 	globalData?: {
 		wikis?: Partial<Wiki>[]
-		blogs?: Partial<Blog>[]
 		products?: Partial<Product>[]
 		works?: Partial<Work>[]
 	}

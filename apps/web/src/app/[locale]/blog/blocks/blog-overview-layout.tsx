@@ -18,6 +18,7 @@ import {
 	ArticleOverviewSearchContent,
 } from '~/app/common/components/article-overview/article-overview'
 import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
+import { useTranslation } from '~/app/i18n'
 
 export function BlockLayout({
 	searchEnabled,
@@ -32,6 +33,7 @@ export function BlockLayout({
 	items: PartialDeep<Blog>[]
 	header: Block<PageBlocksBlog>['header']
 }) {
+	const { t } = useTranslation()
 	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
@@ -74,7 +76,7 @@ export function BlockLayout({
 				{!searchEnabled ? (
 					<SectionHeader
 						cta={{
-							title: 'See all articles',
+							title: t('global.allArticles'),
 							url: header?.link ?? '',
 						}}
 					>

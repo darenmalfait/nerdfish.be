@@ -6,6 +6,7 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
+	LoadingAnimation,
 	type ButtonProps,
 } from '@nerdfish/ui'
 import { Moon, Sun } from 'lucide-react'
@@ -24,10 +25,6 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			setMounted(true)
 		}, [])
 
-		if (!mounted) {
-			return null
-		}
-
 		const isDarkMode =
 			theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
 
@@ -39,10 +36,13 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 						type="button"
 						size="icon"
 						variant={variant ?? 'ghost'}
+						disabled={!mounted}
 						{...props}
 						className={className}
 					>
-						{isDarkMode ? (
+						{!mounted ? (
+							<LoadingAnimation variant="classic" className="size-4" />
+						) : isDarkMode ? (
 							<Sun className="size-4" />
 						) : (
 							<Moon className="size-4" />
