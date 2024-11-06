@@ -21,7 +21,6 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-	AnimatedText,
 } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
@@ -54,7 +53,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 						data-tina-field={tinaField(data.work, 'title')}
 						className="!m-0 w-auto"
 					>
-						<AnimatedText value={title} letterClassName="hover:text-primary" />
+						{title}
 					</H1>
 					<div className="mt-xs relative">
 						<CategoryIndicator category={category} inline />

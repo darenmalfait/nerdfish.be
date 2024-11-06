@@ -4,7 +4,7 @@ import { DateFormatter, Section } from '@nerdfish-website/ui/components'
 import { tinaField } from 'tinacms/dist/react'
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
-import { ReadingProgress, AnimatedText } from '~/app/common'
+import { ReadingProgress } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -33,7 +33,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 						data-tina-field={tinaField(data.wiki, 'title')}
 						className="w-auto"
 					>
-						<AnimatedText value={title} letterClassName="hover:text-primary" />
+						{title}
 					</H1>
 				</header>
 

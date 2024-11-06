@@ -22,7 +22,6 @@ import {
 	ReadingProgress,
 	SectionHeaderTitle,
 	SectionHeaderSubtitle,
-	AnimatedText,
 } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
@@ -65,7 +64,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 						data-tina-field={tinaField(data.blog, 'title')}
 						className="!mb-lg w-auto"
 					>
-						<AnimatedText value={title} letterClassName="hover:text-primary" />
+						{title}
 					</H1>
 				</header>
 				{heroImg ? (
