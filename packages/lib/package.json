@@ -4,16 +4,12 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./utils": "./src/utils/index.ts",
-    "./validations": "./src/validations/index.ts"
+    "./utils": "./src/utils/index.ts"
   },
   "typesVersions": {
     "*": {
       "utils": [
         "./src/utils/index.ts"
-      ],
-      "validations": [
-        "./src/validations/index.ts"
       ]
     }
   },

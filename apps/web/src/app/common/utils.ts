@@ -1,7 +1,7 @@
 import { stripPreSlash, stripTrailingSlash } from '@nerdfish-website/lib/utils'
-import { type ogImageSchema } from '@nerdfish-website/lib/validations'
 import { type Metadata } from 'next'
 import { type z } from 'zod'
+import { type ogImageSchema } from '../api/og/validation'
 import { type SocialMetas } from './types'
 
 export function getDomainUrl(): string | undefined {
