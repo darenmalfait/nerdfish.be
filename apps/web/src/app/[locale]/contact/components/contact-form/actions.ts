@@ -4,12 +4,10 @@ import {
 	ContactEmail as contactEmail,
 	renderAsync,
 } from '@nerdfish-website/emails/emails'
-import {
-	contactSchema,
-	type ContactFormData,
-} from '@nerdfish-website/lib/validations'
 import type * as React from 'react'
 import { Resend } from 'resend'
+import { contactSchema, type ContactFormData } from './validation'
+
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendContactEmail({
@@ -60,11 +58,11 @@ export async function submitContactForm(payload: ContactFormData) {
 		throw new Error('Recaptcha failed')
 	}
 
-	const { name, email, textMessage, project } = data
+	const { name, email, textMessage: message } = data
 
 	await sendContactEmail({
 		from: `${name} <${email}>`,
-		message: `${project}: ${textMessage}`,
+		message,
 	})
 
 	return {

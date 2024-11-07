@@ -9,7 +9,6 @@ import {
 	Description,
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -17,20 +16,14 @@ import {
 	H3,
 	Input,
 	LoadingAnimation,
-	RadioGroup,
-	RadioGroupField,
-	RadioGroupItem,
 	Textarea,
 } from '@nerdfish/ui'
-import {
-	contactSchema,
-	type ContactFormData,
-} from '@nerdfish-website/lib/validations'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 
 import { submitContactForm } from './actions'
+import { type ContactFormData, contactSchema } from './validation'
 import { useTranslation } from '~/app/i18n'
 import { useRecaptcha } from '~/app/recaptcha'
 
@@ -60,7 +53,6 @@ export function ContactForm() {
 			name: '',
 			email: '',
 			textMessage: '',
-			project: 'webdesign',
 		},
 	})
 
@@ -125,68 +117,6 @@ export function ContactForm() {
 
 									<FormControl>
 										<Input inputSize="lg" type="email" {...field} />
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-					</Fieldset>
-
-					<Fieldset title={t('contact.fieldset.project')}>
-						<FormField
-							control={form.control}
-							name="project"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>{t('contact.project')}</FormLabel>
-
-									<FormControl>
-										<RadioGroup
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-										>
-											<FormItem>
-												<RadioGroupField>
-													<FormControl>
-														<RadioGroupItem value="webdesign" />
-													</FormControl>
-													<FormLabel>
-														{t('contact.webdesign')}
-														<FormDescription>
-															{t('contact.webdesignDescription')}
-														</FormDescription>
-													</FormLabel>
-												</RadioGroupField>
-											</FormItem>
-
-											<FormItem>
-												<RadioGroupField>
-													<FormControl>
-														<RadioGroupItem value="services" />
-													</FormControl>
-													<FormLabel>
-														{t('contact.services')}
-														<FormDescription>
-															{t('contact.servicesDescription')}
-														</FormDescription>
-													</FormLabel>
-												</RadioGroupField>
-											</FormItem>
-
-											<FormItem>
-												<RadioGroupField>
-													<FormControl>
-														<RadioGroupItem value="other" />
-													</FormControl>
-													<FormLabel>
-														{t('contact.other')}
-														<FormDescription>
-															{t('contact.otherDescription')}
-														</FormDescription>
-													</FormLabel>
-												</RadioGroupField>
-											</FormItem>
-										</RadioGroup>
 									</FormControl>
 									<FormMessage />
 								</FormItem>

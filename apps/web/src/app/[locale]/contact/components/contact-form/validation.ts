@@ -6,10 +6,6 @@ export const contactSchema = z.object({
 		.min(2, 'Your name seems a bit short.')
 		.max(32, 'Your name seems a bit long.'),
 	email: z.string().email('Please enter a valid email address.'),
-	project: z
-		.string()
-		.min(3, 'Does not seem to be a valid project')
-		.max(32, 'Does not seem to be a valid project'),
 	textMessage: z
 		.string()
 		.min(10, 'I hope that your message is a bit longer than that.')
