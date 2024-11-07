@@ -1,7 +1,5 @@
 import { z } from 'zod'
 
-export * from './og'
-
 type Primitives = boolean | number | string | null
 type JsonValue = JsonValue[] | Primitives | { [key: string]: JsonValue }
 

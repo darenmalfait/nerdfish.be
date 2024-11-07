@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 
-import { ogImageSchema } from '@nerdfish-website/lib/validations'
 import { ImageResponse } from '@vercel/og'
+import { ogImageSchema } from './validation'
 
 export const runtime = 'edge'
 
