@@ -27,7 +27,6 @@ export type Dictionary = {
 	'contact.email': string
 	'contact.fieldset.customer': string
 	'contact.fieldset.message': string
-	'contact.fieldset.project': string
 	'contact.genericError': string
 	'contact.message': string
 	'contact.name': string
