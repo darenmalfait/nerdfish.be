@@ -30,16 +30,9 @@ export type Dictionary = {
 	'contact.genericError': string
 	'contact.message': string
 	'contact.name': string
-	'contact.other': string
-	'contact.otherDescription': string
-	'contact.project': string
 	'contact.recaptchaError': string
 	'contact.send': string
-	'contact.services': string
-	'contact.servicesDescription': string
 	'contact.success': string
-	'contact.webdesign': string
-	'contact.webdesignDescription': string
 	'theme.dark': string
 	'theme.light': string
 	'theme.system': string
