@@ -1,5 +1,6 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
 import {
 	Actor,
 	ScrollStage,
@@ -7,6 +8,7 @@ import {
 	useActor,
 	useStage,
 } from '@nerdfish-website/ui/components'
+import { useInView } from 'framer-motion'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import tweenFunctions, { linear } from 'tween-functions'
@@ -19,25 +21,36 @@ const WAVE_END = 0.8
 export function SayHelloBlock(props: PageBlocksSayHello) {
 	const { text } = props
 
+	const ref = React.useRef<HTMLDivElement>(null)
+	const isInView = useInView(ref, { amount: 0.5 })
+
 	return (
-		<Section>
-			<ScrollStage pages={1.5}>
-				<Actor start={0} end={WAVE_END}>
-					<Message>
+		<div ref={ref}>
+			<div
+				className={cx(
+					'bg-accent -z-1 fixed inset-0 opacity-0 duration-500',
+					isInView && 'opacity-100',
+				)}
+			/>
+			<Section className={isInView ? 'dark' : ''}>
+				<ScrollStage pages={1.5}>
+					<Actor start={0} end={WAVE_END}>
+						<Message>
+							<PortableText
+								data-tina-field={tinaField(props, 'text')}
+								content={text}
+							/>
+						</Message>
+					</Actor>
+					<MessageOutro>
 						<PortableText
 							data-tina-field={tinaField(props, 'text')}
 							content={text}
 						/>
-					</Message>
-				</Actor>
-				<MessageOutro>
-					<PortableText
-						data-tina-field={tinaField(props, 'text')}
-						content={text}
-					/>
-				</MessageOutro>
-			</ScrollStage>
-		</Section>
+					</MessageOutro>
+				</ScrollStage>
+			</Section>
+		</div>
 	)
 }
 
