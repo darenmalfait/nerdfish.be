@@ -21,7 +21,10 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 			<SectionHeader>
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 			</SectionHeader>
-			<div data-tina-field={tinaField(data, 'keywords')}>
+			<div
+				data-tina-field={tinaField(data, 'keywords')}
+				className="max-w-full overflow-hidden"
+			>
 				<Marquee pauseOnHover duration={20000} repeat={5}>
 					{keywords?.filter(nonNullable).map((keyword) => (
 						<span
