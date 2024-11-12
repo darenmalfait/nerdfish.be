@@ -63,17 +63,16 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'focus-within:outline-active rounded-semi bg-muted p-md group relative flex h-full w-full select-none flex-col justify-end space-y-1 leading-none no-underline outline-none transition-colors',
+						'focus-within:outline-active hover:bg-muted rounded-semi p-md space-y-sm group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
 					href={`/${stripPreSlash(href)}`}
 					{...props}
 				>
-					<div className="bg-inverted/5 rounded-semi absolute inset-0 hidden group-hover:block" />
-					<div className="text-sm font-medium leading-none">{label}</div>
+					<div className="text-sm font-black leading-none">{label}</div>
 					{description ? (
-						<p className="text-muted mb-0 line-clamp-2 text-sm leading-snug">
+						<p className="text-muted mb-0 line-clamp-1 text-sm leading-snug">
 							{description}
 						</p>
 					) : null}
@@ -150,22 +149,13 @@ const MainNavigationItem = React.forwardRef<
 			</Button>
 			<NavigationMenuContent className="bg-primary rounded-semi">
 				<ul
-					className={cx(
-						'gap-sm p-sm grid md:w-[400px] lg:w-[500px]',
-						'lg:grid-cols-3 lg:grid-rows-2',
-					)}
+					className={cx('gap-sm p-md flex flex-col md:w-[400px] lg:w-[500px]')}
 				>
 					{sub.map((subNavItem) => {
 						if (!subNavItem) return null
 
 						return (
-							<li
-								key={subNavItem.label}
-								className={cx('rounded-semi col-span-3 flex h-full w-full', {
-									'lg:col-span-2 first:lg:col-span-1 first:lg:row-span-2':
-										sub.length > 2,
-								})}
-							>
+							<li key={subNavItem.label}>
 								<MainNavigationSubItem {...subNavItem} />
 							</li>
 						)
