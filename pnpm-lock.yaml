@@ -84,8 +84,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       ai:
-        specifier: ^3.4.31
-        version: 3.4.32(openai@4.67.3(encoding@0.1.13)(zod@3.23.8))(react@18.3.1)(sswr@2.1.0(svelte@5.1.12))(svelte@5.1.12)(vue@3.5.12(typescript@5.6.3))(zod@3.23.8)
+        specifier: ^3.4.33
+        version: 3.4.33(openai@4.67.3(encoding@0.1.13)(zod@3.23.8))(react@18.3.1)(sswr@2.1.0(svelte@5.1.12))(svelte@5.1.12)(vue@3.5.12(typescript@5.6.3))(zod@3.23.8)
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
@@ -223,8 +223,8 @@ importers:
   packages/emails:
     dependencies:
       '@react-email/components':
-        specifier: 0.0.26
-        version: 0.0.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.0.27
+        version: 0.0.27(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-email/render':
         specifier: ^0.0.17
         version: 0.0.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3498,8 +3498,8 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@react-email/components@0.0.26':
-    resolution: {integrity: sha512-FqxCGnQiI4zztEBAXPfjovIQ9e1l7NJNMgE8hSaH7slWySFn/PpPRQFYpxyCFNr9DqPVHtKYtpo8xvUYx2LdTg==}
+  '@react-email/components@0.0.27':
+    resolution: {integrity: sha512-4oIEL2m6HrL9GMClgj9EHg2o6ffFvoIB5YMaK+lk+AuICvNHh3TwveYi1xLYH1PZZB7fV83Vml8MWjbnOdrl8w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
@@ -3596,8 +3596,8 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@react-email/tailwind@1.0.0':
-    resolution: {integrity: sha512-LV0SflR0aI5Sjxyp8upyPL8Ctwj+7aqwTgCDO9yZuOI6KpXbBGaYz8bSofe8oaVc/BmymZ5O3+/7FjQexbW+Yg==}
+  '@react-email/tailwind@1.0.1':
+    resolution: {integrity: sha512-CPCIV1u8Voc6CMoYvd/wcgJek0uOsWNMNMUIJjJItb0+NflIeVg3gn49/zyrCqfturx7QIXTykkL82+5V7kKuA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
@@ -5166,8 +5166,8 @@ packages:
     resolution: {integrity: sha512-5GG/5IbQQpC9FpkRGsSvZI5QYeSCzlJHdpBQntCsuTOxhKD8lqKhrleg2Yi7yvMIf82Ycmmqln9U8V9qwEiJew==}
     engines: {node: '>= 8.0.0'}
 
-  ai@3.4.32:
-    resolution: {integrity: sha512-d5Im7kWsjw1T/IFfYPH4KDLUn4W+XIZqip34q7wcyVBAKLcjGSbJh+5F7Ktc1MIzThHUPh/NUzbHlDDNhTlCgA==}
+  ai@3.4.33:
+    resolution: {integrity: sha512-plBlrVZKwPoRTmM8+D1sJac9Bq8eaa2jiZlHLZIWekKWI1yMWYZvCCEezY9ASPwRhULYDJB2VhKOBUUeg3S5JQ==}
     engines: {node: '>=18'}
     peerDependencies:
       openai: ^4.42.0
@@ -14169,7 +14169,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@react-email/components@0.0.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@react-email/components@0.0.27(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@react-email/body': 0.0.10(react@18.3.1)
       '@react-email/button': 0.0.18(react@18.3.1)
@@ -14189,7 +14189,7 @@ snapshots:
       '@react-email/render': 1.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-email/row': 0.0.11(react@18.3.1)
       '@react-email/section': 0.0.15(react@18.3.1)
-      '@react-email/tailwind': 1.0.0(react@18.3.1)
+      '@react-email/tailwind': 1.0.1(react@18.3.1)
       '@react-email/text': 0.0.10(react@18.3.1)
       react: 18.3.1
     transitivePeerDependencies:
@@ -14268,7 +14268,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@react-email/tailwind@1.0.0(react@18.3.1)':
+  '@react-email/tailwind@1.0.1(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
@@ -16377,7 +16377,7 @@ snapshots:
       humanize-ms: 1.2.1
     optional: true
 
-  ai@3.4.32(openai@4.67.3(encoding@0.1.13)(zod@3.23.8))(react@18.3.1)(sswr@2.1.0(svelte@5.1.12))(svelte@5.1.12)(vue@3.5.12(typescript@5.6.3))(zod@3.23.8):
+  ai@3.4.33(openai@4.67.3(encoding@0.1.13)(zod@3.23.8))(react@18.3.1)(sswr@2.1.0(svelte@5.1.12))(svelte@5.1.12)(vue@3.5.12(typescript@5.6.3))(zod@3.23.8):
     dependencies:
       '@ai-sdk/provider': 0.0.26
       '@ai-sdk/provider-utils': 1.0.22(zod@3.23.8)
