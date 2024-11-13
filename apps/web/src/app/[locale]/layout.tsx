@@ -4,7 +4,7 @@ import { GeistSans } from 'geist/font/sans'
 import * as React from 'react'
 import { AppProviders } from '../app-providers'
 import { getGlobalData } from '../cms/api'
-import { Footer, SiteHeader } from '../common'
+import { SiteFooter, SiteHeader } from '../common'
 import { GlobalProvider } from '../global-provider'
 import { getDictionary } from '../i18n/get-dictionary'
 import { i18n, TranslationProvider, type WithLocale } from '~/app/i18n'
@@ -55,7 +55,7 @@ export default async function RootLayout({
 									</React.Suspense>
 								</main>
 
-								<Footer />
+								<SiteFooter />
 							</div>
 						</GlobalProvider>
 					</TranslationProvider>
