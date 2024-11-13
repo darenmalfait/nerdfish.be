@@ -131,7 +131,7 @@ function Disclaimer() {
 	)
 }
 
-export function Footer() {
+export function SiteFooter() {
 	const { navigation } = useGlobal()
 
 	return (
