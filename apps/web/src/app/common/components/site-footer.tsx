@@ -135,7 +135,7 @@ export function SiteFooter() {
 	const { navigation } = useGlobal()
 
 	return (
-		<div className="mt-xl py-lg">
+		<div className="mt-xl py-lg bg-muted/50">
 			<footer
 				className="text-primary px-lg mx-auto"
 				aria-labelledby="footer-heading"
