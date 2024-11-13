@@ -137,7 +137,7 @@ export function SiteFooter() {
 	return (
 		<div className="mt-xl py-lg">
 			<footer
-				className="text-primary px-md container mx-auto"
+				className="text-primary px-lg mx-auto"
 				aria-labelledby="footer-heading"
 			>
 				<h2 id="footer-heading" className="sr-only">
