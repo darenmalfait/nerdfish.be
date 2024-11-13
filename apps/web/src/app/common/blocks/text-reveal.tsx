@@ -5,25 +5,33 @@ import {
 	Section,
 	TextReveal,
 } from '@nerdfish-website/ui/components'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksTextReveal, type Block } from '~/app/cms'
 
 export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 	const { label } = props
+	const textRef = React.useRef<HTMLDivElement>(null)
+	const backgroundRef = React.useRef<HTMLDivElement>(null)
 
-	const ref = React.useRef<HTMLDivElement>(null)
 	const { scrollYProgress } = useScroll({
-		target: ref,
+		target: backgroundRef,
 	})
 
-	const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1])
+	const scale = useTransform(
+		scrollYProgress,
+		[0, 0.3, 0.6, 1],
+		[1, 1.1, 1.1, 1],
+		{
+			ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
+		},
+	)
 
 	if (!label) return null
 
 	return (
-		<div className="relative">
+		<div className="relative" ref={backgroundRef}>
 			<div className="absolute inset-0 overflow-hidden">
 				<motion.div
 					className="bg-muted rounded-semi mx-md absolute inset-0 overflow-hidden"
@@ -38,7 +46,7 @@ export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 						type="button"
 						className="group z-10 p-10"
 						onClick={() => {
-							ref.current?.scrollIntoView({ behavior: 'smooth' })
+							textRef.current?.scrollIntoView({ behavior: 'smooth' })
 						}}
 					>
 						<ScrollIndicator className="motion-preset-fade motion-preset-slide-up motion-duration-700 group-hover:text-primary z-10 block group-hover:border-black dark:group-hover:border-white">
@@ -48,7 +56,7 @@ export function TextRevealBlock(props: Block<PageBlocksTextReveal>) {
 				</div>
 				<Section>
 					<TextReveal
-						ref={ref}
+						ref={textRef}
 						data-tina-field={tinaField(props, 'label')}
 						text={label}
 					/>
