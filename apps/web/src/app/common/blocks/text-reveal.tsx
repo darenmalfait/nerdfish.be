@@ -5,7 +5,7 @@ import {
 	Section,
 	TextReveal,
 } from '@nerdfish-website/ui/components'
-import { cubicBezier, motion, useScroll, useTransform } from 'framer-motion'
+import { cubicBezier, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksTextReveal, type Block } from '~/app/cms'

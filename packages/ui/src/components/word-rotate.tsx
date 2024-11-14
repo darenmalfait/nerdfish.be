@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { AnimatePresence, type HTMLMotionProps, motion } from 'framer-motion'
+import { AnimatePresence, type HTMLMotionProps, motion } from 'motion/react'
 import * as React from 'react'
 
 interface WordRotateProps {

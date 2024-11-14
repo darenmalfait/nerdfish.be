@@ -3,7 +3,7 @@
 import { cx } from '@nerdfish/utils'
 import { useElementState, type ElementState } from '@nerdfish-website/lib/utils'
 import { ArrowIcon, type ArrowIconProps } from '@nerdfish-website/ui/icons'
-import { motion, type Variant } from 'framer-motion'
+import { motion, type Variant } from 'motion/react'
 import * as React from 'react'
 
 import { Link } from './link'
