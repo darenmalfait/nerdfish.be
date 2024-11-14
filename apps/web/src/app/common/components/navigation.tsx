@@ -149,7 +149,7 @@ const MainNavigationItem = React.forwardRef<
 			</Button>
 			<NavigationMenuContent className="bg-primary rounded-semi">
 				<ul
-					className={cx('gap-sm p-md flex flex-col md:w-[400px] lg:w-[500px]')}
+					className={cx('gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]')}
 				>
 					{sub.map((subNavItem) => {
 						if (!subNavItem) return null
