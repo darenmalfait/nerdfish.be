@@ -39,6 +39,7 @@ import {
 	ArticleOverviewProvider,
 	useArticleOverview,
 } from './article-overview-provider'
+import { useTranslation } from '~/app/i18n'
 
 const PAGE_SIZE = 6
 
@@ -228,6 +229,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ children, ...props }, ref) => {
+	const { t } = useTranslation()
 	const { articles, featuredArticleEnabled, filter } = useArticleOverview()
 	const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
 
@@ -256,6 +258,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 						<li key={article.id} className="col-span-4">
 							<ArticleCard href={article.href} title={article.title}>
 								<ArticleCardImage
+									readMoreLabel={t('global.readMore')}
 									src={article.image?.src}
 									category={article.category}
 								/>
