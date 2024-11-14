@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 
 function Word({
