@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { type Block } from '../types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import { BookingBlock, SayHelloBlock } from '~/app/[locale]/contact'
+import { BookingBlock } from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'
@@ -14,6 +14,7 @@ import {
 	KeywordListBlock,
 	SkillsBlock,
 } from '~/app/common'
+import { CtaBlock } from '~/app/common/blocks/cta'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
 import { type PageBlocks } from '~/tina/__generated__/types'
@@ -29,13 +30,13 @@ const getComponent = (componentKey: string) => {
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
 		PageBlocksContent: ContentBlock,
+		PageBlocksCta: CtaBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksHighlight: HighlightBlock,
 		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
-		PageBlocksSayHello: SayHelloBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
