@@ -17,7 +17,7 @@ import {
 	DrawerContent,
 	ScrollArea,
 } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { useSearchParams, useRouter } from 'next/navigation'
@@ -106,8 +106,8 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 	if (!calcom?.profileName) return null
 
 	return (
-		<div
-			className="bg-muted rounded-semi mx-sm"
+		<InViewBackground
+			className="bg-info"
 			data-tina-field={tinaField(props, 'title')}
 		>
 			<Section>
@@ -198,6 +198,6 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 					</CardContent>
 				</Card>
 			</Section>
-		</div>
+		</InViewBackground>
 	)
 }
