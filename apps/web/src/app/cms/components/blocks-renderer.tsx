@@ -15,6 +15,7 @@ import {
 	SkillsBlock,
 } from '~/app/common'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
+import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
 import { TextRevealBlock } from '~/app/common/blocks/text-reveal'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
@@ -37,6 +38,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSayHello: SayHelloBlock,
 		PageBlocksSkills: SkillsBlock,
+		PageBlocksTestimonials: TestimonialsBlock,
 		PageBlocksTextReveal: TextRevealBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,

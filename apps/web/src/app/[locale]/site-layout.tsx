@@ -22,7 +22,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
 			<motion.main
 				role="main"
-				className="relative w-full flex-1"
+				className="rounded-semi relative w-full flex-1 overflow-hidden"
 				style={{ scale }}
 			>
 				<div className="bg-primary -z-1 rounded-semi absolute inset-0" />
