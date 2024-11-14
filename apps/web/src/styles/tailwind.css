@@ -8,7 +8,7 @@
 	}
 
 	body {
-		@apply bg-muted min-h-screen;
+		@apply bg-muted min-h-screen overscroll-none;
 	}
 
 	.prose pre {
