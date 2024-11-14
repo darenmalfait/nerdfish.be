@@ -9,7 +9,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<section className="py-md flex flex-col items-center">{children}</section>
+		<section className="py-xl flex flex-col items-center">{children}</section>
 	)
 }
 

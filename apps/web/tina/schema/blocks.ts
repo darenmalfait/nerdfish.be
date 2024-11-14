@@ -10,7 +10,6 @@ import { productsTemplate } from './blocks/products.template'
 import { sayHelloTemplate } from './blocks/say-hello.template'
 import { skillsTemplate } from './blocks/skills.template'
 import { testimonialsTemplate } from './blocks/testimonials.template'
-import { textRevealTemplate } from './blocks/text-reveal'
 import { wikiTemplate } from './blocks/wiki.template'
 import { workTemplate } from './blocks/work.template'
 
@@ -27,7 +26,6 @@ export const blocks = [
 	sayHelloTemplate,
 	skillsTemplate,
 	testimonialsTemplate,
-	textRevealTemplate,
 	wikiTemplate,
 	workTemplate,
 ]

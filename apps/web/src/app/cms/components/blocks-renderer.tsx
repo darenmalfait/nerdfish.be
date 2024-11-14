@@ -16,7 +16,6 @@ import {
 } from '~/app/common'
 import { HighlightsBlock } from '~/app/common/blocks/highlights'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
-import { TextRevealBlock } from '~/app/common/blocks/text-reveal'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
 const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'
@@ -39,7 +38,6 @@ const getComponent = (componentKey: string) => {
 		PageBlocksSayHello: SayHelloBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
-		PageBlocksTextReveal: TextRevealBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
 	} as const
