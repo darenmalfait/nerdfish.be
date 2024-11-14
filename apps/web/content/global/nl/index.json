@@ -84,5 +84,25 @@
 				"duration": 60
 			}
 		]
+	},
+	"testimonials": {
+		"items": [
+			{
+				"type": "colleague",
+				"quote": "Je bent altijd op zoek naar nieuwe technologieën en manieren van werken. Ik geloof dat dat belangrijker is dan goed zijn in één specifiek aspect of technologie.",
+				"author": {
+					"name": "Ex Collega",
+					"company": "Consultancy bedrijf in de IT-sector"
+				}
+			},
+			{
+				"type": "colleague",
+				"quote": "Je bent een geweldige mentor en teamgenoot. Je aanwezigheid is een steunpilaar in het team.",
+				"author": {
+					"name": "Ex Collega",
+					"company": "Een bedrijf in big data verwerking"
+				}
+			}
+		]
 	}
 }
