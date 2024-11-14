@@ -1,10 +1,9 @@
 'use client'
 
 import { H2 } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { ArrowLeftIcon, ArrowRightIcon } from '@nerdfish-website/ui/icons'
-import { AnimatePresence, useInView, motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
 import {
 	type PageBlocksTestimonials,
@@ -14,21 +13,12 @@ import {
 import { useGlobal } from '~/app/global-provider'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
-	const ref = React.useRef<HTMLDivElement>(null)
-	const isInView = useInView(ref, { amount: 0.6 })
-
 	if (!children) return null
 
 	return (
-		<div className="relative" ref={ref}>
-			<div
-				className={cx(
-					'bg-info -z-1 rounded-semi fixed inset-0 overflow-hidden opacity-0 duration-500',
-					isInView && 'opacity-100',
-				)}
-			/>
+		<InViewBackground className="bg-info">
 			<Section>{children}</Section>
-		</div>
+		</InViewBackground>
 	)
 }
 

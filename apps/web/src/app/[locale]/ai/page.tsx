@@ -1,5 +1,5 @@
 import { Paragraph } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
 import {
 	generateOGImageUrl,
@@ -41,7 +41,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 			<HeroBlock variant="secondary" title={dictionary['ai.page.title']}>
 				{dictionary['ai.page.description']}
 			</HeroBlock>
-			<div className="bg-muted rounded-semi mx-sm">
+			<InViewBackground>
 				<Section>
 					<SectionHeader>
 						<SectionHeaderTitle animatedText="AI" />
@@ -52,7 +52,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 					</Paragraph>
 					<Chat />
 				</Section>
-			</div>
+			</InViewBackground>
 		</>
 	)
 }
