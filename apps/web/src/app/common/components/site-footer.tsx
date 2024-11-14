@@ -3,18 +3,16 @@
 import { H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { Logo } from '@nerdfish-website/ui/icons'
+import { ArrowRight } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
-import { ThemeToggle } from './theme-toggle'
 import {
 	type GlobalNavigationMain,
 	type GlobalNavigationMainSub,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
-import { LocaleSwitcher } from '~/app/i18n'
 
 const FooterNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -135,35 +133,34 @@ export const SiteFooter = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
-	const { navigation } = useGlobal()
+	const { navigation, paths } = useGlobal()
 
 	return (
-		<div ref={ref} className={cx('py-lg', className)} {...props}>
+		<div ref={ref} className={cx('py-lg mt-lg', className)} {...props}>
 			<footer
 				className="text-primary px-lg mx-auto"
 				aria-labelledby="footer-heading"
 			>
-				<h2 id="footer-heading" className="sr-only">
-					Footer
+				<h2 className="mb-lg text-3xl md:text-5xl lg:text-7xl">
+					<Link
+						href={paths?.contact ?? '/'}
+						className="group"
+						aria-label="Let’s work together"
+					>
+						<span>
+							Let’s work{' '}
+							<ArrowRight className="ml-xs group-hover:text-accent inline size-16 transform duration-300 group-hover:translate-x-1" />
+						</span>
+						<br />
+
+						<span className="Footer_footer__word-ticker-wrapper__UUW_n">
+							together
+						</span>
+					</Link>
 				</h2>
 				<nav className="pb-lg mx-auto">
-					<div className="space-y-md mb-12">
-						<div className="flex items-center justify-between">
-							<div className="flex h-12 items-center">
-								<Logo className="relative h-6 w-auto rounded-full" />
-							</div>
-							<ul className="gap-sm flex items-center">
-								<li>
-									<ThemeToggle variant="ghost" />
-								</li>
-								<li>
-									<LocaleSwitcher />
-								</li>
-							</ul>
-						</div>
-					</div>
 					<div className="gap-lg xl:grid">
-						<div className="mt-lg gap-lg grid grid-cols-3 xl:col-span-2">
+						<div className="mt-lg gap-lg grid grid-cols-3 lg:grid-cols-4">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 
