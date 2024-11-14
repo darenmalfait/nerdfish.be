@@ -53,7 +53,7 @@ function TestimonialActions({
 	onPrevious: () => void
 }) {
 	return (
-		<div className="gap-md rounded-semi hover:bg-primary hover:motion-preset-wiggle p-md group flex transition duration-300">
+		<div className="gap-md rounded-semi hover:bg-primary hover:motion-delay-100 hover:motion-preset-wiggle p-md group flex transition duration-300">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
