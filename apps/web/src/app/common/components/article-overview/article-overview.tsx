@@ -251,13 +251,13 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		<div ref={ref} {...props}>
 			<FeaturedArticle article={featured} />
 
-			<ul className="gap-x-lg gap-y-xl group grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
+			<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
 				{children}
 				{articlesToShow.map((article) => {
 					return (
 						<li
 							key={article.id}
-							className="peer col-span-4 transition-all duration-300 hover:!opacity-100 group-hover:opacity-50"
+							className="col-span-4 transition-all duration-300"
 						>
 							<ArticleCard href={article.href} title={article.title}>
 								<ArticleCardImage
