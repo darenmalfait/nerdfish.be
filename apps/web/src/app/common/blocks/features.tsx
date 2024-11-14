@@ -29,7 +29,11 @@ function DetailLink({ page }: { page?: Page }) {
 
 	return (
 		<div className="mt-md">
-			<Button className="-mx-md group" variant="ghost" asChild>
+			<Button
+				className="-mx-md hover:motion-preset-wiggle group"
+				variant="ghost"
+				asChild
+			>
 				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
 					{t('features.readMore')}
 					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-1" />
