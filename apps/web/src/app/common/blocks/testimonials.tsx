@@ -23,7 +23,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 		<div className="relative" ref={ref}>
 			<div
 				className={cx(
-					'bg-info -z-1 fixed inset-0 opacity-0 duration-500',
+					'bg-info -z-1 rounded-semi fixed inset-0 opacity-0 duration-500',
 					isInView && 'opacity-100',
 				)}
 			/>

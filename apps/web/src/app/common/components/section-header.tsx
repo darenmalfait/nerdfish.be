@@ -9,11 +9,14 @@ export const SectionHeaderTitle = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof H2> & {
 		animatedText?: string
 	}
->(function SectionHeaderTitle({ animatedText, children, ...props }, ref) {
+>(function SectionHeaderTitle(
+	{ animatedText, children, className, ...props },
+	ref,
+) {
 	if (!animatedText && (!children || children === '')) return null
 
 	return (
-		<H2 ref={ref} {...props}>
+		<H2 ref={ref} className={className} {...props}>
 			{animatedText ? (
 				<AnimatedText
 					value={animatedText}
@@ -28,11 +31,11 @@ export const SectionHeaderTitle = React.forwardRef<
 export const SectionHeaderSubtitle = React.forwardRef<
 	React.ElementRef<typeof H2>,
 	React.ComponentPropsWithoutRef<typeof H2>
->(function SectionHeaderSubtitle({ children, ...props }, ref) {
+>(function SectionHeaderSubtitle({ children, className, ...props }, ref) {
 	if (!children || children === '') return null
 
 	return (
-		<H2 variant="secondary" as="div" ref={ref} {...props}>
+		<H2 variant="secondary" as="div" className={className} ref={ref} {...props}>
 			{children}
 		</H2>
 	)
@@ -65,7 +68,7 @@ export const SectionHeader = React.forwardRef<
 			)}
 			{...props}
 		>
-			<div className="space-y-xs">{children}</div>
+			<div className="space-y-sm">{children}</div>
 
 			{cta?.url ? (
 				<ArrowLink href={cta.url} direction="right">
