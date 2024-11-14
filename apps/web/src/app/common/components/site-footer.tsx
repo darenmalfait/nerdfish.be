@@ -137,7 +137,7 @@ function SiteFooterHeading() {
 	const inView = useInView(ref, { once: true })
 
 	return (
-		<h2 ref={ref} className="mb-xl text-3xl md:text-5xl lg:text-7xl">
+		<h2 ref={ref} className="mb-3xl text-3xl md:text-5xl lg:text-7xl">
 			<Link
 				href={paths?.contact ?? '/'}
 				className="group"
