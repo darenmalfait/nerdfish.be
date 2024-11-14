@@ -12,7 +12,7 @@ export function SiteHeader() {
 	const { currentLocale } = useTranslation()
 
 	return (
-		<div className="w-full">
+		<div className="bg-primary w-full">
 			<header className="relative z-50 w-full flex-none">
 				<nav className="px-lg mx-auto w-full">
 					<div className="py-lg relative flex w-full items-center">

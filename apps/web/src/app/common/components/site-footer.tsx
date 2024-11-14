@@ -131,11 +131,14 @@ function Disclaimer() {
 	)
 }
 
-export function SiteFooter() {
+export const SiteFooter = React.forwardRef<
+	HTMLDivElement,
+	React.ComponentPropsWithoutRef<'div'>
+>(({ className, ...props }, ref) => {
 	const { navigation } = useGlobal()
 
 	return (
-		<div className="mt-xl py-lg bg-muted/50">
+		<div ref={ref} className={cx('py-lg', className)} {...props}>
 			<footer
 				className="text-primary px-lg mx-auto"
 				aria-labelledby="footer-heading"
@@ -174,4 +177,6 @@ export function SiteFooter() {
 			</footer>
 		</div>
 	)
-}
+})
+
+SiteFooter.displayName = 'SiteFooter'
