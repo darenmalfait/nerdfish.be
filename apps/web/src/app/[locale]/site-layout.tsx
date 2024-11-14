@@ -14,7 +14,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 		offset: ['start end', 'end end'],
 	})
 
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95])
+	const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.95])
 
 	return (
 		<div className="flex min-h-screen flex-col">
