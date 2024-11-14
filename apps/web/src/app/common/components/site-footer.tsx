@@ -4,6 +4,7 @@ import { H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
+import { useInView } from 'motion/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -129,11 +130,48 @@ function Disclaimer() {
 	)
 }
 
+function SiteFooterHeading() {
+	const { paths } = useGlobal()
+	const ref = React.useRef<HTMLHeadingElement>(null)
+
+	const inView = useInView(ref, { once: true })
+
+	return (
+		<h2 ref={ref} className="mb-xl text-3xl md:text-5xl lg:text-7xl">
+			<Link
+				href={paths?.contact ?? '/'}
+				className="group"
+				aria-label="Let’s work together"
+			>
+				<span
+					className={cx({
+						'motion-preset-slide-up motion-delay-300 motion-duration-1000 inline-block':
+							inView,
+					})}
+				>
+					Let’s work{' '}
+					<ArrowRight className="ml-xs group-hover:text-accent inline size-8 transform duration-300 group-hover:translate-x-1 md:size-12 lg:size-16" />
+				</span>
+				<br />
+
+				<span
+					className={cx({
+						'motion-preset-slide-up motion-delay-500 motion-duration-1000 inline-block':
+							inView,
+					})}
+				>
+					together
+				</span>
+			</Link>
+		</h2>
+	)
+}
+
 export const SiteFooter = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
-	const { navigation, paths } = useGlobal()
+	const { navigation } = useGlobal()
 
 	return (
 		<div ref={ref} className={cx('py-lg mt-lg', className)} {...props}>
@@ -141,26 +179,10 @@ export const SiteFooter = React.forwardRef<
 				className="text-primary px-lg mx-auto"
 				aria-labelledby="footer-heading"
 			>
-				<h2 className="mb-lg text-3xl md:text-5xl lg:text-7xl">
-					<Link
-						href={paths?.contact ?? '/'}
-						className="group"
-						aria-label="Let’s work together"
-					>
-						<span>
-							Let’s work{' '}
-							<ArrowRight className="ml-xs group-hover:text-accent inline size-16 transform duration-300 group-hover:translate-x-1" />
-						</span>
-						<br />
-
-						<span className="Footer_footer__word-ticker-wrapper__UUW_n">
-							together
-						</span>
-					</Link>
-				</h2>
+				<SiteFooterHeading />
 				<nav className="pb-lg mx-auto">
 					<div className="gap-lg xl:grid">
-						<div className="mt-lg gap-lg grid grid-cols-3 lg:grid-cols-4">
+						<div className="mt-lg gap-lg xsm:grid-cols-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 

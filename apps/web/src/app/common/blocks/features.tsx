@@ -106,7 +106,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 						return (
 							<li
 								key={`${item.title} ${i}`}
-								className="col-span-3 bg-none lg:col-span-1"
+								className="col-span-4 bg-none lg:col-span-1"
 							>
 								<FeatureCard
 									{...itemProps}
