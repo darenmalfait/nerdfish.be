@@ -44,9 +44,9 @@ export function ArticleCardImage({
 				<Button
 					aria-hidden
 					size="lg"
-					className="motion-preset-pop motion-duration-300 shadow-soft-xl -translate-x-1/2 -translate-y-1/2 object-center font-bold group-active:scale-125"
+					className="motion-preset-pop motion-duration-300 shadow-soft-xl -translate-x-1/2 -translate-y-1/2 bg-current object-center font-bold text-current group-active:scale-125"
 				>
-					{readMoreLabel}
+					<span className="text-inverted">{readMoreLabel}</span>
 				</Button>
 			</Cursor>
 		</div>
