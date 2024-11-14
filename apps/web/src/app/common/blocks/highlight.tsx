@@ -1,7 +1,11 @@
 'use client'
 
 import { Card, CardContent, CardHeader } from '@nerdfish/ui'
-import { NeonGradientCard, Section } from '@nerdfish-website/ui/components'
+import {
+	InViewBackground,
+	NeonGradientCard,
+	Section,
+} from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
@@ -15,7 +19,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<div className="rounded-semi mx-sm bg-muted overflow-hidden">
+		<InViewBackground>
 			<Section>
 				<Card className="rounded-semi bg-primary relative">
 					<NeonGradientCard
@@ -28,7 +32,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 					</NeonGradientCard>
 				</Card>
 			</Section>
-		</div>
+		</InViewBackground>
 	)
 }
 
