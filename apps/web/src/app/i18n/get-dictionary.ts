@@ -38,6 +38,7 @@ export type Dictionary = {
 	'theme.system': string
 	'features.readMore': string
 	'global.allArticles': string
+	'global.readMore': string
 }
 
 // We enumerate all dictionaries here for better linting and typescript support

@@ -1,10 +1,11 @@
 'use client'
 
-import { Badge, H3, Skeleton } from '@nerdfish/ui'
+import { Badge, Button, H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	getCategoryColors,
 	DateFormatter,
+	Cursor,
 } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,10 +15,12 @@ export function ArticleCardImage({
 	src,
 	alt,
 	category,
+	readMoreLabel = 'Read More',
 }: {
 	src?: string | null
 	category?: string | null
 	alt?: string | null
+	readMoreLabel?: string
 }) {
 	return (
 		<div
@@ -36,6 +39,16 @@ export function ArticleCardImage({
 					alt={alt ?? ''}
 				/>
 			) : null}
+
+			<Cursor attachToParent>
+				<Button
+					aria-hidden
+					size="lg"
+					className="motion-preset-pop motion-duration-300 shadow-soft-xl -translate-x-1/2 -translate-y-1/2 object-center font-bold text-current group-active:scale-125"
+				>
+					{readMoreLabel}
+				</Button>
+			</Cursor>
 		</div>
 	)
 }
