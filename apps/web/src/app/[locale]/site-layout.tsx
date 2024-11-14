@@ -22,10 +22,10 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
 			<motion.main
 				role="main"
-				className="rounded-semi relative w-full max-w-full flex-1 overflow-hidden"
+				className="rounded-b-semi relative w-full max-w-full flex-1 overflow-hidden"
 				style={{ scale, transformOrigin: 'bottom' }}
 			>
-				<div className="bg-primary -z-1 rounded-semi absolute inset-0" />
+				<div className="bg-primary -z-1 rounded-b-semi absolute inset-0" />
 				<React.Suspense
 					fallback={
 						<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
