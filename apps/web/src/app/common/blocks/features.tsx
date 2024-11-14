@@ -2,7 +2,7 @@
 
 import { Button, Grid, H3 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
-import { ArrowUpRight } from '@nerdfish-website/ui/icons'
+import { ArrowRight } from '@nerdfish-website/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import Link from 'next/link'
@@ -29,10 +29,10 @@ function DetailLink({ page }: { page?: Page }) {
 
 	return (
 		<div className="mt-md">
-			<Button className="group" asChild>
+			<Button className="-mx-md group" variant="ghost" asChild>
 				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
 					{t('features.readMore')}
-					<ArrowUpRight className="ml-sm size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-1" />
 				</Link>
 			</Button>
 		</div>
@@ -49,7 +49,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 		<div className="relative flex size-full flex-col items-start" {...rest}>
 			{Icon ? (
 				<div
-					className="bg-accent rounded-semi aspect-1 mb-lg p-sm flex items-center justify-center text-white"
+					className="aspect-1 mb-lg text-primary flex items-center justify-center"
 					aria-hidden
 				>
 					<Icon
