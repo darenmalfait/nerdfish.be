@@ -8,7 +8,7 @@ import {
 	useActor,
 	useStage,
 } from '@nerdfish-website/ui/components'
-import { useInView } from 'framer-motion'
+import { useInView } from 'motion/react'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import tweenFunctions, { linear } from 'tween-functions'
