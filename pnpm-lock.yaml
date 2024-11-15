@@ -63,8 +63,8 @@ importers:
         specifier: ^2.3.1
         version: 2.3.1
       '@nerdfish/ui':
-        specifier: ^7.4.1
-        version: 7.4.1(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.4.2
+        version: 7.4.2(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -270,8 +270,8 @@ importers:
         specifier: ^3.5.1
         version: 3.5.1
       '@nerdfish/ui':
-        specifier: ^7.4.1
-        version: 7.4.1(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.4.2
+        version: 7.4.2(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2235,8 +2235,8 @@ packages:
   '@nerdfish/theme@2.3.1':
     resolution: {integrity: sha512-VeCb4A/ubmDvRL65hj3sym8gbGLgJQCEHF6u3WBkjxU4huGm09yW4tO4+22PsQSpMQFWVkw1G5Ccz9MJijrUyA==}
 
-  '@nerdfish/ui@7.4.1':
-    resolution: {integrity: sha512-T7NjZq3w0rZfY+Bch6GlcbmTqmsCHPO06K3zUT9sWnRAhjP47Iqvr/nFn6wSJCX5oSRZsagjrZ9aMlK22J5F9Q==}
+  '@nerdfish/ui@7.4.2':
+    resolution: {integrity: sha512-dEzKam0Hc/oT++inrwANox8s2gdIBrr12u0o+30enoJ6Eau4yX6C/wjKy4sf8eRDkkYHfOsIgHBx05AeCYy29w==}
     peerDependencies:
       react: '>=18.3.1'
       react-dom: '>=18.3.1'
@@ -12372,7 +12372,7 @@ snapshots:
     dependencies:
       '@nerdfish/utils': 2.0.0
 
-  '@nerdfish/ui@7.4.1(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
+  '@nerdfish/ui@7.4.2(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@nerdfish/utils': 2.0.0
       '@radix-ui/react-accordion': 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
