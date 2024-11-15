@@ -6,9 +6,9 @@ const defaultHighlight = {
 		"This is where you might talk about the highlight, if this wasn't just filler text.",
 }
 
-export const highlightsTemplate: Template = {
-	name: 'highlights',
-	label: 'Highlights',
+export const imageGridTemplate: Template = {
+	name: 'imageGrid',
+	label: 'Image Grid',
 	ui: {
 		previewSrc: '/blocks/features.png',
 		defaultItem: {
