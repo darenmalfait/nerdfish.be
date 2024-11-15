@@ -12,7 +12,7 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-import { PortableText, type Block, type PageBlocksHighlight } from '~/app/cms'
+import { PortableText, type Block, type PageBlocksNeon } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -33,7 +33,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	)
 }
 
-export function HighlightBlock(props: Block<PageBlocksHighlight>) {
+export function NeonBlock(props: Block<PageBlocksNeon>) {
 	const { title, subtitle, content } = props
 
 	return (
