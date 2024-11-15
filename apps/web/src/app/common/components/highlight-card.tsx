@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, H2 } from '@nerdfish/ui'
+import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { getCategoryColors } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
@@ -50,7 +50,7 @@ export const HighlightCardContent = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
+				'py-lg col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
 				className,
 			)}
 		/>
@@ -65,7 +65,7 @@ export const HighlightCardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => {
 	if (!props.children) return null
 	return (
-		<H2
+		<H1
 			ref={ref}
 			variant="primary"
 			as="h3"
@@ -109,7 +109,7 @@ export const HighlightCardCategory = React.forwardRef<
 				variant="default"
 				{...props}
 				className={cx(
-					'bg-primary mb-md px-md py-sm w-auto text-base',
+					'bg-inverted/10 text-primary mb-md px-md py-sm w-auto text-base',
 					getCategoryColors(value),
 					className,
 				)}
@@ -133,7 +133,10 @@ export const HighlightCardDescription = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('text-muted mt-md line-clamp-3', className)}
+			className={cx(
+				'text-muted mt-md line-clamp-3 text-xl font-semibold',
+				className,
+			)}
 		>
 			{children}
 		</div>
