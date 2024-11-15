@@ -1,12 +1,12 @@
 'use client'
 
-import { Badge, H1, type H2 } from '@nerdfish/ui'
+import { Badge, Button, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { getCategoryColors } from '@nerdfish-website/ui/components'
+import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
-import { ArrowLink } from './arrow-link'
 
 export const HighlightCardImage = React.forwardRef<
 	HTMLDivElement,
@@ -68,9 +68,9 @@ export const HighlightCardTitle = React.forwardRef<
 		<H1
 			ref={ref}
 			variant="primary"
-			as="h3"
+			as="h2"
 			{...props}
-			className={cx('mt-0', className)}
+			className={cx('mt-0 !text-7xl leading-[1]', className)}
 		/>
 	)
 })
@@ -130,7 +130,7 @@ export const HighlightCardDescription = React.forwardRef<
 	if (!children) return null
 
 	return (
-		<div
+		<p
 			ref={ref}
 			{...props}
 			className={cx(
@@ -139,7 +139,7 @@ export const HighlightCardDescription = React.forwardRef<
 			)}
 		>
 			{children}
-		</div>
+		</p>
 	)
 })
 
@@ -161,16 +161,18 @@ export const HighlightCardCTA = React.forwardRef<
 			{...props}
 			className={cx('mt-lg flex flex-1 items-end justify-start', className)}
 		>
-			<ArrowLink as="span">
-				{children}
-				<div
-					className={cx(
-						'focus-ring rounded-semi absolute inset-0',
-						getCategoryColors(category ?? 'unknown'),
-					)}
-				/>
-				<div className="rounded-semi -z-1 absolute inset-0" />
-			</ArrowLink>
+			<Button size="lg" variant="ghost" asChild className="bg-primary group">
+				<Link href={href}>
+					{children}{' '}
+					<span className={getCategoryColors(category ?? 'unknown')}>
+						<ArrowRightIcon
+							className={cx(
+								'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 transition-transform',
+							)}
+						/>
+					</span>
+				</Link>
+			</Button>
 		</div>
 	)
 })
@@ -180,32 +182,28 @@ HighlightCardCTA.displayName = 'HighlightCardCTA'
 export const HighlightCard = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'> & {
-		href: string
 		title: string
 	}
->(({ href, children, title, className, ...props }, ref) => {
+>(({ children, title, className, ...props }, ref) => {
 	return (
 		<div
 			ref={ref}
 			className={cx(
-				'bg-muted rounded-semi relative w-full outline-none',
+				'bg-muted rounded-semi focus-outline relative w-full outline-none',
 				className,
 			)}
 			{...props}
 		>
-			<Link
-				href={href}
-				aria-label={title}
+			<div
 				className={cx(
-					'rounded-semi group block no-underline outline-none lg:bg-transparent',
+					'rounded-semi block no-underline outline-none lg:bg-transparent',
 					className,
 				)}
 			>
-				<div className="shadow-outline p-lg rounded-semi group relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="shadow-outline p-lg rounded-semi relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
-			</Link>
-			<div className="sr-only">{children}</div>
+			</div>
 		</div>
 	)
 })

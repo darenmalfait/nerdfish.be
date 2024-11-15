@@ -206,7 +206,7 @@ const FeaturedArticle = ({ article }: { article?: Article }) => {
 	if (filter.length > 0) return null
 
 	return (
-		<HighlightCard href={article.href} className="mb-xl" title={article.title}>
+		<HighlightCard className="mb-xl" title={article.title}>
 			<HighlightCardContent>
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>

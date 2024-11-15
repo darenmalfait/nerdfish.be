@@ -18,7 +18,7 @@ import { type PageBlocksHighlight, type Block } from '~/app/cms'
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
-	return <Section className="!p-0">{children}</Section>
+	return <Section className="!py-0">{children}</Section>
 }
 
 export function HighlightBlock(props: Block<PageBlocksHighlight>) {
@@ -35,7 +35,6 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 		<BlockLayout>
 			<HighlightCard
 				title={title ?? reference?.title ?? ''}
-				href={href}
 				className="bg-info-muted"
 			>
 				<HighlightCardContent>
@@ -51,7 +50,9 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 					>
 						{excerpt}
 					</HighlightCardDescription>
-					<HighlightCardCTA href={href}>{linkText}</HighlightCardCTA>
+					<HighlightCardCTA category={category} href={href}>
+						{linkText}
+					</HighlightCardCTA>
 				</HighlightCardContent>
 				<HighlightCardImage src={image?.src} alt={image?.alt ?? ''} />
 			</HighlightCard>
