@@ -4,6 +4,7 @@ import { contentTemplate } from './blocks/content.template'
 import { ctaTemplate } from './blocks/cta.template'
 import { featuresTemplate } from './blocks/features.template'
 import { heroTemplate } from './blocks/hero.template'
+import { highlightTemplate } from './blocks/highlight.template'
 import { imageGridTemplate } from './blocks/image-grid.template'
 import { keywordListTemplate } from './blocks/keyword-list.template'
 import { neonTemplate } from './blocks/neon.template'
@@ -20,9 +21,10 @@ export const blocks = [
 	ctaTemplate,
 	featuresTemplate,
 	heroTemplate,
+	highlightTemplate,
 	imageGridTemplate,
-	neonTemplate,
 	keywordListTemplate,
+	neonTemplate,
 	productsTemplate,
 	skillsTemplate,
 	testimonialsTemplate,
