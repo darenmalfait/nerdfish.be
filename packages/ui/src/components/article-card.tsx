@@ -10,6 +10,7 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
+import { TriangleIcon } from '../icons'
 
 export function ArticleCardImage({
 	src,
@@ -44,8 +45,9 @@ export function ArticleCardImage({
 				<Button
 					aria-hidden
 					size="lg"
-					className="motion-preset-pop motion-duration-300 shadow-soft-xl -translate-x-1/2 -translate-y-1/2 bg-current object-center font-bold text-current group-active:scale-125"
+					className="motion-preset-pop motion-duration-300 shadow-soft-xl relative ml-2 mt-2 bg-current object-center font-bold text-current group-active:scale-125"
 				>
+					<TriangleIcon className="-z-1 absolute -left-3 -top-3 size-4 origin-center rotate-[75deg] fill-current" />
 					<span className="text-inverted">{readMoreLabel}</span>
 				</Button>
 			</Cursor>
