@@ -1,11 +1,11 @@
 'use client'
 
-import { Button, Link } from '@nerdfish/ui'
+import { Button } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
+import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import {
 	SectionHeader,
 	SectionHeaderSubtitle,
@@ -36,9 +36,8 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 				</SectionHeader>
 				{page?._sys.breadcrumbs ? (
 					<div>
-						<Button size="xl" asChild>
+						<Button className="group inline-flex" size="xl" asChild>
 							<Link
-								className="group inline-flex"
 								data-tina-field={tinaField(props, 'page')}
 								href={getPagePath(page)}
 							>
