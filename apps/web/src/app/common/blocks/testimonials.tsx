@@ -1,6 +1,6 @@
 'use client'
 
-import { H2 } from '@nerdfish/ui'
+import { H1, H2 } from '@nerdfish/ui'
 import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { ArrowLeftIcon, ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import { AnimatePresence, motion } from 'motion/react'
@@ -47,14 +47,14 @@ function TestimonialActions({
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="focus-visible:outline-active rounded-semi outline-none transition duration-300 hover:!opacity-100 active:-translate-x-1 group-hover:opacity-25"
+				className="focus-visible:outline-active rounded-semi active:-translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="focus-visible:outline-active rounded-semi outline-none transition duration-300 hover:!opacity-100 active:translate-x-1 group-hover:opacity-25"
+				className="focus-visible:outline-active rounded-semi active:translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>
@@ -79,9 +79,12 @@ function Testimonial({
 }) {
 	return (
 		<div className="gap-xl relative flex flex-col justify-center">
-			<blockquote className="text-3xl leading-tight before:content-['“'] after:content-['”'] md:text-5xl lg:text-7xl">
+			<H1
+				as="blockquote"
+				className="text-primary font-normal before:content-['“'] after:content-['”']"
+			>
 				{testimonial.quote}
-			</blockquote>
+			</H1>
 
 			<div className="gap-xl flex flex-col justify-between md:flex-row md:items-center">
 				<Author author={testimonial.author} />

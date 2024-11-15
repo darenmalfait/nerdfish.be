@@ -250,12 +250,12 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 				{hasMore ? (
 					<div className="mt-2xl flex w-full justify-center">
 						<Button
-							size="xl"
+							size="lg"
 							disabled={!hasMore}
 							variant="outline"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span className="mr-2">Load more</span>{' '}
+							<span className="mr-sm">Load more</span>{' '}
 							<PlusIcon className="size-4" />
 						</Button>
 					</div>
