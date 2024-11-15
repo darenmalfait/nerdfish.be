@@ -17,6 +17,7 @@ import {
 import { CtaBlock } from '~/app/common/blocks/cta'
 import { HighlightBlock } from '~/app/common/blocks/highlight'
 import { ImageGridBlock } from '~/app/common/blocks/image-grid'
+import { PricingBlock } from '~/app/common/blocks/pricing'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
@@ -38,6 +39,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksNeon: NeonBlock,
+		PageBlocksPricing: PricingBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,

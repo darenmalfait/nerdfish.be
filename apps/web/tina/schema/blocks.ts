@@ -8,6 +8,7 @@ import { highlightTemplate } from './blocks/highlight.template'
 import { imageGridTemplate } from './blocks/image-grid.template'
 import { keywordListTemplate } from './blocks/keyword-list.template'
 import { neonTemplate } from './blocks/neon.template'
+import { pricingTemplate } from './blocks/pricing.template'
 import { productsTemplate } from './blocks/products.template'
 import { skillsTemplate } from './blocks/skills.template'
 import { testimonialsTemplate } from './blocks/testimonials.template'
@@ -25,6 +26,7 @@ export const blocks = [
 	imageGridTemplate,
 	keywordListTemplate,
 	neonTemplate,
+	pricingTemplate,
 	productsTemplate,
 	skillsTemplate,
 	testimonialsTemplate,
