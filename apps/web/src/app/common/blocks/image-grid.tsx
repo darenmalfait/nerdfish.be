@@ -12,11 +12,11 @@ import {
 } from '../components'
 import {
 	type Block,
-	type PageBlocksHighlights,
-	type PageBlocksHighlightsItems,
+	type PageBlocksImageGrid,
+	type PageBlocksImageGridItems,
 } from '~/app/cms'
 
-function HighlightCardContent(props: PageBlocksHighlightsItems) {
+function HighlightCardContent(props: PageBlocksImageGridItems) {
 	const { title, description, image } = props
 	return (
 		<>
@@ -59,7 +59,7 @@ function getGridItemClassName(index: number) {
 	return className
 }
 
-export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
+export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 	const { title, subtitle, items } = props
 
 	return (
