@@ -1,9 +1,9 @@
 import { type Template } from '@tinacms/schema-tools'
 import { portableTextSchema } from '../objects'
 
-export const highlightTemplate: Template = {
-	name: 'highlight',
-	label: 'Highlight',
+export const neonTemplate: Template = {
+	name: 'neon',
+	label: 'Neon',
 	ui: {
 		previewSrc: '/blocks/unknown.png',
 	},

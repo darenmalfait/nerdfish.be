@@ -10,8 +10,8 @@ import {
 	ContentBlock,
 	FeaturesBlock,
 	HeroBlock,
-	HighlightBlock,
 	KeywordListBlock,
+	NeonBlock,
 	SkillsBlock,
 } from '~/app/common'
 import { CtaBlock } from '~/app/common/blocks/cta'
@@ -34,7 +34,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksImageGrid: ImageGridBlock,
-		PageBlocksHighlight: HighlightBlock,
+		PageBlocksNeon: NeonBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
