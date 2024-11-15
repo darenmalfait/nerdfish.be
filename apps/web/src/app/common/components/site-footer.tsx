@@ -1,6 +1,6 @@
 'use client'
 
-import { H3, Separator } from '@nerdfish/ui'
+import { H1, H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
@@ -137,7 +137,7 @@ function SiteFooterHeading() {
 	const inView = useInView(ref, { once: true })
 
 	return (
-		<h2 ref={ref} className="mb-3xl text-3xl md:text-5xl lg:text-7xl">
+		<H1 as="h2" ref={ref} className="mb-2xl text-primary">
 			<Link
 				href={paths?.contact ?? '/'}
 				className="group"
@@ -150,7 +150,7 @@ function SiteFooterHeading() {
 					})}
 				>
 					Let’s work{' '}
-					<ArrowRight className="ml-xs group-hover:text-accent inline size-8 transform duration-300 group-hover:translate-x-1 md:size-12 lg:size-16" />
+					<ArrowRight className="ml-xs group-hover:text-accent group-hover:translate-x-xs inline size-8 transform duration-300 md:size-12 lg:size-16" />
 				</span>
 				<br />
 
@@ -163,7 +163,7 @@ function SiteFooterHeading() {
 					together
 				</span>
 			</Link>
-		</h2>
+		</H1>
 	)
 }
 

@@ -192,7 +192,7 @@ function ShowMoreButton({
 
 	return (
 		<div className="mt-2xl flex w-full justify-center">
-			<Button size="xl" variant="outline" onClick={onClick}>
+			<Button size="lg" variant="outline" onClick={onClick}>
 				<span className="mr-sm">Load more</span> <PlusIcon className="size-4" />
 			</Button>
 		</div>

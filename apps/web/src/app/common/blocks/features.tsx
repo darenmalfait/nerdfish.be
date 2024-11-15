@@ -36,7 +36,7 @@ function DetailLink({ page }: { page?: Page }) {
 			>
 				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
 					{t('features.readMore')}
-					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-1" />
+					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
 				</Link>
 			</Button>
 		</div>

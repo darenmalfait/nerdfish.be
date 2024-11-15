@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@nerdfish/ui'
+import { Button, Link } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
@@ -35,16 +35,18 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 					</SectionHeaderSubtitle>
 				</SectionHeader>
 				{page?._sys.breadcrumbs ? (
-					<Link
-						data-tina-field={tinaField(props, 'page')}
-						href={getPagePath(page)}
-						className="bg-inverted text-inverted hover:!bg-inverted/90 rounded-semi group font-medium"
-					>
-						<span className="px-mdx py-md flex items-center text-3xl">
-							{page.title}
-							<ArrowRightIcon className="ml-md size-8 transition duration-300 group-hover:translate-x-1" />
-						</span>
-					</Link>
+					<div>
+						<Button size="xl" asChild>
+							<Link
+								className="group inline-flex"
+								data-tina-field={tinaField(props, 'page')}
+								href={getPagePath(page)}
+							>
+								{page.title}
+								<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-6 transition duration-300 xl:size-8" />
+							</Link>
+						</Button>
+					</div>
 				) : null}
 			</div>
 		</BlockLayout>
