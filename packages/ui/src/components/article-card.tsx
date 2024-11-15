@@ -136,7 +136,7 @@ export const ArticleCardCategory = React.forwardRef<
 			variant="default"
 			{...props}
 			className={cx(
-				'bg-muted mb-sm relative',
+				'bg-muted mb-sm px-md py-sm relative text-sm',
 				getCategoryColors(value),
 				className,
 			)}
