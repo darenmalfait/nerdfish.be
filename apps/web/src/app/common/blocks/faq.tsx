@@ -29,9 +29,9 @@ function QAItem({ question, answer }: { question: string; answer: string }) {
 	return (
 		<AccordionItem
 			value={id}
-			className="bg-muted px-md py-sm hover:bg-muted/80 rounded-semi group border-none"
+			className="bg-muted px-md focus-within:outline-active py-sm hover:bg-muted/80 rounded-semi group border-none outline-none"
 		>
-			<AccordionTrigger className="text-xl hover:no-underline">
+			<AccordionTrigger className="text-xl !outline-none after:hidden hover:no-underline">
 				{question}
 			</AccordionTrigger>
 			<AccordionContent className="text-muted text-lg">

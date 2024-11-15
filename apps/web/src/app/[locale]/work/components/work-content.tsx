@@ -4,7 +4,6 @@ import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
-	ArticleCardDescription,
 	ArticleCardImage,
 	ArticleCardTitle,
 	CategoryIndicator,
@@ -39,7 +38,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 					work.date !== date &&
 					work.category === category,
 			)
-			.slice(0, 3)
+			.slice(0, 2)
 	}, [allWorks, category, date, title])
 
 	return (
@@ -93,7 +92,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 						<SectionHeaderTitle animatedText="Done reading?" />
 						<SectionHeaderSubtitle>See related work</SectionHeaderSubtitle>
 					</SectionHeader>
-					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:gap-x-6">
 						{relatedWorks.map((work) => {
 							return (
 								<div key={work.id} className="col-span-4">
@@ -105,9 +104,6 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 										<ArticleCardContent>
 											<ArticleCardCategory>{work.category}</ArticleCardCategory>
 											<ArticleCardTitle>{work.title}</ArticleCardTitle>
-											<ArticleCardDescription>
-												{work.seo?.description}
-											</ArticleCardDescription>
 										</ArticleCardContent>
 									</ArticleCard>
 								</div>

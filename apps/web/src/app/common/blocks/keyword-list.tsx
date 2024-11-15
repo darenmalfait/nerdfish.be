@@ -1,4 +1,4 @@
-import { Marquee } from '@nerdfish/ui'
+import { H1, Marquee } from '@nerdfish/ui'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { SectionHeader, SectionHeaderTitle } from '../components'
@@ -27,16 +27,19 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 			>
 				<Marquee pauseOnHover duration={20000} repeat={5}>
 					{keywords?.filter(nonNullable).map((keyword) => (
-						<span
+						<H1
+							as="span"
+							variant="primary"
+							blurredClassName="hidden"
 							aria-label={keyword}
 							key={keyword}
-							className="text-7xl font-black uppercase leading-none"
+							className="uppercase"
 						>
 							<span>{keyword}</span>
 							<span aria-hidden className="ml-md">
 								-
 							</span>
-						</span>
+						</H1>
 					))}
 				</Marquee>
 			</div>
