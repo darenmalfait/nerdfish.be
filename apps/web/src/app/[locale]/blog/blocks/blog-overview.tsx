@@ -89,7 +89,7 @@ export async function BlogOverviewBlock(
 						<Skeleton className="mb-xl rounded-semi aspect-[16/9] h-full" />
 					) : null}
 					<ArticleOverviewContentGrid>
-						{Array.from({ length: 3 }).map((_, i) => (
+						{Array.from({ length: 2 }).map((_, i) => (
 							<li key={i} className="col-span-4">
 								<ArticleCard>
 									<ArticleCardImage />
