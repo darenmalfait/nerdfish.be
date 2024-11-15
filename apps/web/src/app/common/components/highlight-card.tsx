@@ -21,7 +21,7 @@ export const HighlightCardImage = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'aspect-h-4 aspect-w-3 rounded-semi mt-lg relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
+				'aspect-h-4 aspect-w-3 rounded-semi mt-lg pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
 				className,
 			)}
 		>
@@ -50,7 +50,7 @@ export const HighlightCardContent = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'col-span-4 md:col-span-6 lg:col-span-5 lg:col-start-2 lg:flex lg:flex-col lg:justify-start',
+				'col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
 				className,
 			)}
 		/>
@@ -109,7 +109,7 @@ export const HighlightCardCategory = React.forwardRef<
 				variant="default"
 				{...props}
 				className={cx(
-					'bg-primary mb-md w-auto',
+					'bg-primary mb-md px-md py-sm w-auto text-base',
 					getCategoryColors(value),
 					className,
 				)}
@@ -156,7 +156,7 @@ export const HighlightCardCTA = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('mt-lg flex items-center justify-between', className)}
+			className={cx('mt-lg flex flex-1 items-end justify-start', className)}
 		>
 			<ArrowLink as="span">
 				{children}
@@ -184,7 +184,10 @@ export const HighlightCard = React.forwardRef<
 	return (
 		<div
 			ref={ref}
-			className={cx('relative w-full outline-none', className)}
+			className={cx(
+				'bg-muted rounded-semi relative w-full outline-none',
+				className,
+			)}
 			{...props}
 		>
 			<Link
@@ -195,7 +198,7 @@ export const HighlightCard = React.forwardRef<
 					className,
 				)}
 			>
-				<div className="bg-muted shadow-outline p-lg rounded-semi group relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="shadow-outline p-lg rounded-semi group relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</Link>
