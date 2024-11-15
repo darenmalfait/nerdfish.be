@@ -1,6 +1,5 @@
 'use client'
 
-import { Card, CardContent, CardHeader } from '@nerdfish/ui'
 import {
 	InViewBackground,
 	NeonGradientCard,
@@ -20,17 +19,15 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<InViewBackground>
-			<Section>
-				<Card className="rounded-semi bg-primary relative">
-					<NeonGradientCard
-						neonColors={{
-							firstColor: '#D46536',
-							secondColor: '#0D677B',
-						}}
-					>
-						{children}
-					</NeonGradientCard>
-				</Card>
+			<Section className="">
+				<NeonGradientCard
+					neonColors={{
+						firstColor: '#D46536',
+						secondColor: '#0D677B',
+					}}
+				>
+					{children}
+				</NeonGradientCard>
 			</Section>
 		</InViewBackground>
 	)
@@ -41,23 +38,22 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 
 	return (
 		<BlockLayout>
-			<CardHeader className="!p-lg bg-transparent !pb-0">
-				<SectionHeader className="mb-0">
-					<SectionHeaderTitle
-						data-tina-field={tinaField(props, 'title')}
-						animatedText={title ?? undefined}
-					/>
-					<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
-						{subtitle}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-			</CardHeader>
-			<CardContent className="prose dark:prose-invert !p-lg !pt-0">
+			<SectionHeader className="mb-0">
+				<SectionHeaderTitle
+					data-tina-field={tinaField(props, 'title')}
+					animatedText={title ?? undefined}
+				/>
+				<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
+					{subtitle}
+				</SectionHeaderSubtitle>
+			</SectionHeader>
+
+			<div className="prose dark:prose-invert">
 				<PortableText
 					content={content}
 					data-tina-field={tinaField(props, 'content')}
 				/>
-			</CardContent>
+			</div>
 		</BlockLayout>
 	)
 }
