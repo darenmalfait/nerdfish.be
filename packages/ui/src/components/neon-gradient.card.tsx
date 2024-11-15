@@ -129,7 +129,7 @@ export function NeonGradientCard({
 		>
 			<div
 				className={cx(
-					'relative size-full min-h-[inherit] rounded-[var(--card-content-radius)] bg-gray-100 p-6',
+					'bg-primary relative size-full min-h-[inherit] rounded-[var(--card-content-radius)] p-6',
 					'before:absolute before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:block',
 					"before:h-[var(--pseudo-element-height)] before:w-[var(--pseudo-element-width)] before:rounded-[var(--border-radius)] before:content-['']",
 					'before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] before:bg-[length:100%_200%]',
@@ -138,7 +138,6 @@ export function NeonGradientCard({
 					"after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
 					'after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80',
 					'after:animate-background-position-spin',
-					'dark:bg-neutral-900',
 				)}
 			>
 				{children}
