@@ -251,7 +251,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		<div ref={ref} {...props}>
 			<FeaturedArticle article={featured} />
 
-			<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
+			<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8">
 				{children}
 				{articlesToShow.map((article) => {
 					return (

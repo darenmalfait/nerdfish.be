@@ -14,7 +14,6 @@ import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
-	ArticleCardDescription,
 	ArticleCardImage,
 	ArticleCardTitle,
 	Section,
@@ -224,7 +223,7 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 						</EmptyStateActions>
 					</EmptyState>
 				) : (
-					<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
+					<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8">
 						{works.map((work) => {
 							return (
 								<li key={work.id} className="col-span-4">
@@ -239,9 +238,6 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 										<ArticleCardContent>
 											<ArticleCardCategory>{work.category}</ArticleCardCategory>
 											<ArticleCardTitle>{work.title}</ArticleCardTitle>
-											<ArticleCardDescription>
-												{work.excerpt}
-											</ArticleCardDescription>
 										</ArticleCardContent>
 									</ArticleCard>
 								</li>

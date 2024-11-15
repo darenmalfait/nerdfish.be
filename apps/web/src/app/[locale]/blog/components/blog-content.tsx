@@ -37,7 +37,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 					) : null}
 					<H1
 						data-tina-field={tinaField(data.blog, 'title')}
-						className="!mb-lg w-auto"
+						className="!mb-xl w-auto"
 					>
 						{title}
 					</H1>
@@ -74,7 +74,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 					title: t('blog.related.title'),
 					subtitle: t('blog.related.subtitle'),
 				}}
-				count={3}
+				count={2}
 				locale={currentLocale}
 				relatedTo={data.blog}
 			/>
