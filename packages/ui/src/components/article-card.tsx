@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, Button, H3, Skeleton } from '@nerdfish/ui'
+import { Badge, Button, H2, type H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	getCategoryColors,
@@ -69,7 +69,10 @@ export const ArticleCardTitle = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof H3>
 >(({ className, ...props }, ref) => {
 	return (
-		<H3
+		<H2
+			as="h3"
+			variant="primary"
+			blurredClassName="hidden"
 			ref={ref}
 			{...props}
 			className={cx('mb-sm !mt-0 line-clamp-2', className)}
