@@ -19,7 +19,7 @@ function PortableButton({
 				variant={variant}
 				asChild
 				className="cursor-pointer no-underline"
-				size="xl"
+				size="lg"
 			>
 				<Link {...props} href={slug} target={isExternal ? '_blank' : undefined}>
 					{text}

@@ -167,7 +167,7 @@ export function ContactForm() {
 								<LoadingAnimation className="mr-2 size-4" variant="classic" />
 							) : null}
 							{t('contact.send')}
-							<ArrowRightIcon className="ml-sm group-hover:translate-x-sm size-4 transition-all" />
+							<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-4 transition-all" />
 						</Button>
 					)}
 				</div>
