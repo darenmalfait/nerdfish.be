@@ -1,6 +1,6 @@
 import { cx } from '@nerdfish/utils'
 
-const colorMap: Record<string, string> = {
+const foregroundMap: Record<string, string> = {
 	// Blog
 	unknown: 'text-blog-unknown group-hover:ring-current',
 	wiki: 'text-blog-wiki group-hover:ring-current',
@@ -13,10 +13,13 @@ const colorMap: Record<string, string> = {
 	webdesign: 'text-work-webdesign group-hover:ring-current',
 	branding: 'text-work-branding group-hover:ring-current',
 	print: 'text-work-print group-hover:ring-current',
+
+	// other
+	expertise: 'text-info',
 }
 
 function getCategoryColors(category: string = 'unkown'): string {
-	return colorMap[category] ?? ''
+	return foregroundMap[category.toLowerCase()] ?? ''
 }
 
 interface CategoryIndicatorProps {

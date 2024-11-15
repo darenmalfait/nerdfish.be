@@ -36,6 +36,7 @@ import {
 	HighlightCardCategory,
 	HighlightCardTitle,
 	TagFilter,
+	HighlightCardCTA,
 } from '~/app/common'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
@@ -194,14 +195,16 @@ export function WorkOverviewBlock(data: Block<PageBlocksWork>) {
 				) : null}
 
 				{!isSearching && featured && featuredEnabled ? (
-					<HighlightCard
-						href={getWorkPath(featured)}
-						className="mb-xl"
-						title={featured.title ?? ''}
-					>
+					<HighlightCard className="mb-xl" title={featured.title ?? ''}>
 						<HighlightCardContent>
 							<HighlightCardCategory value={featured.category} />
 							<HighlightCardTitle>{featured.title}</HighlightCardTitle>
+							<HighlightCardCTA
+								category={featured.category}
+								href={getWorkPath(featured)}
+							>
+								View project
+							</HighlightCardCTA>
 						</HighlightCardContent>
 						<HighlightCardImage src={featured.heroImg} />
 					</HighlightCard>
