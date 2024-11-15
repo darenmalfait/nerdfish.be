@@ -15,7 +15,7 @@ import {
 	SkillsBlock,
 } from '~/app/common'
 import { CtaBlock } from '~/app/common/blocks/cta'
-import { HighlightsBlock } from '~/app/common/blocks/highlights'
+import { ImageGridBlock } from '~/app/common/blocks/image-grid'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
 import { type PageBlocks } from '~/tina/__generated__/types'
 
@@ -33,8 +33,8 @@ const getComponent = (componentKey: string) => {
 		PageBlocksCta: CtaBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
+		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksHighlight: HighlightBlock,
-		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
