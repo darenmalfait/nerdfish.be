@@ -15,6 +15,7 @@ import {
 	SkillsBlock,
 } from '~/app/common'
 import { CtaBlock } from '~/app/common/blocks/cta'
+import { FAQBlock } from '~/app/common/blocks/faq'
 import { HighlightBlock } from '~/app/common/blocks/highlight'
 import { ImageGridBlock } from '~/app/common/blocks/image-grid'
 import { PricingBlock } from '~/app/common/blocks/pricing'
@@ -33,6 +34,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksBooking: BookingBlock,
 		PageBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
+		PageBlocksFaq: FAQBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksHighlight: HighlightBlock,

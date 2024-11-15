@@ -9,7 +9,6 @@ import {
 	PriceCardFeatures,
 	PriceCardFeature,
 	PriceCardAction,
-	InViewBackground,
 } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -25,11 +24,7 @@ import { type PageBlocksPricing, type Block } from '~/app/cms'
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
-	return (
-		<InViewBackground className="bg-muted">
-			<Section>{children}</Section>
-		</InViewBackground>
-	)
+	return <Section className="bg-muted px-xl">{children}</Section>
 }
 
 export function PricingBlock(props: Block<PageBlocksPricing>) {

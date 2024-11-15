@@ -2,6 +2,7 @@ import { blogTemplate } from './blocks/blog.template'
 import { bookingTemplate } from './blocks/booking.template'
 import { contentTemplate } from './blocks/content.template'
 import { ctaTemplate } from './blocks/cta.template'
+import { faqTemplate } from './blocks/faq.template'
 import { featuresTemplate } from './blocks/features.template'
 import { heroTemplate } from './blocks/hero.template'
 import { highlightTemplate } from './blocks/highlight.template'
@@ -20,6 +21,7 @@ export const blocks = [
 	bookingTemplate,
 	contentTemplate,
 	ctaTemplate,
+	faqTemplate,
 	featuresTemplate,
 	heroTemplate,
 	highlightTemplate,
