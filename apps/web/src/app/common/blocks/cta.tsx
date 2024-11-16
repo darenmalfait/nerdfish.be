@@ -36,7 +36,11 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 				</SectionHeader>
 				{page?._sys.breadcrumbs ? (
 					<div>
-						<Button className="group inline-flex" size="xl" asChild>
+						<Button
+							className="hover:motion-preset-seesaw motion-loop-once group inline-flex"
+							size="xl"
+							asChild
+						>
 							<Link
 								data-tina-field={tinaField(props, 'page')}
 								href={getPagePath(page)}
