@@ -132,8 +132,8 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
       tailwindcss-motion:
-        specifier: 0.3.0-beta
-        version: 0.3.0-beta(tailwindcss@3.4.14)
+        specifier: 0.4.3-beta
+        version: 0.4.3-beta(tailwindcss@3.4.14)
       tinacms:
         specifier: ^2.3.0
         version: 2.4.0(@types/react-dom@18.3.1)(@types/react@18.3.11)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.3)
@@ -309,8 +309,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.14)
       tailwindcss-motion:
-        specifier: 0.3.0-beta
-        version: 0.3.0-beta(tailwindcss@3.4.14)
+        specifier: 0.4.3-beta
+        version: 0.4.3-beta(tailwindcss@3.4.14)
     devDependencies:
       '@types/react':
         specifier: ^18.3.11
@@ -9358,8 +9358,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
-  tailwindcss-motion@0.3.0-beta:
-    resolution: {integrity: sha512-dBmakhcseaB7zK82H9zMmzNhAZFCA9DxWeuw0rkttIarur/7tnjWg1Nv9LlZZR9c+YctRyZns3D+1Fjbksq7Fg==}
+  tailwindcss-motion@0.4.3-beta:
+    resolution: {integrity: sha512-9S4nmSw01m0/z0UxodUNT7U+yUdlZdXnH9RMkb2rXvrUEQQ+rMVPeP9j4pMwJy779LECiSr+IoSTVrGluSfU2w==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
@@ -21342,7 +21342,7 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.14
 
-  tailwindcss-motion@0.3.0-beta(tailwindcss@3.4.14):
+  tailwindcss-motion@0.4.3-beta(tailwindcss@3.4.14):
     dependencies:
       tailwindcss: 3.4.14
 
