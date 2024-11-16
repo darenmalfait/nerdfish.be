@@ -161,7 +161,12 @@ export const HighlightCardCTA = React.forwardRef<
 			{...props}
 			className={cx('mt-lg flex flex-1 items-end justify-start', className)}
 		>
-			<Button size="lg" variant="ghost" asChild className="bg-primary group">
+			<Button
+				size="lg"
+				variant="ghost"
+				asChild
+				className="bg-primary/70 hover:bg-primary group"
+			>
 				<Link href={href}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
