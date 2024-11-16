@@ -30,7 +30,7 @@ function DetailLink({ page }: { page?: Page }) {
 	return (
 		<div className="mt-md">
 			<Button
-				className="-mx-md hover:motion-preset-wiggle group"
+				className="-mx-md hover:motion-preset-seesaw motion-loop-once group"
 				variant="ghost"
 				asChild
 			>
