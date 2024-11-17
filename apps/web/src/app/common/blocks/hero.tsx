@@ -1,5 +1,5 @@
 import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import { TextSlideUp, Section } from '@nerdfish-website/ui/components'
 import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'
@@ -62,7 +62,7 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 
 	return (
 		<div className="max-w-lg">
-			<div className="motion-preset-fade motion-preset-slide-up motion-delay-[600ms] prose dark:prose-invert lg:prose-xl !text-primary mt-0">
+			<div className="prose dark:prose-invert lg:prose-xl !text-primary mt-0">
 				{children}
 			</div>
 		</div>
@@ -72,11 +72,7 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 function BlockHeader({ children }: { children: React.ReactNode }) {
 	if (!children) return null
 
-	return (
-		<div className="motion-preset-fade motion-preset-slide-up motion-delay-[300ms] mb-xs flex flex-col">
-			{children}
-		</div>
-	)
+	return <div className="mb-xs flex flex-col">{children}</div>
 }
 
 function BlockImage({ children }: { children?: React.ReactNode }) {
@@ -116,22 +112,24 @@ export function HeroBlock(
 					/>
 				) : null}
 			</BlockImage>
-			<BlockHeader>
-				{title ? (
-					<BigTitle
-						data-tina-field={tinaField(data, 'title')}
-						className="text-primary relative font-black"
-						value={title}
+			<TextSlideUp eager>
+				<BlockHeader>
+					{title ? (
+						<BigTitle
+							data-tina-field={tinaField(data, 'title')}
+							className="text-primary relative font-black"
+							value={title}
+						/>
+					) : null}
+				</BlockHeader>
+				<BlockContent>
+					<PortableText
+						data-tina-field={tinaField(data, 'text')}
+						content={text}
 					/>
-				) : null}
-			</BlockHeader>
-			<BlockContent>
-				<PortableText
-					data-tina-field={tinaField(data, 'text')}
-					content={text}
-				/>
-				{children}
-			</BlockContent>
+					{children}
+				</BlockContent>
+			</TextSlideUp>
 		</BlockLayout>
 	)
 }

@@ -3,8 +3,8 @@
 import { H1, H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
+import { TextSlideUp } from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
-import { useInView } from 'motion/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -132,36 +132,21 @@ function Disclaimer() {
 
 function SiteFooterHeading() {
 	const { paths } = useGlobal()
-	const ref = React.useRef<HTMLHeadingElement>(null)
-
-	const inView = useInView(ref, { once: true })
 
 	return (
-		<H1 as="h2" ref={ref} className="mb-2xl text-primary">
+		<H1 as="h2" className="mb-2xl text-primary">
 			<Link
 				href={paths?.contact ?? '/'}
 				className="group"
 				aria-label="Let’s work together"
 			>
-				<span
-					className={cx({
-						'motion-preset-slide-up motion-delay-300 motion-duration-1000 inline-block':
-							inView,
-					})}
-				>
-					Let’s work{' '}
-					<ArrowRight className="ml-xs group-hover:text-accent group-hover:translate-x-xs inline size-8 transform duration-300 md:size-12 lg:size-16" />
-				</span>
-				<br />
-
-				<span
-					className={cx({
-						'motion-preset-slide-up motion-delay-500 motion-duration-1000 inline-block':
-							inView,
-					})}
-				>
-					together
-				</span>
+				<TextSlideUp>
+					<span>
+						Let’s work{' '}
+						<ArrowRight className="ml-xs group-hover:text-accent group-hover:translate-x-xs inline size-8 transform duration-300 md:size-12 lg:size-16" />
+					</span>
+					<span>together</span>
+				</TextSlideUp>
 			</Link>
 		</H1>
 	)
