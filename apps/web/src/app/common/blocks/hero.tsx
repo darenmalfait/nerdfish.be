@@ -72,7 +72,7 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 function BlockHeader({ children }: { children: React.ReactNode }) {
 	if (!children) return null
 
-	return <div className="mb-xs flex flex-col">{children}</div>
+	return <div className="mb-lg flex flex-col">{children}</div>
 }
 
 function BlockImage({ children }: { children?: React.ReactNode }) {
