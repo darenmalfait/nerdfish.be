@@ -3,7 +3,9 @@
 import { Grid, GridCard } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
+import { useInView } from 'motion/react'
 import Image from 'next/image'
+import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
 	SectionHeader,
@@ -50,6 +52,11 @@ function getGridItemClassName(index: number) {
 
 export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 	const { title, subtitle, items } = props
+	const ref = React.useRef<HTMLDivElement>(null)
+
+	const isInView = useInView(ref, {
+		once: true,
+	})
 
 	return (
 		<Section>
@@ -57,14 +64,18 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 			</SectionHeader>
-			<Grid data-tina-field={tinaField(props, 'items')}>
+			<Grid data-tina-field={tinaField(props, 'items')} ref={ref}>
 				{items?.map((item, i) => {
-					if (!item) return null
+					if (!item?.image) return null
 
 					return (
 						<GridCard
+							style={{ animationDelay: `${i * 0.2}s` }}
 							key={`${item.title} ${i}`}
-							className={cx(getGridItemClassName(i), !item.image && 'bg-muted')}
+							className={cx(
+								getGridItemClassName(i),
+								isInView && 'motion-preset-slide-right',
+							)}
 						>
 							<ImageGridContent {...item} />
 						</GridCard>
