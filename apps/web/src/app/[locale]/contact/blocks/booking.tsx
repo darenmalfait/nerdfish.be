@@ -107,12 +107,12 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	return (
 		<InViewBackground
-			className="bg-info"
+			className="bg-info-muted"
 			data-tina-field={tinaField(props, 'title')}
 		>
 			<Section>
-				<Card className="rounded-semi bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
-					<CardHeader className="p-lg pb-0">
+				<Card className="rounded-semi bg-popover relative mx-auto w-full max-w-3xl overflow-hidden">
+					<CardHeader className="p-lg bg-transparent pb-0">
 						<SectionHeader>
 							<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
 								{title}
@@ -150,7 +150,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 									{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 										({ slug, title: bookingTitle, duration }) => (
 											<li
-												className="bg-primary hover:bg-muted shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+												className="bg-primary/50 hover:bg-muted/50 shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
 												key={slug}
 											>
 												<Link
