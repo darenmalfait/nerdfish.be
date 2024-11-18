@@ -39,9 +39,11 @@ function TestimonialActions({
 	onNext,
 	onPrevious,
 }: {
-	onNext: () => void
-	onPrevious: () => void
+	onNext?: () => void
+	onPrevious?: () => void
 }) {
+	if (!onNext || !onPrevious) return null
+
 	return (
 		<div className="gap-md rounded-semi md:hover:bg-primary p-md group flex transition duration-300 hover:scale-110">
 			<button
@@ -74,8 +76,8 @@ function Testimonial({
 	onPrevious,
 }: {
 	testimonial: GlobalTestimonialsItems
-	onNext: () => void
-	onPrevious: () => void
+	onNext?: () => void
+	onPrevious?: () => void
 }) {
 	return (
 		<div className="gap-xl relative flex flex-col justify-center">
@@ -97,36 +99,37 @@ function Testimonial({
 }
 
 export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
-	const { testimonials } = useGlobal()
-	const [currentTestimonial, setCurrentTestimonial] = React.useState(
-		testimonials?.items?.length ? testimonials.items.length - 1 : 0,
-	)
-
 	const { type } = data
 
-	const testimonial = testimonials?.items?.filter((item) => {
-		if (!type) return true
-		return item?.type && type.includes(item.type)
-	})[currentTestimonial]
+	const { testimonials: allTestimonials } = useGlobal()
+
+	const testimonials =
+		allTestimonials?.items?.filter((item) => {
+			if (!type) return true
+			return item?.type && type.includes(item.type)
+		}) ?? []
+
+	const [currentTestimonial, setCurrentTestimonial] = React.useState(
+		testimonials.length ? testimonials.length - 1 : 0,
+	)
 
 	const onNext = React.useCallback(() => {
 		const nextTestimonialIndex =
-			currentTestimonial + 1 >= (testimonials?.items?.length ?? 0)
-				? 0
-				: currentTestimonial + 1
+			currentTestimonial + 1 >= testimonials.length ? 0 : currentTestimonial + 1
 
 		setCurrentTestimonial(nextTestimonialIndex)
-	}, [testimonials?.items?.length, currentTestimonial])
+	}, [currentTestimonial, testimonials.length])
 
 	const onPrevious = React.useCallback(() => {
 		const previousTestimonialIndex =
 			currentTestimonial - 1 < 0
-				? (testimonials?.items?.length ?? 0) - 1
+				? testimonials.length - 1
 				: currentTestimonial - 1
 
 		setCurrentTestimonial(previousTestimonialIndex)
-	}, [testimonials?.items?.length, currentTestimonial])
+	}, [currentTestimonial, testimonials.length])
 
+	const testimonial = testimonials[currentTestimonial]
 	if (!testimonial) return null
 
 	return (
@@ -150,8 +153,8 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 					>
 						<Testimonial
 							testimonial={testimonial}
-							onNext={onNext}
-							onPrevious={onPrevious}
+							onNext={testimonials.length > 1 ? onNext : undefined}
+							onPrevious={testimonials.length > 1 ? onPrevious : undefined}
 						/>
 					</motion.div>
 				</AnimatePresence>
