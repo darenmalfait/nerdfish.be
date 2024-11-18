@@ -74,7 +74,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 							key={`${item.title} ${i}`}
 							className={cx(
 								getGridItemClassName(i),
-								isInView && 'motion-preset-slide-right',
+								isInView && 'motion-preset-slide-left',
 							)}
 						>
 							<ImageGridContent {...item} />
