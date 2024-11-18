@@ -32,37 +32,41 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 
 	if (!price?.length) return null
 	return (
-		<BlockLayout>
-			<SectionHeader>
-				<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
-					{title}
-				</SectionHeaderTitle>
-				<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
-					{subtitle}
-				</SectionHeaderSubtitle>
-			</SectionHeader>
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-				{price.filter(nonNullable).map((item) => (
-					<PriceCard
-						isPopular={item.featured ?? false}
-						key={item.title}
-						price={item.price ?? undefined}
-					>
-						<PriceCardHeader>
-							<PriceCardTitle>{item.title}</PriceCardTitle>
-							<PriceCardDescription>{item.description}</PriceCardDescription>
-						</PriceCardHeader>
-						<PriceCardFeatures>
-							{item.features?.map((feature) => (
-								<PriceCardFeature key={feature}>{feature}</PriceCardFeature>
-							))}
-						</PriceCardFeatures>
-						<PriceCardAction href={item.link ?? ''}>
-							{item.buttonText}
-						</PriceCardAction>
-					</PriceCard>
-				))}
+		<>
+			<div className="px-md container mx-auto">
+				<SectionHeader>
+					<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
+						{title}
+					</SectionHeaderTitle>
+					<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
+						{subtitle}
+					</SectionHeaderSubtitle>
+				</SectionHeader>
 			</div>
-		</BlockLayout>
+			<BlockLayout>
+				<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+					{price.filter(nonNullable).map((item) => (
+						<PriceCard
+							isPopular={item.featured ?? false}
+							key={item.title}
+							price={item.price ?? undefined}
+						>
+							<PriceCardHeader>
+								<PriceCardTitle>{item.title}</PriceCardTitle>
+								<PriceCardDescription>{item.description}</PriceCardDescription>
+							</PriceCardHeader>
+							<PriceCardFeatures>
+								{item.features?.map((feature) => (
+									<PriceCardFeature key={feature}>{feature}</PriceCardFeature>
+								))}
+							</PriceCardFeatures>
+							<PriceCardAction href={item.link ?? ''}>
+								{item.buttonText}
+							</PriceCardAction>
+						</PriceCard>
+					))}
+				</div>
+			</BlockLayout>
+		</>
 	)
 }
