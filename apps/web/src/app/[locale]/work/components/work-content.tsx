@@ -47,8 +47,8 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 
 	return (
 		<div>
-			<Section asChild className="max-w-4xl">
-				<article>
+			<article>
+				<Section className="max-w-4xl">
 					<div className="mb-lg">
 						<BackToWork />
 					</div>
@@ -115,10 +115,10 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 							/>
 						</div>
 					) : null}
+				</Section>
 
-					<Blocks items={blocks} />
-				</article>
-			</Section>
+				<Blocks items={blocks} />
+			</article>
 
 			{relatedWorks.length > 0 ? (
 				<Section>
