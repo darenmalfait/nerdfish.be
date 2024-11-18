@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 'use client'
 
 import {
@@ -114,14 +113,11 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							)}
 						>
 							<div className="flex flex-auto flex-col justify-center">
-								{(title ?? subtitle) ? (
-									<SectionHeader>
-										{title ? <SectionHeaderTitle animatedText={title} /> : null}
-										{subtitle ? (
-											<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-										) : null}
-									</SectionHeader>
-								) : null}
+								<SectionHeader>
+									<SectionHeaderTitle>{title}</SectionHeaderTitle>
+									<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+								</SectionHeader>
+
 								<Input
 									type="search"
 									value={query}
@@ -161,10 +157,8 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 								url: link ?? '',
 							}}
 						>
-							{title ? <SectionHeaderTitle animatedText={title} /> : null}
-							{subtitle ? (
-								<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-							) : null}
+							<SectionHeaderTitle>{title}</SectionHeaderTitle>
+							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 						</SectionHeader>
 					</div>
 				) : null}

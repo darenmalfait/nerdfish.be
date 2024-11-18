@@ -63,7 +63,7 @@ export function BlockLayout({
 					/>
 					<ArticleOverviewSearchContent>
 						<SectionHeader>
-							<SectionHeaderTitle animatedText={header?.title ?? undefined} />
+							<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
 							<SectionHeaderSubtitle>
 								{header?.subtitle ?? undefined}
 							</SectionHeaderSubtitle>
@@ -80,7 +80,7 @@ export function BlockLayout({
 							url: header?.link ?? '',
 						}}
 					>
-						<SectionHeaderTitle animatedText={header?.title ?? undefined} />
+						<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
 						<SectionHeaderSubtitle>
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>

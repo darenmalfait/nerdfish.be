@@ -65,7 +65,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 	return (
 		<Section>
 			<SectionHeader>
-				<SectionHeaderTitle animatedText={title ?? undefined} />
+				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Grid data-tina-field={tinaField(props, 'items')}>

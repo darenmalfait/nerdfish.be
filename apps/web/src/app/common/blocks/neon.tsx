@@ -39,10 +39,9 @@ export function NeonBlock(props: Block<PageBlocksNeon>) {
 	return (
 		<BlockLayout>
 			<SectionHeader className="mb-0">
-				<SectionHeaderTitle
-					data-tina-field={tinaField(props, 'title')}
-					animatedText={title ?? undefined}
-				/>
+				<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
+					{title}
+				</SectionHeaderTitle>
 				<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
 					{subtitle}
 				</SectionHeaderSubtitle>

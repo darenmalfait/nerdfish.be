@@ -1,28 +1,16 @@
 import { H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import * as React from 'react'
-import { AnimatedText } from './animated-text'
 import { ArrowLink } from './arrow-link'
 
 export const SectionHeaderTitle = React.forwardRef<
 	React.ElementRef<typeof H2>,
-	React.ComponentPropsWithoutRef<typeof H2> & {
-		animatedText?: string
-	}
->(function SectionHeaderTitle(
-	{ animatedText, children, className, ...props },
-	ref,
-) {
-	if (!animatedText && (!children || children === '')) return null
+	React.ComponentPropsWithoutRef<typeof H2>
+>(function SectionHeaderTitle({ children, className, ...props }, ref) {
+	if (!children || children === '') return null
 
 	return (
 		<H2 ref={ref} className={className} {...props}>
-			{animatedText ? (
-				<AnimatedText
-					value={animatedText}
-					letterClassName="hover:text-primary"
-				/>
-			) : null}
 			{children}
 		</H2>
 	)

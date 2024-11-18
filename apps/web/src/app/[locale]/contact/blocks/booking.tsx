@@ -114,10 +114,9 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 				<Card className="rounded-semi bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
 					<CardHeader className="p-lg pb-0">
 						<SectionHeader>
-							<SectionHeaderTitle
-								data-tina-field={tinaField(props, 'title')}
-								animatedText={title ?? undefined}
-							/>
+							<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
+								{title}
+							</SectionHeaderTitle>
 							<SectionHeaderSubtitle
 								data-tina-field={tinaField(props, 'subtitle')}
 							>
