@@ -16,6 +16,8 @@ import {
 	DrawerHeader,
 	DrawerContent,
 	ScrollArea,
+	CardTitle,
+	CardDescription,
 } from '@nerdfish/ui'
 import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
@@ -30,11 +32,6 @@ import {
 	type Block,
 	type PageBlocksBooking,
 } from '~/app/cms'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '~/app/common'
 import { useGlobal } from '~/app/global-provider'
 
 function DrawerDialog({
@@ -113,16 +110,12 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 			<Section>
 				<Card className="rounded-semi bg-popover relative mx-auto w-full max-w-3xl overflow-hidden">
 					<CardHeader className="p-lg bg-transparent pb-0">
-						<SectionHeader>
-							<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
-								{title}
-							</SectionHeaderTitle>
-							<SectionHeaderSubtitle
-								data-tina-field={tinaField(props, 'subtitle')}
-							>
-								{subtitle}
-							</SectionHeaderSubtitle>
-						</SectionHeader>
+						<CardTitle data-tina-field={tinaField(props, 'title')}>
+							{title}
+						</CardTitle>
+						<CardDescription data-tina-field={tinaField(props, 'subtitle')}>
+							{subtitle}
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="p-lg pt-0">
 						<div className="prose dark:prose-invert">
