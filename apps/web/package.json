@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.71",
+    "@ai-sdk/openai": "^0.0.72",
     "@calcom/embed-react": "^1.5.1",
     "@formatjs/intl-localematcher": "^0.5.7",
     "@hookform/resolvers": "^3.9.1",
@@ -44,7 +44,7 @@
     "next": "^14.2.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.1",
+    "react-hook-form": "^7.53.2",
     "react-obfuscate": "^3.7.0",
     "resend": "^3.5.0",
     "sharp": "^0.33.5",
@@ -74,7 +74,7 @@
     "gray-matter": "^4.0.3",
     "husky": "^9.1.6",
     "npm-run-all2": "^6.2.6",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.48",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1",
     "prettier": "^3.3.3",
