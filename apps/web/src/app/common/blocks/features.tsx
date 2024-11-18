@@ -89,7 +89,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 	return (
 		<Section>
 			<SectionHeader>
-				<SectionHeaderTitle animatedText={title ?? undefined} />
+				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Grid

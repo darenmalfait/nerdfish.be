@@ -129,10 +129,8 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 							url: link ?? '',
 						}}
 					>
-						{title ? <SectionHeaderTitle animatedText={title} /> : null}
-						{subtitle ? (
-							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-						) : null}
+						<SectionHeaderTitle>{title}</SectionHeaderTitle>
+						<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
 					</SectionHeader>
 				</div>
 			) : null}
