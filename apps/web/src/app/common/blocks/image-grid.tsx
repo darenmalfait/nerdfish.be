@@ -38,16 +38,12 @@ function ImageGridContent(props: PageBlocksImageGridItems) {
 }
 
 function getGridItemClassName(index: number) {
-	const rowIndex = Math.floor(index / 2)
-	const isEven = index % 2 === 0
-
-	let className = isEven ? 'lg:col-span-2' : 'lg:col-span-1'
-
-	if (rowIndex % 2 === 0) {
-		className = isEven ? 'lg:col-span-1' : 'lg:col-span-2'
+	// Every second and third item should be half width
+	if ((index + 1) % 3 === 2 || (index + 1) % 3 === 0) {
+		return 'col-span-2'
 	}
 
-	return className
+	return 'col-span-4'
 }
 
 export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
@@ -60,13 +56,15 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 
 	return (
 		<Section>
-			<SectionHeader>
-				<SectionHeaderTitle>{title}</SectionHeaderTitle>
-				<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-			</SectionHeader>
+			{title || subtitle ? (
+				<SectionHeader>
+					<SectionHeaderTitle>{title}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
+				</SectionHeader>
+			) : null}
 			<Grid
 				data-tina-field={tinaField(props, 'items')}
-				className="auto-rows-[50rem]"
+				className="auto-rows-[40rem] !grid-cols-4"
 				ref={ref}
 			>
 				{items?.map((item, i) => {

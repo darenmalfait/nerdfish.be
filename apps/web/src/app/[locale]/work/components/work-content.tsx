@@ -1,4 +1,4 @@
-import { Button, H1, Paragraph } from '@nerdfish/ui'
+import { Button, H4, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
@@ -11,13 +11,11 @@ import {
 	Section,
 } from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
-import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { mapWorkData } from '../api'
 import { getWorkPath } from '../utils'
-import { BackToWork } from './misc'
 import { Blocks, PortableText, type WorkQueryQuery } from '~/app/cms'
 import {
 	SectionHeader,
@@ -25,11 +23,10 @@ import {
 	SectionHeaderTitle,
 } from '~/app/common'
 
-const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
+const prose = 'prose dark:prose-invert max-w-4xl'
 
 function WorkContent({ data }: { data: WorkQueryQuery }) {
-	const { title, date, heroImg, category, body, url, excerpt, blocks } =
-		data.work
+	const { title, date, category, body, url, excerpt, blocks } = data.work
 
 	const blockData = { ...mapWorkData(data) }
 	const { works: allWorks } = blockData
@@ -46,78 +43,76 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 	}, [allWorks, category, date, title])
 
 	return (
-		<div>
-			<article>
-				<Section className="max-w-4xl">
-					<div className="mb-lg">
-						<BackToWork />
-					</div>
-					<header className={cx('mb-xl flex max-w-4xl flex-col', prose)}>
-						<H1
-							variant="primary"
-							data-tina-field={tinaField(data.work, 'title')}
-							className="!m-0 w-auto"
-						>
-							{title}
-						</H1>
-						<div className="mt-xs mb-xl relative">
-							<CategoryIndicator category={category} inline />
-						</div>
-					</header>
-					{url ? (
-						<div className="mb-md">
-							<Button variant="secondary" asChild>
-								<Link className="group no-underline" href={url} target="_blank">
-									Visit website
-									<span className={getCategoryColors(category)}>
-										<ArrowRight
-											className={cx(
-												'group-hover:translate-x-xs ml-sm group-hover:text-primary size-4 text-current transition-all',
-											)}
-										/>
-									</span>
-								</Link>
-							</Button>
-						</div>
-					) : null}
-					{heroImg ? (
-						<div className={cx(prose, 'mb-xl mx-auto')}>
-							<div
-								className="rounded-semi overflow-hidden"
-								data-tina-field={tinaField(data.work, 'heroImg')}
+		<div className="relative">
+			<article className="gap-xl px-lg -mt-3xl mx-auto flex flex-col xl:flex-row">
+				<Section
+					className={cx({
+						'xl:max-w-[500px]': blocks?.length,
+						'container mx-auto max-w-4xl': !blocks?.length,
+					})}
+				>
+					<div className="py-lg xl:sticky xl:top-0">
+						<header className={cx('mb-lg flex max-w-4xl flex-col', prose)}>
+							<H4
+								as="h1"
+								variant="primary"
+								data-tina-field={tinaField(data.work, 'title')}
+								className="!m-0 w-auto !text-4xl"
 							>
-								{/* TODO: add aria description */}
-								<Image
-									aria-hidden
-									src={heroImg}
-									alt={title}
-									width={900}
-									height={900}
+								{title}
+							</H4>
+							<div className="mt-xs gap-md relative flex">
+								{url ? (
+									<div className="mb-md">
+										<Button variant="secondary" asChild>
+											<Link
+												className="group no-underline"
+												href={url}
+												target="_blank"
+											>
+												Visit website
+												<span className={getCategoryColors(category)}>
+													<ArrowRight
+														className={cx(
+															'group-hover:translate-x-xs ml-sm group-hover:text-primary size-4 text-current transition-all',
+														)}
+													/>
+												</span>
+											</Link>
+										</Button>
+									</div>
+								) : null}
+								<CategoryIndicator category={category} inline />
+							</div>
+						</header>
+
+						{excerpt ? (
+							<Paragraph
+								className="mb-md text-xl font-bold"
+								data-tina-field={tinaField(data.work, 'excerpt')}
+							>
+								{excerpt}
+							</Paragraph>
+						) : null}
+
+						{body ? (
+							<div className={prose}>
+								<PortableText
+									data-tina-field={tinaField(data.work, 'body')}
+									content={body}
 								/>
 							</div>
-						</div>
-					) : null}
-
-					{excerpt ? (
-						<Paragraph
-							className="mb-xl text-xl font-bold"
-							data-tina-field={tinaField(data.work, 'excerpt')}
-						>
-							{excerpt}
-						</Paragraph>
-					) : null}
-
-					{body ? (
-						<div className={prose}>
-							<PortableText
-								data-tina-field={tinaField(data.work, 'body')}
-								content={body}
-							/>
-						</div>
-					) : null}
+						) : null}
+					</div>
 				</Section>
 
-				<Blocks items={blocks} />
+				{blocks?.length ? (
+					<div className="flex-flex-col flex-1">
+						<div className="-mx-md">
+							<Blocks items={blocks} />
+						</div>
+					</div>
+				) : null}
 			</article>
 
 			{relatedWorks.length > 0 ? (

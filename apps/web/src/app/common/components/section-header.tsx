@@ -54,11 +54,7 @@ export const SectionHeader = React.forwardRef<
 >(function SectionHeader({ cta, as, className, children, ...props }, ref) {
 	const Element = as ?? 'header'
 
-	if (
-		!children ||
-		(React.isValidElement(children) && !children.props?.children)
-	)
-		return null
+	if (!children) return null
 
 	return (
 		<Element ref={ref} className={cx('mb-xl', className)} {...props}>
