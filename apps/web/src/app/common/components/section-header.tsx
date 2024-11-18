@@ -61,7 +61,7 @@ export const SectionHeader = React.forwardRef<
 		return null
 
 	return (
-		<Element ref={ref} className={cx('mb-lg', className)} {...props}>
+		<Element ref={ref} className={cx('mb-xl', className)} {...props}>
 			<div>{children}</div>
 			{cta?.url ? (
 				<div className="mt-lg flex justify-start">
