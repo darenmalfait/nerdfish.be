@@ -48,14 +48,6 @@ export const imageGridTemplate: Template = {
 					name: 'title',
 				},
 				{
-					type: 'string',
-					label: 'Description',
-					name: 'description',
-					ui: {
-						component: 'textarea',
-					},
-				},
-				{
 					type: 'image',
 					label: 'Image',
 					name: 'image',
