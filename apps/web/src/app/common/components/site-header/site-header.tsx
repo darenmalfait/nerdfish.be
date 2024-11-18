@@ -17,7 +17,11 @@ export function SiteHeader() {
 				<nav className="px-lg mx-auto w-full">
 					<div className="py-lg relative flex w-full items-center">
 						<Button asChild variant="link" className="-mx-sm">
-							<Link href={`/${currentLocale}`} aria-label="Home">
+							<Link
+								href={`/${currentLocale}`}
+								aria-label="Home"
+								className="hover:animate-squeeze"
+							>
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>
