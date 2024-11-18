@@ -44,7 +44,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 			<InViewBackground>
 				<Section>
 					<SectionHeader>
-						<SectionHeaderTitle animatedText="AI" />
+						<SectionHeaderTitle>AI</SectionHeaderTitle>
 						<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
 					</SectionHeader>
 					<Paragraph className="mb-lg max-w-3xl font-medium">

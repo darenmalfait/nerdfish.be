@@ -89,7 +89,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 			{relatedWorks.length > 0 ? (
 				<Section>
 					<SectionHeader>
-						<SectionHeaderTitle animatedText="Done reading?" />
+						<SectionHeaderTitle>Done reading?</SectionHeaderTitle>
 						<SectionHeaderSubtitle>See related work</SectionHeaderSubtitle>
 					</SectionHeader>
 					<div className="relative my-16 grid grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:gap-x-6">
