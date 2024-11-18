@@ -1,5 +1,5 @@
 import { mapPageData } from '../api'
-import { Blocks, type ContentQueryQuery, type PageBlocks } from '~/app/cms'
+import { Blocks, type ContentQueryQuery } from '~/app/cms'
 import { type Locale } from '~/app/i18n'
 
 export function PageContent({
@@ -11,7 +11,7 @@ export function PageContent({
 }) {
 	return (
 		<Blocks
-			items={data.page.blocks as PageBlocks[]}
+			items={data.page.blocks}
 			globalData={{ ...mapPageData(data) }}
 			locale={locale}
 		/>
