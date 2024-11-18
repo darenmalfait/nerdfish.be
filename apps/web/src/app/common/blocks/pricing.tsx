@@ -1,5 +1,6 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
 import {
 	Section,
 	PriceCard,
@@ -30,7 +31,10 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 export function PricingBlock(props: Block<PageBlocksPricing>) {
 	const { title, subtitle, price } = props
 
-	if (!price?.length) return null
+	const prices = price?.filter(nonNullable)
+
+	if (!prices?.length) return null
+
 	return (
 		<>
 			<div className="px-md container mx-auto">
@@ -44,8 +48,12 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 				</SectionHeader>
 			</div>
 			<BlockLayout>
-				<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-					{price.filter(nonNullable).map((item) => (
+				<div
+					className={cx('grid grid-cols-1 gap-4 md:grid-cols-2', {
+						'lg:grid-cols-3': prices.length > 2,
+					})}
+				>
+					{prices.map((item) => (
 						<PriceCard
 							isPopular={item.featured ?? false}
 							key={item.title}
