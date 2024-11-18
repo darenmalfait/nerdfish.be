@@ -20,9 +20,13 @@ import { HighlightBlock } from '~/app/common/blocks/highlight'
 import { ImageGridBlock } from '~/app/common/blocks/image-grid'
 import { PricingBlock } from '~/app/common/blocks/pricing'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
-import { type PageBlocks } from '~/tina/__generated__/types'
+import { type WorkBlocks, type PageBlocks } from '~/tina/__generated__/types'
 
 const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'
+
+type PageBlockType =
+	| NonNullable<PageBlocks[keyof PageBlocks]>
+	| NonNullable<WorkBlocks[keyof WorkBlocks]>
 
 const getComponent = (componentKey: string) => {
 	// Not putting this outside, because of server rendering
@@ -33,18 +37,21 @@ const getComponent = (componentKey: string) => {
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
 		PageBlocksContent: ContentBlock,
+		WorkBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
 		PageBlocksFaq: FAQBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksHighlight: HighlightBlock,
 		PageBlocksImageGrid: ImageGridBlock,
+		WorkBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksNeon: NeonBlock,
 		PageBlocksPricing: PricingBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
+		WorkBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
 	} as const
@@ -69,8 +76,6 @@ function Placeholder({
 		</section>
 	)
 }
-
-type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 
 function BlockComponent({
 	block,
@@ -99,7 +104,7 @@ export function Blocks({
 	globalData,
 	locale,
 }: {
-	items?: PageBlocks[] | null
+	items?: any[] | null
 	globalData?: Block['globalData']
 	locale?: Block['locale']
 }) {
@@ -111,6 +116,7 @@ export function Blocks({
 				return (
 					<BlockComponent
 						key={i}
+						// TODO: find a better way to type this
 						block={block}
 						locale={locale}
 						globalData={globalData}

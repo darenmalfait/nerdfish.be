@@ -1,6 +1,11 @@
 import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
+import { contentTemplate } from '../blocks/content.template'
+import { imageGridTemplate } from '../blocks/image-grid.template'
+import { testimonialsTemplate } from '../blocks/testimonials.template'
 import { portableTextSchema, seo } from '../objects'
+
+const workBlocks = [testimonialsTemplate, imageGridTemplate, contentTemplate]
 
 const workCollection: Collection = {
 	label: 'Work',
@@ -51,14 +56,6 @@ const workCollection: Collection = {
 			label: 'Hero Image',
 		},
 		{
-			type: 'string',
-			label: 'Excerpt',
-			name: 'excerpt',
-			ui: {
-				component: 'textarea',
-			},
-		},
-		{
 			type: 'datetime',
 			label: 'Posted Date',
 			name: 'date',
@@ -69,10 +66,33 @@ const workCollection: Collection = {
 			required: true,
 		},
 		{
+			type: 'string',
+			name: 'url',
+			label: 'URL',
+		},
+		{
+			type: 'string',
+			label: 'Client description',
+			name: 'excerpt',
+			ui: {
+				component: 'textarea',
+			},
+		},
+		{
 			...portableTextSchema,
-			label: 'Body',
+			label: 'Short project description',
 			name: 'body',
 			isBody: true,
+		},
+		{
+			type: 'object',
+			list: true,
+			name: 'blocks',
+			label: 'Page Sections',
+			ui: {
+				visualSelector: true,
+			},
+			templates: [...workBlocks],
 		},
 	],
 }
