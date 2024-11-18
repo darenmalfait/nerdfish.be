@@ -43,7 +43,7 @@ function CategoryIndicator({
 			<span
 				className={cx(
 					getCategoryColors(category),
-					'bg-muted z-10 inline-block w-auto rounded-xl px-4 py-2 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
+					'bg-muted py-sm z-10 inline-block w-auto rounded-xl px-4 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{
 						'absolute right-6 top-6 lg:left-6 lg:right-[unset]': !inline,
 					},
