@@ -43,7 +43,11 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 			</SectionHeader>
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{price.filter(nonNullable).map((item) => (
-					<PriceCard key={item.title} price={item.price ?? undefined}>
+					<PriceCard
+						isPopular={item.featured ?? false}
+						key={item.title}
+						price={item.price ?? undefined}
+					>
 						<PriceCardHeader>
 							<PriceCardTitle>{item.title}</PriceCardTitle>
 							<PriceCardDescription>{item.description}</PriceCardDescription>
