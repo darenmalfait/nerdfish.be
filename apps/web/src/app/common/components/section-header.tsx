@@ -1,4 +1,4 @@
-import { H2 } from '@nerdfish/ui'
+import { H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import * as React from 'react'
 import { ArrowLink } from './arrow-link'
@@ -10,9 +10,15 @@ export const SectionHeaderTitle = React.forwardRef<
 	if (!children || children === '') return null
 
 	return (
-		<H2 ref={ref} className={className} {...props}>
+		<H1
+			as="h2"
+			variant="primary"
+			ref={ref}
+			className={cx('mb-lg max-w-7xl font-semibold', className)}
+			{...props}
+		>
 			{children}
-		</H2>
+		</H1>
 	)
 })
 
@@ -23,9 +29,16 @@ export const SectionHeaderSubtitle = React.forwardRef<
 	if (!children || children === '') return null
 
 	return (
-		<H2 variant="secondary" as="div" className={className} ref={ref} {...props}>
+		<p
+			className={cx(
+				'text-muted max-w-7xl text-xl font-bold lg:text-2xl',
+				className,
+			)}
+			ref={ref}
+			{...props}
+		>
 			{children}
-		</H2>
+		</p>
 	)
 })
 
@@ -48,20 +61,14 @@ export const SectionHeader = React.forwardRef<
 		return null
 
 	return (
-		<Element
-			ref={ref}
-			className={cx(
-				'space-y-md mb-lg flex flex-col lg:flex-row lg:items-end lg:justify-between lg:space-y-0',
-				className,
-			)}
-			{...props}
-		>
-			<div className="space-y-sm">{children}</div>
-
+		<Element ref={ref} className={cx('mb-lg', className)} {...props}>
+			<div>{children}</div>
 			{cta?.url ? (
-				<ArrowLink href={cta.url} direction="right">
-					{cta.title}
-				</ArrowLink>
+				<div className="mt-lg flex justify-start">
+					<ArrowLink href={cta.url} direction="right">
+						{cta.title}
+					</ArrowLink>
+				</div>
 			) : null}
 		</Element>
 	)
