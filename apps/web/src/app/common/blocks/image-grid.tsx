@@ -1,6 +1,6 @@
 'use client'
 
-import { Grid, GridCard } from '@nerdfish/ui'
+import { Grid, GridCard, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section } from '@nerdfish-website/ui/components'
 import { useInView } from 'motion/react'
@@ -25,6 +25,7 @@ function ImageGridContent(props: PageBlocksImageGridItems) {
 	return (
 		<div>
 			<div className="absolute inset-0">
+				<Skeleton className="h-full w-full" />
 				<Image
 					alt={title ?? ''}
 					src={image}
