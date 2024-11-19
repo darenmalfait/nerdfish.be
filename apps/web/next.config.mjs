@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	trailingSlash: true,
+	trailingSlash: false,
 	swcMinify: true,
 	images: {
 		remotePatterns: [{ hostname: 'assets.tina.io' }],
