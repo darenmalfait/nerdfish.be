@@ -39,6 +39,7 @@ export type Dictionary = {
 	'features.readMore': string
 	'global.allArticles': string
 	'global.readMore': string
+	'global.switchLanguage': string
 	'work.related.title': string
 	'work.related.subtitle': string
 }
