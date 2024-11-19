@@ -7,7 +7,7 @@ import {
 	DrawerTrigger,
 	ScrollArea,
 } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { Section, TextSlideUp } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -33,15 +33,17 @@ export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
 				</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Drawer>
-				<DrawerTrigger
-					asChild
+				<TextSlideUp
+					delay={400}
 					className="hover:motion-preset-seesaw motion-loop-once group inline-flex"
 				>
-					<Button size="xl">
-						{openFormLabel}
-						<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-xs group-hover:text-inverted transition-all" />
-					</Button>
-				</DrawerTrigger>
+					<DrawerTrigger asChild>
+						<Button size="xl">
+							{openFormLabel}
+							<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-xs group-hover:text-inverted transition-all" />
+						</Button>
+					</DrawerTrigger>
+				</TextSlideUp>
 				<DrawerContent className="p-lg bg-primary">
 					<ScrollArea className="h-[80vh]">
 						<div className="pb-xl container mx-auto">
