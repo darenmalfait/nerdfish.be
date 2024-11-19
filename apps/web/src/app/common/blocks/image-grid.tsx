@@ -65,7 +65,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 			) : null}
 			<Grid
 				data-tina-field={tinaField(props, 'items')}
-				className="auto-rows-[40rem] !grid-cols-4"
+				className="auto-rows-[40rem] !grid-cols-2 md:!grid-cols-4"
 				ref={ref}
 			>
 				{items?.map((item, i) => {
