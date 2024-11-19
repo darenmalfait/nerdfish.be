@@ -46,8 +46,8 @@ export default async function BlogPage({
 			relatedContent={
 				<BlogOverviewBlock
 					header={{
-						title: t['work.related.title'],
-						subtitle: t['work.related.subtitle'],
+						title: t['blog.related.title'],
+						subtitle: t['blog.related.subtitle'],
 					}}
 					count={2}
 					locale={params.locale}
