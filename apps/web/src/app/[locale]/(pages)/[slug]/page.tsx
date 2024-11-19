@@ -35,7 +35,7 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		title,
-		url: params.slug ?? '/',
+		url: params.slug ? `/${params.locale}/${params.slug}` : `/${params.locale}`,
 		description: data.page.seo?.description ?? '',
 		canonical: data.page.seo?.canonical,
 	})
