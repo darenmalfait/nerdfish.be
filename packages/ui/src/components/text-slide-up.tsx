@@ -34,31 +34,45 @@ export const TextSlideUp = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement> & {
 		staggerDelay?: number
+		delay?: number
 		asChild?: boolean
 		eager?: boolean
 	}
->(({ children, staggerDelay = 200, asChild = false, eager, ...props }, ref) => {
-	const componentRef = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
+>(
+	(
+		{
+			children,
+			staggerDelay = 200,
+			delay = 0,
+			asChild = false,
+			eager,
+			...props
+		},
+		ref,
+	) => {
+		const componentRef = React.useRef<HTMLDivElement>(null)
+		React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
-	const inView = useInView(componentRef, { once: true })
+		const inView = useInView(componentRef, { once: true })
 
-	const animate = eager ?? inView
+		const animate = eager ?? inView
 
-	const Component = asChild ? Slot : 'div'
-	return (
-		<Component ref={componentRef} {...props}>
-			{React.Children.map(children, (child, index) => {
-				const delay = staggerDelay ? index * staggerDelay : undefined
+		const Component = asChild ? Slot : 'div'
+		return (
+			<Component ref={componentRef} {...props}>
+				{React.Children.map(children, (child, index) => {
+					const stagger = staggerDelay ? index * staggerDelay : 0
+					const itemDelay = delay + stagger
 
-				return (
-					<TextSlideUpItem animate={animate} delay={delay}>
-						{child}
-					</TextSlideUpItem>
-				)
-			})}
-		</Component>
-	)
-})
+					return (
+						<TextSlideUpItem animate={animate} delay={itemDelay}>
+							{child}
+						</TextSlideUpItem>
+					)
+				})}
+			</Component>
+		)
+	},
+)
 
 TextSlideUp.displayName = 'TextSlideUp'
