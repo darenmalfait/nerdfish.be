@@ -1,5 +1,5 @@
-import { randomUUID } from 'crypto'
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Work } from '../../cms'
 import { WorkPath } from '~/app/common'
@@ -88,7 +88,7 @@ export function getWorkPath(work: PartialDeep<Work>) {
 
 export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
 	return works.map((work) => ({
-		id: work.id ?? randomUUID(),
+		id: work.id ?? uniqueId(),
 		title: work.title ?? 'untitled',
 		description: work.excerpt,
 		href: getWorkPath(work),
