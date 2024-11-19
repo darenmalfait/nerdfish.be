@@ -39,7 +39,7 @@ function SkillItem({ skill }: { skill?: string | null }) {
 	const SkillIcon = skillIconMap[skill as keyof typeof skillIconMap]
 
 	return (
-		<li className="col-span-1">
+		<li className="aspect-1 bg-muted rounded-semi col-span-1 flex w-full flex-col items-center justify-center">
 			<div className="flex flex-col items-center text-center">
 				<SkillIcon
 					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
@@ -65,8 +65,8 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<div className="max-w-5xl">
-			<ul className="gap-lg grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
+		<div>
+			<ul className="gap-sm grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				{children}
 			</ul>
 		</div>
