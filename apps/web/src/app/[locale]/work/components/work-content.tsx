@@ -1,5 +1,3 @@
-'use client'
-
 import { Button, H4, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
@@ -11,15 +9,19 @@ import { ArrowRight } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { WorkOverviewBlock } from '../blocks'
+
 import { Blocks, PortableText, type WorkQueryQuery } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
 
 const prose = 'prose dark:prose-invert max-w-4xl'
 
-function WorkContent({ data }: { data: WorkQueryQuery }) {
+function WorkContent({
+	data,
+	relatedContent,
+}: {
+	data: WorkQueryQuery
+	relatedContent?: React.ReactNode
+}) {
 	const { title, category, body, url, excerpt, blocks } = data.work
-	const { t, currentLocale } = useTranslation()
 
 	return (
 		<div className="relative">
@@ -96,15 +98,7 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 				</article>
 			</Section>
 
-			<WorkOverviewBlock
-				header={{
-					title: t('work.related.title'),
-					subtitle: t('work.related.subtitle'),
-				}}
-				count={2}
-				locale={currentLocale}
-				relatedTo={data.work}
-			/>
+			{relatedContent}
 		</div>
 	)
 }
