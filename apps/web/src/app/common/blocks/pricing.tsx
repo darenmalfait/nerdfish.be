@@ -18,9 +18,9 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-
 import { nonNullable } from '../utils'
 import { type PageBlocksPricing, type Block } from '~/app/cms'
+import { useTranslation } from '~/app/i18n'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -30,6 +30,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 
 export function PricingBlock(props: Block<PageBlocksPricing>) {
 	const { title, subtitle, price } = props
+	const { t } = useTranslation()
 
 	const prices = price?.filter(nonNullable)
 
@@ -74,6 +75,7 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 						</PriceCard>
 					))}
 				</div>
+				<p className="text-muted text-center text-sm">{t('global.vat')}</p>
 			</BlockLayout>
 		</>
 	)
