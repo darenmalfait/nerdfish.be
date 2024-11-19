@@ -1,9 +1,12 @@
+import { randomUUID } from 'crypto'
+import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type SystemInfo, type Work } from '../../cms'
+import { type Work } from '../../cms'
 import { WorkPath } from '~/app/common'
+import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
 
-export function filterWork(posts: Partial<Work>[], searchString: string) {
-	if (!searchString) return posts
+export function filterWork(works: PartialDeep<Work>[], searchString: string) {
+	if (!searchString) return works
 
 	const options = {
 		keys: [
@@ -29,7 +32,7 @@ export function filterWork(posts: Partial<Work>[], searchString: string) {
 		],
 	}
 
-	const allResults = matchSorter(posts, searchString, options)
+	const allResults = matchSorter(works, searchString, options)
 	const searches = new Set(searchString.split(' '))
 	if (searches.size < 2) {
 		// if there's only one word then we're done
@@ -56,7 +59,7 @@ export function filterWork(posts: Partial<Work>[], searchString: string) {
 
 	// go through each word and further filter the results
 	let individualWordResults = matchSorter(
-		posts,
+		works,
 		firstWord,
 		individualWordOptions,
 	)
@@ -74,9 +77,29 @@ export function filterWork(posts: Partial<Work>[], searchString: string) {
 	return Array.from(new Set([...allResults, ...individualWordResults]))
 }
 
-export function getWorkPath(
-	work: Omit<Partial<Work>, '_sys'> & { _sys?: Partial<SystemInfo> },
-) {
+export function getWorkPath(work: PartialDeep<Work>) {
 	const path = work._sys?.breadcrumbs?.join('/')
-	return path ? `/${WorkPath}/${path}` : ''
+
+	const locale = work._sys?.breadcrumbs?.[0]
+	const newPath = path?.replace(`${locale}/`, '/')
+
+	return newPath ? `${locale ? `/${locale}` : ''}/${WorkPath}${newPath}` : ''
+}
+
+export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
+	return works.map((work) => ({
+		id: work.id ?? randomUUID(),
+		title: work.title ?? 'untitled',
+		description: work.excerpt,
+		href: getWorkPath(work),
+		tags: work.category ? [work.category] : [],
+		category: work.category,
+		date: work.date,
+		image: work.heroImg
+			? {
+					src: work.heroImg,
+					alt: work.title ?? 'untitled',
+				}
+			: undefined,
+	}))
 }
