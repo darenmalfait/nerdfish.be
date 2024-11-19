@@ -1,4 +1,4 @@
-import { tina, type BlogPostQueryQuery } from '../../cms'
+import { tina } from '../../cms'
 import { type Locale } from '~/app/i18n'
 
 export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
@@ -12,12 +12,6 @@ export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
 			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true,
 		)
 		.reverse()
-}
-
-export function mapBlogData(data: BlogPostQueryQuery) {
-	return {
-		...data,
-	}
 }
 
 export async function getBlogPost(relativePath: string) {

@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-	const { data } = await getRouteData(params.slug.join('/'))
+	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.work.seo?.title ?? (data.work.title || 'Untitled')
 
 	return getMetaData({
@@ -33,7 +33,7 @@ export default async function WorkPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const routeData = await getRouteData(params.slug.join('/'))
+	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
 

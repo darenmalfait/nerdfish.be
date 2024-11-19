@@ -39,6 +39,8 @@ export type Dictionary = {
 	'features.readMore': string
 	'global.allArticles': string
 	'global.readMore': string
+	'work.related.title': string
+	'work.related.subtitle': string
 }
 
 // We enumerate all dictionaries here for better linting and typescript support

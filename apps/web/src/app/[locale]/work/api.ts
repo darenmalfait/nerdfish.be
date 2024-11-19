@@ -1,38 +1,23 @@
-import {
-	tina,
-	type Work,
-	type WorkConnection,
-	type WorkQueryQuery,
-} from '../../cms'
+import { tina } from '../../cms'
+import { type Locale } from '~/app/i18n'
 
-export async function getWorks() {
+export async function getWorks({ locale }: { locale?: Locale } = {}) {
 	const workListData = await tina.queries.workConnection()
 
-	return workListData.data.workConnection.edges?.map((item) => ({
-		...item?.node,
-	}))
-}
-
-export function mapWorkData(data: WorkQueryQuery) {
-	return {
-		...data,
-		works: (data.workConnection as WorkConnection).edges?.map((item) => ({
-			...(item?.node ?? {}),
-		})) as Work[],
-	}
+	return workListData.data.workConnection.edges
+		?.map((item) => ({
+			...item?.node,
+		}))
+		.filter((item) =>
+			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true,
+		)
+		.reverse()
 }
 
 export async function getWork(relativePath: string) {
-	const work = await tina.queries
+	return tina.queries
 		.workQuery({
 			relativePath,
 		})
 		.catch(() => null)
-
-	if (!work) return null
-
-	return {
-		...work,
-		data: mapWorkData(work.data),
-	}
 }
