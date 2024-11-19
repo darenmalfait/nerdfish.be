@@ -1,11 +1,13 @@
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import { WorkOverviewBlock } from '../blocks'
 import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
 import { WorkContent } from '~/app/[locale]/work/components/work-content'
 import { WorkPreview } from '~/app/[locale]/work/components/work-preview'
 import { generateOGImageUrl, getMetaData } from '~/app/common'
 import { type WithLocale } from '~/app/i18n'
+import { getDictionary } from '~/app/i18n/get-dictionary'
 
 export async function generateMetadata({
 	params,
@@ -33,10 +35,26 @@ export default async function WorkPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
+	const t = await getDictionary(params.locale)
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
 
 	if (isPreview) return <WorkPreview {...routeData} />
-	return <WorkContent {...routeData} />
+	return (
+		<WorkContent
+			relatedContent={
+				<WorkOverviewBlock
+					header={{
+						title: t['work.related.title'],
+						subtitle: t['work.related.subtitle'],
+					}}
+					count={2}
+					locale={params.locale}
+					relatedTo={routeData.data.work}
+				/>
+			}
+			{...routeData}
+		/>
+	)
 }

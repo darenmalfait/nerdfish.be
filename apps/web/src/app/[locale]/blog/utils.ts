@@ -1,5 +1,5 @@
-import { randomUUID } from 'crypto'
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Blog } from '../../cms'
 import { BlogPath, nonNullable } from '~/app/common'
@@ -93,7 +93,7 @@ export function getBlogPath(blog: PartialDeep<Blog>) {
 
 export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {
 	return posts.map((post) => ({
-		id: post.id ?? randomUUID(),
+		id: post.id ?? uniqueId(),
 		title: post.title ?? 'untitled',
 		description: post.excerpt,
 		href: getBlogPath(post),
