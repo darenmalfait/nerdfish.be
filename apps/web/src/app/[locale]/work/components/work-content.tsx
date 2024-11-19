@@ -44,76 +44,78 @@ function WorkContent({ data }: { data: WorkQueryQuery }) {
 
 	return (
 		<div className="relative">
-			<article className="gap-xl px-lg -mt-3xl mx-auto flex flex-col xl:flex-row">
-				<Section
-					className={cx({
-						'xl:max-w-[500px]': blocks?.length,
-						'container mx-auto max-w-4xl': !blocks?.length,
-					})}
-				>
-					<div className="py-lg xl:sticky xl:top-0">
-						<header className={cx('mb-lg flex max-w-4xl flex-col', prose)}>
-							<H4
-								as="h1"
-								variant="primary"
-								data-tina-field={tinaField(data.work, 'title')}
-								className="!m-0 w-auto !text-4xl"
-							>
-								{title}
-							</H4>
-							<div className="mt-xs gap-md relative flex">
-								{url ? (
-									<div className="mb-md">
-										<Button variant="secondary" asChild>
-											<Link
-												className="group no-underline"
-												href={url}
-												target="_blank"
-											>
-												Visit website
-												<span className={getCategoryColors(category)}>
-													<ArrowRight
-														className={cx(
-															'group-hover:translate-x-xs ml-sm group-hover:text-primary size-4 text-current transition-all',
-														)}
-													/>
-												</span>
-											</Link>
-										</Button>
-									</div>
-								) : null}
-								<CategoryIndicator category={category} inline />
-							</div>
-						</header>
+			<Section asChild>
+				<article className="gap-xl px-lg -mt-3xl mx-auto flex flex-col pt-0 xl:flex-row">
+					<Section
+						className={cx({
+							'xl:max-w-[500px]': blocks?.length,
+							'container mx-auto max-w-4xl': !blocks?.length,
+						})}
+					>
+						<div className="py-lg xl:sticky xl:top-0">
+							<header className={cx('mb-lg flex max-w-4xl flex-col', prose)}>
+								<H4
+									as="h1"
+									variant="primary"
+									data-tina-field={tinaField(data.work, 'title')}
+									className="!m-0 w-auto !text-4xl"
+								>
+									{title}
+								</H4>
+								<div className="mt-xs gap-md relative flex">
+									{url ? (
+										<div className="mb-md">
+											<Button variant="secondary" asChild>
+												<Link
+													className="group no-underline"
+													href={url}
+													target="_blank"
+												>
+													Visit website
+													<span className={getCategoryColors(category)}>
+														<ArrowRight
+															className={cx(
+																'group-hover:translate-x-xs ml-sm group-hover:text-primary size-4 text-current transition-all',
+															)}
+														/>
+													</span>
+												</Link>
+											</Button>
+										</div>
+									) : null}
+									<CategoryIndicator category={category} inline />
+								</div>
+							</header>
 
-						{excerpt ? (
-							<Paragraph
-								className="mb-md text-xl font-bold"
-								data-tina-field={tinaField(data.work, 'excerpt')}
-							>
-								{excerpt}
-							</Paragraph>
-						) : null}
+							{excerpt ? (
+								<Paragraph
+									className="mb-md text-xl font-bold"
+									data-tina-field={tinaField(data.work, 'excerpt')}
+								>
+									{excerpt}
+								</Paragraph>
+							) : null}
 
-						{body ? (
-							<div className={prose}>
-								<PortableText
-									data-tina-field={tinaField(data.work, 'body')}
-									content={body}
-								/>
-							</div>
-						) : null}
-					</div>
-				</Section>
-
-				{blocks?.length ? (
-					<div className="flex-flex-col flex-1">
-						<div className="-mx-md">
-							<Blocks items={blocks} />
+							{body ? (
+								<div className={prose}>
+									<PortableText
+										data-tina-field={tinaField(data.work, 'body')}
+										content={body}
+									/>
+								</div>
+							) : null}
 						</div>
-					</div>
-				) : null}
-			</article>
+					</Section>
+
+					{blocks?.length ? (
+						<div className="flex-flex-col flex-1">
+							<div className="-mx-md">
+								<Blocks items={blocks} />
+							</div>
+						</div>
+					) : null}
+				</article>
+			</Section>
 
 			{relatedWorks.length > 0 ? (
 				<Section>
