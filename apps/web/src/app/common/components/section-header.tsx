@@ -1,5 +1,6 @@
 import { H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { TextSlideUp } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { ArrowLink } from './arrow-link'
 
@@ -13,6 +14,7 @@ export const SectionHeaderTitle = React.forwardRef<
 		<H1
 			as="h2"
 			variant="primary"
+			blurredClassName="hidden"
 			ref={ref}
 			className={cx('mb-lg max-w-7xl font-semibold', className)}
 			{...props}
@@ -58,14 +60,16 @@ export const SectionHeader = React.forwardRef<
 
 	return (
 		<Element ref={ref} className={cx('mb-xl', className)} {...props}>
-			<div>{children}</div>
-			{cta?.url ? (
-				<div className="mt-lg flex justify-start">
-					<ArrowLink href={cta.url} direction="right">
-						{cta.title}
-					</ArrowLink>
-				</div>
-			) : null}
+			<TextSlideUp>
+				{children}
+				{cta?.url ? (
+					<div className="mt-lg flex justify-start">
+						<ArrowLink href={cta.url} direction="right">
+							{cta.title}
+						</ArrowLink>
+					</div>
+				) : null}
+			</TextSlideUp>
 		</Element>
 	)
 })
