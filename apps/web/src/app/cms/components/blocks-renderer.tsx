@@ -14,6 +14,7 @@ import {
 	NeonBlock,
 	SkillsBlock,
 } from '~/app/common'
+import { ContactFormBlock } from '~/app/common/blocks/contact-form'
 import { CtaBlock } from '~/app/common/blocks/cta'
 import { FAQBlock } from '~/app/common/blocks/faq'
 import { HighlightBlock } from '~/app/common/blocks/highlight'
@@ -34,26 +35,30 @@ const getComponent = (componentKey: string) => {
 	const componentsMap: {
 		[K in PageBlockType]: React.ComponentType<Block>
 	} = {
+		// Page blocks
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
+		PageBlocksContactForm: ContactFormBlock,
 		PageBlocksContent: ContentBlock,
-		WorkBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
 		PageBlocksFaq: FAQBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksHighlight: HighlightBlock,
 		PageBlocksImageGrid: ImageGridBlock,
-		WorkBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksNeon: NeonBlock,
 		PageBlocksPricing: PricingBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
-		WorkBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
+		WorkBlocksContent: ContentBlock,
+
+		// Work blocks
+		WorkBlocksImageGrid: ImageGridBlock,
+		WorkBlocksTestimonials: TestimonialsBlock,
 	} as const
 
 	if (!Object.keys(componentsMap).includes(componentKey)) {
