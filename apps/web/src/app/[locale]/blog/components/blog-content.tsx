@@ -36,6 +36,7 @@ function BlogContent({ data }: { data: BlogPostQueryQuery }) {
 						</span>
 					) : null}
 					<H1
+						variant="primary"
 						data-tina-field={tinaField(data.blog, 'title')}
 						className="!mb-xl w-auto"
 					>
