@@ -106,7 +106,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						) : null}
 						<div
 							className={cx(
-								'pt-lg col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
+								'col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
 									'lg:col-span-5 lg:col-start-1': header?.image,
 								},

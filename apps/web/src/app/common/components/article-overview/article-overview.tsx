@@ -101,7 +101,7 @@ export const ArticleOverviewSearchContent = React.forwardRef<
 	return (
 		<div
 			className={cx(
-				'pt-lg col-span-5 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
+				'col-span-5 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 				className,
 			)}
 			ref={ref}
