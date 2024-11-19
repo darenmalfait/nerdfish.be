@@ -33,7 +33,7 @@ export function SiteHeader() {
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
 								<ActionsNavigation className="hidden md:flex" />
-								<LocaleSwitcher compact />
+								<LocaleSwitcher />
 								<MobileNavigation />
 							</div>
 						</div>

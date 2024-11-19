@@ -12,8 +12,8 @@ import Link from 'next/link'
 import { i18n, supportedLanguages } from '../i18n-config'
 import { useTranslation } from './translation-provider'
 
-export function LocaleSwitcher({ compact }: { compact?: boolean }) {
-	const { currentLocale } = useTranslation()
+export function LocaleSwitcher() {
+	const { t, currentLocale } = useTranslation()
 
 	const selectedLanguage = supportedLanguages.find(
 		(l) => l.code === currentLocale,
@@ -24,11 +24,16 @@ export function LocaleSwitcher({ compact }: { compact?: boolean }) {
 			<DropdownMenuTrigger asChild>
 				<Button
 					variant="outline"
-					aria-label="Switch Language"
+					aria-label={t('global.switchLanguage')}
 					className="gap-sm"
 				>
 					<GlobeIcon className="size-4" />
-					{compact ? selectedLanguage?.code : selectedLanguage?.label}
+					<span aria-hidden className="hidden lg:block">
+						{selectedLanguage?.label}
+					</span>
+					<span aria-hidden className="lg:hidden">
+						{selectedLanguage?.code}
+					</span>
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
@@ -37,7 +42,7 @@ export function LocaleSwitcher({ compact }: { compact?: boolean }) {
 						return (
 							<li key={locale}>
 								<DropdownMenuItem>
-									<Link href={`/${locale}`}>
+									<Link href={`/${locale}`} lang={locale} hrefLang={locale}>
 										{supportedLanguages.find((l) => l.code === locale)?.label}
 									</Link>
 								</DropdownMenuItem>
