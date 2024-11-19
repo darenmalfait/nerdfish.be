@@ -37,7 +37,7 @@ export const TextSlideUp = React.forwardRef<
 		asChild?: boolean
 		eager?: boolean
 	}
->(({ children, staggerDelay = 150, asChild = false, eager, ...props }, ref) => {
+>(({ children, staggerDelay = 200, asChild = false, eager, ...props }, ref) => {
 	const componentRef = React.useRef<HTMLDivElement>(null)
 	React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
