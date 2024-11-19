@@ -12,9 +12,7 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-	const { locale } = params
-	const { data } = await getRouteData(params.slug.join('/'), locale)
-
+	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
 	return getMetaData({

@@ -49,17 +49,15 @@ export async function BlogOverviewBlockContent(
 			: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
 		: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
 
-	const limitedBlogs = count ? blogs.slice(0, count) : blogs
+	const items = relatedTo ? blogs : filterBlog(blogs, tags?.join(' ') ?? '')
 
-	const items = relatedTo
-		? limitedBlogs
-		: filterBlog(limitedBlogs, tags?.join(' ') ?? '')
+	const limitedBlogs = count ? items.slice(0, count) : items
 
 	return (
 		<BlockLayout
 			searchEnabled={searchEnabled ?? false}
 			featuredEnabled={featuredEnabled ?? false}
-			items={items}
+			items={limitedBlogs}
 			header={header}
 		>
 			<ArticleOverviewContentGrid>

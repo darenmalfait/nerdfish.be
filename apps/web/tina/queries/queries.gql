@@ -84,21 +84,8 @@ query blogPostQuery($relativePath: String!) {
 query workQuery($relativePath: String!) {
 	work(relativePath: $relativePath) {
 		...WorkParts
-	}
-	workConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...WorkParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
+		_sys {
+			relativePath
 		}
 	}
 }
