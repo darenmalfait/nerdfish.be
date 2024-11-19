@@ -1,5 +1,6 @@
 'use client'
 
+import { H1 } from '@nerdfish/ui'
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import { Section } from '@nerdfish-website/ui/components'
 import * as React from 'react'
@@ -63,7 +64,9 @@ export function BlockLayout({
 					/>
 					<ArticleOverviewSearchContent>
 						<SectionHeader>
-							<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
+							<H1 variant="primary" className="mb-lg">
+								{header?.title}
+							</H1>
 							<SectionHeaderSubtitle>
 								{header?.subtitle ?? undefined}
 							</SectionHeaderSubtitle>
