@@ -31,7 +31,7 @@ export const SectionHeaderSubtitle = React.forwardRef<
 	return (
 		<p
 			className={cx(
-				'text-muted max-w-7xl text-xl font-bold lg:text-2xl',
+				'text-muted max-w-7xl text-xl font-semibold lg:text-2xl',
 				className,
 			)}
 			ref={ref}
