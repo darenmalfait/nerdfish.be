@@ -155,9 +155,7 @@ const MainNavigationItem = React.forwardRef<
 						if (!subNavItem) return null
 
 						return (
-							<li key={subNavItem.label}>
-								<MainNavigationSubItem {...subNavItem} />
-							</li>
+							<MainNavigationSubItem key={subNavItem.label} {...subNavItem} />
 						)
 					})}
 				</ul>
