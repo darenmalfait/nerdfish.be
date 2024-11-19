@@ -1,5 +1,6 @@
 import { blogTemplate } from './blocks/blog.template'
 import { bookingTemplate } from './blocks/booking.template'
+import { contactFormTemplate } from './blocks/contact-form.template'
 import { contentTemplate } from './blocks/content.template'
 import { ctaTemplate } from './blocks/cta.template'
 import { faqTemplate } from './blocks/faq.template'
@@ -19,6 +20,7 @@ import { workTemplate } from './blocks/work.template'
 export const blocks = [
 	blogTemplate,
 	bookingTemplate,
+	contactFormTemplate,
 	contentTemplate,
 	ctaTemplate,
 	faqTemplate,

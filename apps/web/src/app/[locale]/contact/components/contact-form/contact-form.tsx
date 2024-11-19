@@ -35,7 +35,7 @@ function Fieldset({
 	title: string
 }) {
 	return (
-		<fieldset className="p-lg mb-lg rounded-semi shadow-outline">
+		<fieldset className="mb-lg rounded-semi">
 			<H3 className="mb-lg">{title}</H3>
 			<div className="space-y-md">{children}</div>
 		</fieldset>
@@ -133,7 +133,7 @@ export function ContactForm() {
 									<FormLabel>{t('contact.message')}</FormLabel>
 
 									<FormControl>
-										<Textarea inputSize="lg" {...field} />
+										<Textarea inputSize="lg" rows={5} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -155,7 +155,7 @@ export function ContactForm() {
 						</Alert>
 					) : (
 						<Button
-							className="mt-md group"
+							className="mt-md group w-full"
 							size="lg"
 							disabled={
 								form.formState.isSubmitting ||
