@@ -3,6 +3,7 @@ import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
+import { supportedLanguages } from './i18n'
 
 const BASE_URL = process.env.NEXT_PUBLIC_URL
 
@@ -16,6 +17,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
+		...supportedLanguages.map((locale) => {
+			return {
+				url: `${BASE_URL}/${locale.code}`,
+				lastModified: new Date(),
+				changeFrequency: 'monthly',
+				priority: 1,
+			}
+		}),
 		...(data.pages?.map((page) => {
 			return {
 				url: `${BASE_URL}/${page._sys?.breadcrumbs.join('/')}`,
