@@ -1,4 +1,3 @@
-import { H1 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import {
 	FigmaIcon,
@@ -15,7 +14,7 @@ import {
 } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { AnimatedText } from '../components'
+import { SectionHeader, SectionHeaderTitle } from '../components'
 import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'
 import { type skills } from '~/tina/schema/blocks/skills.template'
 
@@ -57,7 +56,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<Section>
-			<div className="flex flex-col items-center text-center">{children}</div>
+			<div className="flex flex-col">{children}</div>
 		</Section>
 	)
 }
@@ -66,7 +65,7 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<div className="mx-auto max-w-7xl">
+		<div className="max-w-5xl">
 			<ul className="gap-lg grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
 				{children}
 			</ul>
@@ -86,13 +85,9 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 	return (
 		<BlockLayout>
 			{title ? (
-				<H1
-					data-tina-field={tinaField(data, 'title')}
-					as="h2"
-					className="mb-md w-auto font-bold"
-				>
-					<AnimatedText value={title} letterClassName="hover:text-primary" />
-				</H1>
+				<SectionHeader>
+					<SectionHeaderTitle className="!mb-0">{title}</SectionHeaderTitle>
+				</SectionHeader>
 			) : null}
 			<BlockContent>
 				<PortableText content={description} />
