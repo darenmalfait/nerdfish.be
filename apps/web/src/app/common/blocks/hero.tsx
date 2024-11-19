@@ -44,12 +44,10 @@ function BlockLayout({
 				<div className="rounded-semi -z-1 inset-x-md lg:inset-x-lg absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70" />
 			) : null}
 			<div
-				className={cx(
-					'px-md relative lg:container lg:mx-auto lg:min-h-[40vh]',
-					{
-						dark: variant === 'default',
-					},
-				)}
+				className={cx('px-md relative lg:container lg:mx-auto', {
+					'lg:min-h-[40vh]': variant === 'default',
+					dark: variant === 'default',
+				})}
 			>
 				{children}
 			</div>
