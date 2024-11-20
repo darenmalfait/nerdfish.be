@@ -3,7 +3,7 @@
 import { H1, H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { TextSlideUp } from '@nerdfish-website/ui/components'
+import { InViewBackground, TextSlideUp } from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -160,25 +160,29 @@ export const SiteFooter = React.forwardRef<
 
 	return (
 		<div ref={ref} className={cx('py-lg mt-lg', className)} {...props}>
-			<footer
-				className="text-primary px-lg mx-auto"
-				aria-labelledby="footer-heading"
-			>
-				<SiteFooterHeading />
-				<nav className="pb-lg mx-auto">
-					<div className="gap-lg xl:grid">
-						<div className="mt-lg gap-lg xsm:grid-cols-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-							{navigation?.main?.map((navItem) => {
-								if (!navItem) return null
+			<InViewBackground className="bg-secondary">
+				<footer
+					className="text-primary px-lg mx-auto"
+					aria-labelledby="footer-heading"
+				>
+					<SiteFooterHeading />
+					<nav className="pb-lg mx-auto">
+						<div className="gap-lg xl:grid">
+							<div className="mt-lg gap-lg xsm:grid-cols-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+								{navigation?.main?.map((navItem) => {
+									if (!navItem) return null
 
-								return <FooterNavigationItem key={navItem.label} {...navItem} />
-							})}
+									return (
+										<FooterNavigationItem key={navItem.label} {...navItem} />
+									)
+								})}
+							</div>
 						</div>
-					</div>
-				</nav>
-				<Separator className="my-lg" />
-				<Disclaimer />
-			</footer>
+					</nav>
+					<Separator className="my-lg" />
+					<Disclaimer />
+				</footer>
+			</InViewBackground>
 		</div>
 	)
 })
