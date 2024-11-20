@@ -39,7 +39,7 @@ export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
 					</DrawerTrigger>
 				</TextSlideUp>
 				<DrawerContent className="bg-primary max-h-[85vh]">
-					<div className="pb-xl container mx-auto">
+					<div className="pb-xl px-md container mx-auto">
 						<SectionHeader>
 							<SectionHeaderTitle
 								data-tina-field={tinaField(props, 'formTitle')}
