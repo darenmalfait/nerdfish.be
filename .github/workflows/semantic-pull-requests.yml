@@ -43,5 +43,4 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-title-lint-error
-          message: |
-            Thank you for following the naming conventions! 🙏
+          delete: true
