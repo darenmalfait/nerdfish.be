@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, H2 } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { H2 } from '@nerdfish/ui'
+import { MagnetButton, Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
@@ -36,11 +36,7 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 
 				{page?._sys.breadcrumbs ? (
 					<div>
-						<Button
-							className="hover:motion-preset-seesaw motion-loop-once group inline-flex"
-							size="xl"
-							asChild
-						>
+						<MagnetButton size="xl" asChild>
 							<Link
 								data-tina-field={tinaField(props, 'page')}
 								href={getPagePath(page)}
@@ -48,7 +44,7 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 								{page.title}
 								<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-6 transition duration-300 xl:size-8" />
 							</Link>
-						</Button>
+						</MagnetButton>
 					</div>
 				) : null}
 			</div>
