@@ -41,7 +41,7 @@ function ImageGridContent(props: PageBlocksImageGridItems) {
 function getGridItemClassName(index: number) {
 	// Every second and third item should be half width
 	if ((index + 1) % 3 === 2 || (index + 1) % 3 === 0) {
-		return 'col-span-2'
+		return 'col-span-4 md:col-span-2'
 	}
 
 	return 'col-span-4'
