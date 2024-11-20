@@ -25,6 +25,7 @@ export async function generateMetadata({
 	params: WithLocale<{ slug?: string }>
 }): Promise<Metadata | undefined> {
 	const { data } = await getRouteData(params.slug ?? '', params.locale)
+	const baseSlug = i18n.defaultLocale === params.locale ? '' : params.locale
 
 	const title = data.page.seo?.title ?? (data.page.title || 'Untitled')
 
@@ -35,7 +36,7 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		title,
-		url: params.slug ? `/${params.locale}/${params.slug}` : `/${params.locale}`,
+		url: params.slug ? `/${baseSlug}/${params.slug}` : `/${baseSlug}`,
 		description: data.page.seo?.description ?? '',
 		canonical: data.page.seo?.canonical,
 	})
