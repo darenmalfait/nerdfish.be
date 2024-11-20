@@ -1,8 +1,11 @@
 'use client'
 
-import { Badge, Button, H1, type H2 } from '@nerdfish/ui'
+import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { getCategoryColors } from '@nerdfish-website/ui/components'
+import {
+	getCategoryColors,
+	MagnetButton,
+} from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -161,7 +164,7 @@ export const HighlightCardCTA = React.forwardRef<
 			{...props}
 			className={cx('mt-lg flex flex-1 items-end justify-start', className)}
 		>
-			<Button
+			<MagnetButton
 				size="lg"
 				variant="ghost"
 				asChild
@@ -177,7 +180,7 @@ export const HighlightCardCTA = React.forwardRef<
 						/>
 					</span>
 				</Link>
-			</Button>
+			</MagnetButton>
 		</div>
 	)
 })

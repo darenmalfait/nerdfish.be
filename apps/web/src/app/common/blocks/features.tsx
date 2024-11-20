@@ -1,8 +1,8 @@
 'use client'
 
-import { Button, Grid, H3 } from '@nerdfish/ui'
+import { Grid, H3 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import { MagnetButton, Section } from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
@@ -31,16 +31,12 @@ function DetailLink({ page }: { page?: Page }) {
 
 	return (
 		<div className="mt-md">
-			<Button
-				className="-mx-md hover:motion-preset-seesaw motion-loop-once group"
-				variant="ghost"
-				asChild
-			>
+			<MagnetButton className="-mx-md group" variant="ghost" asChild>
 				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
 					{t('features.readMore')}
 					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
 				</Link>
-			</Button>
+			</MagnetButton>
 		</div>
 	)
 }
