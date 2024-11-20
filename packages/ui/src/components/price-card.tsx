@@ -98,11 +98,18 @@ export const PriceCardDescription = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => {
+	const { isPopular } = usePriceCard()
 	if (!children) return null
 	return (
 		<CardDescription
 			ref={ref}
-			className={cx('text-muted text-lg', className)}
+			className={cx(
+				'text-muted text-lg',
+				{
+					'text-inverted/60': isPopular,
+				},
+				className,
+			)}
 			{...props}
 		>
 			{children}
@@ -160,7 +167,18 @@ export const PriceCard = React.forwardRef<
 		<PriceCardContext.Provider
 			value={React.useMemo(() => ({ isPopular, price }), [isPopular, price])}
 		>
-			<Card ref={ref} className={cx('bg-popover p-sm', className)} {...props}>
+			<Card
+				ref={ref}
+				className={cx(
+					'p-lg',
+					{
+						'bg-inverted text-inverted': isPopular,
+						'bg-secondary': !isPopular,
+					},
+					className,
+				)}
+				{...props}
+			>
 				{children}
 			</Card>
 		</PriceCardContext.Provider>

@@ -25,7 +25,7 @@ import { useTranslation } from '~/app/i18n'
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
-	return <Section className="bg-muted px-xl">{children}</Section>
+	return <Section>{children}</Section>
 }
 
 export function PricingBlock(props: Block<PageBlocksPricing>) {
@@ -37,46 +37,44 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 	if (!prices?.length) return null
 
 	return (
-		<>
-			<div className="px-md container mx-auto">
-				<SectionHeader>
-					<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
-						{title}
-					</SectionHeaderTitle>
-					<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
-						{subtitle}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
+		<BlockLayout>
+			<SectionHeader>
+				<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
+					{title}
+				</SectionHeaderTitle>
+				<SectionHeaderSubtitle data-tina-field={tinaField(props, 'subtitle')}>
+					{subtitle}
+				</SectionHeaderSubtitle>
+			</SectionHeader>
+			<div
+				className={cx('grid grid-cols-1 gap-4 md:grid-cols-2', {
+					'lg:grid-cols-3': prices.length > 2,
+				})}
+			>
+				{prices.map((item) => (
+					<PriceCard
+						isPopular={item.featured ?? false}
+						key={item.title}
+						price={item.price ?? undefined}
+					>
+						<PriceCardHeader>
+							<PriceCardTitle>{item.title}</PriceCardTitle>
+							<PriceCardDescription>{item.description}</PriceCardDescription>
+						</PriceCardHeader>
+						<PriceCardFeatures>
+							{item.features?.map((feature) => (
+								<PriceCardFeature key={feature}>{feature}</PriceCardFeature>
+							))}
+						</PriceCardFeatures>
+						<PriceCardAction href={item.link ?? ''}>
+							{item.buttonText}
+						</PriceCardAction>
+					</PriceCard>
+				))}
 			</div>
-			<BlockLayout>
-				<div
-					className={cx('grid grid-cols-1 gap-4 md:grid-cols-2', {
-						'lg:grid-cols-3': prices.length > 2,
-					})}
-				>
-					{prices.map((item) => (
-						<PriceCard
-							isPopular={item.featured ?? false}
-							key={item.title}
-							price={item.price ?? undefined}
-						>
-							<PriceCardHeader>
-								<PriceCardTitle>{item.title}</PriceCardTitle>
-								<PriceCardDescription>{item.description}</PriceCardDescription>
-							</PriceCardHeader>
-							<PriceCardFeatures>
-								{item.features?.map((feature) => (
-									<PriceCardFeature key={feature}>{feature}</PriceCardFeature>
-								))}
-							</PriceCardFeatures>
-							<PriceCardAction href={item.link ?? ''}>
-								{item.buttonText}
-							</PriceCardAction>
-						</PriceCard>
-					))}
-				</div>
-				<p className="text-muted text-center text-sm">{t('global.vat')}</p>
-			</BlockLayout>
-		</>
+			<p className="text-primary mt-sm text-center text-sm">
+				{t('global.vat')}
+			</p>
+		</BlockLayout>
 	)
 }
