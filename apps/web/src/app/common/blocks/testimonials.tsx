@@ -16,7 +16,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<InViewBackground className="bg-info">
+		<InViewBackground className="bg-blog/20">
 			<Section>{children}</Section>
 		</InViewBackground>
 	)
