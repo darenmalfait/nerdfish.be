@@ -35,7 +35,7 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 		<BlockLayout>
 			<HighlightCard
 				title={title ?? reference?.title ?? ''}
-				className="bg-info-muted"
+				className="bg-blog/20"
 			>
 				<HighlightCardContent>
 					<HighlightCardCategory
