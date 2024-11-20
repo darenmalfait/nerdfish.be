@@ -6,7 +6,6 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 	H5,
-	ScrollArea,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Tag } from '@nerdfish-website/ui/components'
@@ -105,17 +104,17 @@ export function TagFilter({
 							<FilterIcon size="sm" className="size-4" />
 						</Button>
 					</DrawerTrigger>
-					<DrawerContent className="p-md">
-						<DrawerHeader>
-							<DrawerTitle>{title}</DrawerTitle>
-						</DrawerHeader>
-						<ScrollArea className="h-[30vh] w-full md:h-auto">
+					<DrawerContent className="max-h-[85vh]">
+						<div className="p-md container mx-auto">
+							<DrawerHeader>
+								<DrawerTitle>{title}</DrawerTitle>
+							</DrawerHeader>
 							<Tags
 								{...tagsProps}
 								className="p-4"
 								selectedTags={selectedTags}
 							/>
-						</ScrollArea>
+						</div>
 					</DrawerContent>
 				</Drawer>
 			</H5>

@@ -13,9 +13,7 @@ import {
 	Skeleton,
 	Drawer,
 	useMediaQuery,
-	DrawerHeader,
 	DrawerContent,
-	ScrollArea,
 	CardTitle,
 	CardDescription,
 } from '@nerdfish/ui'
@@ -48,10 +46,8 @@ function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-semi bg-primary overflow-hidden !p-0 transition-all">
-					<ScrollArea className="h-fit max-h-[85vh] overflow-auto">
-						{children}
-					</ScrollArea>
+				<DialogContent className="rounded-semi bg-primary relative overflow-hidden !p-0 transition-all">
+					{children}
 				</DialogContent>
 			</Dialog>
 		)
@@ -60,10 +56,7 @@ function DrawerDialog({
 	return (
 		<Drawer open={open} onOpenChange={onOpenChange}>
 			<DrawerContent className="bg-primary transition-all">
-				<DrawerHeader className="bg-transparent pb-0" />
-				<ScrollArea className="h-fit max-h-[85vh] overflow-auto">
-					{children}
-				</ScrollArea>
+				{children}
 			</DrawerContent>
 		</Drawer>
 	)
@@ -185,7 +178,12 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 								}
 							}}
 						>
-							{bookingType ? <EmbeddedCal bookingType={bookingType} /> : null}
+							{bookingType ? (
+								<EmbeddedCal
+									className="[&_iframe]:h-fit [&_iframe]:max-h-[85vh] [&_iframe]:overflow-y-scroll"
+									bookingType={bookingType}
+								/>
+							) : null}
 						</DrawerDialog>
 					</CardContent>
 				</Card>
