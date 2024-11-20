@@ -1,7 +1,11 @@
 'use client'
 
-import { Button, Drawer, DrawerContent, DrawerTrigger } from '@nerdfish/ui'
-import { Section, TextSlideUp } from '@nerdfish-website/ui/components'
+import { Drawer, DrawerContent, DrawerTrigger } from '@nerdfish/ui'
+import {
+	Section,
+	TextSlideUp,
+	MagnetButton,
+} from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -27,17 +31,18 @@ export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
 				</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Drawer>
-				<TextSlideUp
-					delay={400}
-					className="hover:motion-preset-seesaw motion-loop-once group inline-flex"
-				>
-					<DrawerTrigger asChild>
-						<Button size="xl">
+				<DrawerTrigger asChild>
+					<TextSlideUp delay={400} className="!overflow-visible">
+						<MagnetButton
+							size="xl"
+							className="motion-opacity-in-[0%] motion-delay-500"
+						>
 							{openFormLabel}
 							<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-xs group-hover:text-inverted transition-all" />
-						</Button>
-					</DrawerTrigger>
-				</TextSlideUp>
+						</MagnetButton>
+					</TextSlideUp>
+				</DrawerTrigger>
+
 				<DrawerContent className="bg-primary max-h-[85vh]">
 					<div className="pb-xl px-md container mx-auto">
 						<SectionHeader>

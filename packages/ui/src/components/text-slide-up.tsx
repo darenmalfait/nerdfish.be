@@ -9,13 +9,15 @@ function TextSlideUpItem({
 	children,
 	delay,
 	animate,
+	className,
 }: {
 	children: React.ReactNode
 	delay?: number
 	animate?: boolean
+	className?: string
 }) {
 	return (
-		<div className="overflow-hidden leading-[1.15]">
+		<div className={cx('overflow-hidden leading-[1.15]', className)}>
 			<div
 				className={cx({
 					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] [animation-duration:800ms]':
@@ -46,6 +48,7 @@ export const TextSlideUp = React.forwardRef<
 			delay = 0,
 			asChild = false,
 			eager,
+			className,
 			...props
 		},
 		ref,
@@ -59,13 +62,17 @@ export const TextSlideUp = React.forwardRef<
 
 		const Component = asChild ? Slot : 'div'
 		return (
-			<Component ref={componentRef} {...props}>
+			<Component ref={componentRef} className={className} {...props}>
 				{React.Children.map(children, (child, index) => {
 					const stagger = staggerDelay ? index * staggerDelay : 0
 					const itemDelay = delay + stagger
 
 					return (
-						<TextSlideUpItem animate={animate} delay={itemDelay}>
+						<TextSlideUpItem
+							className={className}
+							animate={animate}
+							delay={itemDelay}
+						>
 							{child}
 						</TextSlideUpItem>
 					)
