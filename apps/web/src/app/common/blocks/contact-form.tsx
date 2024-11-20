@@ -1,12 +1,6 @@
 'use client'
 
-import {
-	Button,
-	Drawer,
-	DrawerContent,
-	DrawerTrigger,
-	ScrollArea,
-} from '@nerdfish/ui'
+import { Button, Drawer, DrawerContent, DrawerTrigger } from '@nerdfish/ui'
 import { Section, TextSlideUp } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
@@ -44,24 +38,23 @@ export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
 						</Button>
 					</DrawerTrigger>
 				</TextSlideUp>
-				<DrawerContent className="p-lg bg-primary">
-					<ScrollArea className="h-[80vh]">
-						<div className="pb-xl container mx-auto">
-							<SectionHeader>
-								<SectionHeaderTitle
-									data-tina-field={tinaField(props, 'formTitle')}
-								>
-									{formTitle}
-								</SectionHeaderTitle>
-								<SectionHeaderSubtitle
-									data-tina-field={tinaField(props, 'formSubtitle')}
-								>
-									{formSubtitle}
-								</SectionHeaderSubtitle>
-							</SectionHeader>
-							<ContactForm />
-						</div>
-					</ScrollArea>
+				<DrawerContent className="bg-primary max-h-[85vh]">
+					<div className="pb-xl container mx-auto">
+						<SectionHeader>
+							<SectionHeaderTitle
+								data-tina-field={tinaField(props, 'formTitle')}
+							>
+								{formTitle}
+							</SectionHeaderTitle>
+							<SectionHeaderSubtitle
+								data-tina-field={tinaField(props, 'formSubtitle')}
+							>
+								{formSubtitle}
+							</SectionHeaderSubtitle>
+						</SectionHeader>
+						<ContactForm />
+					</div>
+					{/* </div> */}
 				</DrawerContent>
 			</Drawer>
 		</Section>

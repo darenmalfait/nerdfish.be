@@ -9,8 +9,10 @@ import { useTheme } from '~/app/theme-provider'
 
 export function EmbeddedCal({
 	bookingType = '30min',
+	className,
 }: {
 	bookingType: GlobalCalcomTypes['slug']
+	className?: string
 }) {
 	const [calLoading, setCalLoading] = React.useState<boolean>(true)
 	const { theme } = useTheme()
@@ -40,14 +42,14 @@ export function EmbeddedCal({
 	if (!calcom?.profileName) return null
 
 	return (
-		<div className="overflow-hidden">
+		<div>
 			{calLoading ? (
 				<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
 					<Skeleton className="h-full w-full" />
 				</div>
 			) : null}
 			<Cal
-				style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+				className={className}
 				calLink={`${calcom.profileName}/${bookingType}`}
 				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
 			/>
