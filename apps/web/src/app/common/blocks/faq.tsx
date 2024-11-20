@@ -34,7 +34,7 @@ function QAItem({ question, answer }: { question: string; answer: string }) {
 			<AccordionTrigger className="text-xl !outline-none after:hidden hover:no-underline">
 				{question}
 			</AccordionTrigger>
-			<AccordionContent className="text-muted text-lg">
+			<AccordionContent className="text-primary text-lg">
 				{answer}
 			</AccordionContent>
 		</AccordionItem>
