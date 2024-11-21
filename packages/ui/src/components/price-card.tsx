@@ -67,9 +67,19 @@ PriceCardTitle.displayName = 'PriceCardTitle'
 export const PriceCardFeatures = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
+	const { isPopular } = usePriceCard()
 	return (
-		<CardContent ref={ref} {...props}>
+		<CardContent
+			ref={ref}
+			className={cx(
+				{
+					'dark:light dark': isPopular,
+				},
+				className,
+			)}
+			{...props}
+		>
 			<ul>{children}</ul>
 		</CardContent>
 	)
