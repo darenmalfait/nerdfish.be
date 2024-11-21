@@ -24,6 +24,7 @@ export type Dictionary = {
 	'blog.related.title': string
 	'blog.related.subtitle': string
 	'contact.dataUsage': string
+	'contact.company': string
 	'contact.email': string
 	'contact.fieldset.customer': string
 	'contact.fieldset.message': string
