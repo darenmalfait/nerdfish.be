@@ -94,7 +94,7 @@ export function ContactForm() {
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<div>
 					<Fieldset title={t('contact.fieldset.customer')}>
-						<div className="gap-lg flex w-full flex-col md:flex-row">
+						<div className="gap-md flex w-full flex-col md:flex-row">
 							<FormField
 								control={form.control}
 								name="name"
