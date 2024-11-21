@@ -1,9 +1,10 @@
 import { createOpenAI } from '@ai-sdk/openai'
+import { env } from '@nerdfish-website/env'
 import { convertToCoreMessages, type Message, streamText } from 'ai'
 
 const groq = createOpenAI({
 	baseURL: 'https://api.groq.com/openai/v1',
-	apiKey: process.env.GROQ_API_KEY ?? '',
+	apiKey: env.GROQ_API_KEY,
 })
 
 export const runtime = 'edge'
@@ -16,7 +17,7 @@ export async function POST(req: Request) {
 	try {
 		const result = await streamText({
 			model: groq('llama3-8b-8192'),
-			system: process.env.CHAT_SYSTEM_PROMPT ?? '',
+			system: env.CHAT_SYSTEM_PROMPT ?? '',
 			messages: coreMessages,
 		})
 

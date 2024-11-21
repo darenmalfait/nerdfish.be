@@ -1,3 +1,4 @@
+import { env } from '@nerdfish-website/env'
 import { stripPreSlash, stripTrailingSlash } from '@nerdfish-website/lib/utils'
 import { type Metadata } from 'next'
 import { type z } from 'zod'
@@ -5,9 +6,7 @@ import { type ogImageSchema } from '../api/og/validation'
 import { type SocialMetas } from './types'
 
 export function getDomainUrl(): string | undefined {
-	if (process.env.NEXT_PUBLIC_URL) {
-		return process.env.NEXT_PUBLIC_URL
-	}
+	return env.NEXT_PUBLIC_URL
 }
 
 export function generateOGImageUrl({

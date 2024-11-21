@@ -18,10 +18,10 @@ import {
 	LoadingAnimation,
 	Textarea,
 } from '@nerdfish/ui'
+import { env } from '@nerdfish-website/env'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
-
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema } from './validation'
 import { useTranslation } from '~/app/i18n'
@@ -61,7 +61,7 @@ export function ContactForm() {
 			setError(undefined)
 			let recaptchaResponse
 
-			if (process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+			if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
 				try {
 					recaptchaResponse = await execute()
 				} catch {

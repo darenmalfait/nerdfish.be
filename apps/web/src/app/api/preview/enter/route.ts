@@ -1,3 +1,4 @@
+import { env } from '@nerdfish-website/env'
 import { isUserAuthorized } from '@tinacms/auth'
 import { draftMode } from 'next/headers'
 import { type NextRequest } from 'next/server'
@@ -24,13 +25,13 @@ function parsePreviewUrl(unsafeUrl: string) {
 
 export async function GET(req: NextRequest) {
 	try {
-		const isLocal = process.env.NODE_ENV == 'development'
+		const isLocal = env.NODE_ENV == 'development'
 
 		const { redirectTo, secret } = parsePreviewUrl(req.url)
 
 		const isAuthorizedRes = await isUserAuthorized({
 			token: `Bearer ${secret}`,
-			clientID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+			clientID: env.NEXT_PUBLIC_TINA_CLIENT_ID,
 		})
 
 		if (!isAuthorizedRes && !isLocal) {
