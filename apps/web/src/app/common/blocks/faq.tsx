@@ -30,10 +30,10 @@ function QAItem({ question, answer }: { question: string; answer: string }) {
 	return (
 		<AccordionItem
 			value={id}
-			className="p-lg focus-within:outline-active py-sm hover:bg-secondary rounded-semi bg-muted group border-none outline-none transition-colors"
+			className="p-lg focus-within:outline-active py-sm hover:bg-secondary rounded-large bg-muted group border-none outline-none transition-colors"
 		>
 			<AccordionTrigger className="py-lg text-xl !outline-none after:hidden hover:no-underline">
-				<H2 blurredClassName="hidden" variant="primary" as="span">
+				<H2 variant="primary" as="span">
 					{question}
 				</H2>
 			</AccordionTrigger>

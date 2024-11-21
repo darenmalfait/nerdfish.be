@@ -75,7 +75,6 @@ const MobileNavigationItem = React.forwardRef<
 						'hover:text-accent border-b-4 border-transparent capitalize',
 						isActive && 'border-b-accent',
 					)}
-					blurredClassName="hidden"
 					variant="primary"
 					as="span"
 				>
@@ -87,12 +86,7 @@ const MobileNavigationItem = React.forwardRef<
 
 	return (
 		<div>
-			<H2
-				className="capitalize"
-				blurredClassName="hidden"
-				variant="primary"
-				as="span"
-			>
+			<H2 className="capitalize" variant="primary" as="span">
 				{label}
 			</H2>
 			<ul className="mt-md gap-sm grid">

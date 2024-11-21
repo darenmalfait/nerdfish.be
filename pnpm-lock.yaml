@@ -88,14 +88,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@nerdfish/tailwind-config':
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.7.1
+        version: 3.7.1
       '@nerdfish/theme':
         specifier: ^2.4.1
         version: 2.4.1
       '@nerdfish/ui':
-        specifier: ^7.5.0
-        version: 7.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.6.1
+        version: 7.6.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -251,8 +251,8 @@ importers:
   packages/config-tailwind:
     devDependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.7.1
+        version: 3.7.1
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
         version: 0.4.4(tailwindcss@3.4.15)
@@ -354,11 +354,11 @@ importers:
         specifier: workspace:*
         version: link:../lib
       '@nerdfish/tailwind-config':
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.7.1
+        version: 3.7.1
       '@nerdfish/ui':
-        specifier: ^7.5.0
-        version: 7.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.6.1
+        version: 7.6.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2282,14 +2282,14 @@ packages:
   '@nerdfish/config@1.0.9':
     resolution: {integrity: sha512-JlzgEw/l5uKm7syyY/1fvQYNPhMxNyHKErB6faqW2zZtEXZlynDghPPc/QLPzjUBbAER1LaZNNa1bF1qTr7vjw==}
 
-  '@nerdfish/tailwind-config@3.6.0':
-    resolution: {integrity: sha512-YQ3Or71AW8Y153iKIu9d7ItAoYNHAJ9eYZYPBFtUL7pNBA3GCLFO1kv1xwUdN7fQZuGwmVnELrnEl4XYllV3Cw==}
+  '@nerdfish/tailwind-config@3.7.1':
+    resolution: {integrity: sha512-tdAUJyf00iXwkCXgQKsJnf+hIbjPrH8myQWl6pOg1BuifN/pnAdSRPcw9lBc/uWJMEWNjSyHwCthklv87qo6sw==}
 
   '@nerdfish/theme@2.4.1':
     resolution: {integrity: sha512-u/XhNZHIi7JbqVgl2t4CU6HUOQxRMOhG9+lKhQH4a/oAxCxyhZkwAvM6wvkI0oY5T+dNNkQ6xUNX/WNlT5toYg==}
 
-  '@nerdfish/ui@7.5.0':
-    resolution: {integrity: sha512-XDjLqe5mZf8T0wNKSnEc4JQ/zzzdPiZDu8BHHUvA/cqYQwHQWjHxsbqbf67GytlB1Hi1mq+TVOTz+pJud2sb8Q==}
+  '@nerdfish/ui@7.6.1':
+    resolution: {integrity: sha512-vPH/yfnAU5lqqNQ4TaGjxtprQN87l4w9LhXAwL6684wsYolPO/LWpv80XQs5jEfJL5BjSz1szEKMoBQFDxSWsQ==}
     peerDependencies:
       react: '>=18.3.1'
       react-dom: '>=18.3.1'
@@ -12055,7 +12055,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/tailwind-config@3.6.0':
+  '@nerdfish/tailwind-config@3.7.1':
     dependencies:
       tailwindcss: 3.4.14
     transitivePeerDependencies:
@@ -12065,7 +12065,7 @@ snapshots:
     dependencies:
       '@nerdfish/utils': 2.0.0
 
-  '@nerdfish/ui@7.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
+  '@nerdfish/ui@7.6.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@nerdfish/utils': 2.0.0
       '@radix-ui/react-accordion': 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

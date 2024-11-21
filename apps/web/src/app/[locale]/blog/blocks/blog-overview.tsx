@@ -84,7 +84,7 @@ export async function BlogOverviewBlock(
 					header={header}
 				>
 					{featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-semi aspect-[16/9] h-full" />
+						<Skeleton className="mb-xl rounded-large aspect-[16/9] h-full" />
 					) : null}
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (

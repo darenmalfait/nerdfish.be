@@ -36,7 +36,7 @@ function Fieldset({
 	title: string
 }) {
 	return (
-		<fieldset className="mb-lg rounded-semi">
+		<fieldset className="mb-lg rounded-large">
 			<H3 className="mb-lg">{title}</H3>
 			<div className="space-y-md">{children}</div>
 		</fieldset>
