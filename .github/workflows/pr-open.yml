@@ -10,11 +10,12 @@ jobs:
       NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
       NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-      RECAPTCHA_SECRETKEY: 'dummy'
-      RESEND_API_KEY: 'dummy'
-      NERDFISH_SMTP: 'dummy'
-      NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'dummy'
+      RECAPTCHA_SECRETKEY: 'test'
+      RESEND_API_KEY: 're_test'
+      NERDFISH_SMTP: 'test'
+      NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'test'
       NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
+      GROQ_API_KEY: 'test'
 
     steps:
       - name: 🛑 Cancel Previous Runs
