@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 
+import { env } from '@nerdfish-website/env'
 import { ImageResponse } from '@vercel/og'
 import { ogImageSchema } from './validation'
 
@@ -79,7 +80,7 @@ export async function GET(req: Request) {
 							top: '40px',
 							objectFit: 'cover',
 						}}
-						src={`${process.env.NEXT_PUBLIC_URL}/uploads/fish-og.png`}
+						src={`${env.NEXT_PUBLIC_URL}/uploads/fish-og.png`}
 						tw="rounded-xl shadow-2xl"
 						height={550}
 						width={700}

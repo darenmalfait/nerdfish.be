@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { type Block } from '../types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
 import { BookingBlock } from '~/app/[locale]/contact'
@@ -22,8 +21,6 @@ import { ImageGridBlock } from '~/app/common/blocks/image-grid'
 import { PricingBlock } from '~/app/common/blocks/pricing'
 import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
 import { type WorkBlocks, type PageBlocks } from '~/tina/__generated__/types'
-
-const FALLBACK_COMPONENT_ENABLED = process.env.NODE_ENV === 'development'
 
 type PageBlockType =
 	| NonNullable<PageBlocks[keyof PageBlocks]>
@@ -95,12 +92,7 @@ function BlockComponent({
 
 	const Component = getComponent(block.__typename)
 
-	if (!Component) {
-		return FALLBACK_COMPONENT_ENABLED ? (
-			<Placeholder componentName={block.__typename} />
-		) : null
-	}
-
+	if (!Component) return <Placeholder componentName={block.__typename} />
 	return <Component locale={locale} globalData={globalData} {...block} />
 }
 

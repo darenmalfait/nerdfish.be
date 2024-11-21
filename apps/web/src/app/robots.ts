@@ -1,3 +1,4 @@
+import { env } from '@nerdfish-website/env'
 import { type MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -6,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
 			userAgent: '*',
 			disallow: ['/api/*'],
 		},
-		sitemap: `${process.env.NEXT_PUBLIC_URL}/sitemap.xml`,
+		sitemap: `${env.NEXT_PUBLIC_URL}/sitemap.xml`,
 	}
 }

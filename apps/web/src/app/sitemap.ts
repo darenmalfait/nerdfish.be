@@ -1,3 +1,4 @@
+import { env } from '@nerdfish-website/env'
 import { type MetadataRoute } from 'next'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
@@ -5,7 +6,7 @@ import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
 import { supportedLanguages } from './i18n'
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL
+const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const data = await getSitemapData()

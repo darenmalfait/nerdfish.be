@@ -1,5 +1,6 @@
 'use client'
 
+import { env } from '@nerdfish-website/env'
 import * as React from 'react'
 
 /**
@@ -41,11 +42,6 @@ export function useRecaptcha(): RecaptchaProps {
 	}>(null)
 
 	React.useEffect(() => {
-		if (!process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
-			console.error('Error: RECAPTCHA_SITEKEY is not set')
-			return
-		}
-
 		const loadScriptByURL = (id: string, url: string) => {
 			const isScriptExist = document.getElementById(id)
 
@@ -78,7 +74,7 @@ export function useRecaptcha(): RecaptchaProps {
 		// load the script by passing the URL
 		loadScriptByURL(
 			scriptId,
-			`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
+			`https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
 		)
 
 		return () => {
@@ -91,12 +87,9 @@ export function useRecaptcha(): RecaptchaProps {
 			console.error('Error: grecaptcha is not defined')
 		}
 
-		return greCaptchaInstance?.execute(
-			process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
-			{
-				action: 'submit',
-			},
-		)
+		return greCaptchaInstance?.execute(env.NEXT_PUBLIC_RECAPTCHA_SITEKEY, {
+			action: 'submit',
+		})
 	}, [greCaptchaInstance])
 
 	return { execute }
