@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const env = createEnv({
 	client: {
 		NEXT_PUBLIC_URL: z.string().min(1).url(),
-		NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1),
+		NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1).optional(),
 		NEXT_PUBLIC_TINA_CLIENT_ID: z.string().min(1),
 		// Optional when developing locally
 		NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(),
@@ -12,7 +12,7 @@ export const env = createEnv({
 	server: {
 		NODE_ENV: z.enum(['development', 'production', 'test']),
 		TINA_TOKEN: z.string().min(1),
-		RECAPTCHA_SECRETKEY: z.string().min(1),
+		RECAPTCHA_SECRETKEY: z.string().min(1).optional(),
 		NERDFISH_SMTP: z.string().min(1),
 		RESEND_API_KEY: z.string().min(1).startsWith('re_'),
 		GROQ_API_KEY: z.string(),
