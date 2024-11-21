@@ -63,8 +63,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       '@nerdfish/theme':
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.4.1
+        version: 2.4.1
       '@nerdfish/ui':
         specifier: ^7.5.0
         version: 7.5.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
@@ -2251,8 +2251,8 @@ packages:
   '@nerdfish/tailwind-config@3.6.0':
     resolution: {integrity: sha512-YQ3Or71AW8Y153iKIu9d7ItAoYNHAJ9eYZYPBFtUL7pNBA3GCLFO1kv1xwUdN7fQZuGwmVnELrnEl4XYllV3Cw==}
 
-  '@nerdfish/theme@2.4.0':
-    resolution: {integrity: sha512-eJrM2Wa6F83R9WUsE56ehsuvRIcnchNO0gg+jwDZo3VSQDo0uv3gI8KLBjsBz3XWQpOPZ9BRd4ol2O+tu926Nw==}
+  '@nerdfish/theme@2.4.1':
+    resolution: {integrity: sha512-u/XhNZHIi7JbqVgl2t4CU6HUOQxRMOhG9+lKhQH4a/oAxCxyhZkwAvM6wvkI0oY5T+dNNkQ6xUNX/WNlT5toYg==}
 
   '@nerdfish/ui@7.5.0':
     resolution: {integrity: sha512-XDjLqe5mZf8T0wNKSnEc4JQ/zzzdPiZDu8BHHUvA/cqYQwHQWjHxsbqbf67GytlB1Hi1mq+TVOTz+pJud2sb8Q==}
@@ -12414,7 +12414,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@nerdfish/theme@2.4.0':
+  '@nerdfish/theme@2.4.1':
     dependencies:
       '@nerdfish/utils': 2.0.0
 
