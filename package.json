@@ -5,8 +5,7 @@
   "type": "module",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "tooling/*"
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo build",
@@ -14,8 +13,8 @@
     "checks:fix": "turbo format:fix lint:fix typecheck --continue --force",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "dev": "turbo dev",
-    "format": "prettier . \"!./apps/**\" \"!./packages/**\" \"!./tooling/**\" --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
-    "format:fix": "prettier . \"!./apps/**\" \"!./packages/**\" \"!./tooling/**\" --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
+    "format": "prettier . \"!./apps/**\" \"!./packages/**\" --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
+    "format:fix": "prettier . \"!./apps/**\" \"!./packages/**\" --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
     "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "prepare": "husky",

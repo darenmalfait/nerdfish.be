@@ -77,7 +77,7 @@ importers:
         version: link:../../packages/email
       '@nerdfish-website/env':
         specifier: workspace:*
-        version: link:../../tooling/env
+        version: link:../../packages/env
       '@nerdfish-website/lib':
         specifier: workspace:*
         version: link:../../packages/lib
@@ -248,11 +248,29 @@ importers:
         specifier: ^3.4.15
         version: 3.4.15
 
+  packages/config-tailwind:
+    devDependencies:
+      '@nerdfish/tailwind-config':
+        specifier: ^3.6.0
+        version: 3.6.0
+      '@tailwindcss/line-clamp':
+        specifier: ^0.4.4
+        version: 0.4.4(tailwindcss@3.4.15)
+      '@tailwindcss/typography':
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.15)
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.15
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.15)
+
   packages/email:
     dependencies:
       '@nerdfish-website/env':
         specifier: workspace:*
-        version: link:../../tooling/env
+        version: link:../env
       '@react-email/components':
         specifier: 0.0.28
         version: 0.0.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -266,6 +284,22 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+
+  packages/env:
+    dependencies:
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@types/node':
+        specifier: 22.9.0
+        version: 22.9.0
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -374,40 +408,6 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
-
-  tooling/config-tailwind:
-    devDependencies:
-      '@nerdfish/tailwind-config':
-        specifier: ^3.6.0
-        version: 3.6.0
-      '@tailwindcss/line-clamp':
-        specifier: ^0.4.4
-        version: 0.4.4(tailwindcss@3.4.15)
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
-      tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.15
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.15)
-
-  tooling/env:
-    dependencies:
-      '@t3-oss/env-nextjs':
-        specifier: ^0.11.1
-        version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
-    devDependencies:
-      '@types/node':
-        specifier: 22.9.0
-        version: 22.9.0
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
