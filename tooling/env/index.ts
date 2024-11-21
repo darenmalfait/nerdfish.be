@@ -3,18 +3,11 @@ import { z } from 'zod'
 
 export const env = createEnv({
 	client: {
-		NEXT_PUBLIC_URL: z.string().min(1).url().optional(),
+		NEXT_PUBLIC_URL: z.string().min(1).url(),
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1),
 		NEXT_PUBLIC_TINA_CLIENT_ID: z.string().min(1),
 		// Optional when developing locally
 		NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(),
-
-		// Added by Vercel
-		NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: z
-			.string()
-			.min(1)
-			.url()
-			.optional(),
 	},
 	server: {
 		NODE_ENV: z.enum(['development', 'production', 'test']),
@@ -41,13 +34,9 @@ export const env = createEnv({
 		SKIP_EMAILS: process.env.SKIP_EMAILS === 'true',
 		VERCEL: process.env.VERCEL,
 		NEXT_RUNTIME: process.env.NEXT_RUNTIME,
-		NEXT_PUBLIC_URL:
-			process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ??
-			process.env.NEXT_PUBLIC_URL,
+		NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
 		NEXT_PUBLIC_TINA_CLIENT_ID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
 		NEXT_PUBLIC_TINA_BRANCH: process.env.NEXT_PUBLIC_TINA_BRANCH,
-		NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL:
-			process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
 	},
 })
