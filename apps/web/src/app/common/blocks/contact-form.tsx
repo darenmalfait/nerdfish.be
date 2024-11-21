@@ -59,7 +59,6 @@ export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
 						</SectionHeader>
 						<ContactForm />
 					</div>
-					{/* </div> */}
 				</DrawerContent>
 			</Drawer>
 		</Section>

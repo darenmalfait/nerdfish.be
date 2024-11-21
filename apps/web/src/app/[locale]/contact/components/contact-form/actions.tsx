@@ -10,24 +10,26 @@ import { contactSchema, type ContactFormData } from './validation'
 export async function submitContactForm(payload: ContactFormData) {
 	const data = contactSchema.parse(payload)
 
-	if (!payload.recaptchaResponse) throw new Error('Recaptcha is required')
+	if (env.RECAPTCHA_SECRETKEY) {
+		if (!payload.recaptchaResponse) return { error: 'Recaptcha is required' }
 
-	const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
+		const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
 
-	const recaptchaRes = await fetch(recaptchaUrl, { method: 'POST' })
+		const recaptchaRes = await fetch(recaptchaUrl, { method: 'POST' })
 
-	if (!recaptchaRes.ok) {
-		console.error(recaptchaRes)
+		if (!recaptchaRes.ok) {
+			console.error(recaptchaRes)
 
-		return { error: 'Recaptcha failed' }
-	}
+			return { error: 'Recaptcha failed' }
+		}
 
-	const recaptchaJson = await recaptchaRes.json()
+		const recaptchaJson = await recaptchaRes.json()
 
-	if (!recaptchaJson.success) {
-		console.error(recaptchaJson)
+		if (!recaptchaJson.success) {
+			console.error(recaptchaJson)
 
-		return { error: 'Recaptcha failed' }
+			return { error: 'Recaptcha failed' }
+		}
 	}
 
 	const { name, email, textMessage: message } = data
