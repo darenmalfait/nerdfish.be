@@ -4,11 +4,12 @@ import {
 	ContactEmail as contactEmail,
 	renderAsync,
 } from '@nerdfish-website/emails/emails'
+import { env } from '@nerdfish-website/env'
 import type * as React from 'react'
 import { Resend } from 'resend'
 import { contactSchema, type ContactFormData } from './validation'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(env.RESEND_API_KEY)
 
 export async function sendContactEmail({
 	message,
@@ -17,7 +18,7 @@ export async function sendContactEmail({
 	message: string
 	from: string
 }) {
-	if (process.env.SKIP_EMAILS ?? !process.env.NERDFISH_SMTP) return
+	if (env.SKIP_EMAILS ?? !env.NERDFISH_SMTP) return
 
 	// https://github.com/resendlabs/resend-node/issues/256
 	const html = await renderAsync(
@@ -25,9 +26,9 @@ export async function sendContactEmail({
 	)
 
 	const data = await resend.emails.send({
-		from: process.env.NERDFISH_SMTP,
+		from: env.NERDFISH_SMTP,
 		reply_to: from,
-		to: [process.env.NERDFISH_SMTP],
+		to: [env.NERDFISH_SMTP],
 		subject: 'Email from contact form nerdfish.be',
 		html,
 	})
@@ -40,7 +41,7 @@ export async function submitContactForm(payload: ContactFormData) {
 
 	if (!payload.recaptchaResponse) throw new Error('Recaptcha is required')
 
-	const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
+	const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
 
 	const recaptchaRes = await fetch(recaptchaUrl, { method: 'POST' })
 
