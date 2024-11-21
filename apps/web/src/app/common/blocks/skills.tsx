@@ -39,7 +39,7 @@ function SkillItem({ skill }: { skill?: string | null }) {
 	const SkillIcon = skillIconMap[skill as keyof typeof skillIconMap]
 
 	return (
-		<li className="aspect-1 bg-muted rounded-semi col-span-1 flex w-full flex-col items-center justify-center">
+		<li className="aspect-1 bg-muted rounded-large col-span-1 flex w-full flex-col items-center justify-center">
 			<div className="flex flex-col items-center text-center">
 				<SkillIcon
 					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"

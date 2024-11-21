@@ -32,7 +32,7 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 				</svg>
 				<div
 					className={cx(
-						'px-sm py-xs rounded-semi relative w-fit bg-current font-bold text-current group-active:opacity-50',
+						'px-sm py-xs rounded-large relative w-fit bg-current font-bold text-current group-active:opacity-50',
 					)}
 				>
 					<span className="text-inverted">{children}</span>
@@ -56,15 +56,15 @@ export function ArticleCardImage({
 	return (
 		<div
 			className={cx(
-				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-semi relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				'aspect-h-4 aspect-w-3 shadow-outline ring-offset-inverted rounded-large relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
 			)}
 		>
-			<Skeleton className="rounded-semi absolute inset-0 size-full object-cover" />
+			<Skeleton className="rounded-large absolute inset-0 size-full object-cover" />
 
 			{src ? (
 				<Image
-					className="rounded-semi motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
+					className="rounded-large motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
 					src={src}
 					fill
 					alt={alt ?? ''}
@@ -95,7 +95,6 @@ export const ArticleCardTitle = React.forwardRef<
 		<H2
 			as="h3"
 			variant="primary"
-			blurredClassName="hidden"
 			ref={ref}
 			{...props}
 			className={cx('mb-sm !mt-0 line-clamp-2', className)}

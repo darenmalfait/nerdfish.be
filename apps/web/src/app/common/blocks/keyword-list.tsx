@@ -30,7 +30,6 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 						<H1
 							as="span"
 							variant="primary"
-							blurredClassName="hidden"
 							aria-label={keyword}
 							key={keyword}
 							className="uppercase"

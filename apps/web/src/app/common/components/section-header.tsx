@@ -14,7 +14,6 @@ export const SectionHeaderTitle = React.forwardRef<
 		<H1
 			as="h2"
 			variant="primary"
-			blurredClassName="hidden"
 			ref={ref}
 			className={cx('mb-lg max-w-7xl font-semibold', className)}
 			{...props}
