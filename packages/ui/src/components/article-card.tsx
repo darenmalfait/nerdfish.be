@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, Button, H2, type H3, Skeleton } from '@nerdfish/ui'
+import { Badge, H2, type H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	getCategoryColors,
@@ -10,7 +10,37 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
-import { TriangleIcon } from '../icons'
+
+function ReadMoreCursor({ children }: { children: React.ReactNode }) {
+	return (
+		<Cursor attachToParent>
+			<div className="gap-md motion-preset-pop motion-duration-300 group relative inline-flex items-center">
+				<svg
+					fill="none"
+					height="18"
+					viewBox="0 0 17 18"
+					width="17"
+					className="origin-center -rotate-90"
+				>
+					<path
+						d="M15.5036 3.11002L12.5357 15.4055C12.2666 16.5204 10.7637 16.7146 10.22 15.7049L7.4763 10.6094L2.00376 8.65488C0.915938 8.26638 0.891983 6.73663 1.96711 6.31426L13.8314 1.65328C14.7729 1.28341 15.741 2.12672 15.5036 3.11002ZM7.56678 10.6417L7.56645 10.6416C7.56656 10.6416 7.56667 10.6416 7.56678 10.6417L7.65087 10.4062L7.56678 10.6417Z"
+						fill="currentColor"
+						stroke="currentColor"
+						strokeWidth="1.5"
+						className="group-active:opacity-50"
+					/>
+				</svg>
+				<div
+					className={cx(
+						'px-sm py-xs rounded-semi relative w-fit bg-current font-bold text-current group-active:opacity-50',
+					)}
+				>
+					<span className="text-inverted">{children}</span>
+				</div>
+			</div>
+		</Cursor>
+	)
+}
 
 export function ArticleCardImage({
 	src,
@@ -41,16 +71,7 @@ export function ArticleCardImage({
 				/>
 			) : null}
 
-			<Cursor attachToParent>
-				<Button
-					aria-hidden
-					size="lg"
-					className="motion-preset-pop motion-duration-300 shadow-soft-xl relative ml-2 mt-2 bg-current object-center font-bold text-current group-active:scale-125"
-				>
-					<TriangleIcon className="-z-1 absolute -left-3 -top-3 size-4 origin-center rotate-[75deg] fill-current" />
-					<span className="text-inverted">{readMoreLabel}</span>
-				</Button>
-			</Cursor>
+			<ReadMoreCursor>{readMoreLabel}</ReadMoreCursor>
 		</div>
 	)
 }
