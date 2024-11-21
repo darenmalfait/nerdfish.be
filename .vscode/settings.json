@@ -4,12 +4,13 @@
 	"editor.formatOnSave": true,
 	"eslint.workingDirectories": [
 		"apps/web",
-		"packages/emails",
+		"packages/email",
 		"packages/lib",
 		"packages/ui",
-		"tooling/config-eslint",
-		"tooling/config-tailwind",
-		"tooling/config-typescript"
+		"packages/observability",
+		"packages/env",
+		"packages/config-eslint",
+		"packages/config-tailwind"
 	],
 	"json.schemas": [
 		{
