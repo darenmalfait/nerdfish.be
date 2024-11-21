@@ -5,6 +5,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
+	H2,
 } from '@nerdfish/ui'
 import { Section } from '@nerdfish-website/ui/components'
 import * as React from 'react'
@@ -29,12 +30,14 @@ function QAItem({ question, answer }: { question: string; answer: string }) {
 	return (
 		<AccordionItem
 			value={id}
-			className="bg-muted px-md focus-within:outline-active py-sm hover:bg-muted/80 rounded-semi group border-none outline-none"
+			className="p-lg focus-within:outline-active py-sm hover:bg-secondary rounded-semi bg-muted group border-none outline-none transition-colors"
 		>
-			<AccordionTrigger className="text-xl !outline-none after:hidden hover:no-underline">
-				{question}
+			<AccordionTrigger className="py-lg text-xl !outline-none after:hidden hover:no-underline">
+				<H2 blurredClassName="hidden" variant="primary" as="span">
+					{question}
+				</H2>
 			</AccordionTrigger>
-			<AccordionContent className="text-primary text-lg">
+			<AccordionContent className="pt-md prose prose-xl text-primary text-xl">
 				{answer}
 			</AccordionContent>
 		</AccordionItem>
