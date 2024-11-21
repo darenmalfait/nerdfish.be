@@ -32,7 +32,7 @@ export async function submitContactForm(payload: ContactFormData) {
 		}
 	}
 
-	const { name, email, textMessage: message } = data
+	const { name, email, textMessage: message, company } = data
 
 	try {
 		if (env.SKIP_EMAILS ?? !env.NERDFISH_SMTP) return { success: true }
@@ -42,7 +42,14 @@ export async function submitContactForm(payload: ContactFormData) {
 			to: env.NERDFISH_SMTP,
 			subject: 'Contact form submission',
 			replyTo: `${name} <${email}>`,
-			react: <ContactEmail name={name} email={email} message={message} />,
+			react: (
+				<ContactEmail
+					name={name}
+					email={email}
+					message={message}
+					company={company}
+				/>
+			),
 		})
 
 		return {

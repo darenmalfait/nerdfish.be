@@ -13,10 +13,12 @@ import {
 export const ContactEmail = ({
 	name,
 	email,
+	company,
 	message,
 }: {
 	readonly name: string
 	readonly email: string
+	readonly company?: string
 	readonly message: string
 }) => (
 	<Tailwind>
@@ -31,7 +33,8 @@ export const ContactEmail = ({
 								New email from {name}
 							</Text>
 							<Text className="m-0 text-zinc-500">
-								{name} ({email}) has sent you a message:
+								{name} ({email}){company ? ` from ${company}` : ''} has sent you
+								a message:
 							</Text>
 							<Hr className="my-4" />
 							<Text className="m-0 text-zinc-500">{message}</Text>
@@ -47,6 +50,7 @@ const ContactEmailExample = () => (
 	<ContactEmail
 		name="Jane Smith"
 		email="jane@example.com"
+		company="Acme Inc."
 		message="Hello, how do I get started?"
 	/>
 )

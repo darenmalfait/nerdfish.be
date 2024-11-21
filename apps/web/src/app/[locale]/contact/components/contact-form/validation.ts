@@ -5,6 +5,11 @@ export const contactSchema = z.object({
 		.string()
 		.min(2, 'Your name seems a bit short.')
 		.max(32, 'Your name seems a bit long.'),
+	company: z
+		.string()
+		.min(2, 'Your company name seems a bit short.')
+		.max(32, 'Your company name seems a bit long.')
+		.optional(),
 	email: z.string().email('Please enter a valid email address.'),
 	textMessage: z
 		.string()

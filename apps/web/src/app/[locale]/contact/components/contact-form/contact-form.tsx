@@ -94,20 +94,37 @@ export function ContactForm() {
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<div>
 					<Fieldset title={t('contact.fieldset.customer')}>
-						<FormField
-							control={form.control}
-							name="name"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>{t('contact.name')}</FormLabel>
+						<div className="gap-lg flex w-full flex-col md:flex-row">
+							<FormField
+								control={form.control}
+								name="name"
+								render={({ field }) => (
+									<FormItem className="w-full">
+										<FormLabel>{t('contact.name')}</FormLabel>
 
-									<FormControl>
-										<Input inputSize="lg" {...field} />
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
+										<FormControl>
+											<Input inputSize="lg" {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+
+							<FormField
+								control={form.control}
+								name="company"
+								render={({ field }) => (
+									<FormItem className="w-full">
+										<FormLabel>{t('contact.company')}</FormLabel>
+
+										<FormControl>
+											<Input inputSize="lg" {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
 
 						<FormField
 							control={form.control}
