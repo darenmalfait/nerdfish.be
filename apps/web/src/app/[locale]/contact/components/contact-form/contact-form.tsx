@@ -19,6 +19,7 @@ import {
 	Textarea,
 } from '@nerdfish/ui'
 import { env } from '@nerdfish-website/env'
+import { parseError } from '@nerdfish-website/observability/error'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
@@ -45,6 +46,7 @@ function Fieldset({
 export function ContactForm() {
 	const { t } = useTranslation()
 	const { execute } = useRecaptcha()
+	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
 	const [error, setError] = React.useState<string>()
 
 	const form = useForm<ContactFormData>({
@@ -74,17 +76,16 @@ export function ContactForm() {
 				recaptchaResponse,
 			})
 
-			if (!result.success) {
-				throw new Error(t('contact.genericError'))
+			if (result.success) {
+				setIsSubmitted(true)
+				return form.reset()
 			}
 
-			form.reset()
+			if (result.error) setError(result.error)
+			else setError(t('contact.genericError'))
 		} catch (e) {
-			if (e instanceof Error) {
-				console.error(e.message)
-			} else {
-				console.error(t('contact.genericError'))
-			}
+			const errorMessage = parseError(e)
+			setError(errorMessage)
 		}
 	}
 
@@ -143,8 +144,22 @@ export function ContactForm() {
 
 					<Description>{t('contact.dataUsage')}</Description>
 
-					{form.formState.isSubmitSuccessful && !error ? (
-						<Alert variant="success">
+					{form.formState.errors.recaptchaResponse?.message ? (
+						<Alert variant="danger" className="mt-lg">
+							<AlertTitle>reCAPTCHA error</AlertTitle>
+							<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
+						</Alert>
+					) : null}
+
+					{error ? (
+						<Alert variant="danger" className="mt-lg">
+							<AlertTitle>Error</AlertTitle>
+							<AlertDescription>{error}</AlertDescription>
+						</Alert>
+					) : null}
+
+					{isSubmitted ? (
+						<Alert variant="success" className="mt-lg">
 							<AlertTitle>Success</AlertTitle>
 							<AlertDescription>
 								{t('contact.success')}
@@ -171,19 +186,6 @@ export function ContactForm() {
 						</Button>
 					)}
 				</div>
-				{form.formState.errors.recaptchaResponse?.message ? (
-					<Alert variant="danger" className="mt-lg">
-						<AlertTitle>reCAPTCHA error</AlertTitle>
-						<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
-					</Alert>
-				) : null}
-
-				{error ? (
-					<Alert variant="danger" className="mt-lg">
-						<AlertTitle>Error</AlertTitle>
-						<AlertDescription>{error}</AlertDescription>
-					</Alert>
-				) : null}
 			</form>
 		</Form>
 	)
