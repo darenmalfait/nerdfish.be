@@ -5,12 +5,13 @@ export default [
 	...defaultConfig,
 	{
 		ignores: [
-			'**/.turbo**',
-			'**/.next**',
-			'**/dist/**',
-			'**/next/**',
-			'**/next-env.d.ts',
 			'**/__generated__/**',
+			'**/.next**',
+			'**/.react-email/**',
+			'**/.turbo**',
+			'**/dist/**',
+			'**/next-env.d.ts',
+			'**/next/**',
 			'**/public/**',
 		],
 	},

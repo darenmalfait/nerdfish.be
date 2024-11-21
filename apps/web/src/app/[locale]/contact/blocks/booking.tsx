@@ -46,7 +46,7 @@ function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-semi bg-primary relative overflow-hidden !p-0 transition-all">
+				<DialogContent className="rounded-large bg-primary relative overflow-hidden !p-0 transition-all">
 					{children}
 				</DialogContent>
 			</Dialog>
@@ -98,7 +98,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 	return (
 		<InViewBackground data-tina-field={tinaField(props, 'title')}>
 			<Section>
-				<Card className="rounded-semi bg-primary/50 relative mx-auto w-full max-w-3xl overflow-hidden">
+				<Card className="rounded-large p-lg bg-primary relative mx-auto w-full max-w-3xl overflow-hidden">
 					<CardHeader className="p-lg bg-transparent pb-0">
 						<CardTitle data-tina-field={tinaField(props, 'title')}>
 							{title}
@@ -133,7 +133,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 									{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 										({ slug, title: bookingTitle, duration }) => (
 											<li
-												className="bg-primary/20 hover:bg-muted/50 shadow-outline focus-within:outline-active group relative border-b transition first:rounded-t-md last:rounded-b-md last:border-b-0"
+												className="bg-muted/20 hover:bg-muted shadow-outline focus-within:outline-active first:rounded-t-large last:rounded-b-large group relative border-b transition last:border-b-0"
 												key={slug}
 											>
 												<Link
