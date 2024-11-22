@@ -8,6 +8,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
+	H3,
 	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
@@ -138,9 +139,9 @@ export const PriceCardPrice = React.forwardRef<
 
 	return (
 		<p ref={ref} className={cx('p-md', className)} {...props}>
-			<span className="inline text-4xl font-semibold leading-7 tracking-tight">
+			<H3 as="span" className="inline text-4xl font-semibold leading-7">
 				{price}
-			</span>
+			</H3>
 		</p>
 	)
 })
