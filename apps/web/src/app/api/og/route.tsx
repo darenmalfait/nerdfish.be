@@ -54,7 +54,7 @@ export async function GET(req: Request) {
 					</svg>
 					<div tw="relative flex flex-col flex-1 py-10">
 						<div
-							tw="flex leading-[1.1] text-[80px] max-w-[700px] font-bold tracking-tighter"
+							tw="flex leading-[1.1] text-[80px] max-w-[700px] font-bold"
 							style={{
 								fontFamily: 'Inter',
 								fontWeight: 'bolder',
