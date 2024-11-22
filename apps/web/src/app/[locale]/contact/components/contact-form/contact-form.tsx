@@ -6,9 +6,11 @@ import {
 	AlertDescription,
 	AlertTitle,
 	Button,
+	Checkbox,
 	Description,
 	Form,
 	FormControl,
+	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -16,15 +18,18 @@ import {
 	H3,
 	Input,
 	LoadingAnimation,
+	Slider,
+	SliderThumb,
 	Textarea,
 } from '@nerdfish/ui'
 import { env } from '@nerdfish-website/env'
 import { parseError } from '@nerdfish-website/observability/error'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
+import { useNumberFormatter } from '@react-aria/i18n'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { submitContactForm } from './actions'
-import { type ContactFormData, contactSchema } from './validation'
+import { type ContactFormData, contactSchema, projectTypes } from './validation'
 import { useTranslation } from '~/app/i18n'
 import { useRecaptcha } from '~/app/recaptcha'
 
@@ -43,7 +48,12 @@ function Fieldset({
 	)
 }
 
+const BUDGET_RANGE = [500, 10000]
+
 export function ContactForm() {
+	const numberFormatter = useNumberFormatter({
+		notation: 'compact',
+	})
 	const { t } = useTranslation()
 	const { execute } = useRecaptcha()
 	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
@@ -55,6 +65,8 @@ export function ContactForm() {
 			name: '',
 			email: '',
 			textMessage: '',
+			projectType: [],
+			budgetRange: [1500, 4000],
 		},
 	})
 
@@ -88,6 +100,8 @@ export function ContactForm() {
 			setError(errorMessage)
 		}
 	}
+
+	const selectedProjectTypes = form.watch('projectType')
 
 	return (
 		<Form {...form}>
@@ -140,6 +154,125 @@ export function ContactForm() {
 								</FormItem>
 							)}
 						/>
+					</Fieldset>
+
+					<Fieldset title={t('contact.fieldset.project')}>
+						<FormField
+							control={form.control}
+							name="projectType"
+							render={() => (
+								<FormItem>
+									<FormLabel>{t('contact.projectType')}</FormLabel>
+									<FormDescription>
+										{t('contact.projectTypeDescription')}
+									</FormDescription>
+									<div className="gap-sm flex">
+										{projectTypes.map((type) => (
+											<FormField
+												key={type}
+												control={form.control}
+												name="projectType"
+												render={({ field }) => {
+													const checked = field.value.includes(type)
+
+													return (
+														<FormItem key={type}>
+															<FormControl>
+																<label className="gap-sm flex items-center">
+																	<span className="sr-only inline">
+																		<Checkbox
+																			aria-label={type}
+																			checked={checked}
+																			onChange={(e) => {
+																				return e.target.checked
+																					? field.onChange([
+																							...field.value,
+																							type,
+																						])
+																					: field.onChange(
+																							field.value.filter(
+																								(value) => value !== type,
+																							),
+																						)
+																			}}
+																		/>
+																	</span>
+																	<Button
+																		aria-hidden
+																		asChild
+																		aria-label={type}
+																		variant={checked ? 'accent' : 'outline'}
+																		className="inline cursor-pointer"
+																	>
+																		<span>{type}</span>
+																	</Button>
+																</label>
+															</FormControl>
+														</FormItem>
+													)
+												}}
+											/>
+										))}
+										<FormMessage />
+									</div>
+								</FormItem>
+							)}
+						/>
+
+						{selectedProjectTypes.includes('webdesign') ? (
+							<FormField
+								control={form.control}
+								name="budgetRange"
+								render={({ field }) => {
+									const [min = 0, max = 0] = BUDGET_RANGE
+
+									return (
+										<FormItem>
+											<FormLabel>
+												{t('contact.budgetRange')}
+												<FormDescription>
+													{t('contact.budgetRangeDescription')}
+													your project.
+												</FormDescription>
+												<div className="text-muted pt-md flex items-center justify-center font-semibold">
+													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €{' '}
+													{numberFormatter.format(field.value?.[1] ?? 0)}
+													{field.value?.[1] === max ? '+' : ''}
+												</div>
+											</FormLabel>
+
+											<div className="gap-sm mt-xl flex items-center">
+												<span className="mr-md text-muted text-nowrap text-lg font-semibold">
+													€ {numberFormatter.format(min)}
+												</span>
+												<FormControl>
+													<Slider
+														variant="accent"
+														min={500}
+														max={10000}
+														step={100}
+														defaultValue={[1500, 3000]}
+														inputSize="lg"
+														value={field.value}
+														onValueChange={(value) => {
+															field.onChange(value)
+														}}
+													>
+														<SliderThumb />
+
+														<SliderThumb />
+													</Slider>
+												</FormControl>
+												<span className="ml-md text-muted text-nowrap text-lg font-semibold">
+													€ {numberFormatter.format(max)}+
+												</span>
+											</div>
+											<FormMessage />
+										</FormItem>
+									)
+								}}
+							/>
+						) : null}
 					</Fieldset>
 
 					<Fieldset title={t('contact.fieldset.message')}>

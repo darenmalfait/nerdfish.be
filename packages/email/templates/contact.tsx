@@ -15,11 +15,15 @@ export const ContactEmail = ({
 	email,
 	company,
 	message,
+	budgetRange,
+	projectType,
 }: {
 	readonly name: string
 	readonly email: string
 	readonly company?: string
 	readonly message: string
+	readonly budgetRange?: number[]
+	readonly projectType?: string[]
 }) => (
 	<Tailwind>
 		<Html>
@@ -36,6 +40,16 @@ export const ContactEmail = ({
 								{name} ({email}){company ? ` from ${company}` : ''} has sent you
 								a message:
 							</Text>
+							{projectType && projectType.length > 0 ? (
+								<Text className="mt-4 text-zinc-500">
+									Interested in: {projectType.join(', ')}
+								</Text>
+							) : null}
+							{budgetRange && projectType?.includes('webdesign') ? (
+								<Text className="mt-2 text-zinc-500">
+									Budget range: € {budgetRange[0]} - € {budgetRange[1]}
+								</Text>
+							) : null}
 							<Hr className="my-4" />
 							<Text className="m-0 text-zinc-500">{message}</Text>
 						</Section>
