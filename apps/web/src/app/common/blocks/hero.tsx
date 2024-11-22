@@ -4,7 +4,7 @@ import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { AnimatedText } from '../components'
+import { AnimatedText, SectionHeaderSubtitle } from '../components'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
 
 type Variant = 'default' | 'secondary'
@@ -59,11 +59,9 @@ function BlockContent({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<div className="max-w-lg">
-			<div className="prose dark:prose-invert lg:prose-xl !text-primary mt-0">
-				{children}
-			</div>
-		</div>
+		<SectionHeaderSubtitle className="prose dark:prose-invert !text-primary/80 max-w-2xl [&_strong]:font-black">
+			{children}
+		</SectionHeaderSubtitle>
 	)
 }
 
@@ -80,7 +78,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 		<div
 			className={cx(
 				'motion-preset-shrink motion-preset-focus mb-md w-auto max-w-[50%] flex-none md:mb-0',
-				'top-1/2 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%]',
+				'-bottom-2/3 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%] lg:-bottom-1/2',
 			)}
 		>
 			{children}
