@@ -15,7 +15,7 @@ export const SectionHeaderTitle = React.forwardRef<
 			as="h2"
 			variant="primary"
 			ref={ref}
-			className={cx('mb-lg max-w-7xl font-semibold', className)}
+			className={cx('mb-lg max-w-7xl font-bold', className)}
 			{...props}
 		>
 			{children}
