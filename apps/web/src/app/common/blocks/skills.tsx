@@ -14,7 +14,11 @@ import {
 } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { SectionHeader, SectionHeaderTitle } from '../components'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '../components'
 import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'
 import { type skills } from '~/tina/schema/blocks/skills.template'
 
@@ -73,12 +77,6 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 	)
 }
 
-const BlockContent = ({ children }: { children: React.ReactNode }) => {
-	if (!children) return null
-
-	return <div className="prose text-primary mb-xl max-w-3xl">{children}</div>
-}
-
 export function SkillsBlock(data: Block<PageBlocksSkills>) {
 	const { title, skills: skillsList, description } = data
 
@@ -86,12 +84,13 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 		<BlockLayout>
 			{title ? (
 				<SectionHeader>
-					<SectionHeaderTitle className="!mb-0">{title}</SectionHeaderTitle>
+					<SectionHeaderTitle>{title}</SectionHeaderTitle>
+					<SectionHeaderSubtitle className="prose">
+						<PortableText content={description} />
+					</SectionHeaderSubtitle>
 				</SectionHeader>
 			) : null}
-			<BlockContent>
-				<PortableText content={description} />
-			</BlockContent>
+
 			<SkillsList>
 				{skillsList?.map((item) => (
 					<SkillItem
