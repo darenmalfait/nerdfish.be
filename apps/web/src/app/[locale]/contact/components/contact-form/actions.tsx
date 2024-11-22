@@ -32,7 +32,14 @@ export async function submitContactForm(payload: ContactFormData) {
 		}
 	}
 
-	const { name, email, textMessage: message, company } = data
+	const {
+		name,
+		email,
+		textMessage: message,
+		company,
+		budgetRange,
+		projectType,
+	} = data
 
 	try {
 		if (env.SKIP_EMAILS ?? !env.NERDFISH_SMTP) return { success: true }
@@ -48,6 +55,8 @@ export async function submitContactForm(payload: ContactFormData) {
 					email={email}
 					message={message}
 					company={company}
+					budgetRange={budgetRange}
+					projectType={projectType}
 				/>
 			),
 		})
