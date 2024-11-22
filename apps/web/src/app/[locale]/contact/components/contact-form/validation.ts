@@ -1,5 +1,12 @@
 import * as z from 'zod'
 
+export const projectTypes = [
+	'webdesign',
+	'freelance',
+	'print',
+	'other',
+] as const
+
 export const contactSchema = z.object({
 	name: z
 		.string()
@@ -18,6 +25,8 @@ export const contactSchema = z.object({
 			512,
 			'I like that you have a lot to say, but please keep it under 512 characters.',
 		),
+	projectType: z.array(z.enum(projectTypes)),
+	budgetRange: z.array(z.number()).optional(),
 	recaptchaResponse: z.string().optional(),
 })
 

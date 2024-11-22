@@ -28,9 +28,14 @@ export type Dictionary = {
 	'contact.email': string
 	'contact.fieldset.customer': string
 	'contact.fieldset.message': string
+	'contact.fieldset.project': string
 	'contact.genericError': string
 	'contact.message': string
 	'contact.name': string
+	'contact.projectType': string
+	'contact.projectTypeDescription': string
+	'contact.budgetRange': string
+	'contact.budgetRangeDescription': string
 	'contact.recaptchaError': string
 	'contact.send': string
 	'contact.success': string
