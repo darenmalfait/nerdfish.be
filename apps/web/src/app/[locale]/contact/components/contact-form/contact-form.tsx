@@ -232,7 +232,6 @@ export function ContactForm() {
 												{t('contact.budgetRange')}
 												<FormDescription>
 													{t('contact.budgetRangeDescription')}
-													your project.
 												</FormDescription>
 												<div className="text-muted pt-md flex items-center justify-center font-semibold">
 													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €{' '}
