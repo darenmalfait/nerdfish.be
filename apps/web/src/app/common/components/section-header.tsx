@@ -30,7 +30,7 @@ export const SectionHeaderSubtitle = React.forwardRef<
 	if (!children || children === '') return null
 
 	return (
-		<p
+		<div
 			className={cx(
 				'text-muted max-w-7xl text-xl font-semibold lg:text-2xl',
 				className,
@@ -39,7 +39,7 @@ export const SectionHeaderSubtitle = React.forwardRef<
 			{...props}
 		>
 			{children}
-		</p>
+		</div>
 	)
 })
 
