@@ -1,13 +1,11 @@
+import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
-
 import { getPages } from '../api'
 import { PageContent } from '../components/page-content'
 import { PagePreview } from '../components/page-preview'
 import { getRouteData } from './route-data'
-import { generateOGImageUrl, getMetaData } from '~/app/common'
 import { i18n, type WithLocale } from '~/app/i18n'
-
 export async function generateStaticParams() {
 	return ((await getPages()) ?? []).map((page) => {
 		const locale = page._sys?.relativePath.split('/')[0]

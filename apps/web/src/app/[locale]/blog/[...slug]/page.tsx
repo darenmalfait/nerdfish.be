@@ -1,3 +1,4 @@
+import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { BlogOverviewBlock } from '../blocks'
@@ -5,7 +6,6 @@ import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 import { BlogContent } from '~/app/[locale]/blog/components/blog-content'
 import { BlogPreview } from '~/app/[locale]/blog/components/blog-preview'
-import { generateOGImageUrl, getMetaData } from '~/app/common'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
 
