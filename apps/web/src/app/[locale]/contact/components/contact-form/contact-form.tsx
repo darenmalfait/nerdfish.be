@@ -178,11 +178,12 @@ export function ContactForm() {
 													return (
 														<FormItem key={type}>
 															<FormControl>
-																<label className="gap-sm flex items-center">
+																<label className="gap-sm focus-within:outline-active rounded-large flex items-center">
 																	<span className="sr-only inline">
 																		<Checkbox
 																			aria-label={type}
 																			checked={checked}
+																			className="peer"
 																			onChange={(e) => {
 																				return e.target.checked
 																					? field.onChange([
