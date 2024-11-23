@@ -1,9 +1,8 @@
 import { Paragraph } from '@nerdfish/ui'
+import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
 import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
 import {
-	generateOGImageUrl,
-	getMetaData,
 	HeroBlock,
 	SectionHeader,
 	SectionHeaderSubtitle,

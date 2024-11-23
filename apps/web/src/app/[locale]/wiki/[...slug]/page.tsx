@@ -1,10 +1,10 @@
+import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { getRouteData } from './route-data'
 import { WikiContent } from '~/app/[locale]/wiki/components/wiki-content'
 import { WikiPreview } from '~/app/[locale]/wiki/components/wiki-preview'
 import { getWikiPath } from '~/app/[locale]/wiki/utils'
-import { generateOGImageUrl, getMetaData } from '~/app/common'
 
 export async function generateMetadata({
 	params,
