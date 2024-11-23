@@ -1,6 +1,7 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import {
 	Section,
 	PriceCard,
@@ -18,7 +19,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-import { nonNullable } from '../utils'
 import { type PageBlocksPricing, type Block } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
@@ -32,9 +32,9 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 	const { title, subtitle, price } = props
 	const { t } = useTranslation()
 
-	const prices = price?.filter(nonNullable)
+	const prices = nonNullable(price ?? [])
 
-	if (!prices?.length) return null
+	if (!prices.length) return null
 
 	return (
 		<BlockLayout>
