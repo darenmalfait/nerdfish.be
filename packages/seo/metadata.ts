@@ -15,10 +15,6 @@ export const author: Author = {
 const publisher = 'Daren Malfait'
 const twitterHandle = '@darenmalfait'
 
-export function getDomainUrl(): string | undefined {
-	return env.NEXT_PUBLIC_URL
-}
-
 export const ogImageSchema = z.object({
 	heading: z.string(),
 })
@@ -26,7 +22,7 @@ export const ogImageSchema = z.object({
 export function generateOGImageUrl({
 	...props
 }: z.infer<typeof ogImageSchema>) {
-	const url = getDomainUrl()
+	const url = env.NEXT_PUBLIC_URL
 	const ogUrl = new URL(`${url}/api/og`)
 
 	for (const [key, value] of Object.entries(props)) {
@@ -54,7 +50,7 @@ export function getMetaData({
 	url: string
 	other?: Metadata
 }): Metadata {
-	const basePath = stripTrailingSlash(getDomainUrl() ?? '')
+	const basePath = stripTrailingSlash(env.NEXT_PUBLIC_URL)
 	const title = `${titleProp} | ${applicationName}`
 
 	const url = path.startsWith('http')
