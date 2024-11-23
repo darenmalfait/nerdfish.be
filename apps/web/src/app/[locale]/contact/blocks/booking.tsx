@@ -8,16 +8,11 @@ import {
 	Card,
 	CardContent,
 	CardHeader,
-	Dialog,
-	DialogContent,
 	Skeleton,
-	Drawer,
-	useMediaQuery,
-	DrawerContent,
 	CardTitle,
 	CardDescription,
 } from '@nerdfish/ui'
-import { Section } from '@nerdfish-website/ui/components'
+import { DrawerDialog, Section } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -29,36 +24,6 @@ import {
 	type PageBlocksBooking,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
-
-function DrawerDialog({
-	open,
-	onOpenChange,
-	children,
-}: {
-	open: boolean
-	onOpenChange: (open: boolean) => void
-	children: React.ReactNode
-}) {
-	const isDesktop = useMediaQuery('(min-width: 768px)')
-
-	if (isDesktop) {
-		return (
-			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-large bg-primary relative overflow-hidden !p-0 transition-all">
-					{children}
-				</DialogContent>
-			</Dialog>
-		)
-	}
-
-	return (
-		<Drawer open={open} onOpenChange={onOpenChange}>
-			<DrawerContent className="bg-primary transition-all">
-				{children}
-			</DrawerContent>
-		</Drawer>
-	)
-}
 
 export function BookingBlock(props: Block<PageBlocksBooking>) {
 	const { title, subtitle, content } = props
