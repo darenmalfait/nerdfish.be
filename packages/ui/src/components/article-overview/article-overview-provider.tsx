@@ -2,21 +2,8 @@
 
 import { nonNullable } from '@nerdfish-website/lib/utils'
 import * as React from 'react'
+import { type Article } from './types'
 import { filterArticles } from './utils'
-
-export type Article = {
-	id: string
-	title: string
-	image?: {
-		src?: string
-		alt?: string
-	}
-	href: string
-	excerpt?: string
-	tags?: string[]
-	category?: string
-	date?: string
-}
 
 interface ArticleOverviewContextProps {
 	articles: Article[]
@@ -26,6 +13,8 @@ interface ArticleOverviewContextProps {
 	filter: string
 	toggleFilter: (tag: string) => void
 	setFilter: (filter: string) => void
+	pageIndex: number
+	loadMore: () => void
 }
 
 const ArticleOverviewContext =
@@ -47,6 +36,8 @@ export function useArticleOverview(): ArticleOverviewContextProps {
 	return context
 }
 
+const PAGE_SIZE = 6
+
 export function ArticleOverviewProvider({
 	children,
 	allArticles,
@@ -61,6 +52,7 @@ export function ArticleOverviewProvider({
 	customFilterFunction?: (articles: Article[], filter: string) => Article[]
 }) {
 	const [filter, setFilter] = React.useState('')
+	const [pageIndex, setPageIndex] = React.useState(0)
 
 	const filteredArticles = React.useMemo(() => {
 		return customFilterFunction
@@ -87,6 +79,10 @@ export function ArticleOverviewProvider({
 		[allArticles],
 	)
 
+	const loadMore = React.useCallback(() => {
+		setPageIndex((i) => i + PAGE_SIZE)
+	}, [])
+
 	return (
 		<ArticleOverviewContext.Provider
 			value={React.useMemo(
@@ -98,6 +94,8 @@ export function ArticleOverviewProvider({
 					setFilter,
 					searchEnabled,
 					featuredArticleEnabled,
+					pageIndex,
+					loadMore,
 				}),
 				[
 					filteredArticles,
@@ -106,6 +104,8 @@ export function ArticleOverviewProvider({
 					tags,
 					searchEnabled,
 					featuredArticleEnabled,
+					pageIndex,
+					loadMore,
 				],
 			)}
 		>

@@ -21,6 +21,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
+	TagFilter,
 } from '@nerdfish-website/ui/components'
 import { BookIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
 import Image from 'next/image'
@@ -28,7 +29,6 @@ import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { filterWiki, getWikiPath } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
-import { TagFilter } from '~/app/common'
 import { useTranslation } from '~/app/i18n'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).

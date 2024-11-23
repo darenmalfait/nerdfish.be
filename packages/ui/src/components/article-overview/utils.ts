@@ -3,7 +3,7 @@ import {
 	type KeyAttributesOptions,
 	rankings as matchSorterRankings,
 } from 'match-sorter'
-import { type Article } from './article-overview-provider'
+import { type Article } from './types'
 
 export function filterArticles(articles: Article[], searchString: string) {
 	if (!searchString) return articles

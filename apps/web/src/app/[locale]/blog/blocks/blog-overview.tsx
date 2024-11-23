@@ -11,16 +11,14 @@ import {
 	ArticleCardContent,
 	ArticleCardImage,
 	ArticleCardTitle,
+	ArticleOverviewContentGrid,
+	ArticlesOverviewEmptyState,
 } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { getBlogPosts } from '../api'
 import { filterBlog } from '../utils'
 import { BlockLayout } from './blog-overview-layout'
 import { type Blog, type Block, type PageBlocksBlog } from '~/app/cms'
-import {
-	ArticleOverviewContentGrid,
-	ArticlesOverviewEmptyState,
-} from '~/app/common'
 
 function isSameBlog(blog: PartialDeep<Blog>, relatedTo?: PartialDeep<Blog>) {
 	return blog._sys?.relativePath === relatedTo?._sys?.relativePath
@@ -72,7 +70,7 @@ export async function BlogOverviewBlockContent(
 				items={limitedBlogs}
 				header={header}
 			>
-				<ArticleOverviewContentGrid>
+				<ArticleOverviewContentGrid loadMoreLabel="read more">
 					<ArticlesOverviewEmptyState />
 				</ArticleOverviewContentGrid>
 			</BlockLayout>
