@@ -1,6 +1,11 @@
 import { Skeleton } from '@nerdfish/ui'
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import {
+	type WithContext,
+	type Blog as BlogJsonLd,
+	JsonLd,
+} from '@nerdfish-website/seo/json-ld'
+import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
@@ -35,6 +40,11 @@ export async function BlogOverviewBlockContent(
 		locale,
 		relatedTo,
 	} = data
+	const jsonLd: WithContext<BlogJsonLd> = {
+		'@type': 'Blog',
+		'@context': 'https://schema.org',
+	}
+
 	const localizedBlogs = (await getBlogPosts({ locale })) ?? []
 
 	const relatedBlogs =
@@ -54,16 +64,19 @@ export async function BlogOverviewBlockContent(
 	const limitedBlogs = count ? items.slice(0, count) : items
 
 	return (
-		<BlockLayout
-			searchEnabled={searchEnabled ?? false}
-			featuredEnabled={featuredEnabled ?? false}
-			items={limitedBlogs}
-			header={header}
-		>
-			<ArticleOverviewContentGrid>
-				<ArticlesOverviewEmptyState />
-			</ArticleOverviewContentGrid>
-		</BlockLayout>
+		<>
+			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
+			<BlockLayout
+				searchEnabled={searchEnabled ?? false}
+				featuredEnabled={featuredEnabled ?? false}
+				items={limitedBlogs}
+				header={header}
+			>
+				<ArticleOverviewContentGrid>
+					<ArticlesOverviewEmptyState />
+				</ArticleOverviewContentGrid>
+			</BlockLayout>
+		</>
 	)
 }
 

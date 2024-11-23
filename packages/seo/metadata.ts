@@ -1,10 +1,6 @@
-import { env } from '@nerdfish-website/env'
-import { stripPreSlash, stripTrailingSlash } from '@nerdfish-website/lib/utils'
 import merge from 'lodash.merge'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
-import { type OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types'
-import { z } from 'zod'
 
 const applicationName = 'Nerdfish'
 
@@ -15,82 +11,59 @@ export const author: Author = {
 const publisher = 'Daren Malfait'
 const twitterHandle = '@darenmalfait'
 
-export const ogImageSchema = z.object({
-	heading: z.string(),
-})
-
-export function generateOGImageUrl({
-	...props
-}: z.infer<typeof ogImageSchema>) {
-	const url = env.NEXT_PUBLIC_URL
-	const ogUrl = new URL(`${url}/api/og`)
-
-	for (const [key, value] of Object.entries(props)) {
-		ogUrl.searchParams.set(key, value)
-	}
-
-	return ogUrl.toString()
-}
-
-export function getMetaData({
-	url: path,
-	ogImage,
-	title: titleProp,
+export const createMetadata = ({
+	title,
 	description,
-	canonical,
-	type,
-	other,
-}: {
-	canonical?: string | null
-	description: string
-	ogImage: string
-	schema?: string
+	image,
+	locale,
+	...properties
+}: Omit<Metadata, 'description' | 'title'> & {
 	title: string
-	type?: OpenGraphType
-	url: string
-	other?: Metadata
-}): Metadata {
-	const basePath = stripTrailingSlash(env.NEXT_PUBLIC_URL)
-	const title = `${titleProp} | ${applicationName}`
-
-	const url = path.startsWith('http')
-		? path
-		: `${basePath}/${stripPreSlash(path)}`
-
-	const metadata: Metadata = {
-		title,
+	description: string
+	image?: string
+	locale: string
+}): Metadata => {
+	const parsedTitle = `${title} | ${applicationName}`
+	const defaultMetadata: Metadata = {
+		title: parsedTitle,
 		description,
 		applicationName,
 		authors: [author],
 		creator: author.name,
-		publisher,
-		metadataBase: new URL(basePath),
-		icons: {
-			icon: '/favicon.ico',
-			apple: '/apple-touch-icon.png',
+		formatDetection: {
+			telephone: false,
 		},
-		alternates: {
-			canonical: canonical ?? url,
+		appleWebApp: {
+			capable: true,
+			statusBarStyle: 'default',
+			title: parsedTitle,
 		},
 		openGraph: {
-			title,
+			title: parsedTitle,
 			description,
-			type: type ?? 'website',
-			url,
-			images: [
-				{
-					url: ogImage,
-				},
-			],
+			type: 'website',
+			siteName: applicationName,
+			locale,
 		},
+		publisher,
 		twitter: {
 			card: 'summary_large_image',
-			title,
-			description,
 			creator: twitterHandle,
-			images: [ogImage],
 		},
 	}
 
-	return merge(metadata, other)
+	const metadata: Metadata = merge(defaultMetadata, properties)
+
+	if (image && metadata.openGraph) {
+		metadata.openGraph.images = [
+			{
+				url: image,
+				width: 1200,
+				height: 630,
+				alt: title,
+			},
+		]
+	}
+
+	return metadata
 }

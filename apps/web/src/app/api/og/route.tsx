@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 
 import { env } from '@nerdfish-website/env'
-import { ogImageSchema } from '@nerdfish-website/seo/metadata'
 import { ImageResponse } from '@vercel/og'
+import { ogImageSchema } from './utils'
 
 export const runtime = 'edge'
 

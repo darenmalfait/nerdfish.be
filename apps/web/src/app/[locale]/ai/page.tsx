@@ -1,5 +1,5 @@
 import { Paragraph } from '@nerdfish/ui'
-import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
+import { createMetadata } from '@nerdfish-website/seo/metadata'
 import { InViewBackground, Section } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
 import {
@@ -9,6 +9,7 @@ import {
 	SectionHeaderTitle,
 } from '../../common'
 import { Chat } from '../contact'
+import { generateOGImageUrl } from '~/app/api/og'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
 
@@ -18,17 +19,15 @@ export async function generateMetadata({
 	params: WithLocale<{}>
 }): Promise<Metadata | undefined> {
 	const dictionary = await getDictionary(params.locale)
-
 	const title = dictionary['ai.meta.title']
 
-	return getMetaData({
-		ogImage: generateOGImageUrl({
+	return createMetadata({
+		title,
+		description: dictionary['ai.meta.description'],
+		image: generateOGImageUrl({
 			heading: title,
 		}),
-		title,
-		url: `/${params.locale}/ai`,
-		description: dictionary['ai.meta.description'],
-		canonical: `/${params.locale}/ai`,
+		locale: params.locale,
 	})
 }
 
