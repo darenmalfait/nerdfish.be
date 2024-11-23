@@ -8,9 +8,9 @@ import {
 	SectionHeaderTitle,
 } from '@nerdfish-website/ui/components'
 import { type Metadata } from 'next'
-import { HeroBlock } from '../../common'
 import { Chat } from '../contact'
 import { generateOGImageUrl } from '~/app/api/og'
+import { HeroBlock } from '~/app/cms'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
 
