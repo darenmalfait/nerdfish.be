@@ -1,3 +1,5 @@
+'use client'
+
 import { LoadingAnimation, H1, H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'

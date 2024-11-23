@@ -13,7 +13,7 @@ interface ArticleOverviewContextProps {
 	filter: string
 	toggleFilter: (tag: string) => void
 	setFilter: (filter: string) => void
-	pageIndex: number
+	itemsToShow: number
 	loadMore: () => void
 }
 
@@ -52,7 +52,7 @@ export function ArticleOverviewProvider({
 	customFilterFunction?: (articles: Article[], filter: string) => Article[]
 }) {
 	const [filter, setFilter] = React.useState('')
-	const [pageIndex, setPageIndex] = React.useState(0)
+	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
 
 	const filteredArticles = React.useMemo(() => {
 		return customFilterFunction
@@ -80,7 +80,7 @@ export function ArticleOverviewProvider({
 	)
 
 	const loadMore = React.useCallback(() => {
-		setPageIndex((i) => i + PAGE_SIZE)
+		setItemsToShow((i) => i + PAGE_SIZE)
 	}, [])
 
 	return (
@@ -94,7 +94,7 @@ export function ArticleOverviewProvider({
 					setFilter,
 					searchEnabled,
 					featuredArticleEnabled,
-					pageIndex,
+					itemsToShow,
 					loadMore,
 				}),
 				[
@@ -104,7 +104,7 @@ export function ArticleOverviewProvider({
 					tags,
 					searchEnabled,
 					featuredArticleEnabled,
-					pageIndex,
+					itemsToShow,
 					loadMore,
 				],
 			)}
