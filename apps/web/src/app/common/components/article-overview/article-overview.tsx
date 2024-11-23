@@ -17,13 +17,6 @@ import {
 	ArticleCardContent,
 	ArticleCardImage,
 	ArticleCardTitle,
-} from '@nerdfish-website/ui/components'
-import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
-import { formatDate } from 'date-fns/format'
-import { parseISO } from 'date-fns/parseISO'
-import Image from 'next/image'
-import * as React from 'react'
-import {
 	HighlightCard,
 	HighlightCardCategory,
 	HighlightCardContent,
@@ -32,7 +25,12 @@ import {
 	HighlightCardImage,
 	HighlightCardSubtitle,
 	HighlightCardTitle,
-} from '../highlight-card'
+} from '@nerdfish-website/ui/components'
+import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
+import { formatDate } from 'date-fns/format'
+import { parseISO } from 'date-fns/parseISO'
+import Image from 'next/image'
+import * as React from 'react'
 import { TagFilter } from '../tag-filter'
 import {
 	type Article,
