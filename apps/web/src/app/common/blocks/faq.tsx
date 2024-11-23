@@ -8,14 +8,14 @@ import {
 	H2,
 } from '@nerdfish/ui'
 import { nonNullable } from '@nerdfish-website/lib/utils'
-import { Section } from '@nerdfish-website/ui/components'
-import * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
 import {
+	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '../components'
+} from '@nerdfish-website/ui/components'
+import * as React from 'react'
+import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksFaq, type Block } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {

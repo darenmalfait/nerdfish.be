@@ -1,4 +1,9 @@
-import { Section } from '@nerdfish-website/ui/components'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@nerdfish-website/ui/components'
 import {
 	FigmaIcon,
 	CSSIcon,
@@ -14,11 +19,6 @@ import {
 } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '../components'
 import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'
 import { type skills } from '~/tina/schema/blocks/skills.template'
 
