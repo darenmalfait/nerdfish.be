@@ -1,4 +1,3 @@
-export * from './contact'
 export * from './content'
 export * from './cta'
 export * from './faq'

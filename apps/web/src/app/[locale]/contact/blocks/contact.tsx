@@ -13,7 +13,8 @@ import {
 import { ArrowRightIcon, CalendarClockIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { ContactForm, EmbeddedCal } from '~/app/[locale]/contact'
+import { ContactForm } from '../components/contact-form'
+import { EmbeddedCal } from '../components/embedded-cal'
 import { type PageBlocksContact, type Block } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
