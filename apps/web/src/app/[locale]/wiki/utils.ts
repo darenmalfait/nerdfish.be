@@ -1,7 +1,7 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-
 import { type SystemInfo, type Wiki } from '~/app/cms'
-import { WikiPath } from '~/app/common'
+
+const WikiPath = 'wiki'
 
 export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 	if (!searchString) return posts

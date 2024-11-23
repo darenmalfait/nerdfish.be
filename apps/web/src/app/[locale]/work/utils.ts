@@ -2,8 +2,9 @@ import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Work } from '../../cms'
-import { WorkPath } from '~/app/common'
 import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
+
+const WorkPath = 'work'
 
 export function filterWork(works: PartialDeep<Work>[], searchString: string) {
 	if (!searchString) return works
