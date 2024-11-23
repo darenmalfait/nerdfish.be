@@ -170,15 +170,15 @@ export function ArticleOverviewLoadMoreButton({
 }: {
 	children: string
 }) {
-	const { filter, featuredArticleEnabled, articles, loadMore, pageIndex } =
+	const { filter, featuredArticleEnabled, articles, loadMore, itemsToShow } =
 		useArticleOverview()
 
 	const isSearching = filter.length > 0
 
 	const hasMorePosts =
 		isSearching || !featuredArticleEnabled
-			? pageIndex < articles.length
-			: pageIndex < articles.length - 1
+			? itemsToShow < articles.length
+			: itemsToShow < articles.length - 1
 
 	if (!hasMorePosts) return null
 
@@ -224,7 +224,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		loadMoreLabel?: string
 	}
 >(({ children, loadMoreLabel = 'read more', ...props }, ref) => {
-	const { articles, featuredArticleEnabled, filter, pageIndex } =
+	const { articles, featuredArticleEnabled, filter, itemsToShow } =
 		useArticleOverview()
 
 	const isSearching = filter.length > 0
@@ -239,7 +239,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		[isSearching, featuredArticleEnabled, articles, featured?.id],
 	)
 
-	const articlesToShow = filteredArticles.slice(0, pageIndex)
+	const articlesToShow = filteredArticles.slice(0, itemsToShow)
 
 	return (
 		<div ref={ref} {...props}>
