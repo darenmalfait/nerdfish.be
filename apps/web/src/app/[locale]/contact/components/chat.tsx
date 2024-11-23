@@ -219,7 +219,7 @@ export function Chat({
 				) : null}
 			</div>
 			<ul
-				className="questions mt-xl mb-sm gap-sm py-sm px-xs flex overflow-x-auto overflow-y-visible"
+				className="questions mt-md mb-sm gap-sm py-sm px-xs flex overflow-x-auto overflow-y-visible"
 				aria-label="Premade questions"
 			>
 				{premadeQuestions.map((q) => (
