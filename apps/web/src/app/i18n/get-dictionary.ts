@@ -10,8 +10,6 @@ export type Dictionary = {
 	'ai.premadeQuestions.experienceQuestion': string
 	'ai.premadeQuestions.favoriteLanguage': string
 	'ai.premadeQuestions.favoriteLanguageQuestion': string
-	'ai.premadeQuestions.scheduleCall': string
-	'ai.premadeQuestions.scheduleCallQuestion': string
 	'ai.premadeQuestions.whoAreYou': string
 	'ai.premadeQuestions.whoAreYouQuestion': string
 	'ai.booking.subtitle': string

@@ -49,7 +49,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 					<Paragraph className="mb-lg max-w-3xl font-medium">
 						{dictionary['ai.description']}
 					</Paragraph>
-					<Chat className="bg-primary rounded-large" />
+					<Chat className="bg-primary rounded-large p-lg shadow-outline" />
 				</Section>
 			</InViewBackground>
 		</>

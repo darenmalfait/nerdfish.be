@@ -103,10 +103,6 @@ export function Chat({
 				buttonName: t('ai.premadeQuestions.currentJob'),
 				question: t('ai.premadeQuestions.currentJobQuestion'),
 			},
-			{
-				buttonName: t('ai.premadeQuestions.scheduleCall'),
-				question: t('ai.premadeQuestions.scheduleCallQuestion'),
-			},
 		],
 		[t],
 	)
@@ -124,7 +120,7 @@ export function Chat({
 	}, [scrollToBottom, messages])
 
 	return (
-		<div className={cx('shadow-outline p-lg flex h-full flex-col', className)}>
+		<div className={cx('flex h-full flex-col', className)}>
 			<div
 				ref={scrollBottomAnchor}
 				className="gap-lg pb-xl flex flex-1 flex-col overflow-y-auto"
