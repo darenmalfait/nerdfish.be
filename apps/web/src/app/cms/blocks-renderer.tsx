@@ -6,7 +6,7 @@ import {
 	KeywordListBlock,
 	NeonBlock,
 	SkillsBlock,
-	ContactFormBlock,
+	ContactBlock,
 	CtaBlock,
 	FAQBlock,
 	HighlightBlock,
@@ -35,7 +35,7 @@ const getComponent = (componentKey: string) => {
 		// Page blocks
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
-		PageBlocksContactForm: ContactFormBlock,
+		PageBlocksContact: ContactBlock,
 		PageBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
 		PageBlocksFaq: FAQBlock,
