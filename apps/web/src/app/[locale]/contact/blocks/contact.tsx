@@ -73,7 +73,10 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 				</MagnetButton>
 			</TextSlideUp>
 
-			<ExpandableChat icon={<Bot className="size-6" />}>
+			<ExpandableChat
+				icon={<Bot className="group-hover:motion-preset-seesaw size-6" />}
+				aria-label={t('ai.page.title')}
+			>
 				<ExpandableChatBody>
 					<Chat />
 				</ExpandableChatBody>
