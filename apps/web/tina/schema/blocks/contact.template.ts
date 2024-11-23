@@ -1,8 +1,8 @@
 import { type Template } from '@tinacms/schema-tools'
 
-export const contactFormTemplate: Template = {
-	name: 'contactForm',
-	label: 'Contact Form',
+export const contactTemplate: Template = {
+	name: 'contact',
+	label: 'Contact',
 	ui: {
 		previewSrc: '/blocks/unknown.png',
 	},

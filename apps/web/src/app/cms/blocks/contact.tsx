@@ -13,9 +13,9 @@ import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { ContactForm } from '~/app/[locale]/contact'
-import { type PageBlocksContactForm, type Block } from '~/app/cms'
+import { type PageBlocksContact, type Block } from '~/app/cms'
 
-export function ContactFormBlock(props: Block<PageBlocksContactForm>) {
+export function ContactBlock(props: Block<PageBlocksContact>) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
 
 	return (
