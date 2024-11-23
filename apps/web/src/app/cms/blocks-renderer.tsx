@@ -1,10 +1,4 @@
 import * as React from 'react'
-import { type Block } from '../types'
-import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import { BookingBlock } from '~/app/[locale]/contact'
-import { ProductsBlock } from '~/app/[locale]/realisations'
-import { WikiOverviewBlock } from '~/app/[locale]/wiki'
-import { WorkOverviewBlock } from '~/app/[locale]/work'
 import {
 	ContentBlock,
 	FeaturesBlock,
@@ -12,14 +6,20 @@ import {
 	KeywordListBlock,
 	NeonBlock,
 	SkillsBlock,
-} from '~/app/common'
-import { ContactFormBlock } from '~/app/common/blocks/contact-form'
-import { CtaBlock } from '~/app/common/blocks/cta'
-import { FAQBlock } from '~/app/common/blocks/faq'
-import { HighlightBlock } from '~/app/common/blocks/highlight'
-import { ImageGridBlock } from '~/app/common/blocks/image-grid'
-import { PricingBlock } from '~/app/common/blocks/pricing'
-import { TestimonialsBlock } from '~/app/common/blocks/testimonials'
+	ContactFormBlock,
+	CtaBlock,
+	FAQBlock,
+	HighlightBlock,
+	ImageGridBlock,
+	PricingBlock,
+	TestimonialsBlock,
+} from './blocks'
+import { type Block } from './types'
+import { BlogOverviewBlock } from '~/app/[locale]/blog'
+import { BookingBlock } from '~/app/[locale]/contact'
+import { ProductsBlock } from '~/app/[locale]/realisations'
+import { WikiOverviewBlock } from '~/app/[locale]/wiki'
+import { WorkOverviewBlock } from '~/app/[locale]/work'
 import { type WorkBlocks, type PageBlocks } from '~/tina/__generated__/types'
 
 type PageBlockType =
