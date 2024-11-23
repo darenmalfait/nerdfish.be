@@ -7,10 +7,10 @@ import { getDictionary } from '../i18n/get-dictionary'
 import { SiteLayout } from '../layout'
 import { i18n, TranslationProvider, type WithLocale } from '~/app/i18n'
 
-import '~/styles/tailwind.css'
-import '~/styles/app.css'
-import '~/styles/prose.css'
-import '~/styles/components.css'
+import '~/app/theme/styles/tailwind.css'
+import '~/app/theme/styles/app.css'
+import '~/app/theme/styles/prose.css'
+import '~/app/theme/styles/components.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
 
 const getLayoutData = React.cache(getGlobalData)
