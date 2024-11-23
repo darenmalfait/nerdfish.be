@@ -1,14 +1,17 @@
-'use client'
-
-import { H1, H3, Separator } from '@nerdfish/ui'
+import { LoadingAnimation, H1, H3, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { InViewBackground, TextSlideUp } from '@nerdfish-website/ui/components'
+import {
+	Section,
+	InViewBackground,
+	TextSlideUp,
+} from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
+import { SiteHeader } from './site-header'
 import {
 	type GlobalNavigationMain,
 	type GlobalNavigationMainSub,
@@ -146,7 +149,7 @@ function SiteFooterHeading() {
 	)
 }
 
-export const SiteFooter = React.forwardRef<
+const SiteFooter = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
@@ -182,3 +185,29 @@ export const SiteFooter = React.forwardRef<
 })
 
 SiteFooter.displayName = 'SiteFooter'
+
+export function SiteLayout({ children }: { children: React.ReactNode }) {
+	return (
+		<div className="flex min-h-screen flex-col">
+			<SiteHeader />
+
+			<main
+				role="main"
+				className="rounded-b-large relative w-full max-w-full flex-1"
+			>
+				<div className="bg-primary -z-1 rounded-large absolute inset-0" />
+				<React.Suspense
+					fallback={
+						<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
+							<LoadingAnimation className="size-8" variant="square" />
+						</Section>
+					}
+				>
+					{children}
+				</React.Suspense>
+			</main>
+
+			<SiteFooter />
+		</div>
+	)
+}

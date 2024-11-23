@@ -1,5 +1,2 @@
 export * from './article-overview'
-export * from './site-footer'
-export * from './site-header'
 export * from './tag-filter'
-export * from './theme-toggle'

@@ -5,7 +5,7 @@ import { Skeleton } from '@nerdfish/ui'
 import * as React from 'react'
 import { type GlobalCalcomTypes } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
-import { useTheme } from '~/app/theme-provider'
+import { useTheme } from '~/app/theme'
 
 export function EmbeddedCal({
 	bookingType = '30min',

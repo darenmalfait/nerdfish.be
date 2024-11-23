@@ -3,10 +3,11 @@
 import { Button } from '@nerdfish/ui'
 import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
-import { ActionsNavigation, MainNavigation } from '../navigation'
-import { ThemeToggle } from '../theme-toggle'
+import * as React from 'react'
 import { MobileNavigation } from './mobile-navigation'
+import { MainNavigation } from './navigation'
 import { LocaleSwitcher, useTranslation } from '~/app/i18n'
+import { ThemeToggle } from '~/app/theme'
 
 export function SiteHeader() {
 	const { currentLocale } = useTranslation()
@@ -32,7 +33,6 @@ export function SiteHeader() {
 
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
-								<ActionsNavigation className="hidden md:flex" />
 								<LocaleSwitcher />
 								<MobileNavigation />
 							</div>
