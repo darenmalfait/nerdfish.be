@@ -6,16 +6,14 @@ import {
 	ArticleCardContent,
 	ArticleCardImage,
 	ArticleCardTitle,
+	ArticleOverviewContentGrid,
+	ArticlesOverviewEmptyState,
 } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'
 import { BlockLayout } from './work-overview-layout'
 import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
-import {
-	ArticleOverviewContentGrid,
-	ArticlesOverviewEmptyState,
-} from '~/app/common'
 
 function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
 	return work._sys?.relativePath === relatedTo?._sys?.relativePath

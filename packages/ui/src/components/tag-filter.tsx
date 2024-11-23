@@ -8,9 +8,9 @@ import {
 	H5,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Tag } from '@nerdfish-website/ui/components'
-import { FilterIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
+import { FilterIcon } from '../icons'
+import { Tag } from './tag'
 
 function FilterTag({
 	tag,
