@@ -1,8 +1,8 @@
 import { H1, Marquee } from '@nerdfish/ui'
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { SectionHeader, SectionHeaderTitle } from '../components'
-import { nonNullable } from '../utils'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
@@ -26,7 +26,7 @@ export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
 				className="max-w-full overflow-hidden"
 			>
 				<Marquee pauseOnHover duration={20000} repeat={5}>
-					{keywords?.filter(nonNullable).map((keyword) => (
+					{nonNullable(keywords ?? []).map((keyword) => (
 						<H1
 							as="span"
 							variant="primary"

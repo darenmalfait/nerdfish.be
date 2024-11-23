@@ -7,6 +7,7 @@ import {
 	AccordionTrigger,
 	H2,
 } from '@nerdfish/ui'
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import { Section } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -15,7 +16,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../components'
-import { nonNullable } from '../utils'
 import { type PageBlocksFaq, type Block } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
@@ -61,7 +61,7 @@ export function FAQBlock(props: Block<PageBlocksFaq>) {
 			</SectionHeader>
 			<div className="relative">
 				<Accordion type="single" className="space-y-md">
-					{qa.filter(nonNullable).map((item) => (
+					{nonNullable(qa).map((item) => (
 						<QAItem
 							question={item.question ?? ''}
 							answer={item.answer ?? ''}
