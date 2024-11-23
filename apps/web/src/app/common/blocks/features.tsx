@@ -2,7 +2,13 @@
 
 import { Grid, H3 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { MagnetButton, Section } from '@nerdfish-website/ui/components'
+import {
+	MagnetButton,
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@nerdfish-website/ui/components'
 import { ArrowRight } from '@nerdfish-website/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
@@ -10,11 +16,6 @@ import { useInView } from 'motion/react'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '../components'
 import {
 	type Block,
 	type Page,

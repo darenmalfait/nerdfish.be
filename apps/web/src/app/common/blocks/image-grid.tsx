@@ -2,16 +2,16 @@
 
 import { Grid, GridCard, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@nerdfish-website/ui/components'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '../components'
 import {
 	type Block,
 	type PageBlocksImageGrid,

@@ -5,10 +5,10 @@ import {
 	InViewBackground,
 	NeonGradientCard,
 	Section,
+	SectionHeaderSubtitle,
 } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { SectionHeaderSubtitle } from '../components'
 import { PortableText, type Block, type PageBlocksNeon } from '~/app/cms'
 
 export function NeonBlock(props: Block<PageBlocksNeon>) {

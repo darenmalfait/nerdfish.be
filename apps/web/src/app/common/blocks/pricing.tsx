@@ -11,14 +11,12 @@ import {
 	PriceCardFeatures,
 	PriceCardFeature,
 	PriceCardAction,
-} from '@nerdfish-website/ui/components'
-import * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
-import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '../components'
+} from '@nerdfish-website/ui/components'
+import * as React from 'react'
+import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksPricing, type Block } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
