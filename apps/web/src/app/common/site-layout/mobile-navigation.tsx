@@ -17,13 +17,13 @@ import { Logo, MenuIcon, XIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { ActionsNavigation, SocialLinks } from '../navigation'
-import { ThemeToggle } from '../theme-toggle'
+import { SocialLinks } from './navigation'
 import {
 	type GlobalNavigationMain,
 	type GlobalNavigationMainSub,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
+import { ThemeToggle } from '~/app/theme'
 
 const MobileNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -134,11 +134,6 @@ export function MobileNavigation() {
 						</Button>
 
 						<div className="gap-sm flex items-center">
-							<ActionsNavigation
-								onSelect={() => {
-									setOpen(false)
-								}}
-							/>
 							<DrawerClose asChild className="-mr-sm">
 								<Button variant="ghost" type="button" size="icon">
 									<XIcon className="size-4" />
