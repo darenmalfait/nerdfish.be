@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Input, LoadingAnimation, Skeleton } from '@nerdfish/ui'
-import { cva, type VariantProps } from '@nerdfish/utils'
+import { cva, cx, type VariantProps } from '@nerdfish/utils'
 import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
 import { type Message, type ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
@@ -61,7 +61,13 @@ const ChatMessage = React.forwardRef<
 
 ChatMessage.displayName = 'ChatMessage'
 
-export function Chat({ initialMessages }: { initialMessages?: Message[] }) {
+export function Chat({
+	initialMessages,
+	className,
+}: {
+	initialMessages?: Message[]
+	className?: string
+}) {
 	const { t } = useTranslation()
 	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
 
@@ -118,10 +124,10 @@ export function Chat({ initialMessages }: { initialMessages?: Message[] }) {
 	}, [scrollToBottom, messages])
 
 	return (
-		<div className="rounded-large bg-primary shadow-outline p-lg flex flex-col">
+		<div className={cx('shadow-outline p-lg flex h-full flex-col', className)}>
 			<div
 				ref={scrollBottomAnchor}
-				className="gap-lg pb-xl flex h-[40vh] flex-col overflow-y-auto"
+				className="gap-lg pb-xl flex flex-1 flex-col overflow-y-auto"
 			>
 				<ChatMessage role="assistant" className="!animate-none">
 					{t('ai.chat.initialMessage')}
