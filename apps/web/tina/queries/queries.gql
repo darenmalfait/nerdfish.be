@@ -77,6 +77,7 @@ query blogPostQuery($relativePath: String!) {
 		...BlogParts
 		_sys {
 			relativePath
+			breadcrumbs
 		}
 	}
 }
@@ -86,6 +87,7 @@ query workQuery($relativePath: String!) {
 		...WorkParts
 		_sys {
 			relativePath
+			breadcrumbs
 		}
 	}
 }
@@ -93,6 +95,10 @@ query workQuery($relativePath: String!) {
 query wikiQuery($relativePath: String!) {
 	wiki(relativePath: $relativePath) {
 		...WikiParts
+		_sys {
+			relativePath
+			breadcrumbs
+		}
 	}
 }
 

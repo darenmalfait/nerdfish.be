@@ -7,7 +7,8 @@ import { type OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types
 import { z } from 'zod'
 
 const applicationName = 'Nerdfish'
-const author: Author = {
+
+export const author: Author = {
 	name: 'Daren Malfait',
 	url: 'https://www.nerdfish.be',
 }
