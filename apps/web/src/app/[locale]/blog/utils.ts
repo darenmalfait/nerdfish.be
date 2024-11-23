@@ -2,8 +2,10 @@ import { type PartialDeep } from '@nerdfish-website/lib/utils'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Blog } from '../../cms'
-import { BlogPath, nonNullable } from '~/app/common'
+import { nonNullable } from '~/app/common'
 import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
+
+const BlogPath = 'blog'
 
 export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 	if (!searchString) return posts
