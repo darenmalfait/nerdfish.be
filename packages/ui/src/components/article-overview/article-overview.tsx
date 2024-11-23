@@ -33,13 +33,10 @@ import Image from 'next/image'
 import * as React from 'react'
 import { TagFilter } from '../tag-filter'
 import {
-	type Article,
 	ArticleOverviewProvider,
 	useArticleOverview,
 } from './article-overview-provider'
-import { useTranslation } from '~/app/i18n'
-
-const PAGE_SIZE = 6
+import { type Article } from './types'
 
 export const ArticleOverviewSearch = React.forwardRef<
 	HTMLDivElement,
@@ -168,28 +165,28 @@ export const ArticleOverviewFilter = React.forwardRef<
 })
 ArticleOverviewFilter.displayName = 'ArticleOverviewFilter'
 
-function ShowMoreButton({
-	indexToShow,
-	onClick,
+export function ArticleOverviewLoadMoreButton({
+	children,
 }: {
-	indexToShow: number
-	onClick: () => void
+	children: string
 }) {
-	const { filter, featuredArticleEnabled, articles } = useArticleOverview()
+	const { filter, featuredArticleEnabled, articles, loadMore, pageIndex } =
+		useArticleOverview()
 
 	const isSearching = filter.length > 0
 
 	const hasMorePosts =
 		isSearching || !featuredArticleEnabled
-			? indexToShow < articles.length
-			: indexToShow < articles.length - 1
+			? pageIndex < articles.length
+			: pageIndex < articles.length - 1
 
 	if (!hasMorePosts) return null
 
 	return (
 		<div className="mt-2xl flex w-full justify-center">
-			<Button size="lg" variant="outline" onClick={onClick}>
-				<span className="mr-sm">Load more</span> <PlusIcon className="size-4" />
+			<Button size="lg" variant="outline" onClick={loadMore}>
+				<span className="mr-sm">{children}</span>{' '}
+				<PlusIcon className="size-4" />
 			</Button>
 		</div>
 	)
@@ -223,11 +220,12 @@ const FeaturedArticle = ({ article }: { article?: Article }) => {
 
 export const ArticleOverviewContentGrid = React.forwardRef<
 	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
-	const { t } = useTranslation()
-	const { articles, featuredArticleEnabled, filter } = useArticleOverview()
-	const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
+	React.HTMLAttributes<HTMLDivElement> & {
+		loadMoreLabel?: string
+	}
+>(({ children, loadMoreLabel = 'read more', ...props }, ref) => {
+	const { articles, featuredArticleEnabled, filter, pageIndex } =
+		useArticleOverview()
 
 	const isSearching = filter.length > 0
 
@@ -241,7 +239,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		[isSearching, featuredArticleEnabled, articles, featured?.id],
 	)
 
-	const articlesToShow = filteredArticles.slice(0, indexToShow)
+	const articlesToShow = filteredArticles.slice(0, pageIndex)
 
 	return (
 		<div ref={ref} {...props}>
@@ -257,9 +255,9 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 						>
 							<ArticleCard href={article.href} title={article.title}>
 								<ArticleCardImage
-									readMoreLabel={t('global.readMore')}
 									src={article.image?.src}
 									category={article.category}
+									readMoreLabel={loadMoreLabel}
 								/>
 								<ArticleCardContent>
 									<ArticleCardCategory>{article.category}</ArticleCardCategory>
@@ -270,11 +268,6 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 					)
 				})}
 			</ul>
-
-			<ShowMoreButton
-				indexToShow={indexToShow}
-				onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
-			/>
 		</div>
 	)
 })

@@ -1,8 +1,8 @@
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type Article } from '@nerdfish-website/ui/components'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Work } from '../../cms'
-import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
 
 const WorkPath = 'work'
 

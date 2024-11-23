@@ -6,17 +6,17 @@ import {
 	SectionHeaderTitle,
 	SectionHeader,
 	SectionHeaderSubtitle,
+	ArticleOverviewLoadMoreButton,
+	ArticleOverviewSearchContent,
+	ArticleOverviewSearch,
+	ArticleOverviewFilter,
+	type Article,
+	ArticleOverviewSearchImage,
+	ArticleOverview,
 } from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../utils'
 import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
-import { ArticleOverview, ArticleOverviewSearchImage } from '~/app/common'
-import {
-	ArticleOverviewFilter,
-	ArticleOverviewSearch,
-	ArticleOverviewSearchContent,
-} from '~/app/common/components/article-overview/article-overview'
-import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
 import { useTranslation } from '~/app/i18n'
 
 export function BlockLayout({
@@ -87,6 +87,10 @@ export function BlockLayout({
 				) : null}
 
 				{children}
+
+				<ArticleOverviewLoadMoreButton>
+					{t('global.readMore')}
+				</ArticleOverviewLoadMoreButton>
 			</ArticleOverview>
 		</Section>
 	)
