@@ -11,6 +11,7 @@ import {
 	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import {
 	Section,
 	ArticleCard,
@@ -26,7 +27,6 @@ import { filterWiki, getWikiPath } from '../utils'
 import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
 import {
 	SectionHeader,
-	nonNullable,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 	TagFilter,
@@ -47,9 +47,9 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 	let filteredPosts =
 		tags && tags.length > 0 ? filterWiki(allPosts, tags.join(' ')) : allPosts
 
-	const allTags = [
+	const allTags = nonNullable([
 		...new Set(filteredPosts.flatMap((post) => post.tags)),
-	].filter(nonNullable)
+	])
 
 	if (count) {
 		filteredPosts = filteredPosts.slice(0, count)
@@ -62,9 +62,9 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 	const posts = matchingPosts.slice(0, indexToShow)
 	const hasMorePosts = indexToShow < matchingPosts.length
 
-	const enabledTags = [
+	const enabledTags = nonNullable([
 		...new Set(matchingPosts.flatMap((post) => post.tags)),
-	].filter(nonNullable)
+	])
 	const selectedTags = allTags.filter((tag) => query.includes(tag))
 
 	function toggleTag(tag: string) {

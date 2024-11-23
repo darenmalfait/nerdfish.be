@@ -10,6 +10,7 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -22,7 +23,6 @@ import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
 import Image from 'next/image'
 import * as React from 'react'
-import { nonNullable } from '../../utils'
 import {
 	HighlightCard,
 	HighlightCardCategory,
@@ -149,9 +149,7 @@ export const ArticleOverviewFilter = React.forwardRef<
 
 	const enabledTags =
 		isSearching || !featuredArticleEnabled
-			? [...new Set(articles.flatMap((article) => article.tags))].filter(
-					nonNullable,
-				)
+			? nonNullable([...new Set(articles.flatMap((article) => article.tags))])
 			: tags
 
 	const selectedTags = tags.filter((tag) =>

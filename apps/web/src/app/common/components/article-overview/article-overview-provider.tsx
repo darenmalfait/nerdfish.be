@@ -1,7 +1,7 @@
 'use client'
 
+import { nonNullable } from '@nerdfish-website/lib/utils'
 import * as React from 'react'
-import { nonNullable } from '../../utils'
 import { filterArticles } from './utils'
 
 export type Article = {
@@ -83,9 +83,7 @@ export function ArticleOverviewProvider({
 
 	const tags = React.useMemo(
 		() =>
-			[...new Set(allArticles.flatMap((article) => article.tags))].filter(
-				nonNullable,
-			),
+			nonNullable([...new Set(allArticles.flatMap((article) => article.tags))]),
 		[allArticles],
 	)
 

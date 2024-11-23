@@ -1,8 +1,7 @@
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { nonNullable, type PartialDeep } from '@nerdfish-website/lib/utils'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Blog } from '../../cms'
-import { nonNullable } from '~/app/common'
 import { type Article } from '~/app/common/components/article-overview/article-overview-provider'
 
 const BlogPath = 'blog'
@@ -99,7 +98,7 @@ export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {
 		title: post.title ?? 'untitled',
 		description: post.excerpt,
 		href: getBlogPath(post),
-		tags: post.tags?.filter(nonNullable) ?? [],
+		tags: nonNullable(post.tags ?? []),
 		category: post.category,
 		date: post.date,
 		image: post.heroImg
