@@ -9,7 +9,6 @@ import { ArrowRight } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-
 import { Blocks, PortableText, type WorkQueryQuery } from '~/app/cms'
 
 const prose = 'prose dark:prose-invert max-w-4xl'
