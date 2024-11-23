@@ -28,10 +28,10 @@ import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import { useNumberFormatter } from '@react-aria/i18n'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
+import { useRecaptcha } from '../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
 import { useTranslation } from '~/app/i18n'
-import { useRecaptcha } from '~/app/recaptcha'
 
 function Fieldset({
 	children,
