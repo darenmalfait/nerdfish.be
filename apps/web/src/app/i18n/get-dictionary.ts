@@ -23,6 +23,7 @@ export type Dictionary = {
 	'ai.page.title': string
 	'blog.related.title': string
 	'blog.related.subtitle': string
+	'contact.booking.title': string
 	'contact.dataUsage': string
 	'contact.company': string
 	'contact.email': string
