@@ -26,14 +26,17 @@ import { useTranslation } from '~/app/i18n'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
-function DetailLink({ page }: { page?: Page }) {
+function DetailLink({ page, title }: { page?: Page; title?: string }) {
 	const { t } = useTranslation()
 	if (!page) return null
 
 	return (
 		<div className="mt-md">
 			<MagnetButton className="-mx-md group" variant="ghost" asChild>
-				<Link href={`/${page._sys.breadcrumbs.join('/')}`}>
+				<Link
+					href={`/${page._sys.breadcrumbs.join('/')}`}
+					aria-label={`${t('features.readMore')} ${t('global.about')} ${title}`}
+				>
 					{t('features.readMore')}
 					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
 				</Link>
@@ -76,7 +79,7 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 						{description}
 					</p>
 				</div>
-				<DetailLink page={detail as Page} />
+				<DetailLink page={detail as Page} title={title ?? ''} />
 			</div>
 		</div>
 	)
