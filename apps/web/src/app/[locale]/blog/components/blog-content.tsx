@@ -6,7 +6,7 @@ import {
 	JsonLd,
 	type WithContext,
 } from '@nerdfish-website/seo/json-ld'
-import { generateOGImageUrl, author } from '@nerdfish-website/seo/metadata'
+import { author } from '@nerdfish-website/seo/metadata'
 import { DateFormatter, Section } from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
@@ -43,9 +43,9 @@ function BlogContent({
 		image: heroImg
 			? {
 					'@type': 'ImageObject',
-					url: generateOGImageUrl({
-						heading: title,
-					}),
+					url: heroImg
+						? new URL(heroImg, env.NEXT_PUBLIC_URL).toString()
+						: undefined,
 				}
 			: undefined,
 		dateModified: new Date(date).toISOString(),
