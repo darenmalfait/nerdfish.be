@@ -49,7 +49,7 @@ export const ExpandableChatBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cx('flex-grow overflow-y-auto', className)}
+		className={cx('p-md flex-grow overflow-y-auto', className)}
 		{...props}
 	/>
 ))
@@ -80,7 +80,7 @@ const ExpandableChatToggle = React.forwardRef<
 		variant="default"
 		onClick={toggleChat}
 		className={cx(
-			'-z-1 hover:motion-preset-seesaw flex h-14 w-14 items-center justify-center transition-all duration-300',
+			'-z-1 group flex h-14 w-14 items-center justify-center transition-all duration-300 hover:scale-110',
 			className,
 		)}
 		{...props}
@@ -88,7 +88,9 @@ const ExpandableChatToggle = React.forwardRef<
 		{isOpen ? (
 			<XIcon className="h-6 w-6" />
 		) : (
-			(icon ?? <MessageCircleIcon className="h-6 w-6" />)
+			(icon ?? (
+				<MessageCircleIcon className="group-hover:motion-preset-seesaw h-6 w-6" />
+			))
 		)}
 	</Button>
 ))
@@ -112,6 +114,7 @@ export const ExpandableChat = React.forwardRef<
 			size = 'md',
 			icon,
 			children,
+			'aria-label': ariaLabel,
 			...props
 		},
 		ref,
@@ -129,7 +132,7 @@ export const ExpandableChat = React.forwardRef<
 			>
 				<div
 					className={cx(
-						'bg-primary duration-250 sm:rounded-large fixed inset-0 flex h-full w-full flex-col overflow-hidden border shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
+						'bg-primary duration-250 sm:rounded-semi fixed inset-0 flex h-full w-full flex-col overflow-hidden border shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
 						chatConfig.chatPositions[position],
 						chatConfig.dimensions[size],
 						isOpen ? chatConfig.states.open : chatConfig.states.closed,
@@ -140,7 +143,7 @@ export const ExpandableChat = React.forwardRef<
 					<Button
 						variant="ghost"
 						size="icon"
-						className="absolute right-2 top-2 sm:hidden"
+						className="right-sm top-sm absolute sm:hidden"
 						onClick={() => setIsOpen((current) => !current)}
 					>
 						<XIcon className="h-4 w-4" />
@@ -149,6 +152,7 @@ export const ExpandableChat = React.forwardRef<
 				<ExpandableChatToggle
 					icon={icon}
 					isOpen={isOpen}
+					aria-label={ariaLabel}
 					toggleChat={() => setIsOpen((current) => !current)}
 				/>
 			</div>
