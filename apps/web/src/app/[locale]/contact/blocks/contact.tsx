@@ -37,7 +37,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 			</SectionHeader>
 			<TextSlideUp
 				delay={400}
-				className="gap-lg flex items-center !overflow-visible"
+				className="gap-lg flex flex-col items-center !overflow-visible md:flex-row"
 			>
 				<MagnetButton
 					type="button"
