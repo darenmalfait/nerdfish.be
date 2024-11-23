@@ -1,11 +1,11 @@
-import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
+import { createMetadata } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { BlogOverviewBlock } from '../blocks'
-import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 import { BlogContent } from '~/app/[locale]/blog/components/blog-content'
 import { BlogPreview } from '~/app/[locale]/blog/components/blog-preview'
+import { generateOGImageUrl } from '~/app/api/og'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
 
@@ -17,16 +17,18 @@ export async function generateMetadata({
 	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
-	return getMetaData({
-		ogImage: data.blog.seo?.seoImg
+	return createMetadata({
+		title,
+		description: data.blog.seo?.description ?? '',
+		image: data.blog.seo?.seoImg
 			? data.blog.seo.seoImg
 			: generateOGImageUrl({
 					heading: title,
 				}),
-		title,
-		url: getBlogPath(data.blog),
-		description: data.blog.seo?.description ?? '',
-		canonical: data.blog.seo?.canonical,
+		alternates: {
+			canonical: data.blog.seo?.canonical,
+		},
+		locale: params.locale,
 	})
 }
 

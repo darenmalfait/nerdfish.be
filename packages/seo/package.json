@@ -3,12 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@nerdfish-website/env": "workspace:*",
-    "@nerdfish-website/lib": "workspace:*",
     "lodash.merge": "^4.6.2",
     "react": "^18.3.1",
-    "schema-dts": "^1.1.2",
-    "zod": "^3.23.8"
+    "schema-dts": "^1.1.2"
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",

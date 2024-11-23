@@ -1,10 +1,11 @@
-import { generateOGImageUrl, getMetaData } from '@nerdfish-website/seo/metadata'
+import { createMetadata } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { getPages } from '../api'
 import { PageContent } from '../components/page-content'
 import { PagePreview } from '../components/page-preview'
 import { getRouteData } from './route-data'
+import { generateOGImageUrl } from '~/app/api/og'
 import { i18n, type WithLocale } from '~/app/i18n'
 export async function generateStaticParams() {
 	return ((await getPages()) ?? []).map((page) => {
@@ -23,20 +24,29 @@ export async function generateMetadata({
 	params: WithLocale<{ slug?: string }>
 }): Promise<Metadata | undefined> {
 	const { data } = await getRouteData(params.slug ?? '', params.locale)
-	const baseSlug = i18n.defaultLocale === params.locale ? '' : params.locale
+	const title = data.page.seo?.title ?? data.page.title
 
-	const title = data.page.seo?.title ?? (data.page.title || 'Untitled')
+	const canonicalPath =
+		!params.slug || params.slug === '/'
+			? `/${params.locale}`
+			: `/${params.locale}/${params.slug}`
 
-	return getMetaData({
-		ogImage: data.page.seo?.seoImg
-			? data.page.seo.seoImg
-			: generateOGImageUrl({
-					heading: title,
-				}),
+	const canonical = data.page.seo?.canonical ?? canonicalPath
+
+	const ogImage = data.page.seo?.seoImg
+		? data.page.seo.seoImg
+		: generateOGImageUrl({
+				heading: title,
+			})
+
+	return createMetadata({
 		title,
-		url: params.slug ? `/${baseSlug}/${params.slug}` : `/${baseSlug}`,
 		description: data.page.seo?.description ?? '',
-		canonical: data.page.seo?.canonical,
+		image: ogImage,
+		alternates: {
+			canonical,
+		},
+		locale: params.locale,
 	})
 }
 
