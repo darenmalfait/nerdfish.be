@@ -1,9 +1,7 @@
 'use client'
 
-import { Section } from '@nerdfish-website/ui/components'
-import * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
 import {
+	Section,
 	HighlightCard,
 	HighlightCardCategory,
 	HighlightCardContent,
@@ -11,7 +9,9 @@ import {
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
-} from '../components'
+} from '@nerdfish-website/ui/components'
+import * as React from 'react'
+import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
 import { type PageBlocksHighlight, type Block } from '~/app/cms'
 

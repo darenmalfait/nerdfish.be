@@ -7,14 +7,17 @@ import {
 	type WithContext,
 } from '@nerdfish-website/seo/json-ld'
 import { author } from '@nerdfish-website/seo/metadata'
-import { DateFormatter, Section } from '@nerdfish-website/ui/components'
+import {
+	DateFormatter,
+	Section,
+	ReadingProgress,
+} from '@nerdfish-website/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
 import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
-import { ReadingProgress } from '~/app/common'
 import { type Locale } from '~/app/i18n'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'

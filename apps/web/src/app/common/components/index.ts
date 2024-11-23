@@ -1,6 +1,4 @@
 export * from './article-overview'
-export * from './highlight-card'
-export * from './reading-progress'
 export * from './site-footer'
 export * from './site-header'
 export * from './tag-filter'
