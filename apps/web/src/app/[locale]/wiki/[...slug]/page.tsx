@@ -1,9 +1,9 @@
 import { createMetadata } from '@nerdfish-website/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import { WikiContent } from '../components/wiki-content'
+import { WikiPreview } from '../components/wiki-preview'
 import { getRouteData } from './route-data'
-import { WikiContent } from '~/app/[locale]/wiki/components/wiki-content'
-import { WikiPreview } from '~/app/[locale]/wiki/components/wiki-preview'
 import { generateOGImageUrl } from '~/app/api/og'
 import { i18n } from '~/app/i18n'
 

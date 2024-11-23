@@ -6,7 +6,6 @@ import {
 	KeywordListBlock,
 	NeonBlock,
 	SkillsBlock,
-	ContactBlock,
 	CtaBlock,
 	FAQBlock,
 	HighlightBlock,
@@ -16,7 +15,7 @@ import {
 } from './blocks'
 import { type Block } from './types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import { BookingBlock } from '~/app/[locale]/contact'
+import { BookingBlock, ContactBlock } from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'

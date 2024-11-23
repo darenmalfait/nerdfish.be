@@ -1,7 +1,6 @@
 'use client'
 
 import { useTina } from 'tinacms/dist/react'
-
 import { PageContent } from './page-content'
 import {
 	Preview,
