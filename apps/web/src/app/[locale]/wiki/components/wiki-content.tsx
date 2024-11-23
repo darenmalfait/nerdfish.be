@@ -1,10 +1,13 @@
 import { H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter, Section } from '@nerdfish-website/ui/components'
+import {
+	DateFormatter,
+	Section,
+	ReadingProgress,
+} from '@nerdfish-website/ui/components'
 import { tinaField } from 'tinacms/dist/react'
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
-import { ReadingProgress } from '~/app/common'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
