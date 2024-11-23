@@ -42,6 +42,7 @@ export type Dictionary = {
 	'theme.light': string
 	'theme.system': string
 	'features.readMore': string
+	'global.about': string
 	'global.allArticles': string
 	'global.readMore': string
 	'global.vat': string
