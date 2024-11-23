@@ -9,7 +9,7 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '../../common'
-import { Chat } from './components/chat'
+import { Chat } from '../contact'
 import { type WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
 
