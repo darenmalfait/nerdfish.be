@@ -1,5 +1,3 @@
-'use client'
-
 import {
 	Button,
 	type ButtonProps,
@@ -16,7 +14,7 @@ import {
 	FacebookIcon,
 	GithubIcon,
 	InstagramIcon,
-	LinkedinIcon,
+	LinkedInIcon,
 	TwitterIcon,
 } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
@@ -27,32 +25,6 @@ import {
 	type GlobalNavigationMainSub,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
-
-export function ActionsNavigation({
-	className,
-	onSelect,
-}: {
-	className?: string
-	onSelect?: () => void
-}) {
-	const { navigation } = useGlobal()
-
-	return (
-		<ul className={cx('space-x-xs', className)}>
-			{navigation?.actions?.map((link) => {
-				if (!link) return null
-
-				return (
-					<li key={link.label}>
-						<Button onClick={onSelect} variant="accentuate" asChild>
-							<Link href={`/${stripPreSlash(link.href)}`}>{link.label}</Link>
-						</Button>
-					</li>
-				)
-			})}
-		</ul>
-	)
-}
 
 const MainNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -202,7 +174,7 @@ export function SocialLinks() {
 				<li>
 					<Button variant="ghost" size="icon" asChild>
 						<Link aria-label="LinkedIn profile" href={social.linkedIn}>
-							<LinkedinIcon className="size-4 duration-75 ease-linear" />
+							<LinkedInIcon className="size-4 duration-75 ease-linear" />
 						</Link>
 					</Button>
 				</li>
