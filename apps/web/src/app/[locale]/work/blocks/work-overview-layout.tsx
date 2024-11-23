@@ -1,17 +1,16 @@
 'use client'
 
 import { type PartialDeep } from '@nerdfish-website/lib/utils'
-import { Section } from '@nerdfish-website/ui/components'
-import * as React from 'react'
-import { filterWork, mapWorkToArticle } from '../utils'
-import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
 import {
-	ArticleOverview,
+	Section,
 	SectionHeaderTitle,
 	SectionHeader,
 	SectionHeaderSubtitle,
-	ArticleOverviewSearchImage,
-} from '~/app/common'
+} from '@nerdfish-website/ui/components'
+import * as React from 'react'
+import { filterWork, mapWorkToArticle } from '../utils'
+import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
+import { ArticleOverview, ArticleOverviewSearchImage } from '~/app/common'
 import {
 	ArticleOverviewFilter,
 	ArticleOverviewSearch,

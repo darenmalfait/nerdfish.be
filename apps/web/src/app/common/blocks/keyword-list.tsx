@@ -1,8 +1,11 @@
 import { H1, Marquee } from '@nerdfish/ui'
 import { nonNullable } from '@nerdfish-website/lib/utils'
+import {
+	SectionHeader,
+	SectionHeaderTitle,
+} from '@nerdfish-website/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { SectionHeader, SectionHeaderTitle } from '../components'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {

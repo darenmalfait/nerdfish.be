@@ -5,15 +5,13 @@ import {
 	Section,
 	TextSlideUp,
 	MagnetButton,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
 } from '@nerdfish-website/ui/components'
 import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '../components'
 import { ContactForm } from '~/app/[locale]/contact'
 import { type PageBlocksContactForm, type Block } from '~/app/cms'
 

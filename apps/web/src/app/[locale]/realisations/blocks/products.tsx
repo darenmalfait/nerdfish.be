@@ -11,16 +11,16 @@ import {
 	Skeleton,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section } from '@nerdfish-website/ui/components'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@nerdfish-website/ui/components'
 import { GithubIcon, GlobeIcon } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
-import {
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '~/app/common'
 
 function Product({
 	title,

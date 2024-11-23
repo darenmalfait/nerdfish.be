@@ -1,11 +1,44 @@
 import { cx } from '@nerdfish/utils'
-import { TextSlideUp, Section } from '@nerdfish-website/ui/components'
+import {
+	TextSlideUp,
+	Section,
+	SectionHeaderSubtitle,
+} from '@nerdfish-website/ui/components'
 import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { AnimatedText, SectionHeaderSubtitle } from '../components'
 import { PortableText, type Block, type PageBlocksHero } from '~/app/cms'
+
+const AnimatedText = React.forwardRef<
+	HTMLSpanElement,
+	Omit<React.ComponentPropsWithRef<'span'>, 'children'> & {
+		as?: React.ElementType
+		value?: string
+		letterClassName?: string
+	}
+>(function AnimatedText({ as, value, letterClassName, ...props }, ref) {
+	const Tag = as ?? 'span'
+
+	const letters = value?.split('')
+
+	return (
+		<Tag {...props} aria-label={value} ref={ref}>
+			{letters?.map((letter, index) => (
+				<span
+					className={cx(
+						'inline-block transition-colors',
+						'hover:animate-rubber cursor-default',
+						letterClassName,
+					)}
+					key={index}
+				>
+					{letter === ' ' ? '\u00A0' : letter}
+				</span>
+			))}
+		</Tag>
+	)
+})
 
 type Variant = 'default' | 'secondary'
 

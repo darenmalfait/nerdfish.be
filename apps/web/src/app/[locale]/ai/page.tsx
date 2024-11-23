@@ -1,13 +1,14 @@
 import { Paragraph } from '@nerdfish/ui'
 import { createMetadata } from '@nerdfish-website/seo/metadata'
-import { InViewBackground, Section } from '@nerdfish-website/ui/components'
-import { type Metadata } from 'next'
 import {
-	HeroBlock,
+	InViewBackground,
+	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '../../common'
+} from '@nerdfish-website/ui/components'
+import { type Metadata } from 'next'
+import { HeroBlock } from '../../common'
 import { Chat } from '../contact'
 import { generateOGImageUrl } from '~/app/api/og'
 import { type WithLocale } from '~/app/i18n'
