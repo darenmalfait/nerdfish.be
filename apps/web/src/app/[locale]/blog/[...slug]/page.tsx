@@ -40,9 +40,10 @@ export default async function BlogPage({
 
 	const { isEnabled: isPreview } = draftMode()
 
-	if (isPreview) return <BlogPreview {...routeData} />
+	if (isPreview) return <BlogPreview locale={params.locale} {...routeData} />
 	return (
 		<BlogContent
+			locale={params.locale}
 			relatedContent={
 				<BlogOverviewBlock
 					header={{
