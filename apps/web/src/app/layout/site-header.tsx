@@ -27,7 +27,7 @@ export function SiteHeader() {
 							</Link>
 						</Button>
 						<div className="ml-auto flex items-center">
-							<div className="top-mdx p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 mx-auto hidden w-fit max-w-full md:block">
+							<div className="p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 top-7 mx-auto hidden w-fit max-w-full md:block">
 								<MainNavigation />
 							</div>
 

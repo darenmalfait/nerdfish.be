@@ -83,6 +83,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
 					<Button
+						size="sm"
 						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 						className={cx(
 							getMainItemClassName({
@@ -109,6 +110,7 @@ const MainNavigationItem = React.forwardRef<
 	return (
 		<NavigationMenuItem>
 			<Button
+				size="sm"
 				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 				className={cx(
 					getMainItemClassName({
