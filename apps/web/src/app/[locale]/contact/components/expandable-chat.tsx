@@ -37,7 +37,10 @@ export const ExpandableChatHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cx('flex items-center justify-between border-b p-4', className)}
+		className={cx(
+			'border-b-muted p-md flex items-center justify-between',
+			className,
+		)}
 		{...props}
 	/>
 ))
@@ -59,7 +62,11 @@ export const ExpandableChatFooter = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => (
-	<div ref={ref} className={cx('border-t p-4', className)} {...props} />
+	<div
+		ref={ref}
+		className={cx('border-muted p-md border-t', className)}
+		{...props}
+	/>
 ))
 
 ExpandableChatFooter.displayName = 'ExpandableChatFooter'
@@ -132,7 +139,7 @@ export const ExpandableChat = React.forwardRef<
 			>
 				<div
 					className={cx(
-						'bg-primary duration-250 sm:rounded-semi fixed inset-0 flex h-full w-full flex-col overflow-hidden border shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
+						'bg-primary duration-250 sm:rounded-semi shadow-outline fixed inset-0 flex h-full w-full flex-col overflow-hidden shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
 						chatConfig.chatPositions[position],
 						chatConfig.dimensions[size],
 						isOpen ? chatConfig.states.open : chatConfig.states.closed,

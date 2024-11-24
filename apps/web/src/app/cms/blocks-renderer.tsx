@@ -15,7 +15,11 @@ import {
 } from './blocks'
 import { type Block } from './types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import { BookingBlock, ContactBlock } from '~/app/[locale]/contact'
+import {
+	BookingBlock,
+	ContactBlock,
+	ChatbotBlock,
+} from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'
@@ -34,6 +38,7 @@ const getComponent = (componentKey: string) => {
 		// Page blocks
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
+		PageBlocksChatbot: ChatbotBlock,
 		PageBlocksContact: ContactBlock,
 		PageBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
