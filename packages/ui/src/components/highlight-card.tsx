@@ -73,7 +73,7 @@ export const HighlightCardTitle = React.forwardRef<
 			variant="primary"
 			as="h2"
 			{...props}
-			className={cx('mt-0 !text-7xl leading-[1]', className)}
+			className={cx('mt-0 lg:!text-7xl', className)}
 		/>
 	)
 })
@@ -197,7 +197,7 @@ export const HighlightCard = React.forwardRef<
 		<div
 			ref={ref}
 			className={cx(
-				'bg-muted rounded-large focus-outline relative w-full outline-none',
+				'bg-muted rounded-large focus-outline relative w-full max-w-full overflow-hidden outline-none',
 				className,
 			)}
 			{...props}
@@ -208,7 +208,7 @@ export const HighlightCard = React.forwardRef<
 					className,
 				)}
 			>
-				<div className="shadow-outline p-lg rounded-large relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="p-lg rounded-large relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</div>
