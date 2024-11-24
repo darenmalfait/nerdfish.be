@@ -1,6 +1,6 @@
 'use client'
 
-import { Drawer, DrawerContent, Paragraph } from '@nerdfish/ui'
+import { Drawer, DrawerContent } from '@nerdfish/ui'
 import {
 	Section,
 	TextSlideUp,
@@ -10,21 +10,11 @@ import {
 	SectionHeaderTitle,
 	DrawerDialog,
 } from '@nerdfish-website/ui/components'
-import {
-	ArrowRightIcon,
-	Bot,
-	CalendarClockIcon,
-} from '@nerdfish-website/ui/icons'
+import { ArrowRightIcon, CalendarClockIcon } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { Chat } from '../components'
 import { ContactForm } from '../components/contact-form'
 import { EmbeddedCal } from '../components/embedded-cal'
-import {
-	ExpandableChat,
-	ExpandableChatBody,
-	ExpandableChatFooter,
-} from '../components/expandable-chat'
 import { type PageBlocksContact, type Block } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
@@ -72,20 +62,6 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					</span>
 				</MagnetButton>
 			</TextSlideUp>
-
-			<ExpandableChat
-				icon={<Bot className="group-hover:motion-preset-seesaw size-6" />}
-				aria-label={t('ai.page.title')}
-			>
-				<ExpandableChatBody>
-					<Chat />
-				</ExpandableChatBody>
-				<ExpandableChatFooter>
-					<Paragraph className="text-left text-xs">
-						{t('ai.description')}
-					</Paragraph>
-				</ExpandableChatFooter>
-			</ExpandableChat>
 
 			<Drawer open={contactFormOpen} onOpenChange={setContactFormOpen}>
 				<DrawerContent className="bg-primary max-h-[85vh]">
