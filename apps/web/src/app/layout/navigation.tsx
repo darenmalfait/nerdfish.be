@@ -103,7 +103,7 @@ const MainNavigationItem = React.forwardRef<
 	const isActive = sub.some((subNavItem) => {
 		if (!subNavItem) return false
 
-		return stripPreSlash(pathname).startsWith(subNavItem.href)
+		return stripPreSlash(pathname).startsWith(stripPreSlash(subNavItem.href))
 	})
 
 	return (
