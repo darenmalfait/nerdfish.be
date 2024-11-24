@@ -60,7 +60,7 @@ const getMainItemClassName = cva(
 	{
 		variants: {
 			variant: {
-				active: 'text-muted',
+				active: 'bg-inverted text-inverted',
 				default: 'text-primary',
 			},
 		},
