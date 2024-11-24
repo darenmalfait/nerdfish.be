@@ -43,7 +43,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					type="button"
 					onClick={() => setContactFormOpen(true)}
 					size="xl"
-					className="motion-opacity-in-[0%] motion-delay-500 group"
+					className="motion-opacity-in-[0%] motion-delay-500 group w-full"
 				>
 					{openFormLabel}
 					<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
