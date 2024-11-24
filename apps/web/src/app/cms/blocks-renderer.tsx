@@ -12,6 +12,7 @@ import {
 	ImageGridBlock,
 	PricingBlock,
 	TestimonialsBlock,
+	SplitWithImageBlock,
 } from './blocks'
 import { type Block } from './types'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
@@ -56,6 +57,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
 		WorkBlocksContent: ContentBlock,
+		PageBlocksSplitWithImage: SplitWithImageBlock,
 
 		// Work blocks
 		WorkBlocksImageGrid: ImageGridBlock,
