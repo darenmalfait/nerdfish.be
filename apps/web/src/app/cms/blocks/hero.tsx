@@ -77,8 +77,9 @@ function BlockLayout({
 				<div className="rounded-large -z-1 inset-x-md lg:inset-x-lg absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70" />
 			) : null}
 			<div
-				className={cx('px-md relative lg:container lg:mx-auto', {
-					'lg:min-h-[40vh]': variant === 'default',
+				className={cx('container relative mx-auto', {
+					'px-lg lg:min-h-[40vh]': variant === 'default',
+					'px-md': variant === 'secondary',
 					dark: variant === 'default',
 				})}
 			>
@@ -111,7 +112,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 		<div
 			className={cx(
 				'motion-preset-shrink motion-preset-focus mb-md w-auto max-w-[50%] flex-none md:mb-0',
-				'-bottom-2/3 mt-12 max-w-[100%] rounded-xl sm:absolute sm:right-0 sm:mt-0 sm:max-w-[60%] lg:-bottom-1/2',
+				'-bottom-2/3 mt-12 max-w-[100%] rounded-xl md:absolute md:right-0 md:mt-0 md:max-w-[60%] lg:-bottom-1/2',
 			)}
 		>
 			{children}
