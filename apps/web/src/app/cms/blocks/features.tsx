@@ -86,11 +86,14 @@ function FeatureCard(props: PageBlocksFeaturesItems) {
 }
 
 export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
+	const { title, subtitle, items, layout } = props
+
 	const ref = React.useRef<HTMLDivElement>(null)
 	const inView = useInView(ref, {
 		once: true,
 	})
-	const { title, subtitle, items } = props
+
+	const maxCols = layout?.maxCols ?? '4'
 
 	return (
 		<Section>
@@ -100,7 +103,11 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 			</SectionHeader>
 			<Grid
 				ref={ref}
-				className="gap-xl auto-rows-auto grid-cols-4"
+				className={cx('gap-xl auto-rows-auto', {
+					'grid-cols-2': maxCols === '2',
+					'grid-cols-3': maxCols === '3',
+					'grid-cols-4': maxCols === '4',
+				})}
 				data-tina-field={tinaField(props, 'items')}
 				asChild
 			>
@@ -114,8 +121,11 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 							<li
 								key={`${item.title} ${i}`}
 								style={{ animationDelay: `${i * 0.2}s` }}
-								className={cx('col-span-4 bg-none opacity-0 lg:col-span-1', {
-									'motion-preset-slide-left opacity-100': inView,
+								className={cx('bg-none opacity-0', {
+									'motion-preset-slide-left opacity-100 lg:col-span-1': inView,
+									'col-span-4': maxCols === '4',
+									'col-span-3': maxCols === '3',
+									'col-span-2': maxCols === '2',
 								})}
 							>
 								<FeatureCard
