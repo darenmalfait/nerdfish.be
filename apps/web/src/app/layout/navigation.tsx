@@ -1,3 +1,5 @@
+'use client'
+
 import {
 	Button,
 	type ButtonProps,
@@ -7,6 +9,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
+	useMediaQuery,
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
@@ -71,6 +74,7 @@ const MainNavigationItem = React.forwardRef<
 	React.ElementRef<'a'>,
 	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
 >(({ href, label, sub, variant, ...props }, ref) => {
+	const isDesktop = useMediaQuery('(min-width: 768px)')
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
@@ -83,7 +87,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
 					<Button
-						size="sm"
+						size={isDesktop ? 'sm' : 'xs'}
 						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 						className={cx(
 							getMainItemClassName({
@@ -110,7 +114,7 @@ const MainNavigationItem = React.forwardRef<
 	return (
 		<NavigationMenuItem>
 			<Button
-				size="sm"
+				size={isDesktop ? 'sm' : 'xs'}
 				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 				className={cx(
 					getMainItemClassName({
@@ -197,16 +201,33 @@ export function SocialLinks() {
 
 export function MainNavigation() {
 	const { navigation } = useGlobal()
+	const ref = React.useRef<HTMLUListElement>(null)
+	const isDesktop = useMediaQuery('(min-width: 768px)')
 
 	return (
-		<NavigationMenu>
-			<NavigationMenuList className="space-x-md" aria-label="Pages">
-				{navigation?.main?.map((mainNavItem) => {
-					if (!mainNavItem) return null
-
-					return <MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
+		<div
+			className={cx(
+				'p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 mx-auto w-fit max-w-full',
+				'before:empty-content before:bg-secondary/30 before:rounded-large before:absolute before:inset-0',
+				isDesktop ? 'top-7' : 'bottom-lg',
+			)}
+		>
+			<NavigationMenu
+				ref={ref}
+				viewportClassName={cx({
+					'-translate-y-[calc(100%+40px)]': !isDesktop,
 				})}
-			</NavigationMenuList>
-		</NavigationMenu>
+			>
+				<NavigationMenuList className="space-x-xs" aria-label="Pages">
+					{navigation?.main?.map((mainNavItem) => {
+						if (!mainNavItem) return null
+
+						return (
+							<MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
+						)
+					})}
+				</NavigationMenuList>
+			</NavigationMenu>
+		</div>
 	)
 }
