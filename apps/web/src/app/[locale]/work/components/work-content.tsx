@@ -25,7 +25,7 @@ function WorkContent({
 	return (
 		<div className="relative">
 			<Section asChild>
-				<article className="gap-xl px-lg -mt-3xl mx-auto flex flex-col pt-0 xl:flex-row">
+				<article className="gap-xl px-lg -mt-xl md:-mt-3xl mx-auto flex flex-col pt-0 xl:flex-row">
 					<Section
 						className={cx({
 							'xl:max-w-[500px]': blocks?.length,
