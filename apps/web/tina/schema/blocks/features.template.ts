@@ -25,6 +25,12 @@ export const featuresTemplate: Template = {
 			fields: [
 				{
 					type: 'string',
+					label: 'Variant',
+					name: 'variant',
+					options: ['default', 'secondary'],
+				},
+				{
+					type: 'string',
 					name: 'maxCols',
 					label: 'Maximum Columns',
 					options: ['2', '3', '4'],
