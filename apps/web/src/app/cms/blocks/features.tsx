@@ -1,7 +1,7 @@
 'use client'
 
 import { Grid, H3 } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
+import { cva, cx, type VariantProps } from '@nerdfish/utils'
 import {
 	MagnetButton,
 	Section,
@@ -45,14 +45,31 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 	)
 }
 
-function FeatureCard(props: PageBlocksFeaturesItems) {
-	const { title, description, icon, detail, ...rest } = props
+const featureCardVariants = cva(
+	'relative flex size-full flex-col items-start',
+	{
+		variants: {
+			variant: {
+				default: '',
+				secondary: 'bg-muted p-lg rounded-large',
+			},
+		},
+		defaultVariants: {
+			variant: 'secondary',
+		},
+	},
+)
+
+function FeatureCard(
+	props: PageBlocksFeaturesItems & VariantProps<typeof featureCardVariants>,
+) {
+	const { title, description, icon, detail, variant, ...rest } = props
 
 	const Icon =
 		icon && (dynamicHeroIcon(icon as keyof typeof Icons) as Icons.LucideIcon)
 
 	return (
-		<div className="relative flex size-full flex-col items-start" {...rest}>
+		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
 					className="aspect-1 mb-lg text-primary flex items-center justify-center"
@@ -94,6 +111,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 	})
 
 	const maxCols = layout?.maxCols ?? '4'
+	const variant = layout?.variant ?? 'default'
 
 	return (
 		<Section>
@@ -103,7 +121,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 			</SectionHeader>
 			<Grid
 				ref={ref}
-				className={cx('gap-xl auto-rows-auto', {
+				className={cx('gap-lg auto-rows-auto', {
 					'grid-cols-2': maxCols === '2',
 					'grid-cols-3': maxCols === '3',
 					'grid-cols-4': maxCols === '4',
@@ -130,6 +148,11 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 							>
 								<FeatureCard
 									{...itemProps}
+									variant={
+										variant as VariantProps<
+											typeof featureCardVariants
+										>['variant']
+									}
 									icon={
 										icon
 											? (`${startCase(camelCase(icon)).replace(/ /g, '')}` as keyof typeof Icons)
