@@ -16,6 +16,7 @@ import {
 	HTMLIcon,
 	GitIcon,
 	NextJSIcon,
+	TailwindIcon,
 } from '@nerdfish-website/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -34,6 +35,7 @@ const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
 	git: GitIcon,
 	figma: FigmaIcon,
 	next: NextJSIcon,
+	tailwind: TailwindIcon,
 }
 
 function SkillItem({ skill }: { skill?: string | null }) {
