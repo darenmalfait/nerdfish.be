@@ -1,6 +1,6 @@
 'use client'
 
-import { LoadingAnimation, H1, Separator } from '@nerdfish/ui'
+import { LoadingAnimation, H1, Separator, H3 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	Section,
@@ -20,7 +20,7 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="space-y-md py-lg">
+		<div className="space-y-md my-lg">
 			<p className="text-muted max-w-2xl text-lg lg:text-xl">
 				Made by{' '}
 				<Link
@@ -53,7 +53,7 @@ function SiteFooterHeading() {
 	const { paths } = useGlobal()
 
 	return (
-		<H1 as="h2" className="py-lg text-primary">
+		<H1 as="h2" className="py-lg text-primary mb-xl">
 			<Link
 				href={paths?.contact ?? '/'}
 				className="group"
@@ -71,6 +71,28 @@ function SiteFooterHeading() {
 	)
 }
 
+function SiteFooterContent() {
+	const { companyInfo } = useGlobal()
+
+	return (
+		<div className="space-y-xs mb-lg">
+			<H3 className="!text-base font-semibold leading-normal">Speak with us</H3>
+			<span className="block !text-base font-normal leading-normal">
+				{companyInfo?.companyName}
+			</span>
+			<Link
+				className="block !text-base font-normal leading-normal"
+				href={`mailto:${companyInfo?.email}`}
+			>
+				{companyInfo?.email}
+			</Link>
+			<span className="block !text-base font-normal leading-normal">
+				{companyInfo?.vat}
+			</span>
+		</div>
+	)
+}
+
 const SiteFooter = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
@@ -83,7 +105,8 @@ const SiteFooter = React.forwardRef<
 					aria-labelledby="footer-heading"
 				>
 					<SiteFooterHeading />
-					<Separator className="my-lg" />
+					<SiteFooterContent />
+					<Separator className="my-sm" />
 					<Disclaimer />
 				</footer>
 			</InViewBackground>
