@@ -19,6 +19,19 @@ export const featuresTemplate: Template = {
 	},
 	fields: [
 		{
+			type: 'object',
+			label: 'Layout',
+			name: 'layout',
+			fields: [
+				{
+					type: 'string',
+					name: 'maxCols',
+					label: 'Maximum Columns',
+					options: ['2', '3', '4'],
+				},
+			],
+		},
+		{
 			type: 'string',
 			label: 'Title',
 			name: 'title',
