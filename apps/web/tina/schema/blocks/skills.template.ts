@@ -13,7 +13,6 @@ export const skills = [
 	'figma',
 	'next',
 	'tailwind',
-	'vscode',
 ] as const
 
 export const skillsTemplate: Template = {
