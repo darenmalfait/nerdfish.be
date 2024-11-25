@@ -21,6 +21,8 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 
 	return (
 		<ExpandableChat
+			// TODO: find a way to not overlap the navigation
+			className="hidden md:block"
 			icon={
 				<Icon
 					data-tina-field={tinaField(props, 'icon')}
