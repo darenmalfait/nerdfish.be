@@ -1,13 +1,13 @@
 'use client'
 
-import { LoadingAnimation, H1, Separator, H3 } from '@nerdfish/ui'
+import { LoadingAnimation, H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	Section,
 	InViewBackground,
 	TextSlideUp,
 } from '@nerdfish-website/ui/components'
-import { ArrowRight } from '@nerdfish-website/ui/icons'
+import { ArrowRight, Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
@@ -20,30 +20,18 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="space-y-md my-lg">
-			<p className="text-muted max-w-2xl text-lg lg:text-xl">
-				Made by{' '}
-				<Link
-					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
-					href="https://www.nerdfish.be"
-				>
-					nerdfish
-				</Link>
-				, development with user experience in mind. The code is{' '}
-				<Link
-					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
-					href="https://github.com/darenmalfait/nerdfish.be"
-					target="_blank"
-				>
-					open-source
-				</Link>
-				.
-			</p>
-			<div className="-mx-md">
-				<SocialLinks />
+		<div className="gap-lg my-lg flex w-full flex-col items-center justify-center md:flex-row">
+			<div className="gap-lg flex items-center">
+				<div>
+					<Logo className="h-4 w-auto items-center text-current" />
+				</div>
+				<div className="text-muted flex justify-start text-sm">
+					© {currentYear} {companyInfo?.companyName}
+				</div>
 			</div>
-			<div className="text-muted flex justify-start text-xs font-normal">
-				© {companyInfo?.companyName} {currentYear}.
+
+			<div className="flex flex-1 justify-end">
+				<SocialLinks />
 			</div>
 		</div>
 	)
@@ -75,20 +63,41 @@ function SiteFooterContent() {
 	const { companyInfo } = useGlobal()
 
 	return (
-		<div className="space-y-xs mb-lg">
-			<H3 className="!text-base font-semibold leading-normal">Speak with us</H3>
-			<span className="block !text-base font-normal leading-normal">
-				{companyInfo?.companyName}
-			</span>
-			<Link
-				className="block !text-base font-normal leading-normal"
-				href={`mailto:${companyInfo?.email}`}
-			>
-				{companyInfo?.email}
-			</Link>
-			<span className="block !text-base font-normal leading-normal">
-				{companyInfo?.vat}
-			</span>
+		<div className="gap-lg my-lg grid md:grid-cols-[repeat(4,250px)]">
+			<p className="text-muted text-lg lg:text-xl">
+				Made by{' '}
+				<Link
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					href="https://www.nerdfish.be"
+				>
+					nerdfish
+				</Link>
+				, development with user experience in mind. The code is{' '}
+				<Link
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					href="https://github.com/darenmalfait/nerdfish.be"
+					target="_blank"
+				>
+					open-source
+				</Link>
+				.
+			</p>
+
+			<div className="space-y-xs mb-md">
+				<h3 className="text-xl font-semibold leading-tight">Get in touch</h3>
+				<span className="text-muted block text-xl leading-tight">
+					{companyInfo?.companyName}
+				</span>
+				<Link
+					className="text-muted block text-xl leading-tight"
+					href={`mailto:${companyInfo?.email}`}
+				>
+					{companyInfo?.email}
+				</Link>
+				<span className="text-muted block text-xl leading-tight">
+					{companyInfo?.vat}
+				</span>
+			</div>
 		</div>
 	)
 }
@@ -98,10 +107,14 @@ const SiteFooter = React.forwardRef<
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
 	return (
-		<div ref={ref} className={cx('py-lg pb-xl mt-lg', className)} {...props}>
+		<div
+			ref={ref}
+			className={cx('py-lg pb-xl lg:pb-sm mt-lg', className)}
+			{...props}
+		>
 			<InViewBackground className="bg-secondary">
 				<footer
-					className="text-primary px-lg mx-auto"
+					className="text-primary px-lg mx-auto w-full"
 					aria-labelledby="footer-heading"
 				>
 					<SiteFooterHeading />
