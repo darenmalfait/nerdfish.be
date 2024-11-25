@@ -23,7 +23,7 @@ function BlockLayout({
 		<Section>
 			<div
 				className={cx(
-					'gap-lg flex flex-col md:flex-row',
+					'gap-lg flex flex-col md:flex-row md:items-center',
 					reverse && 'md:flex-row-reverse',
 				)}
 			>
@@ -38,7 +38,7 @@ export function SplitWithImageBlock(data: Block<PageBlocksSplitWithImage>) {
 
 	return (
 		<BlockLayout reverse={reverse ?? false}>
-			<div className="prose prose-xl lg:prose-2xl dark:prose-invert pt-xl w-full">
+			<div className="prose prose-xl lg:prose-2xl dark:prose-invert w-full">
 				{body ? (
 					<PortableText
 						data-tina-field={tinaField(data, 'body')}
