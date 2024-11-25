@@ -1,5 +1,3 @@
-'use client'
-
 import {
 	Button,
 	type ButtonProps,
@@ -9,7 +7,6 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	useMediaQuery,
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
@@ -59,7 +56,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative flex h-8 cursor-pointer !rounded-large bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
+	'relative text-xs md:text-sm flex h-8 cursor-pointer !rounded-large bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
 	{
 		variants: {
 			variant: {
@@ -74,7 +71,6 @@ const MainNavigationItem = React.forwardRef<
 	React.ElementRef<'a'>,
 	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
 >(({ href, label, sub, variant, ...props }, ref) => {
-	const isDesktop = useMediaQuery('(min-width: 768px)')
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
@@ -87,7 +83,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
 					<Button
-						size={isDesktop ? 'sm' : 'xs'}
+						size="sm"
 						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 						className={cx(
 							getMainItemClassName({
@@ -114,7 +110,7 @@ const MainNavigationItem = React.forwardRef<
 	return (
 		<NavigationMenuItem>
 			<Button
-				size={isDesktop ? 'sm' : 'xs'}
+				size="sm"
 				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
 				className={cx(
 					getMainItemClassName({
@@ -202,21 +198,18 @@ export function SocialLinks() {
 export function MainNavigation() {
 	const { navigation } = useGlobal()
 	const ref = React.useRef<HTMLUListElement>(null)
-	const isDesktop = useMediaQuery('(min-width: 768px)')
 
 	return (
 		<div
 			className={cx(
 				'p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 mx-auto w-fit max-w-full',
 				'before:empty-content before:bg-secondary/30 before:rounded-large before:absolute before:inset-0',
-				isDesktop ? 'top-7' : 'bottom-lg',
+				'bottom-lg md:bottom-auto md:top-7',
 			)}
 		>
 			<NavigationMenu
 				ref={ref}
-				viewportClassName={cx({
-					'-translate-y-[calc(100%+40px)]': !isDesktop,
-				})}
+				viewportClassName="-translate-y-[calc(100%+40px)] md:translate-y-0"
 			>
 				<NavigationMenuList className="space-x-xs" aria-label="Pages">
 					{navigation?.main?.map((mainNavItem) => {
