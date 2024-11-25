@@ -4,7 +4,6 @@ import { Button } from '@nerdfish/ui'
 import { Logo } from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
-import { MobileNavigation } from './mobile-navigation'
 import { MainNavigation } from './navigation'
 import { LocaleSwitcher, useTranslation } from '~/app/i18n'
 import { ThemeToggle } from '~/app/theme'
@@ -27,14 +26,13 @@ export function SiteHeader() {
 							</Link>
 						</Button>
 						<div className="ml-auto flex items-center">
-							<div className="p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 top-7 mx-auto hidden w-fit max-w-full md:block">
-								<MainNavigation />
-							</div>
+							<MainNavigation />
 
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
 								<ThemeToggle variant="ghost" />
 								<LocaleSwitcher />
-								<MobileNavigation />
+								{/* TODO: add mobile navigation if too many items */}
+								{/* <MobileNavigation /> */}
 							</div>
 						</div>
 					</div>
