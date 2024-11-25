@@ -204,7 +204,7 @@ export function MainNavigation() {
 			className={cx(
 				'p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 mx-auto w-fit max-w-full',
 				'before:empty-content before:bg-secondary/30 before:rounded-large before:absolute before:inset-0',
-				'bottom-lg md:bottom-auto md:top-7',
+				'bottom-lg md:bottom-auto md:top-6',
 			)}
 		>
 			<NavigationMenu
