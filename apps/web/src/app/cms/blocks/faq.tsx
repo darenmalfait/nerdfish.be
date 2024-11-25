@@ -5,7 +5,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-	H2,
+	H3,
 } from '@nerdfish/ui'
 import { nonNullable } from '@nerdfish-website/lib/utils'
 import {
@@ -32,10 +32,10 @@ function QAItem({ question, answer }: { question: string; answer: string }) {
 			value={id}
 			className="p-lg focus-within:outline-active py-sm hover:bg-secondary rounded-large bg-muted group border-none outline-none transition-colors"
 		>
-			<AccordionTrigger className="py-lg text-xl !outline-none after:hidden hover:no-underline">
-				<H2 variant="primary" as="span">
+			<AccordionTrigger className="py-lg !outline-none after:hidden hover:no-underline">
+				<H3 variant="primary" as="span">
 					{question}
-				</H2>
+				</H3>
 			</AccordionTrigger>
 			<AccordionContent className="pt-md prose prose-xl text-primary text-xl">
 				{answer}
