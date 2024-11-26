@@ -10,7 +10,7 @@ import { EmbeddedCal } from '../../contact'
 import { useTranslation } from '~/app/i18n'
 
 const chatMessageVariants = cva(
-	'rounded-large animate-rubber relative px-5 py-2.5',
+	'rounded-container animate-rubber relative px-5 py-2.5',
 	{
 		variants: {
 			role: {

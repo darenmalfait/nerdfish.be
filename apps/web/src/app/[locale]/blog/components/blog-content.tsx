@@ -90,7 +90,7 @@ function BlogContent({
 					{heroImg ? (
 						<div className={cx(prose, 'mb-xl mx-auto')}>
 							<div
-								className="rounded-large overflow-hidden"
+								className="rounded-container overflow-hidden"
 								data-tina-field={tinaField(data.blog, 'heroImg')}
 							>
 								{/* TODO: add aria description */}

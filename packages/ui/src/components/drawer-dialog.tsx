@@ -21,7 +21,7 @@ export function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-large bg-primary relative overflow-hidden !p-0 transition-all">
+				<DialogContent className="rounded-container bg-primary relative overflow-hidden !p-0 transition-all">
 					{children}
 				</DialogContent>
 			</Dialog>

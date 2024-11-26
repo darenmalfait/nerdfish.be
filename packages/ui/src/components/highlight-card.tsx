@@ -24,7 +24,7 @@ export const HighlightCardImage = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'aspect-h-4 aspect-w-3 rounded-large mt-lg pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
+				'aspect-h-4 aspect-w-3 rounded-container mt-lg pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
 				className,
 			)}
 		>
@@ -197,18 +197,18 @@ export const HighlightCard = React.forwardRef<
 		<div
 			ref={ref}
 			className={cx(
-				'bg-muted rounded-large focus-outline relative w-full max-w-full overflow-hidden outline-none',
+				'bg-muted rounded-container focus-outline relative w-full max-w-full overflow-hidden outline-none',
 				className,
 			)}
 			{...props}
 		>
 			<div
 				className={cx(
-					'rounded-large block no-underline outline-none lg:bg-transparent',
+					'rounded-container block no-underline outline-none lg:bg-transparent',
 					className,
 				)}
 			>
-				<div className="p-lg rounded-large relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="p-lg rounded-container relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</div>

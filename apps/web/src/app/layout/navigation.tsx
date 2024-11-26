@@ -35,7 +35,7 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'focus-within:outline-active hover:bg-muted rounded-semi p-md space-y-sm group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
+						'focus-within:outline-active hover:bg-muted rounded-base p-md space-y-sm group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
@@ -56,7 +56,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative text-xs md:text-sm flex h-8 cursor-pointer !rounded-large bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
+	'relative text-xs md:text-sm flex h-8 cursor-pointer !rounded-container bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
 	{
 		variants: {
 			variant: {
@@ -121,7 +121,7 @@ const MainNavigationItem = React.forwardRef<
 			>
 				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
 			</Button>
-			<NavigationMenuContent className="bg-primary rounded-semi">
+			<NavigationMenuContent className="bg-primary rounded-base">
 				<ul
 					className={cx('gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]')}
 				>
@@ -202,8 +202,8 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'p-xs bg-popover shadow-outline rounded-large fixed inset-x-0 mx-auto w-fit max-w-full',
-				'before:empty-content before:bg-secondary/30 before:rounded-large before:absolute before:inset-0',
+				'p-xs bg-popover shadow-outline rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
+				'before:empty-content before:bg-secondary/30 before:rounded-container before:absolute before:inset-0',
 				'bottom-lg md:bottom-auto md:top-6',
 			)}
 		>

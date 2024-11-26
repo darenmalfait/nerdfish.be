@@ -35,7 +35,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	return (
 		<Section>
-			<Card className="rounded-large p-lg bg-secondary relative mx-auto w-full max-w-3xl overflow-hidden">
+			<Card className="rounded-container p-lg bg-secondary relative mx-auto w-full max-w-3xl overflow-hidden">
 				<CardHeader className="p-lg bg-transparent pb-0">
 					<CardTitle data-tina-field={tinaField(props, 'title')}>
 						{title}
@@ -70,7 +70,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 								{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 									({ slug, title: bookingTitle, duration }) => (
 										<li
-											className="bg-primary hover:bg-muted shadow-outline rounded-semi"
+											className="bg-primary hover:bg-muted shadow-outline rounded-base"
 											key={slug}
 										>
 											<button
