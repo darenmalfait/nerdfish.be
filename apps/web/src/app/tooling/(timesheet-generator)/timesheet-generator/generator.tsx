@@ -15,9 +15,16 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Logo } from '@nerdfish-website/ui/icons'
-import { CSVImporter } from 'csv-import-react'
+import dynamic from 'next/dynamic'
 import * as React from 'react'
 import { z } from 'zod'
+
+const CSVImporter = dynamic(
+	() => import('csv-import-react').then((mod) => mod.CSVImporter),
+	{
+		ssr: false,
+	},
+)
 
 function Row({
 	day,
@@ -123,10 +130,8 @@ const template = {
 
 function LoadTimeEntries({
 	setTimeEntries,
-	timeEntries,
 }: {
 	setTimeEntries: (timeEntries?: TimeEntry[]) => void
-	timeEntries?: TimeEntry[]
 }) {
 	const [open, setOpen] = React.useState<boolean>(false)
 	const onComplete = React.useCallback(
@@ -139,11 +144,9 @@ function LoadTimeEntries({
 		[setTimeEntries],
 	)
 
-	if (timeEntries) return null
-
 	return (
-		<div className="col-span-3">
-			<Button onClick={() => setOpen(true)} type="button">
+		<div className="my-md col-span-3 flex items-center print:hidden">
+			<Button onClick={() => setOpen(true)} className="mx-auto" type="button">
 				Load Time Entries
 			</Button>
 			<CSVImporter
@@ -241,11 +244,10 @@ export function TimesheetGenerator() {
 			<div className="gap-y-xs gap-x-lg mb-lg grid grid-cols-3">
 				<Row day="DAY" hours="HOURS" />
 				<Spacer />
-				<LoadTimeEntries
-					setTimeEntries={setTimeEntries}
-					timeEntries={timeEntries}
-				/>
+
 				<TimeEntries timeEntries={timeEntries} />
+				<LoadTimeEntries setTimeEntries={setTimeEntries} />
+
 				<Spacer />
 				<Row
 					day="TOTAL HOURS"
@@ -258,6 +260,7 @@ export function TimesheetGenerator() {
 					}
 					className="font-bold"
 				/>
+
 				<Row
 					day="TOTAL DAYS"
 					hours={timeEntries ? timeEntries.length.toString() : '0'}
