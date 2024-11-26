@@ -143,8 +143,25 @@ export function SocialLinks() {
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link aria-label="Twitter feed" href={social.twitter}>
+						<Link
+							aria-label="Twitter feed"
+							href={social.twitter}
+							target="_blank"
+						>
 							Twitter
+						</Link>
+					</Button>
+				</li>
+			) : null}
+			{social?.bluesky ? (
+				<li>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Link
+							aria-label="Bluesky feed"
+							href={social.bluesky}
+							target="_blank"
+						>
+							Bluesky
 						</Link>
 					</Button>
 				</li>
@@ -152,7 +169,11 @@ export function SocialLinks() {
 			{social?.facebook ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link aria-label="Facebook page" href={social.facebook}>
+						<Link
+							aria-label="Facebook page"
+							href={social.facebook}
+							target="_blank"
+						>
 							Facebook
 						</Link>
 					</Button>
@@ -161,7 +182,11 @@ export function SocialLinks() {
 			{social?.instagram ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link aria-label="Instagram" href={social.instagram}>
+						<Link
+							aria-label="Instagram"
+							href={social.instagram}
+							target="_blank"
+						>
 							Instagram
 						</Link>
 					</Button>
@@ -170,7 +195,11 @@ export function SocialLinks() {
 			{social?.linkedIn ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link aria-label="LinkedIn profile" href={social.linkedIn}>
+						<Link
+							aria-label="LinkedIn profile"
+							href={social.linkedIn}
+							target="_blank"
+						>
 							LinkedIn
 						</Link>
 					</Button>
@@ -179,7 +208,11 @@ export function SocialLinks() {
 			{social?.github ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link aria-label="Github Repository" href={social.github}>
+						<Link
+							aria-label="Github Repository"
+							href={social.github}
+							target="_blank"
+						>
 							Github
 						</Link>
 					</Button>

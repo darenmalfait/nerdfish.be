@@ -134,6 +134,11 @@ const globalCollection: Collection = {
 				},
 				{
 					type: 'string',
+					label: 'Bluesky',
+					name: 'bluesky',
+				},
+				{
+					type: 'string',
 					label: 'Instagram',
 					name: 'instagram',
 				},
