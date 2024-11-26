@@ -13,6 +13,7 @@ import {
 export const ContactEmail = ({
 	name,
 	email,
+	phone,
 	company,
 	message,
 	budgetRange,
@@ -20,6 +21,7 @@ export const ContactEmail = ({
 }: {
 	readonly name: string
 	readonly email: string
+	readonly phone?: string
 	readonly company?: string
 	readonly message: string
 	readonly budgetRange?: number[]
@@ -40,6 +42,9 @@ export const ContactEmail = ({
 								{name} ({email}){company ? ` from ${company}` : ''} has sent you
 								a message:
 							</Text>
+							{phone ? (
+								<Text className="mt-4 text-zinc-500">Phone: {phone}</Text>
+							) : null}
 							{projectType && projectType.length > 0 ? (
 								<Text className="mt-4 text-zinc-500">
 									Interested in: {projectType.join(', ')}

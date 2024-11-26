@@ -39,6 +39,7 @@ export async function submitContactForm(payload: ContactFormData) {
 		company,
 		budgetRange,
 		projectType,
+		phone,
 	} = data
 
 	try {
@@ -57,6 +58,7 @@ export async function submitContactForm(payload: ContactFormData) {
 					company={company}
 					budgetRange={budgetRange}
 					projectType={projectType}
+					phone={phone}
 				/>
 			),
 		})
