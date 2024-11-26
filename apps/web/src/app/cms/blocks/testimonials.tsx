@@ -99,15 +99,22 @@ function Testimonial({
 }
 
 export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
-	const { type } = data
+	const { type, tags } = data
 
 	const { testimonials: allTestimonials } = useGlobal()
 
 	const testimonials =
-		allTestimonials?.items?.filter((item) => {
-			if (!type) return true
-			return item?.type && type.includes(item.type)
-		}) ?? []
+		allTestimonials?.items
+			// filter by type
+			?.filter((item) => {
+				if (!type) return true
+				return item?.type && type.includes(item.type)
+			})
+			// filter by tags
+			.filter((item) => {
+				if (!tags) return true
+				return item?.tags && tags.every((tag) => item.tags?.includes(tag))
+			}) ?? []
 
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
 		testimonials.length ? testimonials.length - 1 : 0,
