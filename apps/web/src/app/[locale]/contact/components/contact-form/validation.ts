@@ -1,3 +1,4 @@
+import { optionalField } from '@nerdfish-website/lib/utils'
 import * as z from 'zod'
 
 export const projectTypes = [
@@ -8,7 +9,7 @@ export const projectTypes = [
 ] as const
 
 const phoneRegex = new RegExp(
-	/^$|^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
+	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
 )
 
 export const contactSchema = z.object({
@@ -16,13 +17,14 @@ export const contactSchema = z.object({
 		.string()
 		.min(2, 'Your name seems a bit short.')
 		.max(32, 'Your name seems a bit long.'),
-	company: z
-		.string()
-		.min(2, 'Your company name seems a bit short.')
-		.max(32, 'Your company name seems a bit long.')
-		.optional(),
+	company: optionalField(
+		z
+			.string()
+			.min(2, 'Your company name seems a bit short.')
+			.max(32, 'Your company name seems a bit long.'),
+	),
 	email: z.string().email('Please enter a valid email address.'),
-	phone: z.string().regex(phoneRegex, 'Invalid Number').optional(),
+	phone: optionalField(z.string().regex(phoneRegex, 'Invalid Number!')),
 	textMessage: z
 		.string()
 		.min(10, 'I hope that your message is a bit longer than that.')
