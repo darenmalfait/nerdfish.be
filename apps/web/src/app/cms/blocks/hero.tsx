@@ -79,7 +79,6 @@ function BlockLayout({
 			<div
 				className={cx('container relative mx-auto', {
 					'px-lg lg:min-h-[40vh]': variant === 'default',
-					'px-md': variant === 'secondary',
 					dark: variant === 'default',
 				})}
 			>

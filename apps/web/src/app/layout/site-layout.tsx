@@ -114,7 +114,7 @@ const SiteFooter = React.forwardRef<
 		>
 			<InViewBackground className="bg-secondary">
 				<footer
-					className="text-primary px-lg mx-auto w-full"
+					className="text-primary px-md mx-auto w-full"
 					aria-labelledby="footer-heading"
 				>
 					<SiteFooterHeading />
