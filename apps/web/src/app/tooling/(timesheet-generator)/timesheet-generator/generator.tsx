@@ -1,3 +1,4 @@
+// Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
 import {
@@ -168,9 +169,6 @@ export function TimesheetGenerator() {
 	>()
 
 	React.useEffect(() => {
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-		if (!document) return
-
 		if (ref.current) {
 			// get height in mm
 			const height = (ref.current.clientHeight * 25.4) / 96
