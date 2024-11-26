@@ -10,13 +10,6 @@ import {
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import {
-	FacebookIcon,
-	GithubIcon,
-	InstagramIcon,
-	LinkedInIcon,
-	TwitterIcon,
-} from '@nerdfish-website/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -140,53 +133,54 @@ const MainNavigationItem = React.forwardRef<
 
 MainNavigationItem.displayName = 'MainNavigationItem'
 
+const socialLinkClassName = 'text-xs'
+
 export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="gap-xs flex flex-row items-center">
+		<ul className="gap-sm flex flex-row items-center">
 			{social?.twitter ? (
 				<li>
-					<Button variant="ghost" size="icon" asChild>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
 						<Link aria-label="Twitter feed" href={social.twitter}>
-							<TwitterIcon className="size-4 duration-75 ease-linear" />
+							Twitter
 						</Link>
 					</Button>
 				</li>
 			) : null}
 			{social?.facebook ? (
 				<li>
-					<Button variant="ghost" size="icon" asChild>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
 						<Link aria-label="Facebook page" href={social.facebook}>
-							<FacebookIcon className="size-4 duration-75 ease-linear" />
+							Facebook
 						</Link>
 					</Button>
 				</li>
 			) : null}
 			{social?.instagram ? (
 				<li>
-					<Button variant="ghost" size="icon" asChild>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
 						<Link aria-label="Instagram" href={social.instagram}>
-							<InstagramIcon className="size-4 duration-75 ease-linear" />
+							Instagram
 						</Link>
 					</Button>
 				</li>
 			) : null}
 			{social?.linkedIn ? (
 				<li>
-					<Button variant="ghost" size="icon" asChild>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
 						<Link aria-label="LinkedIn profile" href={social.linkedIn}>
-							<LinkedInIcon className="size-4 duration-75 ease-linear" />
+							LinkedIn
 						</Link>
 					</Button>
 				</li>
 			) : null}
 			{social?.github ? (
 				<li>
-					<Button variant="ghost" size="icon" asChild>
+					<Button variant="ghost" className={socialLinkClassName} asChild>
 						<Link aria-label="Github Repository" href={social.github}>
-							<GithubIcon className="size-4 duration-75 ease-linear" />
-							<span className="sr-only">Github</span>
+							Github
 						</Link>
 					</Button>
 				</li>
