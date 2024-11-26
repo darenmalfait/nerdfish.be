@@ -15,5 +15,11 @@ export const testimonialsTemplate: Template = {
 			options: testimonialTypes,
 			list: true,
 		},
+		{
+			type: 'string',
+			label: 'Tags',
+			name: 'tags',
+			list: true,
+		},
 	],
 }
