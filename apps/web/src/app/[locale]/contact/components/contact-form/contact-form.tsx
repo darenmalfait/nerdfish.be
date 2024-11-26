@@ -8,6 +8,7 @@ import {
 	Button,
 	Checkbox,
 	Description,
+	Field,
 	Form,
 	FormControl,
 	FormDescription,
@@ -17,6 +18,7 @@ import {
 	FormMessage,
 	H3,
 	Input,
+	Label,
 	LabelAsterisk,
 	LoadingAnimation,
 	PhoneInput,
@@ -147,43 +149,50 @@ export function ContactForm() {
 							/>
 						</div>
 
-						<div className="gap-md flex w-full flex-col md:flex-row">
-							<FormField
-								control={form.control}
-								name="email"
-								render={({ field }) => (
-									<FormItem className="w-full">
-										<FormLabel>
-											{t('contact.email')}
-											<LabelAsterisk />
-										</FormLabel>
+						<Field>
+							<Label>
+								{t('contact.contactInformation')}
+								<LabelAsterisk />
+							</Label>
+							<div className="gap-md flex w-full flex-col items-start md:flex-row">
+								<FormField
+									control={form.control}
+									name="email"
+									render={({ field }) => (
+										<FormItem className="w-full">
+											<FormLabel>
+												<FormDescription>{t('contact.email')}</FormDescription>
+											</FormLabel>
 
-										<FormControl>
-											<Input inputSize="lg" type="email" {...field} />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="phone"
-								render={({ field }) => (
-									<FormItem className="w-full">
-										<FormLabel>{t('contact.phone')}</FormLabel>
+											<FormControl>
+												<Input inputSize="lg" type="email" {...field} />
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name="phone"
+									render={({ field }) => (
+										<FormItem className="w-full">
+											<FormLabel>
+												<FormDescription> {t('contact.phone')}</FormDescription>
+											</FormLabel>
 
-										<FormControl>
-											<PhoneInput
-												inputSize="lg"
-												className="w-full"
-												{...field}
-											/>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						</div>
+											<FormControl>
+												<PhoneInput
+													inputSize="lg"
+													className="w-full"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+						</Field>
 					</Fieldset>
 
 					<Fieldset title={t('contact.fieldset.project')}>

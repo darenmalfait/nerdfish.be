@@ -26,6 +26,7 @@ export type Dictionary = {
 	'contact.company': string
 	'contact.email': string
 	'contact.phone': string
+	'contact.contactInformation': string
 	'contact.fieldset.customer': string
 	'contact.fieldset.message': string
 	'contact.fieldset.project': string
