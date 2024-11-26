@@ -15,6 +15,12 @@ export const testimonial: ObjectField = {
 		},
 		{
 			type: 'string',
+			label: 'Tags',
+			name: 'tags',
+			list: true,
+		},
+		{
+			type: 'string',
 			label: 'Quote',
 			name: 'quote',
 		},
