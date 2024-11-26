@@ -49,7 +49,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative text-xs md:text-sm flex h-8 cursor-pointer !rounded-container bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap  capitalize outline-none !ring-muted transition focus-outline active:bg-primary sm:h-10',
+	'relative text-xs md:text-sm flex cursor-pointer bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap capitalize outline-none transition focus-outline',
 	{
 		variants: {
 			variant: {
@@ -229,8 +229,8 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'p-xs bg-popover shadow-outline rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
-				'before:empty-content before:bg-secondary/30 before:rounded-container before:absolute before:inset-0',
+				'p-xs bg-popover rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
+				'before:empty-content before:bg-muted/50 before:rounded-container before:absolute before:inset-0',
 				'bottom-lg md:bottom-auto md:top-6',
 			)}
 		>
