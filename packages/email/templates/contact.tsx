@@ -20,7 +20,7 @@ export const ContactEmail = ({
 	projectType,
 }: {
 	readonly name: string
-	readonly email: string
+	readonly email?: string
 	readonly phone?: string
 	readonly company?: string
 	readonly message: string
@@ -39,8 +39,8 @@ export const ContactEmail = ({
 								New email from {name}
 							</Text>
 							<Text className="m-0 text-zinc-500">
-								{name} ({email}){company ? ` from ${company}` : ''} has sent you
-								a message:
+								{name} {email ? `(${email})` : ''}
+								{company ? ` from ${company}` : ''} has sent you a message:
 							</Text>
 							{phone ? (
 								<Text className="mt-4 text-zinc-500">Phone: {phone}</Text>
