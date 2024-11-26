@@ -136,9 +136,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
 			<main
 				role="main"
-				className="rounded-b-large relative w-full max-w-full flex-1"
+				className="rounded-b-container relative w-full max-w-full flex-1"
 			>
-				<div className="bg-primary -z-1 rounded-large absolute inset-0" />
+				<div className="bg-primary -z-1 rounded-container absolute inset-0" />
 				<React.Suspense
 					fallback={
 						<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">

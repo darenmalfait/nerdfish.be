@@ -41,7 +41,7 @@ function Fieldset({
 	title: string
 }) {
 	return (
-		<fieldset className="mb-lg rounded-large">
+		<fieldset className="mb-lg rounded-container">
 			<H3 className="mb-lg">{title}</H3>
 			<div className="space-y-md">{children}</div>
 		</fieldset>
@@ -178,7 +178,7 @@ export function ContactForm() {
 													return (
 														<FormItem key={type}>
 															<FormControl>
-																<label className="gap-sm focus-within:outline-active rounded-large flex items-center">
+																<label className="gap-sm focus-within:outline-active rounded-container flex items-center">
 																	<span className="sr-only inline">
 																		<Checkbox
 																			aria-label={type}

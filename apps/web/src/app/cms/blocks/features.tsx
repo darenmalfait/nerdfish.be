@@ -51,7 +51,7 @@ const featureCardVariants = cva(
 		variants: {
 			variant: {
 				default: '',
-				secondary: 'bg-muted p-lg rounded-large',
+				secondary: 'bg-muted p-lg rounded-container',
 			},
 		},
 		defaultVariants: {

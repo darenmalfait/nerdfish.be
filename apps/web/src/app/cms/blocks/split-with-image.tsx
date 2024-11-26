@@ -49,13 +49,13 @@ export function SplitWithImageBlock(data: Block<PageBlocksSplitWithImage>) {
 			{image?.src ? (
 				<div
 					className={cx(
-						'aspect-1 rounded-large relative w-full overflow-hidden',
+						'aspect-1 rounded-container relative w-full overflow-hidden',
 					)}
 				>
-					<Skeleton className="rounded-large absolute inset-0 size-full object-cover" />
+					<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
 
 					<Image
-						className="rounded-large motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
+						className="rounded-container motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
 						data-tina-field={tinaField(data, 'image')}
 						fill
 						src={image.src}
