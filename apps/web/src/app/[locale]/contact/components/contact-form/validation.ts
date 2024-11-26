@@ -7,6 +7,10 @@ export const projectTypes = [
 	'other',
 ] as const
 
+const phoneRegex = new RegExp(
+	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
+)
+
 export const contactSchema = z.object({
 	name: z
 		.string()
@@ -18,6 +22,7 @@ export const contactSchema = z.object({
 		.max(32, 'Your company name seems a bit long.')
 		.optional(),
 	email: z.string().email('Please enter a valid email address.'),
+	phone: z.string().regex(phoneRegex, 'Invalid Number').optional(),
 	textMessage: z
 		.string()
 		.min(10, 'I hope that your message is a bit longer than that.')

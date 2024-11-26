@@ -17,7 +17,9 @@ import {
 	FormMessage,
 	H3,
 	Input,
+	LabelAsterisk,
 	LoadingAnimation,
+	PhoneInput,
 	Slider,
 	SliderThumb,
 	Textarea,
@@ -64,9 +66,11 @@ export function ContactForm() {
 		defaultValues: {
 			name: '',
 			email: '',
+			company: '',
 			textMessage: '',
 			projectType: [],
 			budgetRange: [1500, 4000],
+			phone: '',
 		},
 	})
 
@@ -114,7 +118,10 @@ export function ContactForm() {
 								name="name"
 								render={({ field }) => (
 									<FormItem className="w-full">
-										<FormLabel>{t('contact.name')}</FormLabel>
+										<FormLabel>
+											{t('contact.name')}
+											<LabelAsterisk />
+										</FormLabel>
 
 										<FormControl>
 											<Input inputSize="lg" {...field} />
@@ -140,20 +147,43 @@ export function ContactForm() {
 							/>
 						</div>
 
-						<FormField
-							control={form.control}
-							name="email"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>{t('contact.email')}</FormLabel>
+						<div className="gap-md flex w-full flex-col md:flex-row">
+							<FormField
+								control={form.control}
+								name="email"
+								render={({ field }) => (
+									<FormItem className="w-full">
+										<FormLabel>
+											{t('contact.email')}
+											<LabelAsterisk />
+										</FormLabel>
 
-									<FormControl>
-										<Input inputSize="lg" type="email" {...field} />
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
+										<FormControl>
+											<Input inputSize="lg" type="email" {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="phone"
+								render={({ field }) => (
+									<FormItem className="w-full">
+										<FormLabel>{t('contact.phone')}</FormLabel>
+
+										<FormControl>
+											<PhoneInput
+												inputSize="lg"
+												className="w-full"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
 					</Fieldset>
 
 					<Fieldset title={t('contact.fieldset.project')}>
@@ -281,7 +311,10 @@ export function ContactForm() {
 							name="textMessage"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>{t('contact.message')}</FormLabel>
+									<FormLabel>
+										{t('contact.message')}
+										<LabelAsterisk />
+									</FormLabel>
 
 									<FormControl>
 										<Textarea inputSize="lg" rows={5} {...field} />
