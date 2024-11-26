@@ -6,6 +6,7 @@ const ExampleContactEmail = () => (
 		email="jane.smith@example.com"
 		company="Acme Inc."
 		message="I'm interested in your services."
+		phone="123-456-7890"
 	/>
 )
 
