@@ -182,7 +182,7 @@ export function TimesheetGenerator() {
 	}, [invoiceReference, timeEntries])
 
 	return (
-		<div ref={ref} className="p-md outline-shadow w-[80mm]">
+		<div ref={ref} className="p-md outline-shadow mx-auto w-[80mm]">
 			<div className="gap-sm mb-lg flex flex-col items-start justify-start">
 				<Logo className="h-4 w-auto" />
 				<Dialog>
@@ -192,7 +192,7 @@ export function TimesheetGenerator() {
 								'text-danger': !person,
 							})}
 						>
-							{person ?? 'SET PERSON'}
+							{person?.length ? person : 'SET PERSON'}
 						</div>
 					</DialogTrigger>
 					<DialogContent>
@@ -221,7 +221,10 @@ export function TimesheetGenerator() {
 								'text-danger': !invoiceReference,
 							})}
 						>
-							REF: {invoiceReference ?? 'SET INVOICE REFERENCE'}
+							REF:{' '}
+							{invoiceReference?.length
+								? invoiceReference
+								: 'SET INVOICE REFERENCE'}
 						</div>
 					</DialogTrigger>
 					<DialogContent>
