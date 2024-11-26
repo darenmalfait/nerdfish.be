@@ -139,7 +139,7 @@ export const ExpandableChat = React.forwardRef<
 			>
 				<div
 					className={cx(
-						'bg-primary duration-250 sm:rounded-semi shadow-outline fixed inset-0 flex h-full w-full flex-col overflow-hidden shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
+						'bg-primary duration-250 sm:rounded-base shadow-outline fixed inset-0 flex h-full w-full flex-col overflow-hidden shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
 						chatConfig.chatPositions[position],
 						chatConfig.dimensions[size],
 						isOpen ? chatConfig.states.open : chatConfig.states.closed,

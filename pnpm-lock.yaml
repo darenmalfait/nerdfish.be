@@ -91,14 +91,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@nerdfish/tailwind-config':
-        specifier: ^3.7.2
-        version: 3.7.2
+        specifier: ^3.8.0
+        version: 3.8.0
       '@nerdfish/theme':
-        specifier: ^2.4.1
-        version: 2.4.1
+        specifier: ^2.5.0
+        version: 2.5.0
       '@nerdfish/ui':
-        specifier: ^7.6.4
-        version: 7.6.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.7.0
+        version: 7.7.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -385,11 +385,11 @@ importers:
         specifier: workspace:*
         version: link:../lib
       '@nerdfish/tailwind-config':
-        specifier: ^3.7.2
-        version: 3.7.2
+        specifier: ^3.8.0
+        version: 3.8.0
       '@nerdfish/ui':
-        specifier: ^7.6.4
-        version: 7.6.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+        specifier: ^7.7.0
+        version: 7.7.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@nerdfish/utils':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2228,11 +2228,14 @@ packages:
   '@nerdfish/tailwind-config@3.7.2':
     resolution: {integrity: sha512-j39s3I1rW92lx0+hEMr3klcHHUZnW+zXD38WDoRJA4xneNbwj9iQBf2yrFBJOTo56/+NlivqAdbkydMrnAc/Zw==}
 
-  '@nerdfish/theme@2.4.1':
-    resolution: {integrity: sha512-u/XhNZHIi7JbqVgl2t4CU6HUOQxRMOhG9+lKhQH4a/oAxCxyhZkwAvM6wvkI0oY5T+dNNkQ6xUNX/WNlT5toYg==}
+  '@nerdfish/tailwind-config@3.8.0':
+    resolution: {integrity: sha512-8ZzzBRTZ10NgSgt6J9oqHbAVvpOvQ7olXfTdc2mELYIz1QlQRqEyTjQ2t0H3/wqZq30ZE+THtCRGcxbRM4CuSQ==}
 
-  '@nerdfish/ui@7.6.4':
-    resolution: {integrity: sha512-yVNB1i5Sjx+grQC/ugQ199Xg+Ol1qDcMpfN8CAUYbnsBNPB5XKi5IlQ7HYShIY/8/KBD2cHrx58d8VsQBn6lRA==}
+  '@nerdfish/theme@2.5.0':
+    resolution: {integrity: sha512-WQ5Meu+FhD3T/WnLSE7l3wFG38oZZxazK1wA7GPAf2vgOuw8+0fNXyCWB6G7wW1soJcUdBiAOTEIImqcS6VrYg==}
+
+  '@nerdfish/ui@7.7.0':
+    resolution: {integrity: sha512-hCyMNBv/Jwj88NsomWPls+/sIuPZBXjNoDo8ZVMH8KeSscQoCOP1mWN6F5wmgmhE8A0ZDW/cVMVl8epH4EVeXA==}
     peerDependencies:
       react: '>=18.3.1'
       react-dom: '>=18.3.1'
@@ -5382,6 +5385,9 @@ packages:
   class-variance-authority@0.7.0:
     resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
 
+  classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+
   clean-git-ref@2.0.1:
     resolution: {integrity: sha512-bLSptAy2P0s6hU4PzuIMKmMJJSE6gLXGH1cntDu7bWJUksvuM+7ReOK61mozULErYvP6a15rnYl0zFDef+pyPw==}
 
@@ -5592,6 +5598,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  country-flag-icons@1.5.13:
+    resolution: {integrity: sha512-4JwHNqaKZ19doQoNcBjsoYA+I7NqCH/mC/6f5cBWvdKzcK5TMmzLpq3Z/syVHMHJuDGFwJ+rPpGizvrqJybJow==}
 
   crc-32@1.2.2:
     resolution: {integrity: sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==}
@@ -6720,6 +6729,17 @@ packages:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
+  input-format@0.3.11:
+    resolution: {integrity: sha512-q24+iW10ZMb7KIRDlVUl3GvFcadf1ttE/QA2waINkDMdjsPXStQSOvdTyHwO8p+4Mq433ILQJZRL8YKtPjNk4g==}
+    peerDependencies:
+      react: ^18.1.0
+      react-dom: ^18.1.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   input-otp@1.4.1:
     resolution: {integrity: sha512-+yvpmKYKHi9jIGngxagY9oWiiblPB7+nEO75F2l2o4vs+6vpPZZmUl4tBNYuTCvQjhvEIbdNeJu70bhfYP2nbw==}
     peerDependencies:
@@ -7137,6 +7157,9 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
+
+  libphonenumber-js@1.11.15:
+    resolution: {integrity: sha512-M7+rtYi9l5RvMmHyjyoF3BHHUpXTYdJ0PezZGHNs0GyW1lO+K7jxlXpbdIb7a56h0nqLYdjIw+E+z0ciGaJP7g==}
 
   lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -8384,6 +8407,12 @@ packages:
     peerDependencies:
       react: ^15.5.x || ^16.x || ^17.x || ^18.x
       react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
+
+  react-phone-number-input@3.4.9:
+    resolution: {integrity: sha512-RG40GTjfJwBR5whpEkQMvMMKcbqQSlXiKfiTp2mYoULkTYwxFn04iAVplRizWi3yLPL0fQiL4U+YU+9MIQGZog==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
 
   react-promise-suspense@0.3.4:
     resolution: {integrity: sha512-I42jl7L3Ze6kZaq+7zXWSunBa3b1on5yfvUW6Eo/3fFOj6dZ5Bqmcd264nJbTK/gn1HjjILAjSwnZbV4RpSaNQ==}
@@ -11675,11 +11704,17 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@nerdfish/theme@2.4.1':
+  '@nerdfish/tailwind-config@3.8.0':
+    dependencies:
+      tailwindcss: 3.4.15
+    transitivePeerDependencies:
+      - ts-node
+
+  '@nerdfish/theme@2.5.0':
     dependencies:
       '@nerdfish/utils': 2.0.0
 
-  '@nerdfish/ui@7.6.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
+  '@nerdfish/ui@7.7.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@nerdfish/utils': 2.0.0
       '@radix-ui/react-accordion': 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -11713,6 +11748,7 @@ snapshots:
       react-day-picker: 8.10.1(date-fns@4.1.0)(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
       react-hook-form: 7.53.2(react@18.3.1)
+      react-phone-number-input: 3.4.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-resizable-panels: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-stately: 3.33.0(react@18.3.1)
       sonner: 1.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -13141,7 +13177,7 @@ snapshots:
 
   '@react-aria/utils@3.25.3(react@18.3.1)':
     dependencies:
-      '@react-aria/ssr': 3.9.6(react@18.3.1)
+      '@react-aria/ssr': 3.9.7(react@18.3.1)
       '@react-stately/utils': 3.10.4(react@18.3.1)
       '@react-types/shared': 3.26.0(react@18.3.1)
       '@swc/helpers': 0.5.5
@@ -15695,6 +15731,8 @@ snapshots:
     dependencies:
       clsx: 2.0.0
 
+  classnames@2.5.1: {}
+
   clean-git-ref@2.0.1: {}
 
   cli-cursor@3.1.0:
@@ -15895,6 +15933,8 @@ snapshots:
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.6.3
+
+  country-flag-icons@1.5.13: {}
 
   crc-32@1.2.2: {}
 
@@ -17253,6 +17293,13 @@ snapshots:
 
   ini@4.1.1: {}
 
+  input-format@0.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   input-otp@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -17618,6 +17665,8 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+
+  libphonenumber-js@1.11.15: {}
 
   lilconfig@2.1.0: {}
 
@@ -19204,6 +19253,16 @@ snapshots:
 
   react-onclickoutside@6.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  react-phone-number-input@3.4.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      classnames: 2.5.1
+      country-flag-icons: 1.5.13
+      input-format: 0.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      libphonenumber-js: 1.11.15
+      prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 

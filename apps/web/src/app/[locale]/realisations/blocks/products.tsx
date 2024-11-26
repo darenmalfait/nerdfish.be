@@ -48,7 +48,7 @@ function Product({
 						</AvatarFallback>
 					</Avatar>
 				) : null}
-				<h3 className="text-primary font-largebold text-xl">{title}</h3>
+				<h3 className="text-primary text-xl font-bold">{title}</h3>
 				<p className="text-muted max-w-lg">{description}</p>
 				<span
 					className="block truncate whitespace-nowrap font-bold"
