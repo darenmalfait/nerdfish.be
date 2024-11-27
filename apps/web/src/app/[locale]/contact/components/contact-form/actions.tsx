@@ -1,9 +1,9 @@
 'use server'
 
-import { resend } from '@nerdfish-website/email'
-import { ContactEmail } from '@nerdfish-website/email/templates/contact'
-import { env } from '@nerdfish-website/env'
-import { parseError } from '@nerdfish-website/observability/error'
+import { resend } from '@repo/email'
+import { ContactEmail } from '@repo/email/templates/contact'
+import { env } from '@repo/env'
+import { parseError } from '@repo/observability/error'
 import type * as React from 'react'
 import { contactSchema, type ContactFormData } from './validation'
 

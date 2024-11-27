@@ -1,4 +1,4 @@
-import { env } from '@nerdfish-website/env'
+import { env } from '@repo/env'
 import { isUserAuthorized } from '@tinacms/auth'
 import { draftMode } from 'next/headers'
 import { type NextRequest } from 'next/server'

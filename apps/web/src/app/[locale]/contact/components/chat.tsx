@@ -2,7 +2,7 @@
 
 import { Button, Input, LoadingAnimation } from '@nerdfish/ui'
 import { cva, cx, type VariantProps } from '@nerdfish/utils'
-import { SendHorizonalIcon } from '@nerdfish-website/ui/icons'
+import { SendHorizonalIcon } from '@repo/ui/icons'
 import { type Message, type ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import * as React from 'react'

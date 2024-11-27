@@ -1,9 +1,6 @@
 import { H1, Marquee } from '@nerdfish/ui'
-import { nonNullable } from '@nerdfish-website/lib/utils'
-import {
-	SectionHeader,
-	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
+import { nonNullable } from '@repo/lib/utils'
+import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms'

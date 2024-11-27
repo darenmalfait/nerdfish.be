@@ -1,17 +1,9 @@
 import { H1 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { env } from '@nerdfish-website/env'
-import {
-	type BlogPosting,
-	JsonLd,
-	type WithContext,
-} from '@nerdfish-website/seo/json-ld'
-import { author } from '@nerdfish-website/seo/metadata'
-import {
-	DateFormatter,
-	Section,
-	ReadingProgress,
-} from '@nerdfish-website/ui/components'
+import { env } from '@repo/env'
+import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
+import { author } from '@repo/seo/metadata'
+import { DateFormatter, Section, ReadingProgress } from '@repo/ui/components'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

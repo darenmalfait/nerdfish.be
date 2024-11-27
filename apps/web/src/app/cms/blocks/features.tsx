@@ -8,8 +8,8 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
-import { ArrowRight } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { ArrowRight } from '@repo/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'

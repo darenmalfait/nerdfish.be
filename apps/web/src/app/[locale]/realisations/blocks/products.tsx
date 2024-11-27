@@ -16,8 +16,8 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
-import { GithubIcon, GlobeIcon } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { GithubIcon, GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'

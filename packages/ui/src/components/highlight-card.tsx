@@ -2,11 +2,8 @@
 
 import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import {
-	getCategoryColors,
-	MagnetButton,
-} from '@nerdfish-website/ui/components'
-import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
+import { getCategoryColors, MagnetButton } from '@repo/ui/components'
+import { ArrowRightIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'

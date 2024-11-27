@@ -1,5 +1,5 @@
-import { nonNullable, type PartialDeep } from '@nerdfish-website/lib/utils'
-import { type Article } from '@nerdfish-website/ui/components'
+import { nonNullable, type PartialDeep } from '@repo/lib/utils'
+import { type Article } from '@repo/ui/components'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Blog } from '../../cms'

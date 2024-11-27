@@ -1,10 +1,6 @@
 import { H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import {
-	DateFormatter,
-	Section,
-	ReadingProgress,
-} from '@nerdfish-website/ui/components'
+import { DateFormatter, Section, ReadingProgress } from '@repo/ui/components'
 import { tinaField } from 'tinacms/dist/react'
 import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'

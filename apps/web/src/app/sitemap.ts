@@ -1,4 +1,4 @@
-import { env } from '@nerdfish-website/env'
+import { env } from '@repo/env'
 import { type MetadataRoute } from 'next'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'

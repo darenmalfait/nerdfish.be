@@ -1,4 +1,4 @@
-import { CodeBlock } from '@nerdfish-website/ui/components'
+import { CodeBlock } from '@repo/ui/components'
 
 function PortableCode({ lang, value }: { lang?: string; value?: string }) {
 	if (!value) return null

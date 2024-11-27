@@ -1,4 +1,4 @@
-import { Section } from '@nerdfish-website/ui/components'
+import { Section } from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText, type Block, type PageBlocksContent } from '~/app/cms'

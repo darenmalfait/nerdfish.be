@@ -2,12 +2,8 @@
 
 import { LoadingAnimation, H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import {
-	Section,
-	InViewBackground,
-	TextSlideUp,
-} from '@nerdfish-website/ui/components'
-import { ArrowRight, Logo } from '@nerdfish-website/ui/icons'
+import { Section, InViewBackground, TextSlideUp } from '@repo/ui/components'
+import { ArrowRight, Logo } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
