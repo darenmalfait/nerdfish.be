@@ -1,22 +1,33 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	Button,
+	DateTimePicker,
 	Dialog,
 	DialogContent,
+	DialogDescription,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
 	Field,
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 	Input,
 	Label,
 	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Logo } from '@nerdfish-website/ui/icons'
+import { nonNullable } from '@nerdfish-website/lib/utils'
+import { ImportIcon, Logo, PlusIcon, XIcon } from '@nerdfish-website/ui/icons'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const CSVImporter = dynamic(
@@ -30,16 +41,31 @@ function Row({
 	day,
 	hours,
 	className,
+	onRemove,
 }: {
 	day: string
 	hours: string
 	className?: string
+	onRemove?: () => void
 }) {
 	return (
-		<>
-			<div className={cx('col-span-2', className)}>{day}</div>
-			<div className={cx('col-span-1', className)}>{hours}</div>
-		</>
+		<div className="group flex items-center">
+			<div className={cx('mr-lg', className)}>{day}</div>
+			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
+			{onRemove ? (
+				<div className="group-hover:ml-sm w-0 overflow-hidden transition-all group-hover:w-8 print:hidden">
+					<Button
+						type="button"
+						onClick={onRemove}
+						variant="ghost"
+						size="iconSm"
+						aria-label="Remove entry"
+					>
+						<XIcon className="h-4 w-4" />
+					</Button>
+				</div>
+			) : null}
+		</div>
 	)
 }
 
@@ -48,24 +74,20 @@ function Spacer() {
 }
 
 const timeEntrySchema = z.object({
-	// short format
-	day: z.preprocess(
-		(a) =>
-			new Date(z.string().parse(a)).toLocaleDateString('nl-BE', {
-				day: '2-digit',
-				month: '2-digit',
-				year: 'numeric',
-			}),
-		z.string(),
-	),
-	// it's using comma notion
-	hours: z.preprocess((a) => parseInt(z.string().parse(a), 10), z.number()),
+	day: z.date(),
+	hours: z.number().min(0),
 	project: z.string(),
 })
 
 type TimeEntry = z.infer<typeof timeEntrySchema>
 
-function TimeEntries({ timeEntries }: { timeEntries?: TimeEntry[] }) {
+function TimeEntries({
+	timeEntries,
+	setTimeEntries,
+}: {
+	timeEntries?: TimeEntry[]
+	setTimeEntries: (timeEntries?: TimeEntry[]) => void
+}) {
 	const groupedEntries = React.useMemo(() => {
 		if (!timeEntries) return {}
 		return timeEntries.reduce<Record<string, TimeEntry[]>>((acc, entry) => {
@@ -90,9 +112,16 @@ function TimeEntries({ timeEntries }: { timeEntries?: TimeEntry[] }) {
 						</div>
 						{entries.map((entry) => (
 							<Row
-								key={entry.day}
-								day={entry.day}
+								key={entry.day.toLocaleDateString()}
+								day={entry.day.toLocaleDateString('nl-BE', {
+									day: '2-digit',
+									month: '2-digit',
+									year: 'numeric',
+								})}
 								hours={entry.hours.toString()}
+								onRemove={() => {
+									setTimeEntries(timeEntries.filter((e) => e !== entry))
+								}}
 							/>
 						))}
 						{i < Object.keys(groupedEntries).length - 1 ? <Spacer /> : null}
@@ -128,30 +157,152 @@ const template = {
 	],
 }
 
-function LoadTimeEntries({
+function AddTimeEntryForm({
+	onSubmit,
+}: {
+	onSubmit: (data: TimeEntry) => void
+}) {
+	const form = useForm<TimeEntry>({
+		resolver: zodResolver(timeEntrySchema),
+		defaultValues: {
+			project: '',
+			day: new Date(),
+			hours: 8,
+		},
+	})
+
+	return (
+		<Form {...form}>
+			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
+				<fieldset className="space-y-md">
+					<FormField
+						control={form.control}
+						name="project"
+						render={({ field }) => (
+							<FormItem className="w-full">
+								<FormLabel>Project</FormLabel>
+
+								<FormControl>
+									<Input {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="day"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Day</FormLabel>
+								<FormControl>
+									<DateTimePicker {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="hours"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Hours</FormLabel>
+								<FormControl>
+									<Input type="number" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<Button type="submit">Add</Button>
+				</fieldset>
+			</form>
+		</Form>
+	)
+}
+
+function AddTimeEntries({
 	setTimeEntries,
+	timeEntries,
 }: {
 	setTimeEntries: (timeEntries?: TimeEntry[]) => void
+	timeEntries?: TimeEntry[]
 }) {
-	const [open, setOpen] = React.useState<boolean>(false)
+	const [importing, setImporting] = React.useState<boolean>(false)
+	const [adding, setAdding] = React.useState<boolean>(false)
 	const onComplete = React.useCallback(
 		(data: { rows: { values: any }[] }) => {
-			const entries = data.rows.map((row) => timeEntrySchema.parse(row.values))
+			setImporting(false)
 
-			// last line is totals
-			return setTimeEntries(entries.slice(0, -1))
+			return setTimeEntries(
+				nonNullable(
+					data.rows.map((row) => {
+						const day = new Date(row.values.day)
+						const hours = parseFloat(row.values.hours)
+
+						const result = timeEntrySchema.safeParse({
+							day,
+							hours,
+							project: row.values.project,
+						})
+
+						return result.success ? result.data : null
+					}),
+				),
+			)
 		},
 		[setTimeEntries],
 	)
 
+	const onAdd = React.useCallback(
+		(data: TimeEntry) => {
+			setTimeEntries([...(timeEntries ?? []), data])
+			return setAdding(false)
+		},
+		[setAdding, setTimeEntries, timeEntries],
+	)
+
 	return (
-		<div className="my-md col-span-3 flex items-center print:hidden">
-			<Button onClick={() => setOpen(true)} className="mx-auto" type="button">
-				Load Time Entries
-			</Button>
+		<div className="my-md flex items-center justify-center print:hidden">
+			<div className="gap-sm flex">
+				<Dialog open={adding} onOpenChange={setAdding}>
+					<DialogTrigger asChild>
+						<Button
+							type="button"
+							size="icon"
+							className="group transition-all"
+							aria-label="Add entry"
+						>
+							<PlusIcon className="h-4 w-4" />
+						</Button>
+					</DialogTrigger>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Add Time Entry</DialogTitle>
+							<DialogDescription>
+								Add a new time entry to the timesheet
+							</DialogDescription>
+						</DialogHeader>
+						<AddTimeEntryForm onSubmit={onAdd} />
+					</DialogContent>
+				</Dialog>
+				<Button
+					variant="outline"
+					onClick={() => setImporting(true)}
+					className="group transition-all"
+					aria-label="Import Time Entries"
+					type="button"
+				>
+					<ImportIcon className="h-4 w-4" />
+				</Button>
+			</div>
 			<CSVImporter
-				modalIsOpen={open}
-				modalOnCloseTriggered={() => setOpen(false)}
+				modalIsOpen={importing}
+				modalOnCloseTriggered={() => setImporting(false)}
 				className="w-full"
 				onComplete={onComplete}
 				template={template}
@@ -189,7 +340,7 @@ export function TimesheetGenerator() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'text-danger': !person,
+								'text-danger print:hidden': !person,
 							})}
 						>
 							{person?.length ? person : 'SET PERSON'}
@@ -198,6 +349,9 @@ export function TimesheetGenerator() {
 					<DialogContent>
 						<DialogHeader>
 							<DialogTitle>Person</DialogTitle>
+							<DialogDescription>
+								Who is working on this timesheet?
+							</DialogDescription>
 						</DialogHeader>
 
 						<Field className="w-full">
@@ -218,7 +372,7 @@ export function TimesheetGenerator() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'text-danger': !invoiceReference,
+								'text-danger print:hidden': !invoiceReference,
 							})}
 						>
 							REF:{' '}
@@ -230,6 +384,9 @@ export function TimesheetGenerator() {
 					<DialogContent>
 						<DialogHeader>
 							<DialogTitle>Invoice Reference</DialogTitle>
+							<DialogDescription>
+								What invoice is this timesheet referring to?
+							</DialogDescription>
 						</DialogHeader>
 
 						<Field className="w-full">
@@ -244,12 +401,19 @@ export function TimesheetGenerator() {
 				</Dialog>
 			</div>
 
-			<div className="gap-y-xs gap-x-lg mb-lg grid grid-cols-3">
+			<div className="gap-xs mb-lg flex flex-col">
 				<Row day="DAY" hours="HOURS" />
 				<Spacer />
 
-				<TimeEntries timeEntries={timeEntries} />
-				<LoadTimeEntries setTimeEntries={setTimeEntries} />
+				<TimeEntries
+					timeEntries={timeEntries}
+					setTimeEntries={setTimeEntries}
+				/>
+
+				<AddTimeEntries
+					setTimeEntries={setTimeEntries}
+					timeEntries={timeEntries}
+				/>
 
 				<Spacer />
 				<Row
