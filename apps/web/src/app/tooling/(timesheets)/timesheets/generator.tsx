@@ -357,7 +357,8 @@ export function TimesheetGenerator() {
 	React.useEffect(() => {
 		if (ref.current) {
 			// get height in mm
-			const height = (ref.current.clientHeight * 25.4) / 96
+			// 1 pixel (X) = 0.2645833333 mm
+			const height = ref.current.clientHeight * 0.2645833333
 			const style = document.createElement('style')
 			style.innerHTML = `@page {size: 80mm ${height}mm}`
 			document.head.appendChild(style)
@@ -368,7 +369,7 @@ export function TimesheetGenerator() {
 		<div className="p-md print:p-0">
 			<div
 				ref={ref}
-				className="p-md shadow-outline rounded-base pb-3xl relative mx-auto w-[80mm] print:pb-0 print:[box-shadow:none]"
+				className="p-md shadow-outline rounded-base pb-3xl print:pb-sm relative mx-auto w-[80mm] print:[box-shadow:none]"
 			>
 				<div className="gap-sm mb-lg flex flex-col items-start justify-start">
 					<Logo className="h-4 w-auto" />
