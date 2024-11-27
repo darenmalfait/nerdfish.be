@@ -17,7 +17,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.72",
     "@calcom/embed-react": "^1.5.1",
     "@formatjs/intl-localematcher": "^0.5.8",
     "@hookform/resolvers": "^3.9.1",
@@ -27,6 +26,7 @@
     "@nerdfish/utils": "^2.0.0",
     "@next/env": "^14.2.18",
     "@react-aria/i18n": "^3.12.4",
+    "@repo/ai": "workspace:*",
     "@repo/email": "workspace:*",
     "@repo/env": "workspace:*",
     "@repo/lib": "workspace:*",
@@ -37,7 +37,6 @@
     "@tailwindcss/typography": "^0.5.15",
     "@tinacms/auth": "^1.0.8",
     "@vercel/og": "^0.6.4",
-    "ai": "^3.4.33",
     "csv-import-react": "^1.0.14",
     "date-fns": "^4.1.0",
     "feed": "^4.2.2",
