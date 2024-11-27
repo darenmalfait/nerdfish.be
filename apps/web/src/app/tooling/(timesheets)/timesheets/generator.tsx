@@ -365,10 +365,10 @@ export function TimesheetGenerator() {
 	}, [invoiceReference, timeEntries])
 
 	return (
-		<div>
+		<div className="p-md print:p-0">
 			<div
 				ref={ref}
-				className="p-md outline-shadow pb-3xl relative mx-auto w-[80mm] print:pb-0"
+				className="p-md shadow-outline rounded-base pb-3xl relative mx-auto w-[80mm] print:pb-0 print:[box-shadow:none]"
 			>
 				<div className="gap-sm mb-lg flex flex-col items-start justify-start">
 					<Logo className="h-4 w-auto" />
