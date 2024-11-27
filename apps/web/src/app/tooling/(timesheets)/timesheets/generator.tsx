@@ -366,10 +366,10 @@ export function TimesheetGenerator() {
 	}, [invoiceReference, timeEntries])
 
 	return (
-		<div className="p-md print:p-0">
+		<div className="p-md pb-3xl print:p-0">
 			<div
 				ref={ref}
-				className="p-md shadow-outline rounded-base pb-3xl print:pb-sm relative mx-auto w-[80mm] print:[box-shadow:none]"
+				className="p-md shadow-outline rounded-base pb-lg relative mx-auto w-[80mm] print:[box-shadow:none]"
 			>
 				<div className="gap-sm mb-lg flex flex-col items-start justify-start">
 					<Logo className="h-4 w-auto" />
@@ -469,10 +469,10 @@ export function TimesheetGenerator() {
 					/>
 				</div>
 
-				<div className="text-muted mb-lg text-center text-sm">
+				<div className="text-muted text-center text-sm">
 					*** END OF TIMESHEET ***
 				</div>
-				<Separator className="my-md" />
+				<Separator className="my-lg" />
 				<div className="flex flex-col items-center">
 					<Logo className="mb-md h-4 w-auto" />
 					<div className="text-muted text-sm">Daren Malfait BV</div>
