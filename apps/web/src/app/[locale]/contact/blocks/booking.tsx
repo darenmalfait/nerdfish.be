@@ -12,8 +12,8 @@ import {
 	CardTitle,
 	CardDescription,
 } from '@nerdfish/ui'
-import { DrawerDialog, Section } from '@nerdfish-website/ui/components'
-import { ArrowRightIcon, ClockIcon } from '@nerdfish-website/ui/icons'
+import { DrawerDialog, Section } from '@repo/ui/components'
+import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { EmbeddedCal } from '../components/embedded-cal'

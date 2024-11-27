@@ -1,4 +1,4 @@
-import { stripTrailingSlash } from '@nerdfish-website/lib/utils'
+import { stripTrailingSlash } from '@repo/lib/utils'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
 import { getPage } from '../api'

@@ -1,7 +1,7 @@
 'use client'
 
 import { Paragraph } from '@nerdfish/ui'
-import { BotIcon } from '@nerdfish-website/ui/icons'
+import { BotIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { Chat } from '../components'

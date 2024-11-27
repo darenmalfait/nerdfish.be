@@ -1,7 +1,7 @@
 'use client'
 
 import { H1 } from '@nerdfish/ui'
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type PartialDeep } from '@repo/lib/utils'
 import {
 	Section,
 	SectionHeaderTitle,
@@ -14,7 +14,7 @@ import {
 	ArticleOverviewSearchImage,
 	ArticleOverviewSearchContent,
 	ArticleOverviewFilter,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { filterBlog, mapBlogToArticle } from '../utils'
 import { type Blog, type Block, type PageBlocksBlog } from '~/app/cms'

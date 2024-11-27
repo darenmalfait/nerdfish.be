@@ -9,7 +9,7 @@ import {
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'

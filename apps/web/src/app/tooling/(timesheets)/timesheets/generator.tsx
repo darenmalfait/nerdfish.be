@@ -27,14 +27,8 @@ import {
 	TooltipTrigger,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@nerdfish-website/lib/utils'
-import {
-	ImportIcon,
-	Logo,
-	PlusIcon,
-	PrinterIcon,
-	XIcon,
-} from '@nerdfish-website/ui/icons'
+import { nonNullable } from '@repo/lib/utils'
+import { ImportIcon, Logo, PlusIcon, PrinterIcon, XIcon } from '@repo/ui/icons'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'

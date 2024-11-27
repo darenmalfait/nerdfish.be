@@ -9,8 +9,8 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 	DrawerDialog,
-} from '@nerdfish-website/ui/components'
-import { ArrowRightIcon, CalendarClockIcon } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { ContactForm } from '../components/contact-form'

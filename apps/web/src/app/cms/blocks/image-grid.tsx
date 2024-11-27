@@ -7,7 +7,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'

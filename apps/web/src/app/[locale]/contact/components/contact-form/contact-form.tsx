@@ -26,10 +26,10 @@ import {
 	SliderThumb,
 	Textarea,
 } from '@nerdfish/ui'
-import { env } from '@nerdfish-website/env'
-import { parseError } from '@nerdfish-website/observability/error'
-import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
 import { useNumberFormatter } from '@react-aria/i18n'
+import { env } from '@repo/env'
+import { parseError } from '@repo/observability/error'
+import { ArrowRightIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { useRecaptcha } from '../../hooks/recaptcha'

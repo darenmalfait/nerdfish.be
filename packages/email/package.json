@@ -1,5 +1,5 @@
 {
-  "name": "@nerdfish-website/email",
+  "name": "@repo/email",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,8 +8,8 @@
     "clean": "rm -rf node_modules"
   },
   "dependencies": {
-    "@nerdfish-website/env": "workspace:*",
     "@react-email/components": "^0.0.28",
+    "@repo/env": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "resend": "^4.0.1"

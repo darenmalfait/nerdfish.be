@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai'
-import { env } from '@nerdfish-website/env'
+import { env } from '@repo/env'
 import { convertToCoreMessages, type Message, streamText } from 'ai'
 
 const groq = createOpenAI({

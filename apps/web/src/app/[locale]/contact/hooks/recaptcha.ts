@@ -1,6 +1,6 @@
 'use client'
 
-import { env } from '@nerdfish-website/env'
+import { env } from '@repo/env'
 import * as React from 'react'
 
 /**

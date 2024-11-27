@@ -1,5 +1,5 @@
 import { Button, type ButtonProps } from '@nerdfish/ui'
-import { stripPreSlash } from '@nerdfish-website/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils'
 import Link from 'next/link'
 
 function PortableButton({

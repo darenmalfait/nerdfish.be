@@ -2,11 +2,7 @@
 
 import { Badge, H2, type H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import {
-	getCategoryColors,
-	DateFormatter,
-	Cursor,
-} from '@nerdfish-website/ui/components'
+import { getCategoryColors, DateFormatter, Cursor } from '@repo/ui/components'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'

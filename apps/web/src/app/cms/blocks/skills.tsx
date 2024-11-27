@@ -3,7 +3,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import {
 	FigmaIcon,
 	CSSIcon,
@@ -17,7 +17,7 @@ import {
 	GitIcon,
 	NextJSIcon,
 	TailwindIcon,
-} from '@nerdfish-website/ui/icons'
+} from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'

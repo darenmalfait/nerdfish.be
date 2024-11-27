@@ -1,12 +1,12 @@
 import { Paragraph } from '@nerdfish/ui'
-import { createMetadata } from '@nerdfish-website/seo/metadata'
+import { createMetadata } from '@repo/seo/metadata'
 import {
 	InViewBackground,
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import { type Metadata } from 'next'
 import { Chat } from '../contact'
 import { generateOGImageUrl } from '~/app/api/og'

@@ -1,4 +1,4 @@
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type PartialDeep } from '@repo/lib/utils'
 import { type Page } from '~/app/cms'
 
 export function getPagePath(page: PartialDeep<Page>) {

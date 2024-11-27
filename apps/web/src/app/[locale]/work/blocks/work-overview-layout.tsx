@@ -1,6 +1,6 @@
 'use client'
 
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type PartialDeep } from '@repo/lib/utils'
 import {
 	Section,
 	SectionHeaderTitle,
@@ -13,7 +13,7 @@ import {
 	type Article,
 	ArticleOverviewSearchImage,
 	ArticleOverview,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../utils'
 import { type Work, type Block, type PageBlocksWork } from '~/app/cms'

@@ -1,8 +1,8 @@
 'use client'
 
 import { H2 } from '@nerdfish/ui'
-import { MagnetButton, Section } from '@nerdfish-website/ui/components'
-import { ArrowRightIcon } from '@nerdfish-website/ui/icons'
+import { MagnetButton, Section } from '@repo/ui/components'
+import { ArrowRightIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

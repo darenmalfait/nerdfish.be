@@ -1,10 +1,10 @@
 import { Skeleton } from '@nerdfish/ui'
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type PartialDeep } from '@repo/lib/utils'
 import {
 	type WithContext,
 	type Blog as BlogJsonLd,
 	JsonLd,
-} from '@nerdfish-website/seo/json-ld'
+} from '@repo/seo/json-ld'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -13,7 +13,7 @@ import {
 	ArticleCardTitle,
 	ArticleOverviewContentGrid,
 	ArticlesOverviewEmptyState,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { getBlogPosts } from '../api'
 import { filterBlog } from '../utils'

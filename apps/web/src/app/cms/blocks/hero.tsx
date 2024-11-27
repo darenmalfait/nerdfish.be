@@ -3,7 +3,7 @@ import {
 	TextSlideUp,
 	Section,
 	SectionHeaderSubtitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'

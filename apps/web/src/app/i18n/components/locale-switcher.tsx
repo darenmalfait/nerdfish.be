@@ -7,7 +7,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@nerdfish/ui'
-import { GlobeIcon } from '@nerdfish-website/ui/icons'
+import { GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { i18n, supportedLanguages } from '../i18n-config'
 import { useTranslation } from './translation-provider'

@@ -1,4 +1,4 @@
-import { createMetadata } from '@nerdfish-website/seo/metadata'
+import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { WikiContent } from '../components/wiki-content'

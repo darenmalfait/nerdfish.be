@@ -1,4 +1,4 @@
-import { env } from '@nerdfish-website/env'
+import { env } from '@repo/env'
 import { z } from 'zod'
 
 export const ogImageSchema = z.object({
