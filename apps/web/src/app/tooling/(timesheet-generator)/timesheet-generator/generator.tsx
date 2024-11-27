@@ -340,7 +340,7 @@ export function TimesheetGenerator() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'text-danger print:hidden': !person,
+								'p-sm bg-danger text-danger rounded-base print:hidden': !person,
 							})}
 						>
 							{person?.length ? person : 'SET PERSON'}
@@ -372,7 +372,8 @@ export function TimesheetGenerator() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'text-danger print:hidden': !invoiceReference,
+								'p-sm bg-danger text-danger rounded-base print:hidden':
+									!invoiceReference,
 							})}
 						>
 							REF:{' '}
