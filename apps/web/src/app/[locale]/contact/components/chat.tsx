@@ -126,7 +126,7 @@ export function Chat({
 		error,
 	} = useChat({
 		initialMessages,
-		api: '/api/ai',
+		api: '/api/chat',
 		body: {},
 	})
 

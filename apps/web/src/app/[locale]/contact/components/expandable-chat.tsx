@@ -52,7 +52,7 @@ export const ExpandableChatBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cx('p-md flex-grow overflow-y-auto', className)}
+		className={cx('p-md flex-1 flex-grow overflow-y-auto', className)}
 		{...props}
 	/>
 ))
