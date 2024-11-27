@@ -21,6 +21,10 @@ import {
 	Input,
 	Label,
 	Separator,
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { nonNullable } from '@nerdfish-website/lib/utils'
@@ -233,15 +237,60 @@ function AddTimeEntryForm({
 	)
 }
 
-function AddTimeEntries({
+function AddTimeEntryButton({
 	setTimeEntries,
 	timeEntries,
 }: {
 	setTimeEntries: (timeEntries?: TimeEntry[]) => void
 	timeEntries?: TimeEntry[]
 }) {
-	const [importing, setImporting] = React.useState<boolean>(false)
 	const [adding, setAdding] = React.useState<boolean>(false)
+
+	const onAdd = React.useCallback(
+		(data: TimeEntry) => {
+			setTimeEntries([...(timeEntries ?? []), data])
+			return setAdding(false)
+		},
+		[setAdding, setTimeEntries, timeEntries],
+	)
+
+	return (
+		<Dialog open={adding} onOpenChange={setAdding}>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<Button
+						type="button"
+						size="icon"
+						variant="ghost"
+						aria-label="Add entry"
+						asChild
+					>
+						<DialogTrigger>
+							<PlusIcon className="h-4 w-4" />
+						</DialogTrigger>
+					</Button>
+				</TooltipTrigger>
+				<TooltipContent>Add a time entry</TooltipContent>
+			</Tooltip>
+			<DialogContent>
+				<DialogHeader>
+					<DialogTitle>Add Time Entry</DialogTitle>
+					<DialogDescription>
+						Add a new time entry to the timesheet
+					</DialogDescription>
+				</DialogHeader>
+				<AddTimeEntryForm onSubmit={onAdd} />
+			</DialogContent>
+		</Dialog>
+	)
+}
+
+function ImportTimeEntriesButton({
+	setTimeEntries,
+}: {
+	setTimeEntries: (timeEntries?: TimeEntry[]) => void
+}) {
+	const [importing, setImporting] = React.useState<boolean>(false)
 	const onComplete = React.useCallback(
 		(data: { rows: { values: any }[] }) => {
 			setImporting(false)
@@ -266,48 +315,23 @@ function AddTimeEntries({
 		[setTimeEntries],
 	)
 
-	const onAdd = React.useCallback(
-		(data: TimeEntry) => {
-			setTimeEntries([...(timeEntries ?? []), data])
-			return setAdding(false)
-		},
-		[setAdding, setTimeEntries, timeEntries],
-	)
-
 	return (
-		<div className="my-md flex items-center justify-center print:hidden">
-			<div className="gap-sm flex">
-				<Dialog open={adding} onOpenChange={setAdding}>
-					<DialogTrigger asChild>
-						<Button
-							type="button"
-							size="icon"
-							className="group transition-all"
-							aria-label="Add entry"
-						>
-							<PlusIcon className="h-4 w-4" />
-						</Button>
-					</DialogTrigger>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>Add Time Entry</DialogTitle>
-							<DialogDescription>
-								Add a new time entry to the timesheet
-							</DialogDescription>
-						</DialogHeader>
-						<AddTimeEntryForm onSubmit={onAdd} />
-					</DialogContent>
-				</Dialog>
+		<div className="inline-block">
+			<Tooltip>
 				<Button
-					variant="outline"
+					variant="default"
 					onClick={() => setImporting(true)}
 					className="group transition-all"
 					aria-label="Import Time Entries"
 					type="button"
+					asChild
 				>
-					<ImportIcon className="h-4 w-4" />
+					<TooltipTrigger>
+						<ImportIcon className="size-4" />
+					</TooltipTrigger>
 				</Button>
-			</div>
+				<TooltipContent>Import time entries</TooltipContent>
+			</Tooltip>
 			<CSVImporter
 				modalIsOpen={importing}
 				modalOnCloseTriggered={() => setImporting(false)}
@@ -341,126 +365,158 @@ export function TimesheetGenerator() {
 	}, [invoiceReference, timeEntries])
 
 	return (
-		<div ref={ref} className="p-md outline-shadow relative mx-auto w-[80mm]">
-			<Button
-				type="button"
-				aria-label="Print"
-				className="top-md right-md absolute print:hidden"
-				onClick={() => window.print()}
+		<div>
+			<div
+				ref={ref}
+				className="p-md outline-shadow pb-3xl relative mx-auto w-[80mm] print:pb-0"
 			>
-				<PrinterIcon className="h-4 w-4" />
-			</Button>
-			<div className="gap-sm mb-lg flex flex-col items-start justify-start">
-				<Logo className="h-4 w-auto" />
-				<Dialog>
-					<DialogTrigger>
-						<div
-							className={cx('text-sm', {
-								'p-sm bg-danger text-danger rounded-base print:hidden': !person,
-							})}
-						>
-							{person?.length ? person : 'SET PERSON'}
-						</div>
-					</DialogTrigger>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>Person</DialogTitle>
-							<DialogDescription>
-								Who is working on this timesheet?
-							</DialogDescription>
-						</DialogHeader>
+				<div className="gap-sm mb-lg flex flex-col items-start justify-start">
+					<Logo className="h-4 w-auto" />
+					<Dialog>
+						<DialogTrigger>
+							<div
+								className={cx('text-sm', {
+									'p-sm bg-danger text-danger rounded-base print:hidden':
+										!person,
+								})}
+							>
+								{person?.length ? person : 'SET PERSON'}
+							</div>
+						</DialogTrigger>
+						<DialogContent>
+							<DialogHeader>
+								<DialogTitle>Person</DialogTitle>
+								<DialogDescription>
+									Who is working on this timesheet?
+								</DialogDescription>
+							</DialogHeader>
 
-						<Field className="w-full">
-							<Label htmlFor="person">Person</Label>
-							<Input
-								id="person"
-								value={person}
-								onChange={(e) => setPerson(e.target.value)}
+							<Field className="w-full">
+								<Label htmlFor="person">Person</Label>
+								<Input
+									id="person"
+									value={person}
+									onChange={(e) => setPerson(e.target.value)}
+								/>
+							</Field>
+						</DialogContent>
+					</Dialog>
+				</div>
+
+				<div className="gap-xs mb-lg flex flex-col items-start justify-start">
+					<h1 className="text-xl font-bold uppercase">Timesheets</h1>
+					<Dialog>
+						<DialogTrigger>
+							<div
+								className={cx('text-sm', {
+									'p-sm bg-danger text-danger rounded-base print:hidden':
+										!invoiceReference,
+								})}
+							>
+								REF:{' '}
+								{invoiceReference?.length
+									? invoiceReference
+									: 'SET INVOICE REFERENCE'}
+							</div>
+						</DialogTrigger>
+						<DialogContent>
+							<DialogHeader>
+								<DialogTitle>Invoice Reference</DialogTitle>
+								<DialogDescription>
+									What invoice is this timesheet referring to?
+								</DialogDescription>
+							</DialogHeader>
+
+							<Field className="w-full">
+								<Label htmlFor="invoice-reference">Invoice Reference</Label>
+								<Input
+									id="invoice-reference"
+									value={invoiceReference}
+									onChange={(e) => setInvoiceReference(e.target.value)}
+								/>
+							</Field>
+						</DialogContent>
+					</Dialog>
+				</div>
+
+				<div className="gap-xs mb-lg flex flex-col">
+					<Row day="DAY" hours="HOURS" />
+					<Spacer />
+
+					<TimeEntries
+						timeEntries={timeEntries}
+						setTimeEntries={setTimeEntries}
+					/>
+
+					<Spacer />
+					<Row
+						day="TOTAL HOURS"
+						hours={
+							timeEntries
+								? timeEntries
+										.reduce((acc, entry) => acc + entry.hours, 0)
+										.toString()
+								: '0'
+						}
+						className="font-bold"
+					/>
+
+					<Row
+						day="TOTAL DAYS"
+						hours={timeEntries ? timeEntries.length.toString() : '0'}
+						className="font-bold"
+					/>
+				</div>
+
+				<div className="text-muted mb-lg text-center text-sm">
+					*** END OF TIMESHEET ***
+				</div>
+				<Separator className="my-md" />
+				<div className="flex flex-col items-center">
+					<Logo className="mb-md h-4 w-auto" />
+					<div className="text-muted text-sm">Daren Malfait BV</div>
+					<div className="text-muted text-sm">BE0794123756</div>
+					<div className="text-muted text-sm">daren@nerdfish.be</div>
+				</div>
+			</div>
+			<div
+				className={cx(
+					'print:hidden',
+					'p-xs bg-popover rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
+					'before:empty-content before:bg-muted/50 before:rounded-container before:absolute before:inset-0',
+					'bottom-lg',
+				)}
+			>
+				<TooltipProvider>
+					<ul className="gap-sm flex">
+						<li>
+							<AddTimeEntryButton
+								setTimeEntries={setTimeEntries}
+								timeEntries={timeEntries}
 							/>
-						</Field>
-					</DialogContent>
-				</Dialog>
-			</div>
+						</li>
 
-			<div className="gap-xs mb-lg flex flex-col items-start justify-start">
-				<h1 className="text-xl font-bold uppercase">Timesheets</h1>
-				<Dialog>
-					<DialogTrigger>
-						<div
-							className={cx('text-sm', {
-								'p-sm bg-danger text-danger rounded-base print:hidden':
-									!invoiceReference,
-							})}
-						>
-							REF:{' '}
-							{invoiceReference?.length
-								? invoiceReference
-								: 'SET INVOICE REFERENCE'}
-						</div>
-					</DialogTrigger>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>Invoice Reference</DialogTitle>
-							<DialogDescription>
-								What invoice is this timesheet referring to?
-							</DialogDescription>
-						</DialogHeader>
-
-						<Field className="w-full">
-							<Label htmlFor="invoice-reference">Invoice Reference</Label>
-							<Input
-								id="invoice-reference"
-								value={invoiceReference}
-								onChange={(e) => setInvoiceReference(e.target.value)}
-							/>
-						</Field>
-					</DialogContent>
-				</Dialog>
-			</div>
-
-			<div className="gap-xs mb-lg flex flex-col">
-				<Row day="DAY" hours="HOURS" />
-				<Spacer />
-
-				<TimeEntries
-					timeEntries={timeEntries}
-					setTimeEntries={setTimeEntries}
-				/>
-
-				<AddTimeEntries
-					setTimeEntries={setTimeEntries}
-					timeEntries={timeEntries}
-				/>
-
-				<Spacer />
-				<Row
-					day="TOTAL HOURS"
-					hours={
-						timeEntries
-							? timeEntries
-									.reduce((acc, entry) => acc + entry.hours, 0)
-									.toString()
-							: '0'
-					}
-					className="font-bold"
-				/>
-
-				<Row
-					day="TOTAL DAYS"
-					hours={timeEntries ? timeEntries.length.toString() : '0'}
-					className="font-bold"
-				/>
-			</div>
-
-			<div className="text-muted mb-lg text-center text-sm">
-				*** END OF TIMESHEET ***
-			</div>
-			<Separator className="my-md" />
-			<div className="flex flex-col items-center">
-				<Logo className="mb-md h-4 w-auto" />
-				<div className="text-muted text-sm">Daren Malfait BV</div>
-				<div className="text-muted text-sm">BE0794123756</div>
-				<div className="text-muted text-sm">daren@nerdfish.be</div>
+						<li>
+							<ImportTimeEntriesButton setTimeEntries={setTimeEntries} />
+						</li>
+						<li>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										type="button"
+										variant="ghost"
+										size="icon"
+										aria-label="Print"
+										onClick={() => window.print()}
+									>
+										<PrinterIcon className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>Print</TooltipContent>
+							</Tooltip>
+						</li>
+					</ul>
+				</TooltipProvider>
 			</div>
 		</div>
 	)
