@@ -24,7 +24,13 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { nonNullable } from '@nerdfish-website/lib/utils'
-import { ImportIcon, Logo, PlusIcon, XIcon } from '@nerdfish-website/ui/icons'
+import {
+	ImportIcon,
+	Logo,
+	PlusIcon,
+	PrinterIcon,
+	XIcon,
+} from '@nerdfish-website/ui/icons'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
@@ -335,7 +341,15 @@ export function TimesheetGenerator() {
 	}, [invoiceReference, timeEntries])
 
 	return (
-		<div ref={ref} className="p-md outline-shadow mx-auto w-[80mm]">
+		<div ref={ref} className="p-md outline-shadow relative mx-auto w-[80mm]">
+			<Button
+				type="button"
+				aria-label="Print"
+				className="top-md right-md absolute print:hidden"
+				onClick={() => window.print()}
+			>
+				<PrinterIcon className="h-4 w-4" />
+			</Button>
 			<div className="gap-sm mb-lg flex flex-col items-start justify-start">
 				<Logo className="h-4 w-auto" />
 				<Dialog>
