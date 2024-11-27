@@ -90,14 +90,16 @@ function TimeEntries({
 }) {
 	const groupedEntries = React.useMemo(() => {
 		if (!timeEntries) return {}
-		return timeEntries.reduce<Record<string, TimeEntry[]>>((acc, entry) => {
-			const project = entry.project
-			if (!acc[project]) {
-				acc[project] = []
-			}
-			acc[project].push(entry)
-			return acc
-		}, {})
+		return timeEntries
+			.sort((a, b) => a.day.getTime() - b.day.getTime())
+			.reduce<Record<string, TimeEntry[]>>((acc, entry) => {
+				const project = entry.project
+				if (!acc[project]) {
+					acc[project] = []
+				}
+				acc[project].push(entry)
+				return acc
+			}, {})
 	}, [timeEntries])
 
 	if (!timeEntries) return null
