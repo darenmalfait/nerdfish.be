@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/ui'
-import { ChevronLeftIcon } from '@nerdfish-website/ui/icons'
+import { ChevronLeftIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { useGlobal } from '~/app/global-provider'
 

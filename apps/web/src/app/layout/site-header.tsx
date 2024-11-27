@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/ui'
-import { Logo } from '@nerdfish-website/ui/icons'
+import { Logo } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { MainNavigation } from './navigation'

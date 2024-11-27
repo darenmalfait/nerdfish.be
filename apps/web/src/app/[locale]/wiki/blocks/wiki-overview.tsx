@@ -11,7 +11,7 @@ import {
 	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@nerdfish-website/lib/utils'
+import { nonNullable } from '@repo/lib/utils'
 import {
 	Section,
 	ArticleCard,
@@ -22,8 +22,8 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 	TagFilter,
-} from '@nerdfish-website/ui/components'
-import { BookIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

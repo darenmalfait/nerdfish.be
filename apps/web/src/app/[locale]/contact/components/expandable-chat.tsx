@@ -2,7 +2,7 @@
 
 import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { XIcon, MessageCircleIcon } from '@nerdfish-website/ui/icons'
+import { XIcon, MessageCircleIcon } from '@repo/ui/icons'
 import * as React from 'react'
 
 export type ChatPosition = 'bottom-right' | 'bottom-left'

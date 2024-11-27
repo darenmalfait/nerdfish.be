@@ -1,6 +1,6 @@
 'use client'
 
-import { stripPreSlash } from '@nerdfish-website/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils'
 import * as React from 'react'
 import { type Global, type GlobalPaths } from './cms'
 

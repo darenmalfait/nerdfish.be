@@ -1,6 +1,6 @@
 'use client'
 
-import { useHydrated } from '@nerdfish-website/lib/utils'
+import { useHydrated } from '@repo/lib/utils'
 import * as React from 'react'
 
 interface TFrame {

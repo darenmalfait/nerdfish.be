@@ -35,12 +35,12 @@ importers:
 
   apps/email:
     dependencies:
-      '@nerdfish-website/email':
-        specifier: workspace:*
-        version: link:../../packages/email
       '@react-email/components':
         specifier: ^0.0.28
         version: 0.0.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@repo/email':
+        specifier: workspace:*
+        version: link:../../packages/email
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -72,24 +72,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.1
         version: 3.9.1(react-hook-form@7.53.2(react@18.3.1))
-      '@nerdfish-website/email':
-        specifier: workspace:*
-        version: link:../../packages/email
-      '@nerdfish-website/env':
-        specifier: workspace:*
-        version: link:../../packages/env
-      '@nerdfish-website/lib':
-        specifier: workspace:*
-        version: link:../../packages/lib
-      '@nerdfish-website/observability':
-        specifier: workspace:*
-        version: link:../../packages/observability
-      '@nerdfish-website/seo':
-        specifier: workspace:*
-        version: link:../../packages/seo
-      '@nerdfish-website/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@nerdfish/tailwind-config':
         specifier: ^3.8.0
         version: 3.8.0
@@ -108,6 +90,24 @@ importers:
       '@react-aria/i18n':
         specifier: ^3.12.4
         version: 3.12.4(react@18.3.1)
+      '@repo/email':
+        specifier: workspace:*
+        version: link:../../packages/email
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
+      '@repo/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
+      '@repo/observability':
+        specifier: workspace:*
+        version: link:../../packages/observability
+      '@repo/seo':
+        specifier: workspace:*
+        version: link:../../packages/seo
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.15)
@@ -274,12 +274,12 @@ importers:
 
   packages/email:
     dependencies:
-      '@nerdfish-website/env':
-        specifier: workspace:*
-        version: link:../env
       '@react-email/components':
         specifier: ^0.0.28
         version: 0.0.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -384,9 +384,6 @@ importers:
 
   packages/ui:
     dependencies:
-      '@nerdfish-website/lib':
-        specifier: workspace:*
-        version: link:../lib
       '@nerdfish/tailwind-config':
         specifier: ^3.8.0
         version: 3.8.0
@@ -402,6 +399,9 @@ importers:
       '@reach/checkbox':
         specifier: ^0.18.0
         version: 0.18.0(react@18.3.1)
+      '@repo/lib':
+        specifier: workspace:*
+        version: link:../lib
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.15)

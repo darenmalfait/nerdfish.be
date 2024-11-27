@@ -1,4 +1,4 @@
-import { ContactEmail } from '@nerdfish-website/email/templates/contact'
+import { ContactEmail } from '@repo/email/templates/contact'
 
 const ExampleContactEmail = () => (
 	<ContactEmail

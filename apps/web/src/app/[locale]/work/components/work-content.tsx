@@ -4,8 +4,8 @@ import {
 	CategoryIndicator,
 	getCategoryColors,
 	Section,
-} from '@nerdfish-website/ui/components'
-import { ArrowRight } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { ArrowRight } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

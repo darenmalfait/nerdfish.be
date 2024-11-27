@@ -1,5 +1,5 @@
-import { stripPreSlash } from '@nerdfish-website/lib/utils'
-import { ExternalLinkIcon } from '@nerdfish-website/ui/icons'
+import { stripPreSlash } from '@repo/lib/utils'
+import { ExternalLinkIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 

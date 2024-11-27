@@ -10,7 +10,7 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@nerdfish-website/lib/utils'
+import { nonNullable } from '@repo/lib/utils'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -25,8 +25,8 @@ import {
 	HighlightCardImage,
 	HighlightCardSubtitle,
 	HighlightCardTitle,
-} from '@nerdfish-website/ui/components'
-import { NewspaperIcon, PlusIcon, SearchIcon } from '@nerdfish-website/ui/icons'
+} from '@repo/ui/components'
+import { NewspaperIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
 import Image from 'next/image'

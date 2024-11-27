@@ -7,13 +7,13 @@ import {
 	AccordionTrigger,
 	H3,
 } from '@nerdfish/ui'
-import { nonNullable } from '@nerdfish-website/lib/utils'
+import { nonNullable } from '@repo/lib/utils'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type PageBlocksFaq, type Block } from '~/app/cms'

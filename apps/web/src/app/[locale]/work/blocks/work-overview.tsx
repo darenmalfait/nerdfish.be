@@ -1,5 +1,5 @@
 import { Skeleton } from '@nerdfish/ui'
-import { type PartialDeep } from '@nerdfish-website/lib/utils'
+import { type PartialDeep } from '@repo/lib/utils'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -8,7 +8,7 @@ import {
 	ArticleCardTitle,
 	ArticleOverviewContentGrid,
 	ArticlesOverviewEmptyState,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'

@@ -6,7 +6,7 @@ import {
 	NeonGradientCard,
 	Section,
 	SectionHeaderSubtitle,
-} from '@nerdfish-website/ui/components'
+} from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText, type Block, type PageBlocksNeon } from '~/app/cms'
