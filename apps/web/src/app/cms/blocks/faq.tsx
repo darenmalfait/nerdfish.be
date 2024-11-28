@@ -30,7 +30,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 	return (
 		<AccordionItem
 			value={id}
-			className="group rounded-container border-none bg-muted p-lg py-sm outline-none transition-colors focus-within:outline-active hover:bg-secondary"
+			className="group rounded-container border-none bg-muted p-lg py-sm outline-none transition-colors focus-within:outline-active hover:bg-muted/50"
 		>
 			<AccordionTrigger className="!outline-none py-lg after:hidden hover:no-underline">
 				<H3 variant="primary" as="span">
