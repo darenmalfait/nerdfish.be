@@ -6,7 +6,6 @@ import {
 	AlertDescription,
 	AlertTitle,
 	Button,
-	Checkbox,
 	Description,
 	Field,
 	Form,
@@ -216,37 +215,36 @@ export function ContactForm() {
 
 													return (
 														<FormItem key={type}>
-															<FormControl>
-																<FormLabel className="flex items-center gap-sm rounded-container focus-within:outline-active">
-																	<span className="sr-only inline">
-																		<Checkbox
-																			aria-label={type}
-																			checked={checked}
-																			className="peer"
-																			onChange={(e) => {
-																				return e.target.checked
-																					? field.onChange([
-																							...field.value,
-																							type,
-																						])
-																					: field.onChange(
-																							field.value.filter(
-																								(value) => value !== type
-																							)
-																						)
-																			}}
-																		/>
-																	</span>
-																	<Button
-																		aria-hidden
-																		asChild
-																		aria-label={type}
-																		variant={checked ? 'accent' : 'outline'}
-																		className="inline cursor-pointer"
-																	>
-																		<span>{type}</span>
-																	</Button>
-																</FormLabel>
+															<FormLabel
+																aria-hidden
+																className="flex items-center gap-sm rounded-container focus-within:outline-active"
+															>
+																<Button
+																	asChild
+																	aria-label={type}
+																	variant={checked ? 'accent' : 'outline'}
+																	className="inline cursor-pointer"
+																>
+																	<span>{type}</span>
+																</Button>
+															</FormLabel>
+															<FormControl className="sr-only">
+																<input
+																	{...field}
+																	type="checkbox"
+																	aria-label={type}
+																	checked={checked}
+																	className="peer sr-only"
+																	onChange={(e) => {
+																		return e.target.checked
+																			? field.onChange([...field.value, type])
+																			: field.onChange(
+																					field.value.filter(
+																						(value) => value !== type
+																					)
+																				)
+																	}}
+																/>
 															</FormControl>
 														</FormItem>
 													)
