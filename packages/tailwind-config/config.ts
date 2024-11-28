@@ -7,24 +7,30 @@ import type { Config } from 'tailwindcss/types/config'
 
 export const config: Config = {
 	content: [
-		'./node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}',
+		'../../node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}', // path to nerdfishui
+		'./node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}', // path to nerdfishui
 		'./node_modules/@repo/ui/components/**/*.{ts,tsx}',
 		'./components/**/*.{ts,tsx}',
-		'./app/**/*.{ts,tsx}',
 		'./src/**/*.{ts,tsx}',
+		'./app/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	darkMode: 'class',
 	plugins: [
+		nerdfishConfig,
 		aspectRatio,
 		animate,
 		typography,
 		require('tailwindcss-motion'),
-		nerdfishConfig,
 	],
 	theme: {
 		extend: {
 			fontFamily: {
 				sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+				mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+			},
+			container: {
+				center: true,
 			},
 			colors: {
 				blog: {
