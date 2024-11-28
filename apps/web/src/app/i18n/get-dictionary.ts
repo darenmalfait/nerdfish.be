@@ -48,6 +48,8 @@ export type Dictionary = {
 	'global.about': string
 	'global.allArticles': string
 	'global.readMore': string
+	'global.loadMore': string
+	'global.filterArticles': string
 	'global.vat': string
 	'global.switchLanguage': string
 	'work.related.title': string

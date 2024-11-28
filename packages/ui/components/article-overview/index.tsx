@@ -196,7 +196,13 @@ export function ArticleOverviewLoadMoreButton({
 	)
 }
 
-const FeaturedArticle = ({ article }: { article?: Article }) => {
+const FeaturedArticle = ({
+	article,
+	readMoreLabel,
+}: {
+	article?: Article
+	readMoreLabel?: string
+}) => {
 	const { featuredArticleEnabled, filter } = useArticleOverview()
 
 	if (!featuredArticleEnabled || !article) return null
@@ -214,7 +220,7 @@ const FeaturedArticle = ({ article }: { article?: Article }) => {
 				</HighlightCardSubtitle>
 				<HighlightCardDescription>{article.excerpt}</HighlightCardDescription>
 				<HighlightCardCTA category={article.category} href={article.href}>
-					Read more
+					{readMoreLabel ?? 'Read more'}
 				</HighlightCardCTA>
 			</HighlightCardContent>
 			<HighlightCardImage src={article.image?.src} />
@@ -226,55 +232,68 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement> & {
 		loadMoreLabel?: string
+		readMoreLabel?: string
 	}
->(({ children, loadMoreLabel = 'read more', ...props }, ref) => {
-	const { articles, featuredArticleEnabled, filter, itemsToShow } =
-		useArticleOverview()
+>(
+	(
+		{
+			children,
+			loadMoreLabel = 'Load more',
+			readMoreLabel = 'Read more',
+			...props
+		},
+		ref
+	) => {
+		const { articles, featuredArticleEnabled, filter, itemsToShow } =
+			useArticleOverview()
 
-	const isSearching = filter.length > 0
+		const isSearching = filter.length > 0
 
-	const featured = articles.length > 0 ? articles[0] : undefined
+		const featured = articles.length > 0 ? articles[0] : undefined
 
-	const filteredArticles = React.useMemo(
-		() =>
-			isSearching || !featuredArticleEnabled
-				? articles
-				: articles.filter((p) => p.id !== featured?.id),
-		[isSearching, featuredArticleEnabled, articles, featured?.id]
-	)
+		const filteredArticles = React.useMemo(
+			() =>
+				isSearching || !featuredArticleEnabled
+					? articles
+					: articles.filter((p) => p.id !== featured?.id),
+			[isSearching, featuredArticleEnabled, articles, featured?.id]
+		)
 
-	const articlesToShow = filteredArticles.slice(0, itemsToShow)
+		const articlesToShow = filteredArticles.slice(0, itemsToShow)
 
-	return (
-		<div ref={ref} {...props}>
-			<FeaturedArticle article={featured} />
+		return (
+			<div ref={ref} {...props}>
+				<FeaturedArticle readMoreLabel={readMoreLabel} article={featured} />
 
-			<ul className="grid grid-cols-4 gap-x-lg gap-y-xl md:grid-cols-8">
-				{children}
-				{articlesToShow.map((article) => {
-					return (
-						<li
-							key={article.id}
-							className="col-span-4 transition-all duration-300"
-						>
-							<ArticleCard href={article.href} title={article.title}>
-								<ArticleCardImage
-									src={article.image?.src}
-									category={article.category}
-									readMoreLabel={loadMoreLabel}
-								/>
-								<ArticleCardContent>
-									<ArticleCardCategory>{article.category}</ArticleCardCategory>
-									<ArticleCardTitle>{article.title}</ArticleCardTitle>
-								</ArticleCardContent>
-							</ArticleCard>
-						</li>
-					)
-				})}
-			</ul>
-		</div>
-	)
-})
+				<ul className="grid grid-cols-4 gap-x-lg gap-y-xl md:grid-cols-8">
+					{children}
+					{articlesToShow.map((article) => {
+						return (
+							<li
+								key={article.id}
+								className="col-span-4 transition-all duration-300"
+							>
+								<ArticleCard href={article.href} title={article.title}>
+									<ArticleCardImage
+										src={article.image?.src}
+										category={article.category}
+										readMoreLabel={loadMoreLabel}
+									/>
+									<ArticleCardContent>
+										<ArticleCardCategory>
+											{article.category}
+										</ArticleCardCategory>
+										<ArticleCardTitle>{article.title}</ArticleCardTitle>
+									</ArticleCardContent>
+								</ArticleCard>
+							</li>
+						)
+					})}
+				</ul>
+			</div>
+		)
+	}
+)
 ArticleOverviewContentGrid.displayName = 'ArticleOverviewContentGrid'
 
 export const ArticlesOverviewEmptyState = React.forwardRef<
