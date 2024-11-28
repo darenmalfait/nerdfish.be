@@ -6,7 +6,7 @@ import type { WithLocale } from '~/app/i18n/types'
 import { AppProviders } from '../app-providers'
 import { getGlobalData } from '../cms/api'
 import { GlobalProvider } from '../global-provider'
-import { getDictionary } from '../i18n/get-dictionary'
+import { getTranslations } from '../i18n/get-translations'
 import { SiteLayout } from '../layout/site-layout'
 
 import '~/app/theme/styles/app.css'
@@ -29,7 +29,7 @@ export default async function RootLayout({
 	params: WithLocale<Record<string, never>>
 }) {
 	const layoutData = await getLayoutData(params.locale)
-	const dictionary = await getDictionary(params.locale)
+	const dictionary = await getTranslations(params.locale)
 
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
