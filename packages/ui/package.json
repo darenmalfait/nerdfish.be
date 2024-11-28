@@ -4,12 +4,12 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./icons": "./src/icons.tsx",
+		"./icons": "./src/icons/index.ts",
 		"./components": "./src/components/index.ts"
 	},
 	"typesVersions": {
 		"*": {
-			"icons": ["./src/icons.tsx"],
+			"icons": ["./src/icons/index.ts"],
 			"components/*": ["./src/components/*"]
 		}
 	},

@@ -13,10 +13,12 @@ import {
 	NextJSIcon,
 	NodeIcon,
 	ReactIcon,
+	SanityIcon,
 	SassIcon,
 	TailwindIcon,
 	TypescriptIcon,
 	VSCodeIcon,
+	WebflowIcon,
 } from '@repo/ui/icons'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -36,6 +38,8 @@ const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
 	figma: FigmaIcon,
 	next: NextJSIcon,
 	tailwind: TailwindIcon,
+	sanity: SanityIcon,
+	webflow: WebflowIcon,
 }
 
 function SkillItem({ skill }: { skill?: string | null }) {

@@ -13,6 +13,8 @@ export const skills = [
 	'figma',
 	'next',
 	'tailwind',
+	'sanity',
+	'webflow',
 ] as const
 
 export const skillsTemplate: Template = {
