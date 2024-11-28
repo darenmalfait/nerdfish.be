@@ -1,7 +1,7 @@
 import { stripTrailingSlash } from '@repo/lib/utils'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
-import type { Locale } from '~/app/i18n'
+import type { Locale } from '~/app/i18n/types'
 import { getPage } from '../api'
 
 // slug is empty string when on the homepage

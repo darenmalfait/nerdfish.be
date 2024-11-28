@@ -1,6 +1,0 @@
-export * from './image'
-export * from './portable-text'
-export * from './price'
-export * from './seo'
-export * from './tags'
-export * from './testimonial'

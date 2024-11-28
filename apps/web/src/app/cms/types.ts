@@ -1,5 +1,7 @@
 import type { PageBlocks, Product, Wiki } from '~/tina/__generated__/types'
-import type { Locale } from '../i18n'
+export type * from '~/tina/__generated__/types'
+
+import type { Locale } from '~/app/i18n/types'
 
 export type Image = {
 	src: string

@@ -2,7 +2,7 @@
 
 import type { ExtractProps } from '@nerdfish/utils'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import { ContactForm } from '~/app/[locale]/contact'
+import { ContactForm } from '~/app/[locale]/contact/components/contact-form/contact-form'
 
 export function PortableContactForm({
 	content,

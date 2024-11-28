@@ -13,7 +13,10 @@ import { stripPreSlash } from '@repo/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import type { GlobalNavigationMain, GlobalNavigationMainSub } from '~/app/cms'
+import type {
+	GlobalNavigationMain,
+	GlobalNavigationMainSub,
+} from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
 const MainNavigationSubItem = React.forwardRef<

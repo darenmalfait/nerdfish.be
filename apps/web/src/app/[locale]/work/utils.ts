@@ -2,7 +2,7 @@ import type { PartialDeep } from '@repo/lib/utils'
 import type { Article } from '@repo/ui/components'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import type { Work } from '../../cms'
+import type { Work } from '~/app/cms/types'
 
 const WorkPath = 'work'
 

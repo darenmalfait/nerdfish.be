@@ -6,8 +6,8 @@ import { SendHorizonalIcon } from '@repo/ui/icons'
 import type { Message, ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import * as React from 'react'
-import { useTranslation } from '~/app/i18n'
-import { EmbeddedCal } from '../../contact'
+import { useTranslation } from '~/app/i18n/translation-provider'
+import { EmbeddedCal } from './embedded-cal'
 
 const chatMessageVariants = cva(
 	'relative animate-rubber rounded-container px-5 py-2.5',

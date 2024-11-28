@@ -1,5 +1,5 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import type { SystemInfo, Wiki } from '~/app/cms'
+import type { SystemInfo, Wiki } from '~/app/cms/types'
 
 const WikiPath = 'wiki'
 

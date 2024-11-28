@@ -3,7 +3,8 @@ import slugify from 'slugify'
 import { contentTemplate } from '../blocks/content.template'
 import { imageGridTemplate } from '../blocks/image-grid.template'
 import { testimonialsTemplate } from '../blocks/testimonials.template'
-import { portableTextSchema, seo } from '../objects'
+import { portableTextSchema } from '../objects/portable-text'
+import { seo } from '../objects/seo'
 
 const workBlocks = [testimonialsTemplate, imageGridTemplate, contentTemplate]
 

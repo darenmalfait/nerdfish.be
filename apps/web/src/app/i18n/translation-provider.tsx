@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import type { Dictionary } from '../get-dictionary'
-import type { Locale } from '../i18n-config'
+import type { Dictionary } from './get-dictionary'
+import type { Locale } from './types'
 
 interface TranslationContextProps {
 	t: (key: keyof Dictionary) => string

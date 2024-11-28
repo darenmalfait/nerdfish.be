@@ -9,8 +9,8 @@ import {
 } from '@nerdfish/ui'
 import { GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
-import { i18n, supportedLanguages } from '../i18n-config'
-import { useTranslation } from './translation-provider'
+import { i18n, supportedLanguages } from '../config'
+import { useTranslation } from '../translation-provider'
 
 export function LocaleSwitcher() {
 	const { t, currentLocale } = useTranslation()

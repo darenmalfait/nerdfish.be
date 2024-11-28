@@ -22,8 +22,9 @@ import {
 } from '@repo/ui/icons'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksSkills, PortableText } from '~/app/cms'
+import type { Block, PageBlocksSkills } from '~/app/cms/types'
 import type { skills } from '~/tina/schema/blocks/skills.template'
+import { PortableText } from '../components/portable-text'
 
 const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
 	javascript: JavascriptIcon,

@@ -17,8 +17,8 @@ import {
 } from '@repo/ui/components'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksPricing } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
+import type { Block, PageBlocksPricing } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null

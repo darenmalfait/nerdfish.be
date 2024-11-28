@@ -1,4 +1,4 @@
-import { tina } from '../../cms'
+import { tina } from '~/app/cms/client'
 
 export async function getWikiPosts() {
 	const wikiListData = await tina.queries.wikiConnection()

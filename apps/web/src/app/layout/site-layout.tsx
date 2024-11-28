@@ -7,8 +7,8 @@ import { ArrowRight, Logo } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { useGlobal } from '~/app/global-provider'
-import { SocialLinks } from './navigation'
-import { SiteHeader } from './site-header'
+import { SocialLinks } from './components/navigation'
+import { SiteHeader } from './components/site-header'
 
 function Disclaimer() {
 	const { companyInfo } = useGlobal()

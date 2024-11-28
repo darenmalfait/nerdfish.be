@@ -3,9 +3,9 @@
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Skeleton } from '@nerdfish/ui'
 import * as React from 'react'
-import type { GlobalCalcomTypes } from '~/app/cms'
+import type { GlobalCalcomTypes } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
-import { useTheme } from '~/app/theme'
+import { useTheme } from '~/app/theme/theme-provider'
 
 export function EmbeddedCal({
 	bookingType = '30min',

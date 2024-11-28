@@ -8,11 +8,11 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components'
 import type { Metadata } from 'next'
-import { generateOGImageUrl } from '~/app/api/og'
-import { HeroBlock } from '~/app/cms'
-import type { WithLocale } from '~/app/i18n'
+import { generateOGImageUrl } from '~/app/api/og/utils'
+import { HeroBlock } from '~/app/cms/blocks/hero'
 import { getDictionary } from '~/app/i18n/get-dictionary'
-import { Chat } from '../contact'
+import type { WithLocale } from '~/app/i18n/types'
+import { Chat } from '../contact/components/chat'
 
 export async function generateMetadata({
 	params,

@@ -1,5 +1,5 @@
 import type { Collection } from '@tinacms/schema-tools'
-import { testimonial } from '../objects'
+import { testimonial } from '../objects/testimonial'
 
 const globalCollection: Collection = {
 	label: 'Global',

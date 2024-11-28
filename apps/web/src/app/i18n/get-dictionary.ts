@@ -1,6 +1,7 @@
 import 'server-only'
 
-import { type Locale, i18n } from '~/app/i18n'
+import { i18n } from '~/app/i18n/config'
+import type { Locale } from '~/app/i18n/types'
 
 export type Dictionary = {
 	'ai.chat.initialMessage': string

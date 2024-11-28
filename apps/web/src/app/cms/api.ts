@@ -1,5 +1,6 @@
 import tina from '~/tina/__generated__/client'
-import { type Locale, i18n } from '../i18n'
+import { i18n } from '../i18n/config'
+import type { Locale } from '../i18n/types'
 
 export async function getGlobalData(locale: Locale = i18n.defaultLocale) {
 	const globalData = await tina.queries
