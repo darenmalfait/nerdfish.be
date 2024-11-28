@@ -1,5 +1,4 @@
 import { H1 } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
 import { env } from '@repo/env'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
@@ -14,8 +13,6 @@ import type { BlogPostQueryQuery } from '~/app/cms/types'
 import type { Locale } from '~/app/i18n/types'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
-
-const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
 function BlogContent({
 	data,
@@ -60,11 +57,11 @@ function BlogContent({
 			<JsonLd code={jsonLd} />
 			<article>
 				<ReadingProgress offset={1200} />
-				<Section className="max-w-4xl">
+				<Section>
 					<div className="mb-lg">
 						<BackToBlog />
 					</div>
-					<header className={cx('flex max-w-4xl flex-col', prose)}>
+					<header className="flex flex-col">
 						{date ? (
 							<span
 								className="mb-xs text-lg text-muted"
@@ -83,7 +80,7 @@ function BlogContent({
 						</H1>
 					</header>
 					{heroImg ? (
-						<div className={cx(prose, 'mx-auto mb-xl')}>
+						<div className="mx-auto mb-xl ">
 							<div
 								className="overflow-hidden rounded-container"
 								data-tina-field={tinaField(data.blog, 'heroImg')}
@@ -93,6 +90,7 @@ function BlogContent({
 									aria-hidden
 									src={heroImg}
 									alt={title}
+									className="mx-auto w-full max-w-7xl rounded-container"
 									width={900}
 									height={900}
 								/>
@@ -101,7 +99,7 @@ function BlogContent({
 					) : null}
 
 					{body ? (
-						<div className={prose}>
+						<div className="prose dark:prose-invert prose-lg md:prose-xl lg:prose-2xl mx-auto">
 							<PortableText
 								data-tina-field={tinaField(data.blog, 'body')}
 								content={body}
