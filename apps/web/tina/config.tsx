@@ -1,6 +1,5 @@
-import { env } from 'node:process'
+import { env } from '@repo/env'
 import { defineStaticConfig } from 'tinacms'
-
 import { schema } from './schema'
 
 const config = defineStaticConfig({
