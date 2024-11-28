@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-
 import { env } from '@repo/env'
 import { ImageResponse } from '@vercel/og'
 import { ogImageSchema } from './utils'
