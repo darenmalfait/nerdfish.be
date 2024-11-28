@@ -27,7 +27,6 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 							className="mb-xs text-lg text-muted"
 							data-tina-field={tinaField(data.wiki, 'date')}
 						>
-							Published{' '}
 							<DateFormatter dateString={date} format="dd MMMM yyyy" />
 						</span>
 					) : null}
