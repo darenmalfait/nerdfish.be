@@ -16,7 +16,7 @@ export function LocaleSwitcher() {
 	const { t, currentLocale } = useTranslation()
 
 	const selectedLanguage = supportedLanguages.find(
-		(l) => l.code === currentLocale,
+		(l) => l.code === currentLocale
 	)
 
 	return (

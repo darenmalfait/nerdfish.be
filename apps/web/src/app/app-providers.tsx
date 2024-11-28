@@ -1,7 +1,7 @@
 'use client'
 
 import { ThemeProvider as NerdfishThemeProvider } from '@nerdfish/theme'
-import * as React from 'react'
+import type * as React from 'react'
 import { ThemeProvider } from './theme'
 
 interface AppProvidersProps {

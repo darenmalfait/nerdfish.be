@@ -2,16 +2,15 @@
 
 import { Paragraph } from '@nerdfish/ui'
 import { BotIcon } from '@repo/ui/icons'
-import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import type { Block, PageBlocksChatbot } from '~/app/cms'
+import { useTranslation } from '~/app/i18n'
 import { Chat } from '../components'
 import {
 	ExpandableChat,
 	ExpandableChatBody,
 	ExpandableChatFooter,
 } from '../components/expandable-chat'
-import { type Block, type PageBlocksChatbot } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
 
 export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 	const { icon } = props

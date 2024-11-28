@@ -63,6 +63,7 @@ interface NeonGradientCardProps {
 	 * */
 	neonColors?: NeonColorsProps
 
+	// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 	[key: string]: any
 }
 
@@ -101,7 +102,7 @@ export function NeonGradientCard({
 			const { offsetWidth, offsetHeight } = containerRef.current
 			setDimensions({ width: offsetWidth, height: offsetHeight })
 		}
-	}, [children])
+	}, [])
 
 	return (
 		<div
@@ -123,21 +124,21 @@ export function NeonGradientCard({
 			}
 			className={cx(
 				'relative z-10 size-full rounded-[var(--border-radius)]',
-				className,
+				className
 			)}
 			{...props}
 		>
 			<div
 				className={cx(
-					'bg-primary relative size-full min-h-[inherit] rounded-[var(--card-content-radius)] p-6',
-					'before:absolute before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:block',
+					'relative size-full min-h-[inherit] rounded-[var(--card-content-radius)] bg-primary p-6',
+					'before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:absolute before:block',
 					"before:h-[var(--pseudo-element-height)] before:w-[var(--pseudo-element-width)] before:rounded-[var(--border-radius)] before:content-['']",
-					'before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] before:bg-[length:100%_200%]',
+					'before:bg-[length:100%_200%] before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))]',
 					'before:animate-background-position-spin',
-					'after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block',
+					'after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:absolute after:block',
 					"after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
-					'after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80',
-					'after:animate-background-position-spin',
+					'after:bg-[length:100%_200%] after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:opacity-80',
+					'after:animate-background-position-spin'
 				)}
 			>
 				{children}

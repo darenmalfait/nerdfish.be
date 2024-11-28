@@ -2,10 +2,10 @@
 
 import { useTina } from 'tinacms/dist/react'
 
-import { BlogContent } from './blog-content'
-import { type BlogPostQueryQuery, type BlogQueryVariables } from '~/app/cms'
+import type { BlogPostQueryQuery, BlogQueryVariables } from '~/app/cms'
 import { Preview } from '~/app/cms/components'
-import { type Locale } from '~/app/i18n'
+import type { Locale } from '~/app/i18n'
+import { BlogContent } from './blog-content'
 
 function BlogPreview(props: {
 	data: BlogPostQueryQuery

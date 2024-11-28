@@ -12,6 +12,7 @@ export function PortableHeading({
 }) {
 	const [hasCopied, setHasCopied] = React.useState(false)
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentional
 	React.useEffect(() => {
 		setTimeout(() => {
 			setHasCopied(false)
@@ -21,7 +22,8 @@ export function PortableHeading({
 	if (!children) return null
 
 	const textNode = children.props.content.find(
-		(node: any) => node.type === 'text',
+		// biome-ignore lint/suspicious/noExplicitAny: not sure how to type this
+		(node: any) => node.type === 'text'
 	)
 
 	const Heading = type

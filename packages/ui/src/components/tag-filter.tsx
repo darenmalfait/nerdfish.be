@@ -61,8 +61,8 @@ function Tags({
 	return (
 		<div
 			className={cx(
-				'col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10',
-				className,
+				'-mb-4 -mr-4 col-span-full flex flex-wrap justify-start lg:col-span-10',
+				className
 			)}
 		>
 			{tags.map((tag) => {
@@ -93,7 +93,7 @@ export function TagFilter({
 
 	return (
 		<div>
-			<H5 as="h3" className="mb-md gap-sm flex items-center justify-between">
+			<H5 as="h3" className="mb-md flex items-center justify-between gap-sm">
 				{title}
 				<Drawer>
 					<DrawerTrigger asChild className="lg:hidden">
@@ -105,7 +105,7 @@ export function TagFilter({
 						</Button>
 					</DrawerTrigger>
 					<DrawerContent className="max-h-[85vh]">
-						<div className="p-md container mx-auto">
+						<div className="container mx-auto p-md">
 							<DrawerHeader>
 								<DrawerTitle>{title}</DrawerTitle>
 							</DrawerHeader>

@@ -16,7 +16,7 @@ import {
 } from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type PageBlocksFaq, type Block } from '~/app/cms'
+import type { Block, PageBlocksFaq } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -24,20 +24,20 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	return <Section>{children}</Section>
 }
 
-function QAItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer }: { question: string; answer: string }) {
 	const id = React.useId()
 
 	return (
 		<AccordionItem
 			value={id}
-			className="p-lg focus-within:outline-active py-sm hover:bg-secondary rounded-container bg-muted group border-none outline-none transition-colors"
+			className="group rounded-container border-none bg-muted p-lg py-sm outline-none transition-colors focus-within:outline-active hover:bg-secondary"
 		>
-			<AccordionTrigger className="py-lg !outline-none after:hidden hover:no-underline">
+			<AccordionTrigger className="!outline-none py-lg after:hidden hover:no-underline">
 				<H3 variant="primary" as="span">
 					{question}
 				</H3>
 			</AccordionTrigger>
-			<AccordionContent className="pt-md prose prose-xl text-primary text-xl">
+			<AccordionContent className="prose prose-xl pt-md text-primary text-xl">
 				{answer}
 			</AccordionContent>
 		</AccordionItem>
@@ -62,7 +62,7 @@ export function FAQBlock(props: Block<PageBlocksFaq>) {
 			<div className="relative">
 				<Accordion type="single" className="space-y-md">
 					{nonNullable(qa).map((item) => (
-						<QAItem
+						<FAQItem
 							question={item.question ?? ''}
 							answer={item.answer ?? ''}
 							key={item.question}

@@ -5,10 +5,10 @@ import { InViewBackground, Section } from '@repo/ui/components'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/ui/icons'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
-import {
-	type PageBlocksTestimonials,
-	type Block,
-	type GlobalTestimonialsItems,
+import type {
+	Block,
+	GlobalTestimonialsItems,
+	PageBlocksTestimonials,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 
@@ -26,8 +26,8 @@ function Author({ author }: { author: GlobalTestimonialsItems['author'] }) {
 	if (!author?.name) return null
 
 	return (
-		<div className="gap-xs flex flex-col justify-center">
-			<span className="before:bg-inverted flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
+		<div className="flex flex-col justify-center gap-xs">
+			<span className="flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:bg-inverted before:content-['']">
 				{author.name}
 			</span>
 			<span className="text-muted text-sm">{author.company}</span>
@@ -45,18 +45,18 @@ function TestimonialActions({
 	if (!onNext || !onPrevious) return null
 
 	return (
-		<div className="gap-md rounded-container md:hover:bg-primary p-md group flex transition duration-300 hover:scale-110">
+		<div className="group flex gap-md rounded-container p-md transition duration-300 hover:scale-110 md:hover:bg-primary">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="focus-visible:outline-active rounded-container active:-translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="active:-translate-x-xs hover:!opacity-100 rounded-container outline-none transition duration-300 focus-visible:outline-active group-hover:opacity-25"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="focus-visible:outline-active rounded-container active:translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="hover:!opacity-100 rounded-container outline-none transition duration-300 focus-visible:outline-active active:translate-x-xs group-hover:opacity-25"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>
@@ -80,15 +80,15 @@ function Testimonial({
 	onPrevious?: () => void
 }) {
 	return (
-		<div className="gap-xl relative flex flex-col justify-center">
+		<div className="relative flex flex-col justify-center gap-xl">
 			<H1
 				as="blockquote"
-				className="text-primary font-normal before:content-['“'] after:content-['”']"
+				className='font-normal text-primary before:content-["""] after:content-["""]'
 			>
 				{testimonial.quote}
 			</H1>
 
-			<div className="gap-xl flex flex-col justify-between md:flex-row md:items-center">
+			<div className="flex flex-col justify-between gap-xl md:flex-row md:items-center">
 				<Author author={testimonial.author} />
 				<div className="flex w-auto items-center justify-end">
 					<TestimonialActions onNext={onNext} onPrevious={onPrevious} />
@@ -117,7 +117,7 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 			}) ?? []
 
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
-		testimonials.length ? testimonials.length - 1 : 0,
+		testimonials.length ? testimonials.length - 1 : 0
 	)
 
 	const onNext = React.useCallback(() => {

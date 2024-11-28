@@ -1,30 +1,30 @@
-import * as React from 'react'
-import {
-	ContentBlock,
-	FeaturesBlock,
-	HeroBlock,
-	KeywordListBlock,
-	NeonBlock,
-	SkillsBlock,
-	CtaBlock,
-	FAQBlock,
-	HighlightBlock,
-	ImageGridBlock,
-	PricingBlock,
-	TestimonialsBlock,
-	SplitWithImageBlock,
-} from './blocks'
-import { type Block } from './types'
+import type * as React from 'react'
 import { BlogOverviewBlock } from '~/app/[locale]/blog'
 import {
 	BookingBlock,
-	ContactBlock,
 	ChatbotBlock,
+	ContactBlock,
 } from '~/app/[locale]/contact'
 import { ProductsBlock } from '~/app/[locale]/realisations'
 import { WikiOverviewBlock } from '~/app/[locale]/wiki'
 import { WorkOverviewBlock } from '~/app/[locale]/work'
-import { type WorkBlocks, type PageBlocks } from '~/tina/__generated__/types'
+import type { PageBlocks, WorkBlocks } from '~/tina/__generated__/types'
+import {
+	ContentBlock,
+	CtaBlock,
+	FAQBlock,
+	FeaturesBlock,
+	HeroBlock,
+	HighlightBlock,
+	ImageGridBlock,
+	KeywordListBlock,
+	NeonBlock,
+	PricingBlock,
+	SkillsBlock,
+	SplitWithImageBlock,
+	TestimonialsBlock,
+} from './blocks'
+import type { Block } from './types'
 
 type PageBlockType =
 	| NonNullable<PageBlocks[keyof PageBlocks]>
@@ -77,8 +77,8 @@ function Placeholder({
 	componentName?: string | number
 }) {
 	return (
-		<section className="border-danger bg-danger-muted border py-4 text-center">
-			<p className="text-danger mx-auto text-center">
+		<section className="border border-danger bg-danger-muted py-4 text-center">
+			<p className="mx-auto text-center text-danger">
 				The component <strong>{componentName}</strong> has not been created yet.
 			</p>
 		</section>
@@ -107,6 +107,7 @@ export function Blocks({
 	globalData,
 	locale,
 }: {
+	// biome-ignore lint/suspicious/noExplicitAny: Can be PageBlocks or WorkBlocks, but don't know how to type it
 	items?: any[] | null
 	globalData?: Block['globalData']
 	locale?: Block['locale']
@@ -118,6 +119,7 @@ export function Blocks({
 			{items.map((block, i) => {
 				return (
 					<BlockComponent
+						// biome-ignore lint/suspicious/noArrayIndexKey: no other real option
 						key={i}
 						// TODO: find a better way to type this
 						block={block}

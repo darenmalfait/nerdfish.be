@@ -1,9 +1,9 @@
 import { H1, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { DateFormatter, Section, ReadingProgress } from '@repo/ui/components'
+import { DateFormatter, ReadingProgress, Section } from '@repo/ui/components'
 import { tinaField } from 'tinacms/dist/react'
-import { BackToWiki } from './misc'
 import { PortableText, type WikiQueryQuery } from '~/app/cms'
+import { BackToWiki } from './misc'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -21,7 +21,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
 						<span
-							className="text-muted mb-xs text-lg"
+							className="mb-xs text-lg text-muted"
 							data-tina-field={tinaField(data.wiki, 'date')}
 						>
 							Published{' '}
@@ -36,7 +36,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 					</H1>
 				</header>
 
-				<Separator className="my-lg container mx-auto max-w-4xl" />
+				<Separator className="container mx-auto my-lg max-w-4xl" />
 				<div className={prose} data-tina-field={tinaField(data.wiki, 'body')}>
 					{body ? <PortableText content={body} /> : null}
 				</div>

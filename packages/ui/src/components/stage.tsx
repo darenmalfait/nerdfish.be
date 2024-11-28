@@ -40,8 +40,9 @@ export function Stage({
 			value={React.useMemo(() => {
 				return { frame, progress, length }
 			}, [frame, progress, length])}
-			children={children}
-		/>
+		>
+			{children}
+		</StageContext.Provider>
 	)
 }
 
@@ -84,7 +85,7 @@ export function Actor({
 
 	if (!onStage) return null
 
-	return <ActorContext.Provider value={value} children={children} />
+	return <ActorContext.Provider value={value}>{children}</ActorContext.Provider>
 }
 
 function getStageLength(pages: number) {
@@ -113,7 +114,7 @@ export function ScrollStage({
 	// set length after server render
 	React.useEffect(() => setLength(getStageLength(pages)), [pages])
 	useOnResize(
-		React.useCallback(() => setLength(getStageLength(pages)), [pages]),
+		React.useCallback(() => setLength(getStageLength(pages)), [pages])
 	)
 
 	return (
@@ -143,12 +144,12 @@ function useOnResize(fn: () => void) {
 	}, [fn])
 }
 
-const canUseDOM = typeof window !== 'undefined'
+const canUseDom = typeof window !== 'undefined'
 
-function useWindowScroll(fallback: number = 0): number {
+function useWindowScroll(fallback = 0): number {
 	const hydrated = useHydrated()
 	const [scroll, setScroll] = React.useState<number>(
-		hydrated && canUseDOM ? window.scrollY : fallback,
+		hydrated && canUseDom ? window.scrollY : fallback
 	)
 	const handleScroll = React.useCallback(() => {
 		setScroll(window.scrollY)
@@ -167,7 +168,7 @@ function useWindowScroll(fallback: number = 0): number {
 
 function useRelativeWindowScroll(
 	ref: React.RefObject<HTMLElement>,
-	fallback: number = 0,
+	fallback = 0
 ): number {
 	const windowScroll = useWindowScroll(fallback)
 	if (!ref.current) return fallback

@@ -32,10 +32,10 @@ import { parseError } from '@repo/observability/error'
 import { ArrowRightIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from '~/app/i18n'
 import { useRecaptcha } from '../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
-import { useTranslation } from '~/app/i18n'
 
 function Fieldset({
 	children,
@@ -79,7 +79,7 @@ export function ContactForm() {
 	async function onSubmit(data: ContactFormData) {
 		try {
 			setError(undefined)
-			let recaptchaResponse
+			let recaptchaResponse: string | undefined
 
 			if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
 				try {
@@ -114,7 +114,7 @@ export function ContactForm() {
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<div>
 					<Fieldset title={t('contact.fieldset.customer')}>
-						<div className="gap-md flex w-full flex-col md:flex-row">
+						<div className="flex w-full flex-col gap-md md:flex-row">
 							<FormField
 								control={form.control}
 								name="name"
@@ -154,7 +154,7 @@ export function ContactForm() {
 								{t('contact.contactInformation')}
 								<LabelAsterisk />
 							</Label>
-							<div className="gap-md flex w-full flex-col items-start md:flex-row">
+							<div className="flex w-full flex-col items-start gap-md md:flex-row">
 								<FormField
 									control={form.control}
 									name="email"
@@ -205,7 +205,7 @@ export function ContactForm() {
 									<FormDescription>
 										{t('contact.projectTypeDescription')}
 									</FormDescription>
-									<div className="gap-sm flex">
+									<div className="flex gap-sm">
 										{projectTypes.map((type) => (
 											<FormField
 												key={type}
@@ -217,7 +217,7 @@ export function ContactForm() {
 													return (
 														<FormItem key={type}>
 															<FormControl>
-																<label className="gap-sm focus-within:outline-active rounded-container flex items-center">
+																<FormLabel className="flex items-center gap-sm rounded-container focus-within:outline-active">
 																	<span className="sr-only inline">
 																		<Checkbox
 																			aria-label={type}
@@ -231,8 +231,8 @@ export function ContactForm() {
 																						])
 																					: field.onChange(
 																							field.value.filter(
-																								(value) => value !== type,
-																							),
+																								(value) => value !== type
+																							)
 																						)
 																			}}
 																		/>
@@ -246,7 +246,7 @@ export function ContactForm() {
 																	>
 																		<span>{type}</span>
 																	</Button>
-																</label>
+																</FormLabel>
 															</FormControl>
 														</FormItem>
 													)
@@ -273,15 +273,15 @@ export function ContactForm() {
 												<FormDescription>
 													{t('contact.budgetRangeDescription')}
 												</FormDescription>
-												<div className="text-muted pt-md flex items-center justify-center font-semibold">
-													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €{' '}
+												<div className="flex items-center justify-center pt-md font-semibold text-muted">
+													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
 													{numberFormatter.format(field.value?.[1] ?? 0)}
 													{field.value?.[1] === max ? '+' : ''}
 												</div>
 											</FormLabel>
 
-											<div className="gap-sm mt-xl flex items-center">
-												<span className="mr-md text-muted text-nowrap text-lg font-semibold">
+											<div className="mt-xl flex items-center gap-sm">
+												<span className="mr-md text-nowrap font-semibold text-lg text-muted">
 													€ {numberFormatter.format(min)}
 												</span>
 												<FormControl>
@@ -302,7 +302,7 @@ export function ContactForm() {
 														<SliderThumb />
 													</Slider>
 												</FormControl>
-												<span className="ml-md text-muted text-nowrap text-lg font-semibold">
+												<span className="ml-md text-nowrap font-semibold text-lg text-muted">
 													€ {numberFormatter.format(max)}+
 												</span>
 											</div>
@@ -362,7 +362,7 @@ export function ContactForm() {
 						</Alert>
 					) : (
 						<Button
-							className="mt-md group w-full"
+							className="group mt-md w-full"
 							size="lg"
 							disabled={
 								form.formState.isSubmitting ||
@@ -374,7 +374,7 @@ export function ContactForm() {
 								<LoadingAnimation className="mr-2 size-4" variant="classic" />
 							) : null}
 							{t('contact.send')}
-							<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-4 transition-all" />
+							<ArrowRightIcon className="ml-sm size-4 transition-all group-hover:translate-x-xs" />
 						</Button>
 					)}
 				</div>

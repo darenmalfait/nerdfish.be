@@ -1,23 +1,23 @@
 'use client'
 
-import { type PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils'
 import {
+	type Article,
+	ArticleOverview,
+	ArticleOverviewFilter,
+	ArticleOverviewLoadMoreButton,
+	ArticleOverviewSearch,
+	ArticleOverviewSearchContent,
+	ArticleOverviewSearchImage,
 	Section,
-	SectionHeaderTitle,
 	SectionHeader,
 	SectionHeaderSubtitle,
-	ArticleOverviewLoadMoreButton,
-	ArticleOverviewSearchContent,
-	ArticleOverviewSearch,
-	ArticleOverviewFilter,
-	type Article,
-	ArticleOverviewSearchImage,
-	ArticleOverview,
+	SectionHeaderTitle,
 } from '@repo/ui/components'
 import * as React from 'react'
-import { filterWork, mapWorkToArticle } from '../utils'
-import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
+import type { Block, PageBlocksWork, Work } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
+import { filterWork, mapWorkToArticle } from '../utils'
 
 export function BlockLayout({
 	searchEnabled,
@@ -42,7 +42,7 @@ export function BlockLayout({
 
 			return mapWorkToArticle(filterWork(works, searchString))
 		},
-		[items],
+		[items]
 	)
 
 	return (
@@ -72,7 +72,7 @@ export function BlockLayout({
 
 				<ArticleOverviewFilter />
 
-				{!searchEnabled ? (
+				{searchEnabled ? null : (
 					<SectionHeader
 						cta={{
 							title: t('global.allArticles'),
@@ -84,7 +84,7 @@ export function BlockLayout({
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>
 					</SectionHeader>
-				) : null}
+				)}
 
 				{children}
 

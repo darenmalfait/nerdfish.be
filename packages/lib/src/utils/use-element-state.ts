@@ -20,10 +20,11 @@ function useElementState(): [
 	})
 
 	const setRef: React.Ref<HTMLElement | SVGElement> = React.useCallback(
+		// biome-ignore lint/suspicious/noExplicitAny: intentional
 		(element: any) => {
 			ref.current = element
 		},
-		[],
+		[]
 	)
 
 	React.useEffect(() => {

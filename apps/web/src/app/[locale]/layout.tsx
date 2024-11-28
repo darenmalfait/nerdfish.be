@@ -1,11 +1,11 @@
 import { GeistSans } from 'geist/font/sans'
 import * as React from 'react'
+import { TranslationProvider, type WithLocale, i18n } from '~/app/i18n'
 import { AppProviders } from '../app-providers'
 import { getGlobalData } from '../cms/api'
 import { GlobalProvider } from '../global-provider'
 import { getDictionary } from '../i18n/get-dictionary'
 import { SiteLayout } from '../layout'
-import { i18n, TranslationProvider, type WithLocale } from '~/app/i18n'
 
 import '~/app/theme/styles/tailwind.css'
 import '~/app/theme/styles/app.css'
@@ -24,7 +24,7 @@ export default async function RootLayout({
 	params,
 }: {
 	children: React.ReactNode
-	params: WithLocale<{}>
+	params: WithLocale<Record<string, never>>
 }) {
 	const layoutData = await getLayoutData(params.locale)
 	const dictionary = await getDictionary(params.locale)

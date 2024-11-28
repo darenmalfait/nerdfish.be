@@ -1,7 +1,7 @@
 'use client'
 
 import { Grid, H3 } from '@nerdfish/ui'
-import { cva, cx, type VariantProps } from '@nerdfish/utils'
+import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import {
 	MagnetButton,
 	Section,
@@ -16,11 +16,11 @@ import { useInView } from 'motion/react'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	type Block,
-	type Page,
-	type PageBlocksFeatures,
-	type PageBlocksFeaturesItems,
+import type {
+	Block,
+	Page,
+	PageBlocksFeatures,
+	PageBlocksFeaturesItems,
 } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
@@ -38,7 +38,7 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 					aria-label={`${t('features.readMore')} ${t('global.about')} ${title}`}
 				>
 					{t('features.readMore')}
-					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
+					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-xs" />
 				</Link>
 			</MagnetButton>
 		</div>
@@ -51,17 +51,17 @@ const featureCardVariants = cva(
 		variants: {
 			variant: {
 				default: '',
-				secondary: 'bg-muted p-lg rounded-container',
+				secondary: 'rounded-container bg-muted p-lg',
 			},
 		},
 		defaultVariants: {
 			variant: 'secondary',
 		},
-	},
+	}
 )
 
 function FeatureCard(
-	props: PageBlocksFeaturesItems & VariantProps<typeof featureCardVariants>,
+	props: PageBlocksFeaturesItems & VariantProps<typeof featureCardVariants>
 ) {
 	const { title, description, icon, detail, variant, ...rest } = props
 
@@ -72,7 +72,7 @@ function FeatureCard(
 		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
-					className="aspect-1 mb-lg text-primary flex items-center justify-center"
+					className="mb-lg flex aspect-1 items-center justify-center text-primary"
 					aria-hidden
 				>
 					<Icon
@@ -85,13 +85,13 @@ function FeatureCard(
 				<div>
 					<H3
 						data-tina-field={tinaField(props, 'title')}
-						className="text-primary mb-md flex flex-none items-end"
+						className="mb-md flex flex-none items-end text-primary"
 					>
 						{title}
 					</H3>
 					<p
 						data-tina-field={tinaField(props, 'description')}
-						className="text-muted flex-auto text-lg"
+						className="flex-auto text-lg text-muted"
 					>
 						{description}
 					</p>
@@ -121,7 +121,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 			</SectionHeader>
 			<Grid
 				ref={ref}
-				className={cx('gap-lg auto-rows-auto', {
+				className={cx('auto-rows-auto gap-lg', {
 					'grid-cols-2': maxCols === '2',
 					'grid-cols-3': maxCols === '3',
 					'grid-cols-4': maxCols === '4',

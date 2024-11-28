@@ -8,7 +8,7 @@ import * as React from 'react'
  */
 function cleanGstaticRecaptchaScript() {
 	const script = document.querySelector(
-		`script[src^='https://www.gstatic.com/recaptcha/releases']`,
+		`script[src^='https://www.gstatic.com/recaptcha/releases']`
 	)
 
 	if (script) {
@@ -33,16 +33,18 @@ function cleanGoogleRecaptcha(scriptId: string) {
 }
 
 interface RecaptchaProps {
+	// biome-ignore lint/suspicious/noExplicitAny:
 	execute: any
 }
 
 export function useRecaptcha(): RecaptchaProps {
 	const [greCaptchaInstance, setGreCaptchaInstance] = React.useState<null | {
+		// biome-ignore lint/suspicious/noExplicitAny:
 		execute: any
 	}>(null)
 
 	React.useEffect(() => {
-		const loadScriptByURL = (id: string, url: string) => {
+		const loadScriptByUrl = (id: string, url: string) => {
 			const isScriptExist = document.getElementById(id)
 
 			if (!isScriptExist) {
@@ -54,12 +56,14 @@ export function useRecaptcha(): RecaptchaProps {
 				document.body.appendChild(script)
 
 				script.onload = () => {
+					// biome-ignore lint/suspicious/noExplicitAny:
 					if (!(window as any).grecaptcha) {
 						console.error('Error: grecaptcha is not defined')
 
 						return
 					}
 
+					// biome-ignore lint/suspicious/noExplicitAny:
 					const grecaptcha = (window as any).grecaptcha
 
 					grecaptcha.ready(() => {
@@ -72,9 +76,9 @@ export function useRecaptcha(): RecaptchaProps {
 		const scriptId = 'recaptcha-key'
 
 		// load the script by passing the URL
-		loadScriptByURL(
+		loadScriptByUrl(
 			scriptId,
-			`https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
+			`https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`
 		)
 
 		return () => {

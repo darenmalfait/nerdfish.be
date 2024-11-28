@@ -1,13 +1,13 @@
 'use client'
 
 import { useTina } from 'tinacms/dist/react'
-import { PageContent } from './page-content'
 import {
-	Preview,
 	type ContentQueryQuery,
 	type ContentQueryQueryVariables,
+	Preview,
 } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
+import { PageContent } from './page-content'
 
 function PagePreview(props: {
 	data: ContentQueryQuery

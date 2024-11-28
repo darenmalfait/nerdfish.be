@@ -1,8 +1,8 @@
-import { type PartialDeep } from '@repo/lib/utils'
-import { type Article } from '@repo/ui/components'
+import type { PartialDeep } from '@repo/lib/utils'
+import type { Article } from '@repo/ui/components'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type Work } from '../../cms'
+import type { Work } from '../../cms'
 
 const WorkPath = 'work'
 
@@ -62,16 +62,16 @@ export function filterWork(works: PartialDeep<Work>[], searchString: string) {
 	let individualWordResults = matchSorter(
 		works,
 		firstWord,
-		individualWordOptions,
+		individualWordOptions
 	)
 	for (const word of restWords) {
 		const searchResult = matchSorter(
 			individualWordResults,
 			word,
-			individualWordOptions,
+			individualWordOptions
 		)
 		individualWordResults = individualWordResults.filter((r) =>
-			searchResult.includes(r),
+			searchResult.includes(r)
 		)
 	}
 

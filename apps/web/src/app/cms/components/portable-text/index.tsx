@@ -1,6 +1,6 @@
 'use client'
 
-import { type ExtractProps } from '@nerdfish/utils'
+import type { ExtractProps } from '@nerdfish/utils'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
 import { PortableButton } from './portable-button'
@@ -27,7 +27,9 @@ function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
 					h3: PortableHeading,
 					h4: PortableHeading,
 					a: PortableLink,
-				} as any
+				} as {
+					[key: string]: React.ElementType
+				}
 			}
 		/>
 	)

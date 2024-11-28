@@ -1,5 +1,5 @@
 import { Sometype_Mono as someTypeMono } from 'next/font/google'
-import * as React from 'react'
+import type * as React from 'react'
 import { AppProviders } from '../../app-providers'
 
 import '~/app/theme/styles/tailwind.css'

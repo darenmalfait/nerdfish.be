@@ -1,4 +1,4 @@
-import { type Collection } from '@tinacms/schema-tools'
+import type { Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { portableTextSchema, seo, tagsSchema } from '../objects'
 
@@ -11,7 +11,7 @@ const wikiCollection: Collection = {
 		router: async ({ document }) => {
 			return `/wiki/${document._sys.relativePath.substring(
 				0,
-				document._sys.relativePath.lastIndexOf('.'),
+				document._sys.relativePath.lastIndexOf('.')
 			)}`
 		},
 		filename: {

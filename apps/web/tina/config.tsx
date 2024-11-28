@@ -1,4 +1,4 @@
-import { env } from 'process'
+import { env } from 'node:process'
 import { defineStaticConfig } from 'tinacms'
 
 import { schema } from './schema'

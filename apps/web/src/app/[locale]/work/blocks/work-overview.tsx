@@ -1,5 +1,5 @@
 import { Skeleton } from '@nerdfish/ui'
-import { type PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -10,10 +10,10 @@ import {
 	ArticlesOverviewEmptyState,
 } from '@repo/ui/components'
 import * as React from 'react'
+import type { Block, PageBlocksWork, Work } from '~/app/cms'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'
 import { BlockLayout } from './work-overview-layout'
-import { type Work, type Block, type PageBlocksWork } from '~/app/cms'
 
 function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
 	return work._sys?.relativePath === relatedTo?._sys?.relativePath
@@ -22,7 +22,7 @@ function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
 export async function WorkOverviewBlockContent(
 	data: Block<PageBlocksWork> & {
 		relatedTo?: PartialDeep<Work>
-	},
+	}
 ) {
 	const {
 		header,
@@ -68,7 +68,7 @@ export async function WorkOverviewBlockContent(
 export async function WorkOverviewBlock(
 	data: Block<PageBlocksWork> & {
 		relatedTo?: PartialDeep<Work>
-	},
+	}
 ) {
 	const { header, searchEnabled, featuredEnabled } = data
 
@@ -82,10 +82,11 @@ export async function WorkOverviewBlock(
 					header={header}
 				>
 					{featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
+						<Skeleton className="mb-xl aspect-[16/9] h-full rounded-container" />
 					) : null}
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: its a skeleton, it's fine
 							<li key={i} className="col-span-4">
 								<ArticleCard>
 									<ArticleCardImage />

@@ -2,21 +2,21 @@
 
 import { Drawer, DrawerContent } from '@nerdfish/ui'
 import {
-	Section,
-	TextSlideUp,
+	DrawerDialog,
 	MagnetButton,
+	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-	DrawerDialog,
+	TextSlideUp,
 } from '@repo/ui/components'
 import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import type { Block, PageBlocksContact } from '~/app/cms'
+import { useTranslation } from '~/app/i18n'
 import { ContactForm } from '../components/contact-form'
 import { EmbeddedCal } from '../components/embedded-cal'
-import { type PageBlocksContact, type Block } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
 
 export function ContactBlock(props: Block<PageBlocksContact>) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
@@ -37,7 +37,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 			</SectionHeader>
 			<TextSlideUp
 				delay={400}
-				className="gap-lg flex flex-col items-center !overflow-visible md:flex-row"
+				className="!overflow-visible flex flex-col items-center gap-lg md:flex-row"
 			>
 				<MagnetButton
 					type="button"
@@ -46,7 +46,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					className="motion-opacity-in-[0%] motion-delay-500 group w-full"
 				>
 					{openFormLabel}
-					<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
+					<ArrowRightIcon className="ml-md text-accent transition-all group-hover:translate-x-sm group-hover:text-inverted" />
 				</MagnetButton>
 				<MagnetButton
 					type="button"
@@ -56,7 +56,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					size="xl"
 				>
 					<span className="flex items-center">
-						<CalendarClockIcon className="text-success mr-md group-hover:motion-preset-seesaw size-6" />
+						<CalendarClockIcon className="group-hover:motion-preset-seesaw mr-md size-6 text-success" />
 
 						{t('contact.booking.title')}
 					</span>
@@ -64,8 +64,8 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 			</TextSlideUp>
 
 			<Drawer open={contactFormOpen} onOpenChange={setContactFormOpen}>
-				<DrawerContent className="bg-primary max-h-[85vh]">
-					<div className="pb-xl px-md container mx-auto">
+				<DrawerContent className="max-h-[85vh] bg-primary">
+					<div className="container mx-auto px-md pb-xl">
 						<SectionHeader>
 							<SectionHeaderTitle
 								data-tina-field={tinaField(props, 'formTitle')}

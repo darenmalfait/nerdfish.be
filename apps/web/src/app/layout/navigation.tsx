@@ -13,10 +13,7 @@ import { stripPreSlash } from '@repo/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import {
-	type GlobalNavigationMain,
-	type GlobalNavigationMainSub,
-} from '~/app/cms'
+import type { GlobalNavigationMain, GlobalNavigationMainSub } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 
 const MainNavigationSubItem = React.forwardRef<
@@ -28,16 +25,16 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'focus-within:outline-active hover:bg-muted rounded-base p-md space-y-sm group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
-						className,
+						'group relative flex h-full w-full select-none flex-col justify-end space-y-sm rounded-base p-md leading-none no-underline outline-none transition-colors focus-within:outline-active hover:bg-muted',
+						className
 					)}
 					ref={ref}
 					href={`/${stripPreSlash(href)}`}
 					{...props}
 				>
-					<div className="text-sm font-black leading-none">{label}</div>
+					<div className="font-black text-sm leading-none">{label}</div>
 					{description ? (
-						<p className="text-muted mb-0 line-clamp-1 text-sm leading-snug">
+						<p className="mb-0 line-clamp-1 text-muted text-sm leading-snug">
 							{description}
 						</p>
 					) : null}
@@ -49,7 +46,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'relative text-xs md:text-sm flex cursor-pointer bg-transparent font-semibold hover:text-primary items-center whitespace-nowrap capitalize outline-none transition focus-outline',
+	'focus-outline relative flex cursor-pointer items-center whitespace-nowrap bg-transparent font-semibold text-xs capitalize outline-none transition hover:text-primary md:text-sm',
 	{
 		variants: {
 			variant: {
@@ -57,7 +54,7 @@ const getMainItemClassName = cva(
 				default: 'text-primary',
 			},
 		},
-	},
+	}
 )
 
 const MainNavigationItem = React.forwardRef<
@@ -69,7 +66,7 @@ const MainNavigationItem = React.forwardRef<
 
 	if (!sub?.length) {
 		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(href ?? ''),
+			stripPreSlash(href ?? '')
 		)
 
 		return (
@@ -81,7 +78,7 @@ const MainNavigationItem = React.forwardRef<
 						className={cx(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
-							}),
+							})
 						)}
 						asChild
 					>
@@ -108,15 +105,15 @@ const MainNavigationItem = React.forwardRef<
 				className={cx(
 					getMainItemClassName({
 						variant: isActive ? 'active' : 'default',
-					}),
+					})
 				)}
 				asChild
 			>
 				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
 			</Button>
-			<NavigationMenuContent className="bg-primary rounded-base">
+			<NavigationMenuContent className="rounded-base bg-primary">
 				<ul
-					className={cx('gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]')}
+					className={cx('flex flex-col gap-sm p-xs md:w-[400px] lg:w-[500px]')}
 				>
 					{sub.map((subNavItem) => {
 						if (!subNavItem) return null
@@ -139,7 +136,7 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="gap-sm flex flex-row items-center">
+		<ul className="flex flex-row items-center gap-sm">
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
@@ -229,9 +226,9 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'p-xs bg-popover rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
-				'before:empty-content before:bg-muted/50 before:rounded-container before:absolute before:inset-0',
-				'bottom-lg md:bottom-auto md:top-6',
+				'fixed inset-x-0 mx-auto w-fit max-w-full rounded-container bg-popover p-xs',
+				'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50',
+				'bottom-lg md:top-6 md:bottom-auto'
 			)}
 		>
 			<NavigationMenu

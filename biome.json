@@ -1,0 +1,16 @@
+{
+	"extends": ["@nerdfish/config/biome"],
+	"files": {
+		"ignore": [
+			"**/__generated__/**",
+			"**/.next/**",
+			"**/.react-email/**",
+			"**/.turbo/**",
+			"**/dist/**",
+			"**/next-env.d.ts",
+			"**/next/**",
+			"**/tina-lock.json",
+			"**/public/**"
+		]
+	}
+}

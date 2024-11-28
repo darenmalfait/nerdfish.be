@@ -7,36 +7,36 @@ import {
 	Badge,
 	Card,
 	CardContent,
-	CardHeader,
-	Skeleton,
-	CardTitle,
 	CardDescription,
+	CardHeader,
+	CardTitle,
+	Skeleton,
 } from '@nerdfish/ui'
 import { DrawerDialog, Section } from '@repo/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { EmbeddedCal } from '../components/embedded-cal'
 import {
-	type GlobalCalcomTypes,
-	PortableText,
 	type Block,
+	type GlobalCalcomTypes,
 	type PageBlocksBooking,
+	PortableText,
 } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
+import { EmbeddedCal } from '../components/embedded-cal'
 
 export function BookingBlock(props: Block<PageBlocksBooking>) {
 	const { title, subtitle, content } = props
 
 	const { calcom } = useGlobal()
-	const [bookingType, setBookingType] = React.useState<any>()
+	const [bookingType, setBookingType] = React.useState<string | null>(null)
 
 	if (!calcom?.profileName) return null
 
 	return (
 		<Section>
-			<Card className="rounded-container p-lg bg-secondary relative mx-auto w-full max-w-3xl overflow-hidden">
-				<CardHeader className="p-lg bg-transparent pb-0">
+			<Card className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-container bg-secondary p-lg">
+				<CardHeader className="bg-transparent p-lg pb-0">
 					<CardTitle data-tina-field={tinaField(props, 'title')}>
 						{title}
 					</CardTitle>
@@ -54,7 +54,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 					<div className="mx-auto max-w-3xl">
 						<div className="mb-lg w-full text-center">
-							<Avatar className="shadow-outline mx-auto size-24">
+							<Avatar className="mx-auto size-24 shadow-outline">
 								<AvatarImage
 									alt="Darens avatar"
 									src="/images/avatar.jpg"
@@ -66,21 +66,21 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							</Avatar>
 						</div>
 						<nav>
-							<ul className="gap-sm flex flex-col">
+							<ul className="flex flex-col gap-sm">
 								{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 									({ slug, title: bookingTitle, duration }) => (
 										<li
-											className="bg-primary hover:bg-muted shadow-outline rounded-base"
+											className="rounded-base bg-primary shadow-outline hover:bg-muted"
 											key={slug}
 										>
 											<button
-												onClick={() => setBookingType(slug)}
+												onClick={() => setBookingType(slug ?? null)}
 												className="w-full outline-none"
 												aria-label={`Book ${bookingTitle}`}
 											>
 												<div className="flex w-full items-start justify-between gap-4 p-5">
 													<div className="flex flex-col">
-														<div className="mb-sm text-lg font-semibold">
+														<div className="mb-sm font-semibold text-lg">
 															{bookingTitle}
 														</div>
 														<div className="flex w-full">
@@ -99,7 +99,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 												</div>
 											</button>
 										</li>
-									),
+									)
 								)}
 							</ul>
 						</nav>

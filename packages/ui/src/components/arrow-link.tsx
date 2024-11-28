@@ -1,10 +1,10 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { useElementState, type ElementState } from '@repo/lib/utils'
+import { type ElementState, useElementState } from '@repo/lib/utils'
 import { ArrowIcon, type ArrowIconProps } from '@repo/ui/icons'
-import { motion, type Variant } from 'motion/react'
-import * as React from 'react'
+import { type Variant, motion } from 'motion/react'
+import type * as React from 'react'
 
 import { Link } from './link'
 
@@ -17,7 +17,7 @@ const arrowVariants: Record<
 		hover: { y: -8 },
 		focus: {
 			y: [0, -8, 0],
-			transition: { repeat: Infinity },
+			transition: { repeat: Number.POSITIVE_INFINITY },
 		},
 		active: { y: -24 },
 	},
@@ -26,7 +26,7 @@ const arrowVariants: Record<
 		hover: { x: 8 },
 		focus: {
 			x: [0, 8, 0],
-			transition: { repeat: Infinity },
+			transition: { repeat: Number.POSITIVE_INFINITY },
 		},
 		active: { x: 24 },
 	},
@@ -35,7 +35,7 @@ const arrowVariants: Record<
 		hover: { y: 8 },
 		focus: {
 			y: [0, 8, 0],
-			transition: { repeat: Infinity },
+			transition: { repeat: Number.POSITIVE_INFINITY },
 		},
 		active: { y: 24 },
 	},
@@ -44,7 +44,7 @@ const arrowVariants: Record<
 		hover: { x: -8 },
 		focus: {
 			x: [0, -8, 0],
-			transition: { repeat: Infinity },
+			transition: { repeat: Number.POSITIVE_INFINITY },
 		},
 		active: { x: -24 },
 	},
@@ -77,9 +77,10 @@ function ArrowLink({
 			{...props}
 			href={href ?? '#'}
 			className={cx(
-				'text-primary space-x-md inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
-				className,
+				'!no-underline inline-flex cursor-pointer items-center space-x-md text-left font-bold text-lg text-primary transition focus:outline-none',
+				className
 			)}
+			// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 			ref={ref as any}
 			animate={state}
 		>
@@ -87,14 +88,14 @@ function ArrowLink({
 				<span className="mr-lg font-bold">{children}</span>
 			) : null}
 
-			<div className="p-sm relative inline-flex size-14 flex-none items-center justify-center">
+			<div className="relative inline-flex size-14 flex-none items-center justify-center p-sm">
 				<motion.span variants={arrowVariants[direction]}>
 					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
 
 			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-lg text-xl font-bold">{children}</span>
+				<span className="ml-lg font-bold text-xl">{children}</span>
 			) : null}
 		</Tag>
 	)
@@ -113,9 +114,10 @@ function BackLink({
 		<Tag
 			href={href}
 			className={cx(
-				'text-primary flex space-x-4 focus:outline-none',
-				className,
+				'flex space-x-4 text-primary focus:outline-none',
+				className
 			)}
+			// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 			ref={ref as any}
 			animate={state}
 		>

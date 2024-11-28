@@ -5,23 +5,23 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components'
 import {
-	FigmaIcon,
 	CSSIcon,
+	FigmaIcon,
+	GitIcon,
+	HTMLIcon,
 	JavascriptIcon,
+	NextJSIcon,
 	NodeIcon,
 	ReactIcon,
 	SassIcon,
+	TailwindIcon,
 	TypescriptIcon,
 	VSCodeIcon,
-	HTMLIcon,
-	GitIcon,
-	NextJSIcon,
-	TailwindIcon,
 } from '@repo/ui/icons'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type PageBlocksSkills, type Block, PortableText } from '~/app/cms'
-import { type skills } from '~/tina/schema/blocks/skills.template'
+import { type Block, type PageBlocksSkills, PortableText } from '~/app/cms'
+import type { skills } from '~/tina/schema/blocks/skills.template'
 
 const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
 	javascript: JavascriptIcon,
@@ -45,7 +45,7 @@ function SkillItem({ skill }: { skill?: string | null }) {
 	const SkillIcon = skillIconMap[skill as keyof typeof skillIconMap]
 
 	return (
-		<li className="aspect-1 bg-muted rounded-container col-span-1 flex w-full flex-col items-center justify-center">
+		<li className="col-span-1 flex aspect-1 w-full flex-col items-center justify-center rounded-container bg-muted">
 			<div className="flex flex-col items-center text-center">
 				<SkillIcon
 					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
@@ -72,7 +72,7 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<div>
-			<ul className="gap-sm grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+			<ul className="grid grid-cols-2 gap-sm md:grid-cols-3 lg:grid-cols-5">
 				{children}
 			</ul>
 		</div>
