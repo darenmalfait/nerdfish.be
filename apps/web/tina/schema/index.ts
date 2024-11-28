@@ -1,5 +1,3 @@
-/*eslint import/namespace: ['error', { allowComputed: true }]*/
-
 import type { Schema } from 'tinacms'
 
 import * as collections from './collections'
