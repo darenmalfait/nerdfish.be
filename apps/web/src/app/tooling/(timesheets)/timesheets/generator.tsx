@@ -74,7 +74,7 @@ function Row({
 }
 
 function Spacer() {
-	return <Row day="------------------" hours="-------" className="text-muted" />
+	return <Row day="------------------" hours="------" className="text-muted" />
 }
 
 const timeEntrySchema = z.object({
