@@ -40,7 +40,7 @@ import {
 } from './article-overview-provider'
 import type { Article } from './types'
 
-export * from './types'
+export type * from './types'
 
 export const ArticleOverviewSearch = React.forwardRef<
 	HTMLDivElement,
