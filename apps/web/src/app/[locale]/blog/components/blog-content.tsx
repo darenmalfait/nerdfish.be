@@ -67,7 +67,6 @@ function BlogContent({
 								className="mb-xs text-lg text-muted"
 								data-tina-field={tinaField(data.blog, 'date')}
 							>
-								Published{' '}
 								<DateFormatter dateString={date} format="dd MMMM yyyy" />
 							</span>
 						) : null}
