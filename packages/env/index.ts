@@ -8,6 +8,9 @@ export const env = createEnv({
 		NEXT_PUBLIC_TINA_CLIENT_ID: z.string().min(1),
 		// Optional when developing locally
 		NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(),
+
+		// Added by Vercel
+		NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF: z.string().optional(),
 	},
 	server: {
 		NODE_ENV: z.enum(['development', 'production', 'test']),
@@ -22,6 +25,9 @@ export const env = createEnv({
 		// Added by Vercel
 		VERCEL: z.string().optional(),
 		NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
+
+		// Added by Netlify
+		HEAD: z.string().optional(),
 	},
 	runtimeEnv: {
 		NODE_ENV: process.env.NODE_ENV,
@@ -38,5 +44,8 @@ export const env = createEnv({
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
 		NEXT_PUBLIC_TINA_CLIENT_ID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
 		NEXT_PUBLIC_TINA_BRANCH: process.env.NEXT_PUBLIC_TINA_BRANCH,
+		NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF:
+			process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF,
+		HEAD: process.env.HEAD,
 	},
 })
