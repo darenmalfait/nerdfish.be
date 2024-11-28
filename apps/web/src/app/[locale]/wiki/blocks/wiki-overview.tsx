@@ -210,7 +210,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							variant="outline"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span className="mr-sm">Load more</span>
+							<span className="mr-sm">{t('global.loadMore')}</span>
 							<PlusIcon className="size-4" />
 						</Button>
 					</div>

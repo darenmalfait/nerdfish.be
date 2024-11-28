@@ -4,11 +4,13 @@ import type { PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Article,
 	ArticleOverview,
+	ArticleOverviewContentGrid,
 	ArticleOverviewFilter,
 	ArticleOverviewLoadMoreButton,
 	ArticleOverviewSearch,
 	ArticleOverviewSearchContent,
 	ArticleOverviewSearchImage,
+	ArticlesOverviewEmptyState,
 } from '@repo/ui/components/article-overview'
 import {
 	Section,
@@ -72,7 +74,7 @@ export function BlockLayout({
 					</ArticleOverviewSearchContent>
 				</ArticleOverviewSearch>
 
-				<ArticleOverviewFilter />
+				<ArticleOverviewFilter title={t('global.filterArticles')} />
 
 				{searchEnabled ? null : (
 					<SectionHeader
@@ -88,7 +90,14 @@ export function BlockLayout({
 					</SectionHeader>
 				)}
 
-				{children}
+				{children ?? (
+					<ArticleOverviewContentGrid
+						loadMoreLabel={t('global.loadMore')}
+						readMoreLabel={t('global.readMore')}
+					>
+						<ArticlesOverviewEmptyState />
+					</ArticleOverviewContentGrid>
+				)}
 
 				<ArticleOverviewLoadMoreButton>
 					{t('global.readMore')}

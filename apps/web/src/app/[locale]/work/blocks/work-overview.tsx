@@ -7,10 +7,7 @@ import {
 	ArticleCardImage,
 	ArticleCardTitle,
 } from '@repo/ui/components/article-card'
-import {
-	ArticleOverviewContentGrid,
-	ArticlesOverviewEmptyState,
-} from '@repo/ui/components/article-overview'
+import { ArticleOverviewContentGrid } from '@repo/ui/components/article-overview'
 import * as React from 'react'
 import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
 import { getWorks } from '../api'
@@ -59,11 +56,7 @@ export async function WorkOverviewBlockContent(
 			featuredEnabled={featuredEnabled ?? false}
 			items={limitedWorks}
 			header={header}
-		>
-			<ArticleOverviewContentGrid>
-				<ArticlesOverviewEmptyState />
-			</ArticleOverviewContentGrid>
-		</BlockLayout>
+		/>
 	)
 }
 
