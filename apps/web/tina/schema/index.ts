@@ -1,5 +1,4 @@
 import type { Schema } from 'tinacms'
-
 import { collections } from './collections'
 
 const schema: Schema = {
