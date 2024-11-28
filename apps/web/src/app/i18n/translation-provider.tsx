@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import type { Dictionary } from './get-dictionary'
+import type { Dictionary } from './types'
 import type { Locale } from './types'
 
 interface TranslationContextProps {

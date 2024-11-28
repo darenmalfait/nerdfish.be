@@ -2,7 +2,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { generateOGImageUrl } from '~/app/api/og/utils'
-import { getDictionary } from '~/app/i18n/get-dictionary'
+import { getTranslations } from '~/app/i18n/get-translations'
 import type { WithLocale } from '~/app/i18n/types'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from '../components/work-content'
@@ -37,7 +37,7 @@ export default async function WorkPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const t = await getDictionary(params.locale)
+	const t = await getTranslations(params.locale)
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()

@@ -10,7 +10,7 @@ import {
 import type { Metadata } from 'next'
 import { generateOGImageUrl } from '~/app/api/og/utils'
 import { HeroBlock } from '~/app/cms/blocks/hero'
-import { getDictionary } from '~/app/i18n/get-dictionary'
+import { getTranslations } from '~/app/i18n/get-translations'
 import type { WithLocale } from '~/app/i18n/types'
 import { Chat } from '../contact/components/chat'
 
@@ -19,7 +19,7 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{}>
 }): Promise<Metadata | undefined> {
-	const dictionary = await getDictionary(params.locale)
+	const dictionary = await getTranslations(params.locale)
 	const title = dictionary['ai.meta.title']
 
 	return createMetadata({
@@ -35,7 +35,7 @@ export async function generateMetadata({
 export default async function AiPage({
 	params,
 }: { params: WithLocale<Record<string, never>> }) {
-	const dictionary = await getDictionary(params.locale)
+	const dictionary = await getTranslations(params.locale)
 
 	return (
 		<>
