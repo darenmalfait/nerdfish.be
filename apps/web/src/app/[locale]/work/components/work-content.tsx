@@ -31,7 +31,7 @@ function WorkContent({
 					<Section
 						className={cx('!px-0', {
 							'xl:max-w-[500px]': blocks?.length,
-							'container mx-auto max-w-4xl': !blocks?.length,
+							'container max-w-4xl px-0': !blocks?.length,
 						})}
 					>
 						<div className="py-lg xl:sticky xl:top-0">
