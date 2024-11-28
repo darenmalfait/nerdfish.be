@@ -1,10 +1,7 @@
 import { cx } from '@nerdfish/utils'
-import {
-	Section,
-	SectionHeaderSubtitle,
-	TextSlideUp,
-} from '@repo/ui/components'
-import { capitalize } from 'lodash'
+import { Section, SectionHeaderSubtitle } from '@repo/ui/components/section'
+import { TextSlideUp } from '@repo/ui/components/text-slide-up'
+import capitalize from 'lodash/capitalize'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

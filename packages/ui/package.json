@@ -1,18 +1,8 @@
 {
 	"name": "@repo/ui",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"private": true,
 	"type": "module",
-	"exports": {
-		"./icons": "./src/icons.tsx",
-		"./components": "./src/components/index.ts"
-	},
-	"typesVersions": {
-		"*": {
-			"icons": ["./src/icons.tsx"],
-			"components/*": ["./src/components/*"]
-		}
-	},
 	"scripts": {
 		"clean": "rm -rf node_modules .turbo",
 		"typecheck": "tsc --noEmit"

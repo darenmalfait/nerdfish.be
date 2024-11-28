@@ -1,4 +1,4 @@
-import { Section } from '@repo/ui/components'
+import { Section } from '@repo/ui/components/section'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksContent } from '~/app/cms/types'

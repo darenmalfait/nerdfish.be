@@ -1,5 +1,5 @@
 import type { PartialDeep } from '@repo/lib/utils'
-import type { Article } from '@repo/ui/components'
+import type { Article } from '@repo/ui/components/article-overview'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import type { Work } from '~/app/cms/types'

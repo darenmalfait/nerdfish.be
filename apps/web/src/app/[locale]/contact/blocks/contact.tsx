@@ -1,15 +1,15 @@
 'use client'
 
 import { Drawer, DrawerContent } from '@nerdfish/ui'
+import { DrawerDialog } from '@repo/ui/components/drawer-dialog'
+import { MagnetButton } from '@repo/ui/components/magnet-button'
 import {
-	DrawerDialog,
-	MagnetButton,
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-	TextSlideUp,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
+import { TextSlideUp } from '@repo/ui/components/text-slide-up'
 import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
