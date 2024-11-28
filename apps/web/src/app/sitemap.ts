@@ -18,21 +18,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
-		...supportedLanguages.map((locale) => {
-			return {
-				url: `${BASE_URL}/${locale.code}`,
-				lastModified: new Date(),
-				changeFrequency: 'monthly',
-				priority: 1,
-			}
-		}),
-		...(data.pages?.map((page) => {
-			return {
-				url: `${BASE_URL}/${page._sys?.breadcrumbs.join('/')}`,
-				lastModified: new Date(),
-				priority: 1,
-			}
-		}) ?? []),
+		...supportedLanguages
+			.filter(({ default: isDefault }) => !isDefault)
+			.map((locale) => {
+				return {
+					url: `${BASE_URL}/${locale.code}`,
+					lastModified: new Date(),
+					changeFrequency: 'monthly',
+					priority: 1,
+				}
+			}),
+		...(data.pages
+			?.filter(({ _sys }) => _sys?.filename !== 'home')
+			.map((page) => {
+				return {
+					url: `${BASE_URL}/${page._sys?.breadcrumbs.join('/')}`,
+					lastModified: new Date(),
+					priority: 1,
+				}
+			}) ?? []),
 		...(data.works?.map((work) => {
 			return {
 				url: `${BASE_URL}${getWorkPath(work)}`,
