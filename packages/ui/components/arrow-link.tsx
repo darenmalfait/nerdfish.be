@@ -1,7 +1,10 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { type ElementState, useElementState } from '@repo/lib/utils'
+import {
+	type ElementState,
+	useElementState,
+} from '@repo/lib/utils/use-element-state'
 import { type Variant, motion } from 'motion/react'
 import type * as React from 'react'
 import { ArrowIcon, type ArrowIconProps } from '../icons'

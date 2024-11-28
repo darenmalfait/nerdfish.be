@@ -1,6 +1,6 @@
 'use client'
 
-import { useHydrated } from '@repo/lib/utils'
+import { useHydrated } from '@repo/lib/utils/use-hydrated'
 import * as React from 'react'
 
 interface TFrame {

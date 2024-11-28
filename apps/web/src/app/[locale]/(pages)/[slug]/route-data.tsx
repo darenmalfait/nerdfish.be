@@ -1,4 +1,4 @@
-import { stripTrailingSlash } from '@repo/lib/utils'
+import { stripTrailingSlash } from '@repo/lib/utils/string'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
 import type { Locale } from '~/app/i18n/types'

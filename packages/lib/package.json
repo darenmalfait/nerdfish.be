@@ -1,16 +1,8 @@
 {
 	"name": "@repo/lib",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"private": true,
 	"type": "module",
-	"exports": {
-		"./utils": "./src/utils/index.ts"
-	},
-	"typesVersions": {
-		"*": {
-			"utils": ["./src/utils/index.ts"]
-		}
-	},
 	"scripts": {
 		"clean": "rm -rf node_modules .turbo",
 		"typecheck": "tsc --noEmit"

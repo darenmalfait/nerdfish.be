@@ -1,4 +1,4 @@
-import type { PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils/types'
 import type { Article } from '@repo/ui/components/article-overview'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
