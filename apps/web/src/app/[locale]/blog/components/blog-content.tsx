@@ -1,4 +1,4 @@
-import { H1 } from '@nerdfish/ui'
+import { H1, Skeleton } from '@nerdfish/ui'
 import { env } from '@repo/env'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
@@ -80,17 +80,18 @@ function BlogContent({
 						</H1>
 					</header>
 					{heroImg ? (
-						<div className="mx-auto mb-xl ">
+						<div className="mx-auto mb-xl">
 							<div
-								className="overflow-hidden rounded-container"
+								className="relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden rounded-container"
 								data-tina-field={tinaField(data.blog, 'heroImg')}
 							>
+								<Skeleton className="absolute inset-0 size-full rounded-container object-cover" />
 								{/* TODO: add aria description */}
 								<Image
 									aria-hidden
 									src={heroImg}
 									alt={title}
-									className="mx-auto w-full max-w-7xl rounded-container"
+									className="motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full rounded-container object-cover"
 									width={900}
 									height={900}
 								/>
