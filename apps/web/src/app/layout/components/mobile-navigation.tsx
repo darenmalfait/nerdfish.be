@@ -17,9 +17,12 @@ import { Logo, MenuIcon, XIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import type { GlobalNavigationMain, GlobalNavigationMainSub } from '~/app/cms'
+import type {
+	GlobalNavigationMain,
+	GlobalNavigationMainSub,
+} from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
-import { ThemeToggle } from '~/app/theme'
+import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 import { SocialLinks } from './navigation'
 
 const MobileNavigationSubItem = React.forwardRef<

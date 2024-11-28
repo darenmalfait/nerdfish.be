@@ -2,7 +2,7 @@
 
 import { stripPreSlash } from '@repo/lib/utils'
 import * as React from 'react'
-import type { Global, GlobalPaths } from './cms'
+import type { Global, GlobalPaths } from './cms/types'
 
 type GlobalContextProps = Partial<Global>
 

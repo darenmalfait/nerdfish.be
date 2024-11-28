@@ -1,6 +1,8 @@
 import type { Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
-import { portableTextSchema, seo, tagsSchema } from '../objects'
+import { portableTextSchema } from '../objects/portable-text'
+import { seo } from '../objects/seo'
+import { tagsSchema } from '../objects/tags'
 
 const wikiCollection: Collection = {
 	label: 'Wiki',

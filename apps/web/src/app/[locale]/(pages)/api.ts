@@ -1,11 +1,7 @@
-import { type Locale, i18n } from '~/app/i18n'
-import {
-	type ContentQueryQuery,
-	type Product,
-	type Wiki,
-	type Work,
-	tina,
-} from '../../cms'
+import { tina } from '~/app/cms/client'
+import type { ContentQueryQuery, Product, Wiki, Work } from '~/app/cms/types'
+import { i18n } from '~/app/i18n/config'
+import type { Locale } from '~/app/i18n/types'
 
 export async function getPages() {
 	const pageDate = await tina.queries.pageConnection()

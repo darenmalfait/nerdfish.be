@@ -15,7 +15,7 @@ import {
 	ArticlesOverviewEmptyState,
 } from '@repo/ui/components'
 import * as React from 'react'
-import type { Block, Blog, PageBlocksBlog } from '~/app/cms'
+import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
 import { getBlogPosts } from '../api'
 import { filterBlog } from '../utils'
 import { BlockLayout } from './blog-overview-layout'

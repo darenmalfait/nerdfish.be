@@ -1,5 +1,5 @@
 import type { Template } from '@tinacms/schema-tools'
-import { price } from '../objects'
+import { price } from '../objects/price'
 
 export const pricingTemplate: Template = {
 	name: 'pricing',

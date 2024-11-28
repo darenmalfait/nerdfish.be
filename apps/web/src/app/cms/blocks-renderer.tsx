@@ -1,29 +1,25 @@
 import type * as React from 'react'
-import { BlogOverviewBlock } from '~/app/[locale]/blog'
-import {
-	BookingBlock,
-	ChatbotBlock,
-	ContactBlock,
-} from '~/app/[locale]/contact'
-import { ProductsBlock } from '~/app/[locale]/realisations'
-import { WikiOverviewBlock } from '~/app/[locale]/wiki'
-import { WorkOverviewBlock } from '~/app/[locale]/work'
-import type { PageBlocks, WorkBlocks } from '~/tina/__generated__/types'
-import {
-	ContentBlock,
-	CtaBlock,
-	FAQBlock,
-	FeaturesBlock,
-	HeroBlock,
-	HighlightBlock,
-	ImageGridBlock,
-	KeywordListBlock,
-	NeonBlock,
-	PricingBlock,
-	SkillsBlock,
-	SplitWithImageBlock,
-	TestimonialsBlock,
-} from './blocks'
+import { BlogOverviewBlock } from '../[locale]/blog/blocks/blog-overview'
+import { BookingBlock } from '../[locale]/contact/blocks/booking'
+import { ChatbotBlock } from '../[locale]/contact/blocks/chat'
+import { ContactBlock } from '../[locale]/contact/blocks/contact'
+import { ProductsBlock } from '../[locale]/realisations/blocks/products'
+import { WikiOverviewBlock } from '../[locale]/wiki/blocks/wiki-overview'
+import { WorkOverviewBlock } from '../[locale]/work/blocks/work-overview'
+import { ContentBlock } from './blocks/content'
+import { CtaBlock } from './blocks/cta'
+import { FAQBlock } from './blocks/faq'
+import { FeaturesBlock } from './blocks/features'
+import { HeroBlock } from './blocks/hero'
+import { HighlightBlock } from './blocks/highlight'
+import { ImageGridBlock } from './blocks/image-grid'
+import { KeywordListBlock } from './blocks/keyword-list'
+import { NeonBlock } from './blocks/neon'
+import { PricingBlock } from './blocks/pricing'
+import { SkillsBlock } from './blocks/skills'
+import { SplitWithImageBlock } from './blocks/split-with-image'
+import { TestimonialsBlock } from './blocks/testimonials'
+import type { PageBlocks, WorkBlocks } from './types'
 import type { Block } from './types'
 
 type PageBlockType =

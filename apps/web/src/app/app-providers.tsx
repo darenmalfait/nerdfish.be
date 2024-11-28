@@ -2,7 +2,7 @@
 
 import { ThemeProvider as NerdfishThemeProvider } from '@nerdfish/theme'
 import type * as React from 'react'
-import { ThemeProvider } from './theme'
+import { ThemeProvider } from './theme/theme-provider'
 
 interface AppProvidersProps {
 	children: React.ReactNode

@@ -15,8 +15,8 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components'
 import * as React from 'react'
-import type { Block, PageBlocksWork, Work } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
+import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
 import { filterWork, mapWorkToArticle } from '../utils'
 
 export function BlockLayout({

@@ -3,8 +3,9 @@
 import { Button } from '@nerdfish/ui'
 import { Logo } from '@repo/ui/icons'
 import Link from 'next/link'
-import { LocaleSwitcher, useTranslation } from '~/app/i18n'
-import { ThemeToggle } from '~/app/theme'
+import { LocaleSwitcher } from '~/app/i18n/components/locale-switcher'
+import { useTranslation } from '~/app/i18n/translation-provider'
+import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 import { MainNavigation } from './navigation'
 
 export function SiteHeader() {

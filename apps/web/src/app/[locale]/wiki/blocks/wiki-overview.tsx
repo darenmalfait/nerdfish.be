@@ -27,8 +27,9 @@ import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksWiki, PortableText } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
+import { PortableText } from '~/app/cms/components/portable-text'
+import type { Block, PageBlocksWiki } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
 import { filterWiki, getWikiPath } from '../utils'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).

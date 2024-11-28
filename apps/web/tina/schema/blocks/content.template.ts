@@ -1,5 +1,5 @@
 import type { Template } from '@tinacms/schema-tools'
-import { portableTextSchema } from '../objects'
+import { portableTextSchema } from '../objects/portable-text'
 
 export const contentTemplate: Template = {
 	name: 'content',

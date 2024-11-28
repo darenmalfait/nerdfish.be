@@ -16,8 +16,8 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components'
 import * as React from 'react'
-import type { Block, Blog, PageBlocksBlog } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
+import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
 import { filterBlog, mapBlogToArticle } from '../utils'
 
 export function BlockLayout({

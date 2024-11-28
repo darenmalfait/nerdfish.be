@@ -16,7 +16,7 @@ import type {
 	Block,
 	PageBlocksImageGrid,
 	PageBlocksImageGridItems,
-} from '~/app/cms'
+} from '~/app/cms/types'
 
 function ImageGridContent(props: PageBlocksImageGridItems) {
 	const { title, image } = props

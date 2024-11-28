@@ -1,6 +1,6 @@
 import type { Schema } from 'tinacms'
 
-import * as collections from './collections'
+import { collections } from './collections'
 
 const schema: Schema = {
 	collections: Object.keys(collections).map(

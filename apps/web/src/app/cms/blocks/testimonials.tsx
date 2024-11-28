@@ -9,7 +9,7 @@ import type {
 	Block,
 	GlobalTestimonialsItems,
 	PageBlocksTestimonials,
-} from '~/app/cms'
+} from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {

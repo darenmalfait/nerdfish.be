@@ -3,9 +3,9 @@
 import { Paragraph } from '@nerdfish/ui'
 import { BotIcon } from '@repo/ui/icons'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksChatbot } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
-import { Chat } from '../components'
+import type { Block, PageBlocksChatbot } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
+import { Chat } from '../components/chat'
 import {
 	ExpandableChat,
 	ExpandableChatBody,
