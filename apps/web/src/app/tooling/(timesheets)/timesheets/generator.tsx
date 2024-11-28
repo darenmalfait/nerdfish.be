@@ -38,7 +38,7 @@ const CSVImporter = dynamic(
 	() => import('csv-import-react').then((mod) => mod.CSVImporter),
 	{
 		ssr: false,
-	},
+	}
 )
 
 function Row({
@@ -57,7 +57,7 @@ function Row({
 			<div className={cx('mr-lg', className)}>{day}</div>
 			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
 			{onRemove ? (
-				<div className="group-hover:ml-sm w-0 overflow-hidden transition-all group-hover:w-8 print:hidden">
+				<div className="w-0 overflow-hidden transition-all group-hover:ml-sm group-hover:w-8 print:hidden">
 					<Button
 						type="button"
 						onClick={onRemove}
@@ -130,7 +130,9 @@ function TimeEntries({
 								}}
 							/>
 						))}
-						{i < Object.keys(groupedEntries).length - 1 ? <Spacer /> : null}
+						{i < Object.keys(groupedEntries).length - 1 ? (
+							<Spacer key={project} />
+						) : null}
 					</>
 				)
 			})}
@@ -245,7 +247,7 @@ function AddTimeEntryButton({
 			setTimeEntries([...(timeEntries ?? []), data])
 			return setAdding(false)
 		},
-		[setAdding, setTimeEntries, timeEntries],
+		[timeEntries, setTimeEntries]
 	)
 
 	return (
@@ -286,14 +288,16 @@ function ImportTimeEntriesButton({
 }) {
 	const [importing, setImporting] = React.useState<boolean>(false)
 	const onComplete = React.useCallback(
-		(data: { rows: { values: any }[] }) => {
+		(data: {
+			rows: { values: { day: string; hours: string; project: string } }[]
+		}) => {
 			setImporting(false)
 
 			return setTimeEntries(
 				nonNullable(
 					data.rows.map((row) => {
 						const day = new Date(row.values.day)
-						const hours = parseFloat(row.values.hours)
+						const hours = Number.parseFloat(row.values.hours)
 
 						const result = timeEntrySchema.safeParse({
 							day,
@@ -302,11 +306,11 @@ function ImportTimeEntriesButton({
 						})
 
 						return result.success ? result.data : null
-					}),
-				),
+					})
+				)
 			)
 		},
-		[setTimeEntries],
+		[setTimeEntries]
 	)
 
 	return (
@@ -342,12 +346,13 @@ export function TimesheetGenerator() {
 
 	const [invoiceReference, setInvoiceReference] = React.useState<string>()
 	const [person, setPerson] = React.useState<string | undefined>(
-		'Daren Malfait',
+		'Daren Malfait'
 	)
 	const [timeEntries, setTimeEntries] = React.useState<
 		TimeEntry[] | undefined
 	>()
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentional, only re-run if invoiceReference or timeEntries change
 	React.useEffect(() => {
 		if (ref.current) {
 			// get height in mm
@@ -363,15 +368,15 @@ export function TimesheetGenerator() {
 		<div className="p-md pb-3xl print:p-0">
 			<div
 				ref={ref}
-				className="p-md shadow-outline rounded-base pb-lg relative mx-auto w-[80mm] print:[box-shadow:none]"
+				className="relative mx-auto w-[80mm] rounded-base p-md pb-lg shadow-outline print:[box-shadow:none]"
 			>
-				<div className="gap-sm mb-lg flex flex-col items-start justify-start">
+				<div className="mb-lg flex flex-col items-start justify-start gap-sm">
 					<Logo className="h-4 w-auto" />
 					<Dialog>
 						<DialogTrigger>
 							<div
 								className={cx('text-sm', {
-									'p-sm bg-danger text-danger rounded-base print:hidden':
+									'rounded-base bg-danger p-sm text-danger print:hidden':
 										!person,
 								})}
 							>
@@ -398,13 +403,13 @@ export function TimesheetGenerator() {
 					</Dialog>
 				</div>
 
-				<div className="gap-xs mb-lg flex flex-col items-start justify-start">
-					<h1 className="text-xl font-bold uppercase">Timesheets</h1>
+				<div className="mb-lg flex flex-col items-start justify-start gap-xs">
+					<h1 className="font-bold text-xl uppercase">Timesheets</h1>
 					<Dialog>
 						<DialogTrigger>
 							<div
 								className={cx('text-sm', {
-									'p-sm bg-danger text-danger rounded-base print:hidden':
+									'rounded-base bg-danger p-sm text-danger print:hidden':
 										!invoiceReference,
 								})}
 							>
@@ -434,7 +439,7 @@ export function TimesheetGenerator() {
 					</Dialog>
 				</div>
 
-				<div className="gap-xs mb-lg flex flex-col">
+				<div className="mb-lg flex flex-col gap-xs">
 					<Row day="DAY" hours="HOURS" />
 					<Spacer />
 
@@ -463,7 +468,7 @@ export function TimesheetGenerator() {
 					/>
 				</div>
 
-				<div className="text-muted text-center text-sm">
+				<div className="text-center text-muted text-sm">
 					*** END OF TIMESHEET ***
 				</div>
 				<Separator className="my-lg" />
@@ -477,13 +482,13 @@ export function TimesheetGenerator() {
 			<div
 				className={cx(
 					'print:hidden',
-					'p-xs bg-popover rounded-container fixed inset-x-0 mx-auto w-fit max-w-full',
-					'before:empty-content before:bg-muted/50 before:rounded-container before:absolute before:inset-0',
-					'bottom-lg',
+					'fixed inset-x-0 mx-auto w-fit max-w-full rounded-container bg-popover p-xs',
+					'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50',
+					'bottom-lg'
 				)}
 			>
 				<TooltipProvider>
-					<ul className="gap-sm flex">
+					<ul className="flex gap-sm">
 						<li>
 							<AddTimeEntryButton
 								setTimeEntries={setTimeEntries}

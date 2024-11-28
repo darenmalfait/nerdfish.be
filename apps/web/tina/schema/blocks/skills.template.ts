@@ -1,4 +1,4 @@
-import { type Template } from '@tinacms/schema-tools'
+import type { Option, Template } from '@tinacms/schema-tools'
 
 export const skills = [
 	'javascript',
@@ -39,7 +39,7 @@ export const skillsTemplate: Template = {
 			type: 'string',
 			label: 'Skills',
 			name: 'skills',
-			options: skills as any,
+			options: skills as unknown as Option[],
 			list: true,
 		},
 	],

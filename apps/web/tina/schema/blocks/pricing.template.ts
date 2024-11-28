@@ -1,4 +1,4 @@
-import { type Template } from '@tinacms/schema-tools'
+import type { Template } from '@tinacms/schema-tools'
 import { price } from '../objects'
 
 export const pricingTemplate: Template = {

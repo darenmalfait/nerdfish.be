@@ -1,4 +1,4 @@
-import { type Template } from '@tinacms/schema-tools'
+import type { Template } from '@tinacms/schema-tools'
 
 const defaultHighlight = {
 	title: "Here's Another Highlight",

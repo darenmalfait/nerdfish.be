@@ -2,9 +2,9 @@
 
 import { useTina } from 'tinacms/dist/react'
 
-import { WorkContent } from './work-content'
-import { type WorkQueryQuery, type WorkQueryVariables } from '~/app/cms'
+import type { WorkQueryQuery, WorkQueryVariables } from '~/app/cms'
 import { Preview } from '~/app/cms/components'
+import { WorkContent } from './work-content'
 
 function WorkPreview(props: {
 	data: WorkQueryQuery

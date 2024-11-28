@@ -1,118 +1,116 @@
 {
-  "navigation": {
-    "main": [
-      {
-        "label": "Expertise",
-        "href": "",
-        "sub": [
-          {
-            "label": "Websites",
-            "description": "Transform your ideas into visually stunning, user-friendly websites.",
-            "href": "/en/webdesign"
-          },
-          {
-            "label": "Freelance services",
-            "description": "Get help with your Javascript projects, from architecture to implementation.",
-            "href": "/en/freelance"
-          },
-          {
-            "label": "Branding",
-            "description": "Crafting unique, consistent, and impactful brand identities tailored to your business",
-            "href": "/en/branding"
-          },
-          {
-            "label": "3D Printing",
-            "description": "3D printing services for your projects",
-            "href": "/en/3d-printing"
-          }
-        ]
-      },
-      {
-        "label": "About",
-        "href": "/en/about"
-      },
-      {
-        "label": "Blog",
-        "href": "/en/blog"
-      },
-      {
-        "label": "Work",
-        "href": "/en/work"
-      },
-      {
-        "label": "Contact",
-        "href": "/en/contact"
-      }
-    ]
-  },
-  "social": {
-    "bluesky": "https://bsky.app/profile/nerdfish.bsky.social",
-    "github": "https://github.com/darenmalfait",
-    "linkedIn": "https://www.linkedin.com/in/darenmalfait/"
-  },
-  "paths": {
-    "wiki": "/en/wiki",
-    "blog": "/en/blog",
-    "work": "/en/work",
-    "contact": "/en/contact"
-  },
-  "companyInfo": {
-    "companyName": "Daren Malfait BV",
-    "vat": "BE0794123756",
-    "email": "daren@nerdfish.be"
-  },
-  "calcom": {
-    "profileName": "nerdfish",
-    "types": [
-      {
-        "slug": "30min",
-        "title": "30 Minute Session",
-        "duration": 30
-      },
-      {
-        "slug": "1hour",
-        "title": "1 Hour Session",
-        "duration": 60
-      }
-    ]
-  },
-  "testimonials": {
-    "items": [
-      {
-        "type": "colleague",
-        "quote": "You're always on the lookout for new technologies and ways of working. I believe that's more important than exhibiting good skill in one specific facet or technology.",
-        "author": {
-          "name": "Ex Colleague (Senior Web Developer)",
-          "company": "Consultancy company in the IT industry"
-        }
-      },
-      {
-        "type": "colleague",
-        "quote": "You are a great mentor and teammate. Your presence is a pillar of support in the team.",
-        "author": {
-          "name": "Ex Colleague (Medior Web Developer)",
-          "company": "A company in big data processing"
-        }
-      },
-      {
-        "type": "project",
-        "tags": [
-          "equilibra"
-        ],
-        "quote": "I immediately had confidence in Daren's professional approach. The result of my website speaks for itself. Since then, I have been able to welcome many new customers and they also found my website very clear and professional.",
-        "author": {
-          "name": "Carline Deseyn",
-          "company": "Equilibra"
-        }
-      },
-      {
-        "type": "client",
-        "quote": "Correct, solution-oriented and above all an amiable person.",
-        "author": {
-          "name": "Peter Tytgat",
-          "company": "TP Elektro"
-        }
-      }
-    ]
-  }
+	"navigation": {
+		"main": [
+			{
+				"label": "Expertise",
+				"href": "",
+				"sub": [
+					{
+						"label": "Websites",
+						"description": "Transform your ideas into visually stunning, user-friendly websites.",
+						"href": "/en/webdesign"
+					},
+					{
+						"label": "Freelance services",
+						"description": "Get help with your Javascript projects, from architecture to implementation.",
+						"href": "/en/freelance"
+					},
+					{
+						"label": "Branding",
+						"description": "Crafting unique, consistent, and impactful brand identities tailored to your business",
+						"href": "/en/branding"
+					},
+					{
+						"label": "3D Printing",
+						"description": "3D printing services for your projects",
+						"href": "/en/3d-printing"
+					}
+				]
+			},
+			{
+				"label": "About",
+				"href": "/en/about"
+			},
+			{
+				"label": "Blog",
+				"href": "/en/blog"
+			},
+			{
+				"label": "Work",
+				"href": "/en/work"
+			},
+			{
+				"label": "Contact",
+				"href": "/en/contact"
+			}
+		]
+	},
+	"social": {
+		"bluesky": "https://bsky.app/profile/nerdfish.bsky.social",
+		"github": "https://github.com/darenmalfait",
+		"linkedIn": "https://www.linkedin.com/in/darenmalfait/"
+	},
+	"paths": {
+		"wiki": "/en/wiki",
+		"blog": "/en/blog",
+		"work": "/en/work",
+		"contact": "/en/contact"
+	},
+	"companyInfo": {
+		"companyName": "Daren Malfait BV",
+		"vat": "BE0794123756",
+		"email": "daren@nerdfish.be"
+	},
+	"calcom": {
+		"profileName": "nerdfish",
+		"types": [
+			{
+				"slug": "30min",
+				"title": "30 Minute Session",
+				"duration": 30
+			},
+			{
+				"slug": "1hour",
+				"title": "1 Hour Session",
+				"duration": 60
+			}
+		]
+	},
+	"testimonials": {
+		"items": [
+			{
+				"type": "colleague",
+				"quote": "You're always on the lookout for new technologies and ways of working. I believe that's more important than exhibiting good skill in one specific facet or technology.",
+				"author": {
+					"name": "Ex Colleague (Senior Web Developer)",
+					"company": "Consultancy company in the IT industry"
+				}
+			},
+			{
+				"type": "colleague",
+				"quote": "You are a great mentor and teammate. Your presence is a pillar of support in the team.",
+				"author": {
+					"name": "Ex Colleague (Medior Web Developer)",
+					"company": "A company in big data processing"
+				}
+			},
+			{
+				"type": "project",
+				"tags": ["equilibra"],
+				"quote": "I immediately had confidence in Daren's professional approach. The result of my website speaks for itself. Since then, I have been able to welcome many new customers and they also found my website very clear and professional.",
+				"author": {
+					"name": "Carline Deseyn",
+					"company": "Equilibra"
+				}
+			},
+			{
+				"type": "client",
+				"quote": "Correct, solution-oriented and above all an amiable person.",
+				"author": {
+					"name": "Peter Tytgat",
+					"company": "TP Elektro"
+				}
+			}
+		]
+	}
 }

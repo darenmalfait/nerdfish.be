@@ -9,19 +9,22 @@ const isServer = typeof window === 'undefined'
 const storageKey = 'theme'
 
 function getSystemTheme(e?: MediaQueryList | MediaQueryListEvent) {
-	if (!e) e = window.matchMedia(MEDIA)
-	const isDark = e.matches
+	let media: MediaQueryList | MediaQueryListEvent
+	if (!e) media = window.matchMedia(MEDIA)
+	else media = e
+	const isDark = media.matches
 	const systemTheme = isDark ? 'dark' : 'light'
 	return systemTheme
 }
 
 function getTheme(key: string, fallback?: string) {
 	if (isServer) return undefined
-	let theme
+	let theme: string | undefined
+
 	try {
 		theme = localStorage.getItem(key) ?? undefined
-	} catch (e: any) {
-		console.error('e', e.message)
+	} catch (e) {
+		if (e instanceof Error) console.error('e', e.message)
 	}
 	return theme ?? fallback
 }
@@ -69,15 +72,15 @@ const ThemeScript = React.memo(
 
 			if (fallback) {
 				return `if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'${defaultTheme}'`
-			} else {
-				return `if(e==='light'||e==='dark')d.style.colorScheme=e`
 			}
+
+			return `if(e==='light'||e==='dark')d.style.colorScheme=e`
 		})()
 
-		const updateDOM = (
+		const updateDom = (
 			name: string,
-			literal: boolean = false,
-			setColorScheme = true,
+			literal = false,
+			setColorScheme = true
 		) => {
 			const resolvedName = name
 			const val = literal ? `${name}|| ''` : `'${resolvedName}'`
@@ -93,7 +96,7 @@ const ThemeScript = React.memo(
 			if (literal || resolvedName) {
 				text += `c.add(${val})`
 			} else {
-				text += `null`
+				text += 'null'
 			}
 
 			return text
@@ -101,20 +104,21 @@ const ThemeScript = React.memo(
 
 		const scriptSrc = (() => {
 			if (forcedTheme) {
-				return `!function(){${optimization}${updateDOM(forcedTheme)}}()`
+				return `!function(){${optimization}${updateDom(forcedTheme)}}()`
 			}
 
-			return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDOM(
-				'dark',
-			)}}else{${updateDOM('light')}}}else if(e)${updateDOM('e', true)};${
-				defaultSystem ? '' : `else{${updateDOM(defaultTheme, false, false)}}`
+			return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDom(
+				'dark'
+			)}}else{${updateDom('light')}}}else if(e)${updateDom('e', true)};${
+				defaultSystem ? '' : `else{${updateDom(defaultTheme, false, false)}}`
 			}${fallbackColorScheme}}catch(e){console.error(e.message);}}()`
 		})()
 
+		// biome-ignore lint/security/noDangerouslySetInnerHtml: intentional
 		return <script dangerouslySetInnerHTML={{ __html: scriptSrc }} />
 	},
 	// Never re-render this component
-	() => true,
+	() => true
 )
 
 // import { ThemeProvider } from "path-to-context/ThemeContext"
@@ -126,10 +130,10 @@ function ThemeProvider({
 	children,
 }: ThemeProviderProps) {
 	const [theme, setThemeState] = React.useState(() =>
-		getTheme(storageKey, defaultTheme),
+		getTheme(storageKey, defaultTheme)
 	)
 	const [resolvedTheme, setResolvedTheme] = React.useState(() =>
-		getTheme(storageKey),
+		getTheme(storageKey)
 	)
 	const applyTheme = React.useCallback(
 		(themeToApply?: string) => {
@@ -141,7 +145,7 @@ function ThemeProvider({
 
 			if (name) d.classList.add(name)
 		},
-		[themes],
+		[themes]
 	)
 
 	const setTheme = React.useCallback((newTheme: string) => {
@@ -150,9 +154,8 @@ function ThemeProvider({
 		// Save to storage
 		try {
 			localStorage.setItem(storageKey, newTheme)
-		} catch (e: any) {
-			console.error(e.message)
-			// Unsupported
+		} catch (e) {
+			if (e instanceof Error) console.error(e.message)
 		}
 	}, [])
 
@@ -165,7 +168,7 @@ function ThemeProvider({
 				applyTheme('system')
 			}
 		},
-		[theme, forcedTheme, applyTheme],
+		[theme, forcedTheme, applyTheme]
 	)
 
 	// Always listen to System preference
@@ -208,7 +211,7 @@ function ThemeProvider({
 			themes,
 			systemTheme: resolvedTheme as 'light' | 'dark' | undefined,
 		}),
-		[theme, setTheme, forcedTheme, resolvedTheme, themes],
+		[theme, setTheme, forcedTheme, resolvedTheme, themes]
 	)
 
 	return (

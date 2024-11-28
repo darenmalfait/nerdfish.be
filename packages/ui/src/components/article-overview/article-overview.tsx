@@ -18,9 +18,9 @@ import {
 	ArticleCardImage,
 	ArticleCardTitle,
 	HighlightCard,
+	HighlightCardCTA,
 	HighlightCardCategory,
 	HighlightCardContent,
-	HighlightCardCTA,
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardSubtitle,
@@ -36,7 +36,7 @@ import {
 	ArticleOverviewProvider,
 	useArticleOverview,
 } from './article-overview-provider'
-import { type Article } from './types'
+import type { Article } from './types'
 
 export const ArticleOverviewSearch = React.forwardRef<
 	HTMLDivElement,
@@ -49,8 +49,8 @@ export const ArticleOverviewSearch = React.forwardRef<
 	return (
 		<div
 			className={cx(
-				'mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12',
-				className,
+				'relative mx-auto mb-2xl grid h-auto grid-cols-4 justify-center gap-x-md md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:pb-xl',
+				className
 			)}
 			ref={ref}
 			{...props}
@@ -69,7 +69,7 @@ export const ArticleOverviewSearchImage = React.forwardRef<
 
 	return (
 		<div
-			className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
+			className="col-span-full mb-lg px-lg lg:col-span-5 lg:col-start-7 lg:mb-0"
 			ref={ref}
 			{...props}
 		>
@@ -97,7 +97,7 @@ export const ArticleOverviewSearchContent = React.forwardRef<
 		<div
 			className={cx(
 				'col-span-5 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
-				className,
+				className
 			)}
 			ref={ref}
 			{...props}
@@ -148,7 +148,7 @@ export const ArticleOverviewFilter = React.forwardRef<
 			: tags
 
 	const selectedTags = tags.filter((tag) =>
-		filter.split(' ').some((term) => term.toLowerCase() === tag.toLowerCase()),
+		filter.split(' ').some((term) => term.toLowerCase() === tag.toLowerCase())
 	)
 
 	return (
@@ -236,7 +236,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 			isSearching || !featuredArticleEnabled
 				? articles
 				: articles.filter((p) => p.id !== featured?.id),
-		[isSearching, featuredArticleEnabled, articles, featured?.id],
+		[isSearching, featuredArticleEnabled, articles, featured?.id]
 	)
 
 	const articlesToShow = filteredArticles.slice(0, itemsToShow)
@@ -245,7 +245,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 		<div ref={ref} {...props}>
 			<FeaturedArticle article={featured} />
 
-			<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8">
+			<ul className="grid grid-cols-4 gap-x-lg gap-y-xl md:grid-cols-8">
 				{children}
 				{articlesToShow.map((article) => {
 					return (
@@ -284,7 +284,7 @@ export const ArticlesOverviewEmptyState = React.forwardRef<
 >(
 	(
 		{ icon: Icon, title, description, clearSearch, className, ...props },
-		ref,
+		ref
 	) => {
 		const { setFilter, articles, searchEnabled } = useArticleOverview()
 
@@ -294,7 +294,7 @@ export const ArticlesOverviewEmptyState = React.forwardRef<
 		return (
 			<div
 				ref={ref}
-				className={cx('pt-xl !col-span-full', className)}
+				className={cx('!col-span-full pt-xl', className)}
 				{...props}
 			>
 				<EmptyState>
@@ -311,7 +311,7 @@ export const ArticlesOverviewEmptyState = React.forwardRef<
 				</EmptyState>
 			</div>
 		)
-	},
+	}
 )
 ArticlesOverviewEmptyState.displayName = 'ArticlesOverviewEmptyState'
 
@@ -328,7 +328,7 @@ export const ArticleOverview = React.forwardRef<
 			featuredArticleEnabled,
 			...props
 		},
-		ref,
+		ref
 	) => {
 		return (
 			<ArticleOverviewProvider
@@ -340,7 +340,7 @@ export const ArticleOverview = React.forwardRef<
 				<div ref={ref} {...props} />
 			</ArticleOverviewProvider>
 		)
-	},
+	}
 )
 
 ArticleOverview.displayName = 'ArticleOverview'

@@ -1,5 +1,5 @@
+import type { Locale } from '~/app/i18n'
 import { tina } from '../../cms'
-import { type Locale } from '~/app/i18n'
 
 export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
 	const blogListData = await tina.queries.blogConnection()
@@ -9,7 +9,7 @@ export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
 			...item?.node,
 		}))
 		.filter((item) =>
-			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true,
+			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true
 		)
 		.reverse()
 }

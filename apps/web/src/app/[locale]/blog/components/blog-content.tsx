@@ -3,14 +3,14 @@ import { cx } from '@nerdfish/utils'
 import { env } from '@repo/env'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
-import { DateFormatter, Section, ReadingProgress } from '@repo/ui/components'
+import { DateFormatter, ReadingProgress, Section } from '@repo/ui/components'
 import Image from 'next/image'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import { type BlogPostQueryQuery, PortableText } from '~/app/cms'
+import type { Locale } from '~/app/i18n'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
-import { PortableText, type BlogPostQueryQuery } from '~/app/cms'
-import { type Locale } from '~/app/i18n'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 
@@ -64,7 +64,7 @@ function BlogContent({
 					<header className={cx('flex max-w-4xl flex-col', prose)}>
 						{date ? (
 							<span
-								className="text-muted mb-xs text-lg"
+								className="mb-xs text-lg text-muted"
 								data-tina-field={tinaField(data.blog, 'date')}
 							>
 								Published{' '}
@@ -80,9 +80,9 @@ function BlogContent({
 						</H1>
 					</header>
 					{heroImg ? (
-						<div className={cx(prose, 'mb-xl mx-auto')}>
+						<div className={cx(prose, 'mx-auto mb-xl')}>
 							<div
-								className="rounded-container overflow-hidden"
+								className="overflow-hidden rounded-container"
 								data-tina-field={tinaField(data.blog, 'heroImg')}
 							>
 								{/* TODO: add aria description */}

@@ -18,8 +18,8 @@ export const InViewBackground = React.forwardRef<
 			<div
 				className={cx(
 					className,
-					'-z-1 rounded-container fixed inset-0 overflow-hidden opacity-0 duration-500',
-					isInView && 'opacity-100',
+					'-z-1 fixed inset-0 overflow-hidden rounded-container opacity-0 duration-500',
+					isInView && 'opacity-100'
 				)}
 				{...rest}
 			/>

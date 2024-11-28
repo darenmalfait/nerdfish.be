@@ -2,13 +2,13 @@
 
 import { cx } from '@nerdfish/utils'
 import {
-	motion,
-	type SpringOptions,
-	useMotionValue,
-	useSpring,
 	AnimatePresence,
+	type SpringOptions,
 	type Transition,
 	type Variant,
+	motion,
+	useMotionValue,
+	useSpring,
 } from 'motion/react'
 import * as React from 'react'
 
@@ -36,19 +36,19 @@ export function Cursor({
 	onPositionChange,
 }: CursorProps) {
 	const cursorX = useMotionValue(
-		typeof window !== 'undefined' ? window.innerWidth / 2 : 0,
+		typeof window !== 'undefined' ? window.innerWidth / 2 : 0
 	)
 	const cursorY = useMotionValue(
-		typeof window !== 'undefined' ? window.innerHeight / 2 : 0,
+		typeof window !== 'undefined' ? window.innerHeight / 2 : 0
 	)
 	const cursorRef = React.useRef<HTMLDivElement>(null)
 	const [isVisible, setIsVisible] = React.useState(!attachToParent)
 
 	React.useEffect(() => {
-		if (!attachToParent) {
-			document.body.style.cursor = 'none'
-		} else {
+		if (attachToParent) {
 			document.body.style.cursor = 'auto'
+		} else {
+			document.body.style.cursor = 'none'
 		}
 
 		const updatePosition = (e: MouseEvent) => {
@@ -98,7 +98,7 @@ export function Cursor({
 	return (
 		<motion.div
 			ref={cursorRef}
-			className={cx('pointer-events-none fixed left-0 top-0 z-50', className)}
+			className={cx('pointer-events-none fixed top-0 left-0 z-50', className)}
 			style={{
 				x: cursorXSpring,
 				y: cursorYSpring,

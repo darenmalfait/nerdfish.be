@@ -3,7 +3,7 @@
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Skeleton } from '@nerdfish/ui'
 import * as React from 'react'
-import { type GlobalCalcomTypes } from '~/app/cms'
+import type { GlobalCalcomTypes } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 import { useTheme } from '~/app/theme'
 
@@ -30,7 +30,7 @@ export function EmbeddedCal({
 				},
 				hideEventTypeDetails: false,
 				layout: 'month_view',
-				theme: theme === 'system' ? 'auto' : (theme as any),
+				theme: theme === 'system' ? 'auto' : (theme as 'auto'),
 			})
 
 			setCalLoading(false)
@@ -44,14 +44,14 @@ export function EmbeddedCal({
 	return (
 		<div>
 			{calLoading ? (
-				<div className="border-booker border-booker-width bg-default aspect-2 mx-auto w-full max-w-3xl rounded-md">
+				<div className="mx-auto aspect-2 w-full max-w-3xl rounded-md border-booker border-booker-width bg-default">
 					<Skeleton className="h-full w-full" />
 				</div>
 			) : null}
 			<Cal
 				className={className}
 				calLink={`${calcom.profileName}/${bookingType}`}
-				config={{ theme: theme === 'system' ? 'auto' : (theme as any) }}
+				config={{ theme: theme === 'system' ? 'auto' : (theme as 'auto') }}
 			/>
 		</div>
 	)

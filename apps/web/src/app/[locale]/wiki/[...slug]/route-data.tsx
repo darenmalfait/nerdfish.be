@@ -3,7 +3,7 @@ import * as React from 'react'
 import { getWikiPost } from '../api'
 
 export const getRouteData = React.cache(async function getRouteData(
-	slug: string,
+	slug: string
 ) {
 	const relativePath = `${decodeURIComponent(slug)}.mdx`
 

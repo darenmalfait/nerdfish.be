@@ -2,17 +2,17 @@
 
 import {
 	Button,
+	type ButtonProps,
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 	LoadingAnimation,
-	type ButtonProps,
 } from '@nerdfish/ui'
 import { Moon, Sun } from 'lucide-react'
 import * as React from 'react'
-import { useTheme } from './theme-provider'
 import { useTranslation } from '~/app/i18n'
+import { useTheme } from './theme-provider'
 
 const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ variant, asChild, size, className, ...props }, ref) => {
@@ -40,14 +40,16 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 						{...props}
 						className={className}
 					>
-						{!mounted ? (
-							<LoadingAnimation variant="classic" className="size-4" />
-						) : isDarkMode ? (
-							<Sun className="size-4" />
+						{mounted ? (
+							isDarkMode ? (
+								<Sun className="size-4" />
+							) : (
+								<Moon className="size-4" />
+							)
 						) : (
-							<Moon className="size-4" />
+							<LoadingAnimation variant="classic" className="size-4" />
 						)}
-						<div className="sr-only">{isDarkMode ? `Light` : `Dark`} Mode</div>
+						<div className="sr-only">{isDarkMode ? 'Light' : 'Dark'} Mode</div>
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
@@ -63,7 +65,7 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				</DropdownMenuContent>
 			</DropdownMenu>
 		)
-	},
+	}
 )
 ThemeToggle.displayName = 'ThemeToggle'
 

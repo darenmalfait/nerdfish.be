@@ -2,12 +2,12 @@
 
 import { stripPreSlash } from '@repo/lib/utils'
 import * as React from 'react'
-import { type Global, type GlobalPaths } from './cms'
+import type { Global, GlobalPaths } from './cms'
 
 type GlobalContextProps = Partial<Global>
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
-	null,
+	null
 )
 GlobalProviderContext.displayName = 'GlobalProviderContext'
 
@@ -29,10 +29,9 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
 
 			const isExternal = path.startsWith('http')
 
-			return {
-				...acc,
+			return Object.assign(acc, {
 				[key]: isExternal ? path : `/${stripPreSlash(path)}`,
-			}
+			})
 		}, {})
 	}, [originalPaths])
 

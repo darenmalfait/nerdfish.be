@@ -1,6 +1,6 @@
-import { mapPageData } from '../api'
 import { Blocks, type ContentQueryQuery } from '~/app/cms'
-import { type Locale } from '~/app/i18n'
+import type { Locale } from '~/app/i18n'
+import { mapPageData } from '../api'
 
 export function PageContent({
 	data,

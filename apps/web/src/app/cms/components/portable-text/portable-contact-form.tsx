@@ -1,7 +1,6 @@
 'use client'
 
-import { type ExtractProps } from '@nerdfish/utils'
-import * as React from 'react'
+import type { ExtractProps } from '@nerdfish/utils'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { ContactForm } from '~/app/[locale]/contact'
 

@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { i18n, type Locale } from '~/app/i18n'
+import { type Locale, i18n } from '~/app/i18n'
 
 export type Dictionary = {
 	'ai.chat.initialMessage': string
@@ -58,11 +58,11 @@ export type Dictionary = {
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
 	en: () =>
 		import('../../../dictionaries/en.json').then(
-			(module) => module.default as Dictionary,
+			(module) => module.default as Dictionary
 		),
 	nl: () =>
 		import('../../../dictionaries/nl.json').then(
-			(module) => module.default as Dictionary,
+			(module) => module.default as Dictionary
 		),
 }
 

@@ -7,12 +7,12 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components'
-import { type Metadata } from 'next'
-import { Chat } from '../contact'
+import type { Metadata } from 'next'
 import { generateOGImageUrl } from '~/app/api/og'
 import { HeroBlock } from '~/app/cms'
-import { type WithLocale } from '~/app/i18n'
+import type { WithLocale } from '~/app/i18n'
 import { getDictionary } from '~/app/i18n/get-dictionary'
+import { Chat } from '../contact'
 
 export async function generateMetadata({
 	params,
@@ -32,7 +32,9 @@ export async function generateMetadata({
 	})
 }
 
-export default async function AiPage({ params }: { params: WithLocale<{}> }) {
+export default async function AiPage({
+	params,
+}: { params: WithLocale<Record<string, never>> }) {
 	const dictionary = await getDictionary(params.locale)
 
 	return (
@@ -49,7 +51,7 @@ export default async function AiPage({ params }: { params: WithLocale<{}> }) {
 					<Paragraph className="mb-lg max-w-3xl font-medium">
 						{dictionary['ai.description']}
 					</Paragraph>
-					<Chat className="bg-primary rounded-container p-lg shadow-outline" />
+					<Chat className="rounded-container bg-primary p-lg shadow-outline" />
 				</Section>
 			</InViewBackground>
 		</>

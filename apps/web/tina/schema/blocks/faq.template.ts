@@ -1,4 +1,4 @@
-import { type ObjectField, type Template } from '@tinacms/schema-tools'
+import type { ObjectField, Template } from '@tinacms/schema-tools'
 
 const qa: ObjectField = {
 	name: 'qa',

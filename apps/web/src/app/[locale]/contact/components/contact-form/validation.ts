@@ -9,7 +9,7 @@ export const projectTypes = [
 ] as const
 
 const phoneRegex = new RegExp(
-	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
+	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 )
 
 export const contactSchema = z
@@ -22,10 +22,10 @@ export const contactSchema = z
 			z
 				.string()
 				.min(2, 'Your company name seems a bit short.')
-				.max(32, 'Your company name seems a bit long.'),
+				.max(32, 'Your company name seems a bit long.')
 		),
 		email: optionalField(
-			z.string().email('Please enter a valid email address.'),
+			z.string().email('Please enter a valid email address.')
 		),
 		phone: optionalField(z.string().regex(phoneRegex, 'Invalid Number!')),
 		textMessage: z
@@ -33,7 +33,7 @@ export const contactSchema = z
 			.min(10, 'I hope that your message is a bit longer than that.')
 			.max(
 				512,
-				'I like that you have a lot to say, but please keep it under 512 characters.',
+				'I like that you have a lot to say, but please keep it under 512 characters.'
 			),
 		projectType: z.array(z.enum(projectTypes)),
 		budgetRange: z.array(z.number()).optional(),

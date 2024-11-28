@@ -1,7 +1,6 @@
 import { stripPreSlash } from '@repo/lib/utils'
 import { ExternalLinkIcon } from '@repo/ui/icons'
 import Link from 'next/link'
-import * as React from 'react'
 
 function PortableLink({ url, children }: { url?: string; children: string }) {
 	const isExternal = url?.startsWith('http')
@@ -11,7 +10,7 @@ function PortableLink({ url, children }: { url?: string; children: string }) {
 
 	return (
 		<Link
-			className="border-accent hover:text-accent inline-flex items-center border-b-2 font-normal text-inherit no-underline transition-colors"
+			className="inline-flex items-center border-accent border-b-2 font-normal text-inherit no-underline transition-colors hover:text-accent"
 			href={slug}
 			target={isExternal ? '_blank' : undefined}
 		>
