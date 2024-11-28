@@ -8,4 +8,4 @@ export const JsonLd = ({ code }: { code: WithContext<Thing> }) => (
 	/>
 )
 
-export * from 'schema-dts'
+export type * from 'schema-dts'
