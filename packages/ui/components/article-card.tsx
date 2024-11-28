@@ -12,7 +12,7 @@ import { DateFormatter } from './date-formatter'
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	return (
 		<Cursor attachToParent>
-			<div className="motion-preset-pop group motion-duration-300 relative inline-flex items-center gap-md">
+			<div className="motion-preset-pop group motion-duration-300 relative inline-flex items-center gap-md transition-all group-active:scale-125">
 				<svg
 					fill="none"
 					height="18"
@@ -25,12 +25,11 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 						fill="currentColor"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="group-active:opacity-50"
 					/>
 				</svg>
 				<div
 					className={cx(
-						'relative w-fit rounded-container bg-current px-sm py-xs font-bold text-current group-active:opacity-50'
+						'relative w-fit rounded-container bg-current px-sm py-xs font-bold text-current'
 					)}
 				>
 					<span className="text-inverted">{children}</span>
