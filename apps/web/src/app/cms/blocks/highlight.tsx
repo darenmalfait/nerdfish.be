@@ -1,19 +1,19 @@
 'use client'
 
 import {
-	Section,
 	HighlightCard,
+	HighlightCardCTA,
 	HighlightCardCategory,
 	HighlightCardContent,
-	HighlightCardCTA,
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
+	Section,
 } from '@repo/ui/components'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import { type PageBlocksHighlight, type Block } from '~/app/cms'
+import type { Block, PageBlocksHighlight } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null

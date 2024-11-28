@@ -1,35 +1,28 @@
 {
-  "name": "nerdfish-website",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "turbo build",
-    "checks": "turbo format lint typecheck --continue",
-    "checks:fix": "turbo format:fix lint:fix typecheck --continue --force",
-    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
-    "dev": "turbo dev",
-    "format": "prettier . \"!./apps/**\" \"!./packages/**\" --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
-    "format:fix": "prettier . \"!./apps/**\" \"!./packages/**\" --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
-    "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
-    "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
-    "prepare": "husky",
-    "typecheck": "turbo typecheck",
-    "vercel-build": " turbo build"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@nerdfish/config": "^1.0.9",
-    "eslint": "^9.15.0",
-    "eslint-config-turbo": "^2.3.0",
-    "husky": "^9.1.7",
-    "prettier": "^3.3.3",
-    "turbo": "^2.3.0"
-  },
-  "packageManager": "pnpm@9.14.2"
+	"name": "nerdfish-website",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"build": "turbo build",
+		"checks": "pnpm lint && turbo typecheck --continue",
+		"checks:fix": "pnpm lint:fix && turbo typecheck --continue --force",
+		"clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
+		"dev": "turbo dev",
+		"lint": "npx biome check",
+		"lint:fix": "npx biome check --write ./",
+		"prepare": "husky",
+		"typecheck": "turbo typecheck",
+		"vercel-build": " turbo build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@commitlint/cli": "^19.6.0",
+		"@commitlint/config-conventional": "^19.6.0",
+		"@nerdfish/config": "^1.2.1",
+		"husky": "^9.1.7",
+		"turbo": "^2.3.0"
+	},
+	"packageManager": "pnpm@9.14.2"
 }

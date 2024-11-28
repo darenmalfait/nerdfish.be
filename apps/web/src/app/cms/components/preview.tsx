@@ -22,7 +22,7 @@ function Preview() {
 						startTransition(() =>
 							disableDraftMode().then(() => {
 								router.refresh()
-							}),
+							})
 						)
 					}
 					className="pointer-events-auto"

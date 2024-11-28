@@ -1,4 +1,4 @@
-import { type StringField } from '@tinacms/schema-tools'
+import type { StringField } from '@tinacms/schema-tools'
 
 export const tagsSchema: StringField = {
 	type: 'string',

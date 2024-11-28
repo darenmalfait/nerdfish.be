@@ -1,44 +1,26 @@
 {
-	"editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.defaultFormatter": "biomejs.biome",
 	"editor.formatOnSave": true,
-	"eslint.workingDirectories": [
-		"apps/web",
-		"packages/email",
-		"packages/lib",
-		"packages/ui",
-		"packages/observability",
-		"packages/env",
-		"packages/config-eslint",
-		"packages/config-tailwind"
-	],
-	"json.schemas": [
-		{
-			"fileMatch": ["tsconfig.*.json"],
-			"url": "https://json.schemastore.org/tsconfig"
-		},
-		{
-			"fileMatch": ["turbo.json"],
-			"url": "https://turbo.build/schema.json"
-		},
-		{
-			"fileMatch": ["vercel.json"],
-			"url": "https://openapi.vercel.sh/vercel.json"
-		}
-	],
-	"search.exclude": {
-		"**/node_modules": true,
-		"**/.next": true,
-		"**/.output": true,
-		"**/.turbo": true,
-		"**/.vercel": true,
-		"**/dist": true
+	"editor.formatOnPaste": true,
+	"emmet.showExpandedAbbreviation": "never",
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "always",
+		"source.organizeImports.biome": "always"
 	},
-	"tailwindCSS.experimental.classRegex": [
-		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-	],
-	"editor.quickSuggestions": {
-		"strings": true
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

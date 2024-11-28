@@ -12,7 +12,7 @@ const subtitle = "Sorry, we couldn't find the page you were looking for."
 export default function Custom404() {
 	return (
 		<InViewBackground className="bg-muted">
-			<Section className="gap-md max-w-5xl text-center">
+			<Section className="max-w-5xl gap-md text-center">
 				<Image
 					placeholder="blur"
 					src={errorImage}

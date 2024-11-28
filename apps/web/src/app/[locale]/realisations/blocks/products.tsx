@@ -20,9 +20,9 @@ import {
 import { GithubIcon, GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksProducts, type Product } from '~/app/cms'
+import type { Block, PageBlocksProducts, Product } from '~/app/cms'
 
-function Product({
+function ProductItem({
 	title,
 	link,
 	sourceUrl,
@@ -35,9 +35,9 @@ function Product({
 	return (
 		<>
 			<div />
-			<div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-focus-within:-translate-y-10 group-hover:-translate-y-10">
+			<div className="group-focus-within:-translate-y-10 group-hover:-translate-y-10 pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
 				{image ? (
-					<Avatar className="text-primary size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
+					<Avatar className="size-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
 						<AvatarImage
 							src={image}
 							className="object-cover"
@@ -48,8 +48,8 @@ function Product({
 						</AvatarFallback>
 					</Avatar>
 				) : null}
-				<h3 className="text-primary text-xl font-bold">{title}</h3>
-				<p className="text-muted max-w-lg">{description}</p>
+				<h3 className="font-bold text-primary text-xl">{title}</h3>
+				<p className="max-w-lg text-muted">{description}</p>
 				<span
 					className="block truncate whitespace-nowrap font-bold"
 					aria-hidden
@@ -64,7 +64,7 @@ function Product({
 			{hasExternalLink ? (
 				<div
 					className={cx(
-						'pointer-events-none absolute bottom-0 z-10 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100',
+						'pointer-events-none absolute bottom-0 z-10 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100'
 					)}
 				>
 					<div className="flex gap-2">
@@ -108,7 +108,7 @@ function Product({
 				</div>
 			) : null}
 
-			<div className="group-focus-within:bg-popover group-hover:bg-popover pointer-events-none absolute inset-0 transform-gpu transition-all duration-300" />
+			<div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-focus-within:bg-popover group-hover:bg-popover" />
 		</>
 	)
 }
@@ -144,7 +144,7 @@ export function ProductsBlock(data: Block<PageBlocksProducts>) {
 								asChild
 							>
 								<li>
-									<Product {...product} />
+									<ProductItem {...product} />
 								</li>
 							</GridCard>
 						))}

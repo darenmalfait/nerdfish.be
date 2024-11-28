@@ -1,5 +1,5 @@
-import { type PartialDeep } from '@repo/lib/utils'
-import { type Page } from '~/app/cms'
+import type { PartialDeep } from '@repo/lib/utils'
+import type { Page } from '~/app/cms'
 
 export function getPagePath(page: PartialDeep<Page>) {
 	const path = page._sys?.breadcrumbs?.join('/')

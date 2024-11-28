@@ -17,13 +17,10 @@ import { Logo, MenuIcon, XIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { SocialLinks } from './navigation'
-import {
-	type GlobalNavigationMain,
-	type GlobalNavigationMainSub,
-} from '~/app/cms'
+import type { GlobalNavigationMain, GlobalNavigationMainSub } from '~/app/cms'
 import { useGlobal } from '~/app/global-provider'
 import { ThemeToggle } from '~/app/theme'
+import { SocialLinks } from './navigation'
 
 const MobileNavigationSubItem = React.forwardRef<
 	React.ElementRef<typeof Link>,
@@ -37,8 +34,8 @@ const MobileNavigationSubItem = React.forwardRef<
 			<Link ref={ref} href={`/${stripPreSlash(href)}`} {...props}>
 				<H3
 					className={cx(
-						'hover:text-accent border-b-4 border-transparent font-normal capitalize',
-						isActive && 'border-b-accent',
+						'border-transparent border-b-4 font-normal capitalize hover:text-accent',
+						isActive && 'border-b-accent'
 					)}
 					as="span"
 				>
@@ -60,7 +57,7 @@ const MobileNavigationItem = React.forwardRef<
 
 	if (!sub?.length) {
 		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(href ?? ''),
+			stripPreSlash(href ?? '')
 		)
 
 		return (
@@ -72,8 +69,8 @@ const MobileNavigationItem = React.forwardRef<
 			>
 				<H2
 					className={cx(
-						'hover:text-accent border-b-4 border-transparent capitalize',
-						isActive && 'border-b-accent',
+						'border-transparent border-b-4 capitalize hover:text-accent',
+						isActive && 'border-b-accent'
 					)}
 					variant="primary"
 					as="span"
@@ -89,7 +86,7 @@ const MobileNavigationItem = React.forwardRef<
 			<H2 className="capitalize" variant="primary" as="span">
 				{label}
 			</H2>
-			<ul className="mt-md gap-sm grid">
+			<ul className="mt-md grid gap-sm">
 				{sub.map((subNavItem) => {
 					if (!subNavItem) return null
 
@@ -126,14 +123,14 @@ export function MobileNavigation() {
 			</DrawerTrigger>
 			<DrawerContent hideCloseButton>
 				<div className="flex h-screen flex-col">
-					<DrawerHeader className="py-lg gap-lg z-10 flex items-center justify-between backdrop-blur-none">
+					<DrawerHeader className="z-10 flex items-center justify-between gap-lg py-lg backdrop-blur-none">
 						<Button asChild variant="link" className="-mx-2">
 							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>
 
-						<div className="gap-sm flex items-center">
+						<div className="flex items-center gap-sm">
 							<DrawerClose asChild className="-mr-sm">
 								<Button variant="ghost" type="button" size="icon">
 									<XIcon className="size-4" />
@@ -142,8 +139,8 @@ export function MobileNavigation() {
 						</div>
 					</DrawerHeader>
 
-					<ScrollArea className="px-md w-full flex-1 md:h-auto">
-						<ul className="gap-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+					<ScrollArea className="w-full flex-1 px-md md:h-auto">
+						<ul className="grid grid-cols-1 gap-lg sm:grid-cols-2 md:grid-cols-3">
 							{navigation?.main?.map((navItem) => {
 								if (!navItem) return null
 
@@ -157,12 +154,12 @@ export function MobileNavigation() {
 								)
 							})}
 						</ul>
-						<ul className="mt-xl gap-sm flex flex-row items-center justify-start">
+						<ul className="mt-xl flex flex-row items-center justify-start gap-sm">
 							<li>
 								<ThemeToggle variant="ghost" />
 							</li>
 						</ul>
-						<div className="mt-md gap-sm pb-lg flex flex-row items-center">
+						<div className="mt-md flex flex-row items-center gap-sm pb-lg">
 							<span className="font-bold">Socials:</span>
 							<SocialLinks />
 						</div>

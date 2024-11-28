@@ -4,8 +4,7 @@ import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
 import { env } from '@repo/env'
 import { parseError } from '@repo/observability/error'
-import type * as React from 'react'
-import { contactSchema, type ContactFormData } from './validation'
+import { type ContactFormData, contactSchema } from './validation'
 
 export async function submitContactForm(payload: ContactFormData) {
 	const data = contactSchema.parse(payload)

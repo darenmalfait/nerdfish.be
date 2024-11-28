@@ -1,4 +1,4 @@
-import { type Collection } from '@tinacms/schema-tools'
+import type { Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { blocks } from '../blocks'
 import { seo } from '../objects'
@@ -11,7 +11,7 @@ const pagesCollection: Collection = {
 	ui: {
 		router: async ({ document }) => {
 			if (document._sys.filename === 'home') {
-				return `/`
+				return '/'
 			}
 
 			return `/${document._sys.filename}`

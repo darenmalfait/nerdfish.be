@@ -5,7 +5,7 @@ import {
 	DrawerContent,
 	useMediaQuery,
 } from '@nerdfish/ui'
-import * as React from 'react'
+import type * as React from 'react'
 
 export function DrawerDialog({
 	open,
@@ -21,7 +21,7 @@ export function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-container bg-primary relative overflow-hidden !p-0 transition-all">
+				<DialogContent className="!p-0 relative overflow-hidden rounded-container bg-primary transition-all">
 					{children}
 				</DialogContent>
 			</Dialog>

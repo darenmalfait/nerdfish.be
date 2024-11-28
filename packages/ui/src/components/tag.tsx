@@ -2,7 +2,7 @@
 
 import { cx } from '@nerdfish/utils'
 import { CustomCheckboxContainer, CustomCheckboxInput } from '@reach/checkbox'
-import { type ChangeEventHandler } from 'react'
+import type { ChangeEventHandler } from 'react'
 //TODO: remove reach, use our own checkbox
 
 function Tag({
@@ -26,16 +26,16 @@ function Tag({
 			checked={selected}
 			onChange={onClick}
 			className={cx(
-				'focus-outline relative mb-4 mr-4 block h-auto w-auto cursor-pointer rounded-full transition after:rounded-full',
+				'focus-outline relative mr-4 mb-4 block h-auto w-auto cursor-pointer rounded-full transition after:rounded-full',
 				{
 					'bg-muted text-primary': !selected,
 					'bg-inverted text-inverted': selected,
 					'hover:focus-ring opacity-100': !disabled,
-					'bg-muted/30 text-muted cursor-default': disabled,
+					'cursor-default bg-muted/30 text-muted': disabled,
 					'px-6 py-3': size === 'md',
 					'px-4 py-2 text-sm': size === 'sm',
 				},
-				className,
+				className
 			)}
 			disabled={disabled}
 		>

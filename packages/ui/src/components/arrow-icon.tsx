@@ -18,7 +18,7 @@ const rotationMap = {
 const ArrowIcon = React.forwardRef<SVGSVGElement, ArrowIconProps>(
 	function ArrowIcon(
 		{ direction = 'right', size = 24, className, ...props },
-		ref,
+		ref
 	) {
 		return (
 			<ArrowRight
@@ -29,7 +29,7 @@ const ArrowIcon = React.forwardRef<SVGSVGElement, ArrowIconProps>(
 				{...props}
 			/>
 		)
-	},
+	}
 )
 
 export { ArrowIcon }

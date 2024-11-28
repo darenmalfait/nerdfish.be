@@ -2,12 +2,12 @@ import { Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Section } from '@repo/ui/components'
 import Image from 'next/image'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
+	type Block,
 	type PageBlocksSplitWithImage,
 	PortableText,
-	type Block,
 } from '~/app/cms'
 
 function BlockLayout({
@@ -23,8 +23,8 @@ function BlockLayout({
 		<Section>
 			<div
 				className={cx(
-					'gap-lg flex flex-col md:flex-row md:items-center',
-					reverse && 'md:flex-row-reverse',
+					'flex flex-col gap-lg md:flex-row md:items-center',
+					reverse && 'md:flex-row-reverse'
 				)}
 			>
 				{children}
@@ -49,13 +49,13 @@ export function SplitWithImageBlock(data: Block<PageBlocksSplitWithImage>) {
 			{image?.src ? (
 				<div
 					className={cx(
-						'aspect-1 rounded-container relative w-full overflow-hidden',
+						'relative aspect-1 w-full overflow-hidden rounded-container'
 					)}
 				>
-					<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
+					<Skeleton className="absolute inset-0 size-full rounded-container object-cover" />
 
 					<Image
-						className="rounded-container motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full object-cover"
+						className="motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full rounded-container object-cover"
 						data-tina-field={tinaField(data, 'image')}
 						fill
 						src={image.src}

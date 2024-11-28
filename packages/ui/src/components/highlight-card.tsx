@@ -2,7 +2,7 @@
 
 import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { getCategoryColors, MagnetButton } from '@repo/ui/components'
+import { MagnetButton, getCategoryColors } from '@repo/ui/components'
 import { ArrowRightIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -21,8 +21,8 @@ export const HighlightCardImage = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'aspect-h-4 aspect-w-3 rounded-container mt-lg pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
-				className,
+				'pointer-events-none relative col-span-full mt-lg aspect-h-4 aspect-w-3 h-0 overflow-hidden rounded-container lg:col-span-4 lg:col-start-8 lg:mt-0',
+				className
 			)}
 		>
 			{src ? (
@@ -50,8 +50,8 @@ export const HighlightCardContent = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'py-lg col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
-				className,
+				'col-span-4 flex flex-col py-lg md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
+				className
 			)}
 		/>
 	)
@@ -70,7 +70,7 @@ export const HighlightCardTitle = React.forwardRef<
 			variant="primary"
 			as="h2"
 			{...props}
-			className={cx('mt-0 lg:!text-7xl', className)}
+			className={cx('lg:!text-7xl mt-0', className)}
 		/>
 	)
 })
@@ -87,7 +87,7 @@ export const HighlightCardSubtitle = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('text-primary mt-md text-xl font-bold', className)}
+			className={cx('mt-md font-bold text-primary text-xl', className)}
 		/>
 	)
 })
@@ -109,9 +109,9 @@ export const HighlightCardCategory = React.forwardRef<
 				variant="default"
 				{...props}
 				className={cx(
-					'bg-inverted/10 text-primary mb-md px-md py-sm w-auto text-base',
+					'mb-md w-auto bg-inverted/10 px-md py-sm text-base text-primary',
 					getCategoryColors(value),
-					className,
+					className
 				)}
 			>
 				<span className="sr-only">Category: </span>
@@ -134,8 +134,8 @@ export const HighlightCardDescription = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'text-muted mt-md line-clamp-3 text-xl font-semibold',
-				className,
+				'mt-md line-clamp-3 font-semibold text-muted text-xl',
+				className
 			)}
 		>
 			{children}
@@ -165,14 +165,14 @@ export const HighlightCardCTA = React.forwardRef<
 				size="lg"
 				variant="ghost"
 				asChild
-				className="bg-primary/70 hover:bg-primary group"
+				className="group bg-primary/70 hover:bg-primary"
 			>
 				<Link href={href}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon
 							className={cx(
-								'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 transition-transform',
+								'ml-sm size-4 transition-transform group-hover:translate-x-xs group-hover:text-primary'
 							)}
 						/>
 					</span>
@@ -194,18 +194,18 @@ export const HighlightCard = React.forwardRef<
 		<div
 			ref={ref}
 			className={cx(
-				'bg-muted rounded-container focus-outline relative w-full max-w-full overflow-hidden outline-none',
-				className,
+				'focus-outline relative w-full max-w-full overflow-hidden rounded-container bg-muted outline-none',
+				className
 			)}
 			{...props}
 		>
 			<div
 				className={cx(
-					'rounded-container block no-underline outline-none lg:bg-transparent',
-					className,
+					'block rounded-container no-underline outline-none lg:bg-transparent',
+					className
 				)}
 			>
-				<div className="p-lg rounded-container relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="relative grid w-full grid-cols-4 rounded-container p-lg md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</div>

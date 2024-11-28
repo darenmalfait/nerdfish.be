@@ -5,6 +5,7 @@ import { themes } from 'prism-react-renderer'
 import { CopyButton } from '../copy-button'
 import { Highlight } from './highlight'
 
+// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 export function CodeBlock(props: { children: any; lang?: string }) {
 	if (!props.children?.props) throw new Error('CodeBlock must have children')
 	const { children, viewlines, ln } = props.children.props

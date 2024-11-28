@@ -13,11 +13,11 @@ import {
 import { cx } from '@nerdfish/utils'
 import { nonNullable } from '@repo/lib/utils'
 import {
-	Section,
 	ArticleCard,
 	ArticleCardContent,
-	ArticleCardTitle,
 	ArticleCardDescription,
+	ArticleCardTitle,
+	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
@@ -27,9 +27,9 @@ import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { filterWiki, getWikiPath } from '../utils'
-import { PortableText, type Block, type PageBlocksWiki } from '~/app/cms'
+import { type Block, type PageBlocksWiki, PortableText } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
+import { filterWiki, getWikiPath } from '../utils'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
@@ -85,12 +85,12 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 				<div>
 					<div
 						data-tina-field={tinaField(data, 'header')}
-						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
+						className="relative mx-auto mb-2xl grid h-auto grid-cols-4 justify-center gap-x-md md:grid-cols-8 lg:mb-0 lg:grid-cols-12 lg:pb-xl"
 					>
 						{header?.image ? (
 							<div
 								data-tina-field={tinaField(data, 'header')}
-								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
+								className="col-span-full mb-lg px-lg lg:col-span-5 lg:col-start-7 lg:mb-0"
 							>
 								<Image
 									className="rounded-xl"
@@ -107,7 +107,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 								'col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
 									'lg:col-span-5 lg:col-start-1': header?.image,
-								},
+								}
 							)}
 						>
 							<div className="flex flex-auto flex-col justify-center">
@@ -207,7 +207,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							variant="outline"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span className="mr-sm">Load more</span>{' '}
+							<span className="mr-sm">Load more</span>
 							<PlusIcon className="size-4" />
 						</Button>
 					</div>

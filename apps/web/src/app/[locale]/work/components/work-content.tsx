@@ -2,12 +2,12 @@ import { Button, H4, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
-	getCategoryColors,
 	Section,
+	getCategoryColors,
 } from '@repo/ui/components'
 import { ArrowRight } from '@repo/ui/icons'
 import Link from 'next/link'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { Blocks, PortableText, type WorkQueryQuery } from '~/app/cms'
 
@@ -25,7 +25,7 @@ function WorkContent({
 	return (
 		<div className="relative">
 			<Section asChild>
-				<article className="gap-xl px-md -mt-xl md:-mt-3xl mx-auto flex flex-col pt-0 xl:flex-row">
+				<article className="-mt-xl md:-mt-3xl mx-auto flex flex-col gap-xl px-md pt-0 xl:flex-row">
 					<Section
 						className={cx('!px-0', {
 							'xl:max-w-[500px]': blocks?.length,
@@ -38,11 +38,11 @@ function WorkContent({
 									as="h1"
 									variant="primary"
 									data-tina-field={tinaField(data.work, 'title')}
-									className="!m-0 w-auto !text-4xl"
+									className="!m-0 !text-4xl w-auto"
 								>
 									{title}
 								</H4>
-								<div className="mt-xs gap-md relative flex">
+								<div className="relative mt-xs flex gap-md">
 									{url ? (
 										<div className="mb-md">
 											<Button variant="secondary" asChild>
@@ -55,7 +55,7 @@ function WorkContent({
 													<span className={getCategoryColors(category)}>
 														<ArrowRight
 															className={cx(
-																'group-hover:translate-x-xs ml-sm group-hover:text-primary size-4 text-current transition-all',
+																'ml-sm size-4 text-current transition-all group-hover:translate-x-xs group-hover:text-primary'
 															)}
 														/>
 													</span>
@@ -69,7 +69,7 @@ function WorkContent({
 
 							{excerpt ? (
 								<Paragraph
-									className="mb-md text-xl font-bold"
+									className="mb-md font-bold text-xl"
 									data-tina-field={tinaField(data.work, 'excerpt')}
 								>
 									{excerpt}
@@ -88,7 +88,7 @@ function WorkContent({
 					</Section>
 
 					{blocks?.length ? (
-						<div className="flex-flex-col flex-1">
+						<div className="flex-1 flex-flex-col">
 							<div className="-mx-md">
 								<Blocks items={blocks} />
 							</div>

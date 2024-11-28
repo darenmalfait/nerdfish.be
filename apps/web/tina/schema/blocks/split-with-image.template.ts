@@ -1,4 +1,4 @@
-import { type Template } from '@tinacms/schema-tools'
+import type { Template } from '@tinacms/schema-tools'
 import { imageSchema, portableTextSchema } from '../objects'
 
 export const splitWithImageTemplate: Template = {

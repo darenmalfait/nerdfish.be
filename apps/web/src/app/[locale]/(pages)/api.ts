@@ -1,11 +1,11 @@
+import { type Locale, i18n } from '~/app/i18n'
 import {
-	tina,
 	type ContentQueryQuery,
 	type Product,
 	type Wiki,
 	type Work,
+	tina,
 } from '../../cms'
-import { i18n, type Locale } from '~/app/i18n'
 
 export async function getPages() {
 	const pageDate = await tina.queries.pageConnection()
@@ -32,7 +32,7 @@ export function mapPageData(data: ContentQueryQuery) {
 
 export async function getPage(
 	relativePath: string,
-	lang: Locale = i18n.defaultLocale,
+	lang: Locale = i18n.defaultLocale
 ) {
 	const path = `${lang}/${relativePath}`
 

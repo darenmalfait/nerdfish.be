@@ -1,12 +1,12 @@
 import { createMetadata } from '@repo/seo/metadata'
-import { type Metadata } from 'next'
+import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import { generateOGImageUrl } from '~/app/api/og'
+import { type WithLocale, i18n } from '~/app/i18n'
 import { getPages } from '../api'
 import { PageContent } from '../components/page-content'
 import { PagePreview } from '../components/page-preview'
 import { getRouteData } from './route-data'
-import { generateOGImageUrl } from '~/app/api/og'
-import { i18n, type WithLocale } from '~/app/i18n'
 export async function generateStaticParams() {
 	return ((await getPages()) ?? []).map((page) => {
 		const locale = page._sys?.relativePath.split('/')[0]

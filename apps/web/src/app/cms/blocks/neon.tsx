@@ -7,9 +7,8 @@ import {
 	Section,
 	SectionHeaderSubtitle,
 } from '@repo/ui/components'
-import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { PortableText, type Block, type PageBlocksNeon } from '~/app/cms'
+import { type Block, type PageBlocksNeon, PortableText } from '~/app/cms'
 
 export function NeonBlock(props: Block<PageBlocksNeon>) {
 	const { title, subtitle, content } = props

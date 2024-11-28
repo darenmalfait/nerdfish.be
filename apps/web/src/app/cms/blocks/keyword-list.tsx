@@ -1,15 +1,15 @@
 import { H1, Marquee } from '@nerdfish/ui'
 import { nonNullable } from '@repo/lib/utils'
 import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksKeywordList } from '~/app/cms'
+import type { Block, PageBlocksKeywordList } from '~/app/cms'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<section className="py-xl flex flex-col items-center">{children}</section>
+		<section className="flex flex-col items-center py-xl">{children}</section>
 	)
 }
 

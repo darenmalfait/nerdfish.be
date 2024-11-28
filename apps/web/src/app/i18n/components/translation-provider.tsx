@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { type Dictionary } from '../get-dictionary'
-import { type Locale } from '../i18n-config'
+import type { Dictionary } from '../get-dictionary'
+import type { Locale } from '../i18n-config'
 
 interface TranslationContextProps {
 	t: (key: keyof Dictionary) => string
@@ -10,7 +10,7 @@ interface TranslationContextProps {
 }
 
 const TranslationContext = React.createContext<TranslationContextProps | null>(
-	null,
+	null
 )
 TranslationContext.displayName = 'TranslationContext'
 
@@ -31,7 +31,7 @@ function TranslationProvider({
 		(key: keyof Dictionary) => {
 			return dictionary[key]
 		},
-		[dictionary],
+		[dictionary]
 	)
 
 	return (
@@ -51,7 +51,7 @@ function useTranslation(): TranslationContextProps {
 
 	if (!context) {
 		throw new Error(
-			'You should use useTranslation within an TranslationContext',
+			'You should use useTranslation within an TranslationContext'
 		)
 	}
 

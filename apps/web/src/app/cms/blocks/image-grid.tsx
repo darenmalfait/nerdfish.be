@@ -12,10 +12,10 @@ import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	type Block,
-	type PageBlocksImageGrid,
-	type PageBlocksImageGridItems,
+import type {
+	Block,
+	PageBlocksImageGrid,
+	PageBlocksImageGridItems,
 } from '~/app/cms'
 
 function ImageGridContent(props: PageBlocksImageGridItems) {
@@ -65,7 +65,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 			) : null}
 			<Grid
 				data-tina-field={tinaField(props, 'items')}
-				className="auto-rows-[40rem] !grid-cols-2 md:!grid-cols-4"
+				className="!grid-cols-2 md:!grid-cols-4 auto-rows-[40rem]"
 				ref={ref}
 			>
 				{items?.map((item, i) => {
@@ -77,7 +77,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 							key={`${item.title} ${i}`}
 							className={cx(
 								getGridItemClassName(i),
-								isInView && 'motion-preset-slide-left',
+								isInView && 'motion-preset-slide-left'
 							)}
 						>
 							<ImageGridContent {...item} />

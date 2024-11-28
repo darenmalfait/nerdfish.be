@@ -1,31 +1,31 @@
 'use client'
 
 import { Button, Input, LoadingAnimation } from '@nerdfish/ui'
-import { cva, cx, type VariantProps } from '@nerdfish/utils'
+import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { SendHorizonalIcon } from '@repo/ui/icons'
-import { type Message, type ToolInvocation } from 'ai'
+import type { Message, ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import * as React from 'react'
-import { EmbeddedCal } from '../../contact'
 import { useTranslation } from '~/app/i18n'
+import { EmbeddedCal } from '../../contact'
 
 const chatMessageVariants = cva(
-	'rounded-container animate-rubber relative px-5 py-2.5',
+	'relative animate-rubber rounded-container px-5 py-2.5',
 	{
 		variants: {
-			role: {
-				user: 'bg-success text-success ml-auto w-8/12 max-w-fit rounded-br-none',
+			userRole: {
+				user: 'ml-auto w-8/12 max-w-fit rounded-br-none bg-success text-success',
 				assistant:
-					'bg-accent text-white mr-auto w-11/12 max-w-fit rounded-tl-none',
+					'mr-auto w-11/12 max-w-fit rounded-tl-none bg-accent text-white',
 				system: 'mr-auto w-full max-w-[400px] rounded-tl-none',
 				error:
-					'bg-danger text-danger mr-auto w-11/12 max-w-fit rounded-tl-none',
+					'mr-auto w-11/12 max-w-fit rounded-tl-none bg-danger text-danger',
 			},
 		},
 		defaultVariants: {
-			role: 'assistant',
+			userRole: 'assistant',
 		},
-	},
+	}
 )
 
 function MessageLoading() {
@@ -79,10 +79,10 @@ const ChatMessage = React.forwardRef<
 		VariantProps<typeof chatMessageVariants> & {
 			toolInvocations?: ToolInvocation[]
 		}
->(({ className, role, toolInvocations, ...props }, ref) => {
+>(({ className, userRole, toolInvocations, ...props }, ref) => {
 	if (toolInvocations?.length) {
 		return (
-			<div className="gap-sm flex flex-col">
+			<div className="flex flex-col gap-sm">
 				{toolInvocations.map((toolInvocation) => {
 					const { toolName, toolCallId } = toolInvocation
 
@@ -98,8 +98,8 @@ const ChatMessage = React.forwardRef<
 		)
 	}
 	return (
-		<div ref={ref} className={chatMessageVariants({ role, className })}>
-			<p className="whitespace-pre-line text-base font-medium" {...props} />
+		<div ref={ref} className={chatMessageVariants({ userRole, className })}>
+			<p className="whitespace-pre-line font-medium text-base" {...props} />
 		</div>
 	)
 })
@@ -149,7 +149,7 @@ export function Chat({
 				question: t('ai.premadeQuestions.currentJobQuestion'),
 			},
 		],
-		[t],
+		[t]
 	)
 
 	const scrollToBottom = React.useCallback(() => {
@@ -160,6 +160,7 @@ export function Chat({
 		})
 	}, [])
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: we want it to run on messages change
 	React.useEffect(() => {
 		scrollToBottom()
 	}, [scrollToBottom, messages])
@@ -168,9 +169,9 @@ export function Chat({
 		<div className={cx('flex h-full flex-col', className)}>
 			<div
 				ref={scrollBottomAnchor}
-				className="gap-lg pb-xl flex flex-1 flex-col overflow-y-auto"
+				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-xl"
 			>
-				<ChatMessage role="assistant" className="!animate-none">
+				<ChatMessage userRole="assistant" className="!animate-none">
 					{t('ai.chat.initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
@@ -184,42 +185,43 @@ export function Chat({
 								{message.content}
 							</ChatMessage>
 						)
-					} else {
-						return (
-							<ChatMessage
-								key={message.id}
-								role="assistant"
-								toolInvocations={message.toolInvocations}
-								dangerouslySetInnerHTML={{
-									__html: message.content
-										.replace(/ *【.*】 */g, '')
-										.replace(/ *\[.*] */g, '')
-										.replace(/\.{2,}/g, '.')
-										.replace(' .', '.')
-										.replace(
-											/(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?/=~_|!:,.;]*)[-A-Z0-9+&@#/%=~_|])/gi,
-											'<a href="$&" target="_blank" rel="noopener noreferrer" class="underline">$&</a>',
-										),
-								}}
-							/>
-						)
 					}
+
+					return (
+						<ChatMessage
+							key={message.id}
+							userRole="assistant"
+							toolInvocations={message.toolInvocations}
+							// biome-ignore lint/security/noDangerouslySetInnerHtml: We know what we're doing
+							dangerouslySetInnerHTML={{
+								__html: message.content
+									.replace(/ *【.*】 */g, '')
+									.replace(/ *\[.*] */g, '')
+									.replace(/\.{2,}/g, '.')
+									.replace(' .', '.')
+									.replace(
+										/(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?/=~_|!:,.;]*)[-A-Z0-9+&@#/%=~_|])/gi,
+										'<a href="$&" target="_blank" rel="noopener noreferrer" class="underline">$&</a>'
+									),
+							}}
+						/>
+					)
 				})}
 
 				{error?.name ? (
-					<ChatMessage role="error">
+					<ChatMessage userRole="error">
 						{error.name}: Something went wrong
 					</ChatMessage>
 				) : null}
 
-				{isLoading && messages[messages.length - 1]?.role === 'user' ? (
-					<ChatMessage role="assistant" className="!animate-none">
+				{isLoading && messages.at(-1)?.role === 'user' ? (
+					<ChatMessage userRole="assistant" className="!animate-none">
 						<MessageLoading />
 					</ChatMessage>
 				) : null}
 			</div>
 			<ul
-				className="questions mt-md mb-sm gap-sm py-sm px-xs flex overflow-x-auto overflow-y-visible"
+				className="questions mt-md mb-sm flex gap-sm overflow-x-auto overflow-y-visible px-xs py-sm"
 				aria-label="Premade questions"
 			>
 				{premadeQuestions.map((q) => (

@@ -3,21 +3,21 @@
 import { cx } from '@nerdfish/utils'
 import { nonNullable } from '@repo/lib/utils'
 import {
-	Section,
 	PriceCard,
+	PriceCardAction,
+	PriceCardDescription,
+	PriceCardFeature,
+	PriceCardFeatures,
 	PriceCardHeader,
 	PriceCardTitle,
-	PriceCardDescription,
-	PriceCardFeatures,
-	PriceCardFeature,
-	PriceCardAction,
+	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components'
-import * as React from 'react'
+import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type PageBlocksPricing, type Block } from '~/app/cms'
+import type { Block, PageBlocksPricing } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
@@ -70,7 +70,7 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 					</PriceCard>
 				))}
 			</div>
-			<p className="text-primary mt-sm text-center text-sm">
+			<p className="mt-sm text-center text-primary text-sm">
 				{t('global.vat')}
 			</p>
 		</BlockLayout>

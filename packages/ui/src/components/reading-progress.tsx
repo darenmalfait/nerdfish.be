@@ -18,9 +18,9 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 					Math.round(
 						Math.min(
 							Number((currentProgress / scrollHeight).toFixed(2)) * 100,
-							100,
-						),
-					),
+							100
+						)
+					)
 				)
 			}
 		}
@@ -35,10 +35,10 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 	return (
 		<div
 			aria-hidden
-			className="fixed left-0 right-0 top-0 z-50 h-1 w-full bg-transparent"
+			className="fixed top-0 right-0 left-0 z-50 h-1 w-full bg-transparent"
 		>
 			<div
-				className="bg-accent h-1 transition-transform duration-150"
+				className="h-1 bg-accent transition-transform duration-150"
 				style={{
 					transform: `translateX(${completion - 100}%)`,
 				}}

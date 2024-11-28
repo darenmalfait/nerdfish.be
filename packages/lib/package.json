@@ -1,35 +1,29 @@
 {
-  "name": "@repo/lib",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    "./utils": "./src/utils/index.ts"
-  },
-  "typesVersions": {
-    "*": {
-      "utils": [
-        "./src/utils/index.ts"
-      ]
-    }
-  },
-  "scripts": {
-    "clean": "rm -rf node_modules .turbo",
-    "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
-    "format:fix": "prettier . --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
-    "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
-    "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@nerdfish/utils": "^2.0.0",
-    "react": "^18.3.1",
-    "slugify": "^1.6.6",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@types/node": "^22.9.1",
-    "tsup": "^8.3.5",
-    "typescript": "^5.6.3"
-  }
+	"name": "@repo/lib",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./utils": "./src/utils/index.ts"
+	},
+	"typesVersions": {
+		"*": {
+			"utils": ["./src/utils/index.ts"]
+		}
+	},
+	"scripts": {
+		"clean": "rm -rf node_modules .turbo",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@nerdfish/utils": "^2.0.0",
+		"react": "^18.3.1",
+		"slugify": "^1.6.6",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@types/node": "^22.9.1",
+		"tsup": "^8.3.5",
+		"typescript": "^5.6.3"
+	}
 }

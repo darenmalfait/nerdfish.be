@@ -2,7 +2,7 @@
 
 import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { XIcon, MessageCircleIcon } from '@repo/ui/icons'
+import { MessageCircleIcon, XIcon } from '@repo/ui/icons'
 import * as React from 'react'
 
 export type ChatPosition = 'bottom-right' | 'bottom-left'
@@ -38,8 +38,8 @@ export const ExpandableChatHeader = React.forwardRef<
 	<div
 		ref={ref}
 		className={cx(
-			'border-b-muted p-md flex items-center justify-between',
-			className,
+			'flex items-center justify-between border-b-muted p-md',
+			className
 		)}
 		{...props}
 	/>
@@ -52,7 +52,7 @@ export const ExpandableChatBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cx('p-md flex-1 flex-grow overflow-y-auto', className)}
+		className={cx('flex-1 flex-grow overflow-y-auto p-md', className)}
 		{...props}
 	/>
 ))
@@ -64,7 +64,7 @@ export const ExpandableChatFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cx('border-muted p-md border-t', className)}
+		className={cx('border-muted border-t p-md', className)}
 		{...props}
 	/>
 ))
@@ -88,7 +88,7 @@ const ExpandableChatToggle = React.forwardRef<
 		onClick={toggleChat}
 		className={cx(
 			'-z-1 group flex h-14 w-14 items-center justify-center transition-all duration-300 hover:scale-110',
-			className,
+			className
 		)}
 		{...props}
 	>
@@ -124,7 +124,7 @@ export const ExpandableChat = React.forwardRef<
 			'aria-label': ariaLabel,
 			...props
 		},
-		ref,
+		ref
 	) => {
 		const [isOpen, setIsOpen] = React.useState(false)
 
@@ -133,24 +133,24 @@ export const ExpandableChat = React.forwardRef<
 				ref={ref}
 				className={cx(
 					`fixed ${chatConfig.positions[position]} z-50`,
-					className,
+					className
 				)}
 				{...props}
 			>
 				<div
 					className={cx(
-						'bg-primary duration-250 sm:rounded-base shadow-outline fixed inset-0 flex h-full w-full flex-col overflow-hidden shadow-md transition-all ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw]',
+						'fixed inset-0 flex h-full w-full flex-col overflow-hidden bg-primary shadow-md shadow-outline transition-all duration-250 ease-out sm:absolute sm:inset-auto sm:h-[80vh] sm:w-[90vw] sm:rounded-base',
 						chatConfig.chatPositions[position],
 						chatConfig.dimensions[size],
 						isOpen ? chatConfig.states.open : chatConfig.states.closed,
-						className,
+						className
 					)}
 				>
 					{children}
 					<Button
 						variant="ghost"
 						size="icon"
-						className="right-sm top-sm absolute sm:hidden"
+						className="absolute top-sm right-sm sm:hidden"
 						onClick={() => setIsOpen((current) => !current)}
 					>
 						<XIcon className="h-4 w-4" />
@@ -164,7 +164,7 @@ export const ExpandableChat = React.forwardRef<
 				/>
 			</div>
 		)
-	},
+	}
 )
 
 ExpandableChat.displayName = 'ExpandableChat'

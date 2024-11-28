@@ -1,5 +1,5 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type SystemInfo, type Wiki } from '~/app/cms'
+import type { SystemInfo, Wiki } from '~/app/cms'
 
 const WikiPath = 'wiki'
 
@@ -59,16 +59,16 @@ export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 	let individualWordResults = matchSorter(
 		posts,
 		firstWord,
-		individualWordOptions,
+		individualWordOptions
 	)
 	for (const word of restWords) {
 		const searchResult = matchSorter(
 			individualWordResults,
 			word,
-			individualWordOptions,
+			individualWordOptions
 		)
 		individualWordResults = individualWordResults.filter((r) =>
-			searchResult.includes(r),
+			searchResult.includes(r)
 		)
 	}
 
@@ -76,7 +76,7 @@ export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 }
 
 export function getWikiPath(
-	wiki: Omit<Partial<Wiki>, '_sys'> & { _sys?: Partial<SystemInfo> },
+	wiki: Omit<Partial<Wiki>, '_sys'> & { _sys?: Partial<SystemInfo> }
 ) {
 	const path = wiki._sys?.breadcrumbs?.join('/')
 	return path ? `/${WikiPath}/${path}` : ''

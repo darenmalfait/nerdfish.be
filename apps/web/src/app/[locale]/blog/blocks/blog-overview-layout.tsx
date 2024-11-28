@@ -1,24 +1,24 @@
 'use client'
 
 import { H1 } from '@nerdfish/ui'
-import { type PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils'
 import {
-	Section,
-	SectionHeaderTitle,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	ArticleOverviewLoadMoreButton,
 	type Article,
 	ArticleOverview,
-	ArticleOverviewSearch,
-	ArticleOverviewSearchImage,
-	ArticleOverviewSearchContent,
 	ArticleOverviewFilter,
+	ArticleOverviewLoadMoreButton,
+	ArticleOverviewSearch,
+	ArticleOverviewSearchContent,
+	ArticleOverviewSearchImage,
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
 } from '@repo/ui/components'
 import * as React from 'react'
-import { filterBlog, mapBlogToArticle } from '../utils'
-import { type Blog, type Block, type PageBlocksBlog } from '~/app/cms'
+import type { Block, Blog, PageBlocksBlog } from '~/app/cms'
 import { useTranslation } from '~/app/i18n'
+import { filterBlog, mapBlogToArticle } from '../utils'
 
 export function BlockLayout({
 	searchEnabled,
@@ -43,7 +43,7 @@ export function BlockLayout({
 
 			return mapBlogToArticle(filterBlog(blogs, searchString))
 		},
-		[items],
+		[items]
 	)
 
 	return (
@@ -75,7 +75,7 @@ export function BlockLayout({
 
 				<ArticleOverviewFilter />
 
-				{!searchEnabled ? (
+				{searchEnabled ? null : (
 					<SectionHeader
 						cta={{
 							title: t('global.allArticles'),
@@ -87,7 +87,7 @@ export function BlockLayout({
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>
 					</SectionHeader>
-				) : null}
+				)}
 
 				{children}
 				<ArticleOverviewLoadMoreButton>
