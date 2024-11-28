@@ -1,7 +1,8 @@
 'use client'
 
 import { H1, H2 } from '@nerdfish/ui'
-import { InViewBackground, Section } from '@repo/ui/components'
+import { InViewBackground } from '@repo/ui/components/in-view-background'
+import { Section } from '@repo/ui/components/section'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/ui/icons'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'

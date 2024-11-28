@@ -2,10 +2,12 @@
 
 import { Badge, H2, type H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Cursor, DateFormatter, getCategoryColors } from '@repo/ui/components'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
+import { getCategoryColors } from './category-indicator'
+import { Cursor } from './cursor'
+import { DateFormatter } from './date-formatter'
 
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	return (

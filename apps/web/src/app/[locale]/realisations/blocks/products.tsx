@@ -16,7 +16,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import { GithubIcon, GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'

@@ -1,12 +1,9 @@
 'use client'
 
 import { H2 } from '@nerdfish/ui'
-import {
-	InViewBackground,
-	NeonGradientCard,
-	Section,
-	SectionHeaderSubtitle,
-} from '@repo/ui/components'
+import { InViewBackground } from '@repo/ui/components/in-view-background'
+import { NeonGradientCard } from '@repo/ui/components/neon-gradient-card'
+import { Section, SectionHeaderSubtitle } from '@repo/ui/components/section'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '~/app/cms/components/portable-text'
 import type { Block, PageBlocksNeon } from '~/app/cms/types'

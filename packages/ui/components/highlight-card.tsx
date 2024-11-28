@@ -2,11 +2,12 @@
 
 import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { MagnetButton, getCategoryColors } from '@repo/ui/components'
-import { ArrowRightIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
+import { ArrowRightIcon } from '../icons'
+import { getCategoryColors } from './category-indicator'
+import { MagnetButton } from './magnet-button'
 
 export const HighlightCardImage = React.forwardRef<
 	HTMLDivElement,

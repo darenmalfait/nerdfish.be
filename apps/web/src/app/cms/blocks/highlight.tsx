@@ -8,8 +8,8 @@ import {
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
-	Section,
-} from '@repo/ui/components'
+} from '@repo/ui/components/highlight-card'
+import { Section } from '@repo/ui/components/section'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'

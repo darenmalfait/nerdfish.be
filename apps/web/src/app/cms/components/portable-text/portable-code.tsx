@@ -1,4 +1,4 @@
-import { CodeBlock } from '@repo/ui/components'
+import { CodeBlock } from '@repo/ui/components/code-block'
 
 function PortableCode({ lang, value }: { lang?: string; value?: string }) {
 	if (!value) return null

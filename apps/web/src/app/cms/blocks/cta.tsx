@@ -1,7 +1,8 @@
 'use client'
 
 import { H2 } from '@nerdfish/ui'
-import { MagnetButton, Section } from '@repo/ui/components'
+import { MagnetButton } from '@repo/ui/components/magnet-button'
+import { Section } from '@repo/ui/components/section'
 import { ArrowRightIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import type * as React from 'react'

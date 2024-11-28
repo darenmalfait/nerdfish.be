@@ -2,9 +2,9 @@ import { Button, H4, Paragraph } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
-	Section,
 	getCategoryColors,
-} from '@repo/ui/components'
+} from '@repo/ui/components/category-indicator'
+import { Section } from '@repo/ui/components/section'
 import { ArrowRight } from '@repo/ui/icons'
 import Link from 'next/link'
 import type * as React from 'react'

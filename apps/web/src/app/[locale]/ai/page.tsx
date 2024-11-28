@@ -1,12 +1,12 @@
 import { Paragraph } from '@nerdfish/ui'
 import { createMetadata } from '@repo/seo/metadata'
+import { InViewBackground } from '@repo/ui/components/in-view-background'
 import {
-	InViewBackground,
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import type { Metadata } from 'next'
 import { generateOGImageUrl } from '~/app/api/og/utils'
 import { HeroBlock } from '~/app/cms/blocks/hero'

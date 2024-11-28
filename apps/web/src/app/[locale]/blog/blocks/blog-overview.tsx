@@ -11,9 +11,11 @@ import {
 	ArticleCardContent,
 	ArticleCardImage,
 	ArticleCardTitle,
+} from '@repo/ui/components/article-card'
+import {
 	ArticleOverviewContentGrid,
 	ArticlesOverviewEmptyState,
-} from '@repo/ui/components'
+} from '@repo/ui/components/article-overview'
 import * as React from 'react'
 import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
 import { getBlogPosts } from '../api'
