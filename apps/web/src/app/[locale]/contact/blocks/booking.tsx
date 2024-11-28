@@ -12,7 +12,8 @@ import {
 	CardTitle,
 	Skeleton,
 } from '@nerdfish/ui'
-import { DrawerDialog, Section } from '@repo/ui/components'
+import { DrawerDialog } from '@repo/ui/components/drawer-dialog'
+import { Section } from '@repo/ui/components/section'
 import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

@@ -2,9 +2,9 @@
 
 import { cx } from '@nerdfish/utils'
 import { type ElementState, useElementState } from '@repo/lib/utils'
-import { ArrowIcon, type ArrowIconProps } from '@repo/ui/icons'
 import { type Variant, motion } from 'motion/react'
 import type * as React from 'react'
+import { ArrowIcon, type ArrowIconProps } from '../icons'
 
 import { Link } from './link'
 

@@ -9,11 +9,13 @@ import {
 	ArticleOverviewSearch,
 	ArticleOverviewSearchContent,
 	ArticleOverviewSearchImage,
+} from '@repo/ui/components/article-overview'
+import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import * as React from 'react'
 import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
 import { useTranslation } from '~/app/i18n/translation-provider'

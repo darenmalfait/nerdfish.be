@@ -7,7 +7,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'

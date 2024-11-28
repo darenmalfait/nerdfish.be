@@ -3,7 +3,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import {
 	CSSIcon,
 	FigmaIcon,

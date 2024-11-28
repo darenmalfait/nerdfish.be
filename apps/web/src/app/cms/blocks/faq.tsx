@@ -13,7 +13,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksFaq } from '~/app/cms/types'

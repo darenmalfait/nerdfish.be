@@ -1,6 +1,6 @@
 import { Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { Section } from '@repo/ui/components'
+import { Section } from '@repo/ui/components/section'
 import Image from 'next/image'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

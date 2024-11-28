@@ -10,11 +10,13 @@ import {
 	PriceCardFeatures,
 	PriceCardHeader,
 	PriceCardTitle,
+} from '@repo/ui/components/price-card'
+import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksPricing } from '~/app/cms/types'

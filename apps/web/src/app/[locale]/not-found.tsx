@@ -1,5 +1,6 @@
 import { Button, H1, Paragraph } from '@nerdfish/ui'
-import { InViewBackground, Section } from '@repo/ui/components'
+import { InViewBackground } from '@repo/ui/components/in-view-background'
+import { Section } from '@repo/ui/components/section'
 import { ChevronLeftIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import Link from 'next/link'

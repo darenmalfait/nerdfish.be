@@ -17,12 +17,14 @@ import {
 	ArticleCardContent,
 	ArticleCardDescription,
 	ArticleCardTitle,
+} from '@repo/ui/components/article-card'
+import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-	TagFilter,
-} from '@repo/ui/components'
+} from '@repo/ui/components/section'
+import { TagFilter } from '@repo/ui/components/tag-filter'
 import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import * as React from 'react'
