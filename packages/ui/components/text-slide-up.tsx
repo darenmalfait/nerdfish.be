@@ -17,7 +17,7 @@ function TextSlideUpItem({
 	className?: string
 }) {
 	return (
-		<div className={cx('overflow-hidden leading-[1.15]', className)}>
+		<div className={className}>
 			<div
 				className={cx({
 					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] [animation-duration:800ms]':
