@@ -11,7 +11,13 @@ export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
 		.filter((item) =>
 			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true
 		)
-		.reverse()
+		.sort((a, b) => {
+			if (a.date && b.date) {
+				return new Date(b.date).getTime() - new Date(a.date).getTime()
+			}
+
+			return 0
+		})
 }
 
 export async function getBlogPost(relativePath: string) {
