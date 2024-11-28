@@ -1,4 +1,4 @@
-import { GeistSans } from 'geist/font/sans'
+import { fonts } from '@repo/ui/fonts'
 import * as React from 'react'
 import { i18n } from '~/app/i18n/config'
 import { TranslationProvider } from '~/app/i18n/translation-provider'
@@ -9,10 +9,11 @@ import { GlobalProvider } from '../global-provider'
 import { getDictionary } from '../i18n/get-dictionary'
 import { SiteLayout } from '../layout/site-layout'
 
-import '~/app/theme/styles/tailwind.css'
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
 import '~/app/theme/styles/components.css'
+
+import '@repo/tailwind-config/styles/global.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
 
 const getLayoutData = React.cache(getGlobalData)
@@ -33,7 +34,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang={params.locale} suppressHydrationWarning>
-			<body className={`${GeistSans.variable} font-sans`}>
+			<body className={fonts}>
 				<AppProviders>
 					<TranslationProvider
 						dictionary={dictionary}
