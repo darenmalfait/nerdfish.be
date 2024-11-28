@@ -1,4 +1,4 @@
-import { stripPreSlash } from '@repo/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import { ExternalLinkIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 

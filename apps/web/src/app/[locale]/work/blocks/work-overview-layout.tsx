@@ -1,6 +1,6 @@
 'use client'
 
-import type { PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Article,
 	ArticleOverview,

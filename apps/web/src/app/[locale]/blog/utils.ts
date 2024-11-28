@@ -1,4 +1,5 @@
-import { type PartialDeep, nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
+import type { PartialDeep } from '@repo/lib/utils/types'
 import type { Article } from '@repo/ui/components/article-overview'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'

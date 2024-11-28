@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import {
 	PriceCard,
 	PriceCardAction,

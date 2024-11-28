@@ -9,7 +9,7 @@ import {
 	NavigationMenuTrigger,
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
-import { stripPreSlash } from '@repo/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'

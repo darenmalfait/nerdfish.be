@@ -1,4 +1,4 @@
-import type { PartialDeep } from '@repo/lib/utils'
+import type { PartialDeep } from '@repo/lib/utils/types'
 import type { Page } from '~/app/cms/types'
 
 export function getPagePath(page: PartialDeep<Page>) {
