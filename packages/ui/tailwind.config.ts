@@ -1,14 +1,2 @@
-// this is a way to get tailwind autocomplete to work
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: [
-		'src/**/*.{ts,tsx}',
-		'../../node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}',
-	],
-	plugins: [
-		require('tailwindcss-animate'),
-		require('@tailwindcss/typography'),
-		require('@nerdfish/tailwind-config'),
-	],
-}
+// biome-ignore lint/performance/noBarrelFile: it's a config
+export { config as default } from '@repo/tailwind-config/config'

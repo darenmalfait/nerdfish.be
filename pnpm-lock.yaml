@@ -63,9 +63,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.1
         version: 3.9.1(react-hook-form@7.53.2(react@18.3.1))
-      '@nerdfish/tailwind-config':
-        specifier: ^3.8.0
-        version: 3.8.0
       '@nerdfish/theme':
         specifier: ^2.5.0
         version: 2.5.0
@@ -99,15 +96,12 @@ importers:
       '@repo/seo':
         specifier: workspace:*
         version: link:../../packages/seo
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@tailwindcss/aspect-ratio':
-        specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.4.15)
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
       '@tinacms/auth':
         specifier: ^1.0.8
         version: 1.0.8(encoding@0.1.13)
@@ -162,9 +156,6 @@ importers:
       slugify:
         specifier: ^1.6.6
         version: 1.6.6
-      tailwindcss-motion:
-        specifier: ^0.4.3-beta
-        version: 0.4.3-beta(tailwindcss@3.4.15)
       tinacms:
         specifier: ^2.4.0
         version: 2.4.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(abstract-level@1.0.4)(encoding@0.1.13)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(sucrase@3.35.0)(typescript@5.6.3)
@@ -247,24 +238,6 @@ importers:
       ai:
         specifier: ^4.0.4
         version: 4.0.7(react@18.3.1)(zod@3.23.8)
-
-  packages/config-tailwind:
-    devDependencies:
-      '@nerdfish/tailwind-config':
-        specifier: ^3.7.1
-        version: 3.7.2
-      '@tailwindcss/line-clamp':
-        specifier: ^0.4.4
-        version: 0.4.4(tailwindcss@3.4.15)
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
-      tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.15
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.15)
 
   packages/email:
     dependencies:
@@ -376,11 +349,30 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
-  packages/ui:
+  packages/tailwind-config:
     dependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^3.8.0
-        version: 3.8.0
+        specifier: ^3.7.1
+        version: 3.7.2
+      '@tailwindcss/line-clamp':
+        specifier: ^0.4.4
+        version: 0.4.4(tailwindcss@3.4.15)
+      '@tailwindcss/typography':
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.15)
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.15)
+      tailwindcss-motion:
+        specifier: ^0.4.3-beta
+        version: 0.4.3-beta(tailwindcss@3.4.15)
+    devDependencies:
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.15
+
+  packages/ui:
+    dependencies:
       '@nerdfish/ui':
         specifier: ^7.7.2
         version: 7.7.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
@@ -396,9 +388,9 @@ importers:
       '@repo/lib':
         specifier: workspace:*
         version: link:../lib
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:../tailwind-config
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -426,19 +418,13 @@ importers:
       slugify:
         specifier: ^1.6.6
         version: 1.6.6
-      tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.15
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.15)
-      tailwindcss-motion:
-        specifier: ^0.4.3-beta
-        version: 0.4.3-beta(tailwindcss@3.4.15)
     devDependencies:
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.15
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -2417,9 +2403,6 @@ packages:
 
   '@nerdfish/tailwind-config@3.7.2':
     resolution: {integrity: sha512-j39s3I1rW92lx0+hEMr3klcHHUZnW+zXD38WDoRJA4xneNbwj9iQBf2yrFBJOTo56/+NlivqAdbkydMrnAc/Zw==}
-
-  '@nerdfish/tailwind-config@3.8.0':
-    resolution: {integrity: sha512-8ZzzBRTZ10NgSgt6J9oqHbAVvpOvQ7olXfTdc2mELYIz1QlQRqEyTjQ2t0H3/wqZq30ZE+THtCRGcxbRM4CuSQ==}
 
   '@nerdfish/theme@2.5.0':
     resolution: {integrity: sha512-WQ5Meu+FhD3T/WnLSE7l3wFG38oZZxazK1wA7GPAf2vgOuw8+0fNXyCWB6G7wW1soJcUdBiAOTEIImqcS6VrYg==}
@@ -12184,12 +12167,6 @@ snapshots:
       - vitest
 
   '@nerdfish/tailwind-config@3.7.2':
-    dependencies:
-      tailwindcss: 3.4.15
-    transitivePeerDependencies:
-      - ts-node
-
-  '@nerdfish/tailwind-config@3.8.0':
     dependencies:
       tailwindcss: 3.4.15
     transitivePeerDependencies:
