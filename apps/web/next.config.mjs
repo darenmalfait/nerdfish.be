@@ -10,9 +10,6 @@ const nextConfig = {
 			bodySizeLimit: '2mb',
 		},
 	},
-	eslint: {
-		ignoreDuringBuilds: true,
-	},
 	async rewrites() {
 		return [
 			{
