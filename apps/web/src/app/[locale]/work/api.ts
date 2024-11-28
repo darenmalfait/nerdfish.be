@@ -1,5 +1,5 @@
-import type { Locale } from '~/app/i18n'
-import { tina } from '../../cms'
+import { tina } from '~/app/cms/client'
+import type { Locale } from '~/app/i18n/types'
 
 export async function getWorks({ locale }: { locale?: Locale } = {}) {
 	const workListData = await tina.queries.workConnection()

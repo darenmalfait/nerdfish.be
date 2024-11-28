@@ -4,11 +4,8 @@ import { Section } from '@repo/ui/components'
 import Image from 'next/image'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	type Block,
-	type PageBlocksSplitWithImage,
-	PortableText,
-} from '~/app/cms'
+import type { Block, PageBlocksSplitWithImage } from '~/app/cms/types'
+import { PortableText } from '../components/portable-text'
 
 function BlockLayout({
 	children,

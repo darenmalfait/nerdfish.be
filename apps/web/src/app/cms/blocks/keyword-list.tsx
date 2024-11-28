@@ -3,7 +3,7 @@ import { nonNullable } from '@repo/lib/utils'
 import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksKeywordList } from '~/app/cms'
+import type { Block, PageBlocksKeywordList } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null

@@ -1,5 +1,6 @@
 import type { Template } from '@tinacms/schema-tools'
-import { imageSchema, portableTextSchema } from '../objects'
+import { imageSchema } from '../objects/image'
+import { portableTextSchema } from '../objects/portable-text'
 
 export const heroTemplate: Template = {
 	name: 'hero',

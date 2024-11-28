@@ -2,7 +2,7 @@ import { type PartialDeep, nonNullable } from '@repo/lib/utils'
 import type { Article } from '@repo/ui/components'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import type { Blog } from '../../cms'
+import type { Blog } from '~/app/cms/types'
 
 const BlogPath = 'blog'
 

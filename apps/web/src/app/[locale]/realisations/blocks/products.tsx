@@ -20,7 +20,7 @@ import {
 import { GithubIcon, GlobeIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksProducts, Product } from '~/app/cms'
+import type { Block, PageBlocksProducts, Product } from '~/app/cms/types'
 
 function ProductItem({
 	title,

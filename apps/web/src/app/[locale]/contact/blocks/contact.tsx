@@ -13,9 +13,9 @@ import {
 import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksContact } from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
-import { ContactForm } from '../components/contact-form'
+import type { Block, PageBlocksContact } from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
+import { ContactForm } from '../components/contact-form/contact-form'
 import { EmbeddedCal } from '../components/embedded-cal'
 
 export function ContactBlock(props: Block<PageBlocksContact>) {

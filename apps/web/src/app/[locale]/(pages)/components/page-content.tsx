@@ -1,5 +1,6 @@
-import { Blocks, type ContentQueryQuery } from '~/app/cms'
-import type { Locale } from '~/app/i18n'
+import { Blocks } from '~/app/cms/blocks-renderer'
+import type { ContentQueryQuery } from '~/app/cms/types'
+import type { Locale } from '~/app/i18n/types'
 import { mapPageData } from '../api'
 
 export function PageContent({

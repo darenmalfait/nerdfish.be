@@ -16,12 +16,12 @@ import { DrawerDialog, Section } from '@repo/ui/components'
 import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import {
-	type Block,
-	type GlobalCalcomTypes,
-	type PageBlocksBooking,
-	PortableText,
-} from '~/app/cms'
+import { PortableText } from '~/app/cms/components/portable-text'
+import type {
+	Block,
+	GlobalCalcomTypes,
+	PageBlocksBooking,
+} from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 import { EmbeddedCal } from '../components/embedded-cal'
 

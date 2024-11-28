@@ -1,5 +1,5 @@
 import type { Template } from '@tinacms/schema-tools'
-import { tagsSchema } from '../objects'
+import { tagsSchema } from '../objects/tags'
 
 export const workTemplate: Template = {
 	name: 'Work',

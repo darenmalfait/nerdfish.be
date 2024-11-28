@@ -8,7 +8,8 @@ import { capitalize } from 'lodash'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksHero, PortableText } from '~/app/cms'
+import { PortableText } from '~/app/cms/components/portable-text'
+import type { Block, PageBlocksHero } from '~/app/cms/types'
 
 const AnimatedText = React.forwardRef<
 	HTMLSpanElement,

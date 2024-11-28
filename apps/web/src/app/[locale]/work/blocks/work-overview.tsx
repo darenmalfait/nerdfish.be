@@ -10,7 +10,7 @@ import {
 	ArticlesOverviewEmptyState,
 } from '@repo/ui/components'
 import * as React from 'react'
-import type { Block, PageBlocksWork, Work } from '~/app/cms'
+import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'
 import { BlockLayout } from './work-overview-layout'

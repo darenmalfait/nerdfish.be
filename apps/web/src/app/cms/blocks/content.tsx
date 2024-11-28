@@ -1,7 +1,8 @@
 import { Section } from '@repo/ui/components'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksContent, PortableText } from '~/app/cms'
+import type { Block, PageBlocksContent } from '~/app/cms/types'
+import { PortableText } from '../components/portable-text'
 
 function BlockLayout({ children }: { children: React.ReactNode }) {
 	if (!children) return null

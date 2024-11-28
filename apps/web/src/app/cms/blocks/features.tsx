@@ -21,8 +21,8 @@ import type {
 	Page,
 	PageBlocksFeatures,
 	PageBlocksFeaturesItems,
-} from '~/app/cms'
-import { useTranslation } from '~/app/i18n'
+} from '~/app/cms/types'
+import { useTranslation } from '~/app/i18n/translation-provider'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 

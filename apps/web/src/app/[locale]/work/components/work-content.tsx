@@ -9,7 +9,9 @@ import { ArrowRight } from '@repo/ui/icons'
 import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { Blocks, PortableText, type WorkQueryQuery } from '~/app/cms'
+import { Blocks } from '~/app/cms/blocks-renderer'
+import { PortableText } from '~/app/cms/components/portable-text'
+import type { WorkQueryQuery } from '~/app/cms/types'
 
 const prose = 'prose dark:prose-invert max-w-4xl'
 
