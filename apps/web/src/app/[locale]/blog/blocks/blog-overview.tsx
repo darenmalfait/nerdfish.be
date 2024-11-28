@@ -66,16 +66,13 @@ export async function BlogOverviewBlockContent(
 	return (
 		<>
 			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
+
 			<BlockLayout
 				searchEnabled={searchEnabled ?? false}
 				featuredEnabled={featuredEnabled ?? false}
 				items={limitedBlogs}
 				header={header}
-			>
-				<ArticleOverviewContentGrid loadMoreLabel="read more">
-					<ArticlesOverviewEmptyState />
-				</ArticleOverviewContentGrid>
-			</BlockLayout>
+			/>
 		</>
 	)
 }
