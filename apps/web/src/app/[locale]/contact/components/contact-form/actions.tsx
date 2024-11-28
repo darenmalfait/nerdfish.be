@@ -33,12 +33,11 @@ export async function submitContactForm(payload: ContactFormData) {
 
 	const {
 		name,
-		email,
+		contact,
 		textMessage: message,
 		company,
 		budgetRange,
 		projectType,
-		phone,
 	} = data
 
 	try {
@@ -48,16 +47,16 @@ export async function submitContactForm(payload: ContactFormData) {
 			from: env.NERDFISH_SMTP,
 			to: env.NERDFISH_SMTP,
 			subject: 'Contact form submission',
-			replyTo: `${name} <${email}>`,
+			replyTo: `${name} <${contact.email}>`,
 			react: (
 				<ContactEmail
 					name={name}
-					email={email}
+					email={contact.email}
 					message={message}
 					company={company}
 					budgetRange={budgetRange}
 					projectType={projectType}
-					phone={phone}
+					phone={contact.phone}
 				/>
 			),
 		})
