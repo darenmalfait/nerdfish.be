@@ -65,7 +65,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 
 			<Drawer open={contactFormOpen} onOpenChange={setContactFormOpen}>
 				<DrawerContent className="max-h-[85vh] bg-primary">
-					<div className="container mx-auto px-md pb-xl">
+					<div className="container pb-xl">
 						<SectionHeader>
 							<SectionHeaderTitle
 								data-tina-field={tinaField(props, 'formTitle')}

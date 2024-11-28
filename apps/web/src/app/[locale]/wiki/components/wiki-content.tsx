@@ -39,7 +39,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 					</H1>
 				</header>
 
-				<Separator className="container mx-auto my-lg max-w-4xl" />
+				<Separator className="container my-lg max-w-4xl" />
 				<div className={prose} data-tina-field={tinaField(data.wiki, 'body')}>
 					{body ? <PortableText content={body} /> : null}
 				</div>

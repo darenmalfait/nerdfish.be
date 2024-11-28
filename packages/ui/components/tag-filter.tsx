@@ -105,7 +105,7 @@ export function TagFilter({
 						</Button>
 					</DrawerTrigger>
 					<DrawerContent className="max-h-[85vh]">
-						<div className="container mx-auto p-md">
+						<div className="container">
 							<DrawerHeader>
 								<DrawerTitle>{title}</DrawerTitle>
 							</DrawerHeader>
