@@ -12,7 +12,7 @@ import { DateFormatter } from './date-formatter'
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	return (
 		<Cursor attachToParent>
-			<div className="motion-preset-pop motion-duration-300 group relative inline-flex items-center gap-md">
+			<div className="motion-preset-pop group motion-duration-300 relative inline-flex items-center gap-md">
 				<svg
 					fill="none"
 					height="18"
