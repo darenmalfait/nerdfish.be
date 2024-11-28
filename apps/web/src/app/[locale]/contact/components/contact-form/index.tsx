@@ -7,7 +7,6 @@ import {
 	AlertTitle,
 	Button,
 	Description,
-	Field,
 	Form,
 	FormControl,
 	FormDescription,
@@ -17,7 +16,6 @@ import {
 	FormMessage,
 	H3,
 	Input,
-	Label,
 	LabelAsterisk,
 	LoadingAnimation,
 	PhoneInput,
@@ -66,12 +64,14 @@ export function ContactForm() {
 		resolver: zodResolver(contactSchema),
 		defaultValues: {
 			name: '',
-			email: '',
+			contact: {
+				email: '',
+				phone: '',
+			},
 			company: '',
 			textMessage: '',
 			projectType: [],
 			budgetRange: [1500, 4000],
-			phone: '',
 		},
 	})
 
@@ -148,50 +148,61 @@ export function ContactForm() {
 							/>
 						</div>
 
-						<Field>
-							<Label>
-								{t('contact.contactInformation')}
-								<LabelAsterisk />
-							</Label>
-							<div className="flex w-full flex-col items-start gap-md md:flex-row">
-								<FormField
-									control={form.control}
-									name="email"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>
-												<FormDescription>{t('contact.email')}</FormDescription>
-											</FormLabel>
+						<FormField
+							control={form.control}
+							name="contact"
+							render={() => (
+								<FormItem>
+									<FormLabel>
+										{t('contact.contactInformation')}
+										<LabelAsterisk />
+									</FormLabel>
+									<div className="flex w-full flex-col items-start gap-md md:flex-row">
+										<FormField
+											control={form.control}
+											name="contact.email"
+											render={({ field }) => (
+												<FormItem className="w-full">
+													<FormLabel>
+														<FormDescription>
+															{t('contact.email')}
+														</FormDescription>
+													</FormLabel>
 
-											<FormControl>
-												<Input inputSize="lg" type="email" {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="phone"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>
-												<FormDescription> {t('contact.phone')}</FormDescription>
-											</FormLabel>
+													<FormControl>
+														<Input inputSize="lg" type="email" {...field} />
+													</FormControl>
+													<FormMessage />
+												</FormItem>
+											)}
+										/>
+										<FormField
+											control={form.control}
+											name="contact.phone"
+											render={({ field }) => (
+												<FormItem className="w-full">
+													<FormLabel>
+														<FormDescription>
+															{' '}
+															{t('contact.phone')}
+														</FormDescription>
+													</FormLabel>
 
-											<FormControl>
-												<PhoneInput
-													inputSize="lg"
-													className="w-full"
-													{...field}
-												/>
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-							</div>
-						</Field>
+													<FormControl>
+														<PhoneInput
+															inputSize="lg"
+															className="w-full"
+															{...field}
+														/>
+													</FormControl>
+													<FormMessage />
+												</FormItem>
+											)}
+										/>
+									</div>
+								</FormItem>
+							)}
+						/>
 					</Fieldset>
 
 					<Fieldset title={t('contact.fieldset.project')}>
