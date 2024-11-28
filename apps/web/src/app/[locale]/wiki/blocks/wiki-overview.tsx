@@ -11,7 +11,7 @@ import {
 	Separator,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import {
 	ArticleCard,
 	ArticleCardContent,

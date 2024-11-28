@@ -1,5 +1,5 @@
 import { H1, Marquee } from '@nerdfish/ui'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components/section'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

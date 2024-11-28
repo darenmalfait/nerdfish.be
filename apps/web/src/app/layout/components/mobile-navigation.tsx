@@ -12,7 +12,7 @@ import {
 	ScrollArea,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { stripPreSlash } from '@repo/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import { Logo, MenuIcon, XIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

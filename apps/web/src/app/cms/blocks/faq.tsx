@@ -7,7 +7,7 @@ import {
 	AccordionTrigger,
 	H3,
 } from '@nerdfish/ui'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import {
 	Section,
 	SectionHeader,

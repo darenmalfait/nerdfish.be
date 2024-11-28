@@ -2,7 +2,7 @@
 
 import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { stripPreSlash } from '@repo/lib/utils'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import NextLink, { type LinkProps } from 'next/link'
 import * as React from 'react'
 import Obfuscate from 'react-obfuscate'

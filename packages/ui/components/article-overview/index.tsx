@@ -10,7 +10,7 @@ import {
 	Input,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import { formatDate } from 'date-fns/format'
 import { parseISO } from 'date-fns/parseISO'
 import Image from 'next/image'

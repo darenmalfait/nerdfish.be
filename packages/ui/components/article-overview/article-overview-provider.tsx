@@ -1,6 +1,6 @@
 'use client'
 
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import * as React from 'react'
 import type { Article } from './types'
 import { filterArticles } from './utils'

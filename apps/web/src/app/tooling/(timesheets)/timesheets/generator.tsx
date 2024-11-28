@@ -27,7 +27,7 @@ import {
 	TooltipTrigger,
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils'
+import { nonNullable } from '@repo/lib/utils/array'
 import { ImportIcon, Logo, PlusIcon, PrinterIcon, XIcon } from '@repo/ui/icons'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
