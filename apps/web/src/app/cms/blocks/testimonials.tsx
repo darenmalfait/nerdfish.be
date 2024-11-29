@@ -1,6 +1,7 @@
 'use client'
 
 import { H1, H2 } from '@nerdfish/ui'
+import { cx } from '@nerdfish/utils'
 import { InViewBackground } from '@repo/ui/components/in-view-background'
 import { Section } from '@repo/ui/components/section'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/ui/icons'
@@ -10,6 +11,7 @@ import type {
 	Block,
 	GlobalTestimonialsItems,
 	PageBlocksTestimonials,
+	PageBlocksTestimonialsLayout,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
@@ -72,22 +74,26 @@ const variants = {
 }
 
 function Testimonial({
+	layout,
 	testimonial,
 	onNext,
 	onPrevious,
 }: {
+	layout?: PageBlocksTestimonialsLayout
 	testimonial: GlobalTestimonialsItems
 	onNext?: () => void
 	onPrevious?: () => void
 }) {
+	const Element = layout?.variant === 'secondary' ? H2 : H1
+
 	return (
 		<div className="relative flex flex-col justify-center gap-xl">
-			<H1
+			<Element
 				as="blockquote"
 				className='font-normal text-primary before:content-["""] after:content-["""]'
 			>
 				{testimonial.quote}
-			</H1>
+			</Element>
 
 			<div className="flex flex-col justify-between gap-xl md:flex-row md:items-center">
 				<Author author={testimonial.author} />
@@ -100,7 +106,7 @@ function Testimonial({
 }
 
 export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
-	const { type, tags } = data
+	const { type, tags, layout } = data
 
 	const { testimonials: allTestimonials } = useGlobal()
 
@@ -150,7 +156,9 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 						initial="initial"
 						animate="animate"
 						exit="exit"
-						className="flex min-h-[80vh] w-full flex-col items-center justify-center"
+						className={cx('flex w-full flex-col items-center justify-center', {
+							'min-h-[80vh]': layout?.variant !== 'secondary',
+						})}
 						variants={variants}
 						transition={{
 							type: 'spring',
@@ -160,6 +168,7 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 						}}
 					>
 						<Testimonial
+							layout={layout ?? undefined}
 							testimonial={testimonial}
 							onNext={testimonials.length > 1 ? onNext : undefined}
 							onPrevious={testimonials.length > 1 ? onPrevious : undefined}

@@ -9,6 +9,19 @@ export const testimonialsTemplate: Template = {
 	},
 	fields: [
 		{
+			type: 'object',
+			label: 'Layout',
+			name: 'layout',
+			fields: [
+				{
+					type: 'string',
+					label: 'Variant',
+					name: 'variant',
+					options: ['default', 'secondary'],
+				},
+			],
+		},
+		{
 			type: 'string',
 			label: 'Type',
 			name: 'type',
