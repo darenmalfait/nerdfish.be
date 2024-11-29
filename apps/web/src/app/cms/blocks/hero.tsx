@@ -73,7 +73,9 @@ function BlockLayout({
 	variant: Variant
 }) {
 	return (
-		<Section className={cx('relative max-w-none')}>
+		<Section
+			className={cx('relative', { 'max-w-none': variant === 'default' })}
+		>
 			{variant === 'default' ? (
 				<div className="-z-1 absolute inset-x-md inset-y-0 bottom-0 rounded-container bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70 lg:inset-x-md" />
 			) : null}
