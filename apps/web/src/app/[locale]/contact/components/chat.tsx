@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Input, LoadingAnimation } from '@nerdfish/ui'
+import { Button, Input, LoadingAnimation, Separator } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
 import { SendHorizonalIcon } from '@repo/ui/icons'
@@ -156,7 +156,7 @@ export function Chat({
 		<div className={cx('flex h-full flex-col', className)}>
 			<div
 				ref={messagesContainerRef}
-				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-xl"
+				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-sm"
 			>
 				<ChatMessage userRole="assistant" className="!animate-none">
 					{t('initialMessage')}
@@ -258,6 +258,8 @@ export function Chat({
 					}
 				/>
 			</form>
+			<Separator className="my-md" />
+			<p className="text-muted text-sm">{t('disclaimer')}</p>
 		</div>
 	)
 }

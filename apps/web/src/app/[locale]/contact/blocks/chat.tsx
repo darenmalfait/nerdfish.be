@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Separator, useMediaQuery } from '@nerdfish/ui'
+import { Button, useMediaQuery } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { useLockBody } from '@repo/lib/hooks/use-body-lock'
 import { BotIcon, XIcon } from '@repo/ui/icons'
@@ -46,9 +46,6 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 				)}
 			>
 				<Chat />
-				{isMobile && isOpen ? <LockBody /> : null}
-				<Separator className="my-xs" />
-				<p className="text-muted text-sm">{t('disclaimer')}</p>
 				{isOpen ? (
 					<>
 						<Button
@@ -64,6 +61,7 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 						</Button>
 					</>
 				) : null}
+				{isMobile && isOpen ? <LockBody /> : null}
 			</div>
 		</div>
 	)
