@@ -1,52 +1,84 @@
 {
-	"ai.booking.subtitle": "Book a meeting",
-	"ai.booking.title": "Rather really speak to me?",
-	"ai.chat.initialMessage": "Hi, how can I help you today?",
-	"ai.description": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
-	"ai.meta.description": "Ask Daren Malfait anything",
-	"ai.meta.title": "Nerdfish - Daren Malfait AI",
-	"ai.page.description": "Can't find the information you're looking for? Ask me anything!",
-	"ai.page.title": "Chat with an AI version of me",
-	"ai.premadeQuestions.currentJob": "Current job",
-	"ai.premadeQuestions.currentJobQuestion": "Tell me about your current position.",
-	"ai.premadeQuestions.experience": "Experience",
-	"ai.premadeQuestions.experienceQuestion": "Tell me about your work experience.",
-	"ai.premadeQuestions.favoriteLanguage": "Favorite language",
-	"ai.premadeQuestions.favoriteLanguageQuestion": "What's your favorite programming language?",
-	"ai.premadeQuestions.whoAreYou": "Who are you",
-	"ai.premadeQuestions.whoAreYouQuestion": "Who are you?",
-	"blog.related.subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
-	"blog.related.title": "Related Posts",
-	"contact.booking.title": "Schedule a call",
-	"contact.budgetRange": "What's your budget?",
-	"contact.budgetRangeDescription": "A transparent budget is important for us to understand your project.",
-	"contact.company": "What's the name of your company?",
-	"contact.contactInformation": "How can I reach you?",
-	"contact.dataUsage": "We only use your data to get in touch with you.",
-	"contact.email": "Email address",
-	"contact.fieldset.customer": "Please tell me about yourself",
-	"contact.fieldset.message": "What's up?",
-	"contact.fieldset.project": "About your project",
-	"contact.genericError": "An error occurred while submitting the form.",
-	"contact.message": "How can I help?",
-	"contact.name": "What's your name?",
-	"contact.phone": "Phone number",
-	"contact.projectType": "What services are you interested in?",
-	"contact.projectTypeDescription": "Select all that apply",
-	"contact.recaptchaError": "Please verify that you are not a robot.",
-	"contact.send": "Submit",
-	"contact.success": "Your message has been sent successfully.",
-	"features.readMore": "Read more",
-	"global.about": "about",
-	"global.allArticles": "See all articles",
-	"global.filterArticles": "Filter articles by topic",
-	"global.loadMore": "Load more",
-	"global.readMore": "Read more",
-	"global.switchLanguage": "Switch Language",
-	"global.vat": "Any prices indicated are exclusive of VAT.",
-	"theme.dark": "Dark",
-	"theme.light": "Light",
-	"theme.system": "System",
-	"work.related.subtitle": "Discover similar creations and inspirations",
-	"work.related.title": "More Like This"
+	"ai": {
+		"booking": {
+			"subtitle": "Book a meeting",
+			"title": "Rather really speak to me?"
+		},
+		"chat": {
+			"initialMessage": "Hi, how can I help you today?"
+		},
+		"description": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
+		"meta": {
+			"description": "Ask Daren Malfait anything",
+			"title": "Nerdfish - Daren Malfait AI"
+		},
+		"page": {
+			"description": "Can't find the information you're looking for? Ask me anything!",
+			"title": "Chat with an AI version of me"
+		},
+		"premadeQuestions": {
+			"currentJob": "Current job",
+			"currentJobQuestion": "Tell me about your current position.",
+			"experience": "Experience",
+			"experienceQuestion": "Tell me about your work experience.",
+			"favoriteLanguage": "Favorite language",
+			"favoriteLanguageQuestion": "What's your favorite programming language?",
+			"whoAreYou": "Who are you",
+			"whoAreYouQuestion": "Who are you?"
+		}
+	},
+	"blog": {
+		"related": {
+			"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
+			"title": "Related Posts"
+		}
+	},
+	"contact": {
+		"booking": {
+			"title": "Schedule a call"
+		},
+		"budgetRange": "What's your budget?",
+		"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
+		"company": "What's the name of your company?",
+		"contactInformation": "How can I reach you?",
+		"dataUsage": "We only use your data to get in touch with you.",
+		"email": "Email address",
+		"fieldset": {
+			"customer": "Please tell me about yourself",
+			"message": "What's up?",
+			"project": "About your project"
+		},
+		"genericError": "An error occurred while submitting the form.",
+		"message": "How can I help?",
+		"name": "What's your name?",
+		"phone": "Phone number",
+		"projectType": "What services are you interested in?",
+		"projectTypeDescription": "Select all that apply",
+		"recaptchaError": "Please verify that you are not a robot.",
+		"send": "Submit",
+		"success": "Your message has been sent successfully."
+	},
+	"features": {
+		"readMore": "Read more"
+	},
+	"global": {
+		"about": "about",
+		"allArticles": "See all articles",
+		"filterArticles": "Filter articles by topic",
+		"loadMore": "Load more",
+		"readMore": "Read more",
+		"switchLanguage": "Switch Language",
+		"vat": "Any prices indicated are exclusive of VAT."
+	},
+	"theme": {
+		"dark": "Dark",
+		"light": "Light",
+		"system": "System"
+	},
+	"work": {
+		"related": {
+			"subtitle": "Discover similar creations and inspirations",
+			"title": "More Like This"
+		}
+	}
 }

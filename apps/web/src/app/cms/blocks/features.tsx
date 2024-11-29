@@ -13,6 +13,7 @@ import { ArrowRight } from '@repo/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -22,12 +23,11 @@ import type {
 	PageBlocksFeatures,
 	PageBlocksFeaturesItems,
 } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
 function DetailLink({ page, title }: { page?: Page; title?: string }) {
-	const { t } = useTranslation()
+	const t = useTranslations()
 	if (!page) return null
 
 	return (

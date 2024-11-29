@@ -2,12 +2,12 @@
 
 import { Button } from '@nerdfish/ui'
 import { ChevronLeftIcon } from '@repo/ui/icons'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useGlobal } from '~/app/global-provider'
-import { useTranslation } from '~/app/i18n/translation-provider'
 
 export function BackToBlog() {
-	const { t } = useTranslation()
+	const t = useTranslations('global')
 	const { paths } = useGlobal()
 
 	if (!paths?.blog) return null
@@ -16,7 +16,7 @@ export function BackToBlog() {
 		<Button variant="outline" asChild>
 			<Link href={paths.blog}>
 				<ChevronLeftIcon className="mr-2 size-4" />
-				{t('global.allArticles')}
+				{t('allArticles')}
 			</Link>
 		</Button>
 	)

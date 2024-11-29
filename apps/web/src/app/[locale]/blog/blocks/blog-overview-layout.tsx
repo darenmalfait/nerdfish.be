@@ -18,9 +18,9 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { filterBlog, mapBlogToArticle } from '../utils'
 
 export function BlockLayout({
@@ -36,7 +36,7 @@ export function BlockLayout({
 	items: PartialDeep<Blog>[]
 	header: Block<PageBlocksBlog>['header']
 }) {
-	const { t } = useTranslation()
+	const t = useTranslations('global')
 	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
@@ -76,12 +76,12 @@ export function BlockLayout({
 					</ArticleOverviewSearchContent>
 				</ArticleOverviewSearch>
 
-				<ArticleOverviewFilter title={t('global.filterArticles')} />
+				<ArticleOverviewFilter title={t('filterArticles')} />
 
 				{searchEnabled ? null : (
 					<SectionHeader
 						cta={{
-							title: t('global.allArticles'),
+							title: t('allArticles'),
 							url: header?.link ?? '',
 						}}
 					>
@@ -94,8 +94,8 @@ export function BlockLayout({
 
 				{children ?? (
 					<ArticleOverviewContentGrid
-						loadMoreLabel={t('global.loadMore')}
-						readMoreLabel={t('global.readMore')}
+						loadMoreLabel={t('loadMore')}
+						readMoreLabel={t('readMore')}
 					>
 						<ArticlesOverviewEmptyState />
 					</ArticleOverviewContentGrid>

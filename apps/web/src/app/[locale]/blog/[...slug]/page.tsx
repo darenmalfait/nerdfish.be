@@ -1,8 +1,8 @@
 import { createMetadata } from '@repo/seo/metadata'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { draftMode } from 'next/headers'
 import { generateOGImageUrl } from '~/app/api/og/utils'
-import { getTranslations } from '~/app/i18n/get-translations'
 import type { WithLocale } from '~/app/i18n/types'
 import { BlogOverviewBlock } from '../blocks/blog-overview'
 import { BlogContent } from '../components/blog-content'
@@ -37,7 +37,7 @@ export default async function BlogPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const t = await getTranslations(params.locale)
+	const t = await getTranslations('blog')
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
@@ -49,8 +49,8 @@ export default async function BlogPage({
 			relatedContent={
 				<BlogOverviewBlock
 					header={{
-						title: t['blog.related.title'],
-						subtitle: t['blog.related.subtitle'],
+						title: t('related.title'),
+						subtitle: t('related.subtitle'),
 					}}
 					count={2}
 					locale={params.locale}

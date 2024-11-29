@@ -8,12 +8,13 @@ import {
 	DropdownMenuTrigger,
 } from '@nerdfish/ui'
 import { GlobeIcon } from '@repo/ui/icons'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { i18n, supportedLanguages } from '../config'
-import { useTranslation } from '../translation-provider'
 
 export function LocaleSwitcher() {
-	const { t, currentLocale } = useTranslation()
+	const t = useTranslations('global')
+	const currentLocale = useLocale()
 
 	const selectedLanguage = supportedLanguages.find(
 		(l) => l.code === currentLocale
@@ -24,7 +25,7 @@ export function LocaleSwitcher() {
 			<DropdownMenuTrigger asChild>
 				<Button
 					variant="outline"
-					aria-label={t('global.switchLanguage')}
+					aria-label={t('switchLanguage')}
 					className="gap-sm"
 				>
 					<GlobeIcon className="size-4" />

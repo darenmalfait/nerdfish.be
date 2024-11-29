@@ -5,8 +5,8 @@ import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { SendHorizonalIcon } from '@repo/ui/icons'
 import type { Message, ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { EmbeddedCal } from './embedded-cal'
 
 const chatMessageVariants = cva(
@@ -113,7 +113,7 @@ export function Chat({
 	initialMessages?: Message[]
 	className?: string
 }) {
-	const { t } = useTranslation()
+	const t = useTranslations('ai')
 	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
 
 	const {
@@ -133,20 +133,20 @@ export function Chat({
 	const premadeQuestions = React.useMemo(
 		() => [
 			{
-				buttonName: t('ai.premadeQuestions.whoAreYou'),
-				question: t('ai.premadeQuestions.whoAreYouQuestion'),
+				buttonName: t('premadeQuestions.whoAreYou'),
+				question: t('premadeQuestions.whoAreYouQuestion'),
 			},
 			{
-				buttonName: t('ai.premadeQuestions.favoriteLanguage'),
-				question: t('ai.premadeQuestions.favoriteLanguageQuestion'),
+				buttonName: t('premadeQuestions.favoriteLanguage'),
+				question: t('premadeQuestions.favoriteLanguageQuestion'),
 			},
 			{
-				buttonName: t('ai.premadeQuestions.experience'),
-				question: t('ai.premadeQuestions.experienceQuestion'),
+				buttonName: t('premadeQuestions.experience'),
+				question: t('premadeQuestions.experienceQuestion'),
 			},
 			{
-				buttonName: t('ai.premadeQuestions.currentJob'),
-				question: t('ai.premadeQuestions.currentJobQuestion'),
+				buttonName: t('premadeQuestions.currentJob'),
+				question: t('premadeQuestions.currentJobQuestion'),
 			},
 		],
 		[t]
@@ -172,7 +172,7 @@ export function Chat({
 				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-xl"
 			>
 				<ChatMessage userRole="assistant" className="!animate-none">
-					{t('ai.chat.initialMessage')}
+					{t('chat.initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
 					if (message.role === 'user') {
