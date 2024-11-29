@@ -13,7 +13,7 @@ export function SiteHeader() {
 
 	return (
 		<div className="w-full bg-transparent">
-			<header className="relative z-50 w-full flex-none">
+			<header className="relative z-40 w-full flex-none">
 				<nav className="container max-w-none">
 					<div className="relative flex w-full items-center py-lg">
 						<Button asChild variant="link" className="-mx-sm text-primary">
