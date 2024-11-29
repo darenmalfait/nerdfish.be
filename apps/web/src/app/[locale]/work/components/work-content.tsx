@@ -29,9 +29,9 @@ function WorkContent({
 			<Section asChild>
 				<article className="-mt-xl md:-mt-3xl mx-auto flex flex-col gap-xl px-md pt-0 xl:flex-row">
 					<Section
-						className={cx('!px-0', {
-							'xl:max-w-[500px]': blocks?.length,
-							'container max-w-4xl px-0': !blocks?.length,
+						className={cx('md:-mt-3xl', {
+							'px-md xl:max-w-[500px]': blocks?.length,
+							'container max-w-4xl': !blocks?.length,
 						})}
 					>
 						<div className="py-lg xl:sticky xl:top-0">
@@ -90,7 +90,7 @@ function WorkContent({
 					</Section>
 
 					{blocks?.length ? (
-						<div className="flex-1 flex-flex-col">
+						<div className="md:-mt-3xl flex-1 flex-flex-col">
 							<div className="-mx-md">
 								<Blocks items={blocks} />
 							</div>
