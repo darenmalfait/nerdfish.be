@@ -35,28 +35,49 @@
 	},
 	"contact": {
 		"booking": {
-			"title": "Plan een call"
+			"title": "Plan een gesprek"
 		},
-		"budgetRange": "Wat is jouw budget?",
-		"budgetRangeDescription": "Een transparant budget is belangrijk voor ons om jouw project te begrijpen.",
-		"company": "Wat is de naam van jouw bedrijf?",
-		"contactInformation": "Hoe kan ik jou bereiken?",
-		"dataUsage": "We gebruiken alleen jouw gegevens om contact met u op te nemen.",
-		"email": "Emailadres",
-		"fieldset": {
-			"customer": "Vertel me over jezelf",
-			"message": "Wat is jouw bericht?",
-			"project": "Over jouw project"
-		},
-		"genericError": "Er is een fout opgetreden bij het verzenden van het formulier.",
-		"message": "Hoe kan ik u helpen?",
-		"name": "Wat is jouw naam?",
-		"phone": "Telefoonnummer",
-		"projectType": "Welke diensten ben je geïnteresseerd in?",
-		"projectTypeDescription": "Selecteer alle die van toepassing zijn",
-		"recaptchaError": "Controleer of u geen robot bent.",
-		"send": "Verstuur",
-		"success": "Jouw bericht is succesvol verzonden."
+		"form": {
+			"send": "Versturen",
+			"success": "Je bericht is succesvol verzonden.",
+			"dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
+			"sections": {
+				"customer": "Vertel me wat over jezelf",
+				"message": "Wat is er?",
+				"project": "Over je project"
+			},
+			"fields": {
+				"names": {
+					"budgetRange": "Wat is je budget?",
+					"company": "Bedrijfsnaam",
+					"email": "E-mailadres",
+					"textMessage": "Bericht",
+					"name": "Naam",
+					"phone": "Telefoonnummer",
+					"projectType": "Project type"
+				},
+				"labels": {
+					"budgetRange": "Wat is je budget?",
+					"budgetRangeDescription": "Een transparant budget is belangrijk voor ons om je project te begrijpen.",
+					"company": "Wat is de naam van je bedrijf?",
+					"contactInformation": "Hoe kan ik je bereiken?",
+					"email": "E-mailadres",
+					"textMessage": "Hoe kan ik helpen?",
+					"name": "Wat is je naam?",
+					"phone": "Telefoonnummer",
+					"projectType": "In welke diensten ben je geïnteresseerd?",
+					"projectTypeDescription": "Selecteer alles wat van toepassing is"
+				},
+				"errors": {
+					"generic": "Er is een fout opgetreden bij het versturen van het formulier.",
+					"recaptcha": "Verifieer dat je geen robot bent.",
+					"validEmail": "Vul een geldig e-mailadres in.",
+					"validPhoneNumber": "Vul een geldig telefoonnummer in.",
+					"phoneOrEmailRequired": "E-mail of telefoon moet worden ingevuld.",
+					"messageNotWithinRange": "Houd je bericht een redelijke lengte - niet te kort en onder 512 tekens."
+				}
+			}
+		}
 	},
 	"features": {
 		"readMore": "Lees meer"
