@@ -1,3 +1,4 @@
+import { cx } from '@nerdfish/utils'
 import {
 	Section,
 	SectionHeader,
@@ -72,12 +73,23 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	)
 }
 
-const SkillsList = ({ children }: { children: React.ReactNode }) => {
+const SkillsList = ({
+	children,
+	maxCols,
+}: {
+	children: React.ReactNode
+	maxCols: string
+}) => {
 	if (!children) return null
 
 	return (
 		<div>
-			<ul className="grid grid-cols-2 gap-sm md:grid-cols-3 lg:grid-cols-5">
+			<ul
+				className={cx('grid grid-cols-2 gap-sm md:grid-cols-3', {
+					'lg:grid-cols-4': maxCols === '4',
+					'lg:grid-cols-5': maxCols === '5',
+				})}
+			>
 				{children}
 			</ul>
 		</div>
@@ -85,7 +97,9 @@ const SkillsList = ({ children }: { children: React.ReactNode }) => {
 }
 
 export function SkillsBlock(data: Block<PageBlocksSkills>) {
-	const { title, skills: skillsList, description } = data
+	const { title, skills: skillsList, description, layout } = data
+
+	const maxCols = layout?.maxCols ?? '5'
 
 	return (
 		<BlockLayout>
@@ -98,7 +112,7 @@ export function SkillsBlock(data: Block<PageBlocksSkills>) {
 				</SectionHeader>
 			) : null}
 
-			<SkillsList>
+			<SkillsList maxCols={maxCols}>
 				{skillsList?.map((item) => (
 					<SkillItem
 						key={item}
