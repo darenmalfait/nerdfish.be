@@ -28,6 +28,19 @@ export const skillsTemplate: Template = {
 	},
 	fields: [
 		{
+			type: 'object',
+			label: 'Layout',
+			name: 'layout',
+			fields: [
+				{
+					type: 'string',
+					name: 'maxCols',
+					label: 'Maximum Columns',
+					options: ['3', '4', '5'],
+				},
+			],
+		},
+		{
 			type: 'string',
 			label: 'Title',
 			name: 'title',
