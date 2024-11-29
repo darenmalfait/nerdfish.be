@@ -37,6 +37,26 @@ export async function WorkOverviewBlockContent(
 	const relatedWorks =
 		relatedTo &&
 		localizedWorks
+			.sort((a, b) => {
+				// The array gets sorted so the index of the next item is the first item in the array
+				const relatedToIndex = localizedWorks.findIndex(
+					(work) => work._sys?.relativePath === relatedTo._sys?.relativePath
+				)
+				if (relatedToIndex === -1) return 0
+
+				const aIndex = localizedWorks.indexOf(a)
+				const bIndex = localizedWorks.indexOf(b)
+
+				// Adjust indices to start after relatedTo
+				const adjustedAIndex =
+					(aIndex - relatedToIndex - 1 + localizedWorks.length) %
+					localizedWorks.length
+				const adjustedBIndex =
+					(bIndex - relatedToIndex - 1 + localizedWorks.length) %
+					localizedWorks.length
+
+				return adjustedAIndex - adjustedBIndex
+			})
 			.filter((work) => !isSameWork(work, relatedTo))
 			.filter((work) => work.category === relatedTo.category)
 
