@@ -15,8 +15,8 @@ import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksContact } from '~/app/cms/types'
-import { ContactForm } from '../components/contact-form'
 import { EmbeddedCal } from '../components/embedded-cal'
+import { ContactForm } from './components/contact-form'
 
 export function ContactBlock(props: Block<PageBlocksContact>) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
