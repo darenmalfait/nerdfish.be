@@ -49,16 +49,5 @@ export const portableTextSchema: RichTextField = {
 				},
 			],
 		},
-		{
-			name: 'ContactForm',
-			label: 'Contact form',
-			fields: [
-				{
-					type: 'rich-text',
-					name: 'content',
-					label: 'content',
-				},
-			],
-		},
 	],
 }
