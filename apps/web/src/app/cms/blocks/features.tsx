@@ -32,7 +32,7 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 
 	return (
 		<div className="mt-md">
-			<MagnetButton className="-mx-md group" variant="ghost" asChild>
+			<MagnetButton className="-mx-sm group" variant="ghost" asChild>
 				<Link
 					href={`/${page._sys.breadcrumbs.join('/')}`}
 					aria-label={`${t('features.readMore')} ${t('global.about')} ${title}`}
