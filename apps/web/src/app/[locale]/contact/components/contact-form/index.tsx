@@ -54,10 +54,10 @@ function Fieldset({
 const BUDGET_RANGE = [500, 10000]
 
 export function ContactForm() {
-	const t = useTranslations('contact.form')
 	const tZod = useTranslations('zod')
 	const tFormFields = useTranslations('contact.form.fields.names')
 	const tCustomErrors = useTranslations('contact.form.fields.errors')
+	const t = useTranslations('contact.form')
 	z.setErrorMap(makeZodI18nMap({ tZod, tFormFields, tCustomErrors }))
 
 	const numberFormatter = useNumberFormatter({
