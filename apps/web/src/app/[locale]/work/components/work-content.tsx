@@ -26,11 +26,14 @@ function WorkContent({
 
 	return (
 		<div className="relative">
-			<Section asChild>
-				<article className="-mt-xl md:-mt-3xl mx-auto flex flex-col gap-xl px-md pt-0 xl:flex-row">
+			<Section
+				className="-mt-xl md:-mt-3xl mx-auto flex flex-col gap-xl pt-0 xl:flex-row"
+				asChild
+			>
+				<article>
 					<Section
-						className={cx('md:-mt-3xl', {
-							'px-md xl:max-w-[500px]': blocks?.length,
+						className={cx('md:-mt-3xl px-0', {
+							'xl:max-w-[500px]': blocks?.length,
 							'container max-w-4xl': !blocks?.length,
 						})}
 					>
