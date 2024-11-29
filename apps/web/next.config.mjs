@@ -1,5 +1,9 @@
+import withNextIntl from 'next-intl/plugin'
+
+const withNextIntlConfig = withNextIntl('./src/app/i18n/request-config.ts')
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withNextIntlConfig({
 	trailingSlash: false,
 	swcMinify: true,
 	images: {
@@ -18,6 +22,6 @@ const nextConfig = {
 			},
 		]
 	},
-}
+})
 
 export default nextConfig

@@ -8,9 +8,9 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { generateOGImageUrl } from '~/app/api/og/utils'
 import { HeroBlock } from '~/app/cms/blocks/hero'
-import { getTranslations } from '~/app/i18n/get-translations'
 import type { WithLocale } from '~/app/i18n/types'
 import { Chat } from '../contact/components/chat'
 
@@ -19,12 +19,12 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{}>
 }): Promise<Metadata | undefined> {
-	const dictionary = await getTranslations(params.locale)
-	const title = dictionary['ai.meta.title']
+	const t = await getTranslations('ai')
+	const title = t('meta.title')
 
 	return createMetadata({
 		title,
-		description: dictionary['ai.meta.description'],
+		description: t('meta.description'),
 		image: generateOGImageUrl({
 			heading: title,
 		}),
@@ -32,15 +32,13 @@ export async function generateMetadata({
 	})
 }
 
-export default async function AiPage({
-	params,
-}: { params: WithLocale<Record<string, never>> }) {
-	const dictionary = await getTranslations(params.locale)
+export default async function AiPage() {
+	const t = await getTranslations('ai')
 
 	return (
 		<>
-			<HeroBlock variant="secondary" title={dictionary['ai.page.title']}>
-				{dictionary['ai.page.description']}
+			<HeroBlock variant="secondary" title={t('page.title')}>
+				{t('page.description')}
 			</HeroBlock>
 			<InViewBackground>
 				<Section>
@@ -49,7 +47,7 @@ export default async function AiPage({
 						<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
 					</SectionHeader>
 					<Paragraph className="mb-lg max-w-3xl font-medium">
-						{dictionary['ai.description']}
+						{t('description')}
 					</Paragraph>
 					<Chat className="rounded-container bg-primary p-lg shadow-outline" />
 				</Section>

@@ -11,16 +11,16 @@ import {
 } from '@repo/ui/components/section'
 import { TextSlideUp } from '@repo/ui/components/text-slide-up'
 import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksContact } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { ContactForm } from '../components/contact-form'
 import { EmbeddedCal } from '../components/embedded-cal'
 
 export function ContactBlock(props: Block<PageBlocksContact>) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
-	const { t } = useTranslation()
+	const t = useTranslations('contact')
 
 	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)
 	const [bookingFormOpen, setBookingFormOpen] = React.useState<boolean>(false)
@@ -58,7 +58,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					<span className="flex items-center">
 						<CalendarClockIcon className="group-hover:motion-preset-seesaw mr-md size-6 text-success" />
 
-						{t('contact.booking.title')}
+						{t('booking.title')}
 					</span>
 				</MagnetButton>
 			</TextSlideUp>

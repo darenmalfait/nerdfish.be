@@ -26,19 +26,19 @@ import {
 } from '@repo/ui/components/section'
 import { TagFilter } from '@repo/ui/components/tag-filter'
 import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '~/app/cms/components/portable-text'
 import type { Block, PageBlocksWiki } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { filterWiki, getWikiPath } from '../utils'
 
 // should be divisible by 3 and 2 (large screen, and medium screen).
 const PAGE_SIZE = 6
 
 export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
-	const { t } = useTranslation()
+	const t = useTranslations('global')
 	const { header, searchEnabled, tags, count, globalData } = data
 	const { wikis: allPosts = [] } = globalData ?? {}
 	const { title, subtitle, link } = header ?? {}
@@ -154,7 +154,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 					<div data-tina-field={tinaField(data, 'header')}>
 						<SectionHeader
 							cta={{
-								title: t('global.allArticles'),
+								title: t('allArticles'),
 								url: link ?? '',
 							}}
 						>
@@ -210,7 +210,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							variant="outline"
 							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
 						>
-							<span className="mr-sm">{t('global.loadMore')}</span>
+							<span className="mr-sm">{t('loadMore')}</span>
 							<PlusIcon className="size-4" />
 						</Button>
 					</div>

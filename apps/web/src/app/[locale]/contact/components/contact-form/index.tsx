@@ -27,9 +27,9 @@ import { useNumberFormatter } from '@react-aria/i18n'
 import { env } from '@repo/env'
 import { parseError } from '@repo/observability/error'
 import { ArrowRightIcon } from '@repo/ui/icons'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { useRecaptcha } from '../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
@@ -55,7 +55,7 @@ export function ContactForm() {
 	const numberFormatter = useNumberFormatter({
 		notation: 'compact',
 	})
-	const { t } = useTranslation()
+	const t = useTranslations('contact')
 	const { execute } = useRecaptcha()
 	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
 	const [error, setError] = React.useState<string>()
@@ -99,7 +99,7 @@ export function ContactForm() {
 			}
 
 			if (result.error) setError(result.error)
-			else setError(t('contact.genericError'))
+			else setError(t('genericError'))
 		} catch (e) {
 			const errorMessage = parseError(e)
 			setError(errorMessage)
@@ -112,7 +112,7 @@ export function ContactForm() {
 		<Form {...form}>
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<div>
-					<Fieldset title={t('contact.fieldset.customer')}>
+					<Fieldset title={t('fieldset.customer')}>
 						<div className="flex w-full flex-col gap-md md:flex-row">
 							<FormField
 								control={form.control}
@@ -120,7 +120,7 @@ export function ContactForm() {
 								render={({ field }) => (
 									<FormItem className="w-full">
 										<FormLabel>
-											{t('contact.name')}
+											{t('name')}
 											<LabelAsterisk />
 										</FormLabel>
 
@@ -137,7 +137,7 @@ export function ContactForm() {
 								name="company"
 								render={({ field }) => (
 									<FormItem className="w-full">
-										<FormLabel>{t('contact.company')}</FormLabel>
+										<FormLabel>{t('company')}</FormLabel>
 
 										<FormControl>
 											<Input inputSize="lg" {...field} />
@@ -154,7 +154,7 @@ export function ContactForm() {
 							render={() => (
 								<FormItem>
 									<FormLabel>
-										{t('contact.contactInformation')}
+										{t('contactInformation')}
 										<LabelAsterisk />
 									</FormLabel>
 									<div className="flex w-full flex-col items-start gap-md md:flex-row">
@@ -164,9 +164,7 @@ export function ContactForm() {
 											render={({ field }) => (
 												<FormItem className="w-full">
 													<FormLabel>
-														<FormDescription>
-															{t('contact.email')}
-														</FormDescription>
+														<FormDescription>{t('email')}</FormDescription>
 													</FormLabel>
 
 													<FormControl>
@@ -182,10 +180,7 @@ export function ContactForm() {
 											render={({ field }) => (
 												<FormItem className="w-full">
 													<FormLabel>
-														<FormDescription>
-															{' '}
-															{t('contact.phone')}
-														</FormDescription>
+														<FormDescription> {t('phone')}</FormDescription>
 													</FormLabel>
 
 													<FormControl>
@@ -205,15 +200,15 @@ export function ContactForm() {
 						/>
 					</Fieldset>
 
-					<Fieldset title={t('contact.fieldset.project')}>
+					<Fieldset title={t('fieldset.project')}>
 						<FormField
 							control={form.control}
 							name="projectType"
 							render={() => (
 								<FormItem>
-									<FormLabel>{t('contact.projectType')}</FormLabel>
+									<FormLabel>{t('projectType')}</FormLabel>
 									<FormDescription>
-										{t('contact.projectTypeDescription')}
+										{t('projectTypeDescription')}
 									</FormDescription>
 									<div className="flex gap-sm">
 										{projectTypes.map((type) => (
@@ -278,9 +273,9 @@ export function ContactForm() {
 									return (
 										<FormItem>
 											<FormLabel>
-												{t('contact.budgetRange')}
+												{t('budgetRange')}
 												<FormDescription>
-													{t('contact.budgetRangeDescription')}
+													{t('budgetRangeDescription')}
 												</FormDescription>
 												<div className="flex items-center justify-center pt-md font-semibold text-muted">
 													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
@@ -323,14 +318,14 @@ export function ContactForm() {
 						) : null}
 					</Fieldset>
 
-					<Fieldset title={t('contact.fieldset.message')}>
+					<Fieldset title={t('fieldset.message')}>
 						<FormField
 							control={form.control}
 							name="textMessage"
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>
-										{t('contact.message')}
+										{t('message')}
 										<LabelAsterisk />
 									</FormLabel>
 
@@ -343,12 +338,12 @@ export function ContactForm() {
 						/>
 					</Fieldset>
 
-					<Description>{t('contact.dataUsage')}</Description>
+					<Description>{t('dataUsage')}</Description>
 
 					{form.formState.errors.recaptchaResponse?.message ? (
 						<Alert variant="danger" className="mt-lg">
 							<AlertTitle>reCAPTCHA error</AlertTitle>
-							<AlertDescription>{t('contact.recaptchaError')}</AlertDescription>
+							<AlertDescription>{t('recaptchaError')}</AlertDescription>
 						</Alert>
 					) : null}
 
@@ -363,7 +358,7 @@ export function ContactForm() {
 						<Alert variant="success" className="mt-lg">
 							<AlertTitle>Success</AlertTitle>
 							<AlertDescription>
-								{t('contact.success')}
+								{t('success')}
 								<span role="img" aria-label="party popper">
 									🎉
 								</span>
@@ -382,7 +377,7 @@ export function ContactForm() {
 							{form.formState.isSubmitting ? (
 								<LoadingAnimation className="mr-2 size-4" variant="classic" />
 							) : null}
-							{t('contact.send')}
+							{t('send')}
 							<ArrowRightIcon className="ml-sm size-4 transition-all group-hover:translate-x-xs" />
 						</Button>
 					)}

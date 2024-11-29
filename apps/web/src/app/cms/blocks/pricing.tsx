@@ -17,10 +17,10 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
+import { useTranslations } from 'next-intl'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksPricing } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -30,7 +30,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 
 export function PricingBlock(props: Block<PageBlocksPricing>) {
 	const { title, subtitle, price } = props
-	const { t } = useTranslation()
+	const t = useTranslations('global')
 
 	const prices = nonNullable(price ?? [])
 
@@ -72,9 +72,7 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 					</PriceCard>
 				))}
 			</div>
-			<p className="mt-sm text-center text-primary text-sm">
-				{t('global.vat')}
-			</p>
+			<p className="mt-sm text-center text-primary text-sm">{t('vat')}</p>
 		</BlockLayout>
 	)
 }
