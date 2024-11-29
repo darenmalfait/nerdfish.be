@@ -44,7 +44,7 @@ function Fieldset({
 	return (
 		<fieldset className="mb-lg rounded-container">
 			<H3 className="mb-lg">{title}</H3>
-			<div className="space-y-md">{children}</div>
+			<div className="space-y-lg">{children}</div>
 		</fieldset>
 	)
 }
