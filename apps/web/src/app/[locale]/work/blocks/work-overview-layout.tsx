@@ -36,7 +36,7 @@ export function BlockLayout({
 	items: PartialDeep<Work>[]
 	header: Block<PageBlocksWork>['header']
 }) {
-	const t = useTranslations('global')
+	const t = useTranslations('work')
 	const articles = React.useMemo(() => mapWorkToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
@@ -74,12 +74,12 @@ export function BlockLayout({
 					</ArticleOverviewSearchContent>
 				</ArticleOverviewSearch>
 
-				<ArticleOverviewFilter title={t('filterArticles')} />
+				<ArticleOverviewFilter title={t('filterByTopic')} />
 
 				{searchEnabled ? null : (
 					<SectionHeader
 						cta={{
-							title: t('allArticles'),
+							title: t('seeAll'),
 							url: header?.link ?? '',
 						}}
 					>
