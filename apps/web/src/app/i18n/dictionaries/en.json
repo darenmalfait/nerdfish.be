@@ -37,26 +37,48 @@
 		"booking": {
 			"title": "Schedule a call"
 		},
-		"budgetRange": "What's your budget?",
-		"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
-		"company": "What's the name of your company?",
-		"contactInformation": "How can I reach you?",
-		"dataUsage": "We only use your data to get in touch with you.",
-		"email": "Email address",
-		"fieldset": {
-			"customer": "Please tell me about yourself",
-			"message": "What's up?",
-			"project": "About your project"
-		},
-		"genericError": "An error occurred while submitting the form.",
-		"message": "How can I help?",
-		"name": "What's your name?",
-		"phone": "Phone number",
-		"projectType": "What services are you interested in?",
-		"projectTypeDescription": "Select all that apply",
-		"recaptchaError": "Please verify that you are not a robot.",
-		"send": "Submit",
-		"success": "Your message has been sent successfully."
+
+		"form": {
+			"send": "Submit",
+			"success": "Your message has been sent successfully.",
+			"dataUsage": "We only use your data to get in touch with you.",
+			"sections": {
+				"customer": "Please tell me about yourself",
+				"message": "What's up?",
+				"project": "About your project"
+			},
+			"fields": {
+				"names": {
+					"budgetRange": "What's your budget?",
+					"company": "Company name",
+					"email": "Email address",
+					"textMessage": "Message",
+					"name": "Name",
+					"phone": "Phone number",
+					"projectType": "Project type"
+				},
+				"labels": {
+					"budgetRange": "What's your budget?",
+					"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
+					"company": "What's the name of your company?",
+					"contactInformation": "How can I reach you?",
+					"email": "Email address",
+					"textMessage": "How can I help?",
+					"name": "What's your name?",
+					"phone": "Phone number",
+					"projectType": "What services are you interested in?",
+					"projectTypeDescription": "Select all that apply"
+				},
+				"errors": {
+					"generic": "An error occurred while submitting the form.",
+					"recaptcha": "Please verify that you are not a robot.",
+					"validEmail": "Please enter a valid email address.",
+					"validPhoneNumber": "Please enter a valid phone number.",
+					"phoneOrEmailRequired": "Either email or phone should be filled in.",
+					"messageNotWithinRange": "Please keep your message a reasonable length - not too short and under 512 characters."
+				}
+			}
+		}
 	},
 	"features": {
 		"readMore": "Read more"
