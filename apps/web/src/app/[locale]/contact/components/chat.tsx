@@ -113,7 +113,7 @@ export function Chat({
 	initialMessages?: Message[]
 	className?: string
 }) {
-	const t = useTranslations('ai')
+	const t = useTranslations('contact.chat')
 	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
 
 	const {
@@ -172,7 +172,7 @@ export function Chat({
 				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-xl"
 			>
 				<ChatMessage userRole="assistant" className="!animate-none">
-					{t('chat.initialMessage')}
+					{t('initialMessage')}
 				</ChatMessage>
 				{messages.map((message) => {
 					if (message.role === 'user') {
@@ -222,7 +222,7 @@ export function Chat({
 			</div>
 			<ul
 				className="questions mt-md mb-sm flex gap-sm overflow-x-auto overflow-y-visible px-xs py-sm"
-				aria-label="Premade questions"
+				aria-label={t('premadeQuestions.title')}
 			>
 				{premadeQuestions.map((q) => (
 					<li key={q.buttonName}>
@@ -233,7 +233,7 @@ export function Chat({
 							onClick={() => {
 								setInput(q.question)
 							}}
-							aria-label={`Ask ${q.buttonName}`}
+							aria-label={t('premadeQuestions.ask', { question: q.buttonName })}
 						>
 							{q.buttonName}
 						</Button>
@@ -248,14 +248,14 @@ export function Chat({
 					}
 					inputSize="lg"
 					className="!pr-md w-full"
-					placeholder="Ask a question"
+					placeholder={t('inputPlaceholder')}
 					addOnTrailing={
 						<Button
 							disabled={!input || !!error || isLoading}
 							size="icon"
 							type="submit"
 							variant="accent"
-							aria-label="Send"
+							aria-label={t('send')}
 						>
 							{isLoading ? (
 								<LoadingAnimation variant="classic" className="size-4" />

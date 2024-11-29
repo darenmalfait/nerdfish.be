@@ -1,61 +1,58 @@
 {
 	"ai": {
-		"booking": {
-			"subtitle": "Book a meeting",
-			"title": "Rather really speak to me?"
-		},
-		"chat": {
-			"initialMessage": "Hi, how can I help you today?"
-		},
-		"description": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
-		"meta": {
-			"description": "Ask Daren Malfait anything",
-			"title": "Nerdfish - Daren Malfait AI"
-		},
 		"page": {
+			"booking": {
+				"subtitle": "Book a meeting",
+				"title": "Rather really speak to me?"
+			},
 			"description": "Can't find the information you're looking for? Ask me anything!",
+			"meta": {
+				"description": "Ask Daren Malfait anything",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
 			"title": "Chat with an AI version of me"
-		},
-		"premadeQuestions": {
-			"currentJob": "Current job",
-			"currentJobQuestion": "Tell me about your current position.",
-			"experience": "Experience",
-			"experienceQuestion": "Tell me about your work experience.",
-			"favoriteLanguage": "Favorite language",
-			"favoriteLanguageQuestion": "What's your favorite programming language?",
-			"whoAreYou": "Who are you",
-			"whoAreYouQuestion": "Who are you?"
 		}
 	},
 	"blog": {
+		"filterByTopic": "Filter blog posts by topic",
+		"loadMore": "Load more",
+		"readMore": "Read blog post",
 		"related": {
 			"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
 			"title": "Related Posts"
-		}
+		},
+		"seeAll": "See all blog posts"
 	},
 	"contact": {
-		"booking": {
-			"title": "Schedule a call"
-		},
-
-		"form": {
-			"send": "Submit",
-			"success": "Your message has been sent successfully.",
-			"dataUsage": "We only use your data to get in touch with you.",
-			"sections": {
-				"customer": "Please tell me about yourself",
-				"message": "What's up?",
-				"project": "About your project"
+		"chat": {
+			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
+			"initialMessage": "Hi, how can I help you today?",
+			"inputPlaceholder": "Ask a question",
+			"premadeQuestions": {
+				"ask": "Ask: {question}",
+				"currentJob": "Current job",
+				"currentJobQuestion": "Tell me about your current position.",
+				"experience": "Experience",
+				"experienceQuestion": "Tell me about your work experience.",
+				"favoriteLanguage": "Favorite language",
+				"favoriteLanguageQuestion": "What's your favorite programming language?",
+				"title": "Pre-defined questions",
+				"whoAreYou": "Who are you",
+				"whoAreYouQuestion": "Who are you?"
 			},
+			"send": "Send",
+			"title": "Chat with an AI version of me"
+		},
+		"cta": {
+			"booking": "Schedule a call"
+		},
+		"form": {
+			"dataUsage": "We only use your data to get in touch with you.",
 			"fields": {
-				"names": {
-					"budgetRange": "What's your budget?",
-					"company": "Company name",
-					"email": "Email address",
-					"textMessage": "Message",
-					"name": "Name",
-					"phone": "Phone number",
-					"projectType": "Project type"
+				"errors": {
+					"generic": "An error occurred while submitting the form.",
+					"phoneOrEmailRequired": "Either email or phone should be filled in.",
+					"recaptcha": "Please verify that you are not a robot."
 				},
 				"labels": {
 					"budgetRange": "What's your budget?",
@@ -63,29 +60,37 @@
 					"company": "What's the name of your company?",
 					"contactInformation": "How can I reach you?",
 					"email": "Email address",
-					"textMessage": "How can I help?",
 					"name": "What's your name?",
 					"phone": "Phone number",
 					"projectType": "What services are you interested in?",
-					"projectTypeDescription": "Select all that apply"
+					"projectTypeDescription": "Select all that apply",
+					"textMessage": "How can I help?"
 				},
-				"errors": {
-					"generic": "An error occurred while submitting the form.",
-					"recaptcha": "Please verify that you are not a robot.",
-					"phoneOrEmailRequired": "Either email or phone should be filled in."
+				"names": {
+					"budgetRange": "What's your budget?",
+					"company": "Company name",
+					"email": "Email address",
+					"name": "Name",
+					"phone": "Phone number",
+					"projectType": "Project type",
+					"textMessage": "Message"
 				}
-			}
+			},
+			"sections": {
+				"customer": "Please tell me about yourself",
+				"message": "What's up?",
+				"project": "About your project"
+			},
+			"send": "Submit",
+			"success": "Your message has been sent successfully."
 		}
 	},
 	"features": {
-		"readMore": "Read more"
+		"readMore": "Read more",
+		"readMoreAbout": "Read more about {subject}"
 	},
 	"global": {
 		"about": "about",
-		"allArticles": "See all articles",
-		"filterArticles": "Filter articles by topic",
-		"loadMore": "Load more",
-		"readMore": "Read more",
 		"switchLanguage": "Switch Language",
 		"vat": "Any prices indicated are exclusive of VAT."
 	},
@@ -94,10 +99,18 @@
 		"light": "Light",
 		"system": "System"
 	},
+	"wiki": {
+		"loadMore": "Load more articles",
+		"seeAll": "See knowledge base"
+	},
 	"work": {
+		"filterByTopic": "Filter projects by topic",
+		"loadMore": "Load more",
+		"readMore": "Read more",
 		"related": {
 			"subtitle": "Discover similar creations and inspirations",
 			"title": "More Like This"
-		}
+		},
+		"seeAll": "See all projects"
 	}
 }

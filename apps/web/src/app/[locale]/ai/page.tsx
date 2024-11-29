@@ -19,12 +19,12 @@ export async function generateMetadata({
 }: {
 	params: WithLocale<{}>
 }): Promise<Metadata | undefined> {
-	const t = await getTranslations('ai')
-	const title = t('meta.title')
+	const t = await getTranslations()
+	const title = t('ai.page.meta.title')
 
 	return createMetadata({
 		title,
-		description: t('meta.description'),
+		description: t('ai.page.meta.description'),
 		image: generateOGImageUrl({
 			heading: title,
 		}),
@@ -33,12 +33,12 @@ export async function generateMetadata({
 }
 
 export default async function AiPage() {
-	const t = await getTranslations('ai')
+	const t = await getTranslations()
 
 	return (
 		<>
-			<HeroBlock variant="secondary" title={t('page.title')}>
-				{t('page.description')}
+			<HeroBlock variant="secondary" title={t('ai.page.title')}>
+				{t('ai.page.description')}
 			</HeroBlock>
 			<InViewBackground>
 				<Section>
@@ -47,7 +47,7 @@ export default async function AiPage() {
 						<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
 					</SectionHeader>
 					<Paragraph className="mb-lg max-w-3xl font-medium">
-						{t('description')}
+						{t('contact.chat.disclaimer')}
 					</Paragraph>
 					<Chat className="rounded-container bg-primary p-lg shadow-outline" />
 				</Section>

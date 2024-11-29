@@ -14,7 +14,7 @@ import {
 
 export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 	const { icon } = props
-	const t = useTranslations('ai')
+	const t = useTranslations('contact.chat')
 
 	const Icon = icon ?? BotIcon
 
@@ -28,13 +28,13 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 					className="group-hover:motion-preset-seesaw size-6"
 				/>
 			}
-			aria-label={t('page.title')}
+			aria-label={t('title')}
 		>
 			<ExpandableChatBody>
 				<Chat />
 			</ExpandableChatBody>
 			<ExpandableChatFooter>
-				<Paragraph className="text-left text-xs">{t('description')}</Paragraph>
+				<Paragraph className="text-left text-xs">{t('disclaimer')}</Paragraph>
 			</ExpandableChatFooter>
 		</ExpandableChat>
 	)

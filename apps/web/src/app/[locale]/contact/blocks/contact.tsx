@@ -58,7 +58,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					<span className="flex items-center">
 						<CalendarClockIcon className="group-hover:motion-preset-seesaw mr-md size-6 text-success" />
 
-						{t('booking.title')}
+						{t('cta.booking')}
 					</span>
 				</MagnetButton>
 			</TextSlideUp>

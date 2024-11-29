@@ -27,7 +27,7 @@ import type {
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
 
 function DetailLink({ page, title }: { page?: Page; title?: string }) {
-	const t = useTranslations()
+	const t = useTranslations('features')
 	if (!page) return null
 
 	return (
@@ -35,9 +35,9 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 			<MagnetButton className="-mx-sm group" variant="ghost" asChild>
 				<Link
 					href={`/${page._sys.breadcrumbs.join('/')}`}
-					aria-label={`${t('features.readMore')} ${t('global.about')} ${title}`}
+					aria-label={`${t('readMoreAbout', { subject: title })}`}
 				>
-					{t('features.readMore')}
+					{t('readMore')}
 					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-xs" />
 				</Link>
 			</MagnetButton>

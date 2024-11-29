@@ -7,16 +7,16 @@ import Link from 'next/link'
 import { useGlobal } from '~/app/global-provider'
 
 export function BackToBlog() {
-	const t = useTranslations('global')
+	const t = useTranslations('blog')
 	const { paths } = useGlobal()
 
 	if (!paths?.blog) return null
 
 	return (
-		<Button variant="outline" asChild>
+		<Button variant="ghost" className="-mx-md group" asChild>
 			<Link href={paths.blog}>
-				<ChevronLeftIcon className="mr-2 size-4" />
-				{t('allArticles')}
+				<ChevronLeftIcon className="group-hover:-translate-x-xs mr-sm size-4 transition-transform" />
+				{t('seeAll')}
 			</Link>
 		</Button>
 	)

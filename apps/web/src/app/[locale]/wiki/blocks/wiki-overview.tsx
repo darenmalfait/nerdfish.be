@@ -38,7 +38,7 @@ import { filterWiki, getWikiPath } from '../utils'
 const PAGE_SIZE = 6
 
 export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
-	const t = useTranslations('global')
+	const t = useTranslations('wiki')
 	const { header, searchEnabled, tags, count, globalData } = data
 	const { wikis: allPosts = [] } = globalData ?? {}
 	const { title, subtitle, link } = header ?? {}
@@ -154,7 +154,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 					<div data-tina-field={tinaField(data, 'header')}>
 						<SectionHeader
 							cta={{
-								title: t('allArticles'),
+								title: t('seeAll'),
 								url: link ?? '',
 							}}
 						>
