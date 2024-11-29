@@ -1,4 +1,3 @@
-import { Paragraph } from '@nerdfish/ui'
 import { createMetadata } from '@repo/seo/metadata'
 import { InViewBackground } from '@repo/ui/components/in-view-background'
 import {
@@ -44,12 +43,14 @@ export default async function AiPage() {
 				<Section>
 					<SectionHeader>
 						<SectionHeaderTitle>AI</SectionHeaderTitle>
-						<SectionHeaderSubtitle>Beta</SectionHeaderSubtitle>
+						<SectionHeaderSubtitle>
+							{t('contact.chat.disclaimer')}
+						</SectionHeaderSubtitle>
 					</SectionHeader>
-					<Paragraph className="mb-lg max-w-3xl font-medium">
-						{t('contact.chat.disclaimer')}
-					</Paragraph>
-					<Chat className="rounded-container bg-primary p-lg shadow-outline" />
+
+					<div className="relative">
+						<Chat className="h-[75vh] rounded-container bg-primary p-lg shadow-outline" />
+					</div>
 				</Section>
 			</InViewBackground>
 		</>
