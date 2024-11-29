@@ -5,7 +5,6 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
 import { PortableButton } from './portable-button'
 import { PortableCode } from './portable-code'
-import { PortableContactForm } from './portable-contact-form'
 import { PortableHeading } from './portable-heading'
 import { PortableImage } from './portable-image'
 import { PortableLink } from './portable-link'
@@ -19,7 +18,6 @@ function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
 			components={
 				{
 					Button: PortableButton,
-					ContactForm: PortableContactForm,
 					code_block: PortableCode,
 					image: PortableImage,
 					h1: PortableHeading,
