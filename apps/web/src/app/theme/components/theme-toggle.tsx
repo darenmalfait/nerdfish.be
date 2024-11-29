@@ -9,10 +9,16 @@ import {
 	DropdownMenuTrigger,
 	LoadingAnimation,
 } from '@nerdfish/ui'
-import { Moon, Sun } from 'lucide-react'
+import { LaptopIcon, MoonIcon, SunIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useTheme } from '../theme-provider'
+
+const iconMap = {
+	light: SunIcon,
+	dark: MoonIcon,
+	system: LaptopIcon,
+}
 
 const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ variant, asChild, size, className, ...props }, ref) => {
@@ -28,6 +34,8 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		const isDarkMode =
 			theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
 
+		const Icon = iconMap[isDarkMode ? 'dark' : 'light']
+
 		return (
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
@@ -41,26 +49,24 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 						className={className}
 					>
 						{mounted ? (
-							isDarkMode ? (
-								<Sun className="size-4" />
-							) : (
-								<Moon className="size-4" />
-							)
+							<Icon className="size-4" />
 						) : (
 							<LoadingAnimation variant="classic" className="size-4" />
 						)}
-						<div className="sr-only">{isDarkMode ? 'Light' : 'Dark'} Mode</div>
+						<div className="sr-only">
+							{isDarkMode ? t('light') : t('dark')} Mode
+						</div>
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem onClick={() => setTheme('light')}>
-						{t('light')}
+						<SunIcon className="mr-sm size-4" /> {t('light')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('dark')}>
-						{t('dark')}
+						<MoonIcon className="mr-sm size-4" /> {t('dark')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('system')}>
-						{t('system')}
+						<LaptopIcon className="mr-sm size-4" /> {t('system')}
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
