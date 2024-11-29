@@ -58,7 +58,7 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 						</div>
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent>
+				<DropdownMenuContent className="p-xs">
 					<DropdownMenuItem onClick={() => setTheme('light')}>
 						<SunIcon className="mr-sm size-4" /> {t('light')}
 					</DropdownMenuItem>
