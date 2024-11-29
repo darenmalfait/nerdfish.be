@@ -1,5 +1,6 @@
-import { Button, type ButtonProps } from '@nerdfish/ui'
+import type { ButtonProps } from '@nerdfish/ui'
 import { stripPreSlash } from '@repo/lib/utils/string'
+import { MagnetButton } from '@repo/ui/components/magnet-button'
 import Link from 'next/link'
 
 function PortableButton({
@@ -15,7 +16,7 @@ function PortableButton({
 
 	return (
 		<div className="inline-block w-auto">
-			<Button
+			<MagnetButton
 				variant={variant}
 				asChild
 				className="cursor-pointer no-underline"
@@ -24,7 +25,7 @@ function PortableButton({
 				<Link {...props} href={slug} target={isExternal ? '_blank' : undefined}>
 					{text}
 				</Link>
-			</Button>
+			</MagnetButton>
 		</div>
 	)
 }
