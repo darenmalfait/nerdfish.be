@@ -1,60 +1,58 @@
 {
 	"ai": {
-		"booking": {
-			"subtitle": "Plan een call",
-			"title": "Liever in het echt spreken?"
-		},
-		"chat": {
-			"initialMessage": "Hallo, hoe kan ik u helpen vandaag?"
-		},
-		"description": "Disclaimer: Dit is niet echt mij, maar een AI versie. Antwoorden kunnen erg onnauwkeurig zijn.",
-		"meta": {
-			"description": "Vraag Daren Malfait alles wat u wilt",
-			"title": "Nerdfish - Daren Malfait AI"
-		},
 		"page": {
+			"booking": {
+				"subtitle": "Plan een call",
+				"title": "Liever in het echt spreken?"
+			},
 			"description": "Kan u niet vinden wat u zoekt? Vraag me alles wat u wilt!",
+			"meta": {
+				"description": "Vraag Daren Malfait alles wat u wilt",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
 			"title": "Chat met een AI versie van mij"
-		},
-		"premadeQuestions": {
-			"currentJob": "Huidige baan",
-			"currentJobQuestion": "Vertel me over je huidige functie.",
-			"experience": "Ervaring",
-			"experienceQuestion": "Vertel me over je werkervaring.",
-			"favoriteLanguage": "Favoriete taal",
-			"favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
-			"whoAreYou": "Wie ben je",
-			"whoAreYouQuestion": "Wie ben je?"
 		}
 	},
 	"blog": {
+		"filterByTopic": "Filter blogposts op onderwerp",
+		"loadMore": "Laad meer",
+		"readMore": "Lees blogpost",
 		"related": {
 			"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
 			"title": "Gerelateerde artikelen"
-		}
+		},
+		"seeAll": "Bekijk alle blogposts"
 	},
 	"contact": {
-		"booking": {
-			"title": "Plan een gesprek"
+		"chat": {
+			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
+			"initialMessage": "Hoi, hoe kan ik je vandaag helpen?",
+			"inputPlaceholder": "Stel een vraag",
+			"premadeQuestions": {
+				"ask": "Vraag: {question}",
+				"currentJob": "Huidige baan",
+				"currentJobQuestion": "Vertel me over je huidige functie.",
+				"experience": "Ervaring",
+				"experienceQuestion": "Vertel me over je werkervaring.",
+				"favoriteLanguage": "Favoriete taal",
+				"favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
+				"title": "Vooraf gedefinieerde vragen",
+				"whoAreYou": "Wie ben je",
+				"whoAreYouQuestion": "Wie ben je?"
+			},
+			"send": "Versturen",
+			"title": "Chat met een AI-versie van mij"
+		},
+		"cta": {
+			"booking": "Plan een gesprek"
 		},
 		"form": {
-			"send": "Versturen",
-			"success": "Je bericht is succesvol verzonden.",
 			"dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
-			"sections": {
-				"customer": "Vertel me wat over jezelf",
-				"message": "Wat is er?",
-				"project": "Over je project"
-			},
 			"fields": {
-				"names": {
-					"budgetRange": "Wat is je budget?",
-					"company": "Bedrijfsnaam",
-					"email": "E-mailadres",
-					"textMessage": "Bericht",
-					"name": "Naam",
-					"phone": "Telefoonnummer",
-					"projectType": "Project type"
+				"errors": {
+					"generic": "Er is een fout opgetreden bij het versturen van het formulier.",
+					"phoneOrEmailRequired": "E-mail of telefoonnummer moet worden ingevuld.",
+					"recaptcha": "Bevestig dat je geen robot bent."
 				},
 				"labels": {
 					"budgetRange": "Wat is je budget?",
@@ -62,29 +60,37 @@
 					"company": "Wat is de naam van je bedrijf?",
 					"contactInformation": "Hoe kan ik je bereiken?",
 					"email": "E-mailadres",
-					"textMessage": "Hoe kan ik helpen?",
 					"name": "Wat is je naam?",
 					"phone": "Telefoonnummer",
 					"projectType": "In welke diensten ben je geïnteresseerd?",
-					"projectTypeDescription": "Selecteer alles wat van toepassing is"
+					"projectTypeDescription": "Selecteer alles wat van toepassing is",
+					"textMessage": "Hoe kan ik je helpen?"
 				},
-				"errors": {
-					"generic": "Er is een fout opgetreden bij het versturen van het formulier.",
-					"recaptcha": "Verifieer dat je geen robot bent.",
-					"phoneOrEmailRequired": "E-mail of telefoon moet worden ingevuld."
+				"names": {
+					"budgetRange": "Wat is je budget?",
+					"company": "Bedrijfsnaam",
+					"email": "E-mailadres",
+					"name": "Naam",
+					"phone": "Telefoonnummer",
+					"projectType": "Project type",
+					"textMessage": "Bericht"
 				}
-			}
+			},
+			"sections": {
+				"customer": "Vertel me wat over jezelf",
+				"message": "Wat is er?",
+				"project": "Over jouw project"
+			},
+			"send": "Versturen",
+			"success": "Je bericht is succesvol verzonden."
 		}
 	},
 	"features": {
-		"readMore": "Lees meer"
+		"readMore": "Lees meer",
+		"readMoreAbout": "Lees meer over {subject}"
 	},
 	"global": {
 		"about": "over",
-		"allArticles": "Bekijk alle artikelen",
-		"filterArticles": "Filter artikelen op onderwerp",
-		"loadMore": "Laad meer",
-		"readMore": "Lees meer",
 		"switchLanguage": "Wijzig taal",
 		"vat": "Prijzen zijn exclusief BTW."
 	},
@@ -93,10 +99,18 @@
 		"light": "Licht",
 		"system": "Systeem"
 	},
+	"wiki": {
+		"loadMore": "Laad meer artikelen",
+		"seeAll": "Bekijk knowledge base"
+	},
 	"work": {
+		"filterByTopic": "Filter projecten op onderwerp",
+		"loadMore": "Laad meer",
+		"readMore": "Bekijk project",
 		"related": {
 			"subtitle": "Ontdek vergelijkbare creaties en inspiraties",
 			"title": "Meer soortgelijke projecten"
-		}
+		},
+		"seeAll": "Bekijk alle projecten"
 	}
 }

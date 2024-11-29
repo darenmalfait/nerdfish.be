@@ -1,1 +1,1 @@
-npm run checks
+npm run checks:fix
