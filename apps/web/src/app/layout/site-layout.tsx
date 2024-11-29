@@ -82,19 +82,19 @@ function SiteFooterContent() {
 			</p>
 
 			<div className="mb-md space-y-xs">
-				<h3 className="font-semibold text-lg leading-tight lg:text-xl">
+				<h3 className="font-semibold text-lg leading-tight lg:text-xl lg:leading-tight">
 					Get in touch
 				</h3>
-				<span className="block text-lg text-muted leading-tight lg:text-xl">
+				<span className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo?.companyName}
 				</span>
 				<Link
-					className="block text-lg text-muted leading-tight lg:text-xl"
+					className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight"
 					href={`mailto:${companyInfo?.email}`}
 				>
 					{companyInfo?.email}
 				</Link>
-				<span className="block text-lg text-muted leading-tight lg:text-xl">
+				<span className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo?.vat}
 				</span>
 			</div>
