@@ -1,8 +1,8 @@
 import { createMetadata } from '@repo/seo/metadata'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { draftMode } from 'next/headers'
 import { generateOGImageUrl } from '~/app/api/og/utils'
-import { getTranslations } from '~/app/i18n/get-translations'
 import type { WithLocale } from '~/app/i18n/types'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from '../components/work-content'
@@ -37,7 +37,7 @@ export default async function WorkPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const t = await getTranslations(params.locale)
+	const t = await getTranslations('work')
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
@@ -48,8 +48,8 @@ export default async function WorkPage({
 			relatedContent={
 				<WorkOverviewBlock
 					header={{
-						title: t['work.related.title'],
-						subtitle: t['work.related.subtitle'],
+						title: t('related.title'),
+						subtitle: t('related.subtitle'),
 					}}
 					count={2}
 					locale={params.locale}

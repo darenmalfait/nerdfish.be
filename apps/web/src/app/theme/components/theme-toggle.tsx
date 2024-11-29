@@ -10,13 +10,13 @@ import {
 	LoadingAnimation,
 } from '@nerdfish/ui'
 import { Moon, Sun } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { useTheme } from '../theme-provider'
 
 const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ variant, asChild, size, className, ...props }, ref) => {
-		const { t } = useTranslation()
+		const t = useTranslations('theme')
 		const [mounted, setMounted] = React.useState(false)
 		const { theme, setTheme, systemTheme } = useTheme()
 
@@ -54,13 +54,13 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem onClick={() => setTheme('light')}>
-						{t('theme.light')}
+						{t('light')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('dark')}>
-						{t('theme.dark')}
+						{t('dark')}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme('system')}>
-						{t('theme.system')}
+						{t('system')}
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>

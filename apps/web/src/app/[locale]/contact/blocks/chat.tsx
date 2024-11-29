@@ -2,9 +2,9 @@
 
 import { Paragraph } from '@nerdfish/ui'
 import { BotIcon } from '@repo/ui/icons'
+import { useTranslations } from 'next-intl'
 import { tinaField } from 'tinacms/dist/react'
 import type { Block, PageBlocksChatbot } from '~/app/cms/types'
-import { useTranslation } from '~/app/i18n/translation-provider'
 import { Chat } from '../components/chat'
 import {
 	ExpandableChat,
@@ -14,7 +14,7 @@ import {
 
 export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 	const { icon } = props
-	const { t } = useTranslation()
+	const t = useTranslations('ai')
 
 	const Icon = icon ?? BotIcon
 
@@ -28,15 +28,13 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 					className="group-hover:motion-preset-seesaw size-6"
 				/>
 			}
-			aria-label={t('ai.page.title')}
+			aria-label={t('page.title')}
 		>
 			<ExpandableChatBody>
 				<Chat />
 			</ExpandableChatBody>
 			<ExpandableChatFooter>
-				<Paragraph className="text-left text-xs">
-					{t('ai.description')}
-				</Paragraph>
+				<Paragraph className="text-left text-xs">{t('description')}</Paragraph>
 			</ExpandableChatFooter>
 		</ExpandableChat>
 	)
