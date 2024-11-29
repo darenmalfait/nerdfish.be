@@ -2,6 +2,7 @@
 
 import { Button, Input, LoadingAnimation } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
+import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
 import { SendHorizonalIcon } from '@repo/ui/icons'
 import type { Message, ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
@@ -14,12 +15,10 @@ const chatMessageVariants = cva(
 	{
 		variants: {
 			userRole: {
-				user: 'ml-auto w-8/12 max-w-fit rounded-br-none bg-success text-success',
-				assistant:
-					'mr-auto w-11/12 max-w-fit rounded-tl-none bg-accent text-white',
-				system: 'mr-auto w-full max-w-[400px] rounded-tl-none',
-				error:
-					'mr-auto w-11/12 max-w-fit rounded-tl-none bg-danger text-danger',
+				user: 'ml-auto w-full max-w-fit rounded-br-none bg-info text-right text-info',
+				assistant: 'mr-auto w-full max-w-fit rounded-tl-none bg-muted',
+				system: 'mr-auto w-full max-w-fit rounded-tl-none bg-muted',
+				error: 'mr-auto w-full max-w-fit rounded-tl-none bg-danger text-danger',
 			},
 		},
 		defaultVariants: {
@@ -114,7 +113,8 @@ export function Chat({
 	className?: string
 }) {
 	const t = useTranslations('contact.chat')
-	const scrollBottomAnchor = React.useRef<HTMLDivElement>(null)
+	const [messagesContainerRef, messagesEndRef] =
+		useScrollToBottom<HTMLDivElement>()
 
 	const {
 		isLoading,
@@ -152,23 +152,10 @@ export function Chat({
 		[t]
 	)
 
-	const scrollToBottom = React.useCallback(() => {
-		if (!scrollBottomAnchor.current) return
-
-		scrollBottomAnchor.current.scrollTo({
-			top: scrollBottomAnchor.current.scrollHeight,
-		})
-	}, [])
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: we want it to run on messages change
-	React.useEffect(() => {
-		scrollToBottom()
-	}, [scrollToBottom, messages])
-
 	return (
 		<div className={cx('flex h-full flex-col', className)}>
 			<div
-				ref={scrollBottomAnchor}
+				ref={messagesContainerRef}
 				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-xl"
 			>
 				<ChatMessage userRole="assistant" className="!animate-none">
@@ -180,7 +167,7 @@ export function Chat({
 							<ChatMessage
 								key={message.id}
 								toolInvocations={message.toolInvocations}
-								role={message.role}
+								userRole={message.role}
 							>
 								{message.content}
 							</ChatMessage>
@@ -215,10 +202,15 @@ export function Chat({
 				) : null}
 
 				{isLoading && messages.at(-1)?.role === 'user' ? (
-					<ChatMessage userRole="assistant" className="!animate-none">
+					<ChatMessage userRole="system" className="!animate-none">
 						<MessageLoading />
 					</ChatMessage>
 				) : null}
+
+				<div
+					ref={messagesEndRef}
+					className="min-h-[12px] min-w-[12px] shrink-0"
+				/>
 			</div>
 			<ul
 				className="questions mt-md mb-sm flex gap-sm overflow-x-auto overflow-y-visible px-xs py-sm"
