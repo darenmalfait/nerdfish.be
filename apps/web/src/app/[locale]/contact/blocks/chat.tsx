@@ -37,10 +37,10 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 			</div>
 			<div
 				className={cx(
-					'flex flex-col gap-md overflow-hidden rounded-base bg-secondary transition-all duration-250 ease-out',
+					'flex flex-col gap-md overflow-hidden rounded-base bg-secondary transition-all duration-250 ease-out md:h-[600px]',
 					{
 						'w-0 opacity-0': !isOpen,
-						'fixed inset-0 z-50 p-md opacity-1 shadow-outline md:relative md:inset-auto md:h-[600px] md:w-[400px]':
+						'fixed inset-0 z-50 p-md opacity-1 shadow-outline md:relative md:inset-auto md:w-[400px]':
 							isOpen,
 					}
 				)}
