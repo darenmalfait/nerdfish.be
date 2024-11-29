@@ -17,26 +17,8 @@ export const contactSchema = z.object({
 	company: optionalField(z.string().min(2).max(32)),
 	contact: z
 		.object({
-			email: optionalField(
-				z
-					.string()
-					.email()
-					.refine(() => false, {
-						params: {
-							i18n: 'validEmail',
-						},
-					})
-			),
-			phone: optionalField(
-				z
-					.string()
-					.regex(phoneRegex)
-					.refine(() => false, {
-						params: {
-							i18n: 'validPhoneNumber',
-						},
-					})
-			),
+			email: optionalField(z.string().email()),
+			phone: optionalField(z.string().regex(phoneRegex)),
 		})
 		.partial()
 		.superRefine((data, ctx) => {
@@ -50,15 +32,7 @@ export const contactSchema = z.object({
 				})
 			}
 		}),
-	textMessage: z
-		.string()
-		.min(10)
-		.max(512)
-		.refine(() => false, {
-			params: {
-				i18n: 'messageNotWithinRange',
-			},
-		}),
+	textMessage: z.string().min(10).max(512),
 	projectType: z.array(z.enum(projectTypes)),
 	budgetRange: z.array(z.number()).optional(),
 	recaptchaResponse: z.string().optional(),
