@@ -50,6 +50,17 @@ export const config: Config = {
 				},
 			},
 			keyframes: {
+				float: {
+					'0%': {
+						transform: 'translateY(0)',
+					},
+					'50%': {
+						transform: 'translateY(10px)',
+					},
+					'100%': {
+						transform: 'translateY(0)',
+					},
+				},
 				scrollIndicator: {
 					'0%': {
 						transform: 'translate3d(-1px, 0, 0)',
@@ -70,6 +81,7 @@ export const config: Config = {
 				},
 			},
 			animation: {
+				float: 'float 5s ease-in-out infinite',
 				scrollIndicator: 'scrollIndicator 2s ease infinite',
 				'background-position-spin':
 					'background-position-spin 3000ms infinite alternate',
