@@ -32,7 +32,7 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { makeZodI18nMap } from '~/app/i18n/utils/zod-error-map'
-import { useRecaptcha } from '../../hooks/recaptcha'
+import { useRecaptcha } from '../../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
 
