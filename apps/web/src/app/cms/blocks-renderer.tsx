@@ -58,6 +58,7 @@ const getComponent = (componentKey: string) => {
 		// Work blocks
 		WorkBlocksImageGrid: ImageGridBlock,
 		WorkBlocksTestimonials: TestimonialsBlock,
+		WorkBlocksSkills: SkillsBlock,
 	} as const
 
 	if (!Object.keys(componentsMap).includes(componentKey)) {

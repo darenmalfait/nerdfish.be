@@ -2,11 +2,17 @@ import type { Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { contentTemplate } from '../blocks/content.template'
 import { imageGridTemplate } from '../blocks/image-grid.template'
+import { skillsTemplate } from '../blocks/skills.template'
 import { testimonialsTemplate } from '../blocks/testimonials.template'
 import { portableTextSchema } from '../objects/portable-text'
 import { seo } from '../objects/seo'
 
-const workBlocks = [testimonialsTemplate, imageGridTemplate, contentTemplate]
+const workBlocks = [
+	testimonialsTemplate,
+	imageGridTemplate,
+	contentTemplate,
+	skillsTemplate,
+]
 
 const workCollection: Collection = {
 	label: 'Work',
