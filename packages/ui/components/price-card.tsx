@@ -181,7 +181,7 @@ export const PriceCard = React.forwardRef<
 			<Card
 				ref={ref}
 				className={cx(
-					'p-lg',
+					'p-md',
 					{
 						'bg-inverted text-inverted': isPopular,
 						'bg-secondary': !isPopular,
