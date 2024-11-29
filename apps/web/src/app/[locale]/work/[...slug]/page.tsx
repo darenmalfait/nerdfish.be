@@ -37,7 +37,7 @@ export default async function WorkPage({
 }: {
 	params: WithLocale<{ slug: string[] }>
 }) {
-	const t = await getTranslations('work')
+	const t = await getTranslations()
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
 	const { isEnabled: isPreview } = draftMode()
@@ -47,11 +47,12 @@ export default async function WorkPage({
 		<WorkContent
 			relatedContent={
 				<WorkOverviewBlock
+					featuredEnabled
 					header={{
-						title: t('related.title'),
-						subtitle: t('related.subtitle'),
+						title: t('work.related.title'),
+						subtitle: t('work.related.subtitle'),
 					}}
-					count={2}
+					count={1}
 					locale={params.locale}
 					relatedTo={routeData.data.work}
 				/>
