@@ -37,7 +37,7 @@ export function LocaleSwitcher() {
 					</span>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent>
+			<DropdownMenuContent className="p-xs">
 				<ul>
 					{i18n.locales.map((locale) => {
 						return (
