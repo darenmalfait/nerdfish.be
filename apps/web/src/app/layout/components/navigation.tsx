@@ -10,7 +10,7 @@ import {
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import { motion } from 'motion/react'
+import { AnimatedBackground } from '@repo/ui/components/animated-background'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -55,24 +55,12 @@ const getMainItemClassName = cva(
 	{
 		variants: {
 			variant: {
-				active: '!bg-transparent !text-inverted invert-1',
+				active: '!bg-transparent !text-inverted',
 				default: 'text-primary',
 			},
 		},
 	}
 )
-
-function ActiveBubble({ isActive }: { isActive: boolean }) {
-	if (!isActive) return null
-
-	return (
-		<motion.span
-			style={{ originY: '0px' }}
-			layoutId="bubble"
-			className="-z-1 absolute inset-0 rounded-container bg-inverted"
-		/>
-	)
-}
 
 const MainNavigationItem = React.forwardRef<
 	React.ElementRef<'a'>,
@@ -98,7 +86,6 @@ const MainNavigationItem = React.forwardRef<
 						asChild
 					>
 						<Link {...props} ref={ref} href={`/${stripPreSlash(href ?? '')}`}>
-							<ActiveBubble isActive={isActive} />
 							{label}
 						</Link>
 					</Button>
@@ -123,10 +110,7 @@ const MainNavigationItem = React.forwardRef<
 				})}
 				asChild
 			>
-				<NavigationMenuTrigger>
-					<ActiveBubble isActive={isActive} />
-					{label}
-				</NavigationMenuTrigger>
+				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
 			</Button>
 			<NavigationMenuContent className="rounded-base bg-primary">
 				<ul
@@ -238,8 +222,25 @@ export function SocialLinks() {
 
 export function MainNavigation() {
 	const { navigation } = useGlobal()
+	const pathname = usePathname()
 	const t = useTranslations('global')
 	const ref = React.useRef<HTMLUListElement>(null)
+
+	const activeId = React.useMemo(() => {
+		const isActive = navigation?.main?.find((item) => {
+			return (
+				(item?.href &&
+					stripPreSlash(pathname).startsWith(stripPreSlash(item.href))) ||
+				item?.sub?.some(
+					(subItem) =>
+						subItem?.href &&
+						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href))
+				)
+			)
+		})
+
+		return isActive?.label ?? 'home'
+	}, [navigation?.main, pathname])
 
 	return (
 		<div
@@ -257,13 +258,25 @@ export function MainNavigation() {
 					className="relative flex flex-1 space-x-xs"
 					aria-label={t('navigation.pages')}
 				>
-					{navigation?.main?.map((mainNavItem) => {
-						if (!mainNavItem) return null
+					<AnimatedBackground
+						value={activeId}
+						className="rounded-container bg-inverted"
+						transition={{
+							type: 'spring',
+							bounce: 0.2,
+							duration: 0.3,
+						}}
+					>
+						{navigation?.main?.map((mainNavItem) => {
+							if (!mainNavItem) return null
 
-						return (
-							<MainNavigationItem key={mainNavItem.label} {...mainNavItem} />
-						)
-					})}
+							return (
+								<span key={mainNavItem.label} data-id={mainNavItem.label}>
+									<MainNavigationItem {...mainNavItem} />
+								</span>
+							)
+						})}
+					</AnimatedBackground>
 				</NavigationMenuList>
 			</NavigationMenu>
 		</div>
