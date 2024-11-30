@@ -63,7 +63,11 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 				</MagnetButton>
 			</TextSlideUp>
 
-			<Drawer open={contactFormOpen} onOpenChange={setContactFormOpen}>
+			<Drawer
+				repositionInputs={false}
+				open={contactFormOpen}
+				onOpenChange={setContactFormOpen}
+			>
 				<DrawerContent className="max-h-[85vh] bg-primary">
 					<div className="container pb-xl">
 						<SectionHeader>
