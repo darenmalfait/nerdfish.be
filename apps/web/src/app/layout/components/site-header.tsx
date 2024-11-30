@@ -15,7 +15,7 @@ export function SiteHeader() {
 		<div className="w-full bg-transparent">
 			<header className="relative z-40 w-full flex-none">
 				<nav className="container max-w-none">
-					<div className="relative flex w-full items-center py-lg">
+					<div className="relative flex w-full items-center py-mdx">
 						<Button asChild variant="link" className="-mx-sm text-primary">
 							<Link href={`/${currentLocale}`} aria-label="Home">
 								<Logo className="h-6 w-auto fill-white" />
