@@ -34,8 +34,7 @@ export function AnimatedBackground({
 		defaultValue ?? null,
 		onValueChange
 	)
-	console.log('activeId', activeId)
-	console.log('value', value)
+
 	const uniqueId = React.useId()
 
 	const handleSetActiveId = (id: string | null) => {
