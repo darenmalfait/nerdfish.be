@@ -18,8 +18,8 @@ importers:
         specifier: ^19.6.0
         version: 19.6.0
       '@nerdfish/config':
-        specifier: ^1.5.0
-        version: 1.5.0(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.3.3))(@typescript-eslint/utils@8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(prettier@3.3.3)(typescript@5.6.3)
+        specifier: ^1.5.1
+        version: 1.5.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.3.3))(@typescript-eslint/utils@8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(prettier@3.3.3)(typescript@5.6.3)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -2401,8 +2401,8 @@ packages:
     resolution: {integrity: sha512-3fkKj25kEjsfObL6IlKPAlHYPq/oYwUkkQ03zsTTiDjD7vg/RxjdiLeCydqtxHZP0JgsXL3D/X5oAkMGzuUp/Q==}
     engines: {node: '>=12'}
 
-  '@nerdfish/config@1.5.0':
-    resolution: {integrity: sha512-TO/ihTjoJcVGOHpyPJWHOp4XZbfbODJfFU/1JYLly5vzXRTDtnZLzCxo77j98qFkFAhll3I2AAoEIfirZtRihw==}
+  '@nerdfish/config@1.5.1':
+    resolution: {integrity: sha512-AkeJTOGX51oxUMtx49QGxqrm2Zpw3BYia42I9hHB48xNyQV45l5owW6SPKYEnNAPghQ2qaHajGpdENTVFAq0MQ==}
 
   '@nerdfish/tailwind-config@3.8.0':
     resolution: {integrity: sha512-8ZzzBRTZ10NgSgt6J9oqHbAVvpOvQ7olXfTdc2mELYIz1QlQRqEyTjQ2t0H3/wqZq30ZE+THtCRGcxbRM4CuSQ==}
@@ -12171,7 +12171,7 @@ snapshots:
 
   '@n1ru4l/push-pull-async-iterable-iterator@3.2.0': {}
 
-  '@nerdfish/config@1.5.0(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.3.3))(@typescript-eslint/utils@8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(prettier@3.3.3)(typescript@5.6.3)':
+  '@nerdfish/config@1.5.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.3.3))(@typescript-eslint/utils@8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(prettier@3.3.3)(typescript@5.6.3)':
     dependencies:
       '@eslint/compat': 1.2.3(eslint@9.15.0(jiti@1.21.6))
       '@total-typescript/ts-reset': 0.6.1
