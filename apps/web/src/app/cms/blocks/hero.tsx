@@ -119,6 +119,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 			)}
 		>
 			<Tilt
+				isReverse
 				rotationFactor={6}
 				springOptions={{
 					stiffness: 26.7,
