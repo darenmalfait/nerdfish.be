@@ -10,6 +10,8 @@ import {
 } from '@nerdfish/ui'
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@repo/lib/utils/string'
+import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
@@ -49,16 +51,28 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'focus-outline relative flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-primary md:text-sm',
+	'focus-outline relative flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-primary focus:bg-transparent active:bg-transparent md:text-sm',
 	{
 		variants: {
 			variant: {
-				active: '!bg-inverted !text-inverted',
+				active: '!bg-transparent !text-inverted invert-1',
 				default: 'text-primary',
 			},
 		},
 	}
 )
+
+function ActiveBubble({ isActive }: { isActive: boolean }) {
+	if (!isActive) return null
+
+	return (
+		<motion.span
+			style={{ originY: '0px' }}
+			layoutId="bubble"
+			className="-z-1 absolute inset-0 rounded-container bg-inverted"
+		/>
+	)
+}
 
 const MainNavigationItem = React.forwardRef<
 	React.ElementRef<'a'>,
@@ -78,14 +92,13 @@ const MainNavigationItem = React.forwardRef<
 					<Button
 						size="sm"
 						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
-						className={cx(
-							getMainItemClassName({
-								variant: isActive ? 'active' : 'default',
-							})
-						)}
+						className={getMainItemClassName({
+							variant: isActive ? 'active' : 'default',
+						})}
 						asChild
 					>
 						<Link {...props} ref={ref} href={`/${stripPreSlash(href ?? '')}`}>
+							<ActiveBubble isActive={isActive} />
 							{label}
 						</Link>
 					</Button>
@@ -105,14 +118,15 @@ const MainNavigationItem = React.forwardRef<
 			<Button
 				size="sm"
 				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
-				className={cx(
-					getMainItemClassName({
-						variant: isActive ? 'active' : 'default',
-					})
-				)}
+				className={getMainItemClassName({
+					variant: isActive ? 'active' : 'default',
+				})}
 				asChild
 			>
-				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
+				<NavigationMenuTrigger>
+					<ActiveBubble isActive={isActive} />
+					{label}
+				</NavigationMenuTrigger>
 			</Button>
 			<NavigationMenuContent className="rounded-base bg-primary">
 				<ul
@@ -224,6 +238,7 @@ export function SocialLinks() {
 
 export function MainNavigation() {
 	const { navigation } = useGlobal()
+	const t = useTranslations('global')
 	const ref = React.useRef<HTMLUListElement>(null)
 
 	return (
@@ -231,14 +246,17 @@ export function MainNavigation() {
 			className={cx(
 				'fixed inset-x-0 mx-auto w-fit max-w-full rounded-container bg-popover p-xs',
 				'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50',
-				'bottom-lg md:top-6 md:bottom-auto'
+				'bottom-lg md:top-5 md:bottom-auto'
 			)}
 		>
 			<NavigationMenu
 				ref={ref}
 				viewportClassName="-translate-y-[calc(100%+40px)] md:translate-y-0"
 			>
-				<NavigationMenuList className="space-x-xs" aria-label="Pages">
+				<NavigationMenuList
+					className="relative flex flex-1 space-x-xs"
+					aria-label={t('navigation.pages')}
+				>
 					{navigation?.main?.map((mainNavItem) => {
 						if (!mainNavItem) return null
 
