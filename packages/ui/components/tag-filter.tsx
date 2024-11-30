@@ -95,7 +95,7 @@ export function TagFilter({
 		<div>
 			<H5 as="h3" className="mb-md flex items-center justify-between gap-sm">
 				{title}
-				<Drawer>
+				<Drawer repositionInputs={false}>
 					<DrawerTrigger asChild className="lg:hidden">
 						<Button
 							variant={selectedTags.length > 0 ? 'accent' : 'secondary'}
