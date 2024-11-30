@@ -107,6 +107,8 @@ export function Cursor({
 			<AnimatePresence>
 				{isVisible ? (
 					<motion.div
+						className={className}
+						whileTap={{ scale: 1.2 }}
 						initial="initial"
 						animate="animate"
 						exit="exit"
