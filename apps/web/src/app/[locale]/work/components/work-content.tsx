@@ -32,7 +32,7 @@ function WorkContent({
 			>
 				<article>
 					<Section
-						className={cx('md:-mt-3xl px-0', {
+						className={cx('px-0', {
 							'xl:max-w-[500px]': blocks?.length,
 							'container max-w-4xl': !blocks?.length,
 						})}
@@ -93,7 +93,7 @@ function WorkContent({
 					</Section>
 
 					{blocks?.length ? (
-						<div className="md:-mt-3xl flex-1 flex-flex-col">
+						<div className="flex-1 flex-flex-col">
 							<div className="-mx-md">
 								<Blocks items={blocks} />
 							</div>
