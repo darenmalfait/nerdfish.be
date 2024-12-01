@@ -252,7 +252,7 @@ export function MainNavigation() {
 		>
 			<NavigationMenu
 				ref={ref}
-				viewportClassName="-translate-y-[calc(100%+40px)] md:translate-y-0"
+				viewportClassName="-translate-y-[calc(100%+50px)] md:translate-y-0"
 			>
 				<NavigationMenuList
 					className="relative flex flex-1 space-x-xs"
