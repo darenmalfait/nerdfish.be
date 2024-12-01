@@ -8,6 +8,7 @@ import { faqTemplate } from './blocks/faq.template'
 import { featuresTemplate } from './blocks/features.template'
 import { heroTemplate } from './blocks/hero.template'
 import { highlightTemplate } from './blocks/highlight.template'
+import { highlightsTemplate } from './blocks/highlights.template'
 import { imageGridTemplate } from './blocks/image-grid.template'
 import { keywordListTemplate } from './blocks/keyword-list.template'
 import { pricingTemplate } from './blocks/pricing.template'
@@ -29,6 +30,7 @@ export const blocks = [
 	featuresTemplate,
 	heroTemplate,
 	highlightTemplate,
+	highlightsTemplate,
 	imageGridTemplate,
 	keywordListTemplate,
 	pricingTemplate,

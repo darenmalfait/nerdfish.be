@@ -12,12 +12,7 @@ export const splitWithImageTemplate: Template = {
 		},
 	},
 	fields: [
-		{
-			...imageSchema,
-			type: 'object',
-			label: 'Image',
-			name: 'image',
-		},
+		imageSchema,
 		{
 			...portableTextSchema,
 			label: 'Body',

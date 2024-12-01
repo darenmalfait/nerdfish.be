@@ -32,7 +32,7 @@ export const workTemplate: Template = {
 				{
 					type: 'image',
 					label: 'Image',
-					name: 'image',
+					name: 'imageSrc',
 				},
 			],
 		},

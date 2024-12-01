@@ -19,16 +19,16 @@ import type {
 } from '~/app/cms/types'
 
 function ImageGridContent(props: PageBlocksImageGridItems) {
-	const { title, image } = props
+	const { title, imageSrc } = props
 
-	if (!image) return null
+	if (!imageSrc) return null
 	return (
 		<div>
 			<div className="absolute inset-0">
 				<Skeleton className="h-full w-full" />
 				<Image
 					alt={title ?? ''}
-					src={image}
+					src={imageSrc}
 					className="object-cover"
 					layout="fill"
 					objectFit="cover"
@@ -69,7 +69,7 @@ export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
 				ref={ref}
 			>
 				{items?.map((item, i) => {
-					if (!item?.image) return null
+					if (!item?.imageSrc) return null
 
 					return (
 						<GridCard
