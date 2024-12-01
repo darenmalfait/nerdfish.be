@@ -1,8 +1,13 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
+import NumberFlow from '@number-flow/react'
 import * as React from 'react'
 
-export function ReadingProgress({ offset = 0 }: { offset?: number }) {
+export function ReadingProgress({
+	offset = 0,
+	title,
+}: { offset?: number; title?: string }) {
 	const [completion, setCompletion] = React.useState(0)
 
 	React.useEffect(() => {
@@ -15,12 +20,7 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 			if (scrollHeight) {
 				// max scroll completion is 100%
 				setCompletion(
-					Math.round(
-						Math.min(
-							Number((currentProgress / scrollHeight).toFixed(2)) * 100,
-							100
-						)
-					)
+					Math.min(Number((currentProgress / scrollHeight).toFixed(2)), 1)
 				)
 			}
 		}
@@ -35,14 +35,25 @@ export function ReadingProgress({ offset = 0 }: { offset?: number }) {
 	return (
 		<div
 			aria-hidden
-			className="fixed top-0 right-0 left-0 z-50 h-1 w-full bg-transparent"
+			className={
+				'container sticky top-2 z-40 md:fixed md:top-auto md:bottom-8 '
+			}
 		>
 			<div
-				className="h-1 bg-accent transition-transform duration-150"
-				style={{
-					transform: `translateX(${completion - 100}%)`,
-				}}
-			/>
+				className={cx(
+					'mx-auto flex w-fit max-w-full cursor-pointer items-center gap-sm rounded-container bg-popover p-sm font-bold text-sm md:text-base',
+					'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50'
+				)}
+			>
+				{title ? (
+					<span className="flex-1 truncate whitespace-nowrap ">{title}</span>
+				) : null}
+				<NumberFlow
+					value={completion}
+					format={{ style: 'percent' }} // Intl.NumberFormat options
+					locales="nl-BE" // Intl.NumberFormat locales
+				/>
+			</div>
 		</div>
 	)
 }
