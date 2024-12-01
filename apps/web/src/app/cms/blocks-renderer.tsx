@@ -14,7 +14,6 @@ import { HeroBlock } from './blocks/hero'
 import { HighlightBlock } from './blocks/highlight'
 import { ImageGridBlock } from './blocks/image-grid'
 import { KeywordListBlock } from './blocks/keyword-list'
-import { NeonBlock } from './blocks/neon'
 import { PricingBlock } from './blocks/pricing'
 import { SkillsBlock } from './blocks/skills'
 import { SplitWithImageBlock } from './blocks/split-with-image'
@@ -45,7 +44,6 @@ const getComponent = (componentKey: string) => {
 		PageBlocksHighlight: HighlightBlock,
 		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
-		PageBlocksNeon: NeonBlock,
 		PageBlocksPricing: PricingBlock,
 		PageBlocksProducts: ProductsBlock,
 		PageBlocksSkills: SkillsBlock,
