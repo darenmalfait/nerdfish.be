@@ -50,7 +50,7 @@ export const imageGridTemplate: Template = {
 				{
 					type: 'image',
 					label: 'Image',
-					name: 'image',
+					name: 'imageSrc',
 				},
 			],
 		},

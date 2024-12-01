@@ -8,15 +8,21 @@ export const portableTextSchema: RichTextField = {
 	templates: [
 		{
 			...imageSchema,
-			name: 'image',
 			fields: [
-				...imageSchema.fields,
+				...(imageSchema.fields ?? []),
 				{
 					type: 'boolean',
 					name: 'compact',
 					label: 'Compact',
 				},
 			],
+			ui: {
+				itemProps: (item) => {
+					return {
+						label: item.data.title,
+					}
+				},
+			},
 		},
 		{
 			name: 'Button',

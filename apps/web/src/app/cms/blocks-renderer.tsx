@@ -12,6 +12,7 @@ import { FAQBlock } from './blocks/faq'
 import { FeaturesBlock } from './blocks/features'
 import { HeroBlock } from './blocks/hero'
 import { HighlightBlock } from './blocks/highlight'
+import { HighlightsBlock } from './blocks/highlights'
 import { ImageGridBlock } from './blocks/image-grid'
 import { KeywordListBlock } from './blocks/keyword-list'
 import { PricingBlock } from './blocks/pricing'
@@ -42,6 +43,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
 		PageBlocksHighlight: HighlightBlock,
+		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksPricing: PricingBlock,
