@@ -36,7 +36,7 @@ export function ReadingProgress({
 		<div
 			aria-hidden
 			className={
-				'container sticky top-2 z-40 md:fixed md:top-auto md:bottom-8 '
+				'container sticky inset-x-0 top-2 z-40 md:fixed md:top-auto md:bottom-8'
 			}
 		>
 			<div
