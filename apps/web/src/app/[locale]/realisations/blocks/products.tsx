@@ -28,7 +28,7 @@ function ProductItem({
 	sourceUrl,
 	description,
 	soon,
-	image,
+	imageSrc,
 }: Partial<Product>) {
 	const hasExternalLink = link ?? sourceUrl
 
@@ -36,10 +36,10 @@ function ProductItem({
 		<>
 			<div />
 			<div className="group-focus-within:-translate-y-10 group-hover:-translate-y-10 pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
-				{image ? (
+				{imageSrc ? (
 					<Avatar className="size-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
 						<AvatarImage
-							src={image}
+							src={imageSrc}
 							className="object-cover"
 							alt={`${title} logo`}
 						/>

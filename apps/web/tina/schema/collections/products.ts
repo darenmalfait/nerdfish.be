@@ -50,7 +50,7 @@ const productsCollection: Collection = {
 		{
 			type: 'image',
 			label: 'Image',
-			name: 'image',
+			name: 'imageSrc',
 			required: true,
 		},
 		tagsSchema,

@@ -1,7 +1,6 @@
 import { cx } from '@nerdfish/utils'
 import { Section, SectionHeaderSubtitle } from '@repo/ui/components/section'
 import { TextSlideUp } from '@repo/ui/components/text-slide-up'
-import { Tilt } from '@repo/ui/components/tilt'
 import capitalize from 'lodash/capitalize'
 import Image from 'next/image'
 import * as React from 'react'
@@ -118,17 +117,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 				'-bottom-2/3 lg:-bottom-1/2 mt-12 max-w-[100%] rounded-xl md:absolute md:right-0 md:mt-0 md:max-w-[60%]'
 			)}
 		>
-			<Tilt
-				isReverse
-				rotationFactor={6}
-				springOptions={{
-					stiffness: 26.7,
-					damping: 4.1,
-					mass: 0.2,
-				}}
-			>
-				{children}
-			</Tilt>
+			{children}
 		</div>
 	)
 }

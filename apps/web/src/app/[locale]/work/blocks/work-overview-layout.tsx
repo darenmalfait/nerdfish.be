@@ -60,7 +60,7 @@ export function BlockLayout({
 				<ArticleOverviewSearch>
 					<ArticleOverviewSearchImage
 						image={{
-							src: header?.image ?? undefined,
+							src: header?.imageSrc ?? undefined,
 							alt: header?.title ?? undefined,
 						}}
 					/>

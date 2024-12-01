@@ -8,6 +8,8 @@ export const highlightTemplate: Template = {
 		previewSrc: '/blocks/unknown.png',
 	},
 	fields: [
+		imageSchema,
+
 		{
 			type: 'string',
 			label: 'Category',
@@ -23,8 +25,6 @@ export const highlightTemplate: Template = {
 			label: 'Description',
 			name: 'excerpt',
 		},
-
-		{ ...imageSchema, type: 'object' },
 		{
 			type: 'string',
 			label: 'Link Text',
