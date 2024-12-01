@@ -41,7 +41,7 @@ export function ReadingProgress({
 		>
 			<div
 				className={cx(
-					'mx-auto flex w-fit max-w-full cursor-pointer items-center gap-sm rounded-container bg-popover p-sm font-bold text-sm md:text-base',
+					'mx-auto flex w-fit max-w-full items-center gap-sm rounded-container bg-popover p-sm font-bold text-sm md:text-base',
 					'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50'
 				)}
 			>
