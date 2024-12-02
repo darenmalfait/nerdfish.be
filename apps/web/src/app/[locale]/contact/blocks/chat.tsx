@@ -2,7 +2,7 @@
 
 import { Button, useMediaQuery } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { useLockBody } from '@repo/lib/hooks/use-body-lock'
+import { useLockBody } from '@repo/ui/hooks/use-body-lock'
 import { BotIcon, XIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
