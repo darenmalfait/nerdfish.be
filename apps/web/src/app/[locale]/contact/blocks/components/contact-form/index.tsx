@@ -31,10 +31,10 @@ import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { makeZodI18nMap } from '~/app/i18n/utils/zod-error-map'
 import { useRecaptcha } from '../../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
+import { makeZodI18nMap } from '~/app/i18n/utils/zod-error-map'
 
 function Fieldset({
 	children,
@@ -120,7 +120,7 @@ export function ContactForm() {
 			<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
 				<div>
 					<Fieldset title={t('sections.customer')}>
-						<div className="flex w-full flex-col gap-md md:flex-row">
+						<div className="gap-md flex w-full flex-col md:flex-row">
 							<FormField
 								control={form.control}
 								name="name"
@@ -164,7 +164,7 @@ export function ContactForm() {
 										{t('fields.labels.contactInformation')}
 										<LabelAsterisk />
 									</FormLabel>
-									<div className="flex w-full flex-col items-start gap-md md:flex-row">
+									<div className="gap-md flex w-full flex-col items-start md:flex-row">
 										<FormField
 											control={form.control}
 											name="contact.email"
@@ -222,7 +222,7 @@ export function ContactForm() {
 									<FormDescription>
 										{t('fields.labels.projectTypeDescription')}
 									</FormDescription>
-									<div className="flex gap-sm">
+									<div className="gap-sm flex">
 										{projectTypes.map((type) => (
 											<FormField
 												key={type}
@@ -235,7 +235,7 @@ export function ContactForm() {
 														<FormItem key={type}>
 															<FormLabel
 																aria-hidden
-																className="flex items-center gap-sm rounded-container focus-within:outline-active"
+																className="gap-sm rounded-container focus-within:outline-active flex items-center"
 															>
 																<Button
 																	asChild
@@ -258,8 +258,8 @@ export function ContactForm() {
 																			? field.onChange([...field.value, type])
 																			: field.onChange(
 																					field.value.filter(
-																						(value) => value !== type
-																					)
+																						(value) => value !== type,
+																					),
 																				)
 																	}}
 																/>
@@ -289,15 +289,15 @@ export function ContactForm() {
 												<FormDescription>
 													{t('fields.labels.budgetRangeDescription')}
 												</FormDescription>
-												<div className="flex items-center justify-center pt-md font-semibold text-muted">
+												<div className="pt-md text-muted flex items-center justify-center font-semibold">
 													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
 													{numberFormatter.format(field.value?.[1] ?? 0)}
 													{field.value?.[1] === max ? '+' : ''}
 												</div>
 											</FormLabel>
 
-											<div className="mt-xl flex items-center gap-sm">
-												<span className="mr-md text-nowrap font-semibold text-lg text-muted">
+											<div className="mt-xl gap-sm flex items-center">
+												<span className="mr-md text-muted text-nowrap text-lg font-semibold">
 													€ {numberFormatter.format(min)}
 												</span>
 												<FormControl>
@@ -318,7 +318,7 @@ export function ContactForm() {
 														<SliderThumb />
 													</Slider>
 												</FormControl>
-												<span className="ml-md text-nowrap font-semibold text-lg text-muted">
+												<span className="ml-md text-muted text-nowrap text-lg font-semibold">
 													€ {numberFormatter.format(max)}+
 												</span>
 											</div>
@@ -380,7 +380,7 @@ export function ContactForm() {
 						</Alert>
 					) : (
 						<Button
-							className="group mt-md w-full"
+							className="mt-md group w-full"
 							size="lg"
 							disabled={
 								form.formState.isSubmitting ||
@@ -392,7 +392,7 @@ export function ContactForm() {
 								<LoadingAnimation className="mr-2 size-4" variant="classic" />
 							) : null}
 							{t('send')}
-							<ArrowRightIcon className="ml-sm size-4 transition-all group-hover:translate-x-xs" />
+							<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-4 transition-all" />
 						</Button>
 					)}
 				</div>

@@ -8,7 +8,6 @@ import {
 import { type Variant, motion } from 'motion/react'
 import type * as React from 'react'
 import { ArrowIcon, type ArrowIconProps } from '../icons'
-
 import { Link } from './link'
 
 const arrowVariants: Record<
@@ -80,10 +79,9 @@ function ArrowLink({
 			{...props}
 			href={href ?? '#'}
 			className={cx(
-				'!no-underline inline-flex cursor-pointer items-center space-x-md text-left font-bold text-lg text-primary transition focus:outline-none',
-				className
+				'space-x-md text-primary inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
+				className,
 			)}
-			// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 			ref={ref as any}
 			animate={state}
 		>
@@ -91,14 +89,14 @@ function ArrowLink({
 				<span className="mr-lg font-bold">{children}</span>
 			) : null}
 
-			<div className="relative inline-flex size-14 flex-none items-center justify-center p-sm">
+			<div className="p-sm relative inline-flex size-14 flex-none items-center justify-center">
 				<motion.span variants={arrowVariants[direction]}>
 					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
 
 			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-lg font-bold text-xl">{children}</span>
+				<span className="ml-lg text-xl font-bold">{children}</span>
 			) : null}
 		</Tag>
 	)
@@ -117,10 +115,9 @@ function BackLink({
 		<Tag
 			href={href}
 			className={cx(
-				'flex space-x-4 text-primary focus:outline-none',
-				className
+				'text-primary flex space-x-4 focus:outline-none',
+				className,
 			)}
-			// biome-ignore lint/suspicious/noExplicitAny: any is fine here, don't care
 			ref={ref as any}
 			animate={state}
 		>

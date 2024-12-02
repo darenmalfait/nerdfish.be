@@ -33,7 +33,7 @@ export function CopyButton({
 						size="iconSm"
 						aria-label="copy"
 						{...props}
-						className={cx('absolute top-2 right-2', className)}
+						className={cx('absolute right-2 top-2', className)}
 						variant={copiedText ? 'success' : 'ghost'}
 						onClick={() => handleCopy(code, COPY_TIMOUT)}
 					>

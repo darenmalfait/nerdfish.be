@@ -3,7 +3,7 @@
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Skeleton } from '@nerdfish/ui'
 import * as React from 'react'
-import type { GlobalCalcomTypes } from '~/app/cms/types'
+import { type GlobalCalcomTypes } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 import { useTheme } from '~/app/theme/theme-provider'
 
@@ -44,7 +44,7 @@ export function EmbeddedCal({
 	return (
 		<div>
 			{calLoading ? (
-				<div className="mx-auto aspect-2 w-full max-w-3xl rounded-md border-booker border-booker-width bg-default">
+				<div className="aspect-2 border-booker border-booker-width bg-default mx-auto w-full max-w-3xl rounded-md">
 					<Skeleton className="h-full w-full" />
 				</div>
 			) : null}

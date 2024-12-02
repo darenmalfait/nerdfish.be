@@ -1,4 +1,4 @@
-import type { Collection } from '@tinacms/schema-tools'
+import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { portableTextSchema } from '../objects/portable-text'
 import { seo } from '../objects/seo'
@@ -19,7 +19,7 @@ const blogPostsCollection: Collection = {
 		router: async ({ document }) => {
 			return `/blog/${document._sys.relativePath.substring(
 				0,
-				document._sys.relativePath.lastIndexOf('.')
+				document._sys.relativePath.lastIndexOf('.'),
 			)}`
 		},
 		filename: {

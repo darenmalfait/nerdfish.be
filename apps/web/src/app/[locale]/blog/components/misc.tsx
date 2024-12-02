@@ -2,8 +2,8 @@
 
 import { Button } from '@nerdfish/ui'
 import { ChevronLeftIcon } from '@repo/ui/icons'
-import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useGlobal } from '~/app/global-provider'
 
 export function BackToBlog() {

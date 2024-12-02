@@ -1,5 +1,8 @@
 // Use type safe message keys with `next-intl`
-type GlobalMessages = typeof import('./dictionaries/en.json')
-type ZodMessages = typeof import('./dictionaries/zod/en.json')
+import type GlobalTranslations from './dictionaries/en.json'
+import type ZodTranslations from './dictionaries/zod/en.json'
+
+type GlobalMessages = typeof GlobalTranslations
+type ZodMessages = typeof ZodTranslations
 type Messages = GlobalMessages & ZodMessages
-declare interface IntlMessages extends Messages {}
+type IntlMessages = Messages

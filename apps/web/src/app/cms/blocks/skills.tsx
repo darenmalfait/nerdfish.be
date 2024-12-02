@@ -23,9 +23,9 @@ import {
 } from '@repo/ui/icons'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksSkills } from '~/app/cms/types'
-import type { skills } from '~/tina/schema/blocks/skills.template'
 import { PortableText } from '../components/portable-text'
+import { type Block, type PageBlocksSkills } from '~/app/cms/types'
+import { type skills } from '~/tina/schema/blocks/skills.template'
 
 const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
 	javascript: JavascriptIcon,
@@ -51,7 +51,7 @@ function SkillItem({ skill }: { skill?: string | null }) {
 	const SkillIcon = skillIconMap[skill as keyof typeof skillIconMap]
 
 	return (
-		<li className="col-span-1 flex aspect-1 w-full flex-col items-center justify-center rounded-container bg-muted">
+		<li className="aspect-1 rounded-container bg-muted col-span-1 flex w-full flex-col items-center justify-center">
 			<div className="flex flex-col items-center text-center">
 				<SkillIcon
 					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
@@ -85,7 +85,7 @@ const SkillsList = ({
 	return (
 		<div>
 			<ul
-				className={cx('grid grid-cols-2 gap-sm md:grid-cols-3', {
+				className={cx('gap-sm grid grid-cols-2 md:grid-cols-3', {
 					'lg:grid-cols-4': maxCols === '4',
 					'lg:grid-cols-5': maxCols === '5',
 				})}

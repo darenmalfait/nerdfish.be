@@ -1,5 +1,5 @@
 import { Skeleton } from '@nerdfish/ui'
-import type { PartialDeep } from '@repo/lib/utils/types'
+import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -9,10 +9,10 @@ import {
 } from '@repo/ui/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/ui/components/article-overview'
 import * as React from 'react'
-import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'
 import { BlockLayout } from './work-overview-layout'
+import { type Block, type PageBlocksWork, type Work } from '~/app/cms/types'
 
 function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
 	return work._sys?.relativePath === relatedTo?._sys?.relativePath
@@ -21,7 +21,7 @@ function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
 export async function WorkOverviewBlockContent(
 	data: Block<PageBlocksWork> & {
 		relatedTo?: PartialDeep<Work>
-	}
+	},
 ) {
 	const {
 		header,
@@ -40,7 +40,7 @@ export async function WorkOverviewBlockContent(
 			.sort((a, b) => {
 				// The array gets sorted so the index of the next item is the first item in the array
 				const relatedToIndex = localizedWorks.findIndex(
-					(work) => work._sys?.relativePath === relatedTo._sys?.relativePath
+					(work) => work._sys?.relativePath === relatedTo._sys?.relativePath,
 				)
 				if (relatedToIndex === -1) return 0
 
@@ -83,7 +83,7 @@ export async function WorkOverviewBlockContent(
 export async function WorkOverviewBlock(
 	data: Block<PageBlocksWork> & {
 		relatedTo?: PartialDeep<Work>
-	}
+	},
 ) {
 	const { header, searchEnabled, featuredEnabled } = data
 
@@ -97,11 +97,10 @@ export async function WorkOverviewBlock(
 					header={header}
 				>
 					{featuredEnabled ? (
-						<Skeleton className="mb-xl aspect-[16/9] h-full rounded-container" />
+						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
 					) : null}
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (
-							// biome-ignore lint/suspicious/noArrayIndexKey: its a skeleton, it's fine
 							<li key={i} className="col-span-4">
 								<ArticleCard>
 									<ArticleCardImage />

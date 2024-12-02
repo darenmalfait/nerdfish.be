@@ -43,11 +43,11 @@ function CategoryIndicator({
 			<span
 				className={cx(
 					getCategoryColors(category),
-					'z-10 inline-block w-auto rounded-xl bg-muted px-4 py-sm font-bold text-sm shadow-sm ring-2 ring-current transition-colors',
+					'bg-muted py-sm z-10 inline-block w-auto rounded-xl px-4 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{
-						'absolute top-6 right-6 lg:right-[unset] lg:left-6': !inline,
+						'absolute right-6 top-6 lg:left-6 lg:right-[unset]': !inline,
 					},
-					className
+					className,
 				)}
 			>
 				<span className="sr-only">Category:</span>

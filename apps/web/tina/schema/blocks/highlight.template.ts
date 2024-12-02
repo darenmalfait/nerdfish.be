@@ -1,4 +1,4 @@
-import type { Template } from '@tinacms/schema-tools'
+import { type Template } from '@tinacms/schema-tools'
 import { imageSchema } from '../objects/image'
 
 export const highlightTemplate: Template = {

@@ -11,13 +11,13 @@ import {
 import { cva, cx } from '@nerdfish/utils'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import { AnimatedBackground } from '@repo/ui/components/animated-background'
-import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import type {
-	GlobalNavigationMain,
-	GlobalNavigationMainSub,
+import {
+	type GlobalNavigationMain,
+	type GlobalNavigationMainSub,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
@@ -30,16 +30,16 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'group relative flex h-full w-full select-none flex-col justify-end space-y-sm rounded-base p-md leading-none no-underline outline-none transition-colors focus-within:outline-active hover:bg-muted',
-						className
+						'space-y-sm rounded-base p-md focus-within:outline-active hover:bg-muted group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
+						className,
 					)}
 					ref={ref}
 					href={`/${stripPreSlash(href)}`}
 					{...props}
 				>
-					<div className="font-black text-sm leading-none">{label}</div>
+					<div className="text-sm font-black leading-none">{label}</div>
 					{description ? (
-						<p className="mb-0 line-clamp-1 text-muted text-sm leading-snug">
+						<p className="text-muted mb-0 line-clamp-1 text-sm leading-snug">
 							{description}
 						</p>
 					) : null}
@@ -59,7 +59,7 @@ const getMainItemClassName = cva(
 				default: 'text-primary',
 			},
 		},
-	}
+	},
 )
 
 const MainNavigationItem = React.forwardRef<
@@ -71,7 +71,7 @@ const MainNavigationItem = React.forwardRef<
 
 	if (!sub?.length) {
 		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(href ?? '')
+			stripPreSlash(href ?? ''),
 		)
 
 		return (
@@ -114,7 +114,7 @@ const MainNavigationItem = React.forwardRef<
 			</Button>
 			<NavigationMenuContent className="rounded-base bg-primary">
 				<ul
-					className={cx('flex flex-col gap-sm p-xs md:w-[400px] lg:w-[500px]')}
+					className={cx('gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]')}
 				>
 					{sub.map((subNavItem) => {
 						if (!subNavItem) return null
@@ -137,7 +137,7 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="flex flex-row items-center gap-sm">
+		<ul className="gap-sm flex flex-row items-center">
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
@@ -230,11 +230,11 @@ export function MainNavigation() {
 		const isActive = navigation?.main?.find((item) => {
 			return (
 				(item?.href &&
-					stripPreSlash(pathname).startsWith(stripPreSlash(item.href))) ||
+					stripPreSlash(pathname).startsWith(stripPreSlash(item.href))) ??
 				item?.sub?.some(
 					(subItem) =>
 						subItem?.href &&
-						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href))
+						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href)),
 				)
 			)
 		})
@@ -245,9 +245,9 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'fixed inset-x-0 mx-auto w-fit max-w-full rounded-container bg-popover p-xs',
-				'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50',
-				'bottom-lg md:top-5 md:bottom-auto'
+				'rounded-container bg-popover p-xs fixed inset-x-0 mx-auto w-fit max-w-full',
+				'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
+				'bottom-lg md:bottom-auto md:top-5',
 			)}
 		>
 			<NavigationMenu
@@ -255,7 +255,7 @@ export function MainNavigation() {
 				viewportClassName="-translate-y-[calc(100%+50px)] md:translate-y-0"
 			>
 				<NavigationMenuList
-					className="relative flex flex-1 space-x-xs"
+					className="space-x-xs relative flex flex-1"
 					aria-label={t('navigation.pages')}
 				>
 					<AnimatedBackground

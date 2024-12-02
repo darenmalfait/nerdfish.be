@@ -1,4 +1,4 @@
-import type { ObjectField } from '@tinacms/schema-tools'
+import { type ObjectField } from '@tinacms/schema-tools'
 
 export const seo: ObjectField = {
 	name: 'seo',

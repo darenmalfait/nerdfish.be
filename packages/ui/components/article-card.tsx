@@ -14,7 +14,7 @@ import { DateFormatter } from './date-formatter'
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	return (
 		<Cursor
-			className="-ml-4 -mt-4 fixed z-50"
+			className="fixed z-50 -ml-4 -mt-4"
 			variants={{
 				initial: {
 					scale: 0,
@@ -29,7 +29,7 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 			attachToParent
 		>
 			<motion.div
-				className="flex size-16 items-center justify-center rounded-full bg-primary text-current transition-transform group-active:scale-125"
+				className="bg-primary flex size-16 items-center justify-center rounded-full text-current transition-transform group-active:scale-125"
 				transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 			>
 				<ArrowRightIcon className="size-8" />
@@ -53,15 +53,15 @@ export function ArticleCardImage({
 	return (
 		<div
 			className={cx(
-				'relative aspect-h-4 aspect-w-3 overflow-hidden rounded-container shadow-outline ring-2 ring-transparent ring-offset-2 ring-offset-inverted group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
-				category && getCategoryColors(category)
+				'aspect-h-4 aspect-w-3 rounded-container shadow-outline ring-offset-inverted relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				category && getCategoryColors(category),
 			)}
 		>
-			<Skeleton className="absolute inset-0 size-full rounded-container object-cover" />
+			<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
 
 			{src ? (
 				<Image
-					className="motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full rounded-container object-cover"
+					className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
 					src={src}
 					fill
 					alt={alt ?? ''}
@@ -96,7 +96,7 @@ export const ArticleCardTitle = React.forwardRef<
 			variant="primary"
 			ref={ref}
 			{...props}
-			className={cx('!mt-0 mb-sm line-clamp-2', className)}
+			className={cx('mb-sm !mt-0 line-clamp-2', className)}
 		/>
 	)
 })
@@ -115,7 +115,7 @@ export const ArticleCardDate = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('mb-sm font-bold text-muted text-xl', className)}
+			className={cx('mb-sm text-muted text-xl font-bold', className)}
 		>
 			<DateFormatter dateString={value} format="PPP" />
 		</div>
@@ -134,7 +134,7 @@ export const ArticleCardDescription = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('mt-0 line-clamp-2 text-muted', className)}
+			className={cx('text-muted mt-0 line-clamp-2', className)}
 		>
 			{children}
 		</div>
@@ -157,9 +157,9 @@ export const ArticleCardCategory = React.forwardRef<
 			variant="default"
 			{...props}
 			className={cx(
-				'relative mb-sm bg-muted px-md py-sm text-sm',
+				'mb-sm bg-muted px-md py-sm relative text-sm',
 				getCategoryColors(value),
-				className
+				className,
 			)}
 		>
 			<span className="sr-only">Category: </span>

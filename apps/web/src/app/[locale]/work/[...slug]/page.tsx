@@ -1,13 +1,13 @@
 import { createMetadata } from '@repo/seo/metadata'
-import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { generateOGImageUrl } from '~/app/api/og/utils'
-import type { WithLocale } from '~/app/i18n/types'
+import { getTranslations } from 'next-intl/server'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from '../components/work-content'
 import { WorkPreview } from '../components/work-preview'
 import { getRouteData } from './route-data'
+import { generateOGImageUrl } from '~/app/api/og/utils'
+import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata({
 	params,

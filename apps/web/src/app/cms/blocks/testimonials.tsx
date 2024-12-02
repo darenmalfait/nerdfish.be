@@ -7,11 +7,11 @@ import { Section } from '@repo/ui/components/section'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/ui/icons'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
-import type {
-	Block,
-	GlobalTestimonialsItems,
-	PageBlocksTestimonials,
-	PageBlocksTestimonialsLayout,
+import {
+	type Block,
+	type GlobalTestimonialsItems,
+	type PageBlocksTestimonials,
+	type PageBlocksTestimonialsLayout,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
@@ -29,8 +29,8 @@ function Author({ author }: { author: GlobalTestimonialsItems['author'] }) {
 	if (!author?.name) return null
 
 	return (
-		<div className="flex flex-col justify-center gap-xs">
-			<span className="flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:bg-inverted before:content-['']">
+		<div className="gap-xs flex flex-col justify-center">
+			<span className="before:bg-inverted flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
 				{author.name}
 			</span>
 			<span className="text-muted text-sm">{author.company}</span>
@@ -48,18 +48,18 @@ function TestimonialActions({
 	if (!onNext || !onPrevious) return null
 
 	return (
-		<div className="group flex gap-md rounded-container p-md transition duration-300 hover:scale-110 md:hover:bg-primary">
+		<div className="gap-md rounded-container p-md md:hover:bg-primary group flex transition duration-300 hover:scale-110">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="active:-translate-x-xs hover:!opacity-100 rounded-container outline-none transition duration-300 focus-visible:outline-active group-hover:opacity-25"
+				className="active:-translate-x-xs rounded-container focus-visible:outline-active outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="hover:!opacity-100 rounded-container outline-none transition duration-300 focus-visible:outline-active active:translate-x-xs group-hover:opacity-25"
+				className="rounded-container focus-visible:outline-active active:translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>
@@ -87,15 +87,15 @@ function Testimonial({
 	const Element = layout?.variant === 'secondary' ? H2 : H1
 
 	return (
-		<div className="relative flex flex-col justify-center gap-xl">
+		<div className="gap-xl relative flex flex-col justify-center">
 			<Element
 				as="blockquote"
-				className='font-normal text-primary before:content-["""] after:content-["""]'
+				className='text-primary before:content-["""] after:content-["""] font-normal'
 			>
 				{testimonial.quote}
 			</Element>
 
-			<div className="flex flex-col justify-between gap-xl md:flex-row md:items-center">
+			<div className="gap-xl flex flex-col justify-between md:flex-row md:items-center">
 				<Author author={testimonial.author} />
 				<div className="flex w-auto items-center justify-end">
 					<TestimonialActions onNext={onNext} onPrevious={onPrevious} />
@@ -124,7 +124,7 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 			}) ?? []
 
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
-		testimonials.length ? testimonials.length - 1 : 0
+		testimonials.length ? testimonials.length - 1 : 0,
 	)
 
 	const onNext = React.useCallback(() => {

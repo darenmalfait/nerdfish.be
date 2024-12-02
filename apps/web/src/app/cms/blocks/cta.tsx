@@ -8,7 +8,7 @@ import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import type { Block, PageBlocksCta } from '~/app/cms/types'
+import { type Block, type PageBlocksCta } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -21,8 +21,8 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 
 	return (
 		<BlockLayout>
-			<div className="flex flex-col justify-between gap-lg md:flex-row md:items-center">
-				<div className="flex flex-col space-y-md lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
+			<div className="gap-lg flex flex-col justify-between md:flex-row md:items-center">
+				<div className="space-y-md flex flex-col lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
 					<div className="space-y-sm">
 						<H2 data-tina-field={tinaField(props, 'title')}>{title}</H2>
 						<H2
@@ -43,7 +43,7 @@ export function CtaBlock(props: Block<PageBlocksCta>) {
 								href={getPagePath(page)}
 							>
 								{page.title}
-								<ArrowRightIcon className="ml-sm size-6 transition duration-300 group-hover:translate-x-xs xl:size-8" />
+								<ArrowRightIcon className="ml-sm group-hover:translate-x-xs size-6 transition duration-300 xl:size-8" />
 							</Link>
 						</MagnetButton>
 					</div>

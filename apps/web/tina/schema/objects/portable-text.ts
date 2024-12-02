@@ -1,4 +1,4 @@
-import type { RichTextField } from '@tinacms/schema-tools'
+import { type RichTextField } from '@tinacms/schema-tools'
 import { imageSchema } from './image'
 
 export const portableTextSchema: RichTextField = {

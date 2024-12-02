@@ -13,15 +13,15 @@ import { ArrowRight } from '@repo/ui/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type {
-	Block,
-	Page,
-	PageBlocksFeatures,
-	PageBlocksFeaturesItems,
+import {
+	type Block,
+	type Page,
+	type PageBlocksFeatures,
+	type PageBlocksFeaturesItems,
 } from '~/app/cms/types'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name]
@@ -38,7 +38,7 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 					aria-label={`${t('readMoreAbout', { subject: title })}`}
 				>
 					{t('readMore')}
-					<ArrowRight className="ml-sm size-4 transition-transform group-hover:translate-x-xs" />
+					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
 				</Link>
 			</MagnetButton>
 		</div>
@@ -57,11 +57,11 @@ const featureCardVariants = cva(
 		defaultVariants: {
 			variant: 'secondary',
 		},
-	}
+	},
 )
 
 function FeatureCard(
-	props: PageBlocksFeaturesItems & VariantProps<typeof featureCardVariants>
+	props: PageBlocksFeaturesItems & VariantProps<typeof featureCardVariants>,
 ) {
 	const { title, description, icon, detail, variant, ...rest } = props
 
@@ -72,7 +72,7 @@ function FeatureCard(
 		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
-					className="mb-lg flex aspect-1 items-center justify-center text-primary"
+					className="mb-lg aspect-1 text-primary flex items-center justify-center"
 					aria-hidden
 				>
 					<Icon
@@ -85,13 +85,13 @@ function FeatureCard(
 				<div>
 					<H3
 						data-tina-field={tinaField(props, 'title')}
-						className="mb-md flex flex-none items-end text-primary"
+						className="mb-md text-primary flex flex-none items-end"
 					>
 						{title}
 					</H3>
 					<p
 						data-tina-field={tinaField(props, 'description')}
-						className="flex-auto text-lg text-muted"
+						className="text-muted flex-auto text-lg"
 					>
 						{description}
 					</p>
@@ -121,7 +121,7 @@ export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
 			</SectionHeader>
 			<Grid
 				ref={ref}
-				className={cx('auto-rows-auto gap-lg', {
+				className={cx('gap-lg auto-rows-auto', {
 					'grid-cols-2': maxCols === '2',
 					'grid-cols-3': maxCols === '3',
 					'grid-cols-4': maxCols === '4',

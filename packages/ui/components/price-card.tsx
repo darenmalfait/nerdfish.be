@@ -77,7 +77,7 @@ export const PriceCardFeatures = React.forwardRef<
 				{
 					'dark:light dark': isPopular,
 				},
-				className
+				className,
 			)}
 			{...props}
 		>
@@ -94,10 +94,10 @@ export const PriceCardFeature = React.forwardRef<
 	return (
 		<li
 			ref={ref}
-			className={cx('flex items-center gap-sm', className)}
+			className={cx('gap-sm flex items-center', className)}
 			{...props}
 		>
-			<CheckIcon className="size-3 text-success" />
+			<CheckIcon className="text-success size-3" />
 			<span className="font-medium">{children}</span>
 		</li>
 	)
@@ -115,11 +115,11 @@ export const PriceCardDescription = React.forwardRef<
 		<CardDescription
 			ref={ref}
 			className={cx(
-				'text-lg text-muted',
+				'text-muted text-lg',
 				{
 					'text-inverted/60': isPopular,
 				},
-				className
+				className,
 			)}
 			{...props}
 		>
@@ -139,7 +139,7 @@ export const PriceCardPrice = React.forwardRef<
 
 	return (
 		<p ref={ref} className={cx('p-md', className)} {...props}>
-			<H3 as="span" className="inline font-semibold text-4xl leading-7">
+			<H3 as="span" className="inline text-4xl font-semibold leading-7">
 				{price}
 			</H3>
 		</p>
@@ -186,7 +186,7 @@ export const PriceCard = React.forwardRef<
 						'bg-inverted text-inverted': isPopular,
 						'bg-secondary': !isPopular,
 					},
-					className
+					className,
 				)}
 				{...props}
 			>

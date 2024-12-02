@@ -9,7 +9,6 @@ type AnimatedBackgroundProps = {
 	children?:
 		| React.ReactElement<{ 'data-id': string }>[]
 		| React.ReactElement<{ 'data-id': string }>
-		// biome-ignore lint/suspicious/noExplicitAny: Not sure what to do here
 		| any
 
 	defaultValue?: string
@@ -32,7 +31,7 @@ export function AnimatedBackground({
 	const [activeId, setActiveId] = useControllableState<string | null>(
 		value,
 		defaultValue ?? null,
-		onValueChange
+		onValueChange,
 	)
 
 	const uniqueId = React.useId()
@@ -62,7 +61,6 @@ export function AnimatedBackground({
 		return React.cloneElement(
 			child,
 			{
-				// biome-ignore lint/suspicious/noArrayIndexKey: 🤷‍♂️
 				key: index,
 				className: cx('relative inline-flex', child.props.className),
 				'aria-selected': activeId === id,
@@ -71,7 +69,7 @@ export function AnimatedBackground({
 			},
 			<>
 				<AnimatePresence initial={false}>
-					{activeId && activeId === id && (
+					{activeId && activeId === id ? (
 						<motion.div
 							style={{ originY: '0px' }}
 							layoutId={`background-${uniqueId}`}
@@ -85,10 +83,10 @@ export function AnimatedBackground({
 								opacity: 0,
 							}}
 						/>
-					)}
+					) : null}
 				</AnimatePresence>
 				<span className="z-10">{child.props.children}</span>
-			</>
+			</>,
 		)
 	})
 }

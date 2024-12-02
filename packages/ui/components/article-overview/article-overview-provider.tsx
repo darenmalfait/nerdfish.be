@@ -2,7 +2,7 @@
 
 import { nonNullable } from '@repo/lib/utils/array'
 import * as React from 'react'
-import type { Article } from './types'
+import { type Article } from './types'
 import { filterArticles } from './utils'
 
 interface ArticleOverviewContextProps {
@@ -29,7 +29,7 @@ export function useArticleOverview(): ArticleOverviewContextProps {
 
 	if (!context) {
 		throw new Error(
-			'You should use useArticleOverview within an ArticleOverviewContext'
+			'You should use useArticleOverview within an ArticleOverviewContext',
 		)
 	}
 
@@ -76,7 +76,7 @@ export function ArticleOverviewProvider({
 	const tags = React.useMemo(
 		() =>
 			nonNullable([...new Set(allArticles.flatMap((article) => article.tags))]),
-		[allArticles]
+		[allArticles],
 	)
 
 	const loadMore = React.useCallback(() => {
@@ -106,7 +106,7 @@ export function ArticleOverviewProvider({
 					featuredArticleEnabled,
 					itemsToShow,
 					loadMore,
-				]
+				],
 			)}
 		>
 			{children}

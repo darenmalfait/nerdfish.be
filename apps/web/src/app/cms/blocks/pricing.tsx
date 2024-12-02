@@ -20,7 +20,7 @@ import {
 import { useTranslations } from 'next-intl'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksPricing } from '~/app/cms/types'
+import { type Block, type PageBlocksPricing } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -72,7 +72,7 @@ export function PricingBlock(props: Block<PageBlocksPricing>) {
 					</PriceCard>
 				))}
 			</div>
-			<p className="mt-sm text-center text-primary text-sm">{t('vat')}</p>
+			<p className="mt-sm text-primary text-center text-sm">{t('vat')}</p>
 		</BlockLayout>
 	)
 }

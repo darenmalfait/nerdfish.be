@@ -8,11 +8,11 @@ import { Section } from '@repo/ui/components/section'
 import Image from 'next/image'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { PortableText } from '~/app/cms/components/portable-text'
-import type { BlogPostQueryQuery } from '~/app/cms/types'
-import type { Locale } from '~/app/i18n/types'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
+import { PortableText } from '~/app/cms/components/portable-text'
+import { type BlogPostQueryQuery } from '~/app/cms/types'
+import { type Locale } from '~/app/i18n/types'
 
 function BlogContent({
 	data,
@@ -64,7 +64,7 @@ function BlogContent({
 					<header className="flex flex-col">
 						{date ? (
 							<span
-								className="mb-xs text-lg text-muted"
+								className="mb-xs text-muted text-lg"
 								data-tina-field={tinaField(data.blog, 'date')}
 							>
 								<DateFormatter dateString={date} format="dd MMMM yyyy" />
@@ -79,18 +79,18 @@ function BlogContent({
 						</H1>
 					</header>
 					{heroImg ? (
-						<div className="mx-auto mb-xl">
+						<div className="mb-xl mx-auto">
 							<div
-								className="relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden rounded-container"
+								className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden"
 								data-tina-field={tinaField(data.blog, 'heroImg')}
 							>
-								<Skeleton className="absolute inset-0 size-full rounded-container object-cover" />
+								<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
 								{/* TODO: add aria description */}
 								<Image
 									aria-hidden
 									src={heroImg}
 									alt={title}
-									className="motion-blur-in-3xl motion-duration-500 absolute inset-0 size-full rounded-container object-cover"
+									className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
 									width={900}
 									height={900}
 								/>

@@ -1,4 +1,4 @@
-import type { Template } from '@tinacms/schema-tools'
+import { type Template } from '@tinacms/schema-tools'
 import { portableTextSchema } from '../objects/portable-text'
 
 export const bookingTemplate: Template = {
