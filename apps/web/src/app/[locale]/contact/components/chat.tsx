@@ -2,10 +2,10 @@
 
 import { Button, Input, LoadingAnimation, Separator } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
+import { type Message, type ToolInvocation } from '@repo/ai'
+import { useChat } from '@repo/ai/react'
 import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
 import { SendHorizonalIcon } from '@repo/ui/icons'
-import { type Message, type ToolInvocation } from 'ai'
-import { useChat } from 'ai/react'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { EmbeddedCal } from './embedded-cal'
