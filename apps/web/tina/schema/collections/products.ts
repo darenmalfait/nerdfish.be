@@ -1,4 +1,4 @@
-import type { Collection } from '@tinacms/schema-tools'
+import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { tagsSchema } from '../objects/tags'
 

@@ -1,8 +1,5 @@
 import * as React from 'react'
-// biome-ignore lint/performance/noReExportAll: We're using this as the source of truth
-// biome-ignore lint/performance/noBarrelFile:
 export * from 'lucide-react'
-// biome-ignore lint/performance/noReExportAll:
 export * from './components/arrow-icon'
 
 /**
@@ -741,7 +738,7 @@ export const SanityIcon = React.forwardRef<
 		</svg>
 	)
 })
-
+SanityIcon.displayName = 'SanityIcon'
 export const WebflowIcon = React.forwardRef<
 	SVGSVGElement,
 	React.ComponentPropsWithoutRef<'svg'>
@@ -767,3 +764,4 @@ export const WebflowIcon = React.forwardRef<
 		</svg>
 	)
 })
+WebflowIcon.displayName = 'WebflowIcon'

@@ -1,4 +1,4 @@
-import type { Template } from '@tinacms/schema-tools'
+import { type Template } from '@tinacms/schema-tools'
 import { imageSchema } from '../objects/image'
 import { sectionHeaderSchema } from '../objects/section-header'
 
@@ -17,7 +17,7 @@ export const highlightsTemplate: Template = {
 			label: 'Highlights',
 			ui: {
 				itemProps: (item) => {
-					return { label: item?.title }
+					return { label: item.title }
 				},
 			},
 			fields: [

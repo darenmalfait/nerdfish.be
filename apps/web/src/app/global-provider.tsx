@@ -2,12 +2,12 @@
 
 import { stripPreSlash } from '@repo/lib/utils/string'
 import * as React from 'react'
-import type { Global, GlobalPaths } from './cms/types'
+import { type Global, type GlobalPaths } from './cms/types'
 
 type GlobalContextProps = Partial<Global>
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
-	null
+	null,
 )
 GlobalProviderContext.displayName = 'GlobalProviderContext'
 

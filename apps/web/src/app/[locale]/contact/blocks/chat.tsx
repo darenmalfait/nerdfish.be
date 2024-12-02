@@ -6,8 +6,8 @@ import { useLockBody } from '@repo/lib/hooks/use-body-lock'
 import { BotIcon, XIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import type { Block, PageBlocksChatbot } from '~/app/cms/types'
 import { Chat } from '../components/chat'
+import { type Block, type PageBlocksChatbot } from '~/app/cms/types'
 
 function LockBody() {
 	useLockBody()
@@ -23,7 +23,7 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 	const Icon = icon ?? BotIcon
 
 	return (
-		<div className="fixed inset-y-0 right-xs z-50 flex items-center gap-sm">
+		<div className="right-xs gap-sm fixed inset-y-0 z-50 flex items-center">
 			<h2 className="sr-only">{t('title')}</h2>
 			<div aria-hidden>
 				<Button
@@ -37,29 +37,27 @@ export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
 			</div>
 			<div
 				className={cx(
-					'flex flex-col gap-md overflow-hidden rounded-base bg-secondary transition-all duration-250 ease-out md:h-[600px]',
+					'gap-md rounded-base bg-secondary duration-250 flex flex-col overflow-hidden transition-all ease-out md:h-[600px]',
 					{
 						'w-0 opacity-0': !isOpen,
-						'fixed inset-0 z-50 p-md opacity-1 shadow-outline md:relative md:inset-auto md:w-[400px]':
+						'p-md opacity-1 shadow-outline fixed inset-0 z-50 md:relative md:inset-auto md:w-[400px]':
 							isOpen,
-					}
+					},
 				)}
 			>
 				<Chat />
 				{isOpen ? (
-					<>
-						<Button
-							aria-hidden
-							type="button"
-							size="icon"
-							variant="ghost"
-							className="absolute top-md right-md md:hidden"
-							onClick={() => setIsOpen(!isOpen)}
-							aria-label={t('close')}
-						>
-							<XIcon className="size-4" />
-						</Button>
-					</>
+					<Button
+						aria-hidden
+						type="button"
+						size="icon"
+						variant="ghost"
+						className="top-md right-md absolute md:hidden"
+						onClick={() => setIsOpen(!isOpen)}
+						aria-label={t('close')}
+					>
+						<XIcon className="size-4" />
+					</Button>
 				) : null}
 				{isMobile && isOpen ? <LockBody /> : null}
 			</div>

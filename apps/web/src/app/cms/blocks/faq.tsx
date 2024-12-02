@@ -16,7 +16,7 @@ import {
 } from '@repo/ui/components/section'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksFaq } from '~/app/cms/types'
+import { type Block, type PageBlocksFaq } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -30,9 +30,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 	return (
 		<AccordionItem
 			value={id}
-			className="group rounded-container border-none bg-muted p-lg py-sm outline-none transition-colors focus-within:outline-active hover:bg-muted/50"
+			className="rounded-container bg-muted p-lg py-sm focus-within:outline-active hover:bg-muted/50 group border-none outline-none transition-colors"
 		>
-			<AccordionTrigger className="!outline-none py-lg after:hidden hover:no-underline">
+			<AccordionTrigger className="py-lg !outline-none after:hidden hover:no-underline">
 				<H3 variant="primary" as="span">
 					{question}
 				</H3>

@@ -80,7 +80,7 @@ const ThemeScript = React.memo(
 		const updateDom = (
 			name: string,
 			literal = false,
-			setColorScheme = true
+			setColorScheme = true,
 		) => {
 			const resolvedName = name
 			const val = literal ? `${name}|| ''` : `'${resolvedName}'`
@@ -108,17 +108,16 @@ const ThemeScript = React.memo(
 			}
 
 			return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDom(
-				'dark'
+				'dark',
 			)}}else{${updateDom('light')}}}else if(e)${updateDom('e', true)};${
 				defaultSystem ? '' : `else{${updateDom(defaultTheme, false, false)}}`
 			}${fallbackColorScheme}}catch(e){console.error(e.message);}}()`
 		})()
 
-		// biome-ignore lint/security/noDangerouslySetInnerHtml: intentional
 		return <script dangerouslySetInnerHTML={{ __html: scriptSrc }} />
 	},
 	// Never re-render this component
-	() => true
+	() => true,
 )
 
 // import { ThemeProvider } from "path-to-context/ThemeContext"
@@ -130,10 +129,10 @@ function ThemeProvider({
 	children,
 }: ThemeProviderProps) {
 	const [theme, setThemeState] = React.useState(() =>
-		getTheme(storageKey, defaultTheme)
+		getTheme(storageKey, defaultTheme),
 	)
 	const [resolvedTheme, setResolvedTheme] = React.useState(() =>
-		getTheme(storageKey)
+		getTheme(storageKey),
 	)
 	const applyTheme = React.useCallback(
 		(themeToApply?: string) => {
@@ -145,7 +144,7 @@ function ThemeProvider({
 
 			if (name) d.classList.add(name)
 		},
-		[themes]
+		[themes],
 	)
 
 	const setTheme = React.useCallback((newTheme: string) => {
@@ -168,7 +167,7 @@ function ThemeProvider({
 				applyTheme('system')
 			}
 		},
-		[theme, forcedTheme, applyTheme]
+		[theme, forcedTheme, applyTheme],
 	)
 
 	// Always listen to System preference
@@ -211,7 +210,7 @@ function ThemeProvider({
 			themes,
 			systemTheme: resolvedTheme as 'light' | 'dark' | undefined,
 		}),
-		[theme, setTheme, forcedTheme, resolvedTheme, themes]
+		[theme, setTheme, forcedTheme, resolvedTheme, themes],
 	)
 
 	return (

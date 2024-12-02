@@ -1,5 +1,5 @@
 import { tina } from '~/app/cms/client'
-import type { Locale } from '~/app/i18n/types'
+import { type Locale } from '~/app/i18n/types'
 
 export async function getWorks({ locale }: { locale?: Locale } = {}) {
 	const workListData = await tina.queries.workConnection()
@@ -9,7 +9,7 @@ export async function getWorks({ locale }: { locale?: Locale } = {}) {
 			...item?.node,
 		}))
 		.filter((item) =>
-			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true
+			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true,
 		)
 		.reverse()
 }

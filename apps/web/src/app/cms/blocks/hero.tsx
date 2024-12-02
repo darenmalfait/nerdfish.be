@@ -6,7 +6,7 @@ import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '~/app/cms/components/portable-text'
-import type { Block, PageBlocksHero } from '~/app/cms/types'
+import { type Block, type PageBlocksHero } from '~/app/cms/types'
 
 const AnimatedText = React.forwardRef<
 	HTMLSpanElement,
@@ -26,13 +26,10 @@ const AnimatedText = React.forwardRef<
 				<span
 					className={cx(
 						'inline-block transition-colors',
-						'cursor-default hover:animate-rubber',
-						letterClassName
+						'hover:animate-rubber cursor-default',
+						letterClassName,
 					)}
-					key={`${letter}-${
-						// biome-ignore lint/suspicious/noArrayIndexKey: there is nothing else to use
-						index
-					}`}
+					key={`${letter}-${index}`}
 				>
 					{letter === ' ' ? '\u00A0' : letter}
 				</span>
@@ -77,7 +74,7 @@ function BlockLayout({
 			className={cx('group relative', { 'max-w-none': variant === 'default' })}
 		>
 			{variant === 'default' ? (
-				<div className="-z-1 absolute inset-x-md inset-y-0 bottom-0 rounded-container bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70 lg:inset-x-md" />
+				<div className="-z-1 inset-x-md rounded-container lg:inset-x-md absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70" />
 			) : null}
 			<div
 				className={cx('container relative mx-auto px-0', {
@@ -113,8 +110,8 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 	return (
 		<div
 			className={cx(
-				'motion-preset-shrink motion-preset-focus z-30 mb-md w-auto max-w-[50%] flex-none md:mb-0',
-				'-bottom-2/3 lg:-bottom-1/2 mt-12 max-w-[100%] rounded-xl md:absolute md:right-0 md:mt-0 md:max-w-[60%]'
+				'motion-preset-shrink motion-preset-focus mb-md z-30 w-auto max-w-[50%] flex-none md:mb-0',
+				'-bottom-2/3 mt-12 max-w-[100%] rounded-xl md:absolute md:right-0 md:mt-0 md:max-w-[60%] lg:-bottom-1/2',
 			)}
 		>
 			{children}
@@ -125,7 +122,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 export function HeroBlock(
 	data: Block<PageBlocksHero> & {
 		children?: React.ReactNode
-	}
+	},
 ) {
 	const { image, text, title, variant, children } = data
 
@@ -149,7 +146,7 @@ export function HeroBlock(
 					{title ? (
 						<BigTitle
 							data-tina-field={tinaField(data, 'title')}
-							className="relative font-black text-primary"
+							className="text-primary relative font-black"
 							value={title}
 						/>
 					) : null}

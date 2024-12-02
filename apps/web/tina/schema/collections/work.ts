@@ -1,4 +1,4 @@
-import type { Collection } from '@tinacms/schema-tools'
+import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
 import { contentTemplate } from '../blocks/content.template'
 import { imageGridTemplate } from '../blocks/image-grid.template'
@@ -29,7 +29,7 @@ const workCollection: Collection = {
 		router: async ({ document }) => {
 			return `/work/${document._sys.relativePath.substring(
 				0,
-				document._sys.relativePath.lastIndexOf('.')
+				document._sys.relativePath.lastIndexOf('.'),
 			)}`
 		},
 		filename: {

@@ -19,8 +19,7 @@ import { PricingBlock } from './blocks/pricing'
 import { SkillsBlock } from './blocks/skills'
 import { SplitWithImageBlock } from './blocks/split-with-image'
 import { TestimonialsBlock } from './blocks/testimonials'
-import type { PageBlocks, WorkBlocks } from './types'
-import type { Block } from './types'
+import { type PageBlocks, type WorkBlocks, type Block } from './types'
 
 type PageBlockType =
 	| NonNullable<PageBlocks[keyof PageBlocks]>
@@ -74,8 +73,8 @@ function Placeholder({
 	componentName?: string | number
 }) {
 	return (
-		<section className="border border-danger bg-danger-muted py-4 text-center">
-			<p className="mx-auto text-center text-danger">
+		<section className="border-danger bg-danger-muted border py-4 text-center">
+			<p className="text-danger mx-auto text-center">
 				The component <strong>{componentName}</strong> has not been created yet.
 			</p>
 		</section>
@@ -104,7 +103,6 @@ export function Blocks({
 	globalData,
 	locale,
 }: {
-	// biome-ignore lint/suspicious/noExplicitAny: Can be PageBlocks or WorkBlocks, but don't know how to type it
 	items?: any[] | null
 	globalData?: Block['globalData']
 	locale?: Block['locale']
@@ -116,7 +114,6 @@ export function Blocks({
 			{items.map((block, i) => {
 				return (
 					<BlockComponent
-						// biome-ignore lint/suspicious/noArrayIndexKey: no other real option
 						key={i}
 						// TODO: find a better way to type this
 						block={block}

@@ -1,9 +1,9 @@
 import { nonNullable } from '@repo/lib/utils/array'
-import type { PartialDeep } from '@repo/lib/utils/types'
-import type { Article } from '@repo/ui/components/article-overview'
+import { type PartialDeep } from '@repo/lib/utils/types'
+import { type Article } from '@repo/ui/components/article-overview'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import type { Blog } from '~/app/cms/types'
+import { type Blog } from '~/app/cms/types'
 
 const BlogPath = 'blog'
 
@@ -68,16 +68,16 @@ export function filterBlog(posts: PartialDeep<Blog>[], searchString: string) {
 	let individualWordResults = matchSorter(
 		posts,
 		firstWord,
-		individualWordOptions
+		individualWordOptions,
 	)
 	for (const word of restWords) {
 		const searchResult = matchSorter(
 			individualWordResults,
 			word,
-			individualWordOptions
+			individualWordOptions,
 		)
 		individualWordResults = individualWordResults.filter((r) =>
-			searchResult.includes(r)
+			searchResult.includes(r),
 		)
 	}
 

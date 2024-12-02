@@ -61,8 +61,8 @@ function Tags({
 	return (
 		<div
 			className={cx(
-				'-mb-4 -mr-4 col-span-full flex flex-wrap justify-start lg:col-span-10',
-				className
+				'col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10',
+				className,
 			)}
 		>
 			{tags.map((tag) => {
@@ -93,7 +93,7 @@ export function TagFilter({
 
 	return (
 		<div>
-			<H5 as="h3" className="mb-md flex items-center justify-between gap-sm">
+			<H5 as="h3" className="mb-md gap-sm flex items-center justify-between">
 				{title}
 				<Drawer repositionInputs={false}>
 					<DrawerTrigger asChild className="lg:hidden">

@@ -1,9 +1,10 @@
+/* eslint-disable complexity */
 /**
  * This error map is a modified version of the on used by zod-i18n
  * Checkout the original at: https://github.com/aiji42/zod-i18n
  */
 
-import type { useTranslations } from 'next-intl'
+import { type useTranslations } from 'next-intl'
 import {
 	type ZodErrorMap,
 	ZodIssueCode,
@@ -27,9 +28,8 @@ function joinValues<T extends unknown[]>(array: T, separator = ' | '): string {
 const isRecord = (value: unknown): value is Record<string, unknown> => {
 	if (typeof value !== 'object' || value === null) return false
 
-	// eslint-disable-next-line no-restricted-syntax
 	for (const key in value) {
-		if (!Object.prototype.hasOwnProperty.call(value, key)) return false
+		if (!Object.hasOwn(value, key)) return false
 	}
 
 	return true
@@ -37,7 +37,7 @@ const isRecord = (value: unknown): value is Record<string, unknown> => {
 
 const getKeyAndValues = (
 	param: unknown,
-	defaultKey: string
+	defaultKey: string,
 ): {
 	values: Record<string, unknown>
 	key: string
@@ -74,8 +74,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 
 	const path =
 		issue.path.length > 0 && !!tFormFields
-			? // biome-ignore lint/suspicious/noExplicitAny:
-				{ path: tFormFields(issue.path.join('.') as any) }
+			? { path: tFormFields(issue.path.join('.') as any) }
 			: {}
 
 	switch (issue.code) {
@@ -152,21 +151,10 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 					})
 				}
 			} else {
-				message = tZod(
-					`errors.invalid_string.${
-						issue.validation
-						// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-					}` as any,
-					{
-						validation: tZod(
-							`validations.${
-								issue.validation
-								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-							}` as any
-						),
-						...path,
-					}
-				)
+				message = tZod(`errors.invalid_string.${issue.validation}` as any, {
+					validation: tZod(`validations.${issue.validation}` as any),
+					...path,
+				})
 			}
 			break
 		case ZodIssueCode.too_small: {
@@ -176,7 +164,6 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 					: (issue.minimum as number)
 			message = tZod(
 				`errors.too_small.${issue.type}.${
-					// eslint-disable-next-line no-nested-ternary
 					issue.exact
 						? 'exact'
 						: issue.inclusive
@@ -187,7 +174,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 					minimum,
 					count: typeof minimum === 'number' ? minimum : undefined,
 					...path,
-				}
+				},
 			)
 			break
 		}
@@ -198,7 +185,6 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 					: (issue.maximum as number)
 			message = tZod(
 				`errors.too_big.${issue.type}.${
-					// eslint-disable-next-line no-nested-ternary
 					issue.exact
 						? 'exact'
 						: issue.inclusive
@@ -209,17 +195,17 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 					maximum,
 					count: typeof maximum === 'number' ? maximum : undefined,
 					...path,
-				}
+				},
 			)
 			break
 		}
 		case ZodIssueCode.custom: {
 			const { key, values } = getKeyAndValues(
 				issue.params?.i18n,
-				'errors.custom'
+				'errors.custom',
 			)
 
-			message = (tCustomErrors || tZod)(key as Parameters<typeof tZod>[0], {
+			message = (tCustomErrors ?? tZod)(key as Parameters<typeof tZod>[0], {
 				...values,
 				...path,
 			})

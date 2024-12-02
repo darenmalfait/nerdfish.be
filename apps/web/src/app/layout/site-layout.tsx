@@ -8,9 +8,9 @@ import { TextSlideUp } from '@repo/ui/components/text-slide-up'
 import { ArrowRight, Logo } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
-import { useGlobal } from '~/app/global-provider'
 import { SocialLinks } from './components/navigation'
 import { SiteHeader } from './components/site-header'
+import { useGlobal } from '~/app/global-provider'
 
 function Disclaimer() {
 	const { companyInfo } = useGlobal()
@@ -18,12 +18,12 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="my-lg flex w-full flex-col items-center justify-center gap-lg md:flex-row">
-			<div className="flex items-center gap-lg">
+		<div className="my-lg gap-lg flex w-full flex-col items-center justify-center md:flex-row">
+			<div className="gap-lg flex items-center">
 				<div>
 					<Logo className="h-4 w-auto items-center text-current" />
 				</div>
-				<div className="flex justify-start text-muted text-sm">
+				<div className="text-muted flex justify-start text-sm">
 					© {currentYear} {companyInfo?.companyName}
 				</div>
 			</div>
@@ -48,7 +48,7 @@ function SiteFooterHeading() {
 				<TextSlideUp>
 					<span>
 						Let’s work{' '}
-						<ArrowRight className="ml-xs inline size-8 transform duration-300 group-hover:translate-x-xs group-hover:text-accent md:size-12 lg:size-16" />
+						<ArrowRight className="ml-xs group-hover:translate-x-xs group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
 					<span>together</span>
 				</TextSlideUp>
@@ -61,18 +61,18 @@ function SiteFooterContent() {
 	const { companyInfo } = useGlobal()
 
 	return (
-		<div className="my-lg grid gap-lg md:grid-cols-[repeat(4,250px)]">
-			<p className="text-lg text-muted lg:text-xl">
+		<div className="my-lg gap-lg grid md:grid-cols-[repeat(4,250px)]">
+			<p className="text-muted text-lg lg:text-xl">
 				Made by{' '}
 				<Link
-					className="cursor-pointer font-medium text-primary transition duration-300 hover:opacity-70"
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://www.nerdfish.be"
 				>
 					nerdfish
 				</Link>
 				, development with user experience in mind. The code is{' '}
 				<Link
-					className="cursor-pointer font-medium text-primary transition duration-300 hover:opacity-70"
+					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://github.com/darenmalfait/nerdfish.be"
 					target="_blank"
 				>
@@ -82,19 +82,19 @@ function SiteFooterContent() {
 			</p>
 
 			<div className="mb-md space-y-xs">
-				<h3 className="font-semibold text-lg leading-tight lg:text-xl lg:leading-tight">
+				<h3 className="text-lg font-semibold leading-tight lg:text-xl lg:leading-tight">
 					Get in touch
 				</h3>
-				<span className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-muted block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo?.companyName}
 				</span>
 				<Link
-					className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight"
+					className="text-muted block text-lg leading-tight lg:text-xl lg:leading-tight"
 					href={`mailto:${companyInfo?.email}`}
 				>
 					{companyInfo?.email}
 				</Link>
-				<span className="block text-lg text-muted leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-muted block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo?.vat}
 				</span>
 			</div>
@@ -114,7 +114,7 @@ const SiteFooter = React.forwardRef<
 		>
 			<InViewBackground className="bg-secondary">
 				<footer
-					className="container max-w-none text-primary"
+					className="text-primary container max-w-none"
 					aria-labelledby="footer-heading"
 				>
 					<SiteFooterHeading />
@@ -134,8 +134,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 		<div className="flex min-h-screen flex-col">
 			<SiteHeader />
 
-			<main className="relative w-full max-w-full flex-1 rounded-b-container">
-				<div className="-z-1 absolute inset-0 rounded-container bg-primary" />
+			<main className="rounded-b-container relative w-full max-w-full flex-1">
+				<div className="-z-1 rounded-container bg-primary absolute inset-0" />
 				<React.Suspense
 					fallback={
 						<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">

@@ -1,4 +1,4 @@
-import type { Template } from '@tinacms/schema-tools'
+import { type Template } from '@tinacms/schema-tools'
 import { testimonialTypes } from '../objects/testimonial'
 
 export const testimonialsTemplate: Template = {

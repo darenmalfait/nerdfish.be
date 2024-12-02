@@ -9,8 +9,7 @@ import {
 	useSpring,
 	useTransform,
 } from 'motion/react'
-import type React from 'react'
-import { useRef } from 'react'
+import * as React from 'react'
 
 type TiltProps = {
 	children: React.ReactNode
@@ -29,7 +28,7 @@ export function Tilt({
 	isReverse = false,
 	springOptions,
 }: TiltProps) {
-	const ref = useRef<HTMLDivElement>(null)
+	const ref = React.useRef<HTMLDivElement>(null)
 
 	const x = useMotionValue(0)
 	const y = useMotionValue(0)
@@ -42,14 +41,14 @@ export function Tilt({
 		[-0.5, 0.5],
 		isReverse
 			? [rotationFactor, -rotationFactor]
-			: [-rotationFactor, rotationFactor]
+			: [-rotationFactor, rotationFactor],
 	)
 	const rotateY = useTransform(
 		xSpring,
 		[-0.5, 0.5],
 		isReverse
 			? [-rotationFactor, rotationFactor]
-			: [rotationFactor, -rotationFactor]
+			: [rotationFactor, -rotationFactor],
 	)
 
 	const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`

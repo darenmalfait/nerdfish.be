@@ -3,13 +3,13 @@ import { nonNullable } from '@repo/lib/utils/array'
 import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components/section'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksKeywordList } from '~/app/cms/types'
+import { type Block, type PageBlocksKeywordList } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
 
 	return (
-		<section className="flex flex-col items-center py-xl">{children}</section>
+		<section className="py-xl flex flex-col items-center">{children}</section>
 	)
 }
 

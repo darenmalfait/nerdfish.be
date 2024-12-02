@@ -1,5 +1,5 @@
 import { env } from '@repo/env'
-import type { MetadataRoute } from 'next'
+import { type MetadataRoute } from 'next'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'

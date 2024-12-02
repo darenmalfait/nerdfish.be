@@ -2,12 +2,12 @@
 
 import { useLocale } from 'next-intl'
 import { useTina } from 'tinacms/dist/react'
-import { Preview } from '~/app/cms/components/preview'
-import type {
-	ContentQueryQuery,
-	ContentQueryQueryVariables,
-} from '~/app/cms/types'
 import { PageContent } from './page-content'
+import { Preview } from '~/app/cms/components/preview'
+import {
+	type ContentQueryQuery,
+	type ContentQueryQueryVariables,
+} from '~/app/cms/types'
 
 function PagePreview(props: {
 	data: ContentQueryQuery

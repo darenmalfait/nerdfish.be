@@ -14,9 +14,9 @@ import { ArrowRightIcon, CalendarClockIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import type { Block, PageBlocksContact } from '~/app/cms/types'
 import { EmbeddedCal } from '../components/embedded-cal'
 import { ContactForm } from './components/contact-form'
+import { type Block, type PageBlocksContact } from '~/app/cms/types'
 
 export function ContactBlock(props: Block<PageBlocksContact>) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
@@ -37,7 +37,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 			</SectionHeader>
 			<TextSlideUp
 				delay={400}
-				className="!overflow-visible flex flex-col items-center gap-lg md:flex-row"
+				className="gap-lg flex flex-col items-center !overflow-visible md:flex-row"
 			>
 				<MagnetButton
 					type="button"
@@ -46,7 +46,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					className="motion-opacity-in-[0%] motion-delay-500 group w-full"
 				>
 					{openFormLabel}
-					<ArrowRightIcon className="ml-md text-accent transition-all group-hover:translate-x-sm group-hover:text-inverted" />
+					<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
 				</MagnetButton>
 				<MagnetButton
 					type="button"
@@ -56,7 +56,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					size="xl"
 				>
 					<span className="flex items-center">
-						<CalendarClockIcon className="group-hover:motion-preset-seesaw mr-md size-6 text-success" />
+						<CalendarClockIcon className="group-hover:motion-preset-seesaw mr-md text-success size-6" />
 
 						{t('cta.booking')}
 					</span>
@@ -68,8 +68,8 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 				open={contactFormOpen}
 				onOpenChange={setContactFormOpen}
 			>
-				<DrawerContent className="max-h-[85vh] bg-primary">
-					<div className="container pb-xl">
+				<DrawerContent className="bg-primary max-h-[85vh]">
+					<div className="pb-xl container">
 						<SectionHeader>
 							<SectionHeaderTitle
 								data-tina-field={tinaField(props, 'formTitle')}

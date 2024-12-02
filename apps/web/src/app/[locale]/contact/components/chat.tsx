@@ -4,7 +4,7 @@ import { Button, Input, LoadingAnimation, Separator } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
 import { SendHorizonalIcon } from '@repo/ui/icons'
-import type { Message, ToolInvocation } from 'ai'
+import { type Message, type ToolInvocation } from 'ai'
 import { useChat } from 'ai/react'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
@@ -24,7 +24,7 @@ const chatMessageVariants = cva(
 		defaultVariants: {
 			userRole: 'assistant',
 		},
-	}
+	},
 )
 
 function MessageLoading() {
@@ -81,7 +81,7 @@ const ChatMessage = React.forwardRef<
 >(({ className, userRole, toolInvocations, ...props }, ref) => {
 	if (toolInvocations?.length) {
 		return (
-			<div className="flex flex-col gap-sm">
+			<div className="gap-sm flex flex-col">
 				{toolInvocations.map((toolInvocation) => {
 					const { toolName, toolCallId } = toolInvocation
 
@@ -98,7 +98,7 @@ const ChatMessage = React.forwardRef<
 	}
 	return (
 		<div ref={ref} className={chatMessageVariants({ userRole, className })}>
-			<p className="whitespace-pre-line font-medium text-base" {...props} />
+			<p className="whitespace-pre-line text-base font-medium" {...props} />
 		</div>
 	)
 })
@@ -149,14 +149,14 @@ export function Chat({
 				question: t('premadeQuestions.currentJobQuestion'),
 			},
 		],
-		[t]
+		[t],
 	)
 
 	return (
 		<div className={cx('flex h-full flex-col', className)}>
 			<div
 				ref={messagesContainerRef}
-				className="flex flex-1 flex-col gap-lg overflow-y-auto pb-sm"
+				className="gap-lg pb-sm flex flex-1 flex-col overflow-y-auto"
 			>
 				<ChatMessage userRole="assistant" className="!animate-none">
 					{t('initialMessage')}
@@ -179,7 +179,6 @@ export function Chat({
 							key={message.id}
 							userRole="assistant"
 							toolInvocations={message.toolInvocations}
-							// biome-ignore lint/security/noDangerouslySetInnerHtml: We know what we're doing
 							dangerouslySetInnerHTML={{
 								__html: message.content
 									.replace(/ *【.*】 */g, '')
@@ -188,7 +187,7 @@ export function Chat({
 									.replace(' .', '.')
 									.replace(
 										/(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?/=~_|!:,.;]*)[-A-Z0-9+&@#/%=~_|])/gi,
-										'<a href="$&" target="_blank" rel="noopener noreferrer" class="underline">$&</a>'
+										'<a href="$&" target="_blank" rel="noopener noreferrer" class="underline">$&</a>',
 									),
 							}}
 						/>
@@ -213,7 +212,7 @@ export function Chat({
 				/>
 			</div>
 			<ul
-				className="questions mt-md mb-sm flex gap-sm overflow-x-auto overflow-y-visible px-xs py-sm"
+				className="questions mt-md mb-sm gap-sm px-xs py-sm flex overflow-x-auto overflow-y-visible"
 				aria-label={t('premadeQuestions.title')}
 			>
 				{premadeQuestions.map((q) => (

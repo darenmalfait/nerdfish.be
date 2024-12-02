@@ -13,7 +13,7 @@ import { Section } from '@repo/ui/components/section'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import type { Block, PageBlocksHighlight } from '~/app/cms/types'
+import { type Block, type PageBlocksHighlight } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null

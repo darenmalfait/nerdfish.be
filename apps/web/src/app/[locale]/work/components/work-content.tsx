@@ -11,7 +11,7 @@ import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { Blocks } from '~/app/cms/blocks-renderer'
 import { PortableText } from '~/app/cms/components/portable-text'
-import type { WorkQueryQuery } from '~/app/cms/types'
+import { type WorkQueryQuery } from '~/app/cms/types'
 
 const prose = 'prose dark:prose-invert max-w-4xl'
 
@@ -27,7 +27,7 @@ function WorkContent({
 	return (
 		<div className="relative">
 			<Section
-				className="-mt-xl md:-mt-3xl mx-auto flex flex-col gap-xl pt-0 xl:flex-row"
+				className="-mt-xl md:-mt-3xl gap-xl mx-auto flex flex-col pt-0 xl:flex-row"
 				asChild
 			>
 				<article>
@@ -43,11 +43,11 @@ function WorkContent({
 									as="h1"
 									variant="primary"
 									data-tina-field={tinaField(data.work, 'title')}
-									className="!m-0 !text-4xl w-auto"
+									className="!m-0 w-auto !text-4xl"
 								>
 									{title}
 								</H4>
-								<div className="relative mt-xs flex gap-md">
+								<div className="mt-xs gap-md relative flex">
 									{url ? (
 										<div className="mb-md">
 											<Button variant="secondary" asChild>
@@ -60,7 +60,7 @@ function WorkContent({
 													<span className={getCategoryColors(category)}>
 														<ArrowRight
 															className={cx(
-																'ml-sm size-4 text-current transition-all group-hover:translate-x-xs group-hover:text-primary'
+																'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 text-current transition-all',
 															)}
 														/>
 													</span>
@@ -74,7 +74,7 @@ function WorkContent({
 
 							{excerpt ? (
 								<Paragraph
-									className="mb-md font-bold text-xl"
+									className="mb-md text-xl font-bold"
 									data-tina-field={tinaField(data.work, 'excerpt')}
 								>
 									{excerpt}
@@ -93,7 +93,7 @@ function WorkContent({
 					</Section>
 
 					{blocks?.length ? (
-						<div className="flex-1 flex-flex-col">
+						<div className="flex-flex-col flex-1">
 							<div className="-mx-md">
 								<Blocks items={blocks} />
 							</div>

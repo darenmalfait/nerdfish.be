@@ -20,7 +20,7 @@ import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import type { Block, PageBlocksHighlights } from '~/app/cms/types'
+import { type Block, type PageBlocksHighlights } from '~/app/cms/types'
 
 const Card = React.forwardRef<
 	React.ElementRef<typeof motion.div>,
@@ -32,17 +32,17 @@ const Card = React.forwardRef<
 >(
 	(
 		{ children, style, progress, className, range, targetScale, ...props },
-		ref
+		ref,
 	) => {
 		const scale = useTransform(progress, range, [1, targetScale])
 
 		return (
-			<div className="sticky top-md flex justify-center md:top-3xl">
+			<div className="top-md md:top-3xl sticky flex justify-center">
 				<motion.div
 					ref={ref}
 					style={{ ...style, scale }}
 					className={cx(
-						'relative top-0 flex origin-top items-center justify-center'
+						'relative top-0 flex origin-top items-center justify-center',
 					)}
 					{...props}
 				>
@@ -50,8 +50,9 @@ const Card = React.forwardRef<
 				</motion.div>
 			</div>
 		)
-	}
+	},
 )
+Card.displayName = 'Card'
 
 export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 	const { items, sectionHeader } = props
@@ -66,7 +67,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 
 	return (
 		<Section ref={containerRef}>
-			{sectionHeader?.title && (
+			{sectionHeader?.title ? (
 				<SectionHeader>
 					<SectionHeaderTitle
 						data-tina-field={tinaField(sectionHeader, 'title')}
@@ -79,9 +80,9 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 						{sectionHeader.subtitle}
 					</SectionHeaderSubtitle>
 				</SectionHeader>
-			)}
-			<div className="flex flex-col gap-3xl">
-				{items?.map((item, i) => {
+			) : null}
+			<div className="gap-3xl flex flex-col">
+				{items.map((item, i) => {
 					if (!item) return null
 					const targetScale = 1 - (items.length - 1 - i) * 0.05
 					const { title, category, excerpt, image, linkText, reference } = item

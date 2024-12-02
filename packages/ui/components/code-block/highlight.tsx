@@ -22,7 +22,7 @@ const calculateLinesToHighlight = (meta: string) => {
 		const inRange = lineNumbers.some(([start, end]) =>
 			end
 				? lineNumber >= (start ?? 0) && lineNumber <= end
-				: lineNumber === start
+				: lineNumber === start,
 		)
 		return inRange
 	}
@@ -56,18 +56,16 @@ export function Highlight({
 							return (
 								<div
 									{...lineProps}
-									// biome-ignore lint/suspicious/noArrayIndexKey: no other real option
 									key={i}
 									className={cx(
 										shouldHighlightLine(i) ? 'bg-inverted/15' : undefined,
-										lineProps.className
+										lineProps.className,
 									)}
 								>
 									{showLines ? (
 										<span className="mr-6 text-xs opacity-30">{i + 1}</span>
 									) : null}
 									{line.map((token, key) => (
-										// biome-ignore lint/suspicious/noArrayIndexKey: no other real option
 										<span {...getTokenProps({ token, key })} key={key} />
 									))}
 								</div>

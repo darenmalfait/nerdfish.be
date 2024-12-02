@@ -1,4 +1,4 @@
-import type { Collection } from '@tinacms/schema-tools'
+import { type Collection } from '@tinacms/schema-tools'
 import { testimonial } from '../objects/testimonial'
 
 const globalCollection: Collection = {
