@@ -3,6 +3,9 @@ import { schema } from './schema'
 
 // not sure, but tina can't use the @repo/env package, so we need to use process.env
 const config = defineStaticConfig({
+	client: {
+		referenceDepth: 1,
+	},
 	clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
 	branch:
 		process.env.NEXT_PUBLIC_TINA_BRANCH ?? // custom branch env override
