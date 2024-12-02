@@ -229,13 +229,13 @@ export function MainNavigation() {
 	const activeId = React.useMemo(() => {
 		const isActive = navigation?.main?.find((item) => {
 			return (
-				(item?.href &&
-					stripPreSlash(pathname).startsWith(stripPreSlash(item.href))) ??
 				item?.sub?.some(
 					(subItem) =>
 						subItem?.href &&
 						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href)),
-				)
+				) ??
+				(item?.href &&
+					stripPreSlash(pathname).startsWith(stripPreSlash(item.href)))
 			)
 		})
 
