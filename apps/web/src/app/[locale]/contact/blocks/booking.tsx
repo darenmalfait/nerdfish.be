@@ -17,14 +17,14 @@ import { Section } from '@repo/ui/components/section'
 import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import { EmbeddedCal } from '../components/embedded-cal'
 import { PortableText } from '~/app/cms/components/portable-text'
-import type {
-	Block,
-	GlobalCalcomTypes,
-	PageBlocksBooking,
+import {
+	type Block,
+	type GlobalCalcomTypes,
+	type PageBlocksBooking,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
-import { EmbeddedCal } from '../components/embedded-cal'
 
 export function BookingBlock(props: Block<PageBlocksBooking>) {
 	const { title, subtitle, content } = props
@@ -36,8 +36,8 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 	return (
 		<Section>
-			<Card className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-container bg-secondary p-lg">
-				<CardHeader className="bg-transparent p-lg pb-0">
+			<Card className="rounded-container bg-secondary p-lg relative mx-auto w-full max-w-3xl overflow-hidden">
+				<CardHeader className="p-lg bg-transparent pb-0">
 					<CardTitle data-tina-field={tinaField(props, 'title')}>
 						{title}
 					</CardTitle>
@@ -55,7 +55,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 
 					<div className="mx-auto max-w-3xl">
 						<div className="mb-lg w-full text-center">
-							<Avatar className="mx-auto size-24 shadow-outline">
+							<Avatar className="shadow-outline mx-auto size-24">
 								<AvatarImage
 									alt="Darens avatar"
 									src="/images/avatar.jpg"
@@ -67,7 +67,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 							</Avatar>
 						</div>
 						<nav>
-							<ul className="flex flex-col gap-sm">
+							<ul className="gap-sm flex flex-col">
 								{((calcom.types ?? []) as GlobalCalcomTypes[]).map(
 									({ slug, title: bookingTitle, duration }) => (
 										<li
@@ -81,7 +81,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 											>
 												<div className="flex w-full items-start justify-between gap-4 p-5">
 													<div className="flex flex-col">
-														<div className="mb-sm font-semibold text-lg">
+														<div className="mb-sm text-lg font-semibold">
 															{bookingTitle}
 														</div>
 														<div className="flex w-full">
@@ -90,7 +90,9 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 																className="inline-flex w-auto items-center"
 															>
 																<ClockIcon className="mr-sm size-3" />
-																{duration} minutes
+																{
+																	duration
+																} minutes
 															</Badge>
 														</div>
 													</div>
@@ -100,7 +102,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 												</div>
 											</button>
 										</li>
-									)
+									),
 								)}
 							</ul>
 						</nav>

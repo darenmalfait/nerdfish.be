@@ -1,9 +1,9 @@
 'use client'
 
 import { useTina } from 'tinacms/dist/react'
-import { Preview } from '~/app/cms/components/preview'
-import type { WikiQueryQuery, WikiQueryVariables } from '~/app/cms/types'
 import { WikiContent } from './wiki-content'
+import { Preview } from '~/app/cms/components/preview'
+import { type WikiQueryQuery, type WikiQueryVariables } from '~/app/cms/types'
 
 function WikiPreview(props: {
 	data: WikiQueryQuery

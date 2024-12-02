@@ -8,8 +8,8 @@ import {
 	DropdownMenuTrigger,
 } from '@nerdfish/ui'
 import { GlobeIcon } from '@repo/ui/icons'
-import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { i18n, supportedLanguages } from '../config'
 
 export function LocaleSwitcher() {
@@ -17,7 +17,7 @@ export function LocaleSwitcher() {
 	const currentLocale = useLocale()
 
 	const selectedLanguage = supportedLanguages.find(
-		(l) => l.code === currentLocale
+		(l) => l.code === currentLocale,
 	)
 
 	return (

@@ -1,11 +1,11 @@
 import { createMetadata } from '@repo/seo/metadata'
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { generateOGImageUrl } from '~/app/api/og/utils'
-import { i18n } from '~/app/i18n/config'
 import { WikiContent } from '../components/wiki-content'
 import { WikiPreview } from '../components/wiki-preview'
 import { getRouteData } from './route-data'
+import { generateOGImageUrl } from '~/app/api/og/utils'
+import { i18n } from '~/app/i18n/config'
 
 export async function generateMetadata({
 	params,

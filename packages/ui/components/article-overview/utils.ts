@@ -3,7 +3,7 @@ import {
 	matchSorter,
 	rankings as matchSorterRankings,
 } from 'match-sorter'
-import type { Article } from './types'
+import { type Article } from './types'
 
 export function filterArticles(articles: Article[], searchString: string) {
 	if (!searchString) return articles
@@ -66,16 +66,16 @@ export function filterArticles(articles: Article[], searchString: string) {
 	let individualWordResults = matchSorter(
 		articles,
 		firstWord,
-		individualWordOptions
+		individualWordOptions,
 	)
 	for (const word of restWords) {
 		const searchResult = matchSorter(
 			individualWordResults,
 			word,
-			individualWordOptions
+			individualWordOptions,
 		)
 		individualWordResults = individualWordResults.filter((r) =>
-			searchResult.includes(r)
+			searchResult.includes(r),
 		)
 	}
 

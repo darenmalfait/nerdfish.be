@@ -38,7 +38,7 @@ const CSVImporter = dynamic(
 	() => import('csv-import-react').then((mod) => mod.CSVImporter),
 	{
 		ssr: false,
-	}
+	},
 )
 
 function Row({
@@ -57,7 +57,7 @@ function Row({
 			<div className={cx('mr-lg', className)}>{day}</div>
 			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
 			{onRemove ? (
-				<div className="w-0 overflow-hidden transition-all group-hover:ml-sm group-hover:w-8 print:hidden">
+				<div className="group-hover:ml-sm w-0 overflow-hidden transition-all group-hover:w-8 print:hidden">
 					<Button
 						type="button"
 						onClick={onRemove}
@@ -247,7 +247,7 @@ function AddTimeEntryButton({
 			setTimeEntries([...(timeEntries ?? []), data])
 			return setAdding(false)
 		},
-		[timeEntries, setTimeEntries]
+		[timeEntries, setTimeEntries],
 	)
 
 	return (
@@ -306,11 +306,11 @@ function ImportTimeEntriesButton({
 						})
 
 						return result.success ? result.data : null
-					})
-				)
+					}),
+				),
 			)
 		},
-		[setTimeEntries]
+		[setTimeEntries],
 	)
 
 	return (
@@ -346,13 +346,12 @@ export function TimesheetGenerator() {
 
 	const [invoiceReference, setInvoiceReference] = React.useState<string>()
 	const [person, setPerson] = React.useState<string | undefined>(
-		'Daren Malfait'
+		'Daren Malfait',
 	)
 	const [timeEntries, setTimeEntries] = React.useState<
 		TimeEntry[] | undefined
 	>()
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: intentional, only re-run if invoiceReference or timeEntries change
 	React.useEffect(() => {
 		if (ref.current) {
 			// get height in mm
@@ -368,9 +367,9 @@ export function TimesheetGenerator() {
 		<div className="p-md pb-3xl print:p-0">
 			<div
 				ref={ref}
-				className="relative mx-auto w-[80mm] rounded-base p-md pb-lg shadow-outline print:[box-shadow:none]"
+				className="rounded-base p-md pb-lg shadow-outline relative mx-auto w-[80mm] print:[box-shadow:none]"
 			>
-				<div className="mb-lg flex flex-col items-start justify-start gap-sm">
+				<div className="mb-lg gap-sm flex flex-col items-start justify-start">
 					<Logo className="h-4 w-auto" />
 					<Dialog>
 						<DialogTrigger>
@@ -403,8 +402,8 @@ export function TimesheetGenerator() {
 					</Dialog>
 				</div>
 
-				<div className="mb-lg flex flex-col items-start justify-start gap-xs">
-					<h1 className="font-bold text-xl uppercase">Timesheets</h1>
+				<div className="mb-lg gap-xs flex flex-col items-start justify-start">
+					<h1 className="text-xl font-bold uppercase">Timesheets</h1>
 					<Dialog>
 						<DialogTrigger>
 							<div
@@ -439,7 +438,7 @@ export function TimesheetGenerator() {
 					</Dialog>
 				</div>
 
-				<div className="mb-lg flex flex-col gap-xs">
+				<div className="mb-lg gap-xs flex flex-col">
 					<Row day="DAY" hours="HOURS" />
 					<Spacer />
 
@@ -468,7 +467,7 @@ export function TimesheetGenerator() {
 					/>
 				</div>
 
-				<div className="text-center text-muted text-sm">
+				<div className="text-muted text-center text-sm">
 					*** END OF TIMESHEET ***
 				</div>
 				<Separator className="my-lg" />
@@ -482,13 +481,13 @@ export function TimesheetGenerator() {
 			<div
 				className={cx(
 					'print:hidden',
-					'fixed inset-x-0 mx-auto w-fit max-w-full rounded-container bg-popover p-xs',
-					'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50',
-					'bottom-lg'
+					'rounded-container bg-popover p-xs fixed inset-x-0 mx-auto w-fit max-w-full',
+					'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
+					'bottom-lg',
 				)}
 			>
 				<TooltipProvider>
-					<ul className="flex gap-sm">
+					<ul className="gap-sm flex">
 						<li>
 							<AddTimeEntryButton
 								setTimeEntries={setTimeEntries}

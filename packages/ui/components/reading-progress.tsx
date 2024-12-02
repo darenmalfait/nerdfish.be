@@ -7,7 +7,10 @@ import * as React from 'react'
 export function ReadingProgress({
 	offset = 0,
 	title,
-}: { offset?: number; title?: string }) {
+}: {
+	offset?: number
+	title?: string
+}) {
 	const [completion, setCompletion] = React.useState(0)
 
 	React.useEffect(() => {
@@ -20,7 +23,7 @@ export function ReadingProgress({
 			if (scrollHeight) {
 				// max scroll completion is 100%
 				setCompletion(
-					Math.min(Number((currentProgress / scrollHeight).toFixed(2)), 1)
+					Math.min(Number((currentProgress / scrollHeight).toFixed(2)), 1),
 				)
 			}
 		}
@@ -35,18 +38,16 @@ export function ReadingProgress({
 	return (
 		<div
 			aria-hidden
-			className={
-				'container sticky inset-x-0 top-2 z-40 md:fixed md:top-auto md:bottom-8'
-			}
+			className="container sticky inset-x-0 top-2 z-40 md:fixed md:bottom-8 md:top-auto"
 		>
 			<div
 				className={cx(
-					'mx-auto flex w-fit max-w-full items-center gap-sm rounded-container bg-popover p-sm font-bold text-sm md:text-base',
-					'before:empty-content before:absolute before:inset-0 before:rounded-container before:bg-muted/50'
+					'gap-sm rounded-container bg-popover p-sm mx-auto flex w-fit max-w-full items-center text-sm font-bold md:text-base',
+					'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
 				)}
 			>
 				{title ? (
-					<span className="flex-1 truncate whitespace-nowrap ">{title}</span>
+					<span className="flex-1 truncate whitespace-nowrap">{title}</span>
 				) : null}
 				<NumberFlow
 					value={completion}

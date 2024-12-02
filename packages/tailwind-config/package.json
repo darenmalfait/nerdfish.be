@@ -1,18 +1,18 @@
 {
-	"name": "@repo/tailwind-config",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"clean": "rm -rf node_modules .turbo"
-	},
-	"dependencies": {
-		"@nerdfish/tailwind-config": "^3.8.0",
-		"@tailwindcss/line-clamp": "^0.4.4",
-		"@tailwindcss/typography": "^0.5.15",
-		"tailwindcss-animate": "^1.0.7",
-		"tailwindcss-motion": "^0.4.3-beta"
-	},
-	"devDependencies": {
-		"tailwindcss": "^3.4.15"
-	}
+  "name": "@repo/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
+  "dependencies": {
+    "@nerdfish/tailwind-config": "^3.8.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-motion": "^0.4.3-beta"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  }
 }

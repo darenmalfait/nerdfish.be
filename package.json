@@ -1,28 +1,38 @@
 {
-	"name": "nerdfish-website",
-	"version": "0.0.0",
-	"private": true,
-	"type": "module",
-	"workspaces": ["apps/*", "packages/*"],
-	"scripts": {
-		"build": "turbo build",
-		"checks": "pnpm lint && turbo typecheck --continue",
-		"checks:fix": "pnpm lint:fix && turbo typecheck --continue --force",
-		"clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
-		"dev": "turbo dev",
-		"lint": "npx biome check",
-		"lint:fix": "npx biome check --write ./",
-		"prepare": "husky",
-		"typecheck": "turbo typecheck",
-		"vercel-build": " turbo build"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@commitlint/cli": "^19.6.0",
-		"@commitlint/config-conventional": "^19.6.0",
-		"@nerdfish/config": "^1.5.1",
-		"husky": "^9.1.7",
-		"turbo": "^2.3.0"
-	},
-	"packageManager": "pnpm@9.14.2"
+  "name": "nerdfish-website",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "checks": "npm-run-all2 format lint typecheck",
+    "checks:fix": "npm-run-all2 format:fix lint:fix typecheck",
+    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
+    "dev": "turbo dev",
+    "init": "node scripts/init.js",
+    "preinstall": "npx only-allow pnpm",
+    "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
+    "format:fix": "prettier . --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
+    "prepare": "husky",
+    "typecheck": "turbo typecheck",
+    "vercel-build": " turbo build"
+  },
+  "prettier": "@nerdfish/config/prettier",
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@nerdfish/config": "^1.6.1",
+    "eslint": "^9.16.0",
+    "husky": "^9.1.7",
+    "npm-run-all2": "^7.0.1",
+    "prettier": "^3.4.1",
+    "turbo": "^2.3.0"
+  },
+  "packageManager": "pnpm@9.14.2"
 }

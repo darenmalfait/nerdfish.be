@@ -1,4 +1,4 @@
-import type { ButtonProps } from '@nerdfish/ui'
+import { type ButtonProps } from '@nerdfish/ui'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import { MagnetButton } from '@repo/ui/components/magnet-button'
 import Link from 'next/link'

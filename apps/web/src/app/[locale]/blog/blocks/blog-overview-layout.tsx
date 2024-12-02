@@ -1,7 +1,7 @@
 'use client'
 
 import { H1 } from '@nerdfish/ui'
-import type { PartialDeep } from '@repo/lib/utils/types'
+import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Article,
 	ArticleOverview,
@@ -20,8 +20,8 @@ import {
 } from '@repo/ui/components/section'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
 import { filterBlog, mapBlogToArticle } from '../utils'
+import { type Block, type Blog, type PageBlocksBlog } from '~/app/cms/types'
 
 export function BlockLayout({
 	searchEnabled,
@@ -46,7 +46,7 @@ export function BlockLayout({
 
 			return mapBlogToArticle(filterBlog(blogs, searchString))
 		},
-		[items]
+		[items],
 	)
 
 	return (

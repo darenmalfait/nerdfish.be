@@ -1,9 +1,9 @@
 import nerdfishConfig from '@nerdfish/tailwind-config'
 import aspectRatio from '@tailwindcss/aspect-ratio'
 import typography from '@tailwindcss/typography'
-import animate from 'tailwindcss-animate'
 import defaultTheme from 'tailwindcss/defaultTheme'
-import type { Config } from 'tailwindcss/types/config'
+import { type Config } from 'tailwindcss/types/config'
+import animate from 'tailwindcss-animate'
 
 export const config: Config = {
 	content: [

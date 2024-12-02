@@ -51,7 +51,7 @@ export const TextSlideUp = React.forwardRef<
 			className,
 			...props
 		},
-		ref
+		ref,
 	) => {
 		const componentRef = React.useRef<HTMLDivElement>(null)
 		React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
@@ -79,7 +79,7 @@ export const TextSlideUp = React.forwardRef<
 				})}
 			</Component>
 		)
-	}
+	},
 )
 
 TextSlideUp.displayName = 'TextSlideUp'

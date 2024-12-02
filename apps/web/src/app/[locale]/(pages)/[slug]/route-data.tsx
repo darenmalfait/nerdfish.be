@@ -1,13 +1,13 @@
 import { stripTrailingSlash } from '@repo/lib/utils/string'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
-import type { Locale } from '~/app/i18n/types'
 import { getPage } from '../api'
+import { type Locale } from '~/app/i18n/types'
 
 // slug is empty string when on the homepage
 export const getRouteData = React.cache(async function getRouteData(
 	slugProp?: string,
-	lang?: Locale
+	lang?: Locale,
 ) {
 	const slug = decodeURIComponent(slugProp ?? '')
 
@@ -16,7 +16,7 @@ export const getRouteData = React.cache(async function getRouteData(
 
 	const result = await getPage(
 		`${filename.length ? filename : 'home'}.mdx`,
-		lang
+		lang,
 	)
 
 	if (!result) return notFound()

@@ -16,7 +16,7 @@ export const Section = React.forwardRef<
 	return (
 		<Component
 			ref={ref}
-			className={cx('container rounded-container py-xl md:py-3xl', className)}
+			className={cx('rounded-container py-xl md:py-3xl container', className)}
 			{...props}
 		/>
 	)
@@ -52,8 +52,8 @@ export const SectionHeaderSubtitle = React.forwardRef<
 	return (
 		<div
 			className={cx(
-				'max-w-7xl font-semibold text-muted text-xl lg:text-2xl',
-				className
+				'text-muted max-w-7xl text-xl font-semibold lg:text-2xl',
+				className,
 			)}
 			ref={ref}
 			{...props}

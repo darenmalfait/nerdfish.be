@@ -22,8 +22,8 @@ export const HighlightCardImage = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'pointer-events-none relative col-span-full mt-lg aspect-h-4 aspect-w-3 h-0 overflow-hidden rounded-container lg:col-span-4 lg:col-start-8 lg:mt-0',
-				className
+				'mt-lg aspect-h-4 aspect-w-3 rounded-container pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
+				className,
 			)}
 		>
 			{src ? (
@@ -51,8 +51,8 @@ export const HighlightCardContent = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'col-span-4 flex flex-col py-lg md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
-				className
+				'py-lg col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
+				className,
 			)}
 		/>
 	)
@@ -71,7 +71,7 @@ export const HighlightCardTitle = React.forwardRef<
 			variant="primary"
 			as="h2"
 			{...props}
-			className={cx('lg:!text-7xl mt-0', className)}
+			className={cx('mt-0 lg:!text-7xl', className)}
 		/>
 	)
 })
@@ -88,7 +88,7 @@ export const HighlightCardSubtitle = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('mt-md font-bold text-primary text-xl', className)}
+			className={cx('mt-md text-primary text-xl font-bold', className)}
 		/>
 	)
 })
@@ -110,9 +110,9 @@ export const HighlightCardCategory = React.forwardRef<
 				variant="default"
 				{...props}
 				className={cx(
-					'mb-md w-auto bg-inverted/10 px-md py-sm text-base text-primary',
+					'mb-md bg-inverted/10 px-md py-sm text-primary w-auto text-base',
 					getCategoryColors(value),
-					className
+					className,
 				)}
 			>
 				<span className="sr-only">Category: </span>
@@ -135,8 +135,8 @@ export const HighlightCardDescription = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'mt-md line-clamp-3 font-semibold text-muted text-xl',
-				className
+				'mt-md text-muted line-clamp-3 text-xl font-semibold',
+				className,
 			)}
 		>
 			{children}
@@ -166,14 +166,14 @@ export const HighlightCardCTA = React.forwardRef<
 				size="lg"
 				variant="ghost"
 				asChild
-				className="group bg-primary/70 hover:bg-primary"
+				className="bg-primary/70 hover:bg-primary group"
 			>
 				<Link href={href}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon
 							className={cx(
-								'ml-sm size-4 transition-transform group-hover:translate-x-xs group-hover:text-primary'
+								'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 transition-transform',
 							)}
 						/>
 					</span>
@@ -195,18 +195,18 @@ export const HighlightCard = React.forwardRef<
 		<div
 			ref={ref}
 			className={cx(
-				'focus-outline relative w-full max-w-full overflow-hidden rounded-container bg-muted outline-none',
-				className
+				'focus-outline rounded-container bg-muted relative w-full max-w-full overflow-hidden outline-none',
+				className,
 			)}
 			{...props}
 		>
 			<div
 				className={cx(
-					'block rounded-container no-underline outline-none lg:bg-transparent',
-					className
+					'rounded-container block no-underline outline-none lg:bg-transparent',
+					className,
 				)}
 			>
-				<div className="relative grid w-full grid-cols-4 rounded-container p-lg md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="rounded-container p-lg relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</div>

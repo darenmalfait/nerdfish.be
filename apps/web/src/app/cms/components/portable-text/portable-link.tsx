@@ -10,7 +10,7 @@ function PortableLink({ url, children }: { url?: string; children: string }) {
 
 	return (
 		<Link
-			className="inline-flex items-center border-accent border-b-2 font-normal text-inherit no-underline transition-colors hover:text-accent"
+			className="border-accent hover:text-accent inline-flex items-center border-b-2 font-normal text-inherit no-underline transition-colors"
 			href={slug}
 			target={isExternal ? '_blank' : undefined}
 		>

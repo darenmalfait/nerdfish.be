@@ -1,6 +1,6 @@
 import merge from 'lodash.merge'
-import type { Metadata } from 'next'
-import type { Author } from 'next/dist/lib/metadata/types/metadata-types'
+import { type Metadata } from 'next'
+import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
 
 const applicationName = 'Nerdfish'
 

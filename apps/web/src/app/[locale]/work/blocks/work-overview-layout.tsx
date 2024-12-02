@@ -1,6 +1,6 @@
 'use client'
 
-import type { PartialDeep } from '@repo/lib/utils/types'
+import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Article,
 	ArticleOverview,
@@ -20,8 +20,8 @@ import {
 } from '@repo/ui/components/section'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import type { Block, PageBlocksWork, Work } from '~/app/cms/types'
 import { filterWork, mapWorkToArticle } from '../utils'
+import { type Block, type PageBlocksWork, type Work } from '~/app/cms/types'
 
 export function BlockLayout({
 	searchEnabled,
@@ -46,7 +46,7 @@ export function BlockLayout({
 
 			return mapWorkToArticle(filterWork(works, searchString))
 		},
-		[items]
+		[items],
 	)
 
 	return (

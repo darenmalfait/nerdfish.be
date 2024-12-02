@@ -26,11 +26,11 @@ const Link = React.forwardRef<
 	}
 >(function Link({ isButton, url = '', href = url, ...props }, ref) {
 	const isExternal = hrefParameters.some((hrefParameter) =>
-		href.startsWith(hrefParameter)
+		href.startsWith(hrefParameter),
 	)
 
 	const obfuscate = Object.keys(obfuscateParameters).find(
-		(obfuscateParameter) => href.startsWith(obfuscateParameter)
+		(obfuscateParameter) => href.startsWith(obfuscateParameter),
 	) as keyof typeof obfuscateParameters | undefined
 
 	const slug = isExternal ? href : `/${stripPreSlash(href)}`

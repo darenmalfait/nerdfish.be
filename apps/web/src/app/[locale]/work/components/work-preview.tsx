@@ -2,10 +2,10 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import { useTina } from 'tinacms/dist/react'
-import { Preview } from '~/app/cms/components/preview'
-import type { WorkQueryQuery, WorkQueryVariables } from '~/app/cms/types'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from './work-content'
+import { Preview } from '~/app/cms/components/preview'
+import { type WorkQueryQuery, type WorkQueryVariables } from '~/app/cms/types'
 
 function WorkPreview(props: {
 	data: WorkQueryQuery

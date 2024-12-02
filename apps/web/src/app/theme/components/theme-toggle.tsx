@@ -71,7 +71,7 @@ const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				</DropdownMenuContent>
 			</DropdownMenu>
 		)
-	}
+	},
 )
 ThemeToggle.displayName = 'ThemeToggle'
 

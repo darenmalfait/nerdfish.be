@@ -1,5 +1,5 @@
 import { Skeleton } from '@nerdfish/ui'
-import type { PartialDeep } from '@repo/lib/utils/types'
+import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Blog as BlogJsonLd,
 	JsonLd,
@@ -14,10 +14,10 @@ import {
 } from '@repo/ui/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/ui/components/article-overview'
 import * as React from 'react'
-import type { Block, Blog, PageBlocksBlog } from '~/app/cms/types'
 import { getBlogPosts } from '../api'
 import { filterBlog } from '../utils'
 import { BlockLayout } from './blog-overview-layout'
+import { type Block, type Blog, type PageBlocksBlog } from '~/app/cms/types'
 
 function isSameBlog(blog: PartialDeep<Blog>, relatedTo?: PartialDeep<Blog>) {
 	return blog._sys?.relativePath === relatedTo?._sys?.relativePath
@@ -26,7 +26,7 @@ function isSameBlog(blog: PartialDeep<Blog>, relatedTo?: PartialDeep<Blog>) {
 export async function BlogOverviewBlockContent(
 	data: Block<PageBlocksBlog> & {
 		relatedTo?: PartialDeep<Blog>
-	}
+	},
 ) {
 	const {
 		header,
@@ -77,7 +77,7 @@ export async function BlogOverviewBlockContent(
 export async function BlogOverviewBlock(
 	data: Block<PageBlocksBlog> & {
 		relatedTo?: PartialDeep<Blog>
-	}
+	},
 ) {
 	const { header, searchEnabled, featuredEnabled } = data
 
@@ -91,11 +91,10 @@ export async function BlogOverviewBlock(
 					header={header}
 				>
 					{featuredEnabled ? (
-						<Skeleton className="mb-xl aspect-[16/9] h-full rounded-container" />
+						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
 					) : null}
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (
-							// biome-ignore lint/suspicious/noArrayIndexKey: its a skeleton, it's fine
 							<li key={i} className="col-span-4">
 								<ArticleCard>
 									<ArticleCardImage />

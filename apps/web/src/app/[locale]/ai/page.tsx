@@ -6,12 +6,12 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { Chat } from '../contact/components/chat'
 import { generateOGImageUrl } from '~/app/api/og/utils'
 import { HeroBlock } from '~/app/cms/blocks/hero'
-import type { WithLocale } from '~/app/i18n/types'
-import { Chat } from '../contact/components/chat'
+import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata({
 	params,
@@ -49,7 +49,7 @@ export default async function AiPage() {
 					</SectionHeader>
 
 					<div className="relative">
-						<Chat className="h-[75vh] rounded-container bg-primary p-lg shadow-outline" />
+						<Chat className="rounded-container bg-primary p-lg shadow-outline h-[75vh]" />
 					</div>
 				</Section>
 			</InViewBackground>

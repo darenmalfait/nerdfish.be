@@ -1,4 +1,4 @@
-import type { Option, Template } from '@tinacms/schema-tools'
+import { type Option, type Template } from '@tinacms/schema-tools'
 
 export const skills = [
 	'javascript',

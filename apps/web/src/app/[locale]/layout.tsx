@@ -2,12 +2,12 @@ import { fonts } from '@repo/ui/fonts'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import * as React from 'react'
-import { i18n } from '~/app/i18n/config'
-import type { WithLocale } from '~/app/i18n/types'
 import { AppProviders } from '../app-providers'
 import { getGlobalData } from '../cms/api'
 import { GlobalProvider } from '../global-provider'
 import { SiteLayout } from '../layout/site-layout'
+import { i18n } from '~/app/i18n/config'
+import { type WithLocale } from '~/app/i18n/types'
 
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
@@ -28,8 +28,7 @@ export default async function RootLayout({
 	children: React.ReactNode
 	params: WithLocale<Record<string, never>>
 }) {
-	const locale = params.locale ?? i18n.defaultLocale
-	setRequestLocale(locale)
+	setRequestLocale(params.locale)
 
 	const layoutData = await getLayoutData(params.locale)
 
@@ -40,7 +39,7 @@ export default async function RootLayout({
 		<html lang={params.locale} suppressHydrationWarning>
 			<body className={fonts}>
 				<AppProviders>
-					<NextIntlClientProvider messages={messages} locale={locale}>
+					<NextIntlClientProvider messages={messages} locale={params.locale}>
 						<GlobalProvider {...layoutData}>
 							<SiteLayout>{children}</SiteLayout>
 						</GlobalProvider>

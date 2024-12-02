@@ -1,8 +1,8 @@
 'use client'
 
-import type { ExtractProps } from '@nerdfish/utils'
+import { type ExtractProps } from '@nerdfish/utils'
+import * as React from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-
 import { PortableButton } from './portable-button'
 import { PortableCode } from './portable-code'
 import { PortableHeading } from './portable-heading'

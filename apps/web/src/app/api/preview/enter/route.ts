@@ -1,7 +1,7 @@
 import { env } from '@repo/env'
 import { isUserAuthorized } from '@tinacms/auth'
 import { draftMode } from 'next/headers'
-import type { NextRequest } from 'next/server'
+import { type NextRequest } from 'next/server'
 import { z } from 'zod'
 
 function parsePreviewUrl(unsafeUrl: string) {
@@ -15,7 +15,7 @@ function parsePreviewUrl(unsafeUrl: string) {
 	if (unsafeRedirectTo) {
 		const { pathname, search, hash } = new URL(
 			unsafeRedirectTo,
-			'http://localhost'
+			'http://localhost',
 		)
 		redirectTo = `${pathname}${search}${hash}`
 	}
