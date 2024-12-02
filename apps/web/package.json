@@ -50,6 +50,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "14.2.18",
     "@svgr/webpack": "^8.1.0",
     "@tinacms/cli": "^1.6.11",
     "@types/lodash": "^4.17.13",
@@ -57,6 +58,7 @@
     "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@vercel/toolbar": "^0.1.27",
     "autoprefixer": "^10.4.20",
     "husky": "^9.1.7",
     "postcss": "^8.4.49",

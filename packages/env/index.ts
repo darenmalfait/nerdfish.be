@@ -14,6 +14,8 @@ export const env = createEnv({
 	},
 	server: {
 		NODE_ENV: z.enum(['development', 'production', 'test']),
+		ANALYZE: z.string().optional(),
+
 		TINA_TOKEN: z.string().min(1),
 		RECAPTCHA_SECRETKEY: z.string().min(1).optional(),
 		NERDFISH_SMTP: z.string().min(1),
@@ -31,6 +33,7 @@ export const env = createEnv({
 	},
 	runtimeEnv: {
 		NODE_ENV: process.env.NODE_ENV,
+		ANALYZE: process.env.ANALYZE,
 		TINA_TOKEN: process.env.TINA_TOKEN,
 		RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
 		NERDFISH_SMTP: process.env.NERDFISH_SMTP,
