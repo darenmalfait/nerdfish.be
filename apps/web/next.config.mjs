@@ -1,9 +1,10 @@
+import withBundleAnalyzer from '@next/bundle-analyzer'
 import withNextIntl from 'next-intl/plugin'
 
 const withNextIntlConfig = withNextIntl('./src/app/i18n/request-config.ts')
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withNextIntlConfig({
+let nextConfig = {
 	trailingSlash: false,
 	swcMinify: true,
 	images: {
@@ -22,6 +23,13 @@ const nextConfig = withNextIntlConfig({
 			},
 		]
 	},
-})
+}
+
+if (process.env.ANALYZE === 'true') {
+	nextConfig = withBundleAnalyzer()(nextConfig)
+}
+
+// Add internationalization support
+nextConfig = withNextIntlConfig(nextConfig)
 
 export default nextConfig
