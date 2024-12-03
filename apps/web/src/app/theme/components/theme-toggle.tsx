@@ -1,78 +1,63 @@
 'use client'
 
-import {
-	Button,
-	type ButtonProps,
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-	LoadingAnimation,
-} from '@nerdfish/ui'
+import { Button } from '@nerdfish/ui'
+import { cx } from '@nerdfish/utils'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useTheme } from '../theme-provider'
 
-const iconMap = {
-	light: SunIcon,
-	dark: MoonIcon,
-	system: LaptopIcon,
-}
+export const ThemeToggle = React.forwardRef<
+	HTMLDivElement,
+	React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+	const t = useTranslations('theme')
+	const { theme, setTheme } = useTheme()
 
-const ThemeToggle = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ variant, asChild, size, className, ...props }, ref) => {
-		const t = useTranslations('theme')
-		const [mounted, setMounted] = React.useState(false)
-		const { theme, setTheme, systemTheme } = useTheme()
-
-		// useEffect only runs on the client, so now we can safely show the UI
-		React.useEffect(() => {
-			setMounted(true)
-		}, [])
-
-		const isDarkMode =
-			theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
-
-		const Icon = iconMap[isDarkMode ? 'dark' : 'light']
-
-		return (
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button
-						ref={ref}
-						type="button"
-						size="icon"
-						variant={variant ?? 'ghost'}
-						disabled={!mounted}
-						{...props}
-						className={className}
-					>
-						{mounted ? (
-							<Icon className="size-4" />
-						) : (
-							<LoadingAnimation variant="classic" className="size-4" />
-						)}
-						<div className="sr-only">
-							{isDarkMode ? t('light') : t('dark')} Mode
-						</div>
-					</Button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent className="p-xs">
-					<DropdownMenuItem onClick={() => setTheme('light')}>
-						<SunIcon className="mr-sm size-4" /> {t('light')}
-					</DropdownMenuItem>
-					<DropdownMenuItem onClick={() => setTheme('dark')}>
-						<MoonIcon className="mr-sm size-4" /> {t('dark')}
-					</DropdownMenuItem>
-					<DropdownMenuItem onClick={() => setTheme('system')}>
-						<LaptopIcon className="mr-sm size-4" /> {t('system')}
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
-		)
-	},
-)
+	return (
+		<div
+			ref={ref}
+			role="radiogroup"
+			{...props}
+			className={cx(
+				'shadow-outline p-xs gap-xs rounded-container flex items-center',
+				className,
+			)}
+		>
+			<Button
+				role="radio"
+				size="iconSm"
+				variant={theme === 'light' ? 'secondary' : 'ghost'}
+				onClick={() => setTheme('light')}
+				aria-checked={theme === 'light'}
+				aria-label={t('setTheme', { theme: t('light') })}
+				value="light"
+			>
+				<SunIcon className="size-4" />
+			</Button>
+			<Button
+				role="radio"
+				size="iconSm"
+				variant={theme === 'system' ? 'secondary' : 'ghost'}
+				aria-checked={theme === 'system'}
+				aria-label={t('setTheme', { theme: t('system') })}
+				onClick={() => setTheme('system')}
+				value="system"
+			>
+				<LaptopIcon className="size-4" />
+			</Button>
+			<Button
+				role="radio"
+				size="iconSm"
+				variant={theme === 'dark' ? 'secondary' : 'ghost'}
+				aria-checked={theme === 'dark'}
+				aria-label={t('setTheme', { theme: t('dark') })}
+				onClick={() => setTheme('dark')}
+				value="dark"
+			>
+				<MoonIcon className="size-4" />
+			</Button>
+		</div>
+	)
+})
 ThemeToggle.displayName = 'ThemeToggle'
-
-export { ThemeToggle }
