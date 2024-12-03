@@ -15,7 +15,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 
 	return (
 		<>
-			<ReadingProgress offset={400} />
+			<ReadingProgress title={title} offset={400} />
 			<Section className="max-w-4xl">
 				<div className="mb-lg">
 					<BackToWiki />
