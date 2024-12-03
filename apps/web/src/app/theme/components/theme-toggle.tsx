@@ -7,12 +7,39 @@ import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useTheme } from '../theme-provider'
 
+const ThemeToggleItem = React.forwardRef<
+	HTMLButtonElement,
+	Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
+		isActive: boolean
+		value: string
+		onClick?: (value: string) => void
+	}
+>(({ className, isActive, value, onClick, ...props }, ref) => {
+	return (
+		<Button
+			role="radio"
+			size="iconSm"
+			aria-checked={isActive}
+			variant={isActive ? 'secondary' : 'ghost'}
+			ref={ref}
+			onClick={() => onClick?.(value)}
+			{...props}
+		/>
+	)
+})
+ThemeToggleItem.displayName = 'ThemeToggleItem'
+
 export const ThemeToggle = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
 	const t = useTranslations('theme')
 	const { theme, setTheme } = useTheme()
+	const [mounted, setMounted] = React.useState<boolean>(false)
+
+	React.useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	return (
 		<div
@@ -24,39 +51,30 @@ export const ThemeToggle = React.forwardRef<
 				className,
 			)}
 		>
-			<Button
-				role="radio"
-				size="iconSm"
-				variant={theme === 'light' ? 'secondary' : 'ghost'}
-				onClick={() => setTheme('light')}
-				aria-checked={theme === 'light'}
+			<ThemeToggleItem
+				isActive={mounted ? theme === 'light' : false}
+				onClick={setTheme}
 				aria-label={t('setTheme', { theme: t('light') })}
 				value="light"
 			>
 				<SunIcon className="size-4" />
-			</Button>
-			<Button
-				role="radio"
-				size="iconSm"
-				variant={theme === 'system' ? 'secondary' : 'ghost'}
-				aria-checked={theme === 'system'}
+			</ThemeToggleItem>
+			<ThemeToggleItem
+				isActive={mounted ? theme === 'system' : false}
 				aria-label={t('setTheme', { theme: t('system') })}
-				onClick={() => setTheme('system')}
+				onClick={setTheme}
 				value="system"
 			>
 				<LaptopIcon className="size-4" />
-			</Button>
-			<Button
-				role="radio"
-				size="iconSm"
-				variant={theme === 'dark' ? 'secondary' : 'ghost'}
-				aria-checked={theme === 'dark'}
+			</ThemeToggleItem>
+			<ThemeToggleItem
+				isActive={mounted ? theme === 'dark' : false}
+				onClick={setTheme}
 				aria-label={t('setTheme', { theme: t('dark') })}
-				onClick={() => setTheme('dark')}
 				value="dark"
 			>
 				<MoonIcon className="size-4" />
-			</Button>
+			</ThemeToggleItem>
 		</div>
 	)
 })
