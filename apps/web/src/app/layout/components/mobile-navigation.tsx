@@ -159,7 +159,7 @@ export function MobileNavigation() {
 						</ul>
 						<ul className="mt-xl gap-sm flex flex-row items-center justify-start">
 							<li>
-								<ThemeToggle variant="ghost" />
+								<ThemeToggle />
 							</li>
 						</ul>
 						<div className="mt-md gap-sm pb-lg flex flex-row items-center">

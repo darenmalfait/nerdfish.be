@@ -25,7 +25,7 @@ export function SiteHeader() {
 							<MainNavigation />
 
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
-								<ThemeToggle variant="ghost" />
+								<ThemeToggle />
 								<LocaleSwitcher />
 								{/* TODO: add mobile navigation if too many items */}
 								{/* <MobileNavigation /> */}
