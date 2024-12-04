@@ -71,7 +71,7 @@ export const HighlightCardTitle = React.forwardRef<
 			variant="primary"
 			as="h2"
 			{...props}
-			className={cx('mt-0 lg:!text-7xl', className)}
+			className={cx('mt-0 md:!text-5xl xl:!text-7xl', className)}
 		/>
 	)
 })
@@ -200,13 +200,8 @@ export const HighlightCard = React.forwardRef<
 			)}
 			{...props}
 		>
-			<div
-				className={cx(
-					'rounded-container block no-underline outline-none lg:bg-transparent',
-					className,
-				)}
-			>
-				<div className="rounded-container p-lg relative grid w-full grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+			<div className="'rounded-container lg:bg-transparent' block no-underline outline-none">
+				<div className="rounded-container p-lg relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12 lg:px-0">
 					{children}
 				</div>
 			</div>
