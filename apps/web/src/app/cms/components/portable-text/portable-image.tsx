@@ -17,13 +17,13 @@ function PortableImage({
 	return (
 		<div
 			className={cx({
-				'rounded-container mx-auto max-w-xl overflow-hidden': compact,
+				'mx-auto max-w-xl overflow-hidden': compact,
 			})}
 		>
 			<Image
 				src={url}
 				width={compact ? 400 : 800}
-				className="w-full"
+				className="rounded-container w-full"
 				height={800}
 				alt={alt}
 			/>
