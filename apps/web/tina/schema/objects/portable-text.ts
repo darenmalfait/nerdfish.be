@@ -7,6 +7,18 @@ export const portableTextSchema: RichTextField = {
 	type: 'rich-text',
 	templates: [
 		{
+			name: 'widget',
+			label: 'Widget',
+			fields: [
+				{
+					type: 'string',
+					name: 'type',
+					label: 'Widget',
+					options: ['slowLoading'],
+				},
+			],
+		},
+		{
 			...imageSchema,
 			fields: [
 				...(imageSchema.fields ?? []),

@@ -8,6 +8,7 @@ import { PortableCode } from './portable-code'
 import { PortableHeading } from './portable-heading'
 import { PortableImage } from './portable-image'
 import { PortableLink } from './portable-link'
+import { PortableWidget } from './portable-widget'
 
 function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
 	if (!props?.content) return null
@@ -17,6 +18,7 @@ function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
 			{...props}
 			components={
 				{
+					widget: PortableWidget,
 					Button: PortableButton,
 					code_block: PortableCode,
 					image: PortableImage,
