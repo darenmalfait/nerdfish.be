@@ -20,6 +20,7 @@ function PortableText(props?: ExtractProps<typeof TinaMarkdown>) {
 					Button: PortableButton,
 					code_block: PortableCode,
 					image: PortableImage,
+					img: PortableImage,
 					h1: PortableHeading,
 					h2: PortableHeading,
 					h3: PortableHeading,
