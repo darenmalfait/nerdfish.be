@@ -5,23 +5,32 @@ function PortableImage({
 	alt = '',
 	src = '',
 	url = src,
-	compact = false,
+	compact = true,
+	caption = '',
 }: {
 	alt?: string
 	src?: string
 	url?: string
 	compact?: boolean
+	caption?: string
 }) {
 	return (
-		<Image
+		<div
 			className={cx({
-				'max-w-xs': compact,
+				'rounded-container mx-auto max-w-xl overflow-hidden': compact,
 			})}
-			src={url}
-			width={compact ? 400 : 800}
-			height={800}
-			alt={alt}
-		/>
+		>
+			<Image
+				src={url}
+				width={compact ? 400 : 800}
+				className="w-full"
+				height={800}
+				alt={alt}
+			/>
+			{caption ? (
+				<p className="text-muted text-center text-sm">{caption}</p>
+			) : null}
+		</div>
 	)
 }
 
