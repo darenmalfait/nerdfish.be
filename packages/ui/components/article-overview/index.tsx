@@ -11,8 +11,6 @@ import {
 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { nonNullable } from '@repo/lib/utils/array'
-import { formatDate } from 'date-fns/format'
-import { parseISO } from 'date-fns/parseISO'
 import Image from 'next/image'
 import * as React from 'react'
 import { NewspaperIcon, PlusIcon, SearchIcon } from '../../icons'
@@ -30,7 +28,6 @@ import {
 	HighlightCardContent,
 	HighlightCardDescription,
 	HighlightCardImage,
-	HighlightCardSubtitle,
 	HighlightCardTitle,
 } from '../highlight-card'
 import { TagFilter } from '../tag-filter'
@@ -213,11 +210,6 @@ const FeaturedArticle = ({
 			<HighlightCardContent>
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>
-				<HighlightCardSubtitle>
-					{article.date
-						? `${formatDate(parseISO(article.date), 'PPP')}`
-						: 'TBA'}
-				</HighlightCardSubtitle>
 				<HighlightCardDescription>{article.excerpt}</HighlightCardDescription>
 				<HighlightCardCTA category={article.category} href={article.href}>
 					{readMoreLabel ?? 'Read more'}

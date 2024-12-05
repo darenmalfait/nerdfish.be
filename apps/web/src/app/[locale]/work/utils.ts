@@ -91,7 +91,7 @@ export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
 	return works.map((work) => ({
 		id: work.id ?? uniqueId(),
 		title: work.title ?? 'untitled',
-		description: work.excerpt,
+		excerpt: work.excerpt ?? undefined,
 		href: getWorkPath(work),
 		tags: work.category ? [work.category] : [],
 		category: work.category,

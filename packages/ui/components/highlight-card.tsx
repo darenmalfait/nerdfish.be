@@ -88,7 +88,10 @@ export const HighlightCardSubtitle = React.forwardRef<
 		<div
 			ref={ref}
 			{...props}
-			className={cx('mt-md text-primary text-xl font-bold', className)}
+			className={cx(
+				'mt-md text-primary line-clamp-2 text-xl font-bold',
+				className,
+			)}
 		/>
 	)
 })
@@ -135,7 +138,7 @@ export const HighlightCardDescription = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'mt-md text-muted line-clamp-3 text-xl font-semibold',
+				'mt-md text-muted line-clamp-2 text-xl font-semibold',
 				className,
 			)}
 		>
