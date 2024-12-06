@@ -8,6 +8,7 @@ import { TextSlideUp } from '@repo/ui/components/text-slide-up'
 import { ArrowRight, Logo } from '@repo/ui/icons'
 import Link from 'next/link'
 import * as React from 'react'
+import { ThemeToggle } from '../theme/components/theme-toggle'
 import { SocialLinks } from './components/navigation'
 import { SiteHeader } from './components/site-header'
 import { useGlobal } from '~/app/global-provider'
@@ -18,18 +19,23 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="my-lg gap-lg flex w-full flex-col items-center justify-center md:flex-row">
-			<div className="gap-lg flex items-center">
-				<div>
-					<Logo className="h-4 w-auto items-center text-current" />
+		<div className="my-lg gap-md flex w-full flex-col items-center justify-center md:flex-row md:items-start">
+			<div className="gap-md flex flex-col">
+				<div className="gap-md flex items-center">
+					<div>
+						<Logo className="h-4 w-auto items-center text-current" />
+					</div>
+					<div className="text-muted flex justify-start text-sm">
+						© {currentYear} {companyInfo?.companyName}
+					</div>
 				</div>
-				<div className="text-muted flex justify-start text-sm">
-					© {currentYear} {companyInfo?.companyName}
+				<div className="-mx-sm flex justify-center md:justify-start">
+					<SocialLinks />
 				</div>
 			</div>
 
-			<div className="flex flex-1 justify-end">
-				<SocialLinks />
+			<div className="flex flex-1 justify-center md:justify-end">
+				<ThemeToggle />
 			</div>
 		</div>
 	)

@@ -22,6 +22,12 @@ const ThemeToggleItem = React.forwardRef<
 			aria-checked={isActive}
 			variant={isActive ? 'secondary' : 'ghost'}
 			ref={ref}
+			className={cx(
+				{
+					'opacity-60 hover:bg-transparent hover:opacity-100': !isActive,
+				},
+				className,
+			)}
 			onClick={() => onClick?.(value)}
 			{...props}
 		/>
@@ -52,20 +58,20 @@ export const ThemeToggle = React.forwardRef<
 			)}
 		>
 			<ThemeToggleItem
-				isActive={mounted ? theme === 'light' : false}
-				onClick={setTheme}
-				aria-label={t('setTheme', { theme: t('light') })}
-				value="light"
-			>
-				<SunIcon className="size-4" />
-			</ThemeToggleItem>
-			<ThemeToggleItem
 				isActive={mounted ? theme === 'system' : false}
 				aria-label={t('setTheme', { theme: t('system') })}
 				onClick={setTheme}
 				value="system"
 			>
 				<LaptopIcon className="size-4" />
+			</ThemeToggleItem>
+			<ThemeToggleItem
+				isActive={mounted ? theme === 'light' : false}
+				onClick={setTheme}
+				aria-label={t('setTheme', { theme: t('light') })}
+				value="light"
+			>
+				<SunIcon className="size-4" />
 			</ThemeToggleItem>
 			<ThemeToggleItem
 				isActive={mounted ? theme === 'dark' : false}
