@@ -56,7 +56,7 @@ function BlogContent({
 		<>
 			<JsonLd code={jsonLd} />
 			<article>
-				<ReadingProgress title={title} offset={1200} />
+				<ReadingProgress title={title} offset={2500} />
 				<Section>
 					<div className="mb-lg">
 						<BackToBlog />
