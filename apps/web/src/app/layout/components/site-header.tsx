@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { MainNavigation } from './navigation'
 import { LocaleSwitcher } from '~/app/i18n/components/locale-switcher'
-import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 export function SiteHeader() {
 	const currentLocale = useLocale()
@@ -25,7 +24,6 @@ export function SiteHeader() {
 							<MainNavigation />
 
 							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
-								<ThemeToggle />
 								<LocaleSwitcher />
 								{/* TODO: add mobile navigation if too many items */}
 								{/* <MobileNavigation /> */}
