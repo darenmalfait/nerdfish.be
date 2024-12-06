@@ -20,7 +20,11 @@ function Preview() {
 					onClick={() =>
 						startTransition(() =>
 							disableDraftMode().then(() => {
-								router.refresh()
+								if (typeof window !== 'undefined') {
+									window.localStorage.removeItem('tina.local.isLogedIn')
+								}
+
+								router.push('/')
 							}),
 						)
 					}
