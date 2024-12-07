@@ -84,14 +84,14 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 			<div className="gap-3xl flex flex-col">
 				{items.map((item, i) => {
 					if (!item) return null
-					const targetScale = 1 - (items.length - 1 - i) * 0.05
+					const targetScale = 1 - (items.length - 1 - i) * 0.2
 					const { title, category, excerpt, image, linkText, reference } = item
 
 					return (
 						<Card
 							key={title}
 							style={{
-								top: `${i * 25}px`,
+								top: `${i * 30}px`,
 							}}
 							progress={scrollYProgress}
 							range={[i * 0.25, 1]}
