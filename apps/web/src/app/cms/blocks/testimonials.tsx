@@ -90,7 +90,7 @@ function Testimonial({
 		<div className="gap-xl relative flex flex-col justify-center">
 			<Element
 				as="blockquote"
-				className='text-primary before:content-["""] after:content-["""] font-normal'
+				className='text-primary font-bold before:content-["“"] after:content-["”"]'
 			>
 				{testimonial.quote}
 			</Element>
