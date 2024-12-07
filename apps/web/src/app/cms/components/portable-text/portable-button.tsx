@@ -22,7 +22,12 @@ function PortableButton({
 				className="cursor-pointer no-underline"
 				size="lg"
 			>
-				<Link {...props} href={slug} target={isExternal ? '_blank' : undefined}>
+				<Link
+					{...props}
+					href={slug}
+					aria-label={text}
+					target={isExternal ? '_blank' : undefined}
+				>
 					{text}
 				</Link>
 			</MagnetButton>
