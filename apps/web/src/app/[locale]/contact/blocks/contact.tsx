@@ -27,6 +27,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 
 	return (
 		<Section>
+			<h1 className="sr-only">{t('title')}</h1>
 			<SectionHeader>
 				<SectionHeaderTitle data-tina-field={tinaField(props, 'title')}>
 					{title}
