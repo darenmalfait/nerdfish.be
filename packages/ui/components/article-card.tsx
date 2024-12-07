@@ -81,7 +81,7 @@ export const ArticleCardContent = React.forwardRef<
 	HTMLDivElement,
 	React.ComponentPropsWithoutRef<'div'>
 >(({ className, ...props }, ref) => {
-	return <div ref={ref} {...props} className={cx('mt-md', className)} />
+	return <div ref={ref} {...props} className={cx('mt-lg', className)} />
 })
 
 ArticleCardContent.displayName = 'ArticleCardContent'
