@@ -267,6 +267,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 							>
 								<ArticleCard href={article.href} title={article.title}>
 									<ArticleCardImage
+										alt={article.title}
 										src={article.image?.src}
 										category={article.category}
 										readMoreLabel={loadMoreLabel}
