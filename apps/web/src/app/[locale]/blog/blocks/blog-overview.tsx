@@ -47,6 +47,27 @@ export async function BlogOverviewBlockContent(
 	const relatedBlogs =
 		relatedTo &&
 		localizedBlogs
+			.sort((a, b) => {
+				// I want to get the index of the previous item, to be the first item in the array
+				const relatedToIndex =
+					localizedBlogs.findIndex(
+						(blog) => blog._sys?.relativePath === relatedTo._sys?.relativePath,
+					) - 2
+				if (relatedToIndex < 0) return 0
+
+				const aIndex = localizedBlogs.indexOf(a)
+				const bIndex = localizedBlogs.indexOf(b)
+
+				// Adjust indices to start after relatedTo
+				const adjustedAIndex =
+					(aIndex - relatedToIndex - 1 + localizedBlogs.length) %
+					localizedBlogs.length
+				const adjustedBIndex =
+					(bIndex - relatedToIndex - 1 + localizedBlogs.length) %
+					localizedBlogs.length
+
+				return adjustedAIndex - adjustedBIndex
+			})
 			.filter((blog) => !isSameBlog(blog, relatedTo))
 			.filter((blog) => blog.tags?.some((tag) => relatedTo.tags?.includes(tag)))
 
