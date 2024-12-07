@@ -1,126 +1,127 @@
 {
-	"ai": {
-		"page": {
-			"booking": {
-				"subtitle": "Plan een call",
-				"title": "Liever in het echt spreken?"
-			},
-			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
-			"meta": {
-				"description": "Vraag Daren Malfait alles wat u wilt",
-				"title": "Nerdfish - Daren Malfait AI"
-			},
-			"title": "Chat"
-		}
-	},
-	"blog": {
-		"filterByTopic": "Filter blogposts op onderwerp",
-		"loadMore": "Laad meer",
-		"readMore": "Lees blogpost",
-		"related": {
-			"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
-			"title": "Gerelateerde artikelen"
-		},
-		"seeAll": "Bekijk alle blogposts"
-	},
-	"contact": {
-		"chat": {
-			"close": "Sluit chat",
-			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
-			"initialMessage": "Hoi, hoe kan ik je vandaag helpen?",
-			"inputPlaceholder": "Stel een vraag",
-			"premadeQuestions": {
-				"ask": "Vraag: {question}",
-				"currentJob": "Huidige baan",
-				"currentJobQuestion": "Vertel me over je huidige functie.",
-				"experience": "Ervaring",
-				"experienceQuestion": "Vertel me over je werkervaring.",
-				"favoriteLanguage": "Favoriete taal",
-				"favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
-				"title": "Vooraf gedefinieerde vragen",
-				"whoAreYou": "Wie ben je",
-				"whoAreYouQuestion": "Wie ben je?"
-			},
-			"send": "Versturen",
-			"title": "Chat met een AI-versie van mij"
-		},
-		"cta": {
-			"booking": "Plan een gesprek"
-		},
-		"form": {
-			"dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
-			"fields": {
-				"errors": {
-					"generic": "Er is een fout opgetreden bij het versturen van het formulier.",
-					"phoneOrEmailRequired": "E-mail of telefoonnummer moet worden ingevuld.",
-					"recaptcha": "Bevestig dat je geen robot bent."
-				},
-				"labels": {
-					"budgetRange": "Wat is je budget?",
-					"budgetRangeDescription": "Een transparant budget is belangrijk voor ons om je project te begrijpen.",
-					"company": "Wat is de naam van je bedrijf?",
-					"contactInformation": "Hoe kan ik je bereiken?",
-					"email": "E-mailadres",
-					"name": "Wat is je naam?",
-					"phone": "Telefoonnummer",
-					"projectType": "In welke diensten ben je geïnteresseerd?",
-					"projectTypeDescription": "Selecteer alles wat van toepassing is",
-					"textMessage": "Hoe kan ik je helpen?"
-				},
-				"names": {
-					"budgetRange": "Wat is je budget?",
-					"company": "Bedrijfsnaam",
-					"email": "E-mailadres",
-					"name": "Naam",
-					"phone": "Telefoonnummer",
-					"projectType": "Project type",
-					"textMessage": "Bericht"
-				}
-			},
-			"sections": {
-				"customer": "Vertel me wat over jezelf",
-				"message": "Wat is er?",
-				"project": "Over jouw project"
-			},
-			"send": "Versturen",
-			"success": "Je bericht is succesvol verzonden."
-		}
-	},
-	"features": {
-		"readMore": "Lees meer",
-		"readMoreAbout": "Lees meer over {subject}"
-	},
-	"global": {
-		"about": "over",
-		"navigation": {
-			"pages": "Pagina's"
-		},
-		"switchLanguage": "Wijzig taal",
-		"vat": "Prijzen zijn exclusief BTW."
-	},
-	"theme": {
-		"dark": "Donker",
-		"light": "Licht",
-		"setTheme": "",
-		"system": "Systeem"
-	},
-	"widgets": {
-		"slowLoading": {
-			"caption": "Voorbeeld van laadanimatie"
-		}
-	},
-	"wiki": {
-		"loadMore": "Laad meer artikelen",
-		"seeAll": "Bekijk knowledge base"
-	},
-	"work": {
-		"filterByTopic": "Filter projecten op onderwerp",
-		"loadMore": "Laad meer",
-		"readMore": "Bekijk project",
-		"related": {
-			"subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
-			"title": "Dit vind je wellicht ook leuk"
-		},
-		"seeAll": "Bekijk alle projecten"
-	}
+  "ai": {
+    "page": {
+      "booking": {
+        "subtitle": "Plan een call",
+        "title": "Liever in het echt spreken?"
+      },
+      "description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
+      "meta": {
+        "description": "Vraag Daren Malfait alles wat u wilt",
+        "title": "Nerdfish - Daren Malfait AI"
+      },
+      "title": "Chat"
+    }
+  },
+  "blog": {
+    "filterByTopic": "Filter blogposts op onderwerp",
+    "loadMore": "Laad meer",
+    "readMore": "Lees blogpost",
+    "related": {
+      "subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
+      "title": "Gerelateerde artikelen"
+    },
+    "seeAll": "Bekijk alle blogposts"
+  },
+  "contact": {
+    "chat": {
+      "close": "Sluit chat",
+      "disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
+      "initialMessage": "Hoi, hoe kan ik je vandaag helpen?",
+      "inputPlaceholder": "Stel een vraag",
+      "premadeQuestions": {
+        "ask": "Vraag: {question}",
+        "currentJob": "Huidige baan",
+        "currentJobQuestion": "Vertel me over je huidige functie.",
+        "experience": "Ervaring",
+        "experienceQuestion": "Vertel me over je werkervaring.",
+        "favoriteLanguage": "Favoriete taal",
+        "favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
+        "title": "Vooraf gedefinieerde vragen",
+        "whoAreYou": "Wie ben je",
+        "whoAreYouQuestion": "Wie ben je?"
+      },
+      "send": "Versturen",
+      "title": "Chat met een AI-versie van mij"
+    },
+    "cta": {
+      "booking": "Plan een gesprek"
+    },
+    "form": {
+      "dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
+      "fields": {
+        "errors": {
+          "generic": "Er is een fout opgetreden bij het versturen van het formulier.",
+          "phoneOrEmailRequired": "E-mail of telefoonnummer moet worden ingevuld.",
+          "recaptcha": "Bevestig dat je geen robot bent."
+        },
+        "labels": {
+          "budgetRange": "Wat is je budget?",
+          "budgetRangeDescription": "Een transparant budget is belangrijk voor ons om je project te begrijpen.",
+          "company": "Wat is de naam van je bedrijf?",
+          "contactInformation": "Hoe kan ik je bereiken?",
+          "email": "E-mailadres",
+          "name": "Wat is je naam?",
+          "phone": "Telefoonnummer",
+          "projectType": "In welke diensten ben je geïnteresseerd?",
+          "projectTypeDescription": "Selecteer alles wat van toepassing is",
+          "textMessage": "Hoe kan ik je helpen?"
+        },
+        "names": {
+          "budgetRange": "Wat is je budget?",
+          "company": "Bedrijfsnaam",
+          "email": "E-mailadres",
+          "name": "Naam",
+          "phone": "Telefoonnummer",
+          "projectType": "Project type",
+          "textMessage": "Bericht"
+        }
+      },
+      "sections": {
+        "customer": "Vertel me wat over jezelf",
+        "message": "Wat is er?",
+        "project": "Over jouw project"
+      },
+      "send": "Versturen",
+      "success": "Je bericht is succesvol verzonden."
+    },
+    "title": "Contact"
+  },
+  "features": {
+    "readMore": "Lees meer",
+    "readMoreAbout": "Lees meer over {subject}"
+  },
+  "global": {
+    "about": "over",
+    "navigation": {
+      "pages": "Pagina's"
+    },
+    "switchLanguage": "Wijzig taal",
+    "vat": "Prijzen zijn exclusief BTW."
+  },
+  "theme": {
+    "dark": "Donker",
+    "light": "Licht",
+    "setTheme": "",
+    "system": "Systeem"
+  },
+  "widgets": {
+    "slowLoading": {
+      "caption": "Voorbeeld van laadanimatie"
+    }
+  },
+  "wiki": {
+    "loadMore": "Laad meer artikelen",
+    "seeAll": "Bekijk knowledge base"
+  },
+  "work": {
+    "filterByTopic": "Filter projecten op onderwerp",
+    "loadMore": "Laad meer",
+    "readMore": "Bekijk project",
+    "related": {
+      "subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
+      "title": "Dit vind je wellicht ook leuk"
+    },
+    "seeAll": "Bekijk alle projecten"
+  }
 }
