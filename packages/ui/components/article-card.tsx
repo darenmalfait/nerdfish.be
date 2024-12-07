@@ -47,7 +47,7 @@ export function ArticleCardImage({
 }: {
 	src?: string | null
 	category?: string | null
-	alt?: string | null
+	alt: string | null
 	readMoreLabel?: string
 }) {
 	return (

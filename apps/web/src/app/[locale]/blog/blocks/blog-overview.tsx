@@ -118,7 +118,7 @@ export async function BlogOverviewBlock(
 						{Array.from({ length: 2 }).map((_, i) => (
 							<li key={i} className="col-span-4">
 								<ArticleCard>
-									<ArticleCardImage />
+									<ArticleCardImage alt="" />
 									<ArticleCardContent>
 										<ArticleCardCategory className="w-16">
 											<Skeleton className="bg-transparent" />

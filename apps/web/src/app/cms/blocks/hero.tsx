@@ -137,7 +137,7 @@ export function HeroBlock(
 						width={700}
 						height={700}
 						loading="eager"
-						alt={image.alt ?? ''}
+						alt={image.alt ?? title ?? ''}
 					/>
 				) : null}
 			</BlockImage>
