@@ -93,7 +93,7 @@ export function TagFilter({
 
 	return (
 		<div>
-			<H5 as="h3" className="mb-md gap-sm flex items-center justify-between">
+			<H5 as="h2" className="mb-md gap-sm flex items-center justify-between">
 				{title}
 				<Drawer repositionInputs={false}>
 					<DrawerTrigger asChild className="lg:hidden">
