@@ -38,7 +38,7 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 					href={getPagePath(page)}
 					aria-label={`${t('readMoreAbout', { subject: title })}`}
 				>
-					{t('readMore')}
+					{title}
 					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
 				</Link>
 			</MagnetButton>
