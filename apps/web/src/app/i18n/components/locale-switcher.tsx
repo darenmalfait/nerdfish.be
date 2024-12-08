@@ -44,7 +44,7 @@ export function LocaleSwitcher() {
 							<li key={locale}>
 								<DropdownMenuItem>
 									<Link
-										href={locale === i18n.defaultLocale ? '/' : `/${locale}`}
+										href={`/${locale}`}
 										lang={locale}
 										locale={locale}
 										hrefLang={locale}
