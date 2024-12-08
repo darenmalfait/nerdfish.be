@@ -83,8 +83,10 @@ export function getWorkPath(work: PartialDeep<Work>) {
 	const path = work._sys?.breadcrumbs?.join('/')
 	const locale = work._sys?.breadcrumbs?.[0]
 
-	if (locale === i18n.defaultLocale) return `/${WorkPath}${path}`
-	return `/${locale}/${WorkPath}${path}`
+	const newPath = path?.replace(`${locale}/`, '/') ?? ''
+
+	if (locale === i18n.defaultLocale) return `/${WorkPath}${newPath}`
+	return `/${locale}/${WorkPath}${newPath}`
 }
 
 export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
