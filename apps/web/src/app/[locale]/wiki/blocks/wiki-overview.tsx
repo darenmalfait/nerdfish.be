@@ -24,7 +24,7 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
-import { TagFilter } from '@repo/ui/components/tag-filter'
+import { TagFilter, TagFilterTitle } from '@repo/ui/components/tag-filter'
 import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
@@ -140,12 +140,13 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 			{searchEnabled && allTags.length > 0 ? (
 				<div className="mb-lg">
 					<TagFilter
-						title="Filter knowledge base by topic"
 						tags={allTags}
 						enabledTags={enabledTags}
 						onToggleTag={toggleTag}
 						selectedTags={selectedTags}
-					/>
+					>
+						<TagFilterTitle>{t('filterByTopic')}</TagFilterTitle>
+					</TagFilter>
 				</div>
 			) : null}
 
