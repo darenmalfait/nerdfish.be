@@ -60,13 +60,25 @@ const withCSP: MiddlewareFactory = (next: NextMiddleware) => {
 }
 
 export const config = {
-	// Matcher ignoring `/_next/` and `/api/`
 	matcher: [
-		'/((?!api|_next/static|_next/image|uploads|images|admin|favicon.ico|sitemap.xml|robots.txt|rss.xml).*)',
-	],
-	missing: [
-		{ type: 'header', key: 'next-router-prefetch' },
-		{ type: 'header', key: 'purpose', value: 'prefetch' },
+		/*
+		 * Match all request paths except for the ones starting with:
+		 * - api (API routes)
+		 * - _next/static (static files)
+		 * - _next/image (image optimization files)
+		 * - favicon.ico (favicon file)
+		 * - public folders
+		 * - sitemap.xml
+		 * - robots.txt
+		 */
+		{
+			source:
+				'/((?!api|_next/static|_next/image|uploads|images|admin|favicon.ico|sitemap.xml|robots.txt).*)',
+			missing: [
+				{ type: 'header', key: 'next-router-prefetch' },
+				{ type: 'header', key: 'purpose', value: 'prefetch' },
+			],
+		},
 	],
 }
 
