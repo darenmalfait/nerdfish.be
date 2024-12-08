@@ -1,8 +1,10 @@
+import { env } from '@repo/env'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { WikiContent } from '../components/wiki-content'
 import { WikiPreview } from '../components/wiki-preview'
+import { getWikiPath } from '../utils'
 import { getRouteData } from './route-data'
 import { generateOGImageUrl } from '~/app/api/og/utils'
 import { i18n } from '~/app/i18n/config'
@@ -15,6 +17,10 @@ export async function generateMetadata({
 	const { data } = await getRouteData(params.slug.join('/'))
 	const title = data.wiki.seo?.title ?? (data.wiki.title || 'Untitled')
 
+	const canonical =
+		data.wiki.seo?.canonical ??
+		`${env.NEXT_PUBLIC_URL}${getWikiPath(data.wiki)}`
+
 	return createMetadata({
 		title,
 		description: data.wiki.seo?.description ?? '',
@@ -24,7 +30,11 @@ export async function generateMetadata({
 					heading: title,
 				}),
 		alternates: {
-			canonical: data.wiki.seo?.canonical,
+			canonical,
+		},
+		robots: {
+			index: false,
+			follow: false,
 		},
 		locale: i18n.defaultLocale,
 	})
