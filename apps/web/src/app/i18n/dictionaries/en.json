@@ -1,131 +1,131 @@
 {
-  "ai": {
-    "page": {
-      "booking": {
-        "subtitle": "Book a meeting",
-        "title": "Rather really speak to me?"
-      },
-      "description": "Want to know more about what I can do? You can ask your questions to my AI version.",
-      "meta": {
-        "description": "Ask Daren Malfait anything",
-        "title": "Nerdfish - Daren Malfait AI"
-      },
-      "title": "Chat"
-    }
-  },
-  "blog": {
-    "filterByTopic": "Filter blog posts by topic",
-    "loadMore": "Load more",
-    "readMore": "Read blog post",
-    "related": {
-      "subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
-      "title": "Related Posts"
-    },
-    "search": "Search blog articles",
-    "seeAll": "See all blog posts"
-  },
-  "contact": {
-    "chat": {
-      "close": "Close chat",
-      "disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
-      "initialMessage": "Hi, how can I help you today?",
-      "inputPlaceholder": "Ask a question",
-      "premadeQuestions": {
-        "ask": "Ask: {question}",
-        "currentJob": "Current job",
-        "currentJobQuestion": "Tell me about your current position.",
-        "experience": "Experience",
-        "experienceQuestion": "Tell me about your work experience.",
-        "favoriteLanguage": "Favorite language",
-        "favoriteLanguageQuestion": "What's your favorite programming language?",
-        "title": "Pre-defined questions",
-        "whoAreYou": "Who are you",
-        "whoAreYouQuestion": "Who are you?"
-      },
-      "send": "Send",
-      "title": "Chat with an AI version of me"
-    },
-    "cta": {
-      "booking": "Schedule a call"
-    },
-    "form": {
-      "dataUsage": "We only use your data to get in touch with you.",
-      "fields": {
-        "errors": {
-          "generic": "An error occurred while submitting the form.",
-          "phoneOrEmailRequired": "Either email or phone should be filled in.",
-          "recaptcha": "Please verify that you are not a robot."
-        },
-        "labels": {
-          "budgetRange": "What's your budget?",
-          "budgetRangeDescription": "A transparent budget is important for us to understand your project.",
-          "company": "What's the name of your company?",
-          "contactInformation": "How can I reach you?",
-          "email": "Email address",
-          "name": "What's your name?",
-          "phone": "Phone number",
-          "projectType": "What services are you interested in?",
-          "projectTypeDescription": "Select all that apply",
-          "textMessage": "How can I help?"
-        },
-        "names": {
-          "budgetRange": "What's your budget?",
-          "company": "Company name",
-          "email": "Email address",
-          "name": "Name",
-          "phone": "Phone number",
-          "projectType": "Project type",
-          "textMessage": "Message"
-        }
-      },
-      "sections": {
-        "customer": "Please tell me about yourself",
-        "message": "What's up?",
-        "project": "About your project"
-      },
-      "send": "Submit",
-      "success": "Your message has been sent successfully."
-    },
-    "title": "Contact"
-  },
-  "features": {
-    "readMore": "Read more",
-    "readMoreAbout": "Read more about {subject}"
-  },
-  "global": {
-    "about": "about",
-    "navigation": {
-      "pages": "Pages"
-    },
-    "switchLanguage": "Switch Language",
-    "vat": "Any prices indicated are exclusive of VAT."
-  },
-  "theme": {
-    "changeTheme": "Change site color theme",
-    "dark": "Dark",
-    "light": "Light",
-    "setTheme": "Switch to {theme} theme",
-    "system": "System"
-  },
-  "widgets": {
-    "slowLoading": {
-      "caption": "Loading animation example"
-    }
-  },
-  "wiki": {
-    "filterByTopic": "Filter knowledge base by topic",
-    "loadMore": "Load more articles",
-    "seeAll": "See knowledge base"
-  },
-  "work": {
-    "filterByTopic": "Filter projects by topic",
-    "loadMore": "Load more",
-    "readMore": "Read more",
-    "related": {
-      "subtitle": "Explore a featured project related to this design",
-      "title": "You might like this"
-    },
-    "search": "Search projects",
-    "seeAll": "See all projects"
-  }
+	"ai": {
+		"page": {
+			"booking": {
+				"subtitle": "Book a meeting",
+				"title": "Rather really speak to me?"
+			},
+			"description": "Want to know more about what I can do? You can ask your questions to my AI version.",
+			"meta": {
+				"description": "Ask Daren Malfait anything",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
+			"title": "Chat"
+		}
+	},
+	"blog": {
+		"filterByTopic": "Filter blog posts by topic",
+		"loadMore": "Load more",
+		"readMore": "Read blog post",
+		"related": {
+			"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
+			"title": "Related Posts"
+		},
+		"search": "Search blog articles",
+		"seeAll": "See all blog posts"
+	},
+	"contact": {
+		"chat": {
+			"close": "Close chat",
+			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
+			"initialMessage": "Hi, how can I help you today?",
+			"inputPlaceholder": "Ask a question",
+			"premadeQuestions": {
+				"ask": "Ask: {question}",
+				"currentJob": "Current job",
+				"currentJobQuestion": "Tell me about your current position.",
+				"experience": "Experience",
+				"experienceQuestion": "Tell me about your work experience.",
+				"favoriteLanguage": "Favorite language",
+				"favoriteLanguageQuestion": "What's your favorite programming language?",
+				"title": "Pre-defined questions",
+				"whoAreYou": "Who are you",
+				"whoAreYouQuestion": "Who are you?"
+			},
+			"send": "Send",
+			"title": "Chat with an AI version of me"
+		},
+		"cta": {
+			"booking": "Schedule a call"
+		},
+		"form": {
+			"dataUsage": "We only use your data to get in touch with you.",
+			"fields": {
+				"errors": {
+					"generic": "An error occurred while submitting the form.",
+					"phoneOrEmailRequired": "Either email or phone should be filled in.",
+					"recaptcha": "Please verify that you are not a robot."
+				},
+				"labels": {
+					"budgetRange": "What's your budget?",
+					"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
+					"company": "What's the name of your company?",
+					"contactInformation": "How can I reach you?",
+					"email": "Email address",
+					"name": "What's your name?",
+					"phone": "Phone number",
+					"projectType": "What services are you interested in?",
+					"projectTypeDescription": "Select all that apply",
+					"textMessage": "How can I help?"
+				},
+				"names": {
+					"budgetRange": "What's your budget?",
+					"company": "Company name",
+					"email": "Email address",
+					"name": "Name",
+					"phone": "Phone number",
+					"projectType": "Project type",
+					"textMessage": "Message"
+				}
+			},
+			"sections": {
+				"customer": "Please tell me about yourself",
+				"message": "What's up?",
+				"project": "About your project"
+			},
+			"send": "Submit",
+			"success": "Your message has been sent successfully."
+		},
+		"title": "Contact"
+	},
+	"features": {
+		"readMore": "Read more",
+		"readMoreAbout": "Read more about {subject}"
+	},
+	"global": {
+		"about": "about",
+		"navigation": {
+			"pages": "Pages"
+		},
+		"switchLanguage": "Switch Language",
+		"vat": "Any prices indicated are exclusive of VAT."
+	},
+	"theme": {
+		"changeTheme": "Change site color theme",
+		"dark": "Dark",
+		"light": "Light",
+		"setTheme": "Switch to {theme} theme",
+		"system": "System"
+	},
+	"widgets": {
+		"slowLoading": {
+			"caption": "Loading animation example"
+		}
+	},
+	"wiki": {
+		"filterByTopic": "Filter knowledge base by topic",
+		"loadMore": "Load more articles",
+		"seeAll": "See knowledge base"
+	},
+	"work": {
+		"filterByTopic": "Filter projects by topic",
+		"loadMore": "Load more",
+		"readMore": "Read more",
+		"related": {
+			"subtitle": "Explore a featured project related to this design",
+			"title": "You might like this"
+		},
+		"search": "Search projects",
+		"seeAll": "See all projects"
+	}
 }
