@@ -51,6 +51,7 @@ export const ThemeToggle = React.forwardRef<
 		<div
 			ref={ref}
 			role="radiogroup"
+			aria-label={t('changeTheme')}
 			{...props}
 			className={cx(
 				'shadow-outline p-xs gap-xs rounded-container flex items-center',
