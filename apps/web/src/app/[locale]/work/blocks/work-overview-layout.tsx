@@ -64,7 +64,7 @@ export function BlockLayout({
 							alt: header?.title ?? undefined,
 						}}
 					/>
-					<ArticleOverviewSearchContent>
+					<ArticleOverviewSearchContent inputLabel={t('search')}>
 						<SectionHeader>
 							<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
 							<SectionHeaderSubtitle>
