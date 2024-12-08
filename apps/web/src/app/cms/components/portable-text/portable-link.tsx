@@ -2,8 +2,12 @@ import { stripPreSlash } from '@repo/lib/utils/string'
 import { ExternalLinkIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 
+const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
+
 function PortableLink({ url, children }: { url?: string; children: string }) {
-	const isExternal = url?.startsWith('http')
+	const isExternal = hrefParameters.some((hrefParameter) =>
+		url?.startsWith(hrefParameter),
+	)
 	const slug = isExternal ? url : `/${stripPreSlash(url ?? '')}`
 
 	if (!slug) return null
