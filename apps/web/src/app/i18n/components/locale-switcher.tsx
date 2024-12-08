@@ -43,7 +43,12 @@ export function LocaleSwitcher() {
 						return (
 							<li key={locale}>
 								<DropdownMenuItem>
-									<Link href={`/${locale}`} lang={locale} hrefLang={locale}>
+									<Link
+										href="/"
+										lang={locale}
+										locale={locale}
+										hrefLang={locale}
+									>
 										{supportedLanguages.find((l) => l.code === locale)?.label}
 									</Link>
 								</DropdownMenuItem>
