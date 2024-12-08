@@ -23,19 +23,18 @@ function ImageGridContent(props: PageBlocksImageGridItems) {
 
 	if (!imageSrc) return null
 	return (
-		<div>
-			<div className="absolute inset-0">
-				<Skeleton className="h-full w-full" />
-				<Image
-					alt={title ?? ''}
-					src={imageSrc}
-					className="object-cover"
-					width={550}
-					height={550}
-					objectFit="cover"
-				/>
-			</div>
-		</div>
+		<>
+			<Skeleton className="absolute inset-0 size-full object-cover" />
+
+			<Image
+				alt={title ?? ''}
+				src={imageSrc}
+				className="absolute inset-0 size-full object-cover"
+				width={550}
+				height={550}
+				objectFit="cover"
+			/>
+		</>
 	)
 }
 
