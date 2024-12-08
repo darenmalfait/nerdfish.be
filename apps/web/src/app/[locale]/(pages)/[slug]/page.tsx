@@ -1,3 +1,4 @@
+import { env } from '@repo/env'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -30,8 +31,8 @@ export async function generateMetadata({
 
 	const canonicalPath =
 		!params.slug || params.slug === '/'
-			? `/${params.locale}`
-			: `/${params.locale}/${params.slug}`
+			? `${env.NEXT_PUBLIC_URL}/${params.locale}`
+			: `${env.NEXT_PUBLIC_URL}/${params.locale}/${params.slug}`
 
 	const canonical = data.page.seo?.canonical ?? canonicalPath
 
