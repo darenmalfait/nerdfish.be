@@ -30,7 +30,6 @@ function ImageGridContent(props: PageBlocksImageGridItems) {
 					alt={title ?? ''}
 					src={imageSrc}
 					className="object-cover"
-					layout="fill"
 					width={550}
 					height={550}
 					objectFit="cover"
