@@ -75,7 +75,7 @@ const MainNavigationItem = React.forwardRef<
 		)
 
 		return (
-			<NavigationMenuItem>
+			<NavigationMenuItem asChild>
 				<NavigationMenuLink asChild>
 					<Button
 						size="sm"
@@ -101,30 +101,34 @@ const MainNavigationItem = React.forwardRef<
 	})
 
 	return (
-		<NavigationMenuItem>
-			<Button
-				size="sm"
-				variant={(variant as ButtonProps['variant']) ?? 'ghost'}
-				className={getMainItemClassName({
-					variant: isActive ? 'active' : 'default',
-				})}
-				asChild
-			>
-				<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
-			</Button>
-			<NavigationMenuContent className="rounded-base bg-primary">
-				<ul
-					className={cx('gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]')}
-				>
-					{sub.map((subNavItem) => {
-						if (!subNavItem) return null
-
-						return (
-							<MainNavigationSubItem key={subNavItem.label} {...subNavItem} />
-						)
+		<NavigationMenuItem asChild>
+			<span>
+				<Button
+					size="sm"
+					variant={(variant as ButtonProps['variant']) ?? 'ghost'}
+					className={getMainItemClassName({
+						variant: isActive ? 'active' : 'default',
 					})}
-				</ul>
-			</NavigationMenuContent>
+					asChild
+				>
+					<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
+				</Button>
+				<NavigationMenuContent className="rounded-base bg-primary">
+					<ul
+						className={cx(
+							'gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]',
+						)}
+					>
+						{sub.map((subNavItem) => {
+							if (!subNavItem) return null
+
+							return (
+								<MainNavigationSubItem key={subNavItem.label} {...subNavItem} />
+							)
+						})}
+					</ul>
+				</NavigationMenuContent>
+			</span>
 		</NavigationMenuItem>
 	)
 })
@@ -274,9 +278,9 @@ export function MainNavigation() {
 							if (!mainNavItem) return null
 
 							return (
-								<span key={mainNavItem.label} data-id={mainNavItem.label}>
+								<li key={mainNavItem.label} data-id={mainNavItem.label}>
 									<MainNavigationItem {...mainNavItem} />
-								</span>
+								</li>
 							)
 						})}
 					</AnimatedBackground>
