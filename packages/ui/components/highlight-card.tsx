@@ -151,8 +151,8 @@ export const HighlightCardDescription = React.forwardRef<
 HighlightCardDescription.displayName = 'HighlightCardDescription'
 
 export const HighlightCardCTA = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
+	React.ElementRef<typeof Link>,
+	React.ComponentPropsWithoutRef<typeof Link> & {
 		href: string
 		children: React.ReactNode
 		category?: string | null
@@ -161,18 +161,14 @@ export const HighlightCardCTA = React.forwardRef<
 	if (!children || !href) return null
 
 	return (
-		<div
-			ref={ref}
-			{...props}
-			className={cx('mt-lg flex flex-1 items-end justify-start', className)}
-		>
+		<div className={cx('mt-lg flex flex-1 items-end justify-start', className)}>
 			<MagnetButton
 				size="lg"
 				variant="ghost"
 				asChild
 				className="bg-primary/70 hover:bg-primary group"
 			>
-				<Link href={href}>
+				<Link ref={ref} href={href} {...props}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon

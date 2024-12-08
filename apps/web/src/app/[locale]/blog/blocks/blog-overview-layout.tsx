@@ -96,6 +96,9 @@ export function BlockLayout({
 					<ArticleOverviewContentGrid
 						loadMoreLabel={t('loadMore')}
 						readMoreLabel={t('readMore')}
+						ariaLabel={t('readMoreAbout', {
+							title: header?.title ?? '',
+						})}
 					>
 						<ArticlesOverviewEmptyState />
 					</ArticleOverviewContentGrid>
