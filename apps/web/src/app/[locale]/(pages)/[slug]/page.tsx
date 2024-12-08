@@ -29,10 +29,12 @@ export async function generateMetadata({
 	const { data } = await getRouteData(params.slug ?? '', params.locale)
 	const title = data.page.seo?.title ?? data.page.title
 
+	const prefix = params.locale === i18n.defaultLocale ? '' : `/${params.locale}`
+
 	const canonicalPath =
 		!params.slug || params.slug === '/'
-			? `${env.NEXT_PUBLIC_URL}/${params.locale}`
-			: `${env.NEXT_PUBLIC_URL}/${params.locale}/${params.slug}`
+			? `${env.NEXT_PUBLIC_URL}${prefix}`
+			: `${env.NEXT_PUBLIC_URL}${prefix}/${params.slug}`
 
 	const canonical = data.page.seo?.canonical ?? canonicalPath
 
