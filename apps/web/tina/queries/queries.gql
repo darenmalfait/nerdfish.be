@@ -1,6 +1,10 @@
 query contentQuery($relativePath: String!) {
 	page(relativePath: $relativePath) {
 		...PageParts
+		_sys {
+			relativePath
+			breadcrumbs
+		}
 	}
 
 	blogConnection(sort: "date", last: -1) {
