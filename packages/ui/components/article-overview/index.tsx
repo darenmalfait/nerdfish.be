@@ -30,7 +30,7 @@ import {
 	HighlightCardImage,
 	HighlightCardTitle,
 } from '../highlight-card'
-import { TagFilter } from '../tag-filter'
+import { TagFilter, TagFilterTitle } from '../tag-filter'
 import {
 	ArticleOverviewProvider,
 	useArticleOverview,
@@ -161,12 +161,13 @@ export const ArticleOverviewFilter = React.forwardRef<
 	return (
 		<div ref={ref} className={cx('mb-lg', className)} {...props}>
 			<TagFilter
-				title={title ?? 'Filter articles by topic'}
 				tags={tags}
 				enabledTags={enabledTags}
 				onToggleTag={toggleFilter}
 				selectedTags={selectedTags}
-			/>
+			>
+				<TagFilterTitle>{title ?? 'Filter articles by topic'}</TagFilterTitle>
+			</TagFilter>
 		</div>
 	)
 })
