@@ -55,6 +55,8 @@ export function SplitWithImageBlock(data: Block<PageBlocksSplitWithImage>) {
 						className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
 						data-tina-field={tinaField(data, 'image')}
 						fill
+						width={550}
+						height={550}
 						src={image.src}
 						alt={image.alt ?? ''}
 					/>
