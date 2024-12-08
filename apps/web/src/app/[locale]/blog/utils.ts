@@ -4,6 +4,7 @@ import { type Article } from '@repo/ui/components/article-overview'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Blog } from '~/app/cms/types'
+import { i18n } from '~/app/i18n/config'
 
 const BlogPath = 'blog'
 
@@ -88,9 +89,10 @@ export function getBlogPath(blog: PartialDeep<Blog>) {
 	const path = blog._sys?.breadcrumbs?.join('/')
 
 	const locale = blog._sys?.breadcrumbs?.[0]
-	const newPath = path?.replace(`${locale}/`, '/')
+	const newPath = path?.replace(`${locale}/`, '/') ?? ''
 
-	return newPath ? `${locale ? `/${locale}` : ''}/${BlogPath}${newPath}` : ''
+	if (locale === i18n.defaultLocale) return `/${BlogPath}${newPath}`
+	return `/${locale}/${BlogPath}${newPath}`
 }
 
 export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {

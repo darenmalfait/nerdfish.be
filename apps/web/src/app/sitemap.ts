@@ -1,10 +1,11 @@
 import { env } from '@repo/env'
 import { type MetadataRoute } from 'next'
+import { getPagePath } from './[locale]/(pages)/utils'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
-import { supportedLanguages } from './i18n/config'
+import { i18n, supportedLanguages } from './i18n/config'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
@@ -21,8 +22,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		...supportedLanguages
 			.filter(({ default: isDefault }) => !isDefault)
 			.map((locale) => {
+				const language =
+					locale.code === i18n.defaultLocale ? '' : `/${locale.code}`
+
 				return {
-					url: `${BASE_URL}/${locale.code}`,
+					url: `${BASE_URL}${language}`,
 					lastModified: new Date(),
 					changeFrequency: 'monthly',
 					priority: 1,
@@ -32,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			?.filter(({ _sys }) => _sys?.filename !== 'home')
 			.map((page) => {
 				return {
-					url: `${BASE_URL}/${page._sys?.breadcrumbs.join('/')}`,
+					url: `${BASE_URL}${getPagePath(page)}`,
 					lastModified: new Date(),
 					priority: 1,
 				}
