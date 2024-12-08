@@ -4,6 +4,7 @@ query contentQuery($relativePath: String!) {
 		_sys {
 			relativePath
 			breadcrumbs
+			filename
 		}
 	}
 
