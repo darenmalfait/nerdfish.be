@@ -6,9 +6,9 @@ import { getTranslations } from 'next-intl/server'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from '../components/work-content'
 import { WorkPreview } from '../components/work-preview'
+import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
 import { generateOGImageUrl } from '~/app/api/og/utils'
-import { i18n } from '~/app/i18n/config'
 import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata({
@@ -19,11 +19,9 @@ export async function generateMetadata({
 	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.work.seo?.title ?? (data.work.title || 'Untitled')
 
-	const prefix = params.locale === i18n.defaultLocale ? '' : `/${params.locale}`
-
 	const canonical =
 		data.work.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${prefix}/${params.slug.join('/')}`
+		`${env.NEXT_PUBLIC_URL}${getWorkPath(data.work)}`
 
 	return createMetadata({
 		title,

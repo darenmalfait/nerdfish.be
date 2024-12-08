@@ -6,9 +6,9 @@ import { getTranslations } from 'next-intl/server'
 import { BlogOverviewBlock } from '../blocks/blog-overview'
 import { BlogContent } from '../components/blog-content'
 import { BlogPreview } from '../components/blog-preview'
+import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 import { generateOGImageUrl } from '~/app/api/og/utils'
-import { i18n } from '~/app/i18n/config'
 import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata({
@@ -19,11 +19,9 @@ export async function generateMetadata({
 	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
 
-	const prefix = params.locale === i18n.defaultLocale ? '' : `/${params.locale}`
-
 	const canonical =
 		data.blog.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${prefix}/${params.slug.join('/')}`
+		`${env.NEXT_PUBLIC_URL}${getBlogPath(data.blog)}`
 
 	return createMetadata({
 		title,
