@@ -17,6 +17,7 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
+import { getPagePath } from '~/app/[locale]/(pages)/utils'
 import {
 	type Block,
 	type Page,
@@ -34,7 +35,7 @@ function DetailLink({ page, title }: { page?: Page; title?: string }) {
 		<div className="mt-md">
 			<MagnetButton className="-mx-sm group" variant="ghost" asChild>
 				<Link
-					href={`/${page._sys.breadcrumbs.join('/')}`}
+					href={getPagePath(page)}
 					aria-label={`${t('readMoreAbout', { subject: title })}`}
 				>
 					{t('readMore')}
