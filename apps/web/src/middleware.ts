@@ -19,6 +19,14 @@ function stackMiddlewares(
 	return () => NextResponse.next()
 }
 
+const withNonce: MiddlewareFactory = (next: NextMiddleware) => {
+	return async (request: NextRequest, _next: NextFetchEvent) => {
+		const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+		request.headers.set('x-nonce', nonce)
+		return next(request, _next)
+	}
+}
+
 const withCSP: MiddlewareFactory = (next: NextMiddleware) => {
 	return async (request: NextRequest, _next: NextFetchEvent) => {
 		if (request.headers.get('x-nonce') != null) {
@@ -68,5 +76,4 @@ export const config = {
 	],
 }
 
-const middlewares = [withIntl, withCSP]
-export default stackMiddlewares(middlewares)
+export default stackMiddlewares([withNonce, withIntl, withCSP])
