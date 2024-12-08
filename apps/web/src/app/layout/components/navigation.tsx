@@ -137,7 +137,11 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul className="gap-sm flex flex-row items-center">
+		<ul
+			role="navigation"
+			aria-label="Social Media"
+			className="gap-sm flex flex-row items-center"
+		>
 			{social?.twitter ? (
 				<li>
 					<Button variant="ghost" className={socialLinkClassName} asChild>
@@ -252,6 +256,7 @@ export function MainNavigation() {
 		>
 			<NavigationMenu
 				ref={ref}
+				aria-label="main"
 				viewportClassName="-translate-y-[calc(100%+50px)] md:translate-y-0"
 			>
 				<NavigationMenuList
