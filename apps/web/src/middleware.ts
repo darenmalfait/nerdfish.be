@@ -19,53 +19,43 @@ function stackMiddlewares(
 	return () => NextResponse.next()
 }
 
-const withNonce: MiddlewareFactory = (next: NextMiddleware) => {
-	return async (request: NextRequest, _next: NextFetchEvent) => {
-		const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-		request.headers.set('x-nonce', nonce)
-		return next(request, _next)
-	}
-}
-
 const withCSP: MiddlewareFactory = (next: NextMiddleware) => {
 	return async (request: NextRequest, _next: NextFetchEvent) => {
-		if (request.headers.get('x-nonce') != null) {
-			const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-			const cspHeader = `
-    	default-src 'self';
-    	script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-    	style-src 'self' 'nonce-${nonce}';
-    	img-src 'self' blob: data:;
-    	font-src 'self';
-    	object-src 'none';
-			base-uri 'self';
-			form-action 'self';
-			frame-ancestors 'none';
-			upgrade-insecure-requests;
+		const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+
+		const cspHeader = `
+    		default-src 'self';
+    		script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+    		style-src 'self' 'nonce-${nonce}';
+    		img-src 'self' blob: data:;
+    		font-src 'self';
+    		object-src 'none';
+    		base-uri 'self';
+    		form-action 'self';
+    		frame-ancestors 'none';
+    		upgrade-insecure-requests;
 			`
+		// Replace newline characters and spaces
+		const contentSecurityPolicyHeaderValue = cspHeader
+			.replace(/\s{2,}/g, ' ')
+			.trim()
 
-			// Replace newline characters and spaces
-			const contentSecurityPolicyHeaderValue = cspHeader
-				.replace(/\s{2,}/g, ' ')
-				.trim()
-			request.headers.set(
-				'Content-Security-Policy',
-				contentSecurityPolicyHeaderValue,
-			)
+		const requestHeaders = new Headers(request.headers)
+		requestHeaders.set('x-nonce', nonce)
 
-			const response = await next(request, _next)
-			if (response) {
-				response.headers.set(
-					'Content-Security-Policy',
-					contentSecurityPolicyHeaderValue,
-				)
-				response.headers.set('x-nonce', nonce)
-			}
+		requestHeaders.set(
+			'Content-Security-Policy',
+			contentSecurityPolicyHeaderValue,
+		)
 
-			return response
-		} else {
-			return next(request, _next)
-		}
+		const response = await next(request, _next)
+
+		response?.headers.set(
+			'Content-Security-Policy',
+			contentSecurityPolicyHeaderValue,
+		)
+
+		return response
 	}
 }
 
@@ -74,6 +64,10 @@ export const config = {
 	matcher: [
 		'/((?!api|_next/static|_next/image|uploads|images|admin|favicon.ico|sitemap.xml|robots.txt|rss.xml).*)',
 	],
+	missing: [
+		{ type: 'header', key: 'next-router-prefetch' },
+		{ type: 'header', key: 'purpose', value: 'prefetch' },
+	],
 }
 
-export default stackMiddlewares([withNonce, withIntl, withCSP])
+export default stackMiddlewares([withIntl, withCSP])
