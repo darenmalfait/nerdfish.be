@@ -12,4 +12,8 @@ export default createMiddleware({
 	locales: i18n.locales,
 	defaultLocale: i18n.defaultLocale,
 	localeDetection: true,
+	localeCookie: {
+		secure: true,
+		sameSite: 'strict',
+	},
 })
