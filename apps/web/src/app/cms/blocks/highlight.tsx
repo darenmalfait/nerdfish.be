@@ -10,6 +10,7 @@ import {
 	HighlightCardTitle,
 } from '@repo/ui/components/highlight-card'
 import { Section } from '@repo/ui/components/section'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
@@ -22,6 +23,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 }
 
 export function HighlightBlock(props: Block<PageBlocksHighlight>) {
+	const t = useTranslations('global')
 	const { title, category, excerpt, image, linkText, reference } = props
 
 	const href = React.useMemo(() => {
@@ -47,7 +49,11 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 					>
 						{excerpt}
 					</HighlightCardDescription>
-					<HighlightCardCTA category={category} href={href}>
+					<HighlightCardCTA
+						category={category}
+						href={href}
+						aria-label={t('readMoreAbout', { topic: title })}
+					>
 						{linkText}
 					</HighlightCardCTA>
 				</HighlightCardContent>

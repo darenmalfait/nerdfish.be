@@ -203,9 +203,11 @@ export function ArticleOverviewLoadMoreButton({
 const FeaturedArticle = ({
 	article,
 	readMoreLabel,
+	ariaLabel,
 }: {
 	article?: Article
 	readMoreLabel?: string
+	ariaLabel?: string
 }) => {
 	const { featuredArticleEnabled, filter } = useArticleOverview()
 
@@ -218,7 +220,11 @@ const FeaturedArticle = ({
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>
 				<HighlightCardDescription>{article.excerpt}</HighlightCardDescription>
-				<HighlightCardCTA category={article.category} href={article.href}>
+				<HighlightCardCTA
+					category={article.category}
+					href={article.href}
+					aria-label={ariaLabel}
+				>
 					{readMoreLabel ?? 'Read more'}
 				</HighlightCardCTA>
 			</HighlightCardContent>
@@ -235,6 +241,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 	React.HTMLAttributes<HTMLDivElement> & {
 		loadMoreLabel?: string
 		readMoreLabel?: string
+		ariaLabel?: string
 	}
 >(
 	(
@@ -242,6 +249,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 			children,
 			loadMoreLabel = 'Load more',
 			readMoreLabel = 'Read more',
+			ariaLabel = 'Read more about',
 			...props
 		},
 		ref,
@@ -265,7 +273,11 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 
 		return (
 			<div ref={ref} {...props}>
-				<FeaturedArticle readMoreLabel={readMoreLabel} article={featured} />
+				<FeaturedArticle
+					ariaLabel={ariaLabel}
+					readMoreLabel={readMoreLabel}
+					article={featured}
+				/>
 
 				<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8">
 					{children}
