@@ -90,8 +90,10 @@ ArticleOverviewSearchImage.displayName = 'ArticleOverviewSearchImage'
 
 export const ArticleOverviewSearchContent = React.forwardRef<
 	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => {
+	React.HTMLAttributes<HTMLDivElement> & {
+		inputLabel?: string
+	}
+>(({ className, children, inputLabel, ...props }, ref) => {
 	const { filter, setFilter } = useArticleOverview()
 
 	return (
@@ -106,18 +108,22 @@ export const ArticleOverviewSearchContent = React.forwardRef<
 			<div className="flex flex-auto flex-col justify-center">
 				{children}
 
-				<Input
-					type="search"
-					value={filter}
-					onChange={(event) => {
-						setFilter(event.currentTarget.value.toLowerCase())
-					}}
-					className="shadow-outline"
-					name="q"
-					placeholder="Search"
-					icon={SearchIcon}
-					inputSize="lg"
-				/>
+				<label>
+					<span className="sr-only">{inputLabel ?? 'Search'}</span>
+
+					<Input
+						type="search"
+						value={filter}
+						onChange={(event) => {
+							setFilter(event.currentTarget.value.toLowerCase())
+						}}
+						className="shadow-outline"
+						name="q"
+						placeholder={inputLabel ?? 'Search'}
+						icon={SearchIcon}
+						inputSize="lg"
+					/>
+				</label>
 			</div>
 		</div>
 	)
