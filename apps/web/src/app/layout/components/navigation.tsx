@@ -137,90 +137,88 @@ export function SocialLinks() {
 	const { social } = useGlobal()
 
 	return (
-		<ul
-			role="navigation"
-			aria-label="Social Media"
-			className="gap-sm flex flex-row items-center"
-		>
-			{social?.twitter ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="Twitter feed"
-							href={social.twitter}
-							target="_blank"
-						>
-							Twitter
-						</Link>
-					</Button>
-				</li>
-			) : null}
-			{social?.bluesky ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="Bluesky feed"
-							href={social.bluesky}
-							target="_blank"
-						>
-							Bluesky
-						</Link>
-					</Button>
-				</li>
-			) : null}
-			{social?.facebook ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="Facebook page"
-							href={social.facebook}
-							target="_blank"
-						>
-							Facebook
-						</Link>
-					</Button>
-				</li>
-			) : null}
-			{social?.instagram ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="Instagram"
-							href={social.instagram}
-							target="_blank"
-						>
-							Instagram
-						</Link>
-					</Button>
-				</li>
-			) : null}
-			{social?.linkedIn ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="LinkedIn profile"
-							href={social.linkedIn}
-							target="_blank"
-						>
-							LinkedIn
-						</Link>
-					</Button>
-				</li>
-			) : null}
-			{social?.github ? (
-				<li>
-					<Button variant="ghost" className={socialLinkClassName} asChild>
-						<Link
-							aria-label="Github Repository"
-							href={social.github}
-							target="_blank"
-						>
-							Github
-						</Link>
-					</Button>
-				</li>
-			) : null}
-		</ul>
+		<nav aria-label="Social Media">
+			<ul className="gap-sm flex flex-row items-center">
+				{social?.twitter ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="Twitter feed"
+								href={social.twitter}
+								target="_blank"
+							>
+								Twitter
+							</Link>
+						</Button>
+					</li>
+				) : null}
+				{social?.bluesky ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="Bluesky feed"
+								href={social.bluesky}
+								target="_blank"
+							>
+								Bluesky
+							</Link>
+						</Button>
+					</li>
+				) : null}
+				{social?.facebook ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="Facebook page"
+								href={social.facebook}
+								target="_blank"
+							>
+								Facebook
+							</Link>
+						</Button>
+					</li>
+				) : null}
+				{social?.instagram ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="Instagram"
+								href={social.instagram}
+								target="_blank"
+							>
+								Instagram
+							</Link>
+						</Button>
+					</li>
+				) : null}
+				{social?.linkedIn ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="LinkedIn profile"
+								href={social.linkedIn}
+								target="_blank"
+							>
+								LinkedIn
+							</Link>
+						</Button>
+					</li>
+				) : null}
+				{social?.github ? (
+					<li>
+						<Button variant="ghost" className={socialLinkClassName} asChild>
+							<Link
+								aria-label="Github Repository"
+								href={social.github}
+								target="_blank"
+							>
+								Github
+							</Link>
+						</Button>
+					</li>
+				) : null}
+			</ul>
+		</nav>
 	)
 }
 
