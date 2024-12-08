@@ -16,6 +16,7 @@ import { stripPreSlash } from '@repo/lib/utils/string'
 import { Logo, MenuIcon, XIcon } from '@repo/ui/icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useLocale } from 'next-intl'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
 import {
@@ -23,6 +24,7 @@ import {
 	type GlobalNavigationMainSub,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
+import { i18n } from '~/app/i18n/config'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const MobileNavigationSubItem = React.forwardRef<
@@ -109,6 +111,7 @@ MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 export function MobileNavigation() {
 	const { navigation } = useGlobal()
+	const currentLocale = useLocale()
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
@@ -128,7 +131,11 @@ export function MobileNavigation() {
 				<div className="flex h-screen flex-col">
 					<DrawerHeader className="gap-lg py-lg z-10 flex items-center justify-between backdrop-blur-none">
 						<Button asChild variant="link" className="-mx-2">
-							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
+							<Link
+								href={`/${currentLocale === i18n.defaultLocale ? '' : currentLocale}`}
+								aria-label="Home"
+								onClick={() => setOpen(false)}
+							>
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>

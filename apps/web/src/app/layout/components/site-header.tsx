@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { MainNavigation } from './navigation'
 import { LocaleSwitcher } from '~/app/i18n/components/locale-switcher'
+import { i18n } from '~/app/i18n/config'
 
 export function SiteHeader() {
 	const currentLocale = useLocale()
@@ -16,7 +17,10 @@ export function SiteHeader() {
 				<div className="container max-w-none">
 					<div className="py-mdx relative flex w-full items-center">
 						<Button asChild variant="link" className="-mx-sm text-primary">
-							<Link href={`/${currentLocale}`} aria-label="Home">
+							<Link
+								href={`/${currentLocale === i18n.defaultLocale ? '' : currentLocale}`}
+								aria-label="Home"
+							>
 								<Logo className="h-6 w-auto fill-white" />
 							</Link>
 						</Button>
