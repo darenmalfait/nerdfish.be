@@ -11,6 +11,7 @@ export const config = {
 export default createMiddleware({
 	locales: i18n.locales,
 	defaultLocale: i18n.defaultLocale,
+	localePrefix: 'as-needed',
 	localeDetection: true,
 	localeCookie: {
 		secure: true,
