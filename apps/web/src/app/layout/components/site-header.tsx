@@ -13,7 +13,7 @@ export function SiteHeader() {
 	return (
 		<div className="w-full bg-transparent">
 			<header className="relative z-40 w-full flex-none">
-				<nav className="container max-w-none">
+				<div className="container max-w-none">
 					<div className="py-mdx relative flex w-full items-center">
 						<Button asChild variant="link" className="-mx-sm text-primary">
 							<Link href={`/${currentLocale}`} aria-label="Home">
@@ -30,7 +30,7 @@ export function SiteHeader() {
 							</div>
 						</div>
 					</div>
-				</nav>
+				</div>
 			</header>
 		</div>
 	)
