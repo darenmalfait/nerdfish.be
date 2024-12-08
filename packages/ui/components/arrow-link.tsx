@@ -6,9 +6,9 @@ import {
 	useElementState,
 } from '@repo/lib/utils/use-element-state'
 import { type Variant, motion } from 'motion/react'
+import Link from 'next/link'
 import type * as React from 'react'
 import { ArrowIcon, type ArrowIconProps } from '../icons'
-import { Link } from './link'
 
 const arrowVariants: Record<
 	ArrowIconProps['direction'],
