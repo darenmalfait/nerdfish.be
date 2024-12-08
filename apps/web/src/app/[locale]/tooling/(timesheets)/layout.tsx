@@ -1,6 +1,6 @@
 import { fonts } from '@repo/ui/fonts'
 import type * as React from 'react'
-import { AppProviders } from '../../app-providers'
+import { AppProviders } from '../../../app-providers'
 
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
