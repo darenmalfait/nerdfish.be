@@ -17,6 +17,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/ui/components/section'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
@@ -56,6 +57,7 @@ Card.displayName = 'Card'
 
 export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 	const { items, sectionHeader } = props
+	const t = useTranslations('global')
 	const containerRef = React.useRef<HTMLDivElement>(null)
 
 	const { scrollYProgress } = useScroll({
@@ -117,6 +119,7 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 										<HighlightCardCTA
 											category={category}
 											href={getPagePath(reference)}
+											aria-label={t('readMoreAbout', { topic: title })}
 										>
 											{linkText}
 										</HighlightCardCTA>
