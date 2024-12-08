@@ -222,7 +222,10 @@ const FeaturedArticle = ({
 					{readMoreLabel ?? 'Read more'}
 				</HighlightCardCTA>
 			</HighlightCardContent>
-			<HighlightCardImage src={article.image?.src} />
+			<HighlightCardImage
+				src={article.image?.src}
+				alt={article.image?.alt ?? article.title}
+			/>
 		</HighlightCard>
 	)
 }

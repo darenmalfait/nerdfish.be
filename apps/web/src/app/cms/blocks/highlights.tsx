@@ -122,7 +122,10 @@ export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
 										</HighlightCardCTA>
 									) : null}
 								</HighlightCardContent>
-								<HighlightCardImage src={image?.src} alt={image?.alt ?? ''} />
+								<HighlightCardImage
+									src={image?.src}
+									alt={image?.alt ?? title ?? ''}
+								/>
 							</HighlightCard>
 						</Card>
 					)

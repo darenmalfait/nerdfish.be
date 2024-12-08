@@ -51,7 +51,7 @@ export function HighlightBlock(props: Block<PageBlocksHighlight>) {
 						{linkText}
 					</HighlightCardCTA>
 				</HighlightCardContent>
-				<HighlightCardImage src={image?.src} alt={image?.alt ?? ''} />
+				<HighlightCardImage src={image?.src} alt={image?.alt ?? title ?? ''} />
 			</HighlightCard>
 		</BlockLayout>
 	)
