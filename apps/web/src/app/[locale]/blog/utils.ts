@@ -104,10 +104,10 @@ export function mapBlogToArticle(posts: PartialDeep<Blog>[]): Article[] {
 		tags: nonNullable(post.tags ?? []),
 		category: post.category,
 		date: post.date,
-		image: post.heroImg
+		image: post.heroImg?.src
 			? {
-					src: post.heroImg,
-					alt: post.title ?? 'untitled',
+					src: post.heroImg.src,
+					alt: post.heroImg.alt ?? post.title ?? 'untitled',
 				}
 			: undefined,
 	}))
