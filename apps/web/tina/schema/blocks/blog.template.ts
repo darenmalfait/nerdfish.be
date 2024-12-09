@@ -1,5 +1,6 @@
 import { type Template } from '@tinacms/schema-tools'
 
+import { imageSchema } from '../objects/image'
 import { tagsSchema } from '../objects/tags'
 
 export const blogTemplate: Template = {
@@ -30,11 +31,7 @@ export const blogTemplate: Template = {
 					name: 'link',
 					description: 'Optional CTA link',
 				},
-				{
-					type: 'image',
-					label: 'Image',
-					name: 'imageSrc',
-				},
+				imageSchema,
 			],
 		},
 		{
