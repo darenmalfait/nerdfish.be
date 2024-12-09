@@ -29,7 +29,7 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 			attachToParent
 		>
 			<motion.div
-				className="bg-primary flex size-16 items-center justify-center rounded-full text-current transition-transform group-active:scale-125"
+				className="bg-popover before:empty-content before:rounded-container before:bg-muted/50 before:-z-1 flex size-16 items-center justify-center rounded-full text-current transition-transform before:absolute before:inset-0 group-active:scale-125"
 				transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 			>
 				<ArrowRightIcon className="size-8" />
