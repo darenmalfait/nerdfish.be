@@ -239,7 +239,6 @@ const FeaturedArticle = ({
 export const ArticleOverviewContentGrid = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement> & {
-		loadMoreLabel?: string
 		readMoreLabel?: string
 		ariaLabel?: string
 	}
@@ -247,7 +246,6 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 	(
 		{
 			children,
-			loadMoreLabel = 'Load more',
 			readMoreLabel = 'Read more',
 			ariaLabel = 'Read more about',
 			...props
@@ -292,7 +290,7 @@ export const ArticleOverviewContentGrid = React.forwardRef<
 										alt={article.title}
 										src={article.image?.src}
 										category={article.category}
-										readMoreLabel={loadMoreLabel}
+										readMoreLabel={readMoreLabel}
 									/>
 									<ArticleCardContent>
 										<ArticleCardCategory>

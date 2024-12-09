@@ -1,5 +1,6 @@
 import { type Collection } from '@tinacms/schema-tools'
 import slugify from 'slugify'
+import { imageSchema } from '../objects/image'
 import { portableTextSchema } from '../objects/portable-text'
 import { seo } from '../objects/seo'
 import { tagsSchema } from '../objects/tags'
@@ -49,7 +50,7 @@ const blogPostsCollection: Collection = {
 			required: true,
 		},
 		{
-			type: 'image',
+			...imageSchema,
 			name: 'heroImg',
 			label: 'Hero Image',
 		},

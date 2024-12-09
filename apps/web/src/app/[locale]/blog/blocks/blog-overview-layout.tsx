@@ -8,6 +8,7 @@ import {
 	ArticleOverview,
 	ArticleOverviewContentGrid,
 	ArticleOverviewFilter,
+	ArticleOverviewLoadMoreButton,
 	ArticleOverviewSearch,
 	ArticleOverviewSearchContent,
 	ArticleOverviewSearchImage,
@@ -95,7 +96,6 @@ export function BlockLayout({
 
 				{children ?? (
 					<ArticleOverviewContentGrid
-						loadMoreLabel={t('loadMore')}
 						readMoreLabel={t('readMore')}
 						ariaLabel={t('readMoreAbout', {
 							title: header?.title ?? '',
@@ -104,6 +104,10 @@ export function BlockLayout({
 						<ArticlesOverviewEmptyState />
 					</ArticleOverviewContentGrid>
 				)}
+
+				<ArticleOverviewLoadMoreButton>
+					{t('loadMore')}
+				</ArticleOverviewLoadMoreButton>
 			</ArticleOverview>
 		</Section>
 	)

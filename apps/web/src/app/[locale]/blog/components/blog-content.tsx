@@ -38,8 +38,8 @@ function BlogContent({
 		image: heroImg
 			? {
 					'@type': 'ImageObject',
-					url: heroImg
-						? new URL(heroImg, env.NEXT_PUBLIC_URL).toString()
+					url: heroImg.src
+						? new URL(heroImg.src, env.NEXT_PUBLIC_URL).toString()
 						: undefined,
 				}
 			: undefined,
@@ -78,7 +78,7 @@ function BlogContent({
 							{title}
 						</H1>
 					</header>
-					{heroImg ? (
+					{heroImg?.src ? (
 						<div className="mb-xl mx-auto">
 							<div
 								className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden"
@@ -88,8 +88,8 @@ function BlogContent({
 								{/* TODO: add aria description */}
 								<Image
 									aria-hidden
-									src={heroImg}
-									alt={title}
+									src={heroImg.src}
+									alt={heroImg.alt ?? title}
 									className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
 									width={900}
 									height={900}
