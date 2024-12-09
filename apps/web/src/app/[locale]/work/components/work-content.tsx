@@ -1,4 +1,4 @@
-import { Button, H4, Paragraph } from '@nerdfish/ui'
+import { Button, H4, Paragraph, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
@@ -6,6 +6,7 @@ import {
 } from '@repo/ui/components/category-indicator'
 import { Section } from '@repo/ui/components/section'
 import { ArrowRight } from '@repo/ui/icons'
+import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -22,7 +23,7 @@ function WorkContent({
 	data: WorkQueryQuery
 	relatedContent?: React.ReactNode
 }) {
-	const { title, category, body, url, excerpt, blocks } = data.work
+	const { title, category, body, url, excerpt, blocks, heroImg } = data.work
 
 	return (
 		<div className="relative">
@@ -79,6 +80,26 @@ function WorkContent({
 								>
 									{excerpt}
 								</Paragraph>
+							) : null}
+
+							{!blocks?.length && heroImg?.src ? (
+								<div className="my-xl mx-auto">
+									<div
+										className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden"
+										data-tina-field={tinaField(data.work, 'heroImg')}
+									>
+										<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
+										{/* TODO: add aria description */}
+										<Image
+											aria-hidden
+											src={heroImg.src}
+											alt={heroImg.alt ?? title}
+											className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
+											width={900}
+											height={900}
+										/>
+									</div>
+								</div>
 							) : null}
 
 							{body ? (

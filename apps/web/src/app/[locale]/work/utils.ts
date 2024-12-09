@@ -98,10 +98,10 @@ export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
 		tags: work.category ? [work.category] : [],
 		category: work.category,
 		date: work.date,
-		image: work.heroImg
+		image: work.heroImg?.src
 			? {
-					src: work.heroImg,
-					alt: work.title ?? 'untitled',
+					src: work.heroImg.src,
+					alt: work.heroImg.alt ?? work.title ?? 'untitled',
 				}
 			: undefined,
 	}))
