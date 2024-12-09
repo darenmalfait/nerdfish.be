@@ -91,16 +91,13 @@ export function BlockLayout({
 				)}
 
 				{children ?? (
-					<ArticleOverviewContentGrid
-						loadMoreLabel={t('loadMore')}
-						readMoreLabel={t('readMore')}
-					>
+					<ArticleOverviewContentGrid readMoreLabel={t('readMore')}>
 						<ArticlesOverviewEmptyState />
 					</ArticleOverviewContentGrid>
 				)}
 
 				<ArticleOverviewLoadMoreButton>
-					{t('readMore')}
+					{t('loadMore')}
 				</ArticleOverviewLoadMoreButton>
 			</ArticleOverview>
 		</Section>
