@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 'use client'
 
 import {
@@ -90,18 +91,18 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 						data-tina-field={tinaField(data, 'header')}
 						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
 					>
-						{header?.imageSrc ? (
+						{header?.image?.src ? (
 							<div
 								data-tina-field={tinaField(data, 'header')}
 								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
 							>
 								<Image
 									className="rounded-xl"
-									src={header.imageSrc}
+									src={header.image.src}
 									width={550}
 									height={550}
 									loading="eager"
-									alt={header.title ?? ''}
+									alt={header.image.alt ?? header.title ?? ''}
 								/>
 							</div>
 						) : null}
@@ -109,7 +110,7 @@ export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
 							className={cx(
 								'col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 								{
-									'lg:col-span-5 lg:col-start-1': header?.imageSrc,
+									'lg:col-span-5 lg:col-start-1': header?.image?.src,
 								},
 							)}
 						>
