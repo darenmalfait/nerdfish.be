@@ -60,8 +60,8 @@ export function BlockLayout({
 				<ArticleOverviewSearch>
 					<ArticleOverviewSearchImage
 						image={{
-							src: header?.imageSrc ?? undefined,
-							alt: header?.title ?? undefined,
+							src: header?.image?.src ?? undefined,
+							alt: header?.image?.alt ?? header?.title ?? undefined,
 						}}
 					/>
 					<ArticleOverviewSearchContent inputLabel={t('search')}>
