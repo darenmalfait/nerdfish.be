@@ -4,6 +4,7 @@ import { contentTemplate } from '../blocks/content.template'
 import { imageGridTemplate } from '../blocks/image-grid.template'
 import { skillsTemplate } from '../blocks/skills.template'
 import { testimonialsTemplate } from '../blocks/testimonials.template'
+import { imageSchema } from '../objects/image'
 import { portableTextSchema } from '../objects/portable-text'
 import { seo } from '../objects/seo'
 
@@ -58,7 +59,7 @@ const workCollection: Collection = {
 			required: true,
 		},
 		{
-			type: 'image',
+			...imageSchema,
 			name: 'heroImg',
 			label: 'Hero Image',
 		},
