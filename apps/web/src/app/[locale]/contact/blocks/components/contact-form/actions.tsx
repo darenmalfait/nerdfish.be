@@ -41,11 +41,11 @@ export async function submitContactForm(payload: ContactFormData) {
 	} = data
 
 	try {
-		if (env.SKIP_EMAILS ?? !env.NERDFISH_SMTP) return { success: true }
+		if (env.SKIP_EMAILS ?? !env.EMAIL_FROM) return { success: true }
 
 		await resend.emails.send({
-			from: env.NERDFISH_SMTP,
-			to: env.NERDFISH_SMTP,
+			from: env.EMAIL_FROM,
+			to: env.EMAIL_FROM,
 			subject: 'Contact form submission',
 			replyTo: `${name} <${contact.email}>`,
 			react: (
