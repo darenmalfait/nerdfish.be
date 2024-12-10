@@ -1,3 +1,7 @@
+import { cx } from '@nerdfish/utils'
+import * as React from 'react'
+import { FilterIcon } from '../lib/icons'
+import { Tag } from './tag'
 import {
 	Button,
 	Drawer,
@@ -6,11 +10,7 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 	H5,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import * as React from 'react'
-import { FilterIcon } from '../icons'
-import { Tag } from './tag'
+} from './ui'
 
 type TagFilterContextProps = {
 	tags: string[]

@@ -1,11 +1,16 @@
-import { Button, H4, Paragraph, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
 	getCategoryColors,
-} from '@repo/ui/components/category-indicator'
-import { Section } from '@repo/ui/components/section'
-import { ArrowRight } from '@repo/ui/icons'
+} from '@repo/design-system/components/category-indicator'
+import { Section } from '@repo/design-system/components/section'
+import {
+	Button,
+	H4,
+	Paragraph,
+	Skeleton,
+} from '@repo/design-system/components/ui'
+import { ArrowRight } from '@repo/design-system/lib/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'

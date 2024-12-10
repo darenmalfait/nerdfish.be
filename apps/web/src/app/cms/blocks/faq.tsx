@@ -1,19 +1,19 @@
 'use client'
 
 import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
+import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 	H3,
-} from '@nerdfish/ui'
-import { nonNullable } from '@repo/lib/utils/array'
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/ui'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksFaq } from '~/app/cms/types'

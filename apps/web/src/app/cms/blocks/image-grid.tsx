@@ -1,13 +1,13 @@
 'use client'
 
-import { Grid, GridCard, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
+import { Grid, GridCard, Skeleton } from '@repo/design-system/components/ui'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'

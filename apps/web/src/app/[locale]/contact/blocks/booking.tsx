@@ -1,5 +1,7 @@
 'use client'
 
+import { DrawerDialog } from '@repo/design-system/components/drawer-dialog'
+import { Section } from '@repo/design-system/components/section'
 import {
 	Avatar,
 	AvatarFallback,
@@ -11,10 +13,8 @@ import {
 	CardHeader,
 	CardTitle,
 	Skeleton,
-} from '@nerdfish/ui'
-import { DrawerDialog } from '@repo/ui/components/drawer-dialog'
-import { Section } from '@repo/ui/components/section'
-import { ArrowRightIcon, ClockIcon } from '@repo/ui/icons'
+} from '@repo/design-system/components/ui'
+import { ArrowRightIcon, ClockIcon } from '@repo/design-system/lib/icons'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { EmbeddedCal } from '../components/embedded-cal'

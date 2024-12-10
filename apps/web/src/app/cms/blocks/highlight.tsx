@@ -8,8 +8,8 @@ import {
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
-} from '@repo/ui/components/highlight-card'
-import { Section } from '@repo/ui/components/section'
+} from '@repo/design-system/components/highlight-card'
+import { Section } from '@repo/design-system/components/section'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

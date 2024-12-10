@@ -1,6 +1,23 @@
 /* eslint-disable complexity */
 'use client'
 
+import { cx } from '@nerdfish/utils'
+import {
+	ArticleCard,
+	ArticleCardContent,
+	ArticleCardDescription,
+	ArticleCardTitle,
+} from '@repo/design-system/components/article-card'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
+import {
+	TagFilter,
+	TagFilterTitle,
+} from '@repo/design-system/components/tag-filter'
 import {
 	Button,
 	EmptyState,
@@ -10,23 +27,9 @@ import {
 	EmptyStateTitle,
 	Input,
 	Separator,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils/array'
-import {
-	ArticleCard,
-	ArticleCardContent,
-	ArticleCardDescription,
-	ArticleCardTitle,
-} from '@repo/ui/components/article-card'
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/ui/components/section'
-import { TagFilter, TagFilterTitle } from '@repo/ui/components/tag-filter'
-import { BookIcon, PlusIcon, SearchIcon } from '@repo/ui/icons'
+} from '@repo/design-system/components/ui'
+import { BookIcon, PlusIcon, SearchIcon } from '@repo/design-system/lib/icons'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'

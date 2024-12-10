@@ -1,8 +1,6 @@
 /* eslint-disable complexity */
 'use client'
 
-import { H1 } from '@nerdfish/ui'
-import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	type Article,
 	ArticleOverview,
@@ -13,13 +11,15 @@ import {
 	ArticleOverviewSearchContent,
 	ArticleOverviewSearchImage,
 	ArticlesOverviewEmptyState,
-} from '@repo/ui/components/article-overview'
+} from '@repo/design-system/components/article-overview'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
+import { H1 } from '@repo/design-system/components/ui'
+import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { filterBlog, mapBlogToArticle } from '../utils'

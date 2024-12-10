@@ -1,6 +1,9 @@
 import { cx } from '@nerdfish/utils'
-import { Section, SectionHeaderSubtitle } from '@repo/ui/components/section'
-import { TextSlideUp } from '@repo/ui/components/text-slide-up'
+import {
+	Section,
+	SectionHeaderSubtitle,
+} from '@repo/design-system/components/section'
+import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
 import capitalize from 'lodash/capitalize'
 import Image from 'next/image'
 import * as React from 'react'

@@ -1,13 +1,13 @@
-import { Skeleton } from '@nerdfish/ui'
-import { type PartialDeep } from '@repo/lib/utils/types'
 import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
 	ArticleCardImage,
 	ArticleCardTitle,
-} from '@repo/ui/components/article-card'
-import { ArticleOverviewContentGrid } from '@repo/ui/components/article-overview'
+} from '@repo/design-system/components/article-card'
+import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
+import { Skeleton } from '@repo/design-system/components/ui'
+import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import * as React from 'react'
 import { getWorks } from '../api'
 import { filterWork } from '../utils'

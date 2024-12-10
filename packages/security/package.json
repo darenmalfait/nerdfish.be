@@ -1,0 +1,15 @@
+{
+  "name": "@repo/security",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo"
+  },
+  "dependencies": {
+    "@arcjet/next": "1.0.0-alpha.34",
+    "@repo/env": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

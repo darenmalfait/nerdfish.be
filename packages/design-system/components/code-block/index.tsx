@@ -1,8 +1,8 @@
 'use client'
 
-import { Mockup, MockupWindow } from '@nerdfish/ui'
 import { themes } from 'prism-react-renderer'
 import { CopyButton } from '../copy-button'
+import { Mockup, MockupWindow } from '../ui'
 import { Highlight } from './highlight'
 
 export function CodeBlock(props: { children: any; lang?: string }) {

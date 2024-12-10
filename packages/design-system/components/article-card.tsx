@@ -1,15 +1,15 @@
 'use client'
 
-import { Badge, H2, type H3, Skeleton } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
-import { ArrowRightIcon } from '../icons'
+import { ArrowRightIcon } from '../lib/icons'
 import { getCategoryColors } from './category-indicator'
 import { Cursor } from './cursor'
 import { DateFormatter } from './date-formatter'
+import { Badge, H2, type H3, Skeleton } from './ui'
 
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	return (

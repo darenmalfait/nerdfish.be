@@ -9,7 +9,7 @@ export const config: Config = {
 	content: [
 		'../../node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}', // path to nerdfishui
 		'./node_modules/@nerdfish/**/*.{js,ts,jsx,tsx}', // path to nerdfishui
-		'./node_modules/@repo/ui/components/**/*.{ts,tsx}',
+		'./node_modules/@repo/design-system/components/**/*.{ts,tsx}',
 		'./components/**/*.{ts,tsx}',
 		'./src/**/*.{ts,tsx}',
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',

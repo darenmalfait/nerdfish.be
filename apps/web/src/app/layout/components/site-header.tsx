@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
-import { Logo } from '@repo/ui/icons'
+import { Button } from '@repo/design-system/components/ui'
+import { Logo } from '@repo/design-system/lib/icons'
 import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { MainNavigation } from './navigation'

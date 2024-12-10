@@ -1,4 +1,4 @@
-import { type PartialDeep } from '@repo/lib/utils/types'
+import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { type Page } from '~/app/cms/types'
 import { i18n } from '~/app/i18n/config'
 

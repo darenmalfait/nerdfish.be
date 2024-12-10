@@ -1,5 +1,12 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
 import {
 	Avatar,
 	AvatarFallback,
@@ -9,15 +16,8 @@ import {
 	Grid,
 	GridCard,
 	Skeleton,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/ui/components/section'
-import { GithubIcon, GlobeIcon } from '@repo/ui/icons'
+} from '@repo/design-system/components/ui'
+import { GithubIcon, GlobeIcon } from '@repo/design-system/lib/icons'
 import Link from 'next/link'
 import { tinaField } from 'tinacms/dist/react'
 import {
