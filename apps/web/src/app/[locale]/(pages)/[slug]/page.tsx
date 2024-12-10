@@ -34,16 +34,14 @@ export async function generateMetadata({
 		data.page.seo?.canonical ??
 		`${env.NEXT_PUBLIC_URL}${getPagePath(data.page)}`
 
-	const ogImage = data.page.seo?.seoImg
-		? data.page.seo.seoImg
-		: `${env.NEXT_PUBLIC_URL}/api/og/page?${pageParams.toSearchString({
-				heading: title,
-			})}`
-
 	return createMetadata({
 		title,
 		description: data.page.seo?.description ?? '',
-		image: ogImage,
+		image: data.page.seo?.seoImg
+			? data.page.seo.seoImg
+			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
+					heading: title,
+				})}`,
 		alternates: {
 			canonical,
 		},

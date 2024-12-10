@@ -30,7 +30,7 @@ export default function Page() {
 					<h2>Page Card</h2>
 					<img
 						alt="ayo"
-						src={`${OG_IMAGE_URL}/page?${pageParams.toSearchString({
+						src={`${OG_IMAGE_URL}?${pageParams.toSearchString({
 							heading: 'Inferring types is fun, but not really',
 						})}&random=${nonce}`}
 					/>

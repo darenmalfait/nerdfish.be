@@ -8,11 +8,10 @@
   },
   "dependencies": {
     "@repo/env": "workspace:*",
-    "zod": "3.23.3"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",
-    "eslint": "^8.57.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.7.2"
   }
 }

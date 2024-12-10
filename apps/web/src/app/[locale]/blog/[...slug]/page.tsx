@@ -28,7 +28,7 @@ export async function generateMetadata({
 		description: data.blog.seo?.description ?? '',
 		image: data.blog.seo?.seoImg
 			? data.blog.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og/page?${pageParams.toSearchString({ heading: title })}`,
+			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({ heading: title })}`,
 		alternates: {
 			canonical,
 		},

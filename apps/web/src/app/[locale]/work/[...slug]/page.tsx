@@ -28,7 +28,7 @@ export async function generateMetadata({
 		description: data.work.seo?.description ?? '',
 		image: data.work.seo?.seoImg
 			? data.work.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og/page?${pageParams.toSearchString({
+			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
 					heading: title,
 				})}`,
 		alternates: {

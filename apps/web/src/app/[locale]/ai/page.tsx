@@ -25,7 +25,7 @@ export async function generateMetadata({
 	return createMetadata({
 		title,
 		description: t('ai.page.meta.description'),
-		image: `${env.NEXT_PUBLIC_URL}/api/og/page?${pageParams.toSearchString({
+		image: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
 			heading: title,
 		})}`,
 		locale: params.locale,
