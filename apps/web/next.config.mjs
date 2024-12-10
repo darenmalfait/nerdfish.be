@@ -1,19 +1,13 @@
-import withBundleAnalyzer from '@next/bundle-analyzer'
+import { withAnalyzer, config } from '@repo/next-config'
 import withNextIntl from 'next-intl/plugin'
 
 const withNextIntlConfig = withNextIntl('./src/app/i18n/request-config.ts')
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
-	trailingSlash: false,
-	swcMinify: true,
+	...config,
 	images: {
 		remotePatterns: [{ hostname: 'assets.tina.io' }],
-	},
-	experimental: {
-		serverActions: {
-			bodySizeLimit: '2mb',
-		},
 	},
 	async rewrites() {
 		return [
@@ -26,7 +20,7 @@ let nextConfig = {
 }
 
 if (process.env.ANALYZE === 'true') {
-	nextConfig = withBundleAnalyzer()(nextConfig)
+	nextConfig = withAnalyzer(nextConfig)
 }
 
 // Add internationalization support
