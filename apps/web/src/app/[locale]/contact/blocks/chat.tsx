@@ -1,9 +1,9 @@
 'use client'
 
-import { Button, useMediaQuery } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { useLockBody } from '@repo/ui/hooks/use-body-lock'
-import { BotIcon, XIcon } from '@repo/ui/icons'
+import { Button, useMediaQuery } from '@repo/design-system/components/ui'
+import { useLockBody } from '@repo/design-system/hooks/use-body-lock'
+import { BotIcon, XIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { Chat } from '../components/chat'

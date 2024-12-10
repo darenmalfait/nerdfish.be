@@ -1,6 +1,6 @@
 import * as React from 'react'
 export * from 'lucide-react'
-export * from './components/arrow-icon'
+export * from '../components/arrow-icon'
 
 /**
  * ============

@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { LaptopIcon, MoonIcon, SunIcon } from '@repo/ui/icons'
+import { Button } from '@repo/design-system/components/ui'
+import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useTheme } from '../theme-provider'

@@ -1,7 +1,6 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { nonNullable } from '@repo/lib/utils/array'
 import {
 	PriceCard,
 	PriceCardAction,
@@ -10,13 +9,14 @@ import {
 	PriceCardFeatures,
 	PriceCardHeader,
 	PriceCardTitle,
-} from '@repo/ui/components/price-card'
+} from '@repo/design-system/components/price-card'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { useTranslations } from 'next-intl'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

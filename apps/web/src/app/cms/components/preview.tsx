@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
+import { Button } from '@repo/design-system/components/ui'
 import { LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import * as React from 'react'

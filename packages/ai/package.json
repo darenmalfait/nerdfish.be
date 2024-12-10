@@ -2,6 +2,9 @@
   "name": "@repo/ai",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo"
+  },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.6",
     "@repo/env": "workspace:*",

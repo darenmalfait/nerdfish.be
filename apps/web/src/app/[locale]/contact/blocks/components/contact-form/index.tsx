@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useNumberFormatter } from '@react-aria/i18n'
 import {
 	Alert,
 	AlertDescription,
@@ -22,11 +23,10 @@ import {
 	Slider,
 	SliderThumb,
 	Textarea,
-} from '@nerdfish/ui'
-import { useNumberFormatter } from '@react-aria/i18n'
+} from '@repo/design-system/components/ui'
+import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { env } from '@repo/env'
 import { parseError } from '@repo/observability/error'
-import { ArrowRightIcon } from '@repo/ui/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'

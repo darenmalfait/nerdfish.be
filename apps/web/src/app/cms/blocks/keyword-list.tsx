@@ -1,6 +1,9 @@
-import { H1, Marquee } from '@nerdfish/ui'
-import { nonNullable } from '@repo/lib/utils/array'
-import { SectionHeader, SectionHeaderTitle } from '@repo/ui/components/section'
+import {
+	SectionHeader,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
+import { H1, Marquee } from '@repo/design-system/components/ui'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksKeywordList } from '~/app/cms/types'

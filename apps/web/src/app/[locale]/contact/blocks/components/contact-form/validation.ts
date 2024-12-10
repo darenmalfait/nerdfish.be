@@ -1,4 +1,4 @@
-import { optionalField } from '@repo/lib/utils/validation'
+import { optionalField } from '@repo/design-system/lib/utils/validation'
 import * as z from 'zod'
 
 export const projectTypes = [

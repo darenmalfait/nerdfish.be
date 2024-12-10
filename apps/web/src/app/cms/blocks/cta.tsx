@@ -1,9 +1,9 @@
 'use client'
 
-import { H2 } from '@nerdfish/ui'
-import { MagnetButton } from '@repo/ui/components/magnet-button'
-import { Section } from '@repo/ui/components/section'
-import { ArrowRightIcon } from '@repo/ui/icons'
+import { MagnetButton } from '@repo/design-system/components/magnet-button'
+import { Section } from '@repo/design-system/components/section'
+import { H2 } from '@repo/design-system/components/ui'
+import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

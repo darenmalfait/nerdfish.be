@@ -1,7 +1,7 @@
 'use client'
 
 import Cal, { getCalApi } from '@calcom/embed-react'
-import { Skeleton } from '@nerdfish/ui'
+import { Skeleton } from '@repo/design-system/components/ui'
 import * as React from 'react'
 import { type GlobalCalcomTypes } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'

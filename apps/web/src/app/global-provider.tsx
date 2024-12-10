@@ -1,6 +1,6 @@
 'use client'
 
-import { stripPreSlash } from '@repo/lib/utils/string'
+import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import * as React from 'react'
 import { type Global, type GlobalPaths } from './cms/types'
 

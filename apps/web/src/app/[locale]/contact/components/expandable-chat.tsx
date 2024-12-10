@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { MessageCircleIcon, XIcon } from '@repo/ui/icons'
+import { Button } from '@repo/design-system/components/ui'
+import { MessageCircleIcon, XIcon } from '@repo/design-system/lib/icons'
 import * as React from 'react'
 
 export type ChatPosition = 'bottom-right' | 'bottom-left'

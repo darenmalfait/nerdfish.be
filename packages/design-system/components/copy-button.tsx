@@ -1,5 +1,7 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
+import { Check, Copy } from '../lib/icons'
 import {
 	Button,
 	type ButtonProps,
@@ -8,9 +10,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 	useCopyToClipboard,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import { Check, Copy } from '../icons'
+} from './ui'
 
 const COPY_TIMOUT = 3000
 

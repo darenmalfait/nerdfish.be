@@ -1,11 +1,11 @@
+import type * as React from 'react'
 import {
 	Dialog,
 	DialogContent,
 	Drawer,
 	DrawerContent,
 	useMediaQuery,
-} from '@nerdfish/ui'
-import type * as React from 'react'
+} from './ui'
 
 export function DrawerDialog({
 	open,

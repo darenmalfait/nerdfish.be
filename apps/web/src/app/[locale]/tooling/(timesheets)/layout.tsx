@@ -1,4 +1,4 @@
-import { fonts } from '@repo/ui/fonts'
+import { fonts } from '@repo/design-system/lib/fonts'
 import type * as React from 'react'
 import { AppProviders } from '../../../app-providers'
 

@@ -1,4 +1,4 @@
-import { stripTrailingSlash } from '@repo/lib/utils/string'
+import { stripTrailingSlash } from '@repo/design-system/lib/utils/string'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
 import { getPage } from '../api'
