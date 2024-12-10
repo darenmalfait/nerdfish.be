@@ -12,7 +12,7 @@ jobs:
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       RECAPTCHA_SECRETKEY: 'test'
       RESEND_API_KEY: 're_test'
-      NERDFISH_SMTP: 'test'
+      EMAIL_FROM: 'test'
       NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'test'
       NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
       GROQ_API_KEY: 'test'
