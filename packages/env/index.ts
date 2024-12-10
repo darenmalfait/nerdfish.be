@@ -23,7 +23,7 @@ export const env = createEnv({
 		ARCJET_KEY: z.string().min(1).optional(),
 		RESEND_API_KEY: z.string().min(1).startsWith('re_'),
 		SKIP_EMAILS: z.boolean().optional(),
-		NERDFISH_SMTP: z.string().min(1),
+		EMAIL_FROM: z.string().min(1),
 
 		// App specific
 		TINA_TOKEN: z.string().min(1),
@@ -46,7 +46,7 @@ export const env = createEnv({
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
 		RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
 		ARCJET_KEY: process.env.ARCJET_KEY,
-		NERDFISH_SMTP: process.env.NERDFISH_SMTP,
+		EMAIL_FROM: process.env.EMAIL_FROM,
 		RESEND_API_KEY: process.env.RESEND_API_KEY,
 		SKIP_EMAILS: process.env.SKIP_EMAILS === 'true',
 
