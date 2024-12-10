@@ -2,6 +2,10 @@
   "name": "@repo/seo",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "lodash.merge": "^4.6.2",
     "next": "^14.2.19",

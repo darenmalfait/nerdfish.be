@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "clean": "rm -rf .next dist node_modules .turbo"
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.6",

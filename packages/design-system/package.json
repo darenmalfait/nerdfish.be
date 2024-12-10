@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "rm -rf .next dist node_modules .turbo"
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@nerdfish/ui": "^7.7.7",

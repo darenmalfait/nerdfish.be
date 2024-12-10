@@ -5,7 +5,8 @@
   "type": "module",
   "files": [],
   "scripts": {
-    "clean": "rm -rf .next dist node_modules .turbo"
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@react-email/components": "^0.0.28",
