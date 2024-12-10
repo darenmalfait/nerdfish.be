@@ -1,4 +1,5 @@
 import { env } from '@repo/env'
+import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -6,7 +7,6 @@ import { WikiContent } from '../components/wiki-content'
 import { WikiPreview } from '../components/wiki-preview'
 import { getWikiPath } from '../utils'
 import { getRouteData } from './route-data'
-import { generateOGImageUrl } from '~/app/api/og/utils'
 import { i18n } from '~/app/i18n/config'
 
 export async function generateMetadata({
@@ -26,9 +26,9 @@ export async function generateMetadata({
 		description: data.wiki.seo?.description ?? '',
 		image: data.wiki.seo?.seoImg
 			? data.wiki.seo.seoImg
-			: generateOGImageUrl({
+			: `${env.NEXT_PUBLIC_URL}/api/og/page?${pageParams.toSearchString({
 					heading: title,
-				}),
+				})}`,
 		alternates: {
 			canonical,
 		},

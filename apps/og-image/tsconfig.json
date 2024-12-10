@@ -1,0 +1,25 @@
+{
+	"extends": "../../tsconfig.json",
+	"include": [
+		"next-env.d.ts",
+		"**/*.js",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"next.config.js",
+		"next.config.mjs",
+		"postcss.config.cjs"
+	],
+	"exclude": ["node_modules", ".next", "public"],
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"incremental": true,
+		"jsx": "preserve",
+		"plugins": [
+			{
+				"name": "next"
+			}
+		]
+	}
+}
