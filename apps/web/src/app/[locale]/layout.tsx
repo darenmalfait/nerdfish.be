@@ -1,4 +1,4 @@
-import { fonts } from '@repo/ui/fonts'
+import { fonts } from '@repo/design-system/lib/fonts'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import * as React from 'react'

@@ -1,5 +1,9 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
+import Link from 'next/link'
+import * as React from 'react'
+import { CheckIcon } from '../lib/icons'
 import {
 	Button,
 	Card,
@@ -10,11 +14,7 @@ import {
 	CardTitle,
 	H3,
 	Separator,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import Link from 'next/link'
-import * as React from 'react'
-import { CheckIcon } from '../icons'
+} from './ui'
 
 interface PriceCardContextProps {
 	isPopular?: boolean

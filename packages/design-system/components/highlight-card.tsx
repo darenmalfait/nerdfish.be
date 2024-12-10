@@ -1,13 +1,13 @@
 'use client'
 
-import { Badge, H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
-import { ArrowRightIcon } from '../icons'
+import { ArrowRightIcon } from '../lib/icons'
 import { getCategoryColors } from './category-indicator'
 import { MagnetButton } from './magnet-button'
+import { Badge, H1, type H2 } from './ui'
 
 export const HighlightCardImage = React.forwardRef<
 	HTMLDivElement,

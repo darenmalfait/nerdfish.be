@@ -1,9 +1,9 @@
 'use client'
 
-import { useControllableState } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { AnimatePresence, type Transition, motion } from 'framer-motion'
 import * as React from 'react'
+import { useControllableState } from './ui'
 
 type AnimatedBackgroundProps = {
 	children?:

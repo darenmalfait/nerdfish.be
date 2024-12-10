@@ -1,15 +1,15 @@
 'use client'
 
-import { Grid, H3 } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
-import { MagnetButton } from '@repo/ui/components/magnet-button'
+import { MagnetButton } from '@repo/design-system/components/magnet-button'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
-import { ArrowRight } from '@repo/ui/icons'
+} from '@repo/design-system/components/section'
+import { Grid, H3 } from '@repo/design-system/components/ui'
+import { ArrowRight } from '@repo/design-system/lib/icons'
 import { camelCase, startCase } from 'lodash'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'

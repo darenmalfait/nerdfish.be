@@ -1,9 +1,9 @@
-import { H1, type H2 } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
 import { Slot } from '@radix-ui/react-slot'
 import * as React from 'react'
 import { ArrowLink } from './arrow-link'
 import { TextSlideUp } from './text-slide-up'
+import { H1, type H2 } from './ui'
 
 export const Section = React.forwardRef<
 	HTMLDivElement,

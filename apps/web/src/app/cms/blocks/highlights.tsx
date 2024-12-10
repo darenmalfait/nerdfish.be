@@ -9,13 +9,13 @@ import {
 	HighlightCardDescription,
 	HighlightCardImage,
 	HighlightCardTitle,
-} from '@repo/ui/components/highlight-card'
+} from '@repo/design-system/components/highlight-card'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'

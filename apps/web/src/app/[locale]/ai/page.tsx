@@ -1,11 +1,11 @@
-import { createMetadata } from '@repo/seo/metadata'
-import { InViewBackground } from '@repo/ui/components/in-view-background'
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
+import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { Chat } from '../contact/components/chat'

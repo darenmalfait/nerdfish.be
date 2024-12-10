@@ -1,11 +1,16 @@
 'use client'
 
-import { Button, Input, LoadingAnimation, Separator } from '@nerdfish/ui'
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { type Message, type ToolInvocation } from '@repo/ai'
 import { useChat } from '@repo/ai/react'
-import { useScrollToBottom } from '@repo/ui/hooks/use-scroll-to-bottom'
-import { SendHorizonalIcon } from '@repo/ui/icons'
+import {
+	Button,
+	Input,
+	LoadingAnimation,
+	Separator,
+} from '@repo/design-system/components/ui'
+import { useScrollToBottom } from '@repo/design-system/hooks/use-scroll-to-bottom'
+import { SendHorizonalIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { EmbeddedCal } from './embedded-cal'

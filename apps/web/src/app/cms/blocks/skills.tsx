@@ -4,7 +4,7 @@ import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
-} from '@repo/ui/components/section'
+} from '@repo/design-system/components/section'
 import {
 	CSSIcon,
 	FigmaIcon,
@@ -20,7 +20,7 @@ import {
 	TypescriptIcon,
 	VSCodeIcon,
 	WebflowIcon,
-} from '@repo/ui/icons'
+} from '@repo/design-system/lib/icons'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '../components/portable-text'

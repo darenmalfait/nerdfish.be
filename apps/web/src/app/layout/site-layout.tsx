@@ -1,11 +1,15 @@
 'use client'
 
-import { H1, LoadingAnimation, Separator } from '@nerdfish/ui'
 import { cx } from '@nerdfish/utils'
-import { InViewBackground } from '@repo/ui/components/in-view-background'
-import { Section } from '@repo/ui/components/section'
-import { TextSlideUp } from '@repo/ui/components/text-slide-up'
-import { ArrowRight, Logo } from '@repo/ui/icons'
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
+import { Section } from '@repo/design-system/components/section'
+import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
+import {
+	H1,
+	LoadingAnimation,
+	Separator,
+} from '@repo/design-system/components/ui'
+import { ArrowRight, Logo } from '@repo/design-system/lib/icons'
 import Link from 'next/link'
 import * as React from 'react'
 import { ThemeToggle } from '../theme/components/theme-toggle'

@@ -4,7 +4,7 @@ import {
 	CardHeader,
 	LoadingAnimation,
 	Skeleton,
-} from '@nerdfish/ui'
+} from '@repo/design-system/components/ui'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 

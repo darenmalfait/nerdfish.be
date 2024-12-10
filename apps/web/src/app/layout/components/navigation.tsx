@@ -1,3 +1,5 @@
+import { cva, cx } from '@nerdfish/utils'
+import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import {
 	Button,
 	type ButtonProps,
@@ -7,10 +9,8 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-} from '@nerdfish/ui'
-import { cva, cx } from '@nerdfish/utils'
-import { stripPreSlash } from '@repo/lib/utils/string'
-import { AnimatedBackground } from '@repo/ui/components/animated-background'
+} from '@repo/design-system/components/ui'
+import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'

@@ -1,5 +1,6 @@
 'use client'
 
+import { cx } from '@nerdfish/utils'
 import {
 	Button,
 	Drawer,
@@ -10,10 +11,9 @@ import {
 	H2,
 	H3,
 	ScrollArea,
-} from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
-import { stripPreSlash } from '@repo/lib/utils/string'
-import { Logo, MenuIcon, XIcon } from '@repo/ui/icons'
+} from '@repo/design-system/components/ui'
+import { Logo, MenuIcon, XIcon } from '@repo/design-system/lib/icons'
+import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLocale } from 'next-intl'

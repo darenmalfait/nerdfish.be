@@ -1,5 +1,5 @@
-import { stripPreSlash } from '@repo/lib/utils/string'
-import { ExternalLinkIcon } from '@repo/ui/icons'
+import { ExternalLinkIcon } from '@repo/design-system/lib/icons'
+import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import Link from 'next/link'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']

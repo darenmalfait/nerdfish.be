@@ -3,11 +3,13 @@ import { z } from 'zod'
 
 export const env = createEnv({
 	client: {
+		// Base
 		NEXT_PUBLIC_URL: z.string().min(1).url(),
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: z.string().min(1).optional(),
+
+		// App specific
+		NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(), // Optional when developing locally
 		NEXT_PUBLIC_TINA_CLIENT_ID: z.string().min(1),
-		// Optional when developing locally
-		NEXT_PUBLIC_TINA_BRANCH: z.string().min(1).optional(),
 
 		// Added by Vercel
 		NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF: z.string().optional(),
@@ -16,13 +18,17 @@ export const env = createEnv({
 		NODE_ENV: z.enum(['development', 'production', 'test']),
 		ANALYZE: z.string().optional(),
 
-		TINA_TOKEN: z.string().min(1),
+		// Base
 		RECAPTCHA_SECRETKEY: z.string().min(1).optional(),
-		NERDFISH_SMTP: z.string().min(1),
+		ARCJET_KEY: z.string().min(1).optional(),
 		RESEND_API_KEY: z.string().min(1).startsWith('re_'),
+		SKIP_EMAILS: z.boolean().optional(),
+		NERDFISH_SMTP: z.string().min(1),
+
+		// App specific
+		TINA_TOKEN: z.string().min(1),
 		GROQ_API_KEY: z.string(),
 		CHAT_SYSTEM_PROMPT: z.string().optional(),
-		SKIP_EMAILS: z.boolean().optional(),
 
 		// Added by Vercel
 		VERCEL: z.string().optional(),
@@ -34,21 +40,28 @@ export const env = createEnv({
 	runtimeEnv: {
 		NODE_ENV: process.env.NODE_ENV,
 		ANALYZE: process.env.ANALYZE,
-		TINA_TOKEN: process.env.TINA_TOKEN,
-		RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
-		NERDFISH_SMTP: process.env.NERDFISH_SMTP,
-		RESEND_API_KEY: process.env.RESEND_API_KEY,
-		GROQ_API_KEY: process.env.GROQ_API_KEY,
-		CHAT_SYSTEM_PROMPT: process.env.CHAT_SYSTEM_PROMPT,
-		SKIP_EMAILS: process.env.SKIP_EMAILS === 'true',
-		VERCEL: process.env.VERCEL,
-		NEXT_RUNTIME: process.env.NEXT_RUNTIME,
+
+		// Base
 		NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
 		NEXT_PUBLIC_RECAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
+		RECAPTCHA_SECRETKEY: process.env.RECAPTCHA_SECRETKEY,
+		ARCJET_KEY: process.env.ARCJET_KEY,
+		NERDFISH_SMTP: process.env.NERDFISH_SMTP,
+		RESEND_API_KEY: process.env.RESEND_API_KEY,
+		SKIP_EMAILS: process.env.SKIP_EMAILS === 'true',
+
+		// App specific
+		TINA_TOKEN: process.env.TINA_TOKEN,
 		NEXT_PUBLIC_TINA_CLIENT_ID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
 		NEXT_PUBLIC_TINA_BRANCH: process.env.NEXT_PUBLIC_TINA_BRANCH,
+		GROQ_API_KEY: process.env.GROQ_API_KEY,
+		CHAT_SYSTEM_PROMPT: process.env.CHAT_SYSTEM_PROMPT,
+
+		// OTHERS
+		NEXT_RUNTIME: process.env.NEXT_RUNTIME,
 		NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF:
 			process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF,
+		VERCEL: process.env.VERCEL,
 		HEAD: process.env.HEAD,
 	},
 })
