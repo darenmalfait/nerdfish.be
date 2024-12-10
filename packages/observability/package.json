@@ -2,6 +2,10 @@
   "name": "@repo/observability",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "react": "^18.3.1"
   },
