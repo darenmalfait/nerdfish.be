@@ -1,4 +1,5 @@
 import { env } from '@repo/env'
+import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -8,7 +9,6 @@ import { WorkContent } from '../components/work-content'
 import { WorkPreview } from '../components/work-preview'
 import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
-import { generateOGImageUrl } from '~/app/api/og/utils'
 import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata({
@@ -28,9 +28,9 @@ export async function generateMetadata({
 		description: data.work.seo?.description ?? '',
 		image: data.work.seo?.seoImg
 			? data.work.seo.seoImg
-			: generateOGImageUrl({
+			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
 					heading: title,
-				}),
+				})}`,
 		alternates: {
 			canonical,
 		},

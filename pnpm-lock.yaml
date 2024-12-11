@@ -99,6 +99,9 @@ importers:
       '@repo/observability':
         specifier: workspace:*
         version: link:../../packages/observability
+      '@repo/og-utils':
+        specifier: workspace:*
+        version: link:../../packages/og-utils
       '@repo/seo':
         specifier: workspace:*
         version: link:../../packages/seo
@@ -351,6 +354,22 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.1
         version: 18.3.1
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
+
+  packages/og-utils:
+    dependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.2

@@ -5,11 +5,12 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
+import { env } from '@repo/env'
+import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { Chat } from '../contact/components/chat'
-import { generateOGImageUrl } from '~/app/api/og/utils'
 import { HeroBlock } from '~/app/cms/blocks/hero'
 import { type WithLocale } from '~/app/i18n/types'
 
@@ -24,9 +25,9 @@ export async function generateMetadata({
 	return createMetadata({
 		title,
 		description: t('ai.page.meta.description'),
-		image: generateOGImageUrl({
+		image: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
 			heading: title,
-		}),
+		})}`,
 		locale: params.locale,
 	})
 }
