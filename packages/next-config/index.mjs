@@ -14,6 +14,7 @@ export const config = {
 			{
 				source: '/(.*)',
 				headers: createSecureHeaders({
+					frameGuard: 'sameorigin',
 					// HSTS Preload: https://hstspreload.org/
 					forceHTTPSRedirect: [
 						true,
