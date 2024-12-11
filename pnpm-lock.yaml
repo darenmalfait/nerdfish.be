@@ -58,6 +58,40 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
+  apps/og-image:
+    dependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
+      '@repo/next-config':
+        specifier: workspace:*
+        version: link:../../packages/next-config
+      '@repo/og-utils':
+        specifier: workspace:*
+        version: link:../../packages/og-utils
+      next:
+        specifier: ^14.2.19
+        version: 14.2.20(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
+
   apps/web:
     dependencies:
       '@calcom/embed-react':
@@ -19056,7 +19090,7 @@ snapshots:
       '@next/env': 14.2.10
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001651
+      caniuse-lite: 1.0.30001685
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
