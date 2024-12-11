@@ -1,0 +1,26 @@
+{
+  "name": "@repo/og-image",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "dev": "next dev -p 4200",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "@repo/next-config": "workspace:*",
+    "@repo/og-utils": "workspace:*",
+    "next": "^14.2.19",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.7.2"
+  }
+}
