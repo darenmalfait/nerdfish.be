@@ -7,9 +7,10 @@ import { ImageResponse } from '@vercel/og'
 export const runtime = 'edge'
 
 export async function GET(req: Request) {
-	const [fontBold, fontRegular] = await Promise.all([
-		fetchFont('Inter', 900),
-		fetchFont('Inter', 400),
+	const [geist900, geist700, geist400] = await Promise.all([
+		fetchFont('Geist', 900),
+		fetchFont('Geist', 700),
+		fetchFont('Geist', 400),
 	])
 
 	const parsed = pageParams.decodeRequest(req)
@@ -21,8 +22,8 @@ export async function GET(req: Request) {
 	const props = parsed.data.input
 
 	const heading =
-		props.heading.length > 140
-			? `${props.heading.substring(0, 140)}...`
+		props.heading.length > 60
+			? `${props.heading.substring(0, 60)}...`
 			: props.heading
 
 	const paint = '#fff'
@@ -51,10 +52,10 @@ export async function GET(req: Request) {
 				</svg>
 				<div tw="relative flex flex-col flex-1 py-10">
 					<div
-						tw="flex leading-[1.1] text-[80px] max-w-[700px] font-bold"
+						tw="flex leading-[1.1] text-[80px] max-w-[700px]"
 						style={{
-							fontFamily: 'Inter',
-							fontWeight: 'bolder',
+							fontFamily: 'Geist',
+							fontWeight: 900,
 							marginLeft: '-3px',
 							fontSize,
 						}}
@@ -65,7 +66,7 @@ export async function GET(req: Request) {
 				<div tw="flex items-center w-full justify-between">
 					<div
 						tw="flex items-center text-xl"
-						style={{ fontFamily: 'Inter', fontWeight: 'normal' }}
+						style={{ fontFamily: 'Geist	', fontWeight: 'normal' }}
 					>
 						<div>https://www.nerdfish.be</div>
 					</div>
@@ -90,16 +91,19 @@ export async function GET(req: Request) {
 			height: 630,
 			fonts: [
 				{
-					name: 'Inter',
-					data: fontRegular,
+					name: 'Geist',
+					data: geist400,
 					weight: 400,
-					style: 'normal',
 				},
 				{
-					name: 'Inter',
-					data: fontBold,
+					name: 'Geist',
+					data: geist700,
+					weight: 700,
+				},
+				{
+					name: 'Geist',
+					data: geist900,
 					weight: 900,
-					style: 'normal',
 				},
 			],
 		},
