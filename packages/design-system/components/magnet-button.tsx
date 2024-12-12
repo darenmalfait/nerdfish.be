@@ -3,7 +3,7 @@ import { Magnet } from './magnet'
 import { Button } from './ui'
 
 export const MagnetButton = React.forwardRef<
-	React.ElementRef<typeof Button>,
+	React.ComponentRef<typeof Button>,
 	React.ComponentPropsWithoutRef<typeof Button>
 >(({ children, ...props }, ref) => {
 	return (

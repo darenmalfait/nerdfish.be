@@ -1,4 +1,3 @@
-import { env } from '@repo/env'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -22,40 +21,37 @@ export async function generateStaticParams() {
 	})
 }
 
-export async function generateMetadata({
-	params,
-}: {
-	params: WithLocale<{ slug?: string }>
+export async function generateMetadata(props: {
+	params: Promise<WithLocale<{ slug?: string }>>
 }): Promise<Metadata | undefined> {
+	const params = await props.params
 	const { data } = await getRouteData(params.slug ?? '', params.locale)
 	const title = data.page.seo?.title ?? data.page.title
-
-	const canonical =
-		data.page.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${getPagePath(data.page)}`
 
 	return createMetadata({
 		title,
 		description: data.page.seo?.description ?? '',
-		image: data.page.seo?.seoImg
-			? data.page.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
-					heading: title,
-				})}`,
+		image:
+			data.page.seo?.seoImg ??
+			`/api/og?${pageParams.toSearchString({
+				heading: title,
+			})}`,
 		alternates: {
-			canonical,
+			canonical: data.page.seo?.canonical ?? getPagePath(data.page),
 		},
 		locale: params.locale,
 	})
 }
 
-export default async function Page({
-	params: { slug, locale },
-}: {
-	params: WithLocale<{ slug?: string }>
+export default async function Page(props: {
+	params: Promise<WithLocale<{ slug?: string }>>
 }) {
+	const params = await props.params
+
+	const { slug, locale } = params
+
 	const routeData = await getRouteData(slug ?? '', locale)
-	const { isEnabled: isPreview } = draftMode()
+	const { isEnabled: isPreview } = await draftMode()
 
 	if (isPreview) return <PagePreview {...routeData} />
 	return <PageContent locale={locale} {...routeData} />

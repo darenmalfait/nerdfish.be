@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { AnimatePresence, type Transition, motion } from 'framer-motion'
+import { AnimatePresence, type Transition, motion } from 'motion/react'
 import * as React from 'react'
 import { useControllableState } from './ui'
 
@@ -47,7 +47,7 @@ export function AnimatedBackground({
 	if (!children) return null
 
 	return React.Children.map(children, (child: React.ReactElement, index) => {
-		const id = child.props['data-id']
+		const id = (child as any).props['data-id']
 
 		const interactionProps = enableHover
 			? {
@@ -62,7 +62,8 @@ export function AnimatedBackground({
 			child,
 			{
 				key: index,
-				className: cx('relative inline-flex', child.props.className),
+				// @ts-expect-error - TODO: why is this erroring?
+				className: cx('relative inline-flex', (child as any).props.className),
 				...interactionProps,
 			},
 			<>
@@ -83,7 +84,7 @@ export function AnimatedBackground({
 						/>
 					) : null}
 				</AnimatePresence>
-				<span className="z-10">{child.props.children}</span>
+				<span className="z-10">{(child as any).props.children}</span>
 			</>,
 		)
 	})

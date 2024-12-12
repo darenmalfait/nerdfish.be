@@ -28,7 +28,7 @@ import { i18n } from '~/app/i18n/config'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const MobileNavigationSubItem = React.forwardRef<
-	React.ElementRef<typeof Link>,
+	React.ComponentRef<typeof Link>,
 	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({ href, label, description, className, ...props }, ref) => {
 	const pathname = usePathname()
@@ -53,7 +53,7 @@ const MobileNavigationSubItem = React.forwardRef<
 MobileNavigationSubItem.displayName = 'MobileNavigationSubItem'
 
 const MobileNavigationItem = React.forwardRef<
-	React.ElementRef<typeof Link>,
+	React.ComponentRef<typeof Link>,
 	Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> &
 		GlobalNavigationMain
 >(({ href, label, sub, onClick, ...props }, ref) => {

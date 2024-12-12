@@ -1,4 +1,3 @@
-import { env } from '@repo/env'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -11,42 +10,36 @@ import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 import { type WithLocale } from '~/app/i18n/types'
 
-export async function generateMetadata({
-	params,
-}: {
-	params: WithLocale<{ slug: string[] }>
+export async function generateMetadata(props: {
+	params: Promise<WithLocale<{ slug: string[] }>>
 }): Promise<Metadata | undefined> {
+	const params = await props.params
 	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
-
-	const canonical =
-		data.blog.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${getBlogPath(data.blog)}`
 
 	return createMetadata({
 		title,
 		description: data.blog.seo?.description ?? '',
-		image: data.blog.seo?.seoImg
-			? data.blog.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
-					heading: title,
-				})}`,
+		image:
+			data.blog.seo?.seoImg ??
+			`/api/og?${pageParams.toSearchString({
+				heading: title,
+			})}`,
 		alternates: {
-			canonical,
+			canonical: data.blog.seo?.canonical ?? getBlogPath(data.blog),
 		},
 		locale: params.locale,
 	})
 }
 
-export default async function BlogPage({
-	params,
-}: {
-	params: WithLocale<{ slug: string[] }>
+export default async function BlogPage(props: {
+	params: Promise<WithLocale<{ slug: string[] }>>
 }) {
+	const params = await props.params
 	const t = await getTranslations('blog')
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
-	const { isEnabled: isPreview } = draftMode()
+	const { isEnabled: isPreview } = await draftMode()
 
 	if (isPreview) return <BlogPreview locale={params.locale} {...routeData} />
 	return (

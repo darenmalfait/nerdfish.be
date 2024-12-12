@@ -39,8 +39,7 @@ export async function GET(req: NextRequest) {
 		}
 
 		console.info('Authorized for preview mode')
-
-		draftMode().enable()
+		;(await draftMode()).enable()
 
 		return new Response(null, {
 			status: 307,
