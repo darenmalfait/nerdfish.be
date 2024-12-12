@@ -1,6 +1,5 @@
 'use client'
 
-import { DrawerDialog } from '@repo/design-system/components/drawer-dialog'
 import { MagnetButton } from '@repo/design-system/components/magnet-button'
 import {
 	Section,
@@ -10,14 +9,10 @@ import {
 } from '@repo/design-system/components/section'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
 import { Drawer, DrawerContent } from '@repo/design-system/components/ui'
-import {
-	ArrowRightIcon,
-	CalendarClockIcon,
-} from '@repo/design-system/lib/icons'
+import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { EmbeddedCal } from '../components/embedded-cal'
 import { ContactForm } from './components/contact-form'
 import { type Block, type PageBlocksContact } from '~/app/cms/types'
 
@@ -26,7 +21,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 	const t = useTranslations('contact')
 
 	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)
-	const [bookingFormOpen, setBookingFormOpen] = React.useState<boolean>(false)
+	// const [bookingFormOpen, setBookingFormOpen] = React.useState<boolean>(false)
 
 	return (
 		<Section>
@@ -52,7 +47,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					{openFormLabel}
 					<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
 				</MagnetButton>
-				<MagnetButton
+				{/* <MagnetButton
 					type="button"
 					onClick={() => setBookingFormOpen(true)}
 					variant="outline"
@@ -64,7 +59,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 
 						{t('cta.booking')}
 					</span>
-				</MagnetButton>
+				</MagnetButton> */}
 			</TextSlideUp>
 
 			<Drawer
@@ -90,12 +85,12 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 					</div>
 				</DrawerContent>
 			</Drawer>
-			<DrawerDialog open={bookingFormOpen} onOpenChange={setBookingFormOpen}>
+			{/* <DrawerDialog open={bookingFormOpen} onOpenChange={setBookingFormOpen}>
 				<EmbeddedCal
 					className="[&_iframe]:h-fit [&_iframe]:max-h-[85vh] [&_iframe]:overflow-y-scroll"
 					bookingType="30min"
 				/>
-			</DrawerDialog>
+			</DrawerDialog> */}
 		</Section>
 	)
 }
