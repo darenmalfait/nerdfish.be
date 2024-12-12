@@ -13,7 +13,6 @@ import { useScrollToBottom } from '@repo/design-system/hooks/use-scroll-to-botto
 import { SendHorizonalIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
-import { EmbeddedCal } from './embedded-cal'
 
 const chatMessageVariants = cva(
 	'relative animate-rubber rounded-container px-5 py-2.5',
@@ -84,23 +83,6 @@ const ChatMessage = React.forwardRef<
 			toolInvocations?: ToolInvocation[]
 		}
 >(({ className, userRole, toolInvocations, ...props }, ref) => {
-	if (toolInvocations?.length) {
-		return (
-			<div className="gap-sm flex flex-col">
-				{toolInvocations.map((toolInvocation) => {
-					const { toolName, toolCallId } = toolInvocation
-
-					return (
-						<div key={toolCallId} className="w-full">
-							{toolName === 'booking' ? (
-								<EmbeddedCal bookingType="30min" />
-							) : null}
-						</div>
-					)
-				})}
-			</div>
-		)
-	}
 	return (
 		<div ref={ref} className={chatMessageVariants({ userRole, className })}>
 			<p className="whitespace-pre-line text-base font-medium" {...props} />
