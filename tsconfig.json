@@ -10,5 +10,5 @@
 		"**/*.js",
 		"**/*.jsx"
 	],
-	"exclude": ["node_modules", "apps"]
+	"exclude": ["node_modules", "apps", "packages"]
 }

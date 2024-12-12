@@ -1,6 +1,6 @@
 {
 	"$schema": "https://turbo.build/schema.json",
-	"globalDependencies": [".env.*local"],
+	"globalDependencies": [".env"],
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -31,7 +31,6 @@
 		},
 		"typecheck": {
 			"dependsOn": ["^topo"],
-			"outputs": ["node_modules/.cache/tsbuildinfo.json"],
 			"outputLogs": "errors-only"
 		},
 		"clean": {

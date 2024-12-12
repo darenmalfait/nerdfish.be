@@ -1,8 +1,8 @@
 {
-	"extends": "../../tsconfig.json",
+	"extends": "@nerdfish/config/typescript",
 	"compilerOptions": {
 		"baseUrl": "."
 	},
-	"include": ["./**/*.ts", "./**/*.tsx"],
+	"include": ["**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
