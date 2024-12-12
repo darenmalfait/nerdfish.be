@@ -48,6 +48,9 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -79,6 +82,9 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -200,6 +206,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -254,6 +263,10 @@ importers:
       ai:
         specifier: ^4.0.11
         version: 4.0.13(react@18.3.1)(zod@3.23.8)
+    devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
 
   packages/design-system:
     dependencies:
@@ -347,6 +360,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -379,6 +395,9 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -401,6 +420,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -423,6 +445,9 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.7.2)
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@types/lodash.merge':
         specifier: ^4.6.9
         version: 4.6.9
@@ -454,6 +479,9 @@ importers:
         specifier: ^0.4.3-beta
         version: 0.4.3-beta(tailwindcss@3.4.16)
     devDependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       tailwindcss:
         specifier: ^3.4.16
         version: 3.4.16

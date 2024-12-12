@@ -10,5 +10,8 @@
     "@ai-sdk/openai": "^1.0.6",
     "@repo/env": "workspace:*",
     "ai": "^4.0.11"
+  },
+  "devDependencies": {
+    "@nerdfish/config": "^1.6.1"
   }
 }
