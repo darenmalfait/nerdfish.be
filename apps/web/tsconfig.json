@@ -1,5 +1,5 @@
 {
-	"extends": "../../tsconfig.json",
+	"extends": "@nerdfish/config/typescript",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {

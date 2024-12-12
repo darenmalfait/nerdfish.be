@@ -1,10 +1,10 @@
 {
-	"extends": "../../tsconfig.json",
+	"extends": "@nerdfish/config/typescript",
 	"compilerOptions": {
+		"baseUrl": ".",
 		"module": "esnext",
-		"moduleResolution": "bundler",
-		"baseUrl": "."
+		"moduleResolution": "bundler"
 	},
-	"include": ["./*.ts", "./*.tsx"],
+	"include": ["**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
