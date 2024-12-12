@@ -8,7 +8,11 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import { Drawer, DrawerContent } from '@repo/design-system/components/ui'
+import {
+	Drawer,
+	DrawerContent,
+	DrawerTitle,
+} from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from 'next-intl'
 import * as React from 'react'
@@ -68,6 +72,7 @@ export function ContactBlock(props: Block<PageBlocksContact>) {
 				onOpenChange={setContactFormOpen}
 			>
 				<DrawerContent className="bg-primary max-h-[85vh]">
+					<DrawerTitle className="sr-only">Contact</DrawerTitle>
 					<div className="pb-xl container">
 						<SectionHeader>
 							<SectionHeaderTitle
