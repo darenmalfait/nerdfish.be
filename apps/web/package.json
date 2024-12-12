@@ -8,6 +8,7 @@
     "build": "tinacms build -c \"next build\"",
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "tinacms dev --verbose -c \"next dev\"",
+    "env:sync": "cp ../../.env .env",
     "start": "tinacms dev -c \"next start\"",
     "typecheck": "tsc --noEmit"
   },
