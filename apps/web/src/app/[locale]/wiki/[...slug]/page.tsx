@@ -1,4 +1,3 @@
-import { env } from '@repo/env'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -9,28 +8,23 @@ import { getWikiPath } from '../utils'
 import { getRouteData } from './route-data'
 import { i18n } from '~/app/i18n/config'
 
-export async function generateMetadata({
-	params,
-}: {
-	params: { slug: string[] }
+export async function generateMetadata(props: {
+	params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
+	const params = await props.params
 	const { data } = await getRouteData(params.slug.join('/'))
 	const title = data.wiki.seo?.title ?? (data.wiki.title || 'Untitled')
-
-	const canonical =
-		data.wiki.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${getWikiPath(data.wiki)}`
 
 	return createMetadata({
 		title,
 		description: data.wiki.seo?.description ?? '',
-		image: data.wiki.seo?.seoImg
-			? data.wiki.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
-					heading: title,
-				})}`,
+		image:
+			data.wiki.seo?.seoImg ??
+			`/api/og?${pageParams.toSearchString({
+				heading: title,
+			})}`,
 		alternates: {
-			canonical,
+			canonical: data.wiki.seo?.canonical ?? getWikiPath(data.wiki),
 		},
 		robots: {
 			index: false,
@@ -40,13 +34,12 @@ export async function generateMetadata({
 	})
 }
 
-export default async function WikiPage({
-	params,
-}: {
-	params: { slug: string[] }
+export default async function WikiPage(props: {
+	params: Promise<{ slug: string[] }>
 }) {
+	const params = await props.params
 	const routeData = await getRouteData(params.slug.join('/'))
-	const { isEnabled: isPreview } = draftMode()
+	const { isEnabled: isPreview } = await draftMode()
 
 	if (isPreview) return <WikiPreview {...routeData} />
 	return <WikiContent {...routeData} />

@@ -148,7 +148,7 @@ export const PriceCardPrice = React.forwardRef<
 PriceCardPrice.displayName = 'PriceCardPrice'
 
 export const PriceCardAction = React.forwardRef<
-	React.ElementRef<typeof Link>,
+	React.ComponentRef<typeof Link>,
 	React.ComponentPropsWithoutRef<typeof Link>
 >(({ children, href, ...props }, ref) => {
 	const { isPopular } = usePriceCard()

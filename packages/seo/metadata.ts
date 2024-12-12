@@ -1,3 +1,4 @@
+import { env } from '@repo/env'
 import merge from 'lodash.merge'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
@@ -25,6 +26,7 @@ export const createMetadata = ({
 }): Metadata => {
 	const parsedTitle = `${title} | ${applicationName}`
 	const defaultMetadata: Metadata = {
+		metadataBase: new URL(env.NEXT_PUBLIC_URL),
 		title: parsedTitle,
 		description,
 		applicationName,

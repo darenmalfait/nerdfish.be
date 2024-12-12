@@ -20,7 +20,7 @@ export function PortableHeading({
 
 	if (!children) return null
 
-	const textNode = children.props.content.find(
+	const textNode = (children.props as any).content.find(
 		(node: any) => node.type === 'text',
 	)
 

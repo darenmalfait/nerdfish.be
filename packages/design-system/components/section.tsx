@@ -25,7 +25,7 @@ export const Section = React.forwardRef<
 Section.displayName = 'Section'
 
 export const SectionHeaderTitle = React.forwardRef<
-	React.ElementRef<typeof H2>,
+	React.ComponentRef<typeof H2>,
 	React.ComponentPropsWithoutRef<typeof H2>
 >(function SectionHeaderTitle({ children, className, ...props }, ref) {
 	if (!children || children === '') return null
@@ -44,7 +44,7 @@ export const SectionHeaderTitle = React.forwardRef<
 })
 
 export const SectionHeaderSubtitle = React.forwardRef<
-	React.ElementRef<typeof H2>,
+	React.ComponentRef<typeof H2>,
 	React.ComponentPropsWithoutRef<typeof H2>
 >(function SectionHeaderSubtitle({ children, className, ...props }, ref) {
 	if (!children || children === '') return null
@@ -64,7 +64,7 @@ export const SectionHeaderSubtitle = React.forwardRef<
 })
 
 export const SectionHeader = React.forwardRef<
-	React.ElementRef<'header'>,
+	React.ComponentRef<'header'>,
 	React.ComponentPropsWithoutRef<'header'> & {
 		cta?: {
 			title: string

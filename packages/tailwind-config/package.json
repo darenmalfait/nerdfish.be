@@ -7,14 +7,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nerdfish/tailwind-config": "^3.8.1",
+    "@nerdfish/tailwind-config": "^3.8.2",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^3.4.16",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-motion": "^0.4.3-beta"
   },
   "devDependencies": {
     "@nerdfish/config": "^1.6.1",
-    "tailwindcss": "^3.4.16"
+    "eslint": "^9.16.0"
   }
 }
