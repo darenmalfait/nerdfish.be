@@ -9,7 +9,7 @@ const MAX_DISTANCE = 0.1
 const MAX_SCALE = 1.1
 const MAX_ROTATE = 20
 export const Magnet = React.forwardRef<
-	React.ElementRef<typeof motion.div>,
+	React.ComponentRef<typeof motion.div>,
 	React.ComponentPropsWithoutRef<typeof motion.div>
 >(({ children, className, ...props }, ref) => {
 	const itemRef = React.useRef<HTMLDivElement>(null)

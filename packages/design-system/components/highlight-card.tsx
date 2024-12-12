@@ -62,7 +62,7 @@ export const HighlightCardContent = React.forwardRef<
 HighlightCardContent.displayName = 'HighlightCardContent'
 
 export const HighlightCardTitle = React.forwardRef<
-	React.ElementRef<typeof H2>,
+	React.ComponentRef<typeof H2>,
 	React.ComponentPropsWithoutRef<typeof H2>
 >(({ className, ...props }, ref) => {
 	if (!props.children) return null
@@ -151,7 +151,7 @@ export const HighlightCardDescription = React.forwardRef<
 HighlightCardDescription.displayName = 'HighlightCardDescription'
 
 export const HighlightCardCTA = React.forwardRef<
-	React.ElementRef<typeof Link>,
+	React.ComponentRef<typeof Link>,
 	React.ComponentPropsWithoutRef<typeof Link> & {
 		href: string
 		children: React.ReactNode

@@ -5,7 +5,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { env } from '@repo/env'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -14,18 +13,17 @@ import { Chat } from '../contact/components/chat'
 import { HeroBlock } from '~/app/cms/blocks/hero'
 import { type WithLocale } from '~/app/i18n/types'
 
-export async function generateMetadata({
-	params,
-}: {
-	params: WithLocale<{}>
+export async function generateMetadata(props: {
+	params: Promise<WithLocale<{}>>
 }): Promise<Metadata | undefined> {
+	const params = await props.params
 	const t = await getTranslations()
 	const title = t('ai.page.meta.title')
 
 	return createMetadata({
 		title,
 		description: t('ai.page.meta.description'),
-		image: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
+		image: `/api/og?${pageParams.toSearchString({
 			heading: title,
 		})}`,
 		locale: params.locale,

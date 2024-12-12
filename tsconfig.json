@@ -1,8 +1,5 @@
 {
 	"extends": "@nerdfish/config/typescript",
-	"compilerOptions": {
-		"moduleResolution": "Bundler"
-	},
 	"include": [
 		"@nerdfish/config/reset.d.ts",
 		"**/*.ts",

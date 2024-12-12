@@ -1,4 +1,3 @@
-import { env } from '@repo/env'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -11,42 +10,36 @@ import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
 import { type WithLocale } from '~/app/i18n/types'
 
-export async function generateMetadata({
-	params,
-}: {
-	params: WithLocale<{ slug: string[] }>
+export async function generateMetadata(props: {
+	params: Promise<WithLocale<{ slug: string[] }>>
 }): Promise<Metadata | undefined> {
+	const params = await props.params
 	const { data } = await getRouteData(params.slug.join('/'), params.locale)
 	const title = data.work.seo?.title ?? (data.work.title || 'Untitled')
-
-	const canonical =
-		data.work.seo?.canonical ??
-		`${env.NEXT_PUBLIC_URL}${getWorkPath(data.work)}`
 
 	return createMetadata({
 		title,
 		description: data.work.seo?.description ?? '',
-		image: data.work.seo?.seoImg
-			? data.work.seo.seoImg
-			: `${env.NEXT_PUBLIC_URL}/api/og?${pageParams.toSearchString({
-					heading: title,
-				})}`,
+		image:
+			data.work.seo?.seoImg ??
+			`/api/og?${pageParams.toSearchString({
+				heading: title,
+			})}`,
 		alternates: {
-			canonical,
+			canonical: data.work.seo?.canonical ?? getWorkPath(data.work),
 		},
 		locale: params.locale,
 	})
 }
 
-export default async function WorkPage({
-	params,
-}: {
-	params: WithLocale<{ slug: string[] }>
+export default async function WorkPage(props: {
+	params: Promise<WithLocale<{ slug: string[] }>>
 }) {
+	const params = await props.params
 	const t = await getTranslations()
 	const routeData = await getRouteData(params.slug.join('/'), params.locale)
 
-	const { isEnabled: isPreview } = draftMode()
+	const { isEnabled: isPreview } = await draftMode()
 
 	if (isPreview) return <WorkPreview {...routeData} />
 	return (

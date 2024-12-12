@@ -24,7 +24,7 @@ import { getPagePath } from '~/app/[locale]/(pages)/utils'
 import { type Block, type PageBlocksHighlights } from '~/app/cms/types'
 
 const Card = React.forwardRef<
-	React.ElementRef<typeof motion.div>,
+	React.ComponentRef<typeof motion.div>,
 	React.ComponentPropsWithoutRef<typeof motion.div> & {
 		progress: MotionValue<number>
 		range: [number, number]

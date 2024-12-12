@@ -2,7 +2,6 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 import { createSecureHeaders } from 'next-secure-headers'
 
 export const config = {
-	swcMinify: true,
 	trailingSlash: false,
 	experimental: {
 		serverActions: {

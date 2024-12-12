@@ -22,7 +22,7 @@ import {
 import { useGlobal } from '~/app/global-provider'
 
 const MainNavigationSubItem = React.forwardRef<
-	React.ElementRef<typeof Link>,
+	React.ComponentRef<typeof Link>,
 	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
 >(({ href, label, description, className, ...props }, ref) => {
 	return (
@@ -63,7 +63,7 @@ const getMainItemClassName = cva(
 )
 
 const MainNavigationItem = React.forwardRef<
-	React.ElementRef<'a'>,
+	React.ComponentRef<'a'>,
 	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
 >(({ href, label, sub, variant, ...props }, ref) => {
 	const pathname = usePathname()
