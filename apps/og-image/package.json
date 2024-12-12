@@ -6,6 +6,7 @@
     "build": "next build",
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "next dev -p 4200",
+    "env:sync": "cp ../../.env .env",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

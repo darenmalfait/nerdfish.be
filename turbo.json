@@ -40,6 +40,10 @@
 			"dependsOn": [],
 			"persistent": true,
 			"cache": false
+		},
+		"env:sync": {
+			"cache": false,
+			"dependsOn": ["^env:sync"]
 		}
 	}
 }
