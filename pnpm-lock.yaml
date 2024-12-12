@@ -110,11 +110,11 @@ importers:
         specifier: ^3.9.1
         version: 3.9.1(react-hook-form@7.53.2(react@18.3.1))
       '@nerdfish/theme':
-        specifier: ^2.5.0
-        version: 2.5.0
+        specifier: ^2.5.1
+        version: 2.5.1
       '@nerdfish/utils':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@next/env':
         specifier: ^14.2.19
         version: 14.2.20
@@ -274,8 +274,8 @@ importers:
         specifier: ^7.7.7
         version: 7.7.7(@types/react-dom@18.3.1)(@types/react@18.3.12)(react@18.3.1)(vue@3.5.12(typescript@5.7.2))
       '@nerdfish/utils':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@number-flow/react':
         specifier: ^0.4.2
         version: 0.4.2(react@18.3.1)
@@ -464,8 +464,8 @@ importers:
   packages/tailwind-config:
     dependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^3.8.0
-        version: 3.8.0
+        specifier: ^3.8.1
+        version: 3.8.1
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
         version: 0.4.4(tailwindcss@3.4.16)
@@ -2265,11 +2265,11 @@ packages:
   '@nerdfish/config@1.6.1':
     resolution: {integrity: sha512-dbzjug++FB7iuk1QNUU2KHAZenBECPhWuuaZxnqcIspWPI8ieFLC4pF6THh1n6weDm5rIOGyfvSREkmMKLsRxQ==}
 
-  '@nerdfish/tailwind-config@3.8.0':
-    resolution: {integrity: sha512-8ZzzBRTZ10NgSgt6J9oqHbAVvpOvQ7olXfTdc2mELYIz1QlQRqEyTjQ2t0H3/wqZq30ZE+THtCRGcxbRM4CuSQ==}
+  '@nerdfish/tailwind-config@3.8.1':
+    resolution: {integrity: sha512-h02+ZfhwUfnO4aOYtWq5kU41YE6pbg+7uns/1ztZkhwdffPoOy36wzTK78f12vQBzCdNAyvSRmKBNXu9yHUPBA==}
 
-  '@nerdfish/theme@2.5.0':
-    resolution: {integrity: sha512-WQ5Meu+FhD3T/WnLSE7l3wFG38oZZxazK1wA7GPAf2vgOuw8+0fNXyCWB6G7wW1soJcUdBiAOTEIImqcS6VrYg==}
+  '@nerdfish/theme@2.5.1':
+    resolution: {integrity: sha512-5h3fuCdRf6UP2fydpRjuXKsapsq1Ru4E0zSDbtwlP9CQySmH1xxl27aU+yzRRf2tKFt6kunwWJkqbe4MJWCo3g==}
 
   '@nerdfish/ui@7.7.7':
     resolution: {integrity: sha512-sTnbBzaiJ7+AVO54Xm5UBXPu6+yPuwVdCVIfH/a2unFvIue358N5H01ZKX5Ca+pkiZNWdMcclMOyd3fen/ak5Q==}
@@ -2279,6 +2279,9 @@ packages:
 
   '@nerdfish/utils@2.0.0':
     resolution: {integrity: sha512-Kzu/RuNBozNB+BYyRpEduD6QTR0oli4bkEZHwhpykiklQRv9a1TOaS801s2njhRtnHRr4s+GZEOalva3l3oVwA==}
+
+  '@nerdfish/utils@2.0.1':
+    resolution: {integrity: sha512-ibKCDPjpDVCh9s22cC4c/Y9ChixMHWeN2xbkVxdQfCdC8eNZ3lwColyIPa+ZajSw3cX8gT/2L/qYoKYH/xFGEQ==}
 
   '@next/bundle-analyzer@15.0.4':
     resolution: {integrity: sha512-0If3/mxqUWYC0lAdV5cChGA1Xs1BENjaLyJkdqpI2df86HqprcDZagiB2IU1xc5ph7xZHRdi5mT2cY7VkyibTQ==}
@@ -5504,6 +5507,9 @@ packages:
 
   class-variance-authority@0.7.0:
     resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
+
+  class-variance-authority@0.7.1:
+    resolution: {integrity: sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==}
 
   classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
@@ -9319,6 +9325,9 @@ packages:
   tailwind-merge@2.5.2:
     resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
 
+  tailwind-merge@2.5.5:
+    resolution: {integrity: sha512-0LXunzzAZzo0tEPxV3I297ffKZPlKDrjj7NXphC8V5ak9yHC5zRmxnOe2m/Rd/7ivsOMJe3JZ2JVocoDdQTRBA==}
+
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
@@ -12115,15 +12124,16 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/tailwind-config@3.8.0':
+  '@nerdfish/tailwind-config@3.8.1':
     dependencies:
+      '@nerdfish/theme': 2.5.1
       tailwindcss: 3.4.16
     transitivePeerDependencies:
       - ts-node
 
-  '@nerdfish/theme@2.5.0':
+  '@nerdfish/theme@2.5.1':
     dependencies:
-      '@nerdfish/utils': 2.0.0
+      '@nerdfish/utils': 2.0.1
 
   '@nerdfish/ui@7.7.7(@types/react-dom@18.3.1)(@types/react@18.3.12)(react@18.3.1)(vue@3.5.12(typescript@5.7.2))':
     dependencies:
@@ -12178,6 +12188,12 @@ snapshots:
       class-variance-authority: 0.7.0
       clsx: 2.1.1
       tailwind-merge: 2.5.2
+
+  '@nerdfish/utils@2.0.1':
+    dependencies:
+      class-variance-authority: 0.7.1
+      clsx: 2.1.1
+      tailwind-merge: 2.5.5
 
   '@next/bundle-analyzer@15.0.4':
     dependencies:
@@ -16246,6 +16262,10 @@ snapshots:
   class-variance-authority@0.7.0:
     dependencies:
       clsx: 2.0.0
+
+  class-variance-authority@0.7.1:
+    dependencies:
+      clsx: 2.1.1
 
   classnames@2.5.1: {}
 
@@ -20759,6 +20779,8 @@ snapshots:
   tabbable@6.2.0: {}
 
   tailwind-merge@2.5.2: {}
+
+  tailwind-merge@2.5.5: {}
 
   tailwindcss-animate@1.0.7(tailwindcss@3.4.16):
     dependencies:
