@@ -7,12 +7,14 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^15.0.4",
+    "@next/bundle-analyzer": "15.1.0",
     "@vercel/toolbar": "^0.1.27",
-    "next-secure-headers": "^2.2.0"
+    "next-secure-headers": "^2.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@repo/env": "workspace:*",
-    "next": "^14.2.19"
+    "next": "15.1.0"
   }
 }
