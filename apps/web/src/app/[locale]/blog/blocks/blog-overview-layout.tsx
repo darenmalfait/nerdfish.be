@@ -20,7 +20,7 @@ import {
 } from '@repo/design-system/components/section'
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { filterBlog, mapBlogToArticle } from '../utils'
 import { type Block, type Blog, type PageBlocksBlog } from '~/app/cms/types'

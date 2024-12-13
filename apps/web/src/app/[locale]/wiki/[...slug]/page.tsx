@@ -1,3 +1,4 @@
+import { i18n } from '@repo/i18n/config'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -6,7 +7,6 @@ import { WikiContent } from '../components/wiki-content'
 import { WikiPreview } from '../components/wiki-preview'
 import { getWikiPath } from '../utils'
 import { getRouteData } from './route-data'
-import { i18n } from '~/app/i18n/config'
 
 export async function generateMetadata(props: {
 	params: Promise<{ slug: string[] }>

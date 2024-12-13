@@ -10,7 +10,7 @@ import {
 	HighlightCardTitle,
 } from '@repo/design-system/components/highlight-card'
 import { Section } from '@repo/design-system/components/section'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'

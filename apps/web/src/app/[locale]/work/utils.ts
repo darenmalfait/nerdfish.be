@@ -1,9 +1,9 @@
 import { type Article } from '@repo/design-system/components/article-overview'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { i18n } from '@repo/i18n/config'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Work } from '~/app/cms/types'
-import { i18n } from '~/app/i18n/config'
 
 const WorkPath = 'work'
 
