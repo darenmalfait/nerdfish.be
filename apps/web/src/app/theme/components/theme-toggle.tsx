@@ -3,7 +3,7 @@
 import { cx } from '@nerdfish/utils'
 import { Button } from '@repo/design-system/components/ui'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/lib/icons'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { useTheme } from '../theme-provider'
 

@@ -14,7 +14,7 @@ import {
 	DrawerTitle,
 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { ContactForm } from './components/contact-form'

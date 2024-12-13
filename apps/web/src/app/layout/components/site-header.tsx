@@ -2,11 +2,11 @@
 
 import { Button } from '@repo/design-system/components/ui'
 import { Logo } from '@repo/design-system/lib/icons'
+import { useLocale } from '@repo/i18n/client'
+import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
+import { i18n } from '@repo/i18n/config'
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
 import { MainNavigation } from './navigation'
-import { LocaleSwitcher } from '~/app/i18n/components/locale-switcher'
-import { i18n } from '~/app/i18n/config'
 
 export function SiteHeader() {
 	const currentLocale = useLocale()

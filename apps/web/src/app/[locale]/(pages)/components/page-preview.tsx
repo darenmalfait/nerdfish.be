@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale } from '@repo/i18n/client'
 import { useTina } from 'tinacms/dist/react'
 import { PageContent } from './page-content'
 import { Preview } from '~/app/cms/components/preview'
