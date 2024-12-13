@@ -1,7 +1,8 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
+import { type NextConfig } from 'next'
 import { createSecureHeaders } from 'next-secure-headers'
 
-export const config = {
+export const config: NextConfig = {
 	trailingSlash: false,
 	experimental: {
 		serverActions: {
@@ -25,4 +26,5 @@ export const config = {
 	},
 }
 
-export const withAnalyzer = (sourceConfig) => withBundleAnalyzer()(sourceConfig)
+export const withAnalyzer = (sourceConfig: NextConfig) =>
+	withBundleAnalyzer()(sourceConfig)
