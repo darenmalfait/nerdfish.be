@@ -1,4 +1,4 @@
-import { pageParams } from '@repo/og-utils/zod-params'
+import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -22,8 +22,9 @@ export async function generateMetadata(props: {
 		description: data.blog.seo?.description ?? '',
 		image:
 			data.blog.seo?.seoImg ??
-			`/api/og?${pageParams.toSearchString({
-				heading: title,
+			`/api/og/blog?${blogParams.toSearchString({
+				title,
+				image: data.blog.heroImg?.src ?? undefined,
 			})}`,
 		alternates: {
 			canonical: data.blog.seo?.canonical ?? getBlogPath(data.blog),

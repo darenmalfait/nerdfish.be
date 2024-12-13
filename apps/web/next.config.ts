@@ -1,10 +1,11 @@
 import { withAnalyzer, config } from '@repo/next-config'
+import { type NextConfig } from 'next'
 import withNextIntl from 'next-intl/plugin'
 
 const withNextIntlConfig = withNextIntl('./src/app/i18n/request-config.ts')
 
 /** @type {import('next').NextConfig} */
-let nextConfig = {
+let nextConfig: NextConfig = {
 	...config,
 	images: {
 		remotePatterns: [{ hostname: 'assets.tina.io' }],

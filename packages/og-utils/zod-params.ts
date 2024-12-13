@@ -56,3 +56,10 @@ export const pageParams = zodParams(
 		heading: truncatedWordSchema({ maxCharacters: 70 }),
 	}),
 )
+
+export const blogParams = zodParams(
+	z.object({
+		image: z.string().optional(),
+		title: truncatedWordSchema({ maxCharacters: 150 }),
+	}),
+)
