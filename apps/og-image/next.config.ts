@@ -1,7 +1,8 @@
 import { withAnalyzer, config } from '@repo/next-config'
+import { type NextConfig } from 'next'
 
 /** @type {import('next').NextConfig} */
-let nextConfig = {
+let nextConfig: NextConfig = {
 	...config,
 }
 
