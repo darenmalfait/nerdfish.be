@@ -1,4 +1,4 @@
-import { type Locale } from '~/app/i18n/types'
+import { type Locale } from '@repo/i18n/types'
 import {
 	type PageBlocks,
 	type Product,

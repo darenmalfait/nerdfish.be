@@ -1,11 +1,11 @@
 import { env } from '@repo/env'
+import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { type MetadataRoute } from 'next'
 import { getPagePath } from './[locale]/(pages)/utils'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
-import { i18n, supportedLanguages } from './i18n/config'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 

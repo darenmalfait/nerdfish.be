@@ -18,7 +18,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../utils'
 import { type Block, type PageBlocksWork, type Work } from '~/app/cms/types'

@@ -1,5 +1,5 @@
+import { type Locale } from '@repo/i18n/types'
 import { tina } from '~/app/cms/client'
-import { type Locale } from '~/app/i18n/types'
 
 export async function getBlogPosts({ locale }: { locale?: Locale } = {}) {
 	const blogListData = await tina.queries.blogConnection()

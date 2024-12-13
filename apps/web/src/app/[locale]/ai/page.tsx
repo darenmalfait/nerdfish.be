@@ -5,13 +5,13 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
+import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { Chat } from '../contact/components/chat'
 import { HeroBlock } from '~/app/cms/blocks/hero'
-import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata(props: {
 	params: Promise<WithLocale<{}>>

@@ -17,7 +17,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { type Block, type PageBlocksPricing } from '~/app/cms/types'

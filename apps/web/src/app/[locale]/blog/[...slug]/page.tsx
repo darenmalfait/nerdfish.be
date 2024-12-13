@@ -1,3 +1,4 @@
+import { type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -8,7 +9,6 @@ import { BlogContent } from '../components/blog-content'
 import { BlogPreview } from '../components/blog-preview'
 import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
-import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateMetadata(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>

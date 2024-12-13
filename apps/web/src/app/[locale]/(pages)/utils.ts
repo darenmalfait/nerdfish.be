@@ -1,6 +1,6 @@
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { i18n } from '@repo/i18n/config'
 import { type Page } from '~/app/cms/types'
-import { i18n } from '~/app/i18n/config'
 
 export function getPagePath(page: PartialDeep<Page>) {
 	const path = page._sys?.breadcrumbs?.join('/')

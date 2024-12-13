@@ -1,7 +1,7 @@
+import { type Locale } from '@repo/i18n/types'
 import { mapPageData } from '../api'
 import { Blocks } from '~/app/cms/blocks-renderer'
 import { type ContentQueryQuery } from '~/app/cms/types'
-import { type Locale } from '~/app/i18n/types'
 
 export function PageContent({
 	data,

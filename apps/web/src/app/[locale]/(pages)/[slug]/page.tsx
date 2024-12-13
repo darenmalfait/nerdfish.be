@@ -1,3 +1,5 @@
+import { i18n } from '@repo/i18n/config'
+import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -7,8 +9,6 @@ import { PageContent } from '../components/page-content'
 import { PagePreview } from '../components/page-preview'
 import { getPagePath } from '../utils'
 import { getRouteData } from './route-data'
-import { i18n } from '~/app/i18n/config'
-import { type WithLocale } from '~/app/i18n/types'
 
 export async function generateStaticParams() {
 	return ((await getPages()) ?? []).map((page) => {

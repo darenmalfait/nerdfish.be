@@ -11,9 +11,9 @@ import {
 	NavigationMenuTrigger,
 } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { useTranslations } from '@repo/i18n/client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import {
 	type GlobalNavigationMain,

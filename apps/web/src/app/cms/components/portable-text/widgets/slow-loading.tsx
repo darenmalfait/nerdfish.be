@@ -5,7 +5,7 @@ import {
 	LoadingAnimation,
 	Skeleton,
 } from '@repo/design-system/components/ui'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import React from 'react'
 
 export function SlowLoading() {

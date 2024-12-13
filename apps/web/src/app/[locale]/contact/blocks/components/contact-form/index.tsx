@@ -26,15 +26,15 @@ import {
 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { env } from '@repo/env'
+import { useTranslations } from '@repo/i18n/client'
+import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'
-import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useRecaptcha } from '../../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
-import { makeZodI18nMap } from '~/app/i18n/utils/zod-error-map'
 
 function Fieldset({
 	children,

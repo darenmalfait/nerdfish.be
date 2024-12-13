@@ -11,7 +11,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { useScrollToBottom } from '@repo/design-system/hooks/use-scroll-to-bottom'
 import { SendHorizonalIcon } from '@repo/design-system/lib/icons'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 
 const chatMessageVariants = cva(

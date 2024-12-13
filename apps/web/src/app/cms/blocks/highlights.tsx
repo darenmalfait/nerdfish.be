@@ -16,8 +16,8 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
+import { useTranslations } from '@repo/i18n/client'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
