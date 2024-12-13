@@ -1,6 +1,6 @@
+import { i18n } from '@repo/i18n/config'
+import { getRequestConfig } from '@repo/i18n/server'
 import { notFound } from 'next/navigation'
-import { getRequestConfig } from 'next-intl/server'
-import { i18n } from './config'
 
 // Using internationalization in Server Components
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -13,8 +13,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
 	return {
 		messages: {
-			...(await import(`./dictionaries/${locale}.json`)).default,
-			...(await import(`./dictionaries/zod/${locale}.json`)).default,
+			...(await import(`@repo/i18n/dictionaries/${locale}.json`)).default,
+			...(await import(`@repo/i18n/dictionaries/zod/${locale}.json`)).default,
 		},
 	}
 })

@@ -1,8 +1,6 @@
+import { withTranslations } from '@repo/i18n/plugin'
 import { withAnalyzer, config } from '@repo/next-config'
 import { type NextConfig } from 'next'
-import withNextIntl from 'next-intl/plugin'
-
-const withNextIntlConfig = withNextIntl('./src/app/i18n/request-config.ts')
 
 /** @type {import('next').NextConfig} */
 let nextConfig: NextConfig = {
@@ -25,6 +23,6 @@ if (process.env.ANALYZE === 'true') {
 }
 
 // Add internationalization support
-nextConfig = withNextIntlConfig(nextConfig)
+nextConfig = withTranslations('./request-config.ts', nextConfig)
 
 export default nextConfig

@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from '@repo/i18n/client'
 import { useTina } from 'tinacms/dist/react'
 import { WorkOverviewBlock } from '../blocks/work-overview'
 import { WorkContent } from './work-content'

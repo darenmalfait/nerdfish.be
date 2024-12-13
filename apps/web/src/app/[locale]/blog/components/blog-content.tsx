@@ -3,6 +3,7 @@ import { ReadingProgress } from '@repo/design-system/components/reading-progress
 import { Section } from '@repo/design-system/components/section'
 import { H1, Skeleton } from '@repo/design-system/components/ui'
 import { env } from '@repo/env'
+import { type Locale } from '@repo/i18n/types'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
 import Image from 'next/image'
@@ -12,7 +13,6 @@ import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
 import { PortableText } from '~/app/cms/components/portable-text'
 import { type BlogPostQueryQuery } from '~/app/cms/types'
-import { type Locale } from '~/app/i18n/types'
 
 function BlogContent({
 	data,

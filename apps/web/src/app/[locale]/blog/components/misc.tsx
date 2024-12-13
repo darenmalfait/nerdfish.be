@@ -2,8 +2,8 @@
 
 import { Button } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon } from '@repo/design-system/lib/icons'
+import { useTranslations } from '@repo/i18n/client'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import { useGlobal } from '~/app/global-provider'
 
 export function BackToBlog() {

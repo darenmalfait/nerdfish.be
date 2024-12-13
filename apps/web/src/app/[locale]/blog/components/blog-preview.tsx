@@ -1,6 +1,7 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from '@repo/i18n/client'
+import { type Locale } from '@repo/i18n/types'
 import { useTina } from 'tinacms/dist/react'
 import { BlogOverviewBlock } from '../blocks/blog-overview'
 import { BlogContent } from './blog-content'
@@ -9,7 +10,6 @@ import {
 	type BlogPostQueryQuery,
 	type BlogQueryVariables,
 } from '~/app/cms/types'
-import { type Locale } from '~/app/i18n/types'
 
 function BlogPreview(props: {
 	data: BlogPostQueryQuery

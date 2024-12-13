@@ -14,9 +14,10 @@ import {
 } from '@repo/design-system/components/ui'
 import { Logo, MenuIcon, XIcon } from '@repo/design-system/lib/icons'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { useLocale } from '@repo/i18n/client'
+import { i18n } from '@repo/i18n/config'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useLocale } from 'next-intl'
 import * as React from 'react'
 import { SocialLinks } from './navigation'
 import {
@@ -24,7 +25,6 @@ import {
 	type GlobalNavigationMainSub,
 } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
-import { i18n } from '~/app/i18n/config'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const MobileNavigationSubItem = React.forwardRef<
