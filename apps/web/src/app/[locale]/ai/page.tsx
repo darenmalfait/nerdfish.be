@@ -18,11 +18,13 @@ export async function generateMetadata(props: {
 }): Promise<Metadata | undefined> {
 	const params = await props.params
 	const t = await getTranslations()
+
 	const title = t('ai.page.meta.title')
+	const description = t('ai.page.meta.description')
 
 	return createMetadata({
 		title,
-		description: t('ai.page.meta.description'),
+		description,
 		image: `/api/og?${pageParams.toSearchString({
 			heading: title,
 		})}`,
