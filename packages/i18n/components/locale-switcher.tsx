@@ -27,9 +27,10 @@ export function LocaleSwitcher() {
 					variant="outline"
 					aria-label={t('switchLanguage')}
 					className="gap-sm"
+					size="sm"
 				>
 					<GlobeIcon className="size-4" />
-					<span aria-hidden className="hidden lg:block">
+					<span aria-hidden className="hidden lg:flex">
 						{selectedLanguage?.label}
 					</span>
 					<span aria-hidden className="lg:hidden">
