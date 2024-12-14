@@ -1,5 +1,1 @@
-export {
-	getMessages,
-	setRequestLocale,
-	getRequestConfig,
-} from 'next-intl/server'
+export * from 'next-intl/server'
