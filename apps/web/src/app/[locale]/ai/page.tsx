@@ -1,17 +1,9 @@
-import { InViewBackground } from '@repo/design-system/components/in-view-background'
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/design-system/components/section'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { Chat } from '../contact/components/chat'
-import { HeroBlock } from '~/app/cms/blocks/hero'
+import { AIPageContent } from './ai-page-content'
 
 export async function generateMetadata(props: {
 	params: Promise<WithLocale<{}>>
@@ -33,27 +25,5 @@ export async function generateMetadata(props: {
 }
 
 export default async function AiPage() {
-	const t = await getTranslations()
-
-	return (
-		<>
-			<HeroBlock variant="secondary" title={t('ai.page.title')}>
-				{t('ai.page.description')}
-			</HeroBlock>
-			<InViewBackground>
-				<Section>
-					<SectionHeader>
-						<SectionHeaderTitle>AI</SectionHeaderTitle>
-						<SectionHeaderSubtitle>
-							{t('contact.chat.disclaimer')}
-						</SectionHeaderSubtitle>
-					</SectionHeader>
-
-					<div className="relative">
-						<Chat className="rounded-container bg-primary p-lg shadow-outline h-[75vh]" />
-					</div>
-				</Section>
-			</InViewBackground>
-		</>
-	)
+	return <AIPageContent />
 }
