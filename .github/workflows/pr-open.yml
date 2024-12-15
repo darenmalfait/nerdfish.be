@@ -29,8 +29,8 @@ jobs:
       - name: Install
         uses: ./packages/github-actions/install
 
-      - name: Build Tina for types
-        uses: ./packages/github-actions/tina
+      - name: Build for types
+        run: pnpm build:tina
 
       - name: Run format
         run: pnpm format
@@ -46,8 +46,8 @@ jobs:
       - name: Install
         uses: ./packages/github-actions/install
 
-      - name: Build Tina for types
-        uses: ./packages/github-actions/tina
+      - name: Build for types
+        run: pnpm build:tina
 
       - name: Run lint
         run: pnpm lint
@@ -63,8 +63,8 @@ jobs:
       - name: Install
         uses: ./packages/github-actions/install
 
-      - name: Build Tina for types
-        uses: ./packages/github-actions/tina
+      - name: Build for types
+        run: pnpm build:tina
 
       - name: Cache TypeScript TSBuild Info Files
         id: cache-typescript-tsbuildinfo
@@ -101,13 +101,6 @@ jobs:
         run: turbo test:e2e --continue
         env:
           SKIP_EMAILS: 'true'
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
-          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-          RESEND_API_KEY: 're_test'
-          EMAIL_FROM: 'test'
-          NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
-          GROQ_API_KEY: 'test'
 
       - name: Upload report
         if: always()

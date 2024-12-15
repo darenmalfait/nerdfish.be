@@ -27,7 +27,12 @@
 			]
 		},
 		"build:tina": {
-			"dependsOn": ["^build:tina"]
+			"dependsOn": ["^build:tina"],
+			"env": [
+				"NEXT_PUBLIC_TINA_CLIENT_ID",
+				"TINA_TOKEN",
+				"NEXT_PUBLIC_TINA_BRANCH"
+			]
 		},
 		"topo": {
 			"dependsOn": ["^topo"]
@@ -50,11 +55,23 @@
 		},
 		"test:e2e": {
 			"outputs": ["playwright-report/**"],
-			"env": ["SKIP_EMAILS"]
+			"env": [
+				"SKIP_EMAILS",
+				"RESEND_API_KEY",
+				"EMAIL_FROM",
+				"TINA_TOKEN",
+				"GROQ_API_KEY"
+			]
 		},
 		"test:e2e:ui": {
 			"outputs": ["playwright-report/**"],
-			"env": ["SKIP_EMAILS"]
+			"env": [
+				"SKIP_EMAILS",
+				"RESEND_API_KEY",
+				"EMAIL_FROM",
+				"TINA_TOKEN",
+				"GROQ_API_KEY"
+			]
 		},
 		"test:e2e:inspector": {
 			"outputs": ["playwright-report/**"]
