@@ -1,50 +1,123 @@
-name: Build Pull request
+name: Quality Gate
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
+  NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+  TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+  RESEND_API_KEY: 're_test'
+  EMAIL_FROM: 'test'
+  NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
+  GROQ_API_KEY: 'test'
+
 jobs:
-  build:
+  format:
+    name: Format
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
-      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-      RECAPTCHA_SECRETKEY: 'test'
-      RESEND_API_KEY: 're_test'
-      EMAIL_FROM: 'test'
-      NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'test'
-      NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
-      GROQ_API_KEY: 'test'
-
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@85880fa0301c86cca9da44039ee3bb12d3bedbfa # 0.12.1
-
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v4
 
-      - name: ⎔ Setup node
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
+      - name: Install
+        uses: ./packages/github-actions/install
+
+      - name: Build for types
+        run: pnpm build:tina
+
+      - name: Run format
+        run: pnpm format
+
+  lint:
+    name: Lint
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./packages/github-actions/install
+
+      - name: Build for types
+        run: pnpm build:tina
+
+      - name: Run lint
+        run: pnpm lint
+
+  typecheck:
+    name: TypeCheck
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./packages/github-actions/install
+
+      - name: Build for types
+        run: pnpm build:tina
+
+      - name: Cache TypeScript TSBuild Info Files
+        id: cache-typescript-tsbuildinfo
+        uses: actions/cache@v4
         with:
-          node-version-file: '.nvmrc'
+          path: node_modules/.cache/*-tsbuildinfo.json
+          # We use the commit hash as the key to always update the cache as a
+          # workaround to this issue:
+          # https://github.com/actions/cache/issues/106
+          key: ${{ runner.os }}-cache-typescript-tsbuildinfo-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-cache-typescript-tsbuildinfo-
 
-      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          run_install: false
+      - name: Run TypeScript type check
+        run: pnpm run typecheck
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+  e2e:
+    name: E2E
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install
+        uses: ./packages/github-actions/install
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Build
         run: pnpm build
 
-      - name: Run TypeScript type check
-        run: pnpm checks
+      - name: Run Playwright tests
+        run: turbo test:e2e --continue
+        env:
+          SKIP_EMAILS: 'true'
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: apps/web/playwright-report/
+
+      - name: Save PR number
+        if: always()
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          echo $PR_NUMBER > prNumber
+
+      - name: Upload prNumber
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prNumber
+          path: prNumber

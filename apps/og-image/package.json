@@ -5,8 +5,8 @@
   "scripts": {
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "next dev --turbopack -p 4200",
-    "env:sync": "cp ../../.env .env",
     "start": "next start",
+    "sync:env": "cp ../../.env .env",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
