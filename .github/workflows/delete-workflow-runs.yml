@@ -46,6 +46,9 @@ on:
       dry_run:
         description: 'Logs simulated changes, no deletions are performed'
         required: false
+  schedule:
+    - cron: '0 0 1,15 * *'
+    # Run on the 1st and 15th day of the month, at 00:00.
 
 jobs:
   del_runs:
