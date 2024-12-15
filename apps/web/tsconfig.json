@@ -31,5 +31,11 @@
 		"tina/**/*.ts",
 		"tina/**/*.tsx"
 	],
-	"exclude": ["node_modules", ".next", "public", "tina/__generated__"]
+	"exclude": [
+		"node_modules",
+		".next",
+		"public",
+		"tina/__generated__",
+		"playwright-report"
+	]
 }

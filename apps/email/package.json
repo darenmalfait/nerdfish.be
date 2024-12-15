@@ -6,8 +6,8 @@
     "build": "email build",
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "email dev --port 3003",
-    "env:sync": "cp ../../.env .env",
     "export": "email export",
+    "sync:env": "cp ../../.env .env",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
