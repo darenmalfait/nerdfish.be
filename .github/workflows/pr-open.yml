@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./packages/github-actions/install
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./packages/github-actions/install
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./packages/github-actions/install
@@ -68,7 +68,7 @@ jobs:
 
       - name: Cache TypeScript TSBuild Info Files
         id: cache-typescript-tsbuildinfo
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules/.cache/*-tsbuildinfo.json
           # We use the commit hash as the key to always update the cache as a
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install
         uses: ./packages/github-actions/install
@@ -104,7 +104,7 @@ jobs:
 
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: report
           path: apps/web/playwright-report/
@@ -118,7 +118,7 @@ jobs:
 
       - name: Upload prNumber
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: prNumber
           path: prNumber
