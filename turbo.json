@@ -26,6 +26,9 @@
 				"CHAT_SYSTEM_PROMPT"
 			]
 		},
+		"build:tina": {
+			"dependsOn": ["^build:tina"]
+		},
 		"topo": {
 			"dependsOn": ["^topo"]
 		},
@@ -41,9 +44,20 @@
 			"persistent": true,
 			"cache": false
 		},
-		"env:sync": {
+		"sync:env": {
 			"cache": false,
-			"dependsOn": ["^env:sync"]
+			"dependsOn": ["^sync:env"]
+		},
+		"test:e2e": {
+			"outputs": ["playwright-report/**"],
+			"env": ["SKIP_EMAILS"]
+		},
+		"test:e2e:ui": {
+			"outputs": ["playwright-report/**"],
+			"env": ["SKIP_EMAILS"]
+		},
+		"test:e2e:inspector": {
+			"outputs": ["playwright-report/**"]
 		}
 	}
 }
