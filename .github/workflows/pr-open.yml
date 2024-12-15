@@ -13,7 +13,6 @@ env:
   TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
   RESEND_API_KEY: 're_test'
   EMAIL_FROM: 'test'
-  NEXT_PUBLIC_RECAPTCHA_SITEKEY: 'test'
   NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
   GROQ_API_KEY: 'test'
 
