@@ -11,7 +11,6 @@ import { SiteLayout } from '../layout/site-layout'
 
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
-import '~/app/theme/styles/components.css'
 import '@repo/tailwind-config/styles/global.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
 
