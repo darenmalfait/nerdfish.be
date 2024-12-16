@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { TimesheetGenerator } from './generator'
+import { TimesheetGenerator } from './components/generator'
+import { TimesheetProvider } from './timesheet-provider'
 
 export const metadata = {
 	title: 'Timesheet Generator',
@@ -12,7 +13,9 @@ export const metadata = {
 export default function TimesheetGeneratorPage() {
 	return (
 		<React.Suspense fallback={null}>
-			<TimesheetGenerator />
+			<TimesheetProvider>
+				<TimesheetGenerator />
+			</TimesheetProvider>
 		</React.Suspense>
 	)
 }
