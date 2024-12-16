@@ -118,13 +118,11 @@ function TimeEntries({
 		<>
 			{Object.entries(groupedEntries).map(([project, entries], i) => {
 				return (
-					<>
-						<div className="col-span-3" key={project}>
-							{project}
-						</div>
-						{entries.map((entry) => (
+					<div key={`${project}-${i}`}>
+						<div className="col-span-3">{project}</div>
+						{entries.map((entry, j) => (
 							<Row
-								key={entry.day.toLocaleDateString()}
+								key={`${entry.day.toLocaleDateString()}${i}-${j}}`}
 								day={entry.day.toLocaleDateString('nl-BE', {
 									day: '2-digit',
 									month: '2-digit',
@@ -139,7 +137,7 @@ function TimeEntries({
 						{i < Object.keys(groupedEntries).length - 1 ? (
 							<Spacer key={project} />
 						) : null}
-					</>
+					</div>
 				)
 			})}
 		</>
