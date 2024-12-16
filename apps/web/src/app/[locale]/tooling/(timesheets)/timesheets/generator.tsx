@@ -487,7 +487,7 @@ export function TimesheetGenerator() {
 			<div
 				className={cx(
 					'print:hidden',
-					'rounded-container bg-popover p-xs fixed inset-x-0 mx-auto w-fit max-w-full',
+					'rounded-container bg-popover p-xs fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
 					'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
 					'bottom-lg',
 				)}
