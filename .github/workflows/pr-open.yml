@@ -28,9 +28,6 @@ jobs:
       - name: Install
         uses: ./packages/github-actions/install
 
-      - name: Build for types
-        run: pnpm build:tina
-
       - name: Run format
         run: pnpm format
 
