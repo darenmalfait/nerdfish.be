@@ -82,7 +82,7 @@ export const config: Config = {
 			},
 			animation: {
 				float: 'float 5s ease-in-out infinite',
-				scrollIndicator: 'scrollIndicator 2s ease infinite',
+				scrollIndicator: 'scrollIndicator 2s ease-in-out infinite',
 				'background-position-spin':
 					'background-position-spin 3000ms infinite alternate',
 			},
