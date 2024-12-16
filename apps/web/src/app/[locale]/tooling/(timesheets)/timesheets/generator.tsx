@@ -468,7 +468,7 @@ export function TimesheetGenerator() {
 				className="rounded-base p-md pb-lg shadow-outline relative mx-auto w-[80mm] print:[box-shadow:none]"
 			>
 				<div className="mb-lg gap-sm flex flex-col items-start justify-start">
-					<Logo className="h-4 w-auto" />
+					<Logo className="h-6 w-auto" />
 					<Dialog>
 						<DialogTrigger>
 							<div
