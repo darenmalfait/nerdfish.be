@@ -1,6 +1,7 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
+import nodeCrypto from 'crypto'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { cx } from '@nerdfish/utils'
 import {
@@ -30,6 +31,7 @@ import {
 import {
 	ImportIcon,
 	Logo,
+	PencilIcon,
 	PlusIcon,
 	PrinterIcon,
 	XIcon,
@@ -47,27 +49,35 @@ const CSVImporter = dynamic(
 	},
 )
 
-function Row({
-	day,
-	hours,
-	className,
+function getCrypto() {
+	if (typeof window !== 'undefined') return window.crypto
+	return nodeCrypto
+}
+
+function RowActions({
+	entry,
 	onRemove,
+	onEdit,
 }: {
-	day: string
-	hours: string
-	className?: string
+	entry?: TimeEntry
 	onRemove?: () => void
+	onEdit?: (entry: TimeEntry) => void
 }) {
+	if (!onEdit && !onRemove) return null
+
 	return (
-		<div className="group flex items-center">
-			<div className={cx('mr-lg', className)}>{day}</div>
-			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
+		<div className="group-hover:ml-md gap-xs flex">
+			{onEdit && entry ? (
+				<div className="gap-xs flex w-0 items-center overflow-hidden transition-all group-hover:w-8 print:hidden">
+					<EditTimeEntryButton entry={entry} onEdit={onEdit} />
+				</div>
+			) : null}
 			{onRemove ? (
-				<div className="group-hover:ml-sm w-0 overflow-hidden transition-all group-hover:w-8 print:hidden">
+				<div className="gap-xs flex w-0 items-center overflow-hidden transition-all group-hover:w-8 print:hidden">
 					<Button
 						type="button"
 						onClick={onRemove}
-						variant="ghost"
+						variant="danger"
 						size="iconSm"
 						aria-label="Remove entry"
 					>
@@ -79,13 +89,82 @@ function Row({
 	)
 }
 
+function Row({
+	entry,
+	day,
+	hours,
+	className,
+	onRemove,
+	onEdit,
+}: {
+	day: string
+	entry?: TimeEntry
+	hours: string
+	className?: string
+	onRemove?: () => void
+	onEdit?: (entry: TimeEntry) => void
+}) {
+	return (
+		<div className="group flex items-center">
+			<div className={cx('mr-lg', className)}>{day}</div>
+			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
+			<RowActions entry={entry} onRemove={onRemove} onEdit={onEdit} />
+		</div>
+	)
+}
+
+function EditTimeEntryButton({
+	entry,
+	onEdit,
+}: {
+	entry: TimeEntry
+	onEdit: (entry: TimeEntry) => void
+}) {
+	const [editing, setEditing] = React.useState<boolean>(false)
+
+	const onSubmit = React.useCallback(
+		(data: TimeEntry) => {
+			setEditing(false)
+			onEdit(data)
+		},
+		[onEdit],
+	)
+
+	return (
+		<Dialog open={editing} onOpenChange={setEditing}>
+			<Button
+				type="button"
+				variant="secondary"
+				size="iconSm"
+				aria-label="Edit entry"
+				asChild
+			>
+				<DialogTrigger>
+					<PencilIcon className="h-4 w-4" />
+				</DialogTrigger>
+			</Button>
+
+			<DialogContent>
+				<DialogHeader>
+					<DialogTitle>Add Time Entry</DialogTitle>
+					<DialogDescription>
+						Add a new time entry to the timesheet
+					</DialogDescription>
+				</DialogHeader>
+				<AddTimeEntryForm initialValues={entry} onSubmit={onSubmit} />
+			</DialogContent>
+		</Dialog>
+	)
+}
+
 function Spacer() {
 	return <Row day="------------------" hours="------" className="text-muted" />
 }
 
 const timeEntrySchema = z.object({
+	id: z.string(),
 	day: z.date(),
-	hours: z.number().min(0),
+	hours: z.coerce.number().min(0),
 	project: z.string(),
 })
 
@@ -122,6 +201,7 @@ function TimeEntries({
 						<div className="col-span-3">{project}</div>
 						{entries.map((entry, j) => (
 							<Row
+								entry={entry}
 								key={`${entry.day.toLocaleDateString()}${i}-${j}}`}
 								day={entry.day.toLocaleDateString('nl-BE', {
 									day: '2-digit',
@@ -129,8 +209,17 @@ function TimeEntries({
 									year: 'numeric',
 								})}
 								hours={entry.hours.toString()}
+								onEdit={(updatedEntry) => {
+									setTimeEntries(
+										timeEntries.map((currentEntry) =>
+											currentEntry.id === entry.id
+												? updatedEntry
+												: currentEntry,
+										),
+									)
+								}}
 								onRemove={() => {
-									setTimeEntries(timeEntries.filter((e) => e !== entry))
+									setTimeEntries(timeEntries.filter((e) => e.id !== entry.id))
 								}}
 							/>
 						))}
@@ -170,13 +259,16 @@ const template = {
 }
 
 function AddTimeEntryForm({
+	initialValues,
 	onSubmit,
 }: {
+	initialValues?: TimeEntry
 	onSubmit: (data: TimeEntry) => void
 }) {
 	const form = useForm<TimeEntry>({
 		resolver: zodResolver(timeEntrySchema),
-		defaultValues: {
+		defaultValues: initialValues ?? {
+			id: getCrypto().randomUUID(),
 			project: '',
 			day: new Date(),
 			hours: 8,
@@ -291,6 +383,7 @@ function ImportTimeEntriesButton({
 	setTimeEntries: (timeEntries?: TimeEntry[]) => void
 }) {
 	const [importing, setImporting] = React.useState<boolean>(false)
+
 	const onComplete = React.useCallback(
 		(data: {
 			rows: { values: { day: string; hours: string; project: string } }[]
@@ -304,6 +397,7 @@ function ImportTimeEntriesButton({
 						const hours = Number.parseFloat(row.values.hours)
 
 						const result = timeEntrySchema.safeParse({
+							id: getCrypto().randomUUID(),
 							day,
 							hours,
 							project: row.values.project,
