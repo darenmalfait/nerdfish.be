@@ -9,7 +9,7 @@ export function getCrypto() {
 export const timeEntrySchema = z.object({
 	id: z.string(),
 	day: z.date(),
-	hours: z.coerce.number().min(0),
+	hours: z.coerce.number(),
 	project: z.string(),
 })
 export type TimeEntry = z.infer<typeof timeEntrySchema>
