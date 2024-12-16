@@ -26,11 +26,14 @@ export function TimesheetGenerator() {
 
 	return (
 		<div className="p-md pb-3xl print:p-0">
-			<div ref={ref} className="mx-auto w-[80mm] print:[box-shadow:none]">
-				<div className="rounded-base p-md pb-lg shadow-outline mb-xl print:hidden">
+			<div className="mx-auto w-[80mm] print:[box-shadow:none]">
+				<div className="rounded-base p-md pb-lg shadow-outline mb-xl flex justify-center print:hidden">
 					<CalendarOverview />
 				</div>
-				<div className="rounded-base p-md pb-lg shadow-outline relative">
+				<div
+					ref={ref}
+					className="rounded-base p-md pb-lg shadow-outline relative"
+				>
 					<TimesheetsContent />
 				</div>
 			</div>

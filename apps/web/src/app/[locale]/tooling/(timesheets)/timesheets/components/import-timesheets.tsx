@@ -6,6 +6,7 @@ import {
 } from '@repo/design-system/components/ui'
 
 import { ImportIcon } from '@repo/design-system/lib/icons'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
 import { useTimesheet } from '../timesheet-provider'
@@ -54,12 +55,18 @@ export function ImportTimeEntriesButton() {
 			setImporting(false)
 
 			return setTimesheet({
-				timeEntries: data.rows.map((row) => ({
-					id: getCrypto().randomUUID(),
-					day: new Date(row.values.day),
-					hours: Number(row.values.hours),
-					project: row.values.project,
-				})),
+				timeEntries: nonNullable(
+					data.rows.map((row) => {
+						if (!row.values.day || !row.values.hours) return null
+
+						return {
+							id: getCrypto().randomUUID(),
+							day: new Date(row.values.day),
+							hours: Number(row.values.hours.replace(',', '.')),
+							project: row.values.project,
+						}
+					}),
+				),
 			})
 		},
 		[setTimesheet],
