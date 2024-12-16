@@ -119,7 +119,7 @@ const SiteFooter = React.forwardRef<
 	return (
 		<div
 			ref={ref}
-			className={cx('mt-lg py-lg pb-xl lg:pb-sm', className)}
+			className={cx('mt-lg py-lg pb-xl lg:pb-sm print:hidden', className)}
 			{...props}
 		>
 			<InViewBackground className="bg-secondary">
