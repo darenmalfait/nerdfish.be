@@ -6,7 +6,7 @@ import Link from 'next/link'
 import * as React from 'react'
 import { ArrowRightIcon } from '../lib/icons'
 import { getCategoryColors } from './category-indicator'
-import { MagnetButton } from './magnet-button'
+import { MagnetButton } from './magnet'
 import { Badge, H1, type H2 } from './ui'
 
 export const HighlightCardImage = React.forwardRef<

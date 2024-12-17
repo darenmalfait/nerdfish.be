@@ -1,7 +1,7 @@
 'use client'
 
 import { type VariantProps, cva, cx } from '@nerdfish/utils'
-import { MagnetButton } from '@repo/design-system/components/magnet-button'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
 	SectionHeader,

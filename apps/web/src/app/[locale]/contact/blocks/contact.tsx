@@ -1,6 +1,6 @@
 'use client'
 
-import { MagnetButton } from '@repo/design-system/components/magnet-button'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
 	SectionHeader,
