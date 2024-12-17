@@ -1,4 +1,4 @@
-import { MagnetButton } from '@repo/design-system/components/magnet-button'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import { type ButtonProps } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import Link from 'next/link'
