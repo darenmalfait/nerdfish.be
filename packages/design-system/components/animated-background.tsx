@@ -5,7 +5,7 @@ import { AnimatePresence, type Transition, motion } from 'motion/react'
 import * as React from 'react'
 import { useControllableState } from './ui'
 
-type AnimatedBackgroundProps = {
+export interface AnimatedBackgroundProps {
 	children?:
 		| React.ReactElement<{ 'data-id': string }>[]
 		| React.ReactElement<{ 'data-id': string }>

@@ -4,14 +4,18 @@ import { cx } from '@nerdfish/utils'
 import { type Variant, motion } from 'motion/react'
 import Link from 'next/link'
 import type * as React from 'react'
-import { ArrowIcon, type ArrowIconProps } from '../lib/icons'
+import {
+	ArrowIcon,
+	type ArrowIconVariants,
+	type ArrowIconProps,
+} from '../lib/icons'
 import {
 	type ElementState,
 	useElementState,
 } from '../lib/utils/use-element-state'
 
 const arrowVariants: Record<
-	ArrowIconProps['direction'],
+	NonNullable<ArrowIconVariants['direction']>,
 	Record<ElementState, Variant>
 > = {
 	up: {
@@ -52,7 +56,7 @@ const arrowVariants: Record<
 	},
 }
 
-interface ArrowLinkProps {
+export interface ArrowLinkProps {
 	className?: string
 	direction?: ArrowIconProps['direction']
 	href?: string
@@ -90,7 +94,7 @@ function ArrowLink({
 			) : null}
 
 			<div className="p-sm relative inline-flex size-14 flex-none items-center justify-center">
-				<motion.span variants={arrowVariants[direction]}>
+				<motion.span variants={arrowVariants[direction ?? 'right']}>
 					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
