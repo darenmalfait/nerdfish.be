@@ -94,7 +94,7 @@ function FeatureCard(
 					</H3>
 					<p
 						data-tina-field={tinaField(props, 'description')}
-						className="text-muted flex-auto text-lg"
+						className="text-primary/80 flex-auto text-lg"
 					>
 						{description}
 					</p>

@@ -114,8 +114,7 @@ export const HighlightCardCategory = React.forwardRef<
 				variant="default"
 				{...props}
 				className={cx(
-					'mb-md bg-inverted/10 px-md py-sm text-primary w-auto text-base',
-					getCategoryColors(value),
+					'mb-md bg-inverted/10 px-md py-sm bg-primary text-primary w-auto text-base',
 					className,
 				)}
 			>
@@ -139,7 +138,7 @@ export const HighlightCardDescription = React.forwardRef<
 			ref={ref}
 			{...props}
 			className={cx(
-				'mt-md text-muted line-clamp-2 text-xl font-semibold',
+				'mt-md text-primary/80 line-clamp-2 text-xl font-semibold',
 				className,
 			)}
 		>
