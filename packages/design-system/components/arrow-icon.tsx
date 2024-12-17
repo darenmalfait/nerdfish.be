@@ -1,36 +1,41 @@
-import { cx } from '@nerdfish/utils'
+import { cva, cx, type VariantProps } from '@nerdfish/utils'
 import { ArrowRight } from 'lucide-react'
 import * as React from 'react'
 
-type ArrowIconProps = {
-	direction: 'up' | 'right' | 'down' | 'left'
-	size?: number
-	className?: string
-}
-
-const rotationMap = {
-	up: '-rotate-90',
-	right: 'rotate-0',
-	down: 'rotate-90',
-	left: '-rotate-180',
-}
-
-const ArrowIcon = React.forwardRef<SVGSVGElement, ArrowIconProps>(
-	function ArrowIcon(
-		{ direction = 'right', size = 24, className, ...props },
-		ref,
-	) {
-		return (
-			<ArrowRight
-				ref={ref}
-				width={size}
-				height={size}
-				className={cx(rotationMap[direction], className)}
-				{...props}
-			/>
-		)
+export const arrowIconVariants = cva('', {
+	variants: {
+		direction: {
+			up: '-rotate-90',
+			right: 'rotate-0',
+			down: 'rotate-90',
+			left: '-rotate-180',
+		},
 	},
-)
+	defaultVariants: {
+		direction: 'right',
+	},
+})
 
-export { ArrowIcon }
-export type { ArrowIconProps }
+export type ArrowIconVariants = VariantProps<typeof arrowIconVariants>
+
+export interface ArrowIconProps
+	extends ArrowIconVariants,
+		Omit<React.ComponentProps<'svg'>, 'direction'> {
+	size?: number
+}
+
+export function ArrowIcon({
+	size = 24,
+	direction,
+	className,
+	...props
+}: ArrowIconProps) {
+	return (
+		<ArrowRight
+			width={size}
+			height={size}
+			className={cx(arrowIconVariants({ direction }), className)}
+			{...props}
+		/>
+	)
+}
