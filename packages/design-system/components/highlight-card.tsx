@@ -9,17 +9,21 @@ import { getCategoryColors } from './category-indicator'
 import { MagnetButton } from './magnet'
 import { Badge, H1, type H2 } from './ui'
 
-export const HighlightCardImage = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		src?: string | null
-		alt?: string
-	}
->(({ src, alt, className, ...props }, ref) => {
+export interface HighlightCardImageProps extends React.ComponentProps<'div'> {
+	src?: string | null
+	alt?: string
+}
+
+export function HighlightCardImage({
+	src,
+	alt,
+	className,
+	...props
+}: HighlightCardImageProps) {
 	if (!src) return null
+
 	return (
 		<div
-			ref={ref}
 			{...props}
 			className={cx(
 				'mt-lg aspect-h-4 aspect-w-3 rounded-container pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
@@ -37,57 +41,59 @@ export const HighlightCardImage = React.forwardRef<
 			) : null}
 		</div>
 	)
-})
+}
 
-HighlightCardImage.displayName = 'HighlightCardImage'
+export type HighlightCardContentProps = React.ComponentPropsWithoutRef<'div'>
 
-export const HighlightCardContent = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => {
-	if (!props.children) return null
+export function HighlightCardContent({
+	children,
+	className,
+	...props
+}: HighlightCardContentProps) {
+	if (!children) return null
 
 	return (
 		<div
-			ref={ref}
 			{...props}
 			className={cx(
 				'py-lg col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
 				className,
 			)}
-		/>
+		>
+			{children}
+		</div>
 	)
-})
+}
 
-HighlightCardContent.displayName = 'HighlightCardContent'
+export type HighlightCardTitleProps = React.ComponentPropsWithoutRef<typeof H2>
 
-export const HighlightCardTitle = React.forwardRef<
-	React.ComponentRef<typeof H2>,
-	React.ComponentPropsWithoutRef<typeof H2>
->(({ className, ...props }, ref) => {
+export function HighlightCardTitle({
+	className,
+	...props
+}: HighlightCardTitleProps) {
 	if (!props.children) return null
+
 	return (
 		<H1
-			ref={ref}
 			variant="primary"
 			as="h2"
-			{...props}
 			className={cx('mt-0 md:!text-5xl xl:!text-7xl', className)}
+			{...props}
 		/>
 	)
-})
+}
 
-HighlightCardTitle.displayName = 'HighlightCardTitle'
+export type HighlightCardSubtitleProps = React.ComponentProps<'div'>
 
-export const HighlightCardSubtitle = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => {
-	if (!props.children) return null
+export function HighlightCardSubtitle({
+	children,
+	className,
+	...props
+}: HighlightCardSubtitleProps) {
+	if (!children) return null
 
 	return (
 		<div
-			ref={ref}
 			{...props}
 			className={cx(
 				'mt-md text-primary line-clamp-2 text-xl font-bold',
@@ -95,22 +101,23 @@ export const HighlightCardSubtitle = React.forwardRef<
 			)}
 		/>
 	)
-})
+}
 
-HighlightCardSubtitle.displayName = 'HighlightCardSubtitle'
-
-export const HighlightCardCategory = React.forwardRef<
-	HTMLDivElement,
+export type HighlightCardCategoryProps =
 	React.ComponentPropsWithoutRef<'div'> & {
 		value?: string | null
 	}
->(({ value, className, ...props }, ref) => {
+
+export function HighlightCardCategory({
+	value,
+	className,
+	...props
+}: HighlightCardCategoryProps) {
 	if (!value) return null
 
 	return (
 		<div>
 			<Badge
-				ref={ref}
 				variant="default"
 				{...props}
 				className={cx(
@@ -123,19 +130,19 @@ export const HighlightCardCategory = React.forwardRef<
 			</Badge>
 		</div>
 	)
-})
+}
 
-HighlightCardCategory.displayName = 'HighlightCardCategory'
+export type HighlightCardDescriptionProps = React.ComponentPropsWithoutRef<'p'>
 
-export const HighlightCardDescription = React.forwardRef<
-	HTMLParagraphElement,
-	React.ComponentPropsWithoutRef<'p'>
->(({ children, className, ...props }, ref) => {
+export function HighlightCardDescription({
+	children,
+	className,
+	...props
+}: HighlightCardDescriptionProps) {
 	if (!children) return null
 
 	return (
 		<p
-			ref={ref}
 			{...props}
 			className={cx(
 				'mt-md text-primary/80 line-clamp-2 text-xl font-semibold',
@@ -145,18 +152,22 @@ export const HighlightCardDescription = React.forwardRef<
 			{children}
 		</p>
 	)
-})
+}
 
-HighlightCardDescription.displayName = 'HighlightCardDescription'
+export interface HighlightCardCTAProps
+	extends React.ComponentPropsWithoutRef<typeof Link> {
+	href: string
+	children: React.ReactNode
+	category?: string | null
+}
 
-export const HighlightCardCTA = React.forwardRef<
-	React.ComponentRef<typeof Link>,
-	React.ComponentPropsWithoutRef<typeof Link> & {
-		href: string
-		children: React.ReactNode
-		category?: string | null
-	}
->(({ href, category, children, className, ...props }, ref) => {
+export function HighlightCardCTA({
+	href,
+	children,
+	category,
+	className,
+	...props
+}: HighlightCardCTAProps) {
 	if (!children || !href) return null
 
 	return (
@@ -167,7 +178,7 @@ export const HighlightCardCTA = React.forwardRef<
 				asChild
 				className="bg-primary/70 hover:bg-primary group"
 			>
-				<Link ref={ref} href={href} {...props}>
+				<Link href={href} {...props}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon
@@ -180,19 +191,21 @@ export const HighlightCardCTA = React.forwardRef<
 			</MagnetButton>
 		</div>
 	)
-})
+}
 
-HighlightCardCTA.displayName = 'HighlightCardCTA'
+export interface HighlightCardProps
+	extends React.ComponentPropsWithoutRef<'div'> {
+	title: string
+}
 
-export const HighlightCard = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		title: string
-	}
->(({ children, title, className, ...props }, ref) => {
+export function HighlightCard({
+	children,
+	title,
+	className,
+	...props
+}: HighlightCardProps) {
 	return (
 		<div
-			ref={ref}
 			className={cx(
 				'focus-outline rounded-container bg-muted relative w-full max-w-full overflow-hidden outline-none',
 				className,
@@ -206,6 +219,4 @@ export const HighlightCard = React.forwardRef<
 			</div>
 		</div>
 	)
-})
-
-HighlightCard.displayName = 'HighlightCard'
+}

@@ -39,17 +39,19 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 	)
 }
 
+export interface ArticleCardImageProps {
+	src?: string | null
+	alt: string | null
+	category?: string | null
+	readMoreLabel?: string
+}
+
 export function ArticleCardImage({
 	src,
 	alt,
 	category,
 	readMoreLabel = 'Read More',
-}: {
-	src?: string | null
-	category?: string | null
-	alt: string | null
-	readMoreLabel?: string
-}) {
+}: ArticleCardImageProps) {
 	return (
 		<div
 			className={cx(
@@ -76,85 +78,85 @@ export function ArticleCardImage({
 	)
 }
 
-ArticleCardImage.displayName = 'ArticleCardImage'
+export interface ArticleCardContentProps extends React.ComponentProps<'div'> {
+	children: React.ReactNode
+}
 
-export const ArticleCardContent = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => {
-	return <div ref={ref} {...props} className={cx('mt-lg', className)} />
-})
+export function ArticleCardContent({
+	children,
+	className,
+	...props
+}: ArticleCardContentProps) {
+	return <div {...props} className={cx('mt-lg', className)} />
+}
 
-ArticleCardContent.displayName = 'ArticleCardContent'
+export type ArticleCardTitleProps = React.ComponentProps<typeof H3>
 
-export const ArticleCardTitle = React.forwardRef<
-	HTMLHeadingElement,
-	React.ComponentPropsWithoutRef<typeof H3>
->(({ className, ...props }, ref) => {
+export function ArticleCardTitle({
+	children,
+	className,
+	...props
+}: ArticleCardTitleProps) {
 	return (
 		<H2
 			as="h3"
 			variant="primary"
-			ref={ref}
 			{...props}
 			className={cx('mb-sm !mt-0 line-clamp-2', className)}
 		/>
 	)
-})
+}
 
-ArticleCardTitle.displayName = 'ArticleCardTitle'
+export interface ArticleCardDateProps extends React.ComponentProps<'div'> {
+	value?: string
+}
 
-export const ArticleCardDate = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		value?: string
-	}
->(({ value, className, ...props }, ref) => {
+export function ArticleCardDate({
+	value,
+	className,
+	...props
+}: ArticleCardDateProps) {
 	if (!value) return null
 
 	return (
 		<div
-			ref={ref}
 			{...props}
 			className={cx('mb-sm text-muted text-xl font-bold', className)}
 		>
 			<DateFormatter dateString={value} format="PPP" />
 		</div>
 	)
-})
+}
 
-ArticleCardDate.displayName = 'ArticleCardDate'
+export type ArticleCardDescriptionProps = React.ComponentProps<'p'>
 
-export const ArticleCardDescription = React.forwardRef<
-	HTMLParagraphElement,
-	React.ComponentPropsWithoutRef<'p'>
->(({ children, className, ...props }, ref) => {
+export function ArticleCardDescription({
+	children,
+	className,
+	...props
+}: ArticleCardDescriptionProps) {
 	if (!children) return null
 
 	return (
-		<div
-			ref={ref}
-			{...props}
-			className={cx('text-muted mt-0 line-clamp-2', className)}
-		>
+		<div {...props} className={cx('text-muted mt-0 line-clamp-2', className)}>
 			{children}
 		</div>
 	)
-})
+}
 
-ArticleCardDescription.displayName = 'ArticleCardDescription'
+export type ArticleCardCategoryProps = React.ComponentProps<'div'>
 
-export const ArticleCardCategory = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'>
->(({ children, className, ...props }, ref) => {
+export function ArticleCardCategory({
+	children,
+	className,
+	...props
+}: ArticleCardCategoryProps) {
 	if (!children) return null
 
 	const value = typeof children === 'string' ? children : undefined
 
 	return (
 		<Badge
-			ref={ref}
 			variant="default"
 			{...props}
 			className={cx(
@@ -167,20 +169,22 @@ export const ArticleCardCategory = React.forwardRef<
 			{children}
 		</Badge>
 	)
-})
+}
 
-ArticleCardCategory.displayName = 'ArticleCardCategory'
+export interface ArticleCardProps extends React.ComponentProps<'div'> {
+	href?: string
+	title?: string
+}
 
-export const ArticleCard = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		href?: string
-		title?: string
-	}
->(({ href, title, children, className, ...props }, ref) => {
+export function ArticleCard({
+	href,
+	title,
+	children,
+	className,
+	...props
+}: ArticleCardProps) {
 	return (
 		<div
-			ref={ref}
 			className={cx('group relative w-full outline-none', className)}
 			{...props}
 		>
@@ -198,6 +202,4 @@ export const ArticleCard = React.forwardRef<
 			<div className="sr-only">{children}</div>
 		</div>
 	)
-})
-
-ArticleCard.displayName = 'ArticleCard'
+}

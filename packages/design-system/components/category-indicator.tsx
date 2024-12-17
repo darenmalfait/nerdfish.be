@@ -18,17 +18,17 @@ const foregroundMap: Record<string, string> = {
 	expertise: 'text-info',
 }
 
-function getCategoryColors(category = 'unkown'): string {
+export function getCategoryColors(category = 'unkown'): string {
 	return foregroundMap[category.toLowerCase()] ?? ''
 }
 
-interface CategoryIndicatorProps {
+export interface CategoryIndicatorProps {
 	category?: string
 	inline?: boolean
 	className?: string
 }
 
-function CategoryIndicator({
+export function CategoryIndicator({
 	category = 'unknown',
 	inline,
 	className,
@@ -56,5 +56,3 @@ function CategoryIndicator({
 		</div>
 	)
 }
-
-export { CategoryIndicator, getCategoryColors }

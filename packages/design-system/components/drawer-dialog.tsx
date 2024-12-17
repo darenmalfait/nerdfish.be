@@ -7,15 +7,17 @@ import {
 	useMediaQuery,
 } from './ui'
 
+export interface DrawerDialogProps {
+	open: boolean
+	onOpenChange: (open: boolean) => void
+	children: React.ReactNode
+}
+
 export function DrawerDialog({
 	open,
 	onOpenChange,
 	children,
-}: {
-	open: boolean
-	onOpenChange: (open: boolean) => void
-	children: React.ReactNode
-}) {
+}: DrawerDialogProps) {
 	const isDesktop = useMediaQuery('(min-width: 768px)')
 
 	if (isDesktop) {
