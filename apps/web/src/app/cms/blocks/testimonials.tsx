@@ -33,7 +33,7 @@ function Author({ author }: { author: GlobalTestimonialsItems['author'] }) {
 			<span className="before:bg-inverted flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
 				{author.name}
 			</span>
-			<span className="text-muted text-sm">{author.company}</span>
+			<span className="text-primary/80 text-sm">{author.company}</span>
 		</div>
 	)
 }

@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@axe-core/playwright": "^4.8.2",
+    "@axe-core/playwright": "^4.10.1",
     "@calcom/embed-react": "^1.5.1",
     "@formatjs/intl-localematcher": "^0.5.9",
     "@hookform/resolvers": "^3.9.1",
@@ -66,6 +66,7 @@
     "@types/react-dom": "19.0.2",
     "@vercel/toolbar": "^0.1.28",
     "autoprefixer": "^10.4.20",
+    "axe-core": "^4.10.2",
     "husky": "^9.1.7",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
