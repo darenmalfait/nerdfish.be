@@ -10,12 +10,9 @@ const MAX_DISTANCE = 0.1
 const MAX_SCALE = 1.1
 const MAX_ROTATE = 20
 
-export function Magnet({
-	children,
-	className,
-	ref,
-	...props
-}: React.ComponentProps<typeof motion.div>) {
+export type MagnetProps = React.ComponentProps<typeof motion.div>
+
+export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 	const itemRef = React.useRef<HTMLDivElement>(null)
 	React.useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
 
@@ -100,10 +97,9 @@ export function Magnet({
 	)
 }
 
-export function MagnetButton({
-	children,
-	...props
-}: React.ComponentProps<typeof Button>) {
+export type MagnetButtonProps = React.ComponentProps<typeof Button>
+
+export function MagnetButton({ children, ...props }: MagnetButtonProps) {
 	return (
 		<Magnet>
 			<Button {...props}>{children}</Button>

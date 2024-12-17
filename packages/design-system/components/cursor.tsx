@@ -12,7 +12,7 @@ import {
 } from 'motion/react'
 import * as React from 'react'
 
-type CursorProps = {
+export interface CursorProps {
 	children: React.ReactNode
 	className?: string
 	springConfig?: SpringOptions

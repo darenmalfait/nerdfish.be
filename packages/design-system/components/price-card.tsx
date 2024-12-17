@@ -34,45 +34,39 @@ function usePriceCard(): PriceCardContextProps {
 	return context
 }
 
-export const PriceCardHeader = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => {
+export type PriceCardHeaderProps = React.ComponentProps<'div'>
+
+export function PriceCardHeader({
+	children,
+	className,
+	...props
+}: PriceCardHeaderProps) {
 	return (
-		<CardHeader
-			ref={ref}
-			className={cx('bg-transparent', className)}
-			{...props}
-		>
+		<CardHeader className={cx('bg-transparent', className)} {...props}>
 			{children}
 			<Separator />
 		</CardHeader>
 	)
-})
-PriceCardHeader.displayName = 'PriceCardHeader'
+}
 
-export const PriceCardTitle = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
+export type PriceCardTitleProps = React.ComponentProps<typeof CardTitle>
+
+export function PriceCardTitle({ children, ...props }: PriceCardTitleProps) {
 	if (!children) return null
 
-	return (
-		<CardTitle ref={ref} {...props}>
-			{children}
-		</CardTitle>
-	)
-})
-PriceCardTitle.displayName = 'PriceCardTitle'
+	return <CardTitle {...props}>{children}</CardTitle>
+}
 
-export const PriceCardFeatures = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => {
+export type PriceCardFeaturesProps = React.ComponentProps<typeof CardContent>
+
+export function PriceCardFeatures({
+	children,
+	className,
+	...props
+}: PriceCardFeaturesProps) {
 	const { isPopular } = usePriceCard()
 	return (
 		<CardContent
-			ref={ref}
 			className={cx(
 				{
 					'dark:light dark': isPopular,
@@ -84,36 +78,36 @@ export const PriceCardFeatures = React.forwardRef<
 			<ul>{children}</ul>
 		</CardContent>
 	)
-})
-PriceCardFeatures.displayName = 'PriceCardFeatures'
+}
 
-export const PriceCardFeature = React.forwardRef<
-	HTMLLIElement,
-	React.HTMLAttributes<HTMLLIElement>
->(({ children, className, ...props }, ref) => {
+export type PriceCardFeatureProps = React.ComponentProps<'li'>
+
+export function PriceCardFeature({
+	children,
+	className,
+	...props
+}: PriceCardFeatureProps) {
 	return (
-		<li
-			ref={ref}
-			className={cx('gap-sm flex items-center', className)}
-			{...props}
-		>
+		<li className={cx('gap-sm flex items-center', className)} {...props}>
 			<CheckIcon className="text-success size-3" />
 			<span className="font-medium">{children}</span>
 		</li>
 	)
-})
+}
 
-PriceCardFeature.displayName = 'PriceCardFeature'
+export type PriceCardDescriptionProps = React.ComponentProps<
+	typeof CardDescription
+>
 
-export const PriceCardDescription = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => {
+export function PriceCardDescription({
+	children,
+	className,
+	...props
+}: PriceCardDescriptionProps) {
 	const { isPopular } = usePriceCard()
 	if (!children) return null
 	return (
 		<CardDescription
-			ref={ref}
 			className={cx(
 				'text-muted text-lg',
 				{
@@ -126,31 +120,35 @@ export const PriceCardDescription = React.forwardRef<
 			{children}
 		</CardDescription>
 	)
-})
-PriceCardDescription.displayName = 'PriceCardDescription'
+}
 
-export const PriceCardPrice = React.forwardRef<
-	HTMLParagraphElement,
-	Omit<React.HTMLAttributes<HTMLParagraphElement>, 'children'>
->(({ className, ...props }, ref) => {
+export type PriceCardPriceProps = React.ComponentProps<typeof H3>
+
+export function PriceCardPrice({
+	children,
+	className,
+	...props
+}: PriceCardPriceProps) {
 	const { price } = usePriceCard()
 
 	if (!price) return null
 
 	return (
-		<p ref={ref} className={cx('p-md', className)} {...props}>
+		<p className={cx('p-md', className)} {...props}>
 			<H3 as="span" className="inline text-4xl font-semibold leading-7">
 				{price}
 			</H3>
 		</p>
 	)
-})
-PriceCardPrice.displayName = 'PriceCardPrice'
+}
 
-export const PriceCardAction = React.forwardRef<
-	React.ComponentRef<typeof Link>,
-	React.ComponentPropsWithoutRef<typeof Link>
->(({ children, href, ...props }, ref) => {
+export type PriceCardActionProps = React.ComponentProps<typeof Link>
+
+export function PriceCardAction({
+	children,
+	href,
+	...props
+}: PriceCardActionProps) {
 	const { isPopular } = usePriceCard()
 
 	return (
@@ -161,25 +159,29 @@ export const PriceCardAction = React.forwardRef<
 				variant={isPopular ? 'accent' : 'default'}
 				asChild
 			>
-				<Link ref={ref} href={href} {...props}>
+				<Link href={href} {...props}>
 					{children}
 				</Link>
 			</Button>
 		</CardFooter>
 	)
-})
-PriceCardAction.displayName = 'PriceCardAction'
+}
 
-export const PriceCard = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & { isPopular?: boolean; price?: string }
->(({ children, isPopular, price, className, ...props }, ref) => {
+export interface PriceCardProps extends React.ComponentProps<typeof Card> {
+	isPopular?: boolean
+	price?: string
+}
+
+export function PriceCard({
+	children,
+	isPopular,
+	price,
+	className,
+	...props
+}: PriceCardProps) {
 	return (
-		<PriceCardContext.Provider
-			value={React.useMemo(() => ({ isPopular, price }), [isPopular, price])}
-		>
+		<PriceCardContext value={{ isPopular, price }}>
 			<Card
-				ref={ref}
 				className={cx(
 					'p-md',
 					{
@@ -192,7 +194,6 @@ export const PriceCard = React.forwardRef<
 			>
 				{children}
 			</Card>
-		</PriceCardContext.Provider>
+		</PriceCardContext>
 	)
-})
-PriceCard.displayName = 'PriceCard'
+}

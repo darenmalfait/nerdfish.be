@@ -14,13 +14,11 @@ import {
 
 const COPY_TIMOUT = 3000
 
-export function CopyButton({
-	code,
-	className,
-	...props
-}: ButtonProps & {
+export interface CopyButtonProps extends ButtonProps {
 	code: string
-}) {
+}
+
+export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 	const { handleCopy, copiedText } = useCopyToClipboard()
 
 	const label = copiedText ? 'Copied' : 'Copy'

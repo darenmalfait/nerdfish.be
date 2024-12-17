@@ -4,10 +4,17 @@ import { cx } from '@nerdfish/utils'
 import { useInView } from 'motion/react'
 import * as React from 'react'
 
-export const InViewBackground = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ children, className = 'bg-muted', ...rest }, ref) => {
+export interface InViewBackgroundProps extends React.ComponentProps<'div'> {
+	children: React.ReactNode
+	className?: string
+}
+
+export function InViewBackground({
+	children,
+	className = 'bg-muted',
+	ref,
+	...rest
+}: InViewBackgroundProps) {
 	const refObject = React.useRef<HTMLDivElement>(null)
 	React.useImperativeHandle(ref, () => refObject.current as HTMLInputElement)
 
@@ -26,6 +33,4 @@ export const InViewBackground = React.forwardRef<
 			{children}
 		</div>
 	)
-})
-
-InViewBackground.displayName = 'InViewBackground'
+}
