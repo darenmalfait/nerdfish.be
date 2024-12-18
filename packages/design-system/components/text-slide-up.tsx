@@ -53,11 +53,10 @@ export function TextSlideUp({
 	const componentRef = React.useRef<HTMLDivElement>(null)
 	React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
+	const Component = asChild ? Slot : 'div'
 	const inView = useInView(componentRef, { once: true })
-
 	const animate = eager ?? inView
 
-	const Component = asChild ? Slot : 'div'
 	return (
 		<Component ref={componentRef} className={className} {...props}>
 			{React.Children.map(children, (child, index) => {

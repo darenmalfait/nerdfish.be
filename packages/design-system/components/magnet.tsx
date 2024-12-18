@@ -27,7 +27,7 @@ export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 	const springRotate = useSpring(rotate, { damping: 20, stiffness: 300 })
 
 	React.useEffect(() => {
-		const calculateDistance = (e: MouseEvent) => {
+		function calculateDistance(e: MouseEvent) {
 			if (itemRef.current) {
 				const rect = itemRef.current.getBoundingClientRect()
 				const centerX = rect.left + rect.width / 2
@@ -60,7 +60,7 @@ export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 			}
 		}
 
-		const handleMouseMove = (e: MouseEvent) => {
+		function handleMouseMove(e: MouseEvent) {
 			requestAnimationFrame(() => calculateDistance(e))
 		}
 

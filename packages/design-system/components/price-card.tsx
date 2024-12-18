@@ -106,6 +106,7 @@ export function PriceCardDescription({
 }: PriceCardDescriptionProps) {
 	const { isPopular } = usePriceCard()
 	if (!children) return null
+
 	return (
 		<CardDescription
 			className={cx(

@@ -52,7 +52,7 @@ export function Tilt({
 
 	const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
 
-	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+	function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
 		if (!itemRef.current) return
 
 		const rect = itemRef.current.getBoundingClientRect()
@@ -68,7 +68,7 @@ export function Tilt({
 		y.set(yPos)
 	}
 
-	const handleMouseLeave = () => {
+	function handleMouseLeave() {
 		x.set(0)
 		y.set(0)
 	}

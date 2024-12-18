@@ -36,12 +36,9 @@ export function AnimatedBackground({
 
 	const uniqueId = React.useId()
 
-	const handleSetActiveId = (id: string | null) => {
+	function handleSetActiveId(id: string | null) {
 		setActiveId(id)
-
-		if (onValueChange) {
-			onValueChange(id)
-		}
+		onValueChange?.(id)
 	}
 
 	if (!children) return null
