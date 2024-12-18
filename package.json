@@ -26,6 +26,7 @@
     "test:e2e:install": "playwright install",
     "test:e2e:ui": "turbo test:e2e:ui",
     "test:e2e:inspector": "turbo test:e2e:inspector",
+    "create-package": "turbo gen",
     "vercel-build": " turbo build"
   },
   "prettier": "@nerdfish/config/prettier",
@@ -33,6 +34,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@nerdfish/config": "^1.6.1",
+    "@turbo/gen": "^2.3.3",
     "eslint": "^9.16.0",
     "husky": "^9.1.7",
     "npm-run-all2": "^7.0.1",
