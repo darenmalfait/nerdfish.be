@@ -38,19 +38,21 @@ export function useArticleOverview(): ArticleOverviewContextProps {
 
 const PAGE_SIZE = 6
 
+export interface ArticleOverviewProviderProps {
+	children: React.ReactNode
+	allArticles: Article[]
+	searchEnabled?: boolean
+	featuredArticleEnabled?: boolean
+	customFilterFunction?: (articles: Article[], filter: string) => Article[]
+}
+
 export function ArticleOverviewProvider({
 	children,
 	allArticles,
 	searchEnabled = false,
 	featuredArticleEnabled = false,
 	customFilterFunction,
-}: {
-	children: React.ReactNode
-	allArticles: Article[]
-	searchEnabled?: boolean
-	featuredArticleEnabled?: boolean
-	customFilterFunction?: (articles: Article[], filter: string) => Article[]
-}) {
+}: ArticleOverviewProviderProps) {
 	const [filter, setFilter] = React.useState('')
 	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
 
@@ -84,32 +86,20 @@ export function ArticleOverviewProvider({
 	}, [])
 
 	return (
-		<ArticleOverviewContext.Provider
-			value={React.useMemo(
-				() => ({
-					articles: filteredArticles,
-					toggleFilter,
-					filter,
-					tags,
-					setFilter,
-					searchEnabled,
-					featuredArticleEnabled,
-					itemsToShow,
-					loadMore,
-				}),
-				[
-					filteredArticles,
-					toggleFilter,
-					filter,
-					tags,
-					searchEnabled,
-					featuredArticleEnabled,
-					itemsToShow,
-					loadMore,
-				],
-			)}
+		<ArticleOverviewContext
+			value={{
+				articles: filteredArticles,
+				toggleFilter,
+				filter,
+				tags,
+				setFilter,
+				searchEnabled,
+				featuredArticleEnabled,
+				itemsToShow,
+				loadMore,
+			}}
 		>
 			{children}
-		</ArticleOverviewContext.Provider>
+		</ArticleOverviewContext>
 	)
 }

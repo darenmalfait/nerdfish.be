@@ -5,19 +5,20 @@ import { Slot } from '@radix-ui/react-slot'
 import { useInView } from 'motion/react'
 import * as React from 'react'
 
+interface TextSlideUpItemProps extends React.ComponentProps<'div'> {
+	delay?: number
+	animate?: boolean
+}
+
 function TextSlideUpItem({
 	children,
 	delay,
 	animate,
 	className,
-}: {
-	children: React.ReactNode
-	delay?: number
-	animate?: boolean
-	className?: string
-}) {
+	...props
+}: TextSlideUpItemProps) {
 	return (
-		<div className={className}>
+		<div className={className} {...props}>
 			<div
 				className={cx({
 					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] [animation-duration:800ms]':
@@ -32,54 +33,47 @@ function TextSlideUpItem({
 	)
 }
 
-export const TextSlideUp = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		staggerDelay?: number
-		delay?: number
-		asChild?: boolean
-		eager?: boolean
-	}
->(
-	(
-		{
-			children,
-			staggerDelay = 200,
-			delay = 0,
-			asChild = false,
-			eager,
-			className,
-			...props
-		},
-		ref,
-	) => {
-		const componentRef = React.useRef<HTMLDivElement>(null)
-		React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
+export interface TextSlideUpProps extends React.ComponentProps<'div'> {
+	staggerDelay?: number
+	delay?: number
+	asChild?: boolean
+	eager?: boolean
+}
 
-		const inView = useInView(componentRef, { once: true })
+export function TextSlideUp({
+	children,
+	staggerDelay = 200,
+	delay = 0,
+	asChild = false,
+	eager,
+	className,
+	ref,
+	...props
+}: TextSlideUpProps) {
+	const componentRef = React.useRef<HTMLDivElement>(null)
+	React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
-		const animate = eager ?? inView
+	const inView = useInView(componentRef, { once: true })
 
-		const Component = asChild ? Slot : 'div'
-		return (
-			<Component ref={componentRef} className={className} {...props}>
-				{React.Children.map(children, (child, index) => {
-					const stagger = staggerDelay ? index * staggerDelay : 0
-					const itemDelay = delay + stagger
+	const animate = eager ?? inView
 
-					return (
-						<TextSlideUpItem
-							className={className}
-							animate={animate}
-							delay={itemDelay}
-						>
-							{child}
-						</TextSlideUpItem>
-					)
-				})}
-			</Component>
-		)
-	},
-)
+	const Component = asChild ? Slot : 'div'
+	return (
+		<Component ref={componentRef} className={className} {...props}>
+			{React.Children.map(children, (child, index) => {
+				const stagger = staggerDelay ? index * staggerDelay : 0
+				const itemDelay = delay + stagger
 
-TextSlideUp.displayName = 'TextSlideUp'
+				return (
+					<TextSlideUpItem
+						className={className}
+						animate={animate}
+						delay={itemDelay}
+					>
+						{child}
+					</TextSlideUpItem>
+				)
+			})}
+		</Component>
+	)
+}

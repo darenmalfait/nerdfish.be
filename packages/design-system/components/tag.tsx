@@ -2,27 +2,36 @@
 
 import { cx } from '@nerdfish/utils'
 import { CustomCheckboxContainer, CustomCheckboxInput } from '@reach/checkbox'
+import * as React from 'react'
 import { type ChangeEventHandler } from 'react'
 //TODO: remove reach, use our own checkbox
 
-function Tag({
+export interface TagProps
+	extends Omit<
+		React.ComponentProps<typeof CustomCheckboxContainer>,
+		'onClick' | 'children'
+	> {
+	tag: string
+	selected?: boolean
+	onClick?: ChangeEventHandler<HTMLInputElement>
+	disabled?: boolean
+	size?: 'sm' | 'md'
+}
+
+export function Tag({
 	tag,
 	selected,
 	onClick,
 	className,
 	disabled,
 	size = 'md',
-}: {
-	tag: string
-	selected?: boolean
-	onClick?: ChangeEventHandler<HTMLInputElement>
-	disabled?: boolean
-	className?: string
-	size?: 'sm' | 'md'
-}) {
+	...props
+}: TagProps) {
 	return (
 		<CustomCheckboxContainer
 			as="label"
+			disabled={disabled}
+			{...props}
 			checked={selected}
 			onChange={onClick}
 			className={cx(
@@ -37,12 +46,9 @@ function Tag({
 				},
 				className,
 			)}
-			disabled={disabled}
 		>
 			<CustomCheckboxInput checked={selected} value={tag} className="sr-only" />
 			<span>{tag}</span>
 		</CustomCheckboxContainer>
 	)
 }
-
-export { Tag }

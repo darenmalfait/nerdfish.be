@@ -1,7 +1,6 @@
 'use client'
 
 import {
-	type MotionStyle,
 	type SpringOptions,
 	motion,
 	useMotionTemplate,
@@ -11,10 +10,7 @@ import {
 } from 'motion/react'
 import * as React from 'react'
 
-type TiltProps = {
-	children: React.ReactNode
-	className?: string
-	style?: MotionStyle
+export interface TiltProps extends React.ComponentProps<typeof motion.div> {
 	rotationFactor?: number
 	isReverse?: boolean
 	springOptions?: SpringOptions
@@ -27,8 +23,11 @@ export function Tilt({
 	rotationFactor = 15,
 	isReverse = false,
 	springOptions,
+	ref,
+	...props
 }: TiltProps) {
-	const ref = React.useRef<HTMLDivElement>(null)
+	const itemRef = React.useRef<HTMLDivElement>(null)
+	React.useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
 
 	const x = useMotionValue(0)
 	const y = useMotionValue(0)
@@ -54,9 +53,9 @@ export function Tilt({
 	const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!ref.current) return
+		if (!itemRef.current) return
 
-		const rect = ref.current.getBoundingClientRect()
+		const rect = itemRef.current.getBoundingClientRect()
 		const width = rect.width
 		const height = rect.height
 		const mouseX = e.clientX - rect.left
@@ -76,7 +75,8 @@ export function Tilt({
 
 	return (
 		<motion.div
-			ref={ref}
+			{...props}
+			ref={itemRef}
 			className={className}
 			style={{
 				transformStyle: 'preserve-3d',
