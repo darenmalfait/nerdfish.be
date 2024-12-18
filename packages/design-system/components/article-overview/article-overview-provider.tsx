@@ -56,13 +56,11 @@ export function ArticleOverviewProvider({
 	const [filter, setFilter] = React.useState('')
 	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
 
-	const filteredArticles = React.useMemo(() => {
-		return customFilterFunction
-			? customFilterFunction(allArticles, filter)
-			: filterArticles(allArticles, filter)
-	}, [allArticles, customFilterFunction, filter])
+	const filteredArticles = customFilterFunction
+		? customFilterFunction(allArticles, filter)
+		: filterArticles(allArticles, filter)
 
-	const toggleFilter = React.useCallback((tag: string) => {
+	function toggleFilter(tag: string) {
 		setFilter((current) => {
 			const currentTags = current.split(' ').filter(Boolean)
 			const tagExists = currentTags.includes(tag)
@@ -73,17 +71,15 @@ export function ArticleOverviewProvider({
 
 			return newTags.join(' ')
 		})
-	}, [])
+	}
 
-	const tags = React.useMemo(
-		() =>
-			nonNullable([...new Set(allArticles.flatMap((article) => article.tags))]),
-		[allArticles],
-	)
+	const tags = nonNullable([
+		...new Set(allArticles.flatMap((article) => article.tags)),
+	])
 
-	const loadMore = React.useCallback(() => {
+	function loadMore() {
 		setItemsToShow((i) => i + PAGE_SIZE)
-	}, [])
+	}
 
 	return (
 		<ArticleOverviewContext

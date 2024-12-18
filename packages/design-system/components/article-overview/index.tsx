@@ -282,16 +282,12 @@ export function ArticleOverviewContentGrid({
 		useArticleOverview()
 
 	const isSearching = filter.length > 0
-
 	const featured = articles.length > 0 ? articles[0] : undefined
 
-	const filteredArticles = React.useMemo(
-		() =>
-			isSearching || !featuredArticleEnabled
-				? articles
-				: articles.filter((p) => p.id !== featured?.id),
-		[isSearching, featuredArticleEnabled, articles, featured?.id],
-	)
+	const filteredArticles =
+		isSearching || !featuredArticleEnabled
+			? articles
+			: articles.filter((p) => p.id !== featured?.id)
 
 	const articlesToShow = filteredArticles.slice(0, itemsToShow)
 
