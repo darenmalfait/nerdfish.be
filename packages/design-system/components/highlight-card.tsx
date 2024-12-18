@@ -43,7 +43,7 @@ export function HighlightCardImage({
 	)
 }
 
-export type HighlightCardContentProps = React.ComponentPropsWithoutRef<'div'>
+export type HighlightCardContentProps = React.ComponentProps<'div'>
 
 export function HighlightCardContent({
 	children,
@@ -65,7 +65,7 @@ export function HighlightCardContent({
 	)
 }
 
-export type HighlightCardTitleProps = React.ComponentPropsWithoutRef<typeof H2>
+export type HighlightCardTitleProps = React.ComponentProps<typeof H2>
 
 export function HighlightCardTitle({
 	className,
@@ -103,10 +103,9 @@ export function HighlightCardSubtitle({
 	)
 }
 
-export type HighlightCardCategoryProps =
-	React.ComponentPropsWithoutRef<'div'> & {
-		value?: string | null
-	}
+export type HighlightCardCategoryProps = React.ComponentProps<'div'> & {
+	value?: string | null
+}
 
 export function HighlightCardCategory({
 	value,
@@ -132,7 +131,7 @@ export function HighlightCardCategory({
 	)
 }
 
-export type HighlightCardDescriptionProps = React.ComponentPropsWithoutRef<'p'>
+export type HighlightCardDescriptionProps = React.ComponentProps<'p'>
 
 export function HighlightCardDescription({
 	children,
@@ -155,7 +154,7 @@ export function HighlightCardDescription({
 }
 
 export interface HighlightCardCTAProps
-	extends React.ComponentPropsWithoutRef<typeof Link> {
+	extends React.ComponentProps<typeof Link> {
 	href: string
 	children: React.ReactNode
 	category?: string | null
@@ -193,8 +192,7 @@ export function HighlightCardCTA({
 	)
 }
 
-export interface HighlightCardProps
-	extends React.ComponentPropsWithoutRef<'div'> {
+export interface HighlightCardProps extends React.ComponentProps<'div'> {
 	title: string
 }
 

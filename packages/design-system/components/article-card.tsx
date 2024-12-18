@@ -87,7 +87,11 @@ export function ArticleCardContent({
 	className,
 	...props
 }: ArticleCardContentProps) {
-	return <div {...props} className={cx('mt-lg', className)} />
+	return (
+		<div {...props} className={cx('mt-md', className)}>
+			{children}
+		</div>
+	)
 }
 
 export type ArticleCardTitleProps = React.ComponentProps<typeof H3>
@@ -103,7 +107,9 @@ export function ArticleCardTitle({
 			variant="primary"
 			{...props}
 			className={cx('mb-sm !mt-0 line-clamp-2', className)}
-		/>
+		>
+			{children}
+		</H2>
 	)
 }
 

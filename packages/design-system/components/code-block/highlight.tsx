@@ -28,19 +28,25 @@ const calculateLinesToHighlight = (meta: string) => {
 	}
 }
 
+export interface HighlightProps
+	extends Omit<
+		React.ComponentProps<typeof BaseHighlight>,
+		'code' | 'language' | 'children'
+	> {
+	codeString: string
+	language: Language
+	theme: PrismTheme
+	metastring?: string
+	showLines?: boolean
+}
+
 export function Highlight({
 	codeString,
 	language,
 	metastring,
 	showLines,
 	...props
-}: {
-	codeString: string
-	language: Language
-	theme: PrismTheme
-	metastring?: string
-	showLines?: boolean
-}) {
+}: HighlightProps) {
 	const shouldHighlightLine = calculateLinesToHighlight(metastring ?? '')
 
 	return (
@@ -77,5 +83,3 @@ export function Highlight({
 		</BaseHighlight>
 	)
 }
-
-export type HighlightProps = React.ComponentProps<typeof BaseHighlight>

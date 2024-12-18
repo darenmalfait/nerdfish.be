@@ -39,10 +39,16 @@ import { type Article } from './types'
 
 export type * from './types'
 
-export const ArticleOverviewSearch = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+export interface ArticleOverviewSearchProps
+	extends React.ComponentProps<'div'> {
+	children: React.ReactNode
+}
+
+export function ArticleOverviewSearch({
+	children,
+	className,
+	...props
+}: ArticleOverviewSearchProps) {
 	const { searchEnabled } = useArticleOverview()
 
 	if (!searchEnabled) return null
@@ -53,25 +59,26 @@ export const ArticleOverviewSearch = React.forwardRef<
 				'mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12',
 				className,
 			)}
-			ref={ref}
 			{...props}
 		/>
 	)
-})
-ArticleOverviewSearch.displayName = 'ArticleOverviewSearch'
+}
 
-export const ArticleOverviewSearchImage = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		image?: Article['image'] | null
-	}
->(({ children, image, ...props }, ref) => {
+export interface ArticleOverviewSearchImageProps
+	extends React.ComponentProps<'div'> {
+	image?: Article['image'] | null
+}
+
+export function ArticleOverviewSearchImage({
+	children,
+	image,
+	...props
+}: ArticleOverviewSearchImageProps) {
 	if (!image?.src) return null
 
 	return (
 		<div
 			className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
-			ref={ref}
 			{...props}
 		>
 			<Image
@@ -85,15 +92,19 @@ export const ArticleOverviewSearchImage = React.forwardRef<
 			{children}
 		</div>
 	)
-})
-ArticleOverviewSearchImage.displayName = 'ArticleOverviewSearchImage'
+}
 
-export const ArticleOverviewSearchContent = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		inputLabel?: string
-	}
->(({ className, children, inputLabel, ...props }, ref) => {
+export interface ArticleOverviewSearchContentProps
+	extends React.ComponentProps<'div'> {
+	inputLabel?: string
+}
+
+export function ArticleOverviewSearchContent({
+	children,
+	inputLabel,
+	className,
+	...props
+}: ArticleOverviewSearchContentProps) {
 	const { filter, setFilter } = useArticleOverview()
 
 	return (
@@ -102,7 +113,6 @@ export const ArticleOverviewSearchContent = React.forwardRef<
 				'col-span-5 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 				className,
 			)}
-			ref={ref}
 			{...props}
 		>
 			<div className="flex flex-auto flex-col justify-center">
@@ -127,15 +137,19 @@ export const ArticleOverviewSearchContent = React.forwardRef<
 			</div>
 		</div>
 	)
-})
-ArticleOverviewSearchContent.displayName = 'ArticleOverviewSearchContent'
+}
 
-export const ArticleOverviewFilter = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		title?: string
-	}
->(({ children, className, title, ...props }, ref) => {
+export interface ArticleOverviewFilterProps
+	extends React.ComponentProps<'div'> {
+	title?: string
+}
+
+export function ArticleOverviewFilter({
+	children,
+	className,
+	title,
+	...props
+}: ArticleOverviewFilterProps) {
 	const {
 		searchEnabled,
 		articles,
@@ -159,7 +173,7 @@ export const ArticleOverviewFilter = React.forwardRef<
 	)
 
 	return (
-		<div ref={ref} className={cx('mb-lg', className)} {...props}>
+		<div className={cx('mb-lg', className)} {...props}>
 			<TagFilter
 				tags={tags}
 				enabledTags={enabledTags}
@@ -170,14 +184,18 @@ export const ArticleOverviewFilter = React.forwardRef<
 			</TagFilter>
 		</div>
 	)
-})
-ArticleOverviewFilter.displayName = 'ArticleOverviewFilter'
+}
+
+export interface ArticleOverviewLoadMoreButtonProps
+	extends React.ComponentProps<'div'> {
+	children: string
+}
 
 export function ArticleOverviewLoadMoreButton({
 	children,
-}: {
-	children: string
-}) {
+	className,
+	...props
+}: ArticleOverviewLoadMoreButtonProps) {
 	const { filter, featuredArticleEnabled, articles, loadMore, itemsToShow } =
 		useArticleOverview()
 
@@ -191,7 +209,10 @@ export function ArticleOverviewLoadMoreButton({
 	if (!hasMorePosts) return null
 
 	return (
-		<div className="mt-2xl flex w-full justify-center">
+		<div
+			className={cx('mt-2xl flex w-full justify-center', className)}
+			{...props}
+		>
 			<Button size="lg" variant="outline" onClick={loadMore}>
 				<span className="mr-sm">{children}</span>{' '}
 				<PlusIcon className="size-4" />
@@ -200,22 +221,31 @@ export function ArticleOverviewLoadMoreButton({
 	)
 }
 
+export interface FeaturedArticleProps
+	extends Omit<React.ComponentProps<typeof HighlightCard>, 'title'> {
+	article?: Article
+	readMoreLabel?: string
+	ariaLabel?: string
+}
+
 const FeaturedArticle = ({
 	article,
 	readMoreLabel,
 	ariaLabel,
-}: {
-	article?: Article
-	readMoreLabel?: string
-	ariaLabel?: string
-}) => {
+	className,
+	...props
+}: FeaturedArticleProps) => {
 	const { featuredArticleEnabled, filter } = useArticleOverview()
 
 	if (!featuredArticleEnabled || !article) return null
 	if (filter.length > 0) return null
 
 	return (
-		<HighlightCard className="mb-xl" title={article.title}>
+		<HighlightCard
+			className={cx('mb-xl', className)}
+			title={article.title}
+			{...props}
+		>
 			<HighlightCardContent>
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>
@@ -236,147 +266,131 @@ const FeaturedArticle = ({
 	)
 }
 
-export const ArticleOverviewContentGrid = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		readMoreLabel?: string
-		ariaLabel?: string
-	}
->(
-	(
-		{
-			children,
-			readMoreLabel = 'Read more',
-			ariaLabel = 'Read more about',
-			...props
-		},
-		ref,
-	) => {
-		const { articles, featuredArticleEnabled, filter, itemsToShow } =
-			useArticleOverview()
+export interface ArticleOverviewContentGridProps
+	extends React.ComponentProps<'div'> {
+	readMoreLabel?: string
+	ariaLabel?: string
+}
 
-		const isSearching = filter.length > 0
+export function ArticleOverviewContentGrid({
+	children,
+	readMoreLabel = 'Read more',
+	ariaLabel = 'Read more about',
+	...props
+}: ArticleOverviewContentGridProps) {
+	const { articles, featuredArticleEnabled, filter, itemsToShow } =
+		useArticleOverview()
 
-		const featured = articles.length > 0 ? articles[0] : undefined
+	const isSearching = filter.length > 0
 
-		const filteredArticles = React.useMemo(
-			() =>
-				isSearching || !featuredArticleEnabled
-					? articles
-					: articles.filter((p) => p.id !== featured?.id),
-			[isSearching, featuredArticleEnabled, articles, featured?.id],
-		)
+	const featured = articles.length > 0 ? articles[0] : undefined
 
-		const articlesToShow = filteredArticles.slice(0, itemsToShow)
+	const filteredArticles = React.useMemo(
+		() =>
+			isSearching || !featuredArticleEnabled
+				? articles
+				: articles.filter((p) => p.id !== featured?.id),
+		[isSearching, featuredArticleEnabled, articles, featured?.id],
+	)
 
-		return (
-			<div ref={ref} {...props}>
-				<FeaturedArticle
-					ariaLabel={ariaLabel}
-					readMoreLabel={readMoreLabel}
-					article={featured}
-				/>
+	const articlesToShow = filteredArticles.slice(0, itemsToShow)
 
-				<ul className="gap-x-lg gap-y-xl grid grid-cols-4 md:grid-cols-8">
-					{children}
-					{articlesToShow.map((article) => {
-						return (
-							<li
-								key={article.id}
-								className="col-span-4 transition-all duration-300"
-							>
-								<ArticleCard href={article.href} title={article.title}>
-									<ArticleCardImage
-										alt={article.title}
-										src={article.image?.src}
-										category={article.category}
-										readMoreLabel={readMoreLabel}
-									/>
-									<ArticleCardContent>
-										<ArticleCardCategory>
-											{article.category}
-										</ArticleCardCategory>
-										<ArticleCardTitle>{article.title}</ArticleCardTitle>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						)
-					})}
-				</ul>
-			</div>
-		)
-	},
-)
-ArticleOverviewContentGrid.displayName = 'ArticleOverviewContentGrid'
+	return (
+		<div {...props}>
+			<FeaturedArticle
+				ariaLabel={ariaLabel}
+				readMoreLabel={readMoreLabel}
+				article={featured}
+			/>
 
-export const ArticlesOverviewEmptyState = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & {
-		icon?: React.ElementType
-		title?: string
-		description?: string
-		clearSearch?: string
-	}
->(
-	(
-		{ icon: Icon, title, description, clearSearch, className, ...props },
-		ref,
-	) => {
-		const { setFilter, articles, searchEnabled } = useArticleOverview()
+			<ul className="gap-x-lg gap-y-lg grid grid-cols-4 md:grid-cols-8">
+				{children}
+				{articlesToShow.map((article) => {
+					return (
+						<li
+							key={article.id}
+							className="col-span-4 transition-all duration-300"
+						>
+							<ArticleCard href={article.href} title={article.title}>
+								<ArticleCardImage
+									alt={article.title}
+									src={article.image?.src}
+									category={article.category}
+									readMoreLabel={readMoreLabel}
+								/>
+								<ArticleCardContent>
+									<ArticleCardCategory>{article.category}</ArticleCardCategory>
+									<ArticleCardTitle>{article.title}</ArticleCardTitle>
+								</ArticleCardContent>
+							</ArticleCard>
+						</li>
+					)
+				})}
+			</ul>
+		</div>
+	)
+}
 
-		if (!searchEnabled) return null
-		if (articles.length > 0) return null
+export interface ArticlesOverviewEmptyStateProps
+	extends React.ComponentProps<'div'> {
+	icon?: React.ElementType
+	title?: string
+	description?: string
+	clearSearch?: string
+}
 
-		return (
-			<div
-				ref={ref}
-				className={cx('pt-xl !col-span-full', className)}
-				{...props}
-			>
-				<EmptyState>
-					<EmptyStateIcon>{Icon ? <Icon /> : <NewspaperIcon />}</EmptyStateIcon>
-					<EmptyStateTitle>{title ?? 'No articles found'}</EmptyStateTitle>
-					<EmptyStateDescription>
-						{description ?? 'Try searching for something else.'}
-					</EmptyStateDescription>
-					<EmptyStateActions>
-						<Button onClick={() => setFilter('')}>
-							{clearSearch ?? 'Clear search'}
-						</Button>
-					</EmptyStateActions>
-				</EmptyState>
-			</div>
-		)
-	},
-)
-ArticlesOverviewEmptyState.displayName = 'ArticlesOverviewEmptyState'
+export function ArticlesOverviewEmptyState({
+	icon: Icon,
+	title,
+	description,
+	clearSearch,
+	className,
+	...props
+}: ArticlesOverviewEmptyStateProps) {
+	const { setFilter, articles, searchEnabled } = useArticleOverview()
 
-export const ArticleOverview = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> &
-		React.ComponentPropsWithoutRef<typeof ArticleOverviewProvider>
->(
-	(
-		{
-			allArticles,
-			customFilterFunction,
-			searchEnabled,
-			featuredArticleEnabled,
-			...props
-		},
-		ref,
-	) => {
-		return (
-			<ArticleOverviewProvider
-				allArticles={allArticles}
-				customFilterFunction={customFilterFunction}
-				searchEnabled={searchEnabled}
-				featuredArticleEnabled={featuredArticleEnabled}
-			>
-				<div ref={ref} {...props} />
-			</ArticleOverviewProvider>
-		)
-	},
-)
+	if (!searchEnabled) return null
+	if (articles.length > 0) return null
 
-ArticleOverview.displayName = 'ArticleOverview'
+	return (
+		<div className={cx('pt-xl !col-span-full', className)} {...props}>
+			<EmptyState>
+				<EmptyStateIcon>{Icon ? <Icon /> : <NewspaperIcon />}</EmptyStateIcon>
+				<EmptyStateTitle>{title ?? 'No articles found'}</EmptyStateTitle>
+				<EmptyStateDescription>
+					{description ?? 'Try searching for something else.'}
+				</EmptyStateDescription>
+				<EmptyStateActions>
+					<Button onClick={() => setFilter('')}>
+						{clearSearch ?? 'Clear search'}
+					</Button>
+				</EmptyStateActions>
+			</EmptyState>
+		</div>
+	)
+}
+
+export type ArticleOverviewProps = React.ComponentProps<
+	typeof ArticleOverviewProvider
+>
+
+export function ArticleOverview({
+	allArticles,
+	customFilterFunction,
+	searchEnabled,
+	featuredArticleEnabled,
+	children,
+	...props
+}: ArticleOverviewProps) {
+	return (
+		<ArticleOverviewProvider
+			allArticles={allArticles}
+			customFilterFunction={customFilterFunction}
+			searchEnabled={searchEnabled}
+			featuredArticleEnabled={featuredArticleEnabled}
+			{...props}
+		>
+			{children}
+		</ArticleOverviewProvider>
+	)
+}
