@@ -5,48 +5,55 @@ import { ArrowLink } from './arrow-link'
 import { TextSlideUp } from './text-slide-up'
 import { H1, type H2 } from './ui'
 
-export const Section = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'section'> & {
-		asChild?: boolean
-	}
->(({ className, asChild, ...props }, ref) => {
+export interface SectionProps extends React.ComponentProps<'section'> {
+	asChild?: boolean
+}
+
+export function Section({ className, asChild, ...props }: SectionProps) {
 	const Component = asChild ? Slot : 'section'
 
 	return (
 		<Component
-			ref={ref}
 			className={cx('rounded-container py-xl md:py-3xl container', className)}
 			{...props}
 		/>
 	)
-})
+}
 
-Section.displayName = 'Section'
+export interface SectionHeaderTitleProps
+	extends React.ComponentProps<typeof H1> {
+	as?: React.ElementType
+}
 
-export const SectionHeaderTitle = React.forwardRef<
-	React.ComponentRef<typeof H2>,
-	React.ComponentPropsWithoutRef<typeof H2>
->(function SectionHeaderTitle({ children, className, ...props }, ref) {
+export function SectionHeaderTitle({
+	children,
+	className,
+	...props
+}: SectionHeaderTitleProps) {
 	if (!children || children === '') return null
 
 	return (
 		<H1
 			as="h2"
 			variant="primary"
-			ref={ref}
 			className={cx('mb-lg max-w-7xl font-bold', className)}
 			{...props}
 		>
 			{children}
 		</H1>
 	)
-})
+}
 
-export const SectionHeaderSubtitle = React.forwardRef<
-	React.ComponentRef<typeof H2>,
-	React.ComponentPropsWithoutRef<typeof H2>
->(function SectionHeaderSubtitle({ children, className, ...props }, ref) {
+export interface SectionHeaderSubtitleProps
+	extends React.ComponentProps<typeof H2> {
+	as?: React.ElementType
+}
+
+export function SectionHeaderSubtitle({
+	children,
+	className,
+	...props
+}: SectionHeaderSubtitleProps) {
 	if (!children || children === '') return null
 
 	return (
@@ -55,30 +62,34 @@ export const SectionHeaderSubtitle = React.forwardRef<
 				'text-muted max-w-7xl text-xl font-semibold lg:text-2xl',
 				className,
 			)}
-			ref={ref}
 			{...props}
 		>
 			{children}
 		</div>
 	)
-})
+}
 
-export const SectionHeader = React.forwardRef<
-	React.ComponentRef<'header'>,
-	React.ComponentPropsWithoutRef<'header'> & {
-		cta?: {
-			title: string
-			url: string
-		}
-		as?: React.ElementType
+export interface SectionHeaderProps extends React.ComponentProps<'header'> {
+	cta?: {
+		title: string
+		url: string
 	}
->(function SectionHeader({ cta, as, className, children, ...props }, ref) {
+	as?: React.ElementType
+}
+
+export function SectionHeader({
+	children,
+	className,
+	cta,
+	as,
+	...props
+}: SectionHeaderProps) {
 	const Element = as ?? 'header'
 
 	if (!children) return null
 
 	return (
-		<Element ref={ref} className={cx('mb-xl', className)} {...props}>
+		<Element className={cx('mb-xl', className)} {...props}>
 			<TextSlideUp>
 				{children}
 				{cta?.url ? (
@@ -91,6 +102,4 @@ export const SectionHeader = React.forwardRef<
 			</TextSlideUp>
 		</Element>
 	)
-})
-
-SectionHeader.displayName = 'SectionHeader'
+}
