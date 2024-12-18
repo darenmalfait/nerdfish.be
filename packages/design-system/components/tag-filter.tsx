@@ -32,44 +32,44 @@ function useTagFilter(): TagFilterContextProps {
 	return context
 }
 
+export interface TagFilterTagProps
+	extends Omit<React.ComponentProps<typeof Tag>, 'onClick'> {
+	tag: string
+	selected: boolean
+	onClick: (tag: string) => void
+}
+
 function FilterTag({
 	tag,
 	selected,
 	onClick,
 	disabled,
 	size,
-}: {
-	tag: string
-	selected: boolean
-	onClick: (tag: string) => void
-	disabled: boolean
-	size?: React.ComponentProps<typeof Tag>['size']
-}) {
-	const handleClick = React.useCallback(() => {
-		onClick(tag)
-	}, [tag, onClick])
-
+}: TagFilterTagProps) {
 	return (
 		<Tag
 			tag={tag}
 			selected={selected}
-			onClick={handleClick}
+			onClick={() => onClick(tag)}
 			disabled={disabled}
 			size={size}
 		/>
 	)
 }
 
-export const TagFilterTags = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentProps<'div'> & {
-		size?: React.ComponentProps<typeof Tag>['size']
-	}
->(({ size, className, ...props }, ref) => {
+export interface TagFilterTagsProps extends React.ComponentProps<'div'> {
+	size?: React.ComponentProps<typeof Tag>['size']
+}
+
+export function TagFilterTags({
+	size,
+	className,
+	...props
+}: TagFilterTagsProps) {
 	const { selectedTags, tags, enabledTags, onToggleTag } = useTagFilter()
+
 	return (
 		<div
-			ref={ref}
 			{...props}
 			className={cx(
 				'col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10',
@@ -93,20 +93,23 @@ export const TagFilterTags = React.forwardRef<
 			})}
 		</div>
 	)
-})
-TagFilterTags.displayName = 'TagFilterTags'
+}
 
-export const TagFilterTitle = React.forwardRef<
-	HTMLHeadingElement,
-	React.ComponentProps<typeof H5>
->(({ children, as = 'h2', ...props }, ref) => {
+export interface TagFilterTitleProps extends React.ComponentProps<typeof H5> {
+	as?: React.ElementType
+}
+
+export function TagFilterTitle({
+	children,
+	as = 'h2',
+	...props
+}: TagFilterTitleProps) {
 	const { selectedTags = [] } = useTagFilter()
 
 	return (
 		<H5
 			as={as}
 			className="mb-md gap-sm flex items-center justify-between"
-			ref={ref}
 			{...props}
 		>
 			{children}
@@ -130,16 +133,19 @@ export const TagFilterTitle = React.forwardRef<
 			</Drawer>
 		</H5>
 	)
-})
-TagFilterTitle.displayName = 'TagFilterTitle'
+}
+
+export interface TagFilterProps extends TagFilterContextProps {
+	children: React.ReactNode
+}
 
 export function TagFilter({
 	selectedTags = [],
 	children,
 	...tagsProps
-}: { children: React.ReactNode } & TagFilterContextProps) {
+}: TagFilterProps) {
 	return (
-		<TagFilterContext.Provider
+		<TagFilterContext
 			value={React.useMemo(() => {
 				return {
 					selectedTags,
@@ -149,6 +155,6 @@ export function TagFilter({
 		>
 			{children}
 			<TagFilterTags className="hidden lg:flex" />
-		</TagFilterContext.Provider>
+		</TagFilterContext>
 	)
 }

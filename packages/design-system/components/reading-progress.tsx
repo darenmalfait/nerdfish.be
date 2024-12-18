@@ -4,13 +4,12 @@ import { cx } from '@nerdfish/utils'
 import NumberFlow from '@number-flow/react'
 import * as React from 'react'
 
-export function ReadingProgress({
-	offset = 0,
-	title,
-}: {
+export interface ReadingProgressProps {
 	offset?: number
 	title?: string
-}) {
+}
+
+export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 	const [completion, setCompletion] = React.useState(0)
 
 	React.useEffect(() => {
