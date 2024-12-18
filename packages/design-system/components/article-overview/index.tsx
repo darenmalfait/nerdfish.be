@@ -60,7 +60,9 @@ export function ArticleOverviewSearch({
 				className,
 			)}
 			{...props}
-		/>
+		>
+			{children}
+		</div>
 	)
 }
 
