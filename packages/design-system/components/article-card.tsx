@@ -9,6 +9,7 @@ import { ArrowRightIcon } from '../lib/icons'
 import { getCategoryColors } from './category-indicator'
 import { Cursor } from './cursor'
 import { DateFormatter } from './date-formatter'
+import { TextBalancer } from './text-balancer'
 import { Badge, H2, type H3, Skeleton } from './ui'
 
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
@@ -108,7 +109,7 @@ export function ArticleCardTitle({
 			{...props}
 			className={cx('mb-sm !mt-0 line-clamp-2', className)}
 		>
-			{children}
+			<TextBalancer>{children}</TextBalancer>
 		</H2>
 	)
 }

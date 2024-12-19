@@ -7,6 +7,7 @@ import * as React from 'react'
 import { ArrowRightIcon } from '../lib/icons'
 import { getCategoryColors } from './category-indicator'
 import { MagnetButton } from './magnet'
+import { TextBalancer } from './text-balancer'
 import { Badge, H1, type H2 } from './ui'
 
 export interface HighlightCardImageProps extends React.ComponentProps<'div'> {
@@ -69,9 +70,10 @@ export type HighlightCardTitleProps = React.ComponentProps<typeof H2>
 
 export function HighlightCardTitle({
 	className,
+	children,
 	...props
 }: HighlightCardTitleProps) {
-	if (!props.children) return null
+	if (!children) return null
 
 	return (
 		<H1
@@ -79,7 +81,9 @@ export function HighlightCardTitle({
 			as="h2"
 			className={cx('mt-0 md:!text-5xl xl:!text-7xl', className)}
 			{...props}
-		/>
+		>
+			<TextBalancer>{children}</TextBalancer>
+		</H1>
 	)
 }
 
