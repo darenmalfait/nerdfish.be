@@ -2,6 +2,7 @@ import { cx } from '@nerdfish/utils'
 import { Slot } from '@radix-ui/react-slot'
 import * as React from 'react'
 import { ArrowLink } from './arrow-link'
+import { TextBalancer } from './text-balancer'
 import { TextSlideUp } from './text-slide-up'
 import { H1, type H2 } from './ui'
 
@@ -39,7 +40,7 @@ export function SectionHeaderTitle({
 			className={cx('mb-lg max-w-7xl font-bold', className)}
 			{...props}
 		>
-			{children}
+			<TextBalancer>{children}</TextBalancer>
 		</H1>
 	)
 }
@@ -64,7 +65,7 @@ export function SectionHeaderSubtitle({
 			)}
 			{...props}
 		>
-			{children}
+			<TextBalancer>{children}</TextBalancer>
 		</div>
 	)
 }

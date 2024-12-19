@@ -2,6 +2,7 @@ import { cx } from '@nerdfish/utils'
 import { DateFormatter } from '@repo/design-system/components/date-formatter'
 import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
+import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { H1, Separator } from '@repo/design-system/components/ui'
 import { tinaField } from 'tinacms/dist/react'
 import { BackToWiki } from './misc'
@@ -34,7 +35,7 @@ function WikiContent({ data }: { data: WikiQueryQuery }) {
 						data-tina-field={tinaField(data.wiki, 'title')}
 						className="w-auto"
 					>
-						{title}
+						<TextBalancer>{title}</TextBalancer>
 					</H1>
 				</header>
 
