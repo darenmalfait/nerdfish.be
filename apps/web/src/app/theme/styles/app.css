@@ -23,13 +23,6 @@
 	pointer-events: none;
 }
 
-[data-rmiz-wrap='visible'],
-[data-rmiz-wrap='hidden'] {
-	width: 100%;
-	height: 100%;
-	display: block !important;
-}
-
 a {
 	color: var(--colors-accent);
 }
