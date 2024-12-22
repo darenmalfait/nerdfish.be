@@ -14,9 +14,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.6.0
         version: 19.6.0
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:packages/typescript-config
       '@turbo/gen':
         specifier: ^2.3.3
         version: 2.3.3(@types/node@22.10.1)(typescript@5.7.2)
@@ -57,9 +57,9 @@ importers:
         specifier: ^3.0.4
         version: 3.0.4(@opentelemetry/api@1.9.0)(@playwright/test@1.49.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -91,9 +91,9 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -221,9 +221,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -371,9 +371,9 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -387,9 +387,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -420,12 +420,12 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@repo/env':
         specifier: workspace:*
         version: link:../env
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -442,12 +442,12 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
       '@repo/env':
         specifier: workspace:*
         version: link:../env
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       next:
         specifier: 15.1.0
         version: 15.1.0(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.49.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -464,9 +464,9 @@ importers:
         specifier: 19.0.0
         version: 19.0.0
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -492,9 +492,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
@@ -523,9 +523,9 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.7.2)
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/lodash.merge':
         specifier: ^4.6.9
         version: 4.6.9
@@ -563,12 +563,18 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2)))
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       eslint:
         specifier: ^9.16.0
         version: 9.16.0(jiti@1.21.6)
+
+  packages/typescript-config:
+    dependencies:
+      '@nerdfish/config':
+        specifier: ^1.6.1
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.1))(@typescript-eslint/utils@8.15.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(prettier@3.4.1)(typescript@5.7.2)
 
 packages:
 
