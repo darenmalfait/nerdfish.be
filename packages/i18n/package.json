@@ -15,8 +15,8 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@nerdfish/config": "^1.6.1",
     "@repo/env": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "next": "15.1.0",
     "typescript": "^5.7.2"
   }

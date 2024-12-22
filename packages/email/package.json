@@ -16,7 +16,7 @@
     "resend": "^4.0.1"
   },
   "devDependencies": {
-    "@nerdfish/config": "^1.6.1",
+    "@repo/typescript-config": "workspace:*",
     "typescript": "^5.7.2"
   }
 }

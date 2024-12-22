@@ -15,7 +15,7 @@
     "tailwindcss-motion": "^1.0.0"
   },
   "devDependencies": {
-    "@nerdfish/config": "^1.6.1",
+    "@repo/typescript-config": "workspace:*",
     "eslint": "^9.16.0"
   }
 }

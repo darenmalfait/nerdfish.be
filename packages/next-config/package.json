@@ -12,8 +12,8 @@
     "next-secure-headers": "^2.2.0"
   },
   "devDependencies": {
-    "@nerdfish/config": "^1.6.1",
     "@repo/env": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "next": "15.1.0",
     "react": "19.0.0",
     "react-dom": "19.0.0"
