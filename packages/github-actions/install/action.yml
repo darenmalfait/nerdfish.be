@@ -13,8 +13,6 @@ runs:
       run: npm i -g turbo
 
     - uses: pnpm/action-setup@v4
-      with:
-        version: 9.15.0
 
     - uses: actions/cache@v3
       name: pnpm-cache
