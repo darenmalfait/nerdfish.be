@@ -90,9 +90,7 @@ export function BookingBlock(props: Block<PageBlocksBooking>) {
 																className="inline-flex w-auto items-center"
 															>
 																<ClockIcon className="mr-sm size-3" />
-																{
-																	duration
-																} minutes
+																{duration} minutes
 															</Badge>
 														</div>
 													</div>
