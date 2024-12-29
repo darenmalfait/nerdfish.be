@@ -282,9 +282,9 @@ importers:
         specifier: ^4.0.22
         version: 4.0.22(react@19.0.0)(zod@3.24.1)
     devDependencies:
-      '@nerdfish/config':
-        specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.2)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/design-system:
     dependencies:
@@ -343,6 +343,9 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/react':
         specifier: 19.0.2
         version: 19.0.2
