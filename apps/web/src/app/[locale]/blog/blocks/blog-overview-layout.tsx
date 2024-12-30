@@ -21,9 +21,10 @@ import {
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
+import { type Post } from 'content-collections'
 import * as React from 'react'
 import { filterBlog, mapBlogToArticle } from '../utils'
-import { type Block, type Blog, type PageBlocksBlog } from '~/app/cms/types'
+import { type Block, type PageBlocksBlog } from '~/app/cms/types'
 
 export function BlockLayout({
 	searchEnabled,
@@ -35,7 +36,7 @@ export function BlockLayout({
 	children?: React.ReactNode
 	searchEnabled: boolean
 	featuredEnabled: boolean
-	items: PartialDeep<Blog>[]
+	items: PartialDeep<Post>[]
 	header: Block<PageBlocksBlog>['header']
 }) {
 	const t = useTranslations('blog')

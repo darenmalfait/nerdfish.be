@@ -5,6 +5,7 @@ export interface Article {
 		src?: string
 		alt?: string
 	}
+	base64Placeholder?: string
 	href: string
 	excerpt?: string
 	tags?: string[]

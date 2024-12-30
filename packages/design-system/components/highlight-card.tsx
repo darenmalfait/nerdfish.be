@@ -13,12 +13,14 @@ import { Badge, H1, type H2 } from './ui'
 export interface HighlightCardImageProps extends React.ComponentProps<'div'> {
 	src?: string | null
 	alt?: string
+	base64Placeholder?: string
 }
 
 export function HighlightCardImage({
 	src,
 	alt,
 	className,
+	base64Placeholder,
 	...props
 }: HighlightCardImageProps) {
 	if (!src) return null
@@ -33,11 +35,13 @@ export function HighlightCardImage({
 		>
 			{src ? (
 				<Image
-					className="motion-blur-in-3xl motion-duration-500 absolute inset-0 object-cover"
+					className="absolute inset-0 object-cover"
 					src={src}
 					width={550}
 					height={550}
 					alt={alt ?? ''}
+					placeholder={base64Placeholder ? 'blur' : undefined}
+					blurDataURL={base64Placeholder}
 				/>
 			) : null}
 		</div>

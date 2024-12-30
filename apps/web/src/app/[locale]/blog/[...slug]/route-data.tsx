@@ -1,17 +1,17 @@
 import { type Locale } from '@repo/i18n/types'
 import { notFound } from 'next/navigation'
 import * as React from 'react'
-import { getBlogPost } from '../api'
+import { blog } from '../api'
 
 export const getRouteData = React.cache(async function getRouteData(
 	slug: string,
 	locale?: Locale,
 ) {
-	const relativePath = `${locale ? `${locale}/` : ''}${decodeURIComponent(slug)}.mdx`
+	const post = await blog.getPost({ slug: decodeURIComponent(slug), locale })
 
-	const result = await getBlogPost(relativePath)
+	if (!post) return notFound()
 
-	if (!result) return notFound()
-
-	return result
+	return {
+		post,
+	}
 })

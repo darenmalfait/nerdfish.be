@@ -1,0 +1,30 @@
+{
+  "name": "@repo/content-collections",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@content-collections/cli": "^0.1.6",
+    "@content-collections/core": "^0.8.0",
+    "@content-collections/mdx": "^0.2.0",
+    "@content-collections/next": "^0.2.4",
+    "@repo/design-system": "workspace:*",
+    "@repo/env": "workspace:*",
+    "fumadocs-core": "^14.6.8",
+    "lodash": "^4.17.21",
+    "lqip-modern": "^2.2.1",
+    "react": "^19.0.0",
+    "reading-time": "^1.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "next": "15.0.4"
+  }
+}

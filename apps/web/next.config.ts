@@ -1,8 +1,8 @@
+import { withContentCollections } from '@repo/content-collections/plugin'
 import { withTranslations } from '@repo/i18n/plugin'
 import { withAnalyzer, config } from '@repo/next-config'
 import { type NextConfig } from 'next'
 
-/** @type {import('next').NextConfig} */
 let nextConfig: NextConfig = {
 	...config,
 	images: {
@@ -25,4 +25,7 @@ if (process.env.ANALYZE === 'true') {
 // Add internationalization support
 nextConfig = withTranslations('./request-config.ts', nextConfig)
 
-export default nextConfig
+export default withContentCollections(
+	// unsure why this needs to be a promise, it's not
+	nextConfig as Promise<NextConfig>,
+)
