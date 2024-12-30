@@ -66,7 +66,7 @@ export function ArticleCardImage({
 
 			{src ? (
 				<Image
-					className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
+					className="rounded-container absolute inset-0 size-full object-cover"
 					src={src}
 					width={550}
 					height={550}

@@ -22,7 +22,7 @@ function BlogContent({
 	relatedContent?: React.ReactNode
 	locale: Locale
 }) {
-	const { title, date, excerpt, heroImg, body } = data
+	const { title, date, excerpt, heroImg, body, imageBlur } = data
 
 	const jsonLd: WithContext<BlogPosting> = {
 		'@type': 'BlogPosting',
@@ -77,7 +77,9 @@ function BlogContent({
 									aria-hidden
 									src={heroImg.src}
 									alt={heroImg.alt}
-									className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
+									placeholder={imageBlur ? 'blur' : undefined}
+									blurDataURL={imageBlur}
+									className="rounded-container absolute inset-0 size-full object-cover"
 									width={900}
 									height={900}
 								/>
