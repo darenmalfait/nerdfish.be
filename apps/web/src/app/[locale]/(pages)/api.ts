@@ -4,7 +4,6 @@ import { tina } from '~/app/cms/client'
 import {
 	type ContentQueryQuery,
 	type Product,
-	type Wiki,
 	type Work,
 } from '~/app/cms/types'
 
@@ -19,9 +18,6 @@ export async function getPages() {
 export function mapPageData(data: ContentQueryQuery) {
 	return {
 		...data,
-		wikis: data.wikiConnection.edges?.map((item) => ({
-			...(item?.node ?? {}),
-		})) as Wiki[],
 		works: data.workConnection.edges?.map((item) => ({
 			...(item?.node ?? {}),
 		})) as Work[],

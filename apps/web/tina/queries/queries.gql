@@ -25,23 +25,6 @@ query contentQuery($relativePath: String!) {
 		}
 	}
 
-	wikiConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...WikiParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
-
 	productConnection {
 		edges {
 			node {
@@ -70,16 +53,6 @@ query workQuery($relativePath: String!) {
 	}
 }
 
-query wikiQuery($relativePath: String!) {
-	wiki(relativePath: $relativePath) {
-		...WikiParts
-		_sys {
-			relativePath
-			breadcrumbs
-		}
-	}
-}
-
 query sitemapQuery {
 	pageConnection {
 		edges {
@@ -101,19 +74,6 @@ query sitemapQuery {
 				id
 				date
 				category
-				_sys {
-					filename
-					breadcrumbs
-				}
-			}
-		}
-	}
-	wikiConnection {
-		edges {
-			node {
-				title
-				id
-				date
 				_sys {
 					filename
 					breadcrumbs
