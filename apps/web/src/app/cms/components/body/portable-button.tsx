@@ -27,6 +27,7 @@ function PortableButton({
 					href={slug}
 					aria-label={text}
 					target={isExternal ? '_blank' : undefined}
+					rel={isExternal ? 'noopener noreferrer' : undefined}
 				>
 					{text}
 				</Link>
