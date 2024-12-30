@@ -45,6 +45,7 @@ export interface ArticleCardImageProps {
 	alt: string | null
 	category?: string | null
 	readMoreLabel?: string
+	base64Placeholder?: string
 }
 
 export function ArticleCardImage({
@@ -52,6 +53,7 @@ export function ArticleCardImage({
 	alt,
 	category,
 	readMoreLabel = 'Read More',
+	base64Placeholder,
 }: ArticleCardImageProps) {
 	return (
 		<div
@@ -69,6 +71,8 @@ export function ArticleCardImage({
 					width={550}
 					height={550}
 					alt={alt ?? ''}
+					placeholder={base64Placeholder ? 'blur' : undefined}
+					blurDataURL={base64Placeholder}
 				/>
 			) : null}
 

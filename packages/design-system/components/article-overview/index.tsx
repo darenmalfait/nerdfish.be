@@ -315,6 +315,7 @@ export function ArticleOverviewContentGrid({
 									src={article.image?.src}
 									category={article.category}
 									readMoreLabel={readMoreLabel}
+									base64Placeholder={article.base64Placeholder}
 								/>
 								<ArticleCardContent>
 									<ArticleCardCategory>{article.category}</ArticleCardCategory>

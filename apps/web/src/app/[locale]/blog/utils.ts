@@ -107,5 +107,6 @@ export function mapBlogToArticle(posts: PartialDeep<Post>[]): Article[] {
 					alt: post.heroImg.alt ?? post.title ?? 'untitled',
 				}
 			: undefined,
+		base64Placeholder: post.imageBlur,
 	}))
 }
