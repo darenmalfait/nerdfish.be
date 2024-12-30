@@ -272,12 +272,14 @@ export interface ArticleOverviewContentGridProps
 	extends React.ComponentProps<'div'> {
 	readMoreLabel?: string
 	ariaLabel?: string
+	maxColumns?: number
 }
 
 export function ArticleOverviewContentGrid({
 	children,
 	readMoreLabel = 'Read more',
 	ariaLabel = 'Read more about',
+	maxColumns = 2,
 	...props
 }: ArticleOverviewContentGridProps) {
 	const { articles, featuredArticleEnabled, filter, itemsToShow } =
@@ -301,13 +303,20 @@ export function ArticleOverviewContentGrid({
 				article={featured}
 			/>
 
-			<ul className="gap-x-lg gap-y-lg grid grid-cols-4 md:grid-cols-8">
+			<ul
+				className={cx(
+					'gap-x-lg gap-y-lg grid grid-cols-1',
+					maxColumns > 1 && 'md:grid-cols-2',
+					maxColumns > 2 && 'lg:grid-cols-3',
+					maxColumns > 3 && 'xl:grid-cols-4',
+				)}
+			>
 				{children}
 				{articlesToShow.map((article) => {
 					return (
 						<li
 							key={article.id}
-							className="col-span-4 transition-all duration-300"
+							className="col-span-1 transition-all duration-300"
 						>
 							<ArticleCard href={article.href} title={article.title}>
 								<ArticleCardImage

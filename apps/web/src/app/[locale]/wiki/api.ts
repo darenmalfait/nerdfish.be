@@ -1,17 +1,15 @@
-import { tina } from '~/app/cms/client'
+import { allWikis } from 'content-collections'
 
-export async function getWikiPosts() {
-	const wikiListData = await tina.queries.wikiConnection()
-
-	return wikiListData.data.wikiConnection.edges?.map((item) => ({
-		...item?.node,
-	}))
-}
-
-export async function getWikiPost(relativePath: string) {
-	return tina.queries
-		.wikiQuery({
-			relativePath,
+export const wiki = {
+	getWikis: async () => {
+		return allWikis.sort((a, b) => {
+			return new Date(b.date).getTime() - new Date(a.date).getTime()
 		})
-		.catch(() => null)
+	},
+	getLatestWiki: async () => {
+		return allWikis[0]
+	},
+	getWiki: async (slug: string) => {
+		return allWikis.find((item) => item.slug === slug)
+	},
 }

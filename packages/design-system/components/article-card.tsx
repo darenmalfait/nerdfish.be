@@ -55,6 +55,8 @@ export function ArticleCardImage({
 	readMoreLabel = 'Read More',
 	base64Placeholder,
 }: ArticleCardImageProps) {
+	if (!src) return null
+
 	return (
 		<div
 			className={cx(

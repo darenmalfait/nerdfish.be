@@ -92,21 +92,21 @@ export function getBlogPath(post: PartialDeep<Post>) {
 	return `${localePath}${blogPath}`
 }
 
-export function mapBlogToArticle(posts: PartialDeep<Post>[]): Article[] {
-	return posts.map((post) => ({
-		id: post.id ?? uniqueId(),
-		title: post.title ?? 'untitled',
-		description: post.excerpt,
-		href: getBlogPath(post),
-		tags: nonNullable(post.tags ?? []),
-		category: post.category,
-		date: post.date,
-		image: post.heroImg?.src
+export function mapBlogToArticle(items: PartialDeep<Post>[]): Article[] {
+	return items.map((item) => ({
+		id: item.id ?? uniqueId(),
+		title: item.title ?? 'untitled',
+		description: item.excerpt,
+		href: getBlogPath(item),
+		tags: nonNullable(item.tags ?? []),
+		category: item.category,
+		date: item.date,
+		image: item.heroImg?.src
 			? {
-					src: post.heroImg.src,
-					alt: post.heroImg.alt ?? post.title ?? 'untitled',
+					src: item.heroImg.src,
+					alt: item.heroImg.alt ?? item.title ?? 'untitled',
 				}
 			: undefined,
-		base64Placeholder: post.imageBlur,
+		base64Placeholder: item.imageBlur,
 	}))
 }

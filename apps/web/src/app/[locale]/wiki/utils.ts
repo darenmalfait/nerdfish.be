@@ -1,9 +1,11 @@
+import { type Article } from '@repo/design-system/components/article-overview'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
+import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { type Wiki } from 'content-collections'
+import { uniqueId } from 'lodash'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type SystemInfo, type Wiki } from '~/app/cms/types'
 
-const WikiPath = 'wiki'
-
-export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
+export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 	if (!searchString) return posts
 
 	const options = {
@@ -75,9 +77,17 @@ export function filterWiki(posts: Partial<Wiki>[], searchString: string) {
 	return Array.from(new Set([...allResults, ...individualWordResults]))
 }
 
-export function getWikiPath(
-	wiki: Omit<Partial<Wiki>, '_sys'> & { _sys?: Partial<SystemInfo> },
-) {
-	const path = wiki._sys?.breadcrumbs?.join('/')
-	return path ? `/${WikiPath}/${path}` : ''
+export function getWikiPath(post: PartialDeep<Wiki>) {
+	return `/wiki/${post.slug}`
+}
+
+export function mapWikiToArticle(items: PartialDeep<Wiki>[]): Article[] {
+	return items.map((item) => ({
+		id: item.id ?? uniqueId(),
+		title: item.title ?? 'untitled',
+		description: item.excerpt,
+		href: getWikiPath(item),
+		tags: nonNullable(item.tags ?? []),
+		date: item.date,
+	}))
 }

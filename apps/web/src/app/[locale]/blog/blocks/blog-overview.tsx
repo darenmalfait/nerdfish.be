@@ -46,27 +46,27 @@ export async function BlogOverviewBlockContent(
 		'@context': 'https://schema.org',
 	}
 
-	const localizedPosts = await blog.getPosts({ locale })
+	const localizedItems = await blog.getPosts({ locale })
 
-	const relatedBlogs =
+	const relatedItems =
 		relatedTo &&
-		localizedPosts
+		localizedItems
 			.sort((a, b) => {
 				// I want to get the index of the previous item, to be the first item in the array
 				const relatedToIndex =
-					localizedPosts.findIndex((post) => post.slug === relatedTo.slug) - 2
+					localizedItems.findIndex((post) => post.slug === relatedTo.slug) - 2
 				if (relatedToIndex < 0) return 0
 
-				const aIndex = localizedPosts.indexOf(a)
-				const bIndex = localizedPosts.indexOf(b)
+				const aIndex = localizedItems.indexOf(a)
+				const bIndex = localizedItems.indexOf(b)
 
 				// Adjust indices to start after relatedTo
 				const adjustedAIndex =
-					(aIndex - relatedToIndex - 1 + localizedPosts.length) %
-					localizedPosts.length
+					(aIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
 				const adjustedBIndex =
-					(bIndex - relatedToIndex - 1 + localizedPosts.length) %
-					localizedPosts.length
+					(bIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
 
 				return adjustedAIndex - adjustedBIndex
 			})
@@ -74,10 +74,10 @@ export async function BlogOverviewBlockContent(
 			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const blogs = relatedTo
-		? relatedBlogs?.length
-			? relatedBlogs
-			: localizedPosts.filter((post) => !isSameBlogPost(post, relatedTo))
-		: localizedPosts.filter((post) => !isSameBlogPost(post, relatedTo))
+		? relatedItems?.length
+			? relatedItems
+			: localizedItems.filter((post) => !isSameBlogPost(post, relatedTo))
+		: localizedItems.filter((post) => !isSameBlogPost(post, relatedTo))
 
 	const items = relatedTo ? blogs : filterBlog(blogs, tags?.join(' ') ?? '')
 

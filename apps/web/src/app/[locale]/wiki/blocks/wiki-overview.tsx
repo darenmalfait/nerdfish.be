@@ -1,226 +1,115 @@
-/* eslint-disable complexity */
-'use client'
-
-import { cx } from '@nerdfish/utils'
 import {
 	ArticleCard,
+	ArticleCardCategory,
 	ArticleCardContent,
-	ArticleCardDescription,
+	ArticleCardImage,
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/design-system/components/section'
-import {
-	TagFilter,
-	TagFilterTitle,
-} from '@repo/design-system/components/tag-filter'
-import {
-	Button,
-	EmptyState,
-	EmptyStateActions,
-	EmptyStateDescription,
-	EmptyStateIcon,
-	EmptyStateTitle,
-	Input,
-	Separator,
-} from '@repo/design-system/components/ui'
-import { BookIcon, PlusIcon, SearchIcon } from '@repo/design-system/lib/icons'
-import { nonNullable } from '@repo/design-system/lib/utils/array'
-import { useTranslations } from '@repo/i18n/client'
-import Image from 'next/image'
+import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
+import { Skeleton } from '@repo/design-system/components/ui'
+import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { type Wiki, type Post } from 'content-collections'
 import * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
-import { filterWiki, getWikiPath } from '../utils'
-import { PortableText } from '~/app/cms/components/portable-text'
+import { wiki } from '../api'
+import { filterWiki } from '../utils'
+import { BlockLayout } from './wiki-overview-layout'
 import { type Block, type PageBlocksWiki } from '~/app/cms/types'
 
-// should be divisible by 3 and 2 (large screen, and medium screen).
-const PAGE_SIZE = 6
+function isSame(post: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
+	return post.slug === relatedTo?.slug
+}
 
-export function WikiOverviewBlock(data: Block<PageBlocksWiki>) {
-	const t = useTranslations('wiki')
-	const { header, searchEnabled, tags, count, globalData } = data
-	const { wikis: allPosts = [] } = globalData ?? {}
-	const { title, subtitle, link } = header ?? {}
-	const [query, setQuery] = React.useState('')
-	const [indexToShow, setIndexToShow] = React.useState(PAGE_SIZE)
+export async function WikiOverviewBlockContent(
+	data: Block<PageBlocksWiki> & {
+		relatedTo?: PartialDeep<Wiki>
+	},
+) {
+	const { header, searchEnabled, tags, count, relatedTo } = data
 
-	let filteredPosts =
-		tags && tags.length > 0 ? filterWiki(allPosts, tags.join(' ')) : allPosts
+	const localizedItems = await wiki.getWikis()
 
-	const allTags = nonNullable([
-		...new Set(filteredPosts.flatMap((post) => post.tags)),
-	])
+	const relatedItems =
+		relatedTo &&
+		localizedItems
+			.sort((a, b) => {
+				// I want to get the index of the previous item, to be the first item in the array
+				const relatedToIndex =
+					localizedItems.findIndex((post) => post.slug === relatedTo.slug) - 2
+				if (relatedToIndex < 0) return 0
 
-	if (count) {
-		filteredPosts = filteredPosts.slice(0, count)
-	}
+				const aIndex = localizedItems.indexOf(a)
+				const bIndex = localizedItems.indexOf(b)
 
-	const matchingPosts = React.useMemo(() => {
-		return filterWiki(filteredPosts, query)
-	}, [filteredPosts, query])
+				// Adjust indices to start after relatedTo
+				const adjustedAIndex =
+					(aIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
+				const adjustedBIndex =
+					(bIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
 
-	const posts = matchingPosts.slice(0, indexToShow)
-	const hasMorePosts = indexToShow < matchingPosts.length
+				return adjustedAIndex - adjustedBIndex
+			})
+			.filter((post) => !isSame(post, relatedTo))
+			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
-	const enabledTags = nonNullable([
-		...new Set(matchingPosts.flatMap((post) => post.tags)),
-	])
-	const selectedTags = allTags.filter((tag) => query.includes(tag))
+	const wikis = relatedTo
+		? relatedItems?.length
+			? relatedItems
+			: localizedItems.filter((post) => !isSame(post, relatedTo))
+		: localizedItems.filter((post) => !isSame(post, relatedTo))
 
-	function toggleTag(tag: string) {
-		setQuery((q) => {
-			// create a regexp so that we can replace multiple occurrences (`react node react`)
-			const expression = new RegExp(tag, 'ig')
+	const items = relatedTo ? wikis : filterWiki(wikis, tags?.join(' ') ?? '')
 
-			const newQuery = expression.test(q)
-				? q.replace(expression, '')
-				: `${q} ${tag}`
-
-			// trim and remove subsequent spaces (`react   node ` => `react node`)
-			return newQuery.replace(/\s+/g, ' ').trim()
-		})
-	}
+	const limitedItems = count ? items.slice(0, count) : items
 
 	return (
-		<Section>
-			{searchEnabled ? (
-				<div>
-					<div
-						data-tina-field={tinaField(data, 'header')}
-						className="mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12"
-					>
-						{header?.image?.src ? (
-							<div
-								data-tina-field={tinaField(data, 'header')}
-								className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
-							>
-								<Image
-									className="rounded-xl"
-									src={header.image.src}
-									width={550}
-									height={550}
-									loading="eager"
-									alt={header.image.alt ?? header.title ?? ''}
-								/>
-							</div>
-						) : null}
-						<div
-							className={cx(
-								'col-span-full lg:row-start-1 lg:flex lg:h-full lg:flex-col',
-								{
-									'lg:col-span-5 lg:col-start-1': header?.image?.src,
-								},
-							)}
-						>
-							<div className="flex flex-auto flex-col justify-center">
-								<SectionHeader>
-									<SectionHeaderTitle>{title}</SectionHeaderTitle>
-									<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-								</SectionHeader>
+		<BlockLayout
+			searchEnabled={searchEnabled ?? false}
+			featuredEnabled={false}
+			items={limitedItems}
+			header={header}
+		/>
+	)
+}
 
-								<Input
-									type="search"
-									value={query}
-									onChange={(event) => {
-										setQuery(event.currentTarget.value.toLowerCase())
-									}}
-									className="shadow-outline"
-									name="q"
-									placeholder="Search"
-									icon={SearchIcon}
-									inputSize="lg"
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			) : null}
+export async function WikiOverviewBlock(
+	data: Block<PageBlocksWiki> & {
+		relatedTo?: PartialDeep<Wiki>
+	},
+) {
+	const { header, searchEnabled } = data
 
-			{searchEnabled && allTags.length > 0 ? (
-				<div className="mb-lg">
-					<TagFilter
-						tags={allTags}
-						enabledTags={enabledTags}
-						onToggleTag={toggleTag}
-						selectedTags={selectedTags}
-					>
-						<TagFilterTitle>{t('filterByTopic')}</TagFilterTitle>
-					</TagFilter>
-				</div>
-			) : null}
-
-			<div className="mx-auto flex flex-col lg:max-w-3xl">
-				{!searchEnabled && (title ?? subtitle) ? (
-					<div data-tina-field={tinaField(data, 'header')}>
-						<SectionHeader
-							cta={{
-								title: t('seeAll'),
-								url: link ?? '',
-							}}
-						>
-							<SectionHeaderTitle>{title}</SectionHeaderTitle>
-							<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-						</SectionHeader>
-					</div>
-				) : null}
-
-				{matchingPosts.length === 0 ? (
-					<EmptyState>
-						<EmptyStateIcon>
-							<BookIcon />
-						</EmptyStateIcon>
-						<EmptyStateTitle>No wiki pages found</EmptyStateTitle>
-						<EmptyStateDescription>
-							Try searching for something else.
-						</EmptyStateDescription>
-						<EmptyStateActions>
-							<Button onClick={() => setQuery('')}>Clear search</Button>
-						</EmptyStateActions>
-					</EmptyState>
-				) : (
-					<ul>
-						{posts.map((wiki, i) => {
-							return (
-								<li key={wiki._sys?.filename} className="mx-auto flex flex-col">
-									<ArticleCard
-										href={getWikiPath(wiki)}
-										title={wiki.title ?? ''}
-									>
-										<ArticleCardContent className="my-0">
-											<ArticleCardTitle className="group-hover:underline">
-												{wiki.title}
-											</ArticleCardTitle>
-											<ArticleCardDescription>
-												<PortableText content={wiki.excerpt} />
-											</ArticleCardDescription>
-										</ArticleCardContent>
-									</ArticleCard>
-									{i < posts.length - 1 ? <Separator className="my-8" /> : null}
-								</li>
-							)
-						})}
-					</ul>
-				)}
-
-				{hasMorePosts ? (
-					<div className="mt-2xl flex w-full justify-center">
-						<Button
-							size="lg"
-							disabled={!hasMorePosts}
-							variant="outline"
-							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
-						>
-							<span className="mr-sm">{t('loadMore')}</span>
-							<PlusIcon className="size-4" />
-						</Button>
-					</div>
-				) : null}
-			</div>
-		</Section>
+	return (
+		<React.Suspense
+			fallback={
+				<BlockLayout
+					featuredEnabled={false}
+					searchEnabled={searchEnabled ?? false}
+					items={[]}
+					header={header}
+				>
+					<ArticleOverviewContentGrid>
+						{Array.from({ length: 2 }).map((_, i) => (
+							<li key={i} className="col-span-4">
+								<ArticleCard>
+									<ArticleCardImage alt="" />
+									<ArticleCardContent>
+										<ArticleCardCategory className="w-16">
+											<Skeleton className="bg-transparent" />
+										</ArticleCardCategory>
+										<ArticleCardTitle>
+											<Skeleton count={2} />
+										</ArticleCardTitle>
+									</ArticleCardContent>
+								</ArticleCard>
+							</li>
+						))}
+					</ArticleOverviewContentGrid>
+				</BlockLayout>
+			}
+		>
+			<WikiOverviewBlockContent {...data} />
+		</React.Suspense>
 	)
 }
