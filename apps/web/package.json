@@ -5,10 +5,11 @@
   "author": "Daren Malfait <daren@nerdfish.be> (https://www.nerdfish.be)",
   "type": "module",
   "scripts": {
-    "build": "tinacms build -c \"next build\"",
+    "build": "content-collections build && tinacms build -c \"next build\"",
+    "build:content-collections": "content-collections build",
     "build:tina": "tinacms build",
     "clean": "rm -rf .next dist node_modules .turbo",
-    "dev": "tinacms dev --verbose -c \"next dev --turbopack\"",
+    "dev": "content-collections build && tinacms dev --verbose -c \"next dev --turbopack\"",
     "start": "tinacms dev -c \"next start\"",
     "sync:env": "cp ../../.env .env",
     "test:e2e": "playwright test",
@@ -27,6 +28,7 @@
     "@playwright/test": "^1.49.1",
     "@react-aria/i18n": "^3.12.4",
     "@repo/ai": "workspace:*",
+    "@repo/content-collections": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/email": "workspace:*",
     "@repo/env": "workspace:*",
@@ -72,12 +74,5 @@
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1",
     "tailwindcss": "^3.4.17"
-  },
-  "packageManager": "pnpm@9.15.2",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.2",
-      "@types/react-dom": "19.0.2"
-    }
   }
 }

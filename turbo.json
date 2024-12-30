@@ -26,6 +26,9 @@
 				"CHAT_SYSTEM_PROMPT"
 			]
 		},
+		"build:content-collections": {
+			"dependsOn": ["^build:content-collections"]
+		},
 		"build:tina": {
 			"dependsOn": ["^build:tina"],
 			"env": [

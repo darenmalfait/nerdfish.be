@@ -5,7 +5,9 @@
 		"paths": {
 			"~/*": ["src/*"],
 			"~/content/*": ["content/*"],
-			"~/tina/*": ["tina/*"]
+			"~/tina/*": ["tina/*"],
+			"content-collections": ["./.content-collections/generated"],
+			"@repo/*": ["../../packages/*"]
 		},
 		"plugins": [
 			{

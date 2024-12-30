@@ -60,7 +60,7 @@ jobs:
         uses: ./packages/github-actions/install
 
       - name: Build for types
-        run: pnpm build:tina
+        run: pnpm run build:content-collections && pnpm build:tina
 
       - name: Cache TypeScript TSBuild Info Files
         id: cache-typescript-tsbuildinfo
