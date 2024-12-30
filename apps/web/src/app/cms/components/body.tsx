@@ -1,18 +1,18 @@
 import { Body as BaseBody } from '@repo/content-collections/components/body'
 import { H1, H2, H3, H4 } from '@repo/design-system/components/ui'
 import * as React from 'react'
-import { PortableButton } from './portable-text/portable-button'
-import { PortableCode } from './portable-text/portable-code'
-import { PortableImage } from './portable-text/portable-image'
-import { PortableLink } from './portable-text/portable-link'
-import { PortableWidget } from './portable-text/portable-widget'
+import { PortableButton } from './body/portable-button'
+import { PortableCode } from './body/portable-code'
+import { PortableImage } from './body/portable-image'
+import { PortableLink } from './body/portable-link'
+import { SlowLoading } from './body/widgets/slow-loading'
 
 export function Body(props: React.ComponentProps<typeof BaseBody>) {
 	return (
 		<BaseBody
 			{...props}
 			components={{
-				widget: PortableWidget,
+				SlowLoading,
 				Button: PortableButton,
 				code_block: PortableCode,
 				image: PortableImage,

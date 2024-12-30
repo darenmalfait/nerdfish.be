@@ -8,23 +8,6 @@ query contentQuery($relativePath: String!) {
 		}
 	}
 
-	blogConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...BlogParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
-
 	workConnection(sort: "date", last: -1) {
 		edges {
 			node {
@@ -77,16 +60,6 @@ query contentQuery($relativePath: String!) {
 	}
 }
 
-query blogPostQuery($relativePath: String!) {
-	blog(relativePath: $relativePath) {
-		...BlogParts
-		_sys {
-			relativePath
-			breadcrumbs
-		}
-	}
-}
-
 query workQuery($relativePath: String!) {
 	work(relativePath: $relativePath) {
 		...WorkParts
@@ -120,19 +93,7 @@ query sitemapQuery {
 			}
 		}
 	}
-	blogConnection {
-		edges {
-			node {
-				title
-				id
-				date
-				_sys {
-					filename
-					breadcrumbs
-				}
-			}
-		}
-	}
+
 	workConnection {
 		edges {
 			node {
