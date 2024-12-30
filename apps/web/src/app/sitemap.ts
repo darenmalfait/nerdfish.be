@@ -4,6 +4,7 @@ import { type MetadataRoute } from 'next'
 import { getPagePath } from './[locale]/(pages)/utils'
 import { blog } from './[locale]/blog/api'
 import { getBlogPath } from './[locale]/blog/utils'
+import { wiki } from './[locale]/wiki/api'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
@@ -12,7 +13,7 @@ const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const data = await getSitemapData()
-	const posts = await blog.getPosts()
+	const [wikis, posts] = await Promise.all([wiki.getWikis(), blog.getPosts()])
 
 	return [
 		{
@@ -50,19 +51,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 				priority: 0.9,
 			}
 		}) ?? []),
-		...posts.map((post) => {
+		...posts.map((item) => {
 			return {
-				url: `${BASE_URL}${getBlogPath(post)}`,
+				url: `${BASE_URL}${getBlogPath(item)}`,
 				lastModified: new Date(),
 				priority: 0.8,
 			}
 		}),
-		...(data.wikis?.map((wiki) => {
+		...wikis.map((item) => {
 			return {
-				url: `${BASE_URL}${getWikiPath(wiki)}`,
-				lastModified: new Date(wiki.date ?? ''),
+				url: `${BASE_URL}${getWikiPath(item)}`,
+				lastModified: new Date(item.date),
 				priority: 0.5,
 			}
-		}) ?? []),
+		}),
 	]
 }

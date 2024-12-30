@@ -1,15 +1,15 @@
 import { notFound } from 'next/navigation'
 import * as React from 'react'
-import { getWikiPost } from '../api'
+import { wiki } from '../api'
 
 export const getRouteData = React.cache(async function getRouteData(
 	slug: string,
 ) {
-	const relativePath = `${decodeURIComponent(slug)}.mdx`
-
-	const result = await getWikiPost(relativePath)
+	const result = await wiki.getWiki(decodeURIComponent(slug))
 
 	if (!result) return notFound()
 
-	return result
+	return {
+		wiki: result,
+	}
 })
