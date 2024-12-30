@@ -14,6 +14,8 @@ export default [
 			'**/next/**',
 			'**/tina-lock.json',
 			'**/public/**',
+			'**/generated/**',
+			'**/.content-collections/**',
 		],
 	},
 ]

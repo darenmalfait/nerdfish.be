@@ -3,10 +3,8 @@ import { type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { draftMode } from 'next/headers'
 import { BlogOverviewBlock } from '../blocks/blog-overview'
 import { BlogContent } from '../components/blog-content'
-import { BlogPreview } from '../components/blog-preview'
 import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 
@@ -14,20 +12,20 @@ export async function generateMetadata(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }): Promise<Metadata | undefined> {
 	const params = await props.params
-	const { data } = await getRouteData(params.slug.join('/'), params.locale)
-	const title = data.blog.seo?.title ?? (data.blog.title || 'Untitled')
+	const { post } = await getRouteData(params.slug.join('/'), params.locale)
+	const title = post.seo.title
 
 	return createMetadata({
 		title,
-		description: data.blog.seo?.description ?? '',
+		description: post.seo.description,
 		image:
-			data.blog.seo?.seoImg ??
+			post.seo.image ??
 			`/api/og/blog?${blogParams.toSearchString({
 				title,
-				image: data.blog.heroImg?.src ?? undefined,
+				image: post.heroImg.src,
 			})}`,
 		alternates: {
-			canonical: data.blog.seo?.canonical ?? getBlogPath(data.blog),
+			canonical: post.seo.canonical ?? getBlogPath(post),
 		},
 		locale: params.locale,
 	})
@@ -38,14 +36,10 @@ export default async function BlogPage(props: {
 }) {
 	const params = await props.params
 	const t = await getTranslations('blog')
-	const routeData = await getRouteData(params.slug.join('/'), params.locale)
+	const { post } = await getRouteData(params.slug.join('/'), params.locale)
 
-	const { isEnabled: isPreview } = await draftMode()
-
-	if (isPreview) return <BlogPreview locale={params.locale} {...routeData} />
 	return (
 		<BlogContent
-			locale={params.locale}
 			relatedContent={
 				<BlogOverviewBlock
 					header={{
@@ -54,10 +48,11 @@ export default async function BlogPage(props: {
 					}}
 					count={2}
 					locale={params.locale}
-					relatedTo={routeData.data.blog}
+					relatedTo={post}
 				/>
 			}
-			{...routeData}
+			data={post}
+			locale={params.locale}
 		/>
 	)
 }

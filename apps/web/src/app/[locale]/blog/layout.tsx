@@ -1,9 +1,9 @@
 import type * as React from 'react'
-import { getBlogPosts } from './api'
+import { blog } from './api'
 import { getBlogPath } from './utils'
 
 export async function generateStaticParams() {
-	return ((await getBlogPosts()) ?? []).map((post) => {
+	return (await blog.getPosts()).map((post) => {
 		return getBlogPath(post)
 	})
 }

@@ -2,6 +2,7 @@ import { env } from '@repo/env'
 import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { type MetadataRoute } from 'next'
 import { getPagePath } from './[locale]/(pages)/utils'
+import { blog } from './[locale]/blog/api'
 import { getBlogPath } from './[locale]/blog/utils'
 import { getWikiPath } from './[locale]/wiki/utils'
 import { getWorkPath } from './[locale]/work/utils'
@@ -11,6 +12,7 @@ const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const data = await getSitemapData()
+	const posts = await blog.getPosts()
 
 	return [
 		{
@@ -48,13 +50,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 				priority: 0.9,
 			}
 		}) ?? []),
-		...(data.blogs?.map((blog) => {
+		...posts.map((post) => {
 			return {
-				url: `${BASE_URL}${getBlogPath(blog)}`,
+				url: `${BASE_URL}${getBlogPath(post)}`,
 				lastModified: new Date(),
 				priority: 0.8,
 			}
-		}) ?? []),
+		}),
 		...(data.wikis?.map((wiki) => {
 			return {
 				url: `${BASE_URL}${getWikiPath(wiki)}`,

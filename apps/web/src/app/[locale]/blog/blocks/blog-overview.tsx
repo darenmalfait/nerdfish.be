@@ -13,19 +13,23 @@ import {
 	JsonLd,
 	type WithContext,
 } from '@repo/seo/json-ld'
+import { type Post } from 'content-collections'
 import * as React from 'react'
-import { getBlogPosts } from '../api'
+import { blog } from '../api'
 import { filterBlog } from '../utils'
 import { BlockLayout } from './blog-overview-layout'
-import { type Block, type Blog, type PageBlocksBlog } from '~/app/cms/types'
+import { type Block, type PageBlocksBlog } from '~/app/cms/types'
 
-function isSameBlog(blog: PartialDeep<Blog>, relatedTo?: PartialDeep<Blog>) {
-	return blog._sys?.relativePath === relatedTo?._sys?.relativePath
+function isSameBlogPost(
+	post: PartialDeep<Post>,
+	relatedTo?: PartialDeep<Post>,
+) {
+	return post.slug === relatedTo?.slug
 }
 
 export async function BlogOverviewBlockContent(
 	data: Block<PageBlocksBlog> & {
-		relatedTo?: PartialDeep<Blog>
+		relatedTo?: PartialDeep<Post>
 	},
 ) {
 	const {
@@ -42,40 +46,38 @@ export async function BlogOverviewBlockContent(
 		'@context': 'https://schema.org',
 	}
 
-	const localizedBlogs = (await getBlogPosts({ locale })) ?? []
+	const localizedPosts = await blog.getPosts({ locale })
 
 	const relatedBlogs =
 		relatedTo &&
-		localizedBlogs
+		localizedPosts
 			.sort((a, b) => {
 				// I want to get the index of the previous item, to be the first item in the array
 				const relatedToIndex =
-					localizedBlogs.findIndex(
-						(blog) => blog._sys?.relativePath === relatedTo._sys?.relativePath,
-					) - 2
+					localizedPosts.findIndex((post) => post.slug === relatedTo.slug) - 2
 				if (relatedToIndex < 0) return 0
 
-				const aIndex = localizedBlogs.indexOf(a)
-				const bIndex = localizedBlogs.indexOf(b)
+				const aIndex = localizedPosts.indexOf(a)
+				const bIndex = localizedPosts.indexOf(b)
 
 				// Adjust indices to start after relatedTo
 				const adjustedAIndex =
-					(aIndex - relatedToIndex - 1 + localizedBlogs.length) %
-					localizedBlogs.length
+					(aIndex - relatedToIndex - 1 + localizedPosts.length) %
+					localizedPosts.length
 				const adjustedBIndex =
-					(bIndex - relatedToIndex - 1 + localizedBlogs.length) %
-					localizedBlogs.length
+					(bIndex - relatedToIndex - 1 + localizedPosts.length) %
+					localizedPosts.length
 
 				return adjustedAIndex - adjustedBIndex
 			})
-			.filter((blog) => !isSameBlog(blog, relatedTo))
-			.filter((blog) => blog.tags?.some((tag) => relatedTo.tags?.includes(tag)))
+			.filter((post) => !isSameBlogPost(post, relatedTo))
+			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const blogs = relatedTo
 		? relatedBlogs?.length
 			? relatedBlogs
-			: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
-		: localizedBlogs.filter((blog) => !isSameBlog(blog, relatedTo))
+			: localizedPosts.filter((post) => !isSameBlogPost(post, relatedTo))
+		: localizedPosts.filter((post) => !isSameBlogPost(post, relatedTo))
 
 	const items = relatedTo ? blogs : filterBlog(blogs, tags?.join(' ') ?? '')
 
@@ -97,7 +99,7 @@ export async function BlogOverviewBlockContent(
 
 export async function BlogOverviewBlock(
 	data: Block<PageBlocksBlog> & {
-		relatedTo?: PartialDeep<Blog>
+		relatedTo?: PartialDeep<Post>
 	},
 ) {
 	const { header, searchEnabled, featuredEnabled } = data
