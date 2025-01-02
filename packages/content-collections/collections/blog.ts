@@ -19,27 +19,36 @@ export const posts = defineCollection({
 		tags: z.array(z.string()),
 	}),
 	transform: async ({ title, ...page }, context) => {
-		const [body, blur] = await Promise.all([
-			context.cache(page.content, async () =>
-				compileMDX(context, page, {
-					remarkPlugins: [remarkGfm],
-					rehypePlugins: [],
-				}),
-			),
-			context.cache(page._meta.path, async () =>
-				lqip(`./public/${page.heroImg.src}`),
-			),
-		])
+		try {
+			const [body, blur] = await Promise.all([
+				context.cache(page.content, async () =>
+					compileMDX(context, page, {
+						remarkPlugins: [remarkGfm],
+						rehypePlugins: [],
+					}),
+				),
+				context.cache(page._meta.path, async () =>
+					lqip(`./public/${page.heroImg.src}`),
+				),
+			])
 
-		const result: LqipModernOutput = Array.isArray(blur) ? blur[0] : blur
+			const result: LqipModernOutput = Array.isArray(blur) ? blur[0] : blur
 
-		return {
-			id: crypto.randomUUID(),
-			...page,
-			title,
-			body,
-			...getSlugAndLocale(page._meta.path),
-			imageBlur: result.metadata.dataURIBase64,
+			return {
+				id: crypto.randomUUID(),
+				...page,
+				title,
+				body,
+				...getSlugAndLocale(page._meta.path),
+				imageBlur: result.metadata.dataURIBase64,
+			}
+		} catch (error) {
+			if (error instanceof Error) {
+				console.error('Failed to transform content:', error)
+				throw new Error(`Failed to transform content: ${error.message}`)
+			}
+
+			throw new Error('Failed to transform content')
 		}
 	},
 })
