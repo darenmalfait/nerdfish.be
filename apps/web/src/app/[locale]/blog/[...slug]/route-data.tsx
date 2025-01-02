@@ -7,7 +7,7 @@ export const getRouteData = React.cache(async function getRouteData(
 	slug: string,
 	locale?: Locale,
 ) {
-	const post = await blog.getPost({ slug: decodeURIComponent(slug), locale })
+	const post = await blog.get({ slug: decodeURIComponent(slug), locale })
 
 	if (!post) return notFound()
 

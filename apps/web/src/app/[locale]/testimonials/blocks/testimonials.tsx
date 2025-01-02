@@ -5,14 +5,10 @@ import { InViewBackground } from '@repo/design-system/components/in-view-backgro
 import { Section } from '@repo/design-system/components/section'
 import { H1, H2 } from '@repo/design-system/components/ui'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { type Testimonial } from 'content-collections'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
-import {
-	type Block,
-	type GlobalTestimonialsItems,
-	type PageBlocksTestimonials,
-	type PageBlocksTestimonialsLayout,
-} from '~/app/cms/types'
+import { type PageBlocksTestimonialsLayout } from '~/app/cms/types'
 import { useGlobal } from '~/app/global-provider'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
@@ -25,7 +21,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	)
 }
 
-function Author({ author }: { author: GlobalTestimonialsItems['author'] }) {
+function Author({ author }: { author: Testimonial['author'] }) {
 	if (!author?.name) return null
 
 	return (
@@ -73,14 +69,14 @@ const variants = {
 	exit: { opacity: 0, y: '10%', scale: 0.1 },
 }
 
-function Testimonial({
+function TestimonialItem({
 	layout,
 	testimonial,
 	onNext,
 	onPrevious,
 }: {
 	layout?: PageBlocksTestimonialsLayout
-	testimonial: GlobalTestimonialsItems
+	testimonial: Testimonial
 	onNext?: () => void
 	onPrevious?: () => void
 }) {
@@ -105,22 +101,30 @@ function Testimonial({
 	)
 }
 
-export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
+export interface TestimonialsBlockProps {
+	layout?: {
+		variant?: 'primary' | 'secondary'
+	}
+	type?: Testimonial['type']
+	tags?: Testimonial['tags']
+}
+
+export function TestimonialsBlock(data: TestimonialsBlockProps) {
 	const { type, tags, layout } = data
 
 	const { testimonials: allTestimonials } = useGlobal()
 
 	const testimonials =
-		allTestimonials?.items
+		allTestimonials
 			// filter by type
 			?.filter((item) => {
 				if (!type) return true
-				return item?.type && type.includes(item.type)
+				return type.includes(item.type)
 			})
 			// filter by tags
 			.filter((item) => {
 				if (!tags) return true
-				return item?.tags && tags.every((tag) => item.tags?.includes(tag))
+				return item.tags && tags.every((tag) => item.tags?.includes(tag))
 			}) ?? []
 
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
@@ -167,7 +171,7 @@ export function TestimonialsBlock(data: Block<PageBlocksTestimonials>) {
 							duration: 0.5,
 						}}
 					>
-						<Testimonial
+						<TestimonialItem
 							layout={layout ?? undefined}
 							testimonial={testimonial}
 							onNext={testimonials.length > 1 ? onNext : undefined}
