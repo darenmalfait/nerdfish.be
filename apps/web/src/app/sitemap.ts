@@ -13,7 +13,7 @@ const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const data = await getSitemapData()
-	const [wikis, posts] = await Promise.all([wiki.getWikis(), blog.getPosts()])
+	const [wikis, posts] = await Promise.all([wiki.getAll(), blog.getAll()])
 
 	return [
 		{

@@ -2,7 +2,7 @@ import { type Locale } from '@repo/i18n/types'
 import { allPosts } from 'content-collections'
 
 export const blog = {
-	getPosts: async ({ locale }: { locale?: Locale } = {}) => {
+	getAll: async ({ locale }: { locale?: Locale } = {}) => {
 		return allPosts
 			.filter((item) => (locale ? item.locale === locale : true))
 			.sort((a, b) => {
@@ -12,7 +12,7 @@ export const blog = {
 	getLatestPost: async ({ locale }: { locale?: Locale } = {}) => {
 		return allPosts.find((item) => item.locale === locale)?.slug
 	},
-	getPost: async ({ slug, locale }: { slug: string; locale?: Locale }) => {
+	get: async ({ slug, locale }: { slug: string; locale?: Locale }) => {
 		return allPosts.find((item) => item.slug === slug && item.locale === locale)
 	},
 }

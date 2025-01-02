@@ -3,7 +3,7 @@ import { wiki } from './api'
 import { getWikiPath } from './utils'
 
 export async function generateStaticParams() {
-	return (await wiki.getWikis()).map((post) => {
+	return (await wiki.getAll()).map((post) => {
 		return getWikiPath(post)
 	})
 }

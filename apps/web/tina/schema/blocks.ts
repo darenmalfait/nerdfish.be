@@ -37,7 +37,7 @@ export const blocks = [
 	productsTemplate,
 	skillsTemplate,
 	splitWithImageTemplate,
-	testimonialsTemplate,
 	wikiTemplate,
 	workTemplate,
+	testimonialsTemplate,
 ]
