@@ -46,7 +46,7 @@ export async function BlogOverviewBlockContent(
 		'@context': 'https://schema.org',
 	}
 
-	const localizedItems = await blog.getPosts({ locale })
+	const localizedItems = await blog.getAll({ locale })
 
 	const relatedItems =
 		relatedTo &&

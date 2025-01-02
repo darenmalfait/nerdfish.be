@@ -26,7 +26,7 @@ export async function WikiOverviewBlockContent(
 ) {
 	const { header, searchEnabled, tags, count, relatedTo } = data
 
-	const localizedItems = await wiki.getWikis()
+	const localizedItems = await wiki.getAll()
 
 	const relatedItems =
 		relatedTo &&

@@ -1,5 +1,4 @@
 import { type Template } from '@tinacms/schema-tools'
-import { testimonialTypes } from '../objects/testimonial'
 
 export const testimonialsTemplate: Template = {
 	name: 'testimonials',
@@ -25,7 +24,7 @@ export const testimonialsTemplate: Template = {
 			type: 'string',
 			label: 'Type',
 			name: 'type',
-			options: testimonialTypes,
+			options: ['colleague', 'project', 'client'],
 			list: true,
 		},
 		{

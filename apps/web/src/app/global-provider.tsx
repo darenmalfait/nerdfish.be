@@ -1,10 +1,13 @@
 'use client'
 
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { type Testimonial } from 'content-collections'
 import * as React from 'react'
 import { type Global, type GlobalPaths } from './cms/types'
 
-type GlobalContextProps = Partial<Global>
+type GlobalContextProps = Partial<Global> & {
+	testimonials?: Testimonial[]
+}
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
 	null,
@@ -12,6 +15,7 @@ const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
 GlobalProviderContext.displayName = 'GlobalProviderContext'
 
 interface GlobalProviderProps extends Partial<Global> {
+	testimonials?: Testimonial[]
 	children: React.ReactNode
 }
 
@@ -36,9 +40,9 @@ function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
 	}, [originalPaths])
 
 	return (
-		<GlobalProviderContext.Provider value={{ paths, ...rest }}>
+		<GlobalProviderContext value={{ paths, ...rest }}>
 			{children}
-		</GlobalProviderContext.Provider>
+		</GlobalProviderContext>
 	)
 }
 

@@ -5,7 +5,7 @@ import { wiki } from '../api'
 export const getRouteData = React.cache(async function getRouteData(
 	slug: string,
 ) {
-	const result = await wiki.getWiki(decodeURIComponent(slug))
+	const result = await wiki.get(decodeURIComponent(slug))
 
 	if (!result) return notFound()
 
