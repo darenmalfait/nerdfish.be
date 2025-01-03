@@ -8,8 +8,6 @@ import { useGlobal } from '~/app/global-provider'
 export function BackToWork() {
 	const { paths } = useGlobal()
 
-	if (!paths?.work) return null
-
 	return (
 		<Button variant="outline" asChild>
 			<Link href={paths.work}>

@@ -1,12 +1,22 @@
 'use client'
 
-import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { useLocale } from '@repo/i18n/client'
 import { type Testimonial } from 'content-collections'
 import * as React from 'react'
-import { type Global, type GlobalPaths } from './cms/types'
+import { BlogPath } from './[locale]/blog/utils'
+import { ContactPath } from './[locale]/contact/utils'
+import { WikiPath } from './[locale]/wiki/utils'
+import { WorkPath } from './[locale]/work/utils'
+import { type Global } from './cms/types'
 
 type GlobalContextProps = Partial<Global> & {
 	testimonials?: Testimonial[]
+	paths: {
+		blog: string
+		work: string
+		contact: string
+		wiki: string
+	}
 }
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
@@ -22,25 +32,17 @@ interface GlobalProviderProps extends Partial<Global> {
 // import { GlobalProvider } from "path-to-context/GlobalProviderContext"
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
-	const { paths: originalPaths, ...rest } = globalProps
+	const locale = useLocale()
 
-	const paths = React.useMemo(() => {
-		if (!originalPaths) return undefined
-		return Object.keys(originalPaths).reduce<GlobalPaths>((acc, key) => {
-			const path = originalPaths[key as keyof GlobalPaths] ?? ''
-
-			if (typeof path === 'object') return acc
-
-			const isExternal = path.startsWith('http')
-
-			return Object.assign(acc, {
-				[key]: isExternal ? path : `/${stripPreSlash(path)}`,
-			})
-		}, {})
-	}, [originalPaths])
+	const paths = {
+		blog: BlogPath[locale],
+		work: WorkPath[locale],
+		contact: ContactPath[locale],
+		wiki: WikiPath[locale],
+	}
 
 	return (
-		<GlobalProviderContext value={{ paths, ...rest }}>
+		<GlobalProviderContext value={{ ...globalProps, paths }}>
 			{children}
 		</GlobalProviderContext>
 	)

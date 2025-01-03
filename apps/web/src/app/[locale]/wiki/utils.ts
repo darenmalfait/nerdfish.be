@@ -1,9 +1,17 @@
 import { type Article } from '@repo/design-system/components/article-overview'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { type Locale } from '@repo/i18n/types'
 import { type Wiki } from 'content-collections'
 import { uniqueId } from 'lodash'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+
+export const WikiPath: {
+	[key in Locale]: string
+} = {
+	en: '/wiki',
+	nl: '/wiki',
+}
 
 export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 	if (!searchString) return posts

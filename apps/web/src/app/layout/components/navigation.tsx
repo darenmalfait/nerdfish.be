@@ -11,6 +11,7 @@ import {
 	NavigationMenuTrigger,
 } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -138,17 +139,15 @@ MainNavigationItem.displayName = 'MainNavigationItem'
 const socialLinkClassName = 'text-xs'
 
 export function SocialLinks() {
-	const { social } = useGlobal()
-
 	return (
 		<nav aria-label="Social Media">
 			<ul className="gap-sm flex flex-row items-center">
-				{social?.twitter ? (
+				{socials.twitter ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Twitter feed"
-								href={social.twitter}
+								href={socials.twitter}
 								target="_blank"
 							>
 								Twitter
@@ -156,12 +155,12 @@ export function SocialLinks() {
 						</Button>
 					</li>
 				) : null}
-				{social?.bluesky ? (
+				{socials.bluesky ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Bluesky feed"
-								href={social.bluesky}
+								href={socials.bluesky}
 								target="_blank"
 							>
 								Bluesky
@@ -169,12 +168,12 @@ export function SocialLinks() {
 						</Button>
 					</li>
 				) : null}
-				{social?.facebook ? (
+				{socials.facebook ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Facebook page"
-								href={social.facebook}
+								href={socials.facebook}
 								target="_blank"
 							>
 								Facebook
@@ -182,12 +181,12 @@ export function SocialLinks() {
 						</Button>
 					</li>
 				) : null}
-				{social?.instagram ? (
+				{socials.instagram ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Instagram"
-								href={social.instagram}
+								href={socials.instagram}
 								target="_blank"
 							>
 								Instagram
@@ -195,12 +194,12 @@ export function SocialLinks() {
 						</Button>
 					</li>
 				) : null}
-				{social?.linkedIn ? (
+				{socials.linkedIn ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="LinkedIn profile"
-								href={social.linkedIn}
+								href={socials.linkedIn}
 								target="_blank"
 							>
 								LinkedIn
@@ -208,12 +207,12 @@ export function SocialLinks() {
 						</Button>
 					</li>
 				) : null}
-				{social?.github ? (
+				{socials.github ? (
 					<li>
 						<Button variant="ghost" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Github Repository"
-								href={social.github}
+								href={socials.github}
 								target="_blank"
 							>
 								Github
