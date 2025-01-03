@@ -7,9 +7,8 @@ import { BlogPath } from './[locale]/blog/utils'
 import { ContactPath } from './[locale]/contact/utils'
 import { WikiPath } from './[locale]/wiki/utils'
 import { WorkPath } from './[locale]/work/utils'
-import { type Global } from './cms/types'
 
-type GlobalContextProps = Partial<Global> & {
+type GlobalContextProps = {
 	testimonials?: Testimonial[]
 	paths: {
 		blog: string
@@ -24,7 +23,7 @@ const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
 )
 GlobalProviderContext.displayName = 'GlobalProviderContext'
 
-interface GlobalProviderProps extends Partial<Global> {
+interface GlobalProviderProps {
 	testimonials?: Testimonial[]
 	children: React.ReactNode
 }

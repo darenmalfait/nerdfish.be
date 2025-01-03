@@ -4,21 +4,11 @@ import { testimonials as testimonialsApi } from '../[locale]/testimonials/api'
 import tina from '~/tina/__generated__/client'
 
 export async function getGlobalData(locale: Locale = i18n.defaultLocale) {
-	const [globalData, testimonials] = await Promise.all([
-		tina.queries
-			.globalQuery({
-				relativePath: `${locale}/index.json`,
-			})
-			.catch(() => null),
-		testimonialsApi.getAll({
-			locale,
-		}),
-	])
-
-	if (!globalData) throw new Error('Global data not found')
+	const testimonials = await testimonialsApi.getAll({
+		locale,
+	})
 
 	return {
-		...globalData.data.global,
 		testimonials,
 	}
 }
