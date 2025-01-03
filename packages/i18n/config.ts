@@ -7,8 +7,9 @@ export const supportedLanguages = [
 	{
 		code: 'nl',
 		label: 'Nederlands',
+		default: false,
 	},
-]
+] as const
 
 export const i18n = {
 	locales: supportedLanguages.map((l) => l.code),

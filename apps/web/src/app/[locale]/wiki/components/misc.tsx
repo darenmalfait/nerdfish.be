@@ -8,8 +8,6 @@ import { useGlobal } from '~/app/global-provider'
 export function BackToWiki() {
 	const { paths } = useGlobal()
 
-	if (!paths?.wiki) return null
-
 	return (
 		<Button variant="outline" asChild>
 			<Link href={paths.wiki}>

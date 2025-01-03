@@ -151,6 +151,9 @@ importers:
       '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
+      '@repo/global-settings':
+        specifier: workspace:*
+        version: link:../../packages/global-settings
       '@repo/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
@@ -456,6 +459,12 @@ importers:
         version: 5.7.2
 
   packages/github-actions: {}
+
+  packages/global-settings:
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/i18n:
     dependencies:

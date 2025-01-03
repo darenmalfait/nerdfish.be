@@ -2,9 +2,17 @@ import { type Article } from '@repo/design-system/components/article-overview'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
+import { type Locale } from '@repo/i18n/types'
 import { type Post } from 'content-collections'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+
+export const BlogPath: {
+	[key in Locale]: string
+} = {
+	en: '/blog',
+	nl: '/blog',
+}
 
 export function filterBlog(posts: PartialDeep<Post>[], searchString: string) {
 	if (!searchString) return posts
