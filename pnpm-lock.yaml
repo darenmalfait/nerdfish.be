@@ -112,9 +112,6 @@ importers:
       '@axe-core/playwright':
         specifier: ^4.10.1
         version: 4.10.1(playwright-core@1.49.1)
-      '@calcom/embed-react':
-        specifier: ^1.5.2
-        version: 1.5.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@formatjs/intl-localematcher':
         specifier: ^0.5.9
         version: 0.5.9
@@ -139,6 +136,9 @@ importers:
       '@repo/ai':
         specifier: workspace:*
         version: link:../../packages/ai
+      '@repo/calcom':
+        specifier: workspace:*
+        version: link:../../packages/calcom
       '@repo/content-collections':
         specifier: workspace:*
         version: link:../../packages/content-collections
@@ -287,6 +287,25 @@ importers:
       ai:
         specifier: ^4.0.22
         version: 4.0.22(react@19.0.0)(zod@3.24.1)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+
+  packages/calcom:
+    dependencies:
+      '@calcom/embed-react':
+        specifier: ^1.5.2
+        version: 1.5.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@nerdfish/utils':
+        specifier: ^2.0.1
+        version: 2.0.1
+      '@repo/design-system':
+        specifier: workspace:*
+        version: link:../design-system
+      '@repo/i18n':
+        specifier: workspace:*
+        version: link:../i18n
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*

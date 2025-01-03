@@ -3,25 +3,23 @@
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Skeleton } from '@repo/design-system/components/ui'
 import * as React from 'react'
-import { type GlobalCalcomTypes } from '~/app/cms/types'
-import { useGlobal } from '~/app/global-provider'
-import { useTheme } from '~/app/theme/theme-provider'
+import { type CalComMeetingTypes, calcomSettings } from '../config'
 
 export function EmbeddedCal({
 	bookingType = '30min',
 	className,
+	theme,
 }: {
-	bookingType: GlobalCalcomTypes['slug']
+	bookingType: CalComMeetingTypes
 	className?: string
+	theme?: 'light' | 'dark' | 'system'
 }) {
 	const [calLoading, setCalLoading] = React.useState<boolean>(true)
-	const { theme } = useTheme()
-	const { calcom } = useGlobal()
 
 	React.useEffect(() => {
 		async function loadCal() {
 			const cal = await getCalApi({
-				namespace: `${calcom?.profileName}/${bookingType}`,
+				namespace: `${calcomSettings.profileName}/${bookingType}`,
 			})
 			cal('ui', {
 				styles: {
@@ -37,9 +35,7 @@ export function EmbeddedCal({
 		}
 
 		void loadCal()
-	}, [bookingType, calcom?.profileName, theme])
-
-	if (!calcom?.profileName) return null
+	}, [bookingType, theme])
 
 	return (
 		<div>
@@ -50,7 +46,7 @@ export function EmbeddedCal({
 			) : null}
 			<Cal
 				className={className}
-				calLink={`${calcom.profileName}/${bookingType}`}
+				calLink={`${calcomSettings.profileName}/${bookingType}`}
 				config={{ theme: theme === 'system' ? 'auto' : (theme as 'auto') }}
 			/>
 		</div>

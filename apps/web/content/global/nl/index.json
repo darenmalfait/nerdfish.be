@@ -44,58 +44,5 @@
 				"href": "/nl/contact"
 			}
 		]
-	},
-
-	"calcom": {
-		"profileName": "nerdfish",
-		"types": [
-			{
-				"slug": "30min",
-				"title": "Sessie van 30 minuten",
-				"duration": 30
-			},
-			{
-				"slug": "1hour",
-				"title": "Sessie van 1 uur",
-				"duration": 60
-			}
-		]
-	},
-	"testimonials": {
-		"items": [
-			{
-				"type": "colleague",
-				"quote": "Je bent altijd op zoek naar nieuwe technologieën en manieren van werken. Ik geloof dat dat belangrijker is dan goed zijn in één specifiek aspect of technologie.",
-				"author": {
-					"name": "Ex collega (Senior Web Developer)",
-					"company": "Consultancy bedrijf in de IT-sector"
-				}
-			},
-			{
-				"type": "colleague",
-				"quote": "Je bent een geweldige mentor en teamgenoot. Je aanwezigheid is een steunpilaar in het team.",
-				"author": {
-					"name": "Ex collega (Medior Web Developer)",
-					"company": "Een bedrijf in big data verwerking"
-				}
-			},
-			{
-				"type": "project",
-				"tags": ["equilibra"],
-				"quote": "Ik had meteen vertrouwen in de professionele aanpak van Daren. Het resultaat van mijn website spreekt voor zich. Ik kon sindsdien heel wat nieuwe klanten verwelkomen en ook zij vonden mijn website heel overzichtelijk en professioneel.",
-				"author": {
-					"name": "Carline Deseyn",
-					"company": "Equilibra"
-				}
-			},
-			{
-				"type": "client",
-				"quote": "Correct, oplossingsgericht en bovenal een aimabele mens.",
-				"author": {
-					"name": "Peter Tytgat",
-					"company": "TP Elektro"
-				}
-			}
-		]
 	}
 }

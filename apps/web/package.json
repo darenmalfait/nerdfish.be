@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.1",
-    "@calcom/embed-react": "^1.5.2",
     "@formatjs/intl-localematcher": "^0.5.9",
     "@hookform/resolvers": "^3.9.1",
     "@nerdfish/theme": "^2.5.1",
@@ -28,6 +27,7 @@
     "@playwright/test": "^1.49.1",
     "@react-aria/i18n": "^3.12.4",
     "@repo/ai": "workspace:*",
+    "@repo/calcom": "workspace:*",
     "@repo/content-collections": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/email": "workspace:*",
