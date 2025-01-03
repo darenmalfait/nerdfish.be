@@ -19,17 +19,13 @@ import { i18n } from '@repo/i18n/config'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { getNavigation, type Navigation, type SubNavItem } from '../navigation'
 import { SocialLinks } from './navigation'
-import {
-	type GlobalNavigationMain,
-	type GlobalNavigationMainSub,
-} from '~/app/cms/types'
-import { useGlobal } from '~/app/global-provider'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const MobileNavigationSubItem = React.forwardRef<
 	React.ComponentRef<typeof Link>,
-	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
+	React.ComponentPropsWithoutRef<typeof Link> & SubNavItem
 >(({ href, label, description, className, ...props }, ref) => {
 	const pathname = usePathname()
 	const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
@@ -55,19 +51,17 @@ MobileNavigationSubItem.displayName = 'MobileNavigationSubItem'
 const MobileNavigationItem = React.forwardRef<
 	React.ComponentRef<typeof Link>,
 	Omit<React.ComponentPropsWithoutRef<typeof Link>, 'href'> &
-		GlobalNavigationMain
+		Navigation['main'][number]
 >(({ href, label, sub, onClick, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(href ?? ''),
-		)
+		const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
 
 		return (
 			<Link
-				href={`/${stripPreSlash(href ?? '')}`}
+				href={`/${stripPreSlash(href)}`}
 				onClick={onClick}
 				{...props}
 				ref={ref}
@@ -93,8 +87,6 @@ const MobileNavigationItem = React.forwardRef<
 			</H2>
 			<ul className="mt-md gap-sm grid">
 				{sub.map((subNavItem) => {
-					if (!subNavItem) return null
-
 					return (
 						<MobileNavigationSubItem
 							key={subNavItem.label}
@@ -110,8 +102,8 @@ const MobileNavigationItem = React.forwardRef<
 MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 export function MobileNavigation() {
-	const { navigation } = useGlobal()
 	const currentLocale = useLocale()
+	const navigation = getNavigation('main', currentLocale)
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
@@ -151,9 +143,7 @@ export function MobileNavigation() {
 
 					<ScrollArea className="px-md w-full flex-1 md:h-auto">
 						<ul className="gap-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-							{navigation?.main?.map((navItem) => {
-								if (!navItem) return null
-
+							{navigation.map((navItem) => {
 								return (
 									<li key={navItem.label}>
 										<MobileNavigationItem
