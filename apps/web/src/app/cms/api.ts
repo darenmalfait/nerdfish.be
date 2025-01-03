@@ -19,10 +19,5 @@ export async function getSitemapData() {
 		pages: data.pageConnection.edges?.map((item) => ({
 			...item?.node,
 		})),
-		works: data.workConnection.edges
-			?.map((item) => ({
-				...item?.node,
-			}))
-			.reverse(),
 	}
 }

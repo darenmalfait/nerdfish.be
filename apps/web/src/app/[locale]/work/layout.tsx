@@ -1,10 +1,12 @@
 import type * as React from 'react'
-import { getWorks } from './api'
+import { work } from './api'
 import { getWorkPath } from './utils'
 
 export async function generateStaticParams() {
-	return ((await getWorks()) ?? []).map((work) => {
-		return getWorkPath(work)
+	const works = await work.getAll()
+
+	return works.map((item) => {
+		return getWorkPath(item)
 	})
 }
 

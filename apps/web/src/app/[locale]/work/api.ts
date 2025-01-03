@@ -1,23 +1,20 @@
 import { type Locale } from '@repo/i18n/types'
-import { tina } from '~/app/cms/client'
+import { allProjects } from 'content-collections'
 
-export async function getWorks({ locale }: { locale?: Locale } = {}) {
-	const workListData = await tina.queries.workConnection()
-
-	return workListData.data.workConnection.edges
-		?.map((item) => ({
-			...item?.node,
-		}))
-		.filter((item) =>
-			locale ? item._sys?.relativePath.startsWith(`${locale}/`) : true,
+export const work = {
+	getAll: async ({ locale }: { locale?: Locale } = {}) => {
+		return allProjects
+			.filter((item) => (locale ? item.locale === locale : true))
+			.sort((a, b) => {
+				return new Date(b.date).getTime() - new Date(a.date).getTime()
+			})
+	},
+	getLatest: async ({ locale }: { locale?: Locale } = {}) => {
+		return allProjects.find((item) => item.locale === locale)?.slug
+	},
+	get: async ({ slug, locale }: { slug: string; locale?: Locale }) => {
+		return allProjects.find(
+			(item) => item.slug === slug && item.locale === locale,
 		)
-		.reverse()
-}
-
-export async function getWork(relativePath: string) {
-	return tina.queries
-		.workQuery({
-			relativePath,
-		})
-		.catch(() => null)
+	},
 }

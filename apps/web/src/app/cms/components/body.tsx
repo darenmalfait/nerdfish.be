@@ -8,11 +8,12 @@ import { PortableLink } from './body/portable-link'
 import { SlowLoading } from './body/widgets/slow-loading'
 
 export function Body(props: React.ComponentProps<typeof BaseBody>) {
+	const { components, ...rest } = props
+
 	return (
 		<BaseBody
-			{...props}
+			{...rest}
 			components={{
-				SlowLoading,
 				Button: PortableButton,
 				code_block: PortableCode,
 				image: PortableImage,
@@ -30,6 +31,12 @@ export function Body(props: React.ComponentProps<typeof BaseBody>) {
 					<H4>{children}</H4>
 				),
 				a: PortableLink,
+
+				// widgets
+				SlowLoading,
+
+				// base body components
+				...(components as Record<string, React.ComponentType<any>>),
 			}}
 		/>
 	)

@@ -6,6 +6,7 @@ import { blog } from './[locale]/blog/api'
 import { getBlogPath } from './[locale]/blog/utils'
 import { wiki } from './[locale]/wiki/api'
 import { getWikiPath } from './[locale]/wiki/utils'
+import { work } from './[locale]/work/api'
 import { getWorkPath } from './[locale]/work/utils'
 import { getSitemapData } from './cms/api'
 
@@ -13,7 +14,11 @@ const BASE_URL = env.NEXT_PUBLIC_URL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const data = await getSitemapData()
-	const [wikis, posts] = await Promise.all([wiki.getAll(), blog.getAll()])
+	const [wikis, posts, works] = await Promise.all([
+		wiki.getAll(),
+		blog.getAll(),
+		work.getAll(),
+	])
 
 	return [
 		{
@@ -44,13 +49,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 					priority: 1,
 				}
 			}) ?? []),
-		...(data.works?.map((work) => {
+		...works.map((item) => {
 			return {
-				url: `${BASE_URL}${getWorkPath(work)}`,
+				url: `${BASE_URL}${getWorkPath(item)}`,
 				lastModified: new Date(),
 				priority: 0.9,
 			}
-		}) ?? []),
+		}),
 		...posts.map((item) => {
 			return {
 				url: `${BASE_URL}${getBlogPath(item)}`,
