@@ -45,7 +45,9 @@ export async function WorkOverviewBlockContent(
 			.sort((a, b) => {
 				// I want to get the index of the previous item, to be the first item in the array
 				const relatedToIndex =
-					localizedItems.findIndex((post) => post.slug === relatedTo.slug) - 2
+					localizedItems.findIndex((post) => post.slug === relatedTo.slug) -
+					(count ?? 0)
+
 				if (relatedToIndex < 0) return 0
 
 				const aIndex = localizedItems.indexOf(a)
