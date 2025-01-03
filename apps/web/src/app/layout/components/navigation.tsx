@@ -2,7 +2,6 @@ import { cva, cx } from '@nerdfish/utils'
 import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import {
 	Button,
-	type ButtonProps,
 	NavigationMenu,
 	NavigationMenuContent,
 	NavigationMenuItem,
@@ -12,19 +11,15 @@ import {
 } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import { socials } from '@repo/global-settings/socials'
-import { useTranslations } from '@repo/i18n/client'
+import { useLocale, useTranslations } from '@repo/i18n/client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import {
-	type GlobalNavigationMain,
-	type GlobalNavigationMainSub,
-} from '~/app/cms/types'
-import { useGlobal } from '~/app/global-provider'
+import { getNavigation, type Navigation, type SubNavItem } from '../navigation'
 
 const MainNavigationSubItem = React.forwardRef<
 	React.ComponentRef<typeof Link>,
-	React.ComponentPropsWithoutRef<typeof Link> & GlobalNavigationMainSub
+	React.ComponentPropsWithoutRef<typeof Link> & SubNavItem
 >(({ href, label, description, className, ...props }, ref) => {
 	return (
 		<NavigationMenuItem className="w-full">
@@ -65,28 +60,26 @@ const getMainItemClassName = cva(
 
 const MainNavigationItem = React.forwardRef<
 	React.ComponentRef<'a'>,
-	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & GlobalNavigationMain
->(({ href, label, sub, variant, ...props }, ref) => {
+	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]
+>(({ href, label, sub, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(href ?? ''),
-		)
+		const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
 
 		return (
 			<NavigationMenuItem asChild>
 				<NavigationMenuLink asChild>
 					<Button
 						size="sm"
-						variant={(variant as ButtonProps['variant']) ?? 'ghost'}
+						variant="ghost"
 						className={getMainItemClassName({
 							variant: isActive ? 'active' : 'default',
 						})}
 						asChild
 					>
-						<Link {...props} ref={ref} href={`/${stripPreSlash(href ?? '')}`}>
+						<Link {...props} ref={ref} href={`/${stripPreSlash(href)}`}>
 							{label}
 						</Link>
 					</Button>
@@ -96,8 +89,6 @@ const MainNavigationItem = React.forwardRef<
 	}
 
 	const isActive = sub.some((subNavItem) => {
-		if (!subNavItem) return false
-
 		return stripPreSlash(pathname).startsWith(stripPreSlash(subNavItem.href))
 	})
 
@@ -106,7 +97,7 @@ const MainNavigationItem = React.forwardRef<
 			<span>
 				<Button
 					size="sm"
-					variant={(variant as ButtonProps['variant']) ?? 'ghost'}
+					variant="ghost"
 					className={getMainItemClassName({
 						variant: isActive ? 'active' : 'default',
 					})}
@@ -121,8 +112,6 @@ const MainNavigationItem = React.forwardRef<
 						)}
 					>
 						{sub.map((subNavItem) => {
-							if (!subNavItem) return null
-
 							return (
 								<MainNavigationSubItem key={subNavItem.label} {...subNavItem} />
 							)
@@ -226,26 +215,27 @@ export function SocialLinks() {
 }
 
 export function MainNavigation() {
-	const { navigation } = useGlobal()
+	const locale = useLocale()
+	const navigation = getNavigation('main', locale)
 	const pathname = usePathname()
 	const t = useTranslations('global')
 	const ref = React.useRef<HTMLUListElement>(null)
 
 	const activeId = React.useMemo(() => {
-		const isActive = navigation?.main?.find((item) => {
+		const isActive = navigation.find((item) => {
 			return (
-				item?.sub?.some(
+				item.sub?.some(
 					(subItem) =>
-						subItem?.href &&
+						subItem.href &&
 						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href)),
 				) ??
-				(item?.href &&
+				(item.href &&
 					stripPreSlash(pathname).startsWith(stripPreSlash(item.href)))
 			)
 		})
 
 		return isActive?.label ?? 'home'
-	}, [navigation?.main, pathname])
+	}, [navigation, pathname])
 
 	return (
 		<div
@@ -273,9 +263,7 @@ export function MainNavigation() {
 							duration: 0.3,
 						}}
 					>
-						{navigation?.main?.map((mainNavItem) => {
-							if (!mainNavItem) return null
-
+						{navigation.map((mainNavItem) => {
 							return (
 								<li key={mainNavItem.label} data-id={mainNavItem.label}>
 									<MainNavigationItem {...mainNavItem} />

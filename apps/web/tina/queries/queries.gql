@@ -82,9 +82,3 @@ query sitemapQuery {
 		}
 	}
 }
-
-query globalQuery($relativePath: String!) {
-	global(relativePath: $relativePath) {
-		...GlobalParts
-	}
-}
