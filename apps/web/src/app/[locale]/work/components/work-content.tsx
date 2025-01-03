@@ -28,6 +28,8 @@ function WorkContent({
 }) {
 	const { title, category, body, url, excerpt, summary, heroImg } = data
 
+	const layout = category === 'webdesign' ? 'default' : 'full'
+
 	return (
 		<div className="relative">
 			<Section
@@ -37,8 +39,8 @@ function WorkContent({
 				<article>
 					<Section
 						className={cx('px-0', {
-							'xl:max-w-[500px]': summary?.length,
-							'container max-w-4xl': !summary?.length,
+							'xl:max-w-[500px]': layout === 'default',
+							'container max-w-4xl': layout === 'full',
 						})}
 					>
 						<div className="py-lg xl:sticky xl:top-0">
@@ -77,7 +79,7 @@ function WorkContent({
 								</Paragraph>
 							) : null}
 
-							{!summary?.length && heroImg.src ? (
+							{layout === 'full' && heroImg.src ? (
 								<div className="my-xl mx-auto">
 									<div className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden">
 										<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
@@ -102,8 +104,8 @@ function WorkContent({
 						</div>
 					</Section>
 
-					{body.length ? (
-						<div className="flex-flex-col flex-1">
+					{layout === 'default' && body.length ? (
+						<div className="flex flex-1 flex-col">
 							<div className="-mx-md">
 								<Body content={body} />
 							</div>
