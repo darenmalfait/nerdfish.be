@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 'use client'
 
 import {
@@ -17,11 +18,13 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
+import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
+import { type Project } from 'content-collections'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../utils'
-import { type Block, type PageBlocksWork, type Work } from '~/app/cms/types'
+import { type Block, type PageBlocksWork } from '~/app/cms/types'
 
 export function BlockLayout({
 	searchEnabled,
@@ -33,7 +36,7 @@ export function BlockLayout({
 	children?: React.ReactNode
 	searchEnabled: boolean
 	featuredEnabled: boolean
-	items: PartialDeep<Work>[]
+	items: PartialDeep<Project>[]
 	header: Block<PageBlocksWork>['header']
 }) {
 	const t = useTranslations('work')
@@ -61,12 +64,14 @@ export function BlockLayout({
 					<ArticleOverviewSearchImage
 						image={{
 							src: header?.image?.src ?? undefined,
-							alt: header?.image?.alt ?? header?.title ?? undefined,
+							alt: header?.image?.alt ?? header?.title ?? '',
 						}}
 					/>
 					<ArticleOverviewSearchContent inputLabel={t('search')}>
 						<SectionHeader>
-							<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
+							<H1 variant="primary" className="mb-lg">
+								{header?.title}
+							</H1>
 							<SectionHeaderSubtitle>
 								{header?.subtitle ?? undefined}
 							</SectionHeaderSubtitle>
@@ -91,7 +96,12 @@ export function BlockLayout({
 				)}
 
 				{children ?? (
-					<ArticleOverviewContentGrid readMoreLabel={t('readMore')}>
+					<ArticleOverviewContentGrid
+						readMoreLabel={t('readMore')}
+						ariaLabel={t('readMoreAbout', {
+							title: header?.title ?? '',
+						})}
+					>
 						<ArticlesOverviewEmptyState />
 					</ArticleOverviewContentGrid>
 				)}

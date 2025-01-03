@@ -1,11 +1,7 @@
 import { i18n } from '@repo/i18n/config'
 import { type Locale } from '@repo/i18n/types'
 import { tina } from '~/app/cms/client'
-import {
-	type ContentQueryQuery,
-	type Product,
-	type Work,
-} from '~/app/cms/types'
+import { type ContentQueryQuery, type Product } from '~/app/cms/types'
 
 export async function getPages() {
 	const pageDate = await tina.queries.pageConnection()
@@ -18,9 +14,6 @@ export async function getPages() {
 export function mapPageData(data: ContentQueryQuery) {
 	return {
 		...data,
-		works: data.workConnection.edges?.map((item) => ({
-			...(item?.node ?? {}),
-		})) as Work[],
 		products: data.productConnection.edges?.map((item) => ({
 			...(item?.node ?? {}),
 		})) as Product[],
