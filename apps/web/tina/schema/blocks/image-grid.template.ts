@@ -48,9 +48,21 @@ export const imageGridTemplate: Template = {
 					name: 'title',
 				},
 				{
-					type: 'image',
+					type: 'object',
 					label: 'Image',
-					name: 'imageSrc',
+					name: 'image',
+					fields: [
+						{
+							type: 'string',
+							label: 'Image',
+							name: 'src',
+						},
+						{
+							type: 'string',
+							label: 'Alt Text',
+							name: 'alt',
+						},
+					],
 				},
 			],
 		},
