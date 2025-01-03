@@ -14,6 +14,9 @@ export const config: Config = {
 		'./src/**/*.{ts,tsx}',
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+
+		// App specific
+		'./node_modules/@repo/calcom/components/**/*.{ts,tsx}',
 	],
 	darkMode: 'class',
 	plugins: [
