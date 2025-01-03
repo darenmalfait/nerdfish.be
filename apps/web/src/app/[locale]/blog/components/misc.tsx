@@ -10,8 +10,6 @@ export function BackToBlog() {
 	const t = useTranslations('blog')
 	const { paths } = useGlobal()
 
-	if (!paths?.blog) return null
-
 	return (
 		<Button variant="ghost" className="-mx-md group" asChild>
 			<Link href={paths.blog}>

@@ -1,11 +1,17 @@
 import { type Article } from '@repo/design-system/components/article-overview'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
+import { type Locale } from '@repo/i18n/types'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { type Work } from '~/app/cms/types'
 
-const WorkPath = 'work'
+export const WorkPath: {
+	[key in Locale]: string
+} = {
+	en: '/work',
+	nl: '/nl/werk',
+}
 
 export function filterWork(works: PartialDeep<Work>[], searchString: string) {
 	if (!searchString) return works
@@ -85,8 +91,8 @@ export function getWorkPath(work: PartialDeep<Work>) {
 
 	const newPath = path?.replace(`${locale}/`, '/') ?? ''
 
-	if (locale === i18n.defaultLocale) return `/${WorkPath}${newPath}`
-	return `/${locale}/${WorkPath}${newPath}`
+	if (locale === i18n.defaultLocale) return `/work${newPath}`
+	return `/${locale}/work${newPath}`
 }
 
 export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {

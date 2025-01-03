@@ -10,6 +10,7 @@ import {
 	Separator,
 } from '@repo/design-system/components/ui'
 import { ArrowRight, Logo } from '@repo/design-system/lib/icons'
+import { companyInfo } from '@repo/global-settings/company-info'
 import Link from 'next/link'
 import * as React from 'react'
 import { ThemeToggle } from '../theme/components/theme-toggle'
@@ -18,8 +19,6 @@ import { SiteHeader } from './components/site-header'
 import { useGlobal } from '~/app/global-provider'
 
 function Disclaimer() {
-	const { companyInfo } = useGlobal()
-
 	const currentYear = new Date().getFullYear()
 
 	return (
@@ -30,7 +29,7 @@ function Disclaimer() {
 						<Logo className="h-4 w-auto items-center text-current" />
 					</div>
 					<div className="text-primary/80 flex justify-start text-sm">
-						© {currentYear} {companyInfo?.companyName}
+						© {currentYear} {companyInfo.companyName}
 					</div>
 				</div>
 				<div className="-mx-sm flex justify-center md:justify-start">
@@ -51,7 +50,7 @@ function SiteFooterHeading() {
 	return (
 		<H1 as="h2" className="mb-xl py-lg text-primary">
 			<Link
-				href={paths?.contact ?? '/'}
+				href={paths.contact}
 				className="!text-primary group"
 				aria-label="Let’s work together"
 			>
@@ -68,8 +67,6 @@ function SiteFooterHeading() {
 }
 
 function SiteFooterContent() {
-	const { companyInfo } = useGlobal()
-
 	return (
 		<div className="my-lg gap-lg grid md:grid-cols-[repeat(4,250px)]">
 			<p className="text-primary/80 text-lg lg:text-xl">
@@ -96,16 +93,16 @@ function SiteFooterContent() {
 					Get in touch
 				</h3>
 				<span className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
-					{companyInfo?.companyName}
+					{companyInfo.companyName}
 				</span>
 				<Link
 					className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight"
-					href={`mailto:${companyInfo?.email}`}
+					href={`mailto:${companyInfo.email}`}
 				>
-					{companyInfo?.email}
+					{companyInfo.email}
 				</Link>
 				<span className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
-					{companyInfo?.vat}
+					{companyInfo.vat}
 				</span>
 			</div>
 		</div>

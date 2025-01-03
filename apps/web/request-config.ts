@@ -1,10 +1,11 @@
 import { i18n } from '@repo/i18n/config'
 import { getRequestConfig } from '@repo/i18n/server'
+import { type Locale } from '@repo/i18n/types'
 import { notFound } from 'next/navigation'
 
 // Using internationalization in Server Components
 export default getRequestConfig(async ({ requestLocale }) => {
-	const locale = await requestLocale
+	const locale = (await requestLocale) as Locale | undefined
 
 	// Validate that the incoming `locale` parameter is valid
 	if (!locale || !i18n.locales.includes(locale)) {
