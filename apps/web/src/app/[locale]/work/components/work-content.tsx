@@ -11,13 +11,11 @@ import {
 	Skeleton,
 } from '@repo/design-system/components/ui'
 import { ArrowRight } from '@repo/design-system/lib/icons'
+import { type Project } from 'content-collections'
 import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
-import { Blocks } from '~/app/cms/blocks-renderer'
-import { PortableText } from '~/app/cms/components/portable-text'
-import { type WorkQueryQuery } from '~/app/cms/types'
+import { Body } from './work-body'
 
 const prose = 'prose dark:prose-invert max-w-4xl'
 
@@ -25,10 +23,10 @@ function WorkContent({
 	data,
 	relatedContent,
 }: {
-	data: WorkQueryQuery
+	data: Project
 	relatedContent?: React.ReactNode
 }) {
-	const { title, category, body, url, excerpt, blocks, heroImg } = data.work
+	const { title, category, body, url, excerpt, summary, heroImg } = data
 
 	return (
 		<div className="relative">
@@ -39,18 +37,13 @@ function WorkContent({
 				<article>
 					<Section
 						className={cx('px-0', {
-							'xl:max-w-[500px]': blocks?.length,
-							'container max-w-4xl': !blocks?.length,
+							'xl:max-w-[500px]': summary?.length,
+							'container max-w-4xl': !summary?.length,
 						})}
 					>
 						<div className="py-lg xl:sticky xl:top-0">
 							<header className={cx('mb-lg flex max-w-4xl flex-col', prose)}>
-								<H4
-									as="h1"
-									variant="primary"
-									data-tina-field={tinaField(data.work, 'title')}
-									className="!m-0 w-auto !text-4xl"
-								>
+								<H4 as="h1" variant="primary" className="!m-0 w-auto !text-4xl">
 									{title}
 								</H4>
 								<div className="mt-xs gap-md relative flex">
@@ -79,26 +72,20 @@ function WorkContent({
 							</header>
 
 							{excerpt ? (
-								<Paragraph
-									className="mb-md text-xl font-bold"
-									data-tina-field={tinaField(data.work, 'excerpt')}
-								>
+								<Paragraph className="mb-md text-xl font-bold">
 									{excerpt}
 								</Paragraph>
 							) : null}
 
-							{!blocks?.length && heroImg?.src ? (
+							{!summary?.length && heroImg.src ? (
 								<div className="my-xl mx-auto">
-									<div
-										className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden"
-										data-tina-field={tinaField(data.work, 'heroImg')}
-									>
+									<div className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden">
 										<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
 										{/* TODO: add aria description */}
 										<Image
 											aria-hidden
 											src={heroImg.src}
-											alt={heroImg.alt ?? title}
+											alt={heroImg.alt}
 											className="motion-blur-in-3xl motion-duration-500 rounded-container absolute inset-0 size-full object-cover"
 											width={900}
 											height={900}
@@ -107,21 +94,18 @@ function WorkContent({
 								</div>
 							) : null}
 
-							{body ? (
+							{summary ? (
 								<div className={prose}>
-									<PortableText
-										data-tina-field={tinaField(data.work, 'body')}
-										content={body}
-									/>
+									<Body content={summary} />
 								</div>
 							) : null}
 						</div>
 					</Section>
 
-					{blocks?.length ? (
+					{body.length ? (
 						<div className="flex-flex-col flex-1">
 							<div className="-mx-md">
-								<Blocks items={blocks} />
+								<Body content={body} />
 							</div>
 						</div>
 					) : null}

@@ -8,23 +8,6 @@ query contentQuery($relativePath: String!) {
 		}
 	}
 
-	workConnection(sort: "date", last: -1) {
-		edges {
-			node {
-				...WorkParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
-
 	productConnection {
 		edges {
 			node {
@@ -43,37 +26,12 @@ query contentQuery($relativePath: String!) {
 	}
 }
 
-query workQuery($relativePath: String!) {
-	work(relativePath: $relativePath) {
-		...WorkParts
-		_sys {
-			relativePath
-			breadcrumbs
-		}
-	}
-}
-
 query sitemapQuery {
 	pageConnection {
 		edges {
 			node {
 				title
 				id
-				_sys {
-					filename
-					breadcrumbs
-				}
-			}
-		}
-	}
-
-	workConnection {
-		edges {
-			node {
-				title
-				id
-				date
-				category
 				_sys {
 					filename
 					breadcrumbs

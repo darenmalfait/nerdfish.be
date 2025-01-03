@@ -8,19 +8,23 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { type Project } from 'content-collections'
 import * as React from 'react'
-import { getWorks } from '../api'
+import { work } from '../api'
 import { filterWork } from '../utils'
 import { BlockLayout } from './work-overview-layout'
-import { type Block, type PageBlocksWork, type Work } from '~/app/cms/types'
+import { type Block, type PageBlocksWork } from '~/app/cms/types'
 
-function isSameWork(work: PartialDeep<Work>, relatedTo?: PartialDeep<Work>) {
-	return work._sys?.relativePath === relatedTo?._sys?.relativePath
+function isSameProject(
+	post: PartialDeep<Project>,
+	relatedTo?: PartialDeep<Project>,
+) {
+	return post.slug === relatedTo?.slug
 }
 
 export async function WorkOverviewBlockContent(
 	data: Block<PageBlocksWork> & {
-		relatedTo?: PartialDeep<Work>
+		relatedTo?: PartialDeep<Project>
 	},
 ) {
 	const {
@@ -32,49 +36,49 @@ export async function WorkOverviewBlockContent(
 		locale,
 		relatedTo,
 	} = data
-	const localizedWorks = (await getWorks({ locale })) ?? []
 
-	const relatedWorks =
+	const localizedItems = await work.getAll({ locale })
+
+	const relatedItems =
 		relatedTo &&
-		localizedWorks
+		localizedItems
 			.sort((a, b) => {
-				// The array gets sorted so the index of the next item is the first item in the array
-				const relatedToIndex = localizedWorks.findIndex(
-					(work) => work._sys?.relativePath === relatedTo._sys?.relativePath,
-				)
-				if (relatedToIndex === -1) return 0
+				// I want to get the index of the previous item, to be the first item in the array
+				const relatedToIndex =
+					localizedItems.findIndex((post) => post.slug === relatedTo.slug) - 2
+				if (relatedToIndex < 0) return 0
 
-				const aIndex = localizedWorks.indexOf(a)
-				const bIndex = localizedWorks.indexOf(b)
+				const aIndex = localizedItems.indexOf(a)
+				const bIndex = localizedItems.indexOf(b)
 
 				// Adjust indices to start after relatedTo
 				const adjustedAIndex =
-					(aIndex - relatedToIndex - 1 + localizedWorks.length) %
-					localizedWorks.length
+					(aIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
 				const adjustedBIndex =
-					(bIndex - relatedToIndex - 1 + localizedWorks.length) %
-					localizedWorks.length
+					(bIndex - relatedToIndex - 1 + localizedItems.length) %
+					localizedItems.length
 
 				return adjustedAIndex - adjustedBIndex
 			})
-			.filter((work) => !isSameWork(work, relatedTo))
-			.filter((work) => work.category === relatedTo.category)
+			.filter((post) => !isSameProject(post, relatedTo))
+			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const works = relatedTo
-		? relatedWorks?.length
-			? relatedWorks
-			: localizedWorks.filter((work) => !isSameWork(work, relatedTo))
-		: localizedWorks.filter((work) => !isSameWork(work, relatedTo))
+		? relatedItems?.length
+			? relatedItems
+			: localizedItems.filter((post) => !isSameProject(post, relatedTo))
+		: localizedItems.filter((post) => !isSameProject(post, relatedTo))
 
 	const items = relatedTo ? works : filterWork(works, tags?.join(' ') ?? '')
 
-	const limitedWorks = count ? items.slice(0, count) : items
+	const limitedItems = count ? items.slice(0, count) : items
 
 	return (
 		<BlockLayout
 			searchEnabled={searchEnabled ?? false}
 			featuredEnabled={featuredEnabled ?? false}
-			items={limitedWorks}
+			items={limitedItems}
 			header={header}
 		/>
 	)
@@ -82,7 +86,7 @@ export async function WorkOverviewBlockContent(
 
 export async function WorkOverviewBlock(
 	data: Block<PageBlocksWork> & {
-		relatedTo?: PartialDeep<Work>
+		relatedTo?: PartialDeep<Project>
 	},
 ) {
 	const { header, searchEnabled, featuredEnabled } = data

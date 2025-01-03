@@ -1,10 +1,11 @@
 import { type Article } from '@repo/design-system/components/article-overview'
+import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
 import { type Locale } from '@repo/i18n/types'
+import { type Project } from 'content-collections'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type Work } from '~/app/cms/types'
 
 export const WorkPath: {
 	[key in Locale]: string
@@ -13,7 +14,10 @@ export const WorkPath: {
 	nl: '/nl/werk',
 }
 
-export function filterWork(works: PartialDeep<Work>[], searchString: string) {
+export function filterWork(
+	works: PartialDeep<Project>[],
+	searchString: string,
+) {
 	if (!searchString) return works
 
 	const options = {
@@ -85,30 +89,30 @@ export function filterWork(works: PartialDeep<Work>[], searchString: string) {
 	return Array.from(new Set([...allResults, ...individualWordResults]))
 }
 
-export function getWorkPath(work: PartialDeep<Work>) {
-	const path = work._sys?.breadcrumbs?.join('/')
-	const locale = work._sys?.breadcrumbs?.[0]
+export function getWorkPath(post: PartialDeep<Project>) {
+	const locale = post.locale
 
-	const newPath = path?.replace(`${locale}/`, '/') ?? ''
+	const localePath = locale === i18n.defaultLocale ? '' : `/${locale}`
+	const blogPath = `/work/${post.slug}`
 
-	if (locale === i18n.defaultLocale) return `/work${newPath}`
-	return `/${locale}/work${newPath}`
+	return `${localePath}${blogPath}`
 }
 
-export function mapWorkToArticle(works: PartialDeep<Work>[]): Article[] {
-	return works.map((work) => ({
-		id: work.id ?? uniqueId(),
-		title: work.title ?? 'untitled',
-		excerpt: work.excerpt ?? undefined,
-		href: getWorkPath(work),
-		tags: work.category ? [work.category] : [],
-		category: work.category,
-		date: work.date,
-		image: work.heroImg?.src
+export function mapWorkToArticle(items: PartialDeep<Project>[]): Article[] {
+	return items.map((item) => ({
+		id: item.id ?? uniqueId(),
+		title: item.title ?? 'untitled',
+		description: item.excerpt,
+		href: getWorkPath(item),
+		tags: nonNullable(item.tags ?? []),
+		category: item.category,
+		date: item.date,
+		image: item.heroImg?.src
 			? {
-					src: work.heroImg.src,
-					alt: work.heroImg.alt ?? work.title ?? 'untitled',
+					src: item.heroImg.src,
+					alt: item.heroImg.alt ?? item.title ?? 'untitled',
 				}
 			: undefined,
+		base64Placeholder: item.imageBlur,
 	}))
 }

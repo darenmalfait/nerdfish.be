@@ -9,7 +9,7 @@ export const blog = {
 				return new Date(b.date).getTime() - new Date(a.date).getTime()
 			})
 	},
-	getLatestPost: async ({ locale }: { locale?: Locale } = {}) => {
+	getLatest: async ({ locale }: { locale?: Locale } = {}) => {
 		return allPosts.find((item) => item.locale === locale)?.slug
 	},
 	get: async ({ slug, locale }: { slug: string; locale?: Locale }) => {

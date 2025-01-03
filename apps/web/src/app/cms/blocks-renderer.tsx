@@ -19,11 +19,9 @@ import { KeywordListBlock } from './blocks/keyword-list'
 import { PricingBlock } from './blocks/pricing'
 import { SkillsBlock } from './blocks/skills'
 import { SplitWithImageBlock } from './blocks/split-with-image'
-import { type PageBlocks, type WorkBlocks, type Block } from './types'
+import { type PageBlocks, type Block } from './types'
 
-type PageBlockType =
-	| NonNullable<PageBlocks[keyof PageBlocks]>
-	| NonNullable<WorkBlocks[keyof WorkBlocks]>
+type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 
 const getComponent = (componentKey: string) => {
 	// Not putting this outside, because of server rendering
@@ -51,13 +49,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
-		WorkBlocksContent: ContentBlock,
 		PageBlocksSplitWithImage: SplitWithImageBlock,
-
-		// Work blocks
-		WorkBlocksImageGrid: ImageGridBlock,
-		WorkBlocksTestimonials: TestimonialsBlock,
-		WorkBlocksSkills: SkillsBlock,
 	} as const
 
 	if (!Object.keys(componentsMap).includes(componentKey)) {
