@@ -5,16 +5,12 @@ import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import * as React from 'react'
 import { AppProviders } from '../app-providers'
-import { getGlobalData } from '../cms/api'
-import { GlobalProvider } from '../global-provider'
 import { SiteLayout } from '../layout/site-layout'
 
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
 import '@repo/tailwind-config/styles/global.css'
 import '@nerdfish/theme/dist/nerdfishui.css'
-
-const getLayoutData = React.cache(getGlobalData)
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ lang: locale }))
@@ -30,8 +26,6 @@ export default async function RootLayout(props: {
 
 	setRequestLocale(params.locale)
 
-	const layoutData = await getLayoutData(params.locale)
-
 	// Using internationalization in Client Components
 	const messages = await getMessages()
 
@@ -40,9 +34,7 @@ export default async function RootLayout(props: {
 			<body className={fonts}>
 				<AppProviders>
 					<NextIntlClientProvider messages={messages} locale={params.locale}>
-						<GlobalProvider {...layoutData}>
-							<SiteLayout>{children}</SiteLayout>
-						</GlobalProvider>
+						<SiteLayout>{children}</SiteLayout>
 					</NextIntlClientProvider>
 				</AppProviders>
 			</body>

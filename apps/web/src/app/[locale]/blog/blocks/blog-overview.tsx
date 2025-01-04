@@ -8,6 +8,7 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { getLocale } from '@repo/i18n/server'
 import {
 	type Blog as BlogJsonLd,
 	JsonLd,
@@ -32,20 +33,14 @@ export async function BlogOverviewBlockContent(
 		relatedTo?: PartialDeep<Post>
 	},
 ) {
-	const {
-		header,
-		searchEnabled,
-		featuredEnabled,
-		tags,
-		count,
-		locale,
-		relatedTo,
-	} = data
+	const { header, searchEnabled, featuredEnabled, tags, count, relatedTo } =
+		data
 	const jsonLd: WithContext<BlogJsonLd> = {
 		'@type': 'Blog',
 		'@context': 'https://schema.org',
 	}
 
+	const locale = await getLocale()
 	const localizedItems = await blog.getAll({ locale })
 
 	const relatedItems =

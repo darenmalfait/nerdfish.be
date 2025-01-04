@@ -58,8 +58,10 @@ summary: |
 
 <Testimonials
 	layout={{ variant: 'secondary' }}
-	type={['client', 'project']}
-	tags={['de-borgerij']}
+	filter={{
+		type: ['client', 'project'],
+		tags: ['de-borgerij'],
+	}}
 />
 
 <Skills

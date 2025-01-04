@@ -8,6 +8,7 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { getLocale } from '@repo/i18n/server'
 import { type Project } from 'content-collections'
 import * as React from 'react'
 import { work } from '../api'
@@ -27,16 +28,10 @@ export async function WorkOverviewBlockContent(
 		relatedTo?: PartialDeep<Project>
 	},
 ) {
-	const {
-		header,
-		searchEnabled,
-		featuredEnabled,
-		tags,
-		count,
-		locale,
-		relatedTo,
-	} = data
+	const { header, searchEnabled, featuredEnabled, tags, count, relatedTo } =
+		data
 
+	const locale = await getLocale()
 	const localizedItems = await work.getAll({ locale })
 
 	const relatedItems =
