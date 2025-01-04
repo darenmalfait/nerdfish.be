@@ -9,10 +9,10 @@ export async function generateMetadata(props: {
 	params: Promise<WithLocale<{}>>
 }): Promise<Metadata | undefined> {
 	const params = await props.params
-	const t = await getTranslations()
+	const t = await getTranslations('pages.ai')
 
-	const title = t('ai.page.meta.title')
-	const description = t('ai.page.meta.description')
+	const title = t('title')
+	const description = t('meta.description')
 
 	return createMetadata({
 		title,

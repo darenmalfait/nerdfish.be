@@ -13,11 +13,11 @@ import { Chat } from '../contact/components/chat'
 import { HeroBlock } from '~/app/cms/blocks/hero'
 
 export function AIPageContent() {
-	const t = useTranslations('')
+	const t = useTranslations()
 	return (
 		<>
-			<HeroBlock variant="secondary" title={t('ai.page.title')}>
-				{t('ai.page.description')}
+			<HeroBlock variant="secondary" title={t('pages.ai.title')}>
+				{t('pages.ai.description')}
 			</HeroBlock>
 			<InViewBackground>
 				<Section>
