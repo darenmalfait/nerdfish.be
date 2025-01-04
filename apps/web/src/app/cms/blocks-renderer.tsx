@@ -3,7 +3,7 @@ import { BlogOverviewBlock } from '../[locale]/blog/blocks/blog-overview'
 import { BookingBlock } from '../[locale]/contact/blocks/booking'
 import { ChatbotBlock } from '../[locale]/contact/blocks/chat'
 import { ContactBlock } from '../[locale]/contact/blocks/contact'
-import { ProductsBlock } from '../[locale]/realisations/blocks/products'
+import { ProductsOverviewBlock } from '../[locale]/realisations/blocks/products'
 import { TestimonialsBlock } from '../[locale]/testimonials/blocks/testimonials'
 import { WikiOverviewBlock } from '../[locale]/wiki/blocks/wiki-overview'
 import { WorkOverviewBlock } from '../[locale]/work/blocks/work-overview'
@@ -44,7 +44,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksPricing: PricingBlock,
-		PageBlocksProducts: ProductsBlock,
+		PageBlocksProducts: ProductsOverviewBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWiki: WikiOverviewBlock,
