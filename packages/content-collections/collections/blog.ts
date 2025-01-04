@@ -18,17 +18,17 @@ export const posts = defineCollection({
 		heroImg: image,
 		tags: z.array(z.string()),
 	}),
-	transform: async ({ title, ...page }, context) => {
+	transform: async ({ title, ...item }, context) => {
 		try {
 			const [body, blur] = await Promise.all([
-				context.cache(page.content, async () =>
-					compileMDX(context, page, {
+				context.cache(item.content, async () =>
+					compileMDX(context, item, {
 						remarkPlugins: [remarkGfm],
 						rehypePlugins: [],
 					}),
 				),
-				context.cache(page._meta.path, async () =>
-					lqip(`./public/${page.heroImg.src}`),
+				context.cache(item._meta.path, async () =>
+					lqip(`./public/${item.heroImg.src}`),
 				),
 			])
 
@@ -36,10 +36,10 @@ export const posts = defineCollection({
 
 			return {
 				id: crypto.randomUUID(),
-				...page,
+				...item,
 				title,
 				body,
-				...getSlugAndLocale(page._meta.path),
+				...getSlugAndLocale(item._meta.path),
 				imageBlur: result.metadata.dataURIBase64,
 			}
 		} catch (error) {

@@ -18,9 +18,9 @@ import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { ContactForm } from './components/contact-form'
-import { type Block, type PageBlocksContact } from '~/app/cms/types'
+import { type PageBlocksContact } from '~/app/cms/types'
 
-export function ContactBlock(props: Block<PageBlocksContact>) {
+export function ContactBlock(props: PageBlocksContact) {
 	const { title, subtitle, openFormLabel, formTitle, formSubtitle } = props
 	const t = useTranslations('contact')
 

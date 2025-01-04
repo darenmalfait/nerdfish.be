@@ -7,14 +7,14 @@ import { BotIcon, XIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { Chat } from '../components/chat'
-import { type Block, type PageBlocksChatbot } from '~/app/cms/types'
+import { type PageBlocksChatbot } from '~/app/cms/types'
 
 function LockBody() {
 	useLockBody()
 	return null
 }
 
-export function ChatbotBlock(props: Block<PageBlocksChatbot>) {
+export function ChatbotBlock(props: PageBlocksChatbot) {
 	const [isOpen, setIsOpen] = React.useState<boolean>(false)
 	const isMobile = useMediaQuery('(max-width: 768px)')
 	const { icon } = props

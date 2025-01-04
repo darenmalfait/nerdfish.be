@@ -23,7 +23,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { type Post } from 'content-collections'
 import * as React from 'react'
 import { filterBlog, mapBlogToArticle } from '../../utils'
-import { type Block, type PageBlocksBlog } from '~/app/cms/types'
+import { type PageBlocksBlog } from '~/app/cms/types'
 
 export function BlogOverview({
 	searchEnabled,
@@ -36,7 +36,7 @@ export function BlogOverview({
 	searchEnabled: boolean
 	featuredEnabled: boolean
 	items: PartialDeep<Post>[]
-	header: Block<PageBlocksBlog>['header']
+	header: PageBlocksBlog['header']
 }) {
 	const t = useTranslations('blog')
 	const articles = React.useMemo(() => mapBlogToArticle(items), [items])

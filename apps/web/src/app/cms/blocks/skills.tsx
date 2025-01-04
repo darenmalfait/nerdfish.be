@@ -24,7 +24,7 @@ import {
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '../components/portable-text'
-import { type Block, type PageBlocksSkills } from '~/app/cms/types'
+import { type PageBlocksSkills } from '~/app/cms/types'
 import { type skills } from '~/tina/schema/blocks/skills.template'
 
 const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
@@ -96,7 +96,7 @@ const SkillsList = ({
 	)
 }
 
-export function SkillsBlock(data: Block<PageBlocksSkills>) {
+export function SkillsBlock(data: PageBlocksSkills) {
 	const { title, skills: skillsList, description, layout } = data
 
 	const maxCols = layout?.maxCols ?? '5'

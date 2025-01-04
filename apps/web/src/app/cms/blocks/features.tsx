@@ -19,7 +19,6 @@ import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
 import {
-	type Block,
 	type Page,
 	type PageBlocksFeatures,
 	type PageBlocksFeaturesItems,
@@ -105,7 +104,7 @@ function FeatureCard(
 	)
 }
 
-export function FeaturesBlock(props: Block<PageBlocksFeatures>) {
+export function FeaturesBlock(props: PageBlocksFeatures) {
 	const { title, subtitle, items, layout } = props
 
 	const ref = React.useRef<HTMLDivElement>(null)

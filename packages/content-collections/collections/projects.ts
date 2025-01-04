@@ -20,20 +20,20 @@ export const projects = defineCollection({
 		summary: z.string().optional(),
 		tags: z.array(z.string()),
 	}),
-	transform: async ({ title, ...page }, context) => {
+	transform: async ({ title, ...item }, context) => {
 		try {
 			const [body, summary, blur] = await Promise.all([
-				context.cache(page.content, async () =>
-					compileMDX(context, page, {
+				context.cache(item.content, async () =>
+					compileMDX(context, item, {
 						remarkPlugins: [remarkGfm],
 						rehypePlugins: [],
 					}),
 				),
-				page.summary
-					? context.cache(page.summary, async () =>
+				item.summary
+					? context.cache(item.summary, async () =>
 							compileMDX(
 								context,
-								{ ...page, content: page.summary ?? '' },
+								{ ...item, content: item.summary ?? '' },
 								{
 									remarkPlugins: [remarkGfm],
 									rehypePlugins: [],
@@ -41,8 +41,8 @@ export const projects = defineCollection({
 							),
 						)
 					: null,
-				context.cache(page._meta.path, async () =>
-					lqip(`./public/${page.heroImg.src}`),
+				context.cache(item._meta.path, async () =>
+					lqip(`./public/${item.heroImg.src}`),
 				),
 			])
 
@@ -50,11 +50,11 @@ export const projects = defineCollection({
 
 			return {
 				id: crypto.randomUUID(),
-				...page,
+				...item,
 				title,
 				body,
 				summary,
-				...getSlugAndLocale(page._meta.path),
+				...getSlugAndLocale(item._meta.path),
 				imageBlur: result.metadata.dataURIBase64,
 			}
 		} catch (error) {

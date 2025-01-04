@@ -20,14 +20,14 @@ import * as React from 'react'
 import { blog } from '../../api'
 import { filterBlog } from '../../utils'
 import { BlogOverview } from './blog-overview'
-import { type Block, type PageBlocksBlog } from '~/app/cms/types'
+import { type PageBlocksBlog } from '~/app/cms/types'
 
 function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 	return item.slug === relatedTo?.slug
 }
 
 export async function BlogOverviewBlockContent(
-	data: Block<PageBlocksBlog> & {
+	data: PageBlocksBlog & {
 		relatedTo?: PartialDeep<Post>
 	},
 ) {
@@ -92,7 +92,7 @@ export async function BlogOverviewBlockContent(
 }
 
 export async function BlogOverviewBlock(
-	data: Block<PageBlocksBlog> & {
+	data: PageBlocksBlog & {
 		relatedTo?: PartialDeep<Post>
 	},
 ) {

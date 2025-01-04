@@ -13,7 +13,6 @@ import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import {
-	type Block,
 	type PageBlocksImageGrid,
 	type PageBlocksImageGridItems,
 } from '~/app/cms/types'
@@ -47,7 +46,7 @@ function getGridItemClassName(index: number) {
 	return 'col-span-4'
 }
 
-export function ImageGridBlock(props: Block<PageBlocksImageGrid>) {
+export function ImageGridBlock(props: PageBlocksImageGrid) {
 	const { title, subtitle, items } = props
 	const ref = React.useRef<HTMLDivElement>(null)
 

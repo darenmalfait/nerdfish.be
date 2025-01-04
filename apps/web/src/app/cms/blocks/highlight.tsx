@@ -14,7 +14,7 @@ import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import { type Block, type PageBlocksHighlight } from '~/app/cms/types'
+import { type PageBlocksHighlight } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -22,7 +22,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	return <Section className="!py-0">{children}</Section>
 }
 
-export function HighlightBlock(props: Block<PageBlocksHighlight>) {
+export function HighlightBlock(props: PageBlocksHighlight) {
 	const t = useTranslations('global')
 	const { title, category, excerpt, image, linkText, reference } = props
 

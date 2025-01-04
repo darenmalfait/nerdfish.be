@@ -15,9 +15,9 @@ export const wiki = defineCollection({
 		date: z.string(),
 		tags: z.array(z.string()),
 	}),
-	transform: async (page, context) => {
-		const body = await context.cache(page.content, async () =>
-			compileMDX(context, page, {
+	transform: async (item, context) => {
+		const body = await context.cache(item.content, async () =>
+			compileMDX(context, item, {
 				remarkPlugins: [remarkGfm],
 				rehypePlugins: [],
 			}),
@@ -25,10 +25,10 @@ export const wiki = defineCollection({
 
 		return {
 			id: crypto.randomUUID(),
-			...page,
+			...item,
 			body,
 			// wiki is not multilingual, so we can use the path as slug
-			slug: page._meta.path,
+			slug: item._meta.path,
 		}
 	},
 })

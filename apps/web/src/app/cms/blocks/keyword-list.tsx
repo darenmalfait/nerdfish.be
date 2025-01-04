@@ -6,7 +6,7 @@ import { H1, Marquee } from '@repo/design-system/components/ui'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksKeywordList } from '~/app/cms/types'
+import { type PageBlocksKeywordList } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -16,7 +16,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	)
 }
 
-export function KeywordListBlock(data: Block<PageBlocksKeywordList>) {
+export function KeywordListBlock(data: PageBlocksKeywordList) {
 	const { title, keywords } = data
 
 	return (

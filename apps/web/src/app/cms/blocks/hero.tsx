@@ -9,7 +9,7 @@ import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '~/app/cms/components/portable-text'
-import { type Block, type PageBlocksHero } from '~/app/cms/types'
+import { type PageBlocksHero } from '~/app/cms/types'
 
 const AnimatedText = React.forwardRef<
 	HTMLSpanElement,
@@ -123,7 +123,7 @@ function BlockImage({ children }: { children?: React.ReactNode }) {
 }
 
 export function HeroBlock(
-	data: Block<PageBlocksHero> & {
+	data: PageBlocksHero & {
 		children?: React.ReactNode
 	},
 ) {

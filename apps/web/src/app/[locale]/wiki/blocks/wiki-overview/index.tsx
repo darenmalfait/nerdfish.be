@@ -13,14 +13,14 @@ import * as React from 'react'
 import { wiki } from '../../api'
 import { filterWiki } from '../../utils'
 import { WikiOverview } from './wiki-overview'
-import { type Block, type PageBlocksWiki } from '~/app/cms/types'
+import { type PageBlocksWiki } from '~/app/cms/types'
 
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug
 }
 
 export async function WikiOverviewBlockContent(
-	data: Block<PageBlocksWiki> & {
+	data: PageBlocksWiki & {
 		relatedTo?: PartialDeep<Wiki>
 	},
 ) {
@@ -74,7 +74,7 @@ export async function WikiOverviewBlockContent(
 }
 
 export async function WikiOverviewBlock(
-	data: Block<PageBlocksWiki> & {
+	data: PageBlocksWiki & {
 		relatedTo?: PartialDeep<Wiki>
 	},
 ) {

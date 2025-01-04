@@ -5,7 +5,7 @@ import Image from 'next/image'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '../components/portable-text'
-import { type Block, type PageBlocksSplitWithImage } from '~/app/cms/types'
+import { type PageBlocksSplitWithImage } from '~/app/cms/types'
 
 function BlockLayout({
 	children,
@@ -30,7 +30,7 @@ function BlockLayout({
 	)
 }
 
-export function SplitWithImageBlock(data: Block<PageBlocksSplitWithImage>) {
+export function SplitWithImageBlock(data: PageBlocksSplitWithImage) {
 	const { body, image, reverse } = data
 
 	return (
