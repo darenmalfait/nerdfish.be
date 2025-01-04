@@ -6,6 +6,7 @@ import {
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
+import { Section } from '@repo/design-system/components/section'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { getLocale } from '@repo/i18n/server'
@@ -16,16 +17,13 @@ import {
 } from '@repo/seo/json-ld'
 import { type Post } from 'content-collections'
 import * as React from 'react'
-import { blog } from '../api'
-import { filterBlog } from '../utils'
-import { BlockLayout } from './blog-overview-layout'
+import { blog } from '../../api'
+import { filterBlog } from '../../utils'
+import { BlogOverview } from './blog-overview'
 import { type Block, type PageBlocksBlog } from '~/app/cms/types'
 
-function isSameBlogPost(
-	post: PartialDeep<Post>,
-	relatedTo?: PartialDeep<Post>,
-) {
-	return post.slug === relatedTo?.slug
+function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
+	return item.slug === relatedTo?.slug
 }
 
 export async function BlogOverviewBlockContent(
@@ -35,13 +33,14 @@ export async function BlogOverviewBlockContent(
 ) {
 	const { header, searchEnabled, featuredEnabled, tags, count, relatedTo } =
 		data
+
+	const locale = await getLocale()
+	const localizedItems = await blog.getAll({ locale })
+
 	const jsonLd: WithContext<BlogJsonLd> = {
 		'@type': 'Blog',
 		'@context': 'https://schema.org',
 	}
-
-	const locale = await getLocale()
-	const localizedItems = await blog.getAll({ locale })
 
 	const relatedItems =
 		relatedTo &&
@@ -65,14 +64,14 @@ export async function BlogOverviewBlockContent(
 
 				return adjustedAIndex - adjustedBIndex
 			})
-			.filter((post) => !isSameBlogPost(post, relatedTo))
+			.filter((post) => !isSameItem(post, relatedTo))
 			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const blogs = relatedTo
 		? relatedItems?.length
 			? relatedItems
-			: localizedItems.filter((post) => !isSameBlogPost(post, relatedTo))
-		: localizedItems.filter((post) => !isSameBlogPost(post, relatedTo))
+			: localizedItems.filter((post) => !isSameItem(post, relatedTo))
+		: localizedItems.filter((post) => !isSameItem(post, relatedTo))
 
 	const items = relatedTo ? blogs : filterBlog(blogs, tags?.join(' ') ?? '')
 
@@ -82,7 +81,7 @@ export async function BlogOverviewBlockContent(
 		<>
 			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
 
-			<BlockLayout
+			<BlogOverview
 				searchEnabled={searchEnabled ?? false}
 				featuredEnabled={featuredEnabled ?? false}
 				items={limitedBlogs}
@@ -100,38 +99,40 @@ export async function BlogOverviewBlock(
 	const { header, searchEnabled, featuredEnabled } = data
 
 	return (
-		<React.Suspense
-			fallback={
-				<BlockLayout
-					searchEnabled={searchEnabled ?? false}
-					featuredEnabled={featuredEnabled ?? false}
-					items={[]}
-					header={header}
-				>
-					{featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
-					) : null}
-					<ArticleOverviewContentGrid>
-						{Array.from({ length: 2 }).map((_, i) => (
-							<li key={i} className="col-span-4">
-								<ArticleCard>
-									<ArticleCardImage alt="" />
-									<ArticleCardContent>
-										<ArticleCardCategory className="w-16">
-											<Skeleton className="bg-transparent" />
-										</ArticleCardCategory>
-										<ArticleCardTitle>
-											<Skeleton count={2} />
-										</ArticleCardTitle>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						))}
-					</ArticleOverviewContentGrid>
-				</BlockLayout>
-			}
-		>
-			<BlogOverviewBlockContent {...data} />
-		</React.Suspense>
+		<Section>
+			<React.Suspense
+				fallback={
+					<BlogOverview
+						searchEnabled={searchEnabled ?? false}
+						featuredEnabled={featuredEnabled ?? false}
+						items={[]}
+						header={header}
+					>
+						{featuredEnabled ? (
+							<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
+						) : null}
+						<ArticleOverviewContentGrid>
+							{Array.from({ length: 2 }).map((_, i) => (
+								<li key={i} className="col-span-4">
+									<ArticleCard>
+										<ArticleCardImage alt="" />
+										<ArticleCardContent>
+											<ArticleCardCategory className="w-16">
+												<Skeleton className="bg-transparent" />
+											</ArticleCardCategory>
+											<ArticleCardTitle>
+												<Skeleton count={2} />
+											</ArticleCardTitle>
+										</ArticleCardContent>
+									</ArticleCard>
+								</li>
+							))}
+						</ArticleOverviewContentGrid>
+					</BlogOverview>
+				}
+			>
+				<BlogOverviewBlockContent {...data} />
+			</React.Suspense>
+		</Section>
 	)
 }
