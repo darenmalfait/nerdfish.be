@@ -1,25 +1,12 @@
 'use client'
 
 import { cx } from '@nerdfish/utils'
-import { InViewBackground } from '@repo/design-system/components/in-view-background'
-import { Section } from '@repo/design-system/components/section'
 import { H1, H2 } from '@repo/design-system/components/ui'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { type Testimonial } from 'content-collections'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
 import { type PageBlocksTestimonialsLayout } from '~/app/cms/types'
-import { useGlobal } from '~/app/global-provider'
-
-const BlockLayout = ({ children }: { children: React.ReactNode }) => {
-	if (!children) return null
-
-	return (
-		<InViewBackground className="bg-blog/20">
-			<Section>{children}</Section>
-		</InViewBackground>
-	)
-}
 
 function Author({ author }: { author: Testimonial['author'] }) {
 	if (!author?.name) return null
@@ -76,11 +63,13 @@ function TestimonialItem({
 	onPrevious,
 }: {
 	layout?: PageBlocksTestimonialsLayout
-	testimonial: Testimonial
+	testimonial?: Testimonial
 	onNext?: () => void
 	onPrevious?: () => void
 }) {
 	const Element = layout?.variant === 'secondary' ? H2 : H1
+
+	if (!testimonial) return null
 
 	return (
 		<div className="gap-xl relative flex flex-col justify-center">
@@ -101,32 +90,19 @@ function TestimonialItem({
 	)
 }
 
-export interface TestimonialsBlockProps {
+export interface TestimonialsProps {
+	testimonials: Testimonial[]
 	layout?: {
 		variant?: 'primary' | 'secondary'
 	}
-	type?: Testimonial['type']
-	tags?: Testimonial['tags']
+	children?: React.ReactNode
 }
 
-export function TestimonialsBlock(data: TestimonialsBlockProps) {
-	const { type, tags, layout } = data
-
-	const { testimonials: allTestimonials } = useGlobal()
-
-	const testimonials =
-		allTestimonials
-			// filter by type
-			?.filter((item) => {
-				if (!type) return true
-				return type.includes(item.type)
-			})
-			// filter by tags
-			.filter((item) => {
-				if (!tags) return true
-				return item.tags && tags.every((tag) => item.tags?.includes(tag))
-			}) ?? []
-
+export function Testimonials({
+	layout,
+	testimonials,
+	children,
+}: TestimonialsProps) {
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
 		testimonials.length ? testimonials.length - 1 : 0,
 	)
@@ -148,10 +124,10 @@ export function TestimonialsBlock(data: TestimonialsBlockProps) {
 	}, [currentTestimonial, testimonials.length])
 
 	const testimonial = testimonials[currentTestimonial]
-	if (!testimonial) return null
+	if (!testimonial && !children) return null
 
 	return (
-		<BlockLayout>
+		<>
 			<H2 className="sr-only">Testimonials</H2>
 			<div className="relative">
 				<AnimatePresence mode="popLayout">
@@ -177,9 +153,12 @@ export function TestimonialsBlock(data: TestimonialsBlockProps) {
 							onNext={testimonials.length > 1 ? onNext : undefined}
 							onPrevious={testimonials.length > 1 ? onPrevious : undefined}
 						/>
+
+						{/* can be used for skeleton */}
+						{children}
 					</motion.div>
 				</AnimatePresence>
 			</div>
-		</BlockLayout>
+		</>
 	)
 }

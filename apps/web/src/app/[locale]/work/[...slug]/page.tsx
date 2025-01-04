@@ -47,7 +47,6 @@ export default async function WorkPage(props: {
 						subtitle: t('work.related.subtitle'),
 					}}
 					count={1}
-					locale={params.locale}
 					relatedTo={work}
 				/>
 			}

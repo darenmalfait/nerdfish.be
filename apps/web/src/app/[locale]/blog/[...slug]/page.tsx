@@ -47,7 +47,6 @@ export default async function BlogPage(props: {
 						subtitle: t('related.subtitle'),
 					}}
 					count={2}
-					locale={params.locale}
 					relatedTo={post}
 				/>
 			}
