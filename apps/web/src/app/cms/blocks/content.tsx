@@ -2,7 +2,7 @@ import { Section } from '@repo/design-system/components/section'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '../components/portable-text'
-import { type Block, type PageBlocksContent } from '~/app/cms/types'
+import { type PageBlocksContent } from '~/app/cms/types'
 
 function BlockLayout({ children }: { children: React.ReactNode }) {
 	if (!children) return null
@@ -16,7 +16,7 @@ function BlockLayout({ children }: { children: React.ReactNode }) {
 	)
 }
 
-export function ContentBlock(data: Block<PageBlocksContent>) {
+export function ContentBlock(data: PageBlocksContent) {
 	const { body } = data
 
 	return (

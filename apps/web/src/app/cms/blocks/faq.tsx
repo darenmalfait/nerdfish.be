@@ -16,7 +16,7 @@ import {
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksFaq } from '~/app/cms/types'
+import { type PageBlocksFaq } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -44,7 +44,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 	)
 }
 
-export function FAQBlock(props: Block<PageBlocksFaq>) {
+export function FAQBlock(props: PageBlocksFaq) {
 	const { title, subtitle, qa } = props
 
 	if (!qa?.length) return null

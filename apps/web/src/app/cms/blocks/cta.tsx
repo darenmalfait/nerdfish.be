@@ -8,7 +8,7 @@ import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import { type Block, type PageBlocksCta } from '~/app/cms/types'
+import { type PageBlocksCta } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -16,7 +16,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	return <Section>{children}</Section>
 }
 
-export function CtaBlock(props: Block<PageBlocksCta>) {
+export function CtaBlock(props: PageBlocksCta) {
 	const { title, subtitle, page } = props
 
 	return (

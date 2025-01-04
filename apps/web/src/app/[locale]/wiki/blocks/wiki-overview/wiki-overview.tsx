@@ -23,7 +23,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { type Wiki } from 'content-collections'
 import * as React from 'react'
 import { filterWiki, mapWikiToArticle } from '../../utils'
-import { type Block, type PageBlocksWiki } from '~/app/cms/types'
+import { type PageBlocksWiki } from '~/app/cms/types'
 
 export function WikiOverview({
 	searchEnabled,
@@ -36,7 +36,7 @@ export function WikiOverview({
 	searchEnabled: boolean
 	featuredEnabled: boolean
 	items: PartialDeep<Wiki>[]
-	header: Block<PageBlocksWiki>['header']
+	header: PageBlocksWiki['header']
 }) {
 	const t = useTranslations('wiki')
 	const articles = React.useMemo(() => mapWikiToArticle(items), [items])

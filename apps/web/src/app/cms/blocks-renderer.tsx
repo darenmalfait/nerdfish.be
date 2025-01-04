@@ -1,3 +1,4 @@
+import { type Locale } from '@repo/i18n/types'
 import type * as React from 'react'
 import { BlogOverviewBlock } from '../[locale]/blog/blocks/blog-overview'
 import { BookingBlock } from '../[locale]/contact/blocks/booking'
@@ -19,7 +20,7 @@ import { KeywordListBlock } from './blocks/keyword-list'
 import { PricingBlock } from './blocks/pricing'
 import { SkillsBlock } from './blocks/skills'
 import { SplitWithImageBlock } from './blocks/split-with-image'
-import { type PageBlocks, type Block } from './types'
+import { type PageBlocks } from './types'
 
 type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
 
@@ -27,7 +28,7 @@ const getComponent = (componentKey: string) => {
 	// Not putting this outside, because of server rendering
 	// [key] is the name of the module in TinaCMS
 	const componentsMap: {
-		[K in PageBlockType]: React.ComponentType<Block>
+		[K in PageBlockType]: React.ElementType
 	} = {
 		// Page blocks
 		PageBlocksBlog: BlogOverviewBlock,
@@ -75,29 +76,25 @@ function Placeholder({
 
 function BlockComponent({
 	block,
-	globalData,
 	locale,
 }: {
 	block: PageBlocks
-	globalData?: Block['globalData']
-	locale?: Block['locale']
+	locale?: Locale
 }) {
 	if (!block.__typename) return null
 
 	const Component = getComponent(block.__typename)
 
 	if (!Component) return <Placeholder componentName={block.__typename} />
-	return <Component locale={locale} globalData={globalData} {...block} />
+	return <Component locale={locale} {...block} />
 }
 
 export function Blocks({
 	items,
-	globalData,
 	locale,
 }: {
 	items?: any[] | null
-	globalData?: Block['globalData']
-	locale?: Block['locale']
+	locale?: Locale
 }) {
 	if (!items) return null
 
@@ -110,7 +107,6 @@ export function Blocks({
 						// TODO: find a better way to type this
 						block={block}
 						locale={locale}
-						globalData={globalData}
 					/>
 				)
 			})}

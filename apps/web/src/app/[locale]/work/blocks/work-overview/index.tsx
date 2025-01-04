@@ -15,7 +15,7 @@ import * as React from 'react'
 import { work } from '../../api'
 import { filterWork } from '../../utils'
 import { WorkOverview } from './work-overview'
-import { type Block, type PageBlocksWork } from '~/app/cms/types'
+import { type PageBlocksWork } from '~/app/cms/types'
 
 function isSameItem(
 	item: PartialDeep<Project>,
@@ -25,7 +25,7 @@ function isSameItem(
 }
 
 export async function WorkOverviewBlockContent(
-	data: Block<PageBlocksWork> & {
+	data: PageBlocksWork & {
 		relatedTo?: PartialDeep<Project>
 	},
 ) {
@@ -83,7 +83,7 @@ export async function WorkOverviewBlockContent(
 }
 
 export async function WorkOverviewBlock(
-	data: Block<PageBlocksWork> & {
+	data: PageBlocksWork & {
 		relatedTo?: PartialDeep<Project>
 	},
 ) {

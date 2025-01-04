@@ -10,7 +10,7 @@ import { type Product } from 'content-collections'
 import * as React from 'react'
 import { product } from '../../api'
 import { ProductsOverview } from './products'
-import { type Block, type PageBlocksWork } from '~/app/cms/types'
+import { type PageBlocksWork } from '~/app/cms/types'
 
 export async function ProductsOverviewBlockContent() {
 	const items = await product.getAll()
@@ -19,7 +19,7 @@ export async function ProductsOverviewBlockContent() {
 }
 
 export async function ProductsOverviewBlock(
-	data: Block<PageBlocksWork> & {
+	data: PageBlocksWork & {
 		relatedTo?: PartialDeep<Product>
 	},
 ) {

@@ -6,9 +6,8 @@ import { type Testimonial } from 'content-collections'
 import * as React from 'react'
 import { testimonials as testimonialsApi } from '../../api'
 import { Testimonials, type TestimonialsProps } from './testimonials'
-import { type Block } from '~/app/cms/types'
 
-export interface TestimonialsBlockProps extends Block, TestimonialsProps {
+export interface TestimonialsBlockProps extends TestimonialsProps {
 	filter?: {
 		type?: Testimonial['type']
 		tags?: Testimonial['tags']
