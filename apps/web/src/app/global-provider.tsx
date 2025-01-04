@@ -1,21 +1,10 @@
 'use client'
 
-import { useLocale } from '@repo/i18n/client'
 import { type Testimonial } from 'content-collections'
 import * as React from 'react'
-import { BlogPath } from './[locale]/blog/utils'
-import { ContactPath } from './[locale]/contact/utils'
-import { WikiPath } from './[locale]/wiki/utils'
-import { WorkPath } from './[locale]/work/utils'
 
 type GlobalContextProps = {
 	testimonials?: Testimonial[]
-	paths: {
-		blog: string
-		work: string
-		contact: string
-		wiki: string
-	}
 }
 
 const GlobalProviderContext = React.createContext<GlobalContextProps | null>(
@@ -31,17 +20,8 @@ interface GlobalProviderProps {
 // import { GlobalProvider } from "path-to-context/GlobalProviderContext"
 // use <GlobalProviderProvider> as a wrapper around the part you need the context for
 function GlobalProvider({ children, ...globalProps }: GlobalProviderProps) {
-	const locale = useLocale()
-
-	const paths = {
-		blog: BlogPath[locale],
-		work: WorkPath[locale],
-		contact: ContactPath[locale],
-		wiki: WikiPath[locale],
-	}
-
 	return (
-		<GlobalProviderContext value={{ ...globalProps, paths }}>
+		<GlobalProviderContext value={{ ...globalProps }}>
 			{children}
 		</GlobalProviderContext>
 	)
