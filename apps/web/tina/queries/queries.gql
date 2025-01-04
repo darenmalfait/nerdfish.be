@@ -7,23 +7,6 @@ query contentQuery($relativePath: String!) {
 			filename
 		}
 	}
-
-	productConnection {
-		edges {
-			node {
-				...ProductParts
-				id
-				_sys {
-					filename
-					basename
-					breadcrumbs
-					path
-					relativePath
-					extension
-				}
-			}
-		}
-	}
 }
 
 query sitemapQuery {

@@ -20,7 +20,7 @@ import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { useTranslations } from '@repo/i18n/client'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { type Block, type PageBlocksPricing } from '~/app/cms/types'
+import { type PageBlocksPricing } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	if (!children) return null
@@ -28,7 +28,7 @@ const BlockLayout = ({ children }: { children: React.ReactNode }) => {
 	return <Section>{children}</Section>
 }
 
-export function PricingBlock(props: Block<PageBlocksPricing>) {
+export function PricingBlock(props: PageBlocksPricing) {
 	const { title, subtitle, price } = props
 	const t = useTranslations('global')
 

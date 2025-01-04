@@ -20,9 +20,9 @@ import { useLocale } from '@repo/i18n/client'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { PortableText } from '~/app/cms/components/portable-text'
-import { type Block, type PageBlocksBooking } from '~/app/cms/types'
+import { type PageBlocksBooking } from '~/app/cms/types'
 
-export function BookingBlock(props: Block<PageBlocksBooking>) {
+export function BookingBlock(props: PageBlocksBooking) {
 	const { title, subtitle, content } = props
 	const locale = useLocale()
 

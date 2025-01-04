@@ -21,7 +21,7 @@ import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { getPagePath } from '~/app/[locale]/(pages)/utils'
-import { type Block, type PageBlocksHighlights } from '~/app/cms/types'
+import { type PageBlocksHighlights } from '~/app/cms/types'
 
 const Card = React.forwardRef<
 	React.ComponentRef<typeof motion.div>,
@@ -55,7 +55,7 @@ const Card = React.forwardRef<
 )
 Card.displayName = 'Card'
 
-export function HighlightsBlock(props: Block<PageBlocksHighlights>) {
+export function HighlightsBlock(props: PageBlocksHighlights) {
 	const { items, sectionHeader } = props
 	const t = useTranslations('global')
 	const containerRef = React.useRef<HTMLDivElement>(null)

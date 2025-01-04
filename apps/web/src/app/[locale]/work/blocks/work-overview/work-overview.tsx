@@ -23,7 +23,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { type Project } from 'content-collections'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../../utils'
-import { type Block, type PageBlocksWork } from '~/app/cms/types'
+import { type PageBlocksWork } from '~/app/cms/types'
 
 export function WorkOverview({
 	searchEnabled,
@@ -36,7 +36,7 @@ export function WorkOverview({
 	searchEnabled: boolean
 	featuredEnabled: boolean
 	items: PartialDeep<Project>[]
-	header: Block<PageBlocksWork>['header']
+	header: PageBlocksWork['header']
 }) {
 	const t = useTranslations('work')
 	const articles = React.useMemo(() => mapWorkToArticle(items), [items])

@@ -2,50 +2,37 @@
 
 import { cx } from '@nerdfish/utils'
 import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/design-system/components/section'
-import {
 	Avatar,
 	AvatarFallback,
 	AvatarImage,
-	Badge,
 	Button,
 	Grid,
 	GridCard,
 	Skeleton,
 } from '@repo/design-system/components/ui'
 import { GithubIcon, GlobeIcon } from '@repo/design-system/lib/icons'
+import { type Product } from 'content-collections'
 import Link from 'next/link'
-import { tinaField } from 'tinacms/dist/react'
-import {
-	type Block,
-	type PageBlocksProducts,
-	type Product,
-} from '~/app/cms/types'
 
 function ProductItem({
 	title,
-	link,
+	url,
 	sourceUrl,
 	description,
-	soon,
-	imageSrc,
+	image,
 }: Partial<Product>) {
-	const hasExternalLink = link ?? sourceUrl
+	const hasExternalLink = url ?? sourceUrl
 
 	return (
 		<>
 			<div />
 			<div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-focus-within:-translate-y-10 group-hover:-translate-y-10">
-				{imageSrc ? (
+				{image?.src ? (
 					<Avatar className="text-primary size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
 						<AvatarImage
-							src={imageSrc}
+							src={image.src}
 							className="object-cover"
-							alt={`${title} logo`}
+							alt={image.alt}
 						/>
 						<AvatarFallback>
 							<Skeleton className="size-full" />
@@ -58,11 +45,7 @@ function ProductItem({
 					className="block truncate whitespace-nowrap font-bold"
 					aria-hidden
 				>
-					{soon ? (
-						<Badge variant="success">Soon</Badge>
-					) : (
-						link?.replace('https://', '')
-					)}
+					{url?.replace('https://', '')}
 				</span>
 			</div>
 			{hasExternalLink ? (
@@ -72,7 +55,7 @@ function ProductItem({
 					)}
 				>
 					<div className="flex gap-2">
-						{link ? (
+						{url ? (
 							<Button
 								variant="default"
 								asChild
@@ -80,7 +63,7 @@ function ProductItem({
 								className="pointer-events-auto"
 							>
 								<Link
-									href={link}
+									href={url}
 									target="_blank"
 									rel="noreferrer"
 									aria-label={`link to ${title}`}
@@ -117,44 +100,28 @@ function ProductItem({
 	)
 }
 
-export function ProductsBlock(data: Block<PageBlocksProducts>) {
-	const { header, globalData = {} } = data
+export interface ProductsOverviewProps {
+	products: Product[]
+}
 
-	const { products: allProducts = [] } = globalData
-	const { title, subtitle, link } = header ?? {}
-
+export function ProductsOverview({ products }: ProductsOverviewProps) {
 	return (
-		<Section>
-			{(title ?? subtitle) ? (
-				<div data-tina-field={tinaField(data, 'header')} className="mb-6">
-					<SectionHeader
-						cta={{
-							title: 'See all products',
-							url: link ?? '',
-						}}
-					>
-						<SectionHeaderTitle>{title}</SectionHeaderTitle>
-						<SectionHeaderSubtitle>{subtitle}</SectionHeaderSubtitle>
-					</SectionHeader>
-				</div>
-			) : null}
-			<div data-tina-field={tinaField(data, 'header')} className="space-y-6">
-				<Grid asChild className="auto-rows-[15rem]">
-					<ul>
-						{allProducts.map((product) => (
-							<GridCard
-								key={product.id ?? product.title}
-								className="bg-muted lg:col-span-1"
-								asChild
-							>
-								<li>
-									<ProductItem {...product} />
-								</li>
-							</GridCard>
-						))}
-					</ul>
-				</Grid>
-			</div>
-		</Section>
+		<div className="space-y-6">
+			<Grid asChild className="auto-rows-[15rem]">
+				<ul>
+					{products.map((product) => (
+						<GridCard
+							key={product.id}
+							className="bg-muted lg:col-span-1"
+							asChild
+						>
+							<li>
+								<ProductItem {...product} />
+							</li>
+						</GridCard>
+					))}
+				</ul>
+			</Grid>
+		</div>
 	)
 }
