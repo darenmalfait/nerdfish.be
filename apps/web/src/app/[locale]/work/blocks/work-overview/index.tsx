@@ -6,21 +6,22 @@ import {
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
+import { Section } from '@repo/design-system/components/section'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { getLocale } from '@repo/i18n/server'
 import { type Project } from 'content-collections'
 import * as React from 'react'
-import { work } from '../api'
-import { filterWork } from '../utils'
-import { BlockLayout } from './work-overview-layout'
+import { work } from '../../api'
+import { filterWork } from '../../utils'
+import { WorkOverview } from './work-overview'
 import { type Block, type PageBlocksWork } from '~/app/cms/types'
 
-function isSameProject(
-	post: PartialDeep<Project>,
+function isSameItem(
+	item: PartialDeep<Project>,
 	relatedTo?: PartialDeep<Project>,
 ) {
-	return post.slug === relatedTo?.slug
+	return item.slug === relatedTo?.slug
 }
 
 export async function WorkOverviewBlockContent(
@@ -58,21 +59,21 @@ export async function WorkOverviewBlockContent(
 
 				return adjustedAIndex - adjustedBIndex
 			})
-			.filter((post) => !isSameProject(post, relatedTo))
+			.filter((post) => !isSameItem(post, relatedTo))
 			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const works = relatedTo
 		? relatedItems?.length
 			? relatedItems
-			: localizedItems.filter((post) => !isSameProject(post, relatedTo))
-		: localizedItems.filter((post) => !isSameProject(post, relatedTo))
+			: localizedItems.filter((post) => !isSameItem(post, relatedTo))
+		: localizedItems.filter((post) => !isSameItem(post, relatedTo))
 
 	const items = relatedTo ? works : filterWork(works, tags?.join(' ') ?? '')
 
 	const limitedItems = count ? items.slice(0, count) : items
 
 	return (
-		<BlockLayout
+		<WorkOverview
 			searchEnabled={searchEnabled ?? false}
 			featuredEnabled={featuredEnabled ?? false}
 			items={limitedItems}
@@ -89,38 +90,40 @@ export async function WorkOverviewBlock(
 	const { header, searchEnabled, featuredEnabled } = data
 
 	return (
-		<React.Suspense
-			fallback={
-				<BlockLayout
-					searchEnabled={searchEnabled ?? false}
-					featuredEnabled={featuredEnabled ?? false}
-					items={[]}
-					header={header}
-				>
-					{featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
-					) : null}
-					<ArticleOverviewContentGrid>
-						{Array.from({ length: 2 }).map((_, i) => (
-							<li key={i} className="col-span-4">
-								<ArticleCard>
-									<ArticleCardImage alt="" />
-									<ArticleCardContent>
-										<ArticleCardCategory className="w-16">
-											<Skeleton className="bg-transparent" />
-										</ArticleCardCategory>
-										<ArticleCardTitle>
-											<Skeleton count={2} />
-										</ArticleCardTitle>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						))}
-					</ArticleOverviewContentGrid>
-				</BlockLayout>
-			}
-		>
-			<WorkOverviewBlockContent {...data} />
-		</React.Suspense>
+		<Section>
+			<React.Suspense
+				fallback={
+					<WorkOverview
+						searchEnabled={searchEnabled ?? false}
+						featuredEnabled={featuredEnabled ?? false}
+						items={[]}
+						header={header}
+					>
+						{featuredEnabled ? (
+							<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
+						) : null}
+						<ArticleOverviewContentGrid>
+							{Array.from({ length: 2 }).map((_, i) => (
+								<li key={i} className="col-span-4">
+									<ArticleCard>
+										<ArticleCardImage alt="" />
+										<ArticleCardContent>
+											<ArticleCardCategory className="w-16">
+												<Skeleton className="bg-transparent" />
+											</ArticleCardCategory>
+											<ArticleCardTitle>
+												<Skeleton count={2} />
+											</ArticleCardTitle>
+										</ArticleCardContent>
+									</ArticleCard>
+								</li>
+							))}
+						</ArticleOverviewContentGrid>
+					</WorkOverview>
+				}
+			>
+				<WorkOverviewBlockContent {...data} />
+			</React.Suspense>
+		</Section>
 	)
 }

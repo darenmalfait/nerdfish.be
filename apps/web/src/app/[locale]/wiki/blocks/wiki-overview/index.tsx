@@ -8,15 +8,15 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
-import { type Wiki, type Post } from 'content-collections'
+import { type Wiki } from 'content-collections'
 import * as React from 'react'
-import { wiki } from '../api'
-import { filterWiki } from '../utils'
-import { BlockLayout } from './wiki-overview-layout'
+import { wiki } from '../../api'
+import { filterWiki } from '../../utils'
+import { WikiOverview } from './wiki-overview'
 import { type Block, type PageBlocksWiki } from '~/app/cms/types'
 
-function isSame(post: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
-	return post.slug === relatedTo?.slug
+function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
+	return item.slug === relatedTo?.slug
 }
 
 export async function WikiOverviewBlockContent(
@@ -50,21 +50,21 @@ export async function WikiOverviewBlockContent(
 
 				return adjustedAIndex - adjustedBIndex
 			})
-			.filter((post) => !isSame(post, relatedTo))
+			.filter((post) => !isSameItem(post, relatedTo))
 			.filter((post) => post.tags.some((tag) => relatedTo.tags?.includes(tag)))
 
 	const wikis = relatedTo
 		? relatedItems?.length
 			? relatedItems
-			: localizedItems.filter((post) => !isSame(post, relatedTo))
-		: localizedItems.filter((post) => !isSame(post, relatedTo))
+			: localizedItems.filter((post) => !isSameItem(post, relatedTo))
+		: localizedItems.filter((post) => !isSameItem(post, relatedTo))
 
 	const items = relatedTo ? wikis : filterWiki(wikis, tags?.join(' ') ?? '')
 
 	const limitedItems = count ? items.slice(0, count) : items
 
 	return (
-		<BlockLayout
+		<WikiOverview
 			searchEnabled={searchEnabled ?? false}
 			featuredEnabled={false}
 			items={limitedItems}
@@ -83,7 +83,7 @@ export async function WikiOverviewBlock(
 	return (
 		<React.Suspense
 			fallback={
-				<BlockLayout
+				<WikiOverview
 					featuredEnabled={false}
 					searchEnabled={searchEnabled ?? false}
 					items={[]}
@@ -106,7 +106,7 @@ export async function WikiOverviewBlock(
 							</li>
 						))}
 					</ArticleOverviewContentGrid>
-				</BlockLayout>
+				</WikiOverview>
 			}
 		>
 			<WikiOverviewBlockContent {...data} />

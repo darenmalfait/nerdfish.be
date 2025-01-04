@@ -13,7 +13,6 @@ import {
 	ArticlesOverviewEmptyState,
 } from '@repo/design-system/components/article-overview'
 import {
-	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
@@ -23,10 +22,10 @@ import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
 import { type Post } from 'content-collections'
 import * as React from 'react'
-import { filterBlog, mapBlogToArticle } from '../utils'
+import { filterBlog, mapBlogToArticle } from '../../utils'
 import { type Block, type PageBlocksBlog } from '~/app/cms/types'
 
-export function BlockLayout({
+export function BlogOverview({
 	searchEnabled,
 	featuredEnabled,
 	items,
@@ -53,63 +52,61 @@ export function BlockLayout({
 	)
 
 	return (
-		<Section>
-			<ArticleOverview
-				allArticles={articles}
-				searchEnabled={searchEnabled}
-				featuredArticleEnabled={featuredEnabled}
-				customFilterFunction={filterArticles}
-			>
-				<ArticleOverviewSearch>
-					<ArticleOverviewSearchImage
-						image={{
-							src: header?.image?.src ?? undefined,
-							alt: header?.image?.alt ?? header?.title ?? '',
-						}}
-					/>
-					<ArticleOverviewSearchContent inputLabel={t('search')}>
-						<SectionHeader>
-							<H1 variant="primary" className="mb-lg">
-								{header?.title}
-							</H1>
-							<SectionHeaderSubtitle>
-								{header?.subtitle ?? undefined}
-							</SectionHeaderSubtitle>
-						</SectionHeader>
-					</ArticleOverviewSearchContent>
-				</ArticleOverviewSearch>
-
-				<ArticleOverviewFilter title={t('filterByTopic')} />
-
-				{searchEnabled ? null : (
-					<SectionHeader
-						cta={{
-							title: t('seeAll'),
-							url: header?.link ?? '',
-						}}
-					>
-						<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
+		<ArticleOverview
+			allArticles={articles}
+			searchEnabled={searchEnabled}
+			featuredArticleEnabled={featuredEnabled}
+			customFilterFunction={filterArticles}
+		>
+			<ArticleOverviewSearch>
+				<ArticleOverviewSearchImage
+					image={{
+						src: header?.image?.src ?? undefined,
+						alt: header?.image?.alt ?? header?.title ?? '',
+					}}
+				/>
+				<ArticleOverviewSearchContent inputLabel={t('search')}>
+					<SectionHeader>
+						<H1 variant="primary" className="mb-lg">
+							{header?.title}
+						</H1>
 						<SectionHeaderSubtitle>
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>
 					</SectionHeader>
-				)}
+				</ArticleOverviewSearchContent>
+			</ArticleOverviewSearch>
 
-				{children ?? (
-					<ArticleOverviewContentGrid
-						readMoreLabel={t('readMore')}
-						ariaLabel={t('readMoreAbout', {
-							title: header?.title ?? '',
-						})}
-					>
-						<ArticlesOverviewEmptyState />
-					</ArticleOverviewContentGrid>
-				)}
+			<ArticleOverviewFilter title={t('filterByTopic')} />
 
-				<ArticleOverviewLoadMoreButton>
-					{t('loadMore')}
-				</ArticleOverviewLoadMoreButton>
-			</ArticleOverview>
-		</Section>
+			{searchEnabled ? null : (
+				<SectionHeader
+					cta={{
+						title: t('seeAll'),
+						url: header?.link ?? '',
+					}}
+				>
+					<SectionHeaderTitle>{header?.title}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>
+						{header?.subtitle ?? undefined}
+					</SectionHeaderSubtitle>
+				</SectionHeader>
+			)}
+
+			{children ?? (
+				<ArticleOverviewContentGrid
+					readMoreLabel={t('readMore')}
+					ariaLabel={t('readMoreAbout', {
+						title: header?.title ?? '',
+					})}
+				>
+					<ArticlesOverviewEmptyState />
+				</ArticleOverviewContentGrid>
+			)}
+
+			<ArticleOverviewLoadMoreButton>
+				{t('loadMore')}
+			</ArticleOverviewLoadMoreButton>
+		</ArticleOverview>
 	)
 }
