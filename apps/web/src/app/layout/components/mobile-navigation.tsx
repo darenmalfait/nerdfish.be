@@ -14,13 +14,15 @@ import {
 } from '@repo/design-system/components/ui'
 import { Logo, MenuIcon, XIcon } from '@repo/design-system/lib/icons'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
-import { useLocale } from '@repo/i18n/client'
-import { i18n } from '@repo/i18n/config'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { getNavigation, type Navigation, type SubNavItem } from '../navigation'
+import {
+	type Navigation,
+	useNavigation,
+	type SubNavItem,
+} from '../hooks/use-navigation'
 import { SocialLinks } from './navigation'
+import { Link } from '~/app/components/link'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const MobileNavigationSubItem = React.forwardRef<
@@ -102,8 +104,7 @@ const MobileNavigationItem = React.forwardRef<
 MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 export function MobileNavigation() {
-	const currentLocale = useLocale()
-	const navigation = getNavigation('main', currentLocale)
+	const { main: navigation } = useNavigation()
 	const [open, setOpen] = React.useState<boolean>(false)
 
 	return (
@@ -123,11 +124,7 @@ export function MobileNavigation() {
 				<div className="flex h-screen flex-col">
 					<DrawerHeader className="gap-lg py-lg z-10 flex items-center justify-between backdrop-blur-none">
 						<Button asChild variant="link" className="-mx-2">
-							<Link
-								href={`/${currentLocale === i18n.defaultLocale ? '' : currentLocale}`}
-								aria-label="Home"
-								onClick={() => setOpen(false)}
-							>
+							<Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
 								<Logo className="h-5 w-auto" />
 							</Link>
 						</Button>
