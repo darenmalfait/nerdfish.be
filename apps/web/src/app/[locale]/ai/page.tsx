@@ -11,8 +11,8 @@ export async function generateMetadata(props: {
 	const params = await props.params
 	const t = await getTranslations('pages.ai')
 
-	const title = t('title')
-	const description = t('meta.description')
+	const title = t('_meta.title')
+	const description = t('_meta.description')
 
 	return createMetadata({
 		title,

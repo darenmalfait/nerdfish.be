@@ -1,18 +1,4 @@
 {
-	"pages": {
-		"ai": {
-			"booking": {
-				"subtitle": "Book a meeting",
-				"title": "Rather really speak to me?"
-			},
-			"description": "Want to know more about what I can do? You can ask your questions to my AI version.",
-			"meta": {
-				"description": "Ask Daren Malfait anything",
-				"title": "Nerdfish - Daren Malfait AI"
-			},
-			"title": "Chat"
-		}
-	},
 	"blog": {
 		"filterByTopic": "Filter blog posts by topic",
 		"loadMore": "Load more",
@@ -95,12 +81,78 @@
 	},
 	"global": {
 		"about": "about",
+		"discover": "Discover {topic}",
 		"navigation": {
 			"pages": "Pages"
 		},
 		"readMoreAbout": "read more about {topic}",
 		"switchLanguage": "Switch Language",
 		"vat": "Any prices indicated are exclusive of VAT."
+	},
+	"pages": {
+		"ai": {
+			"booking": {
+				"subtitle": "Book a meeting",
+				"title": "Rather really speak to me?"
+			},
+			"description": "Want to know more about what I can do? You can ask your questions to my AI version.",
+			"_meta": {
+				"description": "Ask Daren Malfait anything",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
+			"title": "Chat"
+		},
+		"home": {
+			"_meta": {
+				"description": "Elevate your online presence with expert web design and development services by Nerdfish in Harelbeke, Belgium. From stunning websites to seamless UX/UI design, let's bring your vision to life.",
+				"title": "Professional Web Design & Development in Harelbeke, Belgium"
+			},
+			"blog": {
+				"subtitle": "Read my latest blog posts",
+				"title": "Experiences and Insights"
+			},
+			"caseStudy": {
+				"subtitle": "A Deep Dive into the Creation of a Serene, User-Centered Experience for Carline Deseyn's Massage Therapy Practice",
+				"title": "Case Study: Equilibra Website Design"
+			},
+			"cta": {
+				"action": "Contact me",
+				"subtitle": "Let's talk.",
+				"title": "Have you got a project in mind?"
+			},
+			"features": {
+				"branding": {
+					"description": "From logos to digital graphics - I help bring your vision to life with attention to detail and a creative approach.",
+					"title": "Branding"
+				},
+				"freelance": {
+					"description": "Expert in React and TypeScript for building robust, scalable web applications of high quality.",
+					"title": "Javascript Consulting"
+				},
+				"subtitle": "Expert services to bring your vision to life:",
+				"title": "Professional Web Solutions",
+				"uxui-design": {
+					"description": "Intuitive interfaces that work seamlessly. Clean, engaging designs that are both beautiful and effortless to use.",
+					"title": "UX/UI Design"
+				},
+				"webdesign": {
+					"description": "I create visually stunning, user-friendly websites with modern design principles.  Your brand translated into an engaging online presence.",
+					"title": "Web Design"
+				}
+			},
+			"hero": {
+				"content": "Check out my work. Get in touch. Let's work together!",
+				"cta": "Contact me",
+				"image": {
+					"alt": "A nerdy fish, smiling, wearing glasses"
+				},
+				"subtitle": "I'm a web developer with more than 10 years of experience from Harelbeke, Belgium."
+			},
+			"highlights": {
+				"subtitle": "Explore a range of services designed to bring your ideas to life with creativity, precision, and innovation.",
+				"title": "Crafting Excellence in Every Dimension"
+			}
+		}
 	},
 	"theme": {
 		"changeTheme": "Change site color theme",

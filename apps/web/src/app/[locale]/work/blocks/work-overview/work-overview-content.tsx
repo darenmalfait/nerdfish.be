@@ -20,33 +20,40 @@ import {
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
-import { type Post } from 'content-collections'
+import { type Project } from 'content-collections'
 import * as React from 'react'
-import { filterBlog, mapBlogToArticle } from '../../utils'
-import { type PageBlocksBlog } from '~/app/cms/types'
+import { filterWork, mapWorkToArticle } from '../../utils'
+import { type ImageType } from '~/app/types'
 
-export function BlogOverview({
+export interface WorkOverviewContentProps {
+	children?: React.ReactNode
+	searchEnabled?: boolean
+	featuredEnabled?: boolean
+	items: PartialDeep<Project>[]
+	header?: {
+		title?: string
+		subtitle?: string
+		image?: ImageType
+		link?: string
+	} | null
+}
+
+export function WorkOverviewContent({
 	searchEnabled,
 	featuredEnabled,
 	items,
 	header,
 	children,
-}: {
-	children?: React.ReactNode
-	searchEnabled: boolean
-	featuredEnabled: boolean
-	items: PartialDeep<Post>[]
-	header: PageBlocksBlog['header']
-}) {
-	const t = useTranslations('blog')
-	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
+}: WorkOverviewContentProps) {
+	const t = useTranslations('work')
+	const articles = React.useMemo(() => mapWorkToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
+			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapBlogToArticle(filterBlog(blogs, searchString))
+			return mapWorkToArticle(filterWork(works, searchString))
 		},
 		[items],
 	)

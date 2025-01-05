@@ -90,7 +90,7 @@ function TestimonialItem({
 	)
 }
 
-export interface TestimonialsProps {
+export interface TestimonialsContentProps {
 	testimonials: Testimonial[]
 	layout?: {
 		variant?: 'primary' | 'secondary'
@@ -98,11 +98,11 @@ export interface TestimonialsProps {
 	children?: React.ReactNode
 }
 
-export function Testimonials({
+export function TestimonialsContent({
 	layout,
 	testimonials,
 	children,
-}: TestimonialsProps) {
+}: TestimonialsContentProps) {
 	const [currentTestimonial, setCurrentTestimonial] = React.useState(
 		testimonials.length ? testimonials.length - 1 : 0,
 	)
@@ -127,38 +127,35 @@ export function Testimonials({
 	if (!testimonial && !children) return null
 
 	return (
-		<>
-			<H2 className="sr-only">Testimonials</H2>
-			<div className="relative">
-				<AnimatePresence mode="popLayout">
-					<motion.div
-						key={currentTestimonial}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-						className={cx('flex w-full flex-col items-center justify-center', {
-							'min-h-[80vh]': layout?.variant !== 'secondary',
-						})}
-						variants={variants}
-						transition={{
-							type: 'spring',
-							stiffness: 200,
-							damping: 20,
-							duration: 0.5,
-						}}
-					>
-						<TestimonialItem
-							layout={layout ?? undefined}
-							testimonial={testimonial}
-							onNext={testimonials.length > 1 ? onNext : undefined}
-							onPrevious={testimonials.length > 1 ? onPrevious : undefined}
-						/>
+		<div className="relative">
+			<AnimatePresence mode="popLayout">
+				<motion.div
+					key={currentTestimonial}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					className={cx('flex w-full flex-col items-center justify-center', {
+						'min-h-[80vh]': layout?.variant !== 'secondary',
+					})}
+					variants={variants}
+					transition={{
+						type: 'spring',
+						stiffness: 200,
+						damping: 20,
+						duration: 0.5,
+					}}
+				>
+					<TestimonialItem
+						layout={layout ?? undefined}
+						testimonial={testimonial}
+						onNext={testimonials.length > 1 ? onNext : undefined}
+						onPrevious={testimonials.length > 1 ? onPrevious : undefined}
+					/>
 
-						{/* can be used for skeleton */}
-						{children}
-					</motion.div>
-				</AnimatePresence>
-			</div>
-		</>
+					{/* can be used for skeleton */}
+					{children}
+				</motion.div>
+			</AnimatePresence>
+		</div>
 	)
 }

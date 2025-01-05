@@ -1,18 +1,4 @@
 {
-	"pages": {
-		"ai": {
-			"booking": {
-				"subtitle": "Plan een call",
-				"title": "Liever in het echt spreken?"
-			},
-			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
-			"meta": {
-				"description": "Vraag Daren Malfait alles wat u wilt",
-				"title": "Nerdfish - Daren Malfait AI"
-			},
-			"title": "Chat"
-		}
-	},
 	"blog": {
 		"filterByTopic": "Filter blogposts op onderwerp",
 		"loadMore": "Laad meer",
@@ -95,12 +81,78 @@
 	},
 	"global": {
 		"about": "over",
+		"discover": "Ontdek {topic}",
 		"navigation": {
 			"pages": "Pagina's"
 		},
 		"readMoreAbout": "Lees meer over {topic}",
 		"switchLanguage": "Wijzig taal",
 		"vat": "Prijzen zijn exclusief BTW."
+	},
+	"pages": {
+		"ai": {
+			"booking": {
+				"subtitle": "Plan een call",
+				"title": "Liever in het echt spreken?"
+			},
+			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
+			"_meta": {
+				"description": "Vraag Daren Malfait alles wat u wilt",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
+			"title": "Chat"
+		},
+		"home": {
+			"_meta": {
+				"description": "Versterk uw online aanwezigheid met professionele webdesign en development diensten door Nerdfish in Harelbeke, België. Van prachtige websites tot naadloze UX/UI design, samen brengen we uw visie tot leven.",
+				"title": "Professioneel Webdesign & Development in Harelbeke, België"
+			},
+			"blog": {
+				"subtitle": "Lees mijn laatste blog posts",
+				"title": "Ervaringen en inzichten"
+			},
+			"caseStudy": {
+				"subtitle": "Een diepgaande kijk op het creëren van een serene, gebruikersgerichte ervaring voor de massagetherapie praktijk van Carline Deseyn",
+				"title": "Case Study: Equilibra Website Ontwerp"
+			},
+			"cta": {
+				"action": "Neem contact op",
+				"subtitle": "Laten we praten.",
+				"title": "Heb je een project in gedachten?"
+			},
+			"features": {
+				"branding": {
+					"description": "Van logo's tot digitale graphics - ik help je visie tot leven te brengen met oog voor detail en een creatieve aanpak.",
+					"title": "Branding"
+				},
+				"freelance": {
+					"description": "Expert in React en TypeScript voor het bouwen van robuuste, schaalbare webapplicaties van hoge kwaliteit.",
+					"title": "Javascript Consultancy"
+				},
+				"subtitle": "Gespecialiseerde diensten om jouw visie tot leven te brengen:",
+				"title": "Professionele Web Oplossingen",
+				"uxui-design": {
+					"description": "Intuïtieve interfaces die naadloos werken. Strakke, aantrekkelijke ontwerpen die zowel mooi als moeiteloos te gebruiken zijn.",
+					"title": "UX/UI Design"
+				},
+				"webdesign": {
+					"description": "Ik design visueel aantrekkelijke, gebruiksvriendelijke websites met moderne ontwerpprincipes. Jouw merk vertaald naar een boeiende online aanwezigheid.",
+					"title": "Webdesign"
+				}
+			},
+			"hero": {
+				"content": "Bekijk mijn werk. Neem contact op. Laten we samenwerken!",
+				"cta": "Contacteer me",
+				"image": {
+					"alt": "Een nerdy vis, glimlachend, met een bril op"
+				},
+				"subtitle": "Ik ben een web developer met meer dan 10 jaar ervaring uit Harelbeke, België."
+			},
+			"highlights": {
+				"subtitle": "Ontdek een scala aan diensten ontworpen om uw ideeën tot leven te brengen met creativiteit, precisie en innovatie.",
+				"title": "Uitmuntendheid in elk aspect"
+			}
+		}
 	},
 	"theme": {
 		"changeTheme": "Verander kleurschema van de website",

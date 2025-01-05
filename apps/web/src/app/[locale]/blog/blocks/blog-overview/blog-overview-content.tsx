@@ -20,33 +20,40 @@ import {
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
-import { type Project } from 'content-collections'
+import { type Post } from 'content-collections'
 import * as React from 'react'
-import { filterWork, mapWorkToArticle } from '../../utils'
-import { type PageBlocksWork } from '~/app/cms/types'
+import { filterBlog, mapBlogToArticle } from '../../utils'
+import { type ImageType } from '~/app/types'
 
-export function WorkOverview({
+export interface BlogOverviewContentProps {
+	searchEnabled?: boolean
+	featuredEnabled?: boolean
+	items: PartialDeep<Post>[]
+	header?: {
+		title?: string
+		subtitle?: string
+		image?: ImageType
+		link?: string
+	} | null
+	children?: React.ReactNode
+}
+
+export function BlogOverviewContent({
 	searchEnabled,
 	featuredEnabled,
 	items,
 	header,
 	children,
-}: {
-	children?: React.ReactNode
-	searchEnabled: boolean
-	featuredEnabled: boolean
-	items: PartialDeep<Project>[]
-	header: PageBlocksWork['header']
-}) {
-	const t = useTranslations('work')
-	const articles = React.useMemo(() => mapWorkToArticle(items), [items])
+}: BlogOverviewContentProps) {
+	const t = useTranslations('blog')
+	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
+			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapWorkToArticle(filterWork(works, searchString))
+			return mapBlogToArticle(filterBlog(blogs, searchString))
 		},
 		[items],
 	)
@@ -61,7 +68,7 @@ export function WorkOverview({
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage
 					image={{
-						src: header?.image?.src ?? undefined,
+						src: header?.image?.src ?? '',
 						alt: header?.image?.alt ?? header?.title ?? '',
 					}}
 				/>

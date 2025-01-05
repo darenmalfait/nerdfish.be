@@ -1,3 +1,5 @@
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
+import { Section } from '@repo/design-system/components/section'
 import { H1, Skeleton } from '@repo/design-system/components/ui'
 import { getLocale } from '@repo/i18n/server'
 import { type Testimonial } from 'content-collections'
@@ -8,8 +10,7 @@ import {
 	type TestimonialsContentProps,
 } from './testimonials-content'
 
-export interface TestimonialsProps
-	extends Omit<TestimonialsContentProps, 'testimonials'> {
+export interface TestimonialsBlockProps extends TestimonialsContentProps {
 	filter?: {
 		type?: Testimonial['type']
 		tags?: Testimonial['tags']
@@ -18,8 +19,9 @@ export interface TestimonialsProps
 
 async function TestimonialsData({
 	filter,
+	testimonials: testimonialsProp = [],
 	...testimonialsProps
-}: TestimonialsProps) {
+}: TestimonialsBlockProps) {
 	const locale = await getLocale()
 	const allTestimonials = await testimonialsApi.getAll({ locale })
 
@@ -36,24 +38,31 @@ async function TestimonialsData({
 		})
 
 	return (
-		<TestimonialsContent {...testimonialsProps} testimonials={testimonials} />
+		<TestimonialsContent
+			{...testimonialsProps}
+			testimonials={[...testimonialsProp, ...testimonials]}
+		/>
 	)
 }
 
-export function Testimonials(props: TestimonialsProps) {
+export function TestimonialsBlock(props: TestimonialsBlockProps) {
 	return (
-		<React.Suspense
-			fallback={
-				<TestimonialsContent {...props} testimonials={[]}>
-					<div className="relative flex w-full flex-col justify-center">
-						<H1>
-							<Skeleton count={3} />
-						</H1>
-					</div>
-				</TestimonialsContent>
-			}
-		>
-			<TestimonialsData {...props} />
-		</React.Suspense>
+		<InViewBackground className="bg-blog/20">
+			<Section>
+				<React.Suspense
+					fallback={
+						<TestimonialsContent {...props} testimonials={[]}>
+							<div className="relative flex w-full flex-col justify-center">
+								<H1>
+									<Skeleton count={3} />
+								</H1>
+							</div>
+						</TestimonialsContent>
+					}
+				>
+					<TestimonialsData {...props} />
+				</React.Suspense>
+			</Section>
+		</InViewBackground>
 	)
 }

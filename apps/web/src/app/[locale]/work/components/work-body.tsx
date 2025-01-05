@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { TestimonialsBlock } from '../../testimonials/blocks/testimonials'
+import { TestimonialsBlock } from '../../testimonials/blocks/testimonials/testimonials-block'
 import { ImageGridBlock } from '~/app/cms/blocks/image-grid'
 import { SkillsBlock } from '~/app/cms/blocks/skills'
 import { Body as BaseBody } from '~/app/cms/components/body'
