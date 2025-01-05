@@ -11,10 +11,8 @@ import {
 } from '@repo/design-system/components/ui'
 import { ArrowRight, Logo } from '@repo/design-system/lib/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
-import { useLocale } from '@repo/i18n/client'
-import Link from 'next/link'
 import * as React from 'react'
-import { getLocalizedPath } from '../[locale]/utils'
+import { Link } from '../components/link'
 import { ThemeToggle } from '../theme/components/theme-toggle'
 import { SocialLinks } from './components/navigation'
 import { SiteHeader } from './components/site-header'
@@ -46,12 +44,10 @@ function Disclaimer() {
 }
 
 function SiteFooterHeading() {
-	const locale = useLocale()
-
 	return (
 		<H1 as="h2" className="mb-xl py-lg text-primary">
 			<Link
-				href={getLocalizedPath('contact', locale)}
+				href="/contact"
 				className="!text-primary group"
 				aria-label="Let’s work together"
 			>

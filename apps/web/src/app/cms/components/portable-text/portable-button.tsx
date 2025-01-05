@@ -1,14 +1,22 @@
+import { cx } from '@nerdfish/utils'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { type ButtonProps } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import Link from 'next/link'
+import * as React from 'react'
+
+export interface PortableButtonProps
+	extends React.ComponentProps<typeof MagnetButton> {
+	text: string
+	href?: string
+}
 
 function PortableButton({
 	text,
 	href,
 	variant = 'default',
+	className,
 	...props
-}: { text: string; href?: string } & Pick<ButtonProps, 'variant'>) {
+}: PortableButtonProps) {
 	const isExternal = href?.startsWith('http')
 	const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`
 
@@ -17,13 +25,13 @@ function PortableButton({
 	return (
 		<div className="inline-block w-auto">
 			<MagnetButton
+				size="lg"
+				{...props}
 				variant={variant}
 				asChild
-				className="cursor-pointer no-underline"
-				size="lg"
+				className={cx('cursor-pointer no-underline', className)}
 			>
 				<Link
-					{...props}
 					href={slug}
 					aria-label={text}
 					target={isExternal ? '_blank' : undefined}

@@ -162,10 +162,11 @@ export function HighlightCardDescription({
 }
 
 export interface HighlightCardCTAProps
-	extends React.ComponentProps<typeof Link> {
+	extends Omit<React.ComponentProps<typeof Link>, 'as'> {
 	href: string
 	children: React.ReactNode
 	category?: string | null
+	as?: React.ElementType
 }
 
 export function HighlightCardCTA({
@@ -173,9 +174,12 @@ export function HighlightCardCTA({
 	children,
 	category,
 	className,
+	as,
 	...props
 }: HighlightCardCTAProps) {
 	if (!children || !href) return null
+
+	const LinkElement = as ?? Link
 
 	return (
 		<div className={cx('mt-lg flex flex-1 items-end justify-start', className)}>
@@ -185,7 +189,7 @@ export function HighlightCardCTA({
 				asChild
 				className="bg-primary/70 hover:bg-primary group"
 			>
-				<Link href={href} {...props}>
+				<LinkElement href={href} {...props}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon
@@ -194,7 +198,7 @@ export function HighlightCardCTA({
 							)}
 						/>
 					</span>
-				</Link>
+				</LinkElement>
 			</MagnetButton>
 		</div>
 	)

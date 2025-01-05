@@ -2,16 +2,12 @@
 
 import { Button } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon } from '@repo/design-system/lib/icons'
-import { useLocale } from '@repo/i18n/client'
-import Link from 'next/link'
-import { getLocalizedPath } from '../../utils'
+import { Link } from '~/app/components/link'
 
 export function BackToWiki() {
-	const locale = useLocale()
-
 	return (
 		<Button variant="outline" asChild>
-			<Link href={getLocalizedPath('wiki', locale)}>
+			<Link href="/wiki">
 				<ChevronLeftIcon className="mr-2 size-4" />
 				All wiki pages
 			</Link>
