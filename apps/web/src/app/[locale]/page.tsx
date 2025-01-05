@@ -28,26 +28,34 @@ import { BlogOverview } from './blog/blocks/blog-overview'
 import { Testimonials } from './testimonials/blocks/testimonials'
 import { WorkOverview } from './work/blocks/work-overview'
 
-export async function generateMetadata(props: {
+type PageProps = {
 	params: Promise<WithLocale>
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata(
+	props: PageProps,
+): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 	const t = await getTranslations('pages.home')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
+	const canonical = getPathname({ locale, href: '/' })
 
 	return createMetadata({
 		title,
 		description,
 		image: '/uploads/og.png',
 		alternates: {
-			canonical: getPathname({ locale, href: '/' }),
+			canonical,
 		},
 		locale,
 	})
 }
-export default async function HomePage() {
+
+export default async function HomePage(props: { params: Promise<WithLocale> }) {
+	// need to await this before using getTranslations
+	await props.params
 	const t = await getTranslations('pages.home')
 
 	return (
