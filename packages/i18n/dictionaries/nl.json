@@ -83,6 +83,39 @@
 		"about": "over",
 		"discover": "Ontdek {topic}",
 		"navigation": {
+			"main": {
+				"about": {
+					"label": "Over mij"
+				},
+				"blog": {
+					"label": "Blog"
+				},
+				"contact": {
+					"label": "contact"
+				},
+				"expertise": {
+					"3dprinting": {
+						"description": "3D print diensten",
+						"title": "3D printen"
+					},
+					"branding": {
+						"description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
+						"title": "Branding"
+					},
+					"freelance": {
+						"description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
+						"title": "Freelance diensten"
+					},
+					"label": "Expertise",
+					"webdesign": {
+						"description": "Transformeer je ideeën in visueel aantrekkelijke, gebruiksvriendelijke websites.",
+						"title": "Websites"
+					}
+				},
+				"work": {
+					"label": "Werk"
+				}
+			},
 			"pages": "Pagina's"
 		},
 		"readMoreAbout": "Lees meer over {topic}",
@@ -91,15 +124,15 @@
 	},
 	"pages": {
 		"ai": {
+			"_meta": {
+				"description": "Vraag Daren Malfait alles wat u wilt",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
 			"booking": {
 				"subtitle": "Plan een call",
 				"title": "Liever in het echt spreken?"
 			},
 			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
-			"_meta": {
-				"description": "Vraag Daren Malfait alles wat u wilt",
-				"title": "Nerdfish - Daren Malfait AI"
-			},
 			"title": "Chat"
 		},
 		"home": {

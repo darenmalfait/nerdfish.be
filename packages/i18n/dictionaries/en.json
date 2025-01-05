@@ -83,6 +83,39 @@
 		"about": "about",
 		"discover": "Discover {topic}",
 		"navigation": {
+			"main": {
+				"about": {
+					"label": "About"
+				},
+				"blog": {
+					"label": "Blog"
+				},
+				"contact": {
+					"label": "Contact"
+				},
+				"expertise": {
+					"3dprinting": {
+						"description": "3D printing services for your projects",
+						"title": "3D Printing"
+					},
+					"branding": {
+						"description": "Crafting unique, consistent, and impactful brand identities tailored to your business",
+						"title": "Branding"
+					},
+					"freelance": {
+						"description": "Get help with your Javascript projects, from architecture to implementation.",
+						"title": "Freelance services"
+					},
+					"label": "Expertise",
+					"webdesign": {
+						"description": "Transform your ideas into visually stunning, user-friendly websites.",
+						"title": "Websites"
+					}
+				},
+				"work": {
+					"label": "Work"
+				}
+			},
 			"pages": "Pages"
 		},
 		"readMoreAbout": "read more about {topic}",
@@ -91,15 +124,15 @@
 	},
 	"pages": {
 		"ai": {
+			"_meta": {
+				"description": "Ask Daren Malfait anything",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
 			"booking": {
 				"subtitle": "Book a meeting",
 				"title": "Rather really speak to me?"
 			},
 			"description": "Want to know more about what I can do? You can ask your questions to my AI version.",
-			"_meta": {
-				"description": "Ask Daren Malfait anything",
-				"title": "Nerdfish - Daren Malfait AI"
-			},
 			"title": "Chat"
 		},
 		"home": {

@@ -1,3 +1,5 @@
+import { Section } from '@repo/design-system/components/section'
+import { LoadingAnimation } from '@repo/design-system/components/ui'
 import { fonts } from '@repo/design-system/lib/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
@@ -5,7 +7,8 @@ import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import * as React from 'react'
 import { AppProviders } from '../app-providers'
-import { SiteLayout } from '../layout/site-layout'
+import { Footer } from '../layout/components/footer'
+import { Header } from '../layout/components/header'
 
 import '~/app/theme/styles/app.css'
 import '~/app/theme/styles/prose.css'
@@ -34,7 +37,24 @@ export default async function RootLayout(props: {
 			<body className={fonts}>
 				<AppProviders>
 					<NextIntlClientProvider messages={messages} locale={params.locale}>
-						<SiteLayout>{children}</SiteLayout>
+						<div className="flex min-h-screen flex-col">
+							<Header />
+
+							<main className="rounded-b-container relative w-full max-w-full flex-1">
+								<div className="-z-1 rounded-container bg-primary absolute inset-0" />
+								<React.Suspense
+									fallback={
+										<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
+											<LoadingAnimation className="size-8" variant="square" />
+										</Section>
+									}
+								>
+									{children}
+								</React.Suspense>
+							</main>
+
+							<Footer />
+						</div>
 					</NextIntlClientProvider>
 				</AppProviders>
 			</body>
