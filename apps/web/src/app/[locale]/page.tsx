@@ -71,13 +71,10 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 					<Paragraph className="!mt-sm">{t('hero.content')}</Paragraph>
 					<div className="mt-md w-full">
 						<MagnetButton size="lg" asChild>
-							{/* Something with TextSlideUp that needs the div or the button isn't visible */}
-							<div>
-								<Link href="/contact" className="flex items-center">
-									{t('hero.cta')}
-									<ArrowRightIcon className="text-accent ml-sm size-4" />
-								</Link>
-							</div>
+							<Link href="/contact" className="flex items-center">
+								{t('hero.cta')}
+								<ArrowRightIcon className="text-accent ml-sm size-4" />
+							</Link>
 						</MagnetButton>
 					</div>
 				</HeroContent>
