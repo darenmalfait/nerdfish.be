@@ -6,7 +6,7 @@ import { type Metadata } from 'next'
 import { AIPageContent } from './ai-page-content'
 
 export async function generateMetadata(props: {
-	params: Promise<WithLocale<{}>>
+	params: Promise<WithLocale>
 }): Promise<Metadata | undefined> {
 	const params = await props.params
 	const t = await getTranslations('pages.ai')

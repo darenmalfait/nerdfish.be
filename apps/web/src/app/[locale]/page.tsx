@@ -29,7 +29,7 @@ import { Testimonials } from './testimonials/blocks/testimonials'
 import { WorkOverview } from './work/blocks/work-overview'
 
 export async function generateMetadata(props: {
-	params: Promise<WithLocale<{}>>
+	params: Promise<WithLocale>
 }): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 	const t = await getTranslations('pages.home')
