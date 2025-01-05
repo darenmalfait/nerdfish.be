@@ -1,21 +1,12 @@
-'use client'
-
 import { cx } from '@nerdfish/utils'
-import { InViewBackground } from '@repo/design-system/components/in-view-background'
-import { Section } from '@repo/design-system/components/section'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import {
-	H1,
-	LoadingAnimation,
-	Separator,
-} from '@repo/design-system/components/ui'
+import { H1, Separator } from '@repo/design-system/components/ui'
 import { ArrowRight, Logo } from '@repo/design-system/lib/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import * as React from 'react'
-import { Link } from '../components/link'
-import { ThemeToggle } from '../theme/components/theme-toggle'
-import { SocialLinks } from './components/navigation'
-import { SiteHeader } from './components/site-header'
+import { SocialLinks } from './navigation'
+import { Link } from '~/app/components/link'
+import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 function Disclaimer() {
 	const currentYear = new Date().getFullYear()
@@ -106,52 +97,23 @@ function SiteFooterContent() {
 	)
 }
 
-const SiteFooter = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => {
+export type FooterProps = React.ComponentProps<'footer'>
+
+export function Footer({ className, ...props }: FooterProps) {
 	return (
-		<div
-			ref={ref}
+		<footer
 			className={cx('mt-lg py-lg pb-xl lg:pb-sm print:hidden', className)}
 			{...props}
 		>
-			<InViewBackground className="bg-secondary">
-				<footer
-					className="text-primary container max-w-none"
-					aria-labelledby="footer-heading"
-				>
-					<SiteFooterHeading />
-					<SiteFooterContent />
-					<Separator className="my-sm" />
-					<Disclaimer />
-				</footer>
-			</InViewBackground>
-		</div>
-	)
-})
-
-SiteFooter.displayName = 'SiteFooter'
-
-export function SiteLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<div className="flex min-h-screen flex-col">
-			<SiteHeader />
-
-			<main className="rounded-b-container relative w-full max-w-full flex-1">
-				<div className="-z-1 rounded-container bg-primary absolute inset-0" />
-				<React.Suspense
-					fallback={
-						<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
-							<LoadingAnimation className="size-8" variant="square" />
-						</Section>
-					}
-				>
-					{children}
-				</React.Suspense>
-			</main>
-
-			<SiteFooter />
-		</div>
+			<div
+				className="text-primary container max-w-none"
+				aria-labelledby="footer-heading"
+			>
+				<SiteFooterHeading />
+				<SiteFooterContent />
+				<Separator className="my-sm" />
+				<Disclaimer />
+			</div>
+		</footer>
 	)
 }

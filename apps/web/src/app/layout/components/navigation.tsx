@@ -1,3 +1,5 @@
+'use client'
+
 import { cva, cx } from '@nerdfish/utils'
 import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import {
@@ -11,11 +13,15 @@ import {
 } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import { socials } from '@repo/global-settings/socials'
-import { useLocale, useTranslations } from '@repo/i18n/client'
-import Link from 'next/link'
+import { useTranslations } from '@repo/i18n/client'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
-import { getNavigation, type Navigation, type SubNavItem } from '../navigation'
+import {
+	useNavigation,
+	type Navigation,
+	type SubNavItem,
+} from '../hooks/use-navigation'
+import { Link } from '~/app/components/link'
 
 const MainNavigationSubItem = React.forwardRef<
 	React.ComponentRef<typeof Link>,
@@ -215,8 +221,7 @@ export function SocialLinks() {
 }
 
 export function MainNavigation() {
-	const locale = useLocale()
-	const navigation = getNavigation('main', locale)
+	const { main: navigation } = useNavigation()
 	const pathname = usePathname()
 	const t = useTranslations('global')
 	const ref = React.useRef<HTMLUListElement>(null)
