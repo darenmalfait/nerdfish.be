@@ -7,16 +7,29 @@ export const routing = defineRouting({
 	localePrefix: 'as-needed',
 	pathnames: {
 		'/': '/',
-		'/webdesign': '/webdesign',
-		'/uxui-design': '/uxui-design',
+		'/3d-printing': '/3d-printing',
+		'/about': {
+			en: '/about',
+			nl: '/over-mij',
+		},
+		'/blog': '/blog',
+		'/blog/:slug': '/blog/:slug',
 		'/branding': '/branding',
-		'/freelance': '/freelance',
 		'/contact': '/contact',
+		'/freelance': '/freelance',
+		'/uxui-design': '/uxui-design',
+		'/webdesign': '/webdesign',
+		'/wiki': '/wiki',
+		'/work': {
+			en: '/work',
+			nl: '/werk',
+		},
+		'/work/:slug': '/work/:slug',
 
 		// template for when it differs per locale
-		// '/webdesign': {
-		// 	en: '/webdesign',
-		// 	nl: '/webdesign',
+		// '/pathname': {
+		// 	en: '/pathname',
+		// 	nl: '/padnaam',
 		// },
 	},
 })
