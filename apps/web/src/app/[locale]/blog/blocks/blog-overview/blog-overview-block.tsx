@@ -6,6 +6,7 @@ import {
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
+import { Section } from '@repo/design-system/components/section'
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { getLocale } from '@repo/i18n/server'
@@ -18,29 +19,21 @@ import { type Post } from 'content-collections'
 import * as React from 'react'
 import { blog } from '../../api'
 import { filterBlog } from '../../utils'
-import {
-	BlogOverviewContent,
-	type BlogOverviewContentProps,
-} from './blog-overview-content'
+import { BlogOverviewContent } from './blog-overview-content'
+import { type PageBlocksBlog } from '~/app/cms/types'
 
 function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 	return item.slug === relatedTo?.slug
 }
 
-export interface BlogOverviewProps
-	extends Omit<BlogOverviewContentProps, 'items'> {
-	relatedTo?: PartialDeep<Post>
-	count?: number
-	tags?: string[]
-}
+export async function BlogOverviewBlockContent(
+	data: PageBlocksBlog & {
+		relatedTo?: PartialDeep<Post>
+	},
+) {
+	const { header, searchEnabled, featuredEnabled, tags, count, relatedTo } =
+		data
 
-export async function BlogOverviewData({
-	relatedTo,
-	searchEnabled,
-	count,
-	tags,
-	...props
-}: BlogOverviewProps) {
 	const locale = await getLocale()
 	const localizedItems = await blog.getAll({ locale })
 
@@ -89,43 +82,57 @@ export async function BlogOverviewData({
 			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
 
 			<BlogOverviewContent
-				{...props}
-				searchEnabled={searchEnabled}
+				searchEnabled={searchEnabled ?? false}
+				featuredEnabled={featuredEnabled ?? false}
 				items={limitedBlogs}
+				header={header as any}
 			/>
 		</>
 	)
 }
 
-export async function BlogOverview(props: BlogOverviewProps) {
+export async function BlogOverviewBlock(
+	data: PageBlocksBlog & {
+		relatedTo?: PartialDeep<Post>
+	},
+) {
+	const { header, searchEnabled, featuredEnabled } = data
+
 	return (
-		<React.Suspense
-			fallback={
-				<BlogOverviewContent {...props} items={[]}>
-					{props.featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
-					) : null}
-					<ArticleOverviewContentGrid>
-						{Array.from({ length: 2 }).map((_, i) => (
-							<li key={i} className="col-span-4">
-								<ArticleCard>
-									<ArticleCardImage alt="" />
-									<ArticleCardContent>
-										<ArticleCardCategory className="w-16">
-											<Skeleton className="bg-transparent" />
-										</ArticleCardCategory>
-										<ArticleCardTitle>
-											<Skeleton count={2} />
-										</ArticleCardTitle>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						))}
-					</ArticleOverviewContentGrid>
-				</BlogOverviewContent>
-			}
-		>
-			<BlogOverviewData {...props} />
-		</React.Suspense>
+		<Section>
+			<React.Suspense
+				fallback={
+					<BlogOverviewContent
+						searchEnabled={searchEnabled ?? false}
+						featuredEnabled={featuredEnabled ?? false}
+						items={[]}
+						header={header as any}
+					>
+						{featuredEnabled ? (
+							<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
+						) : null}
+						<ArticleOverviewContentGrid>
+							{Array.from({ length: 2 }).map((_, i) => (
+								<li key={i} className="col-span-4">
+									<ArticleCard>
+										<ArticleCardImage alt="" />
+										<ArticleCardContent>
+											<ArticleCardCategory className="w-16">
+												<Skeleton className="bg-transparent" />
+											</ArticleCardCategory>
+											<ArticleCardTitle>
+												<Skeleton count={2} />
+											</ArticleCardTitle>
+										</ArticleCardContent>
+									</ArticleCard>
+								</li>
+							))}
+						</ArticleOverviewContentGrid>
+					</BlogOverviewContent>
+				}
+			>
+				<BlogOverviewBlockContent {...data} />
+			</React.Suspense>
+		</Section>
 	)
 }

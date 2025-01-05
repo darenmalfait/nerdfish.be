@@ -2,17 +2,9 @@ import { type Article } from '@repo/design-system/components/article-overview'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
-import { type Locale } from '@repo/i18n/types'
 import { type Project } from 'content-collections'
 import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-
-export const WorkPath: {
-	[key in Locale]: string
-} = {
-	en: '/work',
-	nl: '/nl/werk',
-}
 
 export function filterWork(
 	works: PartialDeep<Project>[],

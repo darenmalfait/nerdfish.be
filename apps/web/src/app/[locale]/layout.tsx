@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 export default async function RootLayout(props: {
 	children: React.ReactNode
-	params: Promise<WithLocale<Record<string, never>>>
+	params: Promise<WithLocale>
 }) {
 	const params = await props.params
 
