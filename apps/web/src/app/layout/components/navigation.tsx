@@ -14,8 +14,8 @@ import {
 import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
-import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { usePathname } from 'routing'
 import {
 	useNavigation,
 	type Navigation,
