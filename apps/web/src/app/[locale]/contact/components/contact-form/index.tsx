@@ -2,12 +2,21 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNumberFormatter } from '@react-aria/i18n'
+import { MagnetButton } from '@repo/design-system/components/magnet'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
 import {
 	Alert,
 	AlertDescription,
 	AlertTitle,
 	Button,
 	Description,
+	Drawer,
+	DrawerContent,
+	DrawerTitle,
 	Form,
 	FormControl,
 	FormDescription,
@@ -32,7 +41,7 @@ import { parseError } from '@repo/observability/error'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { useRecaptcha } from '../../../hooks/recaptcha'
+import { useRecaptcha } from '../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
 
@@ -398,5 +407,40 @@ export function ContactForm() {
 				</div>
 			</form>
 		</Form>
+	)
+}
+
+export function ContactFormViaButton() {
+	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)
+	const t = useTranslations('pages.contact.form')
+
+	return (
+		<>
+			<MagnetButton
+				type="button"
+				onClick={() => setContactFormOpen(true)}
+				size="xl"
+				className="motion-opacity-in-[0%] motion-delay-500 group w-full"
+			>
+				{t('openFormLabel')}
+				<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
+			</MagnetButton>
+			<Drawer
+				repositionInputs={false}
+				open={contactFormOpen}
+				onOpenChange={setContactFormOpen}
+			>
+				<DrawerContent className="bg-primary max-h-[85vh]">
+					<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
+					<div className="pb-xl container">
+						<SectionHeader>
+							<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
+							<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
+						</SectionHeader>
+						<ContactForm />
+					</div>
+				</DrawerContent>
+			</Drawer>
+		</>
 	)
 }
