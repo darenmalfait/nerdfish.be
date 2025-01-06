@@ -1,7 +1,7 @@
 'use client'
 
-import { env } from 'env'
 import * as React from 'react'
+import { keys } from '../keys'
 
 /**
  * Function to clean the recaptcha_[language] script injected by the recaptcha.js
@@ -74,7 +74,7 @@ export function useRecaptcha(): RecaptchaProps {
 		// load the script by passing the URL
 		loadScriptByUrl(
 			scriptId,
-			`https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
+			`https://www.google.com/recaptcha/api.js?render=${keys().NEXT_PUBLIC_RECAPTCHA_SITEKEY}`,
 		)
 
 		return () => {
@@ -83,11 +83,15 @@ export function useRecaptcha(): RecaptchaProps {
 	}, [])
 
 	const execute = React.useCallback(async () => {
+		if (!keys().NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
+			return
+		}
+
 		if (!greCaptchaInstance?.execute) {
 			console.error('Error: grecaptcha is not defined')
 		}
 
-		return greCaptchaInstance?.execute(env.NEXT_PUBLIC_RECAPTCHA_SITEKEY, {
+		return greCaptchaInstance?.execute(keys().NEXT_PUBLIC_RECAPTCHA_SITEKEY, {
 			action: 'submit',
 		})
 	}, [greCaptchaInstance])

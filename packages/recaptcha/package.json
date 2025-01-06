@@ -1,0 +1,17 @@
+{
+  "name": "@repo/recaptcha",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}

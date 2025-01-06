@@ -3,32 +3,19 @@
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
 import { parseError } from '@repo/observability/error'
+import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'
 import { type ContactFormData, contactSchema } from './validation'
 
 export async function submitContactForm(payload: ContactFormData) {
 	const data = contactSchema.parse(payload)
 
-	if (env.RECAPTCHA_SECRETKEY) {
-		if (!payload.recaptchaResponse) return { error: 'Recaptcha is required' }
+	const { success, error: recaptchaError } = await verifyRecaptcha(
+		payload.recaptchaResponse,
+	)
 
-		const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRETKEY}&response=${payload.recaptchaResponse}`
-
-		const recaptchaRes = await fetch(recaptchaUrl, { method: 'POST' })
-
-		if (!recaptchaRes.ok) {
-			console.error(recaptchaRes)
-
-			return { error: 'Recaptcha failed' }
-		}
-
-		const recaptchaJson = await recaptchaRes.json()
-
-		if (!recaptchaJson.success) {
-			console.error(recaptchaJson)
-
-			return { error: 'Recaptcha failed' }
-		}
+	if (!success) {
+		return { error: recaptchaError ?? 'Recaptcha failed' }
 	}
 
 	const {
