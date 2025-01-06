@@ -7,12 +7,13 @@ import {
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
 import { H2, Paragraph } from '@repo/design-system/components/ui'
 import { companyInfo } from '@repo/global-settings/company-info'
+import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { getPathname } from 'routing'
+import { getPathname, getPathnames } from 'routing'
 import { ContactFormViaButton } from './components/contact-form'
 import { Link } from '~/app/components/link'
 
@@ -23,13 +24,11 @@ type PageProps = {
 export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
-	const params = await props.params
 	const { locale } = await props.params
 	const t = await getTranslations('pages.contact')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
-	const canonical = getPathname({ locale, href: '/contact' })
 
 	return createMetadata({
 		title,
@@ -38,9 +37,13 @@ export async function generateMetadata(
 			heading: title,
 		})}`,
 		alternates: {
-			canonical,
+			canonical: getPathname({ locale, href: '/contact' }),
+			languages: getPathnames(
+				'/contact',
+				i18n.locales.filter((l) => l !== locale),
+			),
 		},
-		locale: params.locale,
+		locale,
 	})
 }
 
