@@ -1,4 +1,5 @@
 import { i18nMiddleware } from '@repo/i18n/middleware'
+import { pathnames } from 'routing'
 
 export const config = {
 	/*
@@ -16,4 +17,6 @@ export const config = {
 	],
 }
 
-export default i18nMiddleware
+const middleware = i18nMiddleware(pathnames)
+
+export default middleware

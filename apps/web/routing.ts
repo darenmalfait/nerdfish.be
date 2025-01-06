@@ -1,5 +1,9 @@
 import { i18n } from '@repo/i18n/config'
-import { createNavigation, defineRouting } from '@repo/i18n/routing'
+import {
+	type BasePathNames,
+	createNavigation,
+	defineRouting,
+} from '@repo/i18n/routing'
 
 export const basePathNames = {
 	'/': '/',
@@ -20,24 +24,30 @@ export const basePathNames = {
 		en: '/work',
 		nl: '/werk',
 	},
-}
+	'/schedule-a-meeting': {
+		en: '/schedule-a-meeting',
+		nl: '/plan-een-meeting',
+	},
+} satisfies BasePathNames<typeof i18n.locales>
+
+export const pathnames = {
+	...basePathNames,
+	'/blog/:slug': '/blog/:slug',
+	'/tooling/*': '/tooling/*',
+	'/work/:slug': '/work/:slug',
+} satisfies BasePathNames<typeof i18n.locales>
 
 export const routing = defineRouting({
 	locales: i18n.locales,
 	defaultLocale: i18n.defaultLocale,
 	localePrefix: 'as-needed',
-	pathnames: {
-		...basePathNames,
-		'/blog/:slug': '/blog/:slug',
-		'/tooling/*': '/tooling/*',
-		'/work/:slug': '/work/:slug',
+	pathnames,
 
-		// template for when it differs per locale
-		// '/pathname': {
-		// 	en: '/pathname',
-		// 	nl: '/padnaam',
-		// },
-	},
+	// template for when it differs per locale
+	// '/pathname': {
+	// 	en: '/pathname',
+	// 	nl: '/padnaam',
+	// },
 })
 
 export type Pathnames = keyof typeof routing.pathnames
