@@ -1,7 +1,7 @@
 import { env } from '@repo/env'
 import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { type MetadataRoute } from 'next'
-import { getPagePath } from './[locale]/(pages)/utils'
+import { getPagePath } from './[locale]/(tina)/utils'
 import { blog } from './[locale]/blog/api'
 import { getBlogPath } from './[locale]/blog/utils'
 import { wiki } from './[locale]/wiki/api'
