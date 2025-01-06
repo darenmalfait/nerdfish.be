@@ -8,11 +8,12 @@ import {
 } from '@repo/design-system/components/section'
 import { Paragraph } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { getPathname } from 'routing'
+import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../components/cta'
 import { Features } from '../components/features'
 import {
@@ -40,14 +41,17 @@ export async function generateMetadata(
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
-	const canonical = getPathname({ locale, href: '/' })
 
 	return createMetadata({
 		title,
 		description,
 		image: '/uploads/og.png',
 		alternates: {
-			canonical,
+			canonical: getPathname({ locale, href: '/' }),
+			languages: getPathnames(
+				'/',
+				i18n.locales.filter((l) => l !== locale),
+			),
 		},
 		locale,
 	})
