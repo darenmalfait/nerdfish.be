@@ -37,11 +37,10 @@ import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'
-import { env } from 'env'
+import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { useRecaptcha } from '../../hooks/recaptcha'
 import { submitContactForm } from './actions'
 import { type ContactFormData, contactSchema, projectTypes } from './validation'
 
@@ -94,15 +93,7 @@ export function ContactForm() {
 	async function onSubmit(data: ContactFormData) {
 		try {
 			setError(undefined)
-			let recaptchaResponse: string | undefined
-
-			if (env.NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
-				try {
-					recaptchaResponse = await execute()
-				} catch {
-					throw new Error('reCAPTCHA error')
-				}
-			}
+			const recaptchaResponse = await execute()
 
 			const result = await submitContactForm({
 				...data,
