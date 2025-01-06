@@ -9,7 +9,7 @@ const contactFormData = {
 
 test.beforeEach(async ({ page }) => {
 	await page.goto('/contact')
-	await page.getByRole('button', { name: 'Let’s get started' }).click()
+	await page.getByRole('button', { name: "Let's get started" }).click()
 })
 
 test('shows validation errors for empty required fields', async ({ page }) => {
