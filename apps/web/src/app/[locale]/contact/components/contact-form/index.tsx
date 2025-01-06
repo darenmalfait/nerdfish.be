@@ -34,10 +34,10 @@ import {
 	Textarea,
 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
-import { env } from '@repo/env'
 import { useTranslations } from '@repo/i18n/client'
 import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'
+import { env } from 'env'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'

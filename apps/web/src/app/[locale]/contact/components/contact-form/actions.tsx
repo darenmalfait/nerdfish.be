@@ -2,8 +2,8 @@
 
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
-import { env } from '@repo/env'
 import { parseError } from '@repo/observability/error'
+import { env } from 'env'
 import { type ContactFormData, contactSchema } from './validation'
 
 export async function submitContactForm(payload: ContactFormData) {

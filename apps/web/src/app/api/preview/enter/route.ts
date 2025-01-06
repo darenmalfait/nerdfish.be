@@ -1,5 +1,5 @@
-import { env } from '@repo/env'
 import { isUserAuthorized } from '@tinacms/auth'
+import { env } from 'env'
 import { draftMode } from 'next/headers'
 import { type NextRequest } from 'next/server'
 import { z } from 'zod'

@@ -1,6 +1,6 @@
 'use client'
 
-import { env } from '@repo/env'
+import { env } from 'env'
 import * as React from 'react'
 
 /**

@@ -1,5 +1,5 @@
-import { env } from '@repo/env'
 import { supportedLanguages } from '@repo/i18n/config'
+import { env } from 'env'
 import { type MetadataRoute } from 'next'
 import { basePathNames, getPathname, type Pathnames } from 'routing'
 import { blog } from './[locale]/blog/api'

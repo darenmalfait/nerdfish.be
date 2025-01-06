@@ -10,9 +10,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/env": "workspace:*",
     "@repo/next-config": "workspace:*",
     "@repo/og-utils": "workspace:*",
+    "@t3-oss/env-nextjs": "^0.11.1",
     "next": "15.1.3",
     "react": "19.0.0",
     "react-dom": "19.0.0"
