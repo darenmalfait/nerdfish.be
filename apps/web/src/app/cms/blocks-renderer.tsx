@@ -3,7 +3,6 @@ import type * as React from 'react'
 import { BlogOverviewBlock } from '../[locale]/blog/blocks/blog-overview/blog-overview-block'
 import { BookingBlock } from '../[locale]/contact/blocks/booking'
 import { ChatbotBlock } from '../[locale]/contact/blocks/chat'
-import { ContactBlock } from '../[locale]/contact/blocks/contact'
 import { ProductsOverviewBlock } from '../[locale]/realisations/blocks/products'
 import { TestimonialsBlock } from '../[locale]/testimonials/blocks/testimonials/testimonials-block'
 import { WikiOverviewBlock } from '../[locale]/wiki/blocks/wiki-overview'
@@ -34,7 +33,6 @@ const getComponent = (componentKey: string) => {
 		PageBlocksBlog: BlogOverviewBlock,
 		PageBlocksBooking: BookingBlock,
 		PageBlocksChatbot: ChatbotBlock,
-		PageBlocksContact: ContactBlock,
 		PageBlocksContent: ContentBlock,
 		PageBlocksCta: CtaBlock,
 		PageBlocksFaq: FAQBlock,

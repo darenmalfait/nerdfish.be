@@ -20,7 +20,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { getPagePath } from '~/app/[locale]/(pages)/utils'
+import { getPagePath } from '~/app/[locale]/(tina)/utils'
 import { type PageBlocksHighlights } from '~/app/cms/types'
 
 const Card = React.forwardRef<
