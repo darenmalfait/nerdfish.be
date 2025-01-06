@@ -39,7 +39,7 @@ export async function generateMetadata(
 	})
 }
 
-export default async function ContactPage(props: PageProps) {
+export default async function BlogPage(props: PageProps) {
 	await props.params
 	const t = await getTranslations('pages.blog')
 
