@@ -1,2 +1,5 @@
 export { createNavigation } from 'next-intl/navigation'
-export { defineRouting } from 'next-intl/routing'
+export {
+	defineRouting,
+	type Pathnames as BasePathNames,
+} from 'next-intl/routing'

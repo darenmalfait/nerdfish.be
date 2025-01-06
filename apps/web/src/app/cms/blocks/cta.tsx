@@ -7,7 +7,7 @@ import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import Link from 'next/link'
 import type * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { getPagePath } from '~/app/[locale]/(pages)/utils'
+import { getPagePath } from '~/app/[locale]/(tina)/utils'
 import { type PageBlocksCta } from '~/app/cms/types'
 
 const BlockLayout = ({ children }: { children: React.ReactNode }) => {

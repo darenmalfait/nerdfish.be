@@ -17,7 +17,7 @@ import { useInView } from 'motion/react'
 import Link from 'next/link'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
-import { getPagePath } from '~/app/[locale]/(pages)/utils'
+import { getPagePath } from '~/app/[locale]/(tina)/utils'
 import {
 	type Page,
 	type PageBlocksFeatures,
