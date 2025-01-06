@@ -1,6 +1,6 @@
 import { type Message, convertToCoreMessages, streamText } from '@repo/ai'
 import { provider } from '@repo/ai/provider'
-import { env } from '@repo/env'
+import { env } from 'env'
 
 export const runtime = 'edge'
 

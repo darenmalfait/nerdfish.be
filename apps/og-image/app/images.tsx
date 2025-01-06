@@ -1,7 +1,7 @@
 'use client'
 
-import { env } from '@repo/env'
 import { blogParams, pageParams } from '@repo/og-utils/zod-params'
+import { env } from 'env'
 import * as React from 'react'
 
 const OG_IMAGE_URL = `${env.NEXT_PUBLIC_URL}/api/og`
