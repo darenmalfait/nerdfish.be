@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
-import { env } from '@repo/env'
 import { fetchFont } from '@repo/og-utils/fetch-font'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { ImageResponse } from '@vercel/og'
+import { env } from 'env'
 
 export const runtime = 'edge'
 

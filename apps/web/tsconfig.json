@@ -6,6 +6,7 @@
 			"~/*": ["src/*"],
 			"~/content/*": ["content/*"],
 			"~/tina/*": ["tina/*"],
+			"env": ["./env.ts"],
 			"content-collections": ["./.content-collections/generated"],
 			"@repo/*": ["../../packages/*"]
 		},

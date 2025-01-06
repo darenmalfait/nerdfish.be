@@ -2,8 +2,8 @@
 
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
-import { env } from '@repo/env'
 import { parseError } from '@repo/observability/error'
+import { env } from 'env'
 import { type ContactFormData, contactSchema } from './validation'
 
 export async function submitContactForm(payload: ContactFormData) {
@@ -41,7 +41,7 @@ export async function submitContactForm(payload: ContactFormData) {
 	} = data
 
 	try {
-		if (env.SKIP_EMAILS ?? !env.EMAIL_FROM) return { success: true }
+		if (env.SKIP_EMAILS || !env.EMAIL_FROM) return { success: true }
 
 		await resend.emails.send({
 			from: env.EMAIL_FROM,

@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/env": "workspace:*",
+    "@repo/next-config": "workspace:*",
     "zod": "^3.24.1"
   },
   "devDependencies": {

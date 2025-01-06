@@ -96,7 +96,7 @@ jobs:
       - name: Run Playwright tests
         run: turbo test:e2e --continue
         env:
-          SKIP_EMAILS: 'true'
+          SKIP_EMAILS: true
 
       - name: Upload report
         if: always()

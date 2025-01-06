@@ -1,41 +1,17 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"globalDependencies": [".env"],
+	"envMode": "loose",
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-			"env": [
-				"VERCEL",
-				"VERCEL_URL",
-				"VERCEL_ENV",
-				"NODE_ENV",
-				"DATABASE_URL",
-				"EMAIL_FROM",
-				"RESEND_API_KEY",
-				"HEAD",
-				"SKIP_EMAILS",
-				"NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF",
-				"NEXT_PUBLIC_RECAPTCHA_SITEKEY",
-				"NEXT_PUBLIC_URL",
-				"RECAPTCHA_SECRETKEY",
-				"NEXT_PUBLIC_TINA_CLIENT_ID",
-				"TINA_TOKEN",
-				"NEXT_PUBLIC_TINA_BRANCH",
-				"GROQ_API_KEY",
-				"CHAT_SYSTEM_PROMPT"
-			]
+			"outputs": ["dist/**", ".next/**", "!.next/cache/**"]
 		},
 		"build:content-collections": {
 			"dependsOn": ["^build:content-collections"]
 		},
 		"build:tina": {
-			"dependsOn": ["^build:tina"],
-			"env": [
-				"NEXT_PUBLIC_TINA_CLIENT_ID",
-				"TINA_TOKEN",
-				"NEXT_PUBLIC_TINA_BRANCH"
-			]
+			"dependsOn": ["^build:tina"]
 		},
 		"topo": {
 			"dependsOn": ["^topo"]
@@ -57,24 +33,10 @@
 			"dependsOn": ["^sync:env"]
 		},
 		"test:e2e": {
-			"outputs": ["playwright-report/**"],
-			"env": [
-				"SKIP_EMAILS",
-				"RESEND_API_KEY",
-				"EMAIL_FROM",
-				"TINA_TOKEN",
-				"GROQ_API_KEY"
-			]
+			"outputs": ["playwright-report/**"]
 		},
 		"test:e2e:ui": {
-			"outputs": ["playwright-report/**"],
-			"env": [
-				"SKIP_EMAILS",
-				"RESEND_API_KEY",
-				"EMAIL_FROM",
-				"TINA_TOKEN",
-				"GROQ_API_KEY"
-			]
+			"outputs": ["playwright-report/**"]
 		},
 		"test:e2e:inspector": {
 			"outputs": ["playwright-report/**"]
