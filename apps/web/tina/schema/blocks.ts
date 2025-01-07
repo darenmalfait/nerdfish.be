@@ -13,9 +13,7 @@ import { keywordListTemplate } from './blocks/keyword-list.template'
 import { pricingTemplate } from './blocks/pricing.template'
 import { productsTemplate } from './blocks/products.template'
 import { skillsTemplate } from './blocks/skills.template'
-import { splitWithImageTemplate } from './blocks/split-with-image.template'
 import { testimonialsTemplate } from './blocks/testimonials.template'
-import { wikiTemplate } from './blocks/wiki.template'
 import { workTemplate } from './blocks/work.template'
 
 export const blocks = [
@@ -34,8 +32,6 @@ export const blocks = [
 	pricingTemplate,
 	productsTemplate,
 	skillsTemplate,
-	splitWithImageTemplate,
-	wikiTemplate,
 	workTemplate,
 	testimonialsTemplate,
 ]

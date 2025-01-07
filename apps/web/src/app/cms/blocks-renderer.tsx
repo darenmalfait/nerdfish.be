@@ -5,7 +5,6 @@ import { BookingBlock } from '../[locale]/contact/blocks/booking'
 import { ChatbotBlock } from '../[locale]/contact/blocks/chat'
 import { ProductsOverviewBlock } from '../[locale]/realisations/blocks/products/products-block'
 import { TestimonialsBlock } from '../[locale]/testimonials/blocks/testimonials/testimonials-block'
-import { WikiOverviewBlock } from '../[locale]/wiki/blocks/wiki-overview'
 import { WorkOverviewBlock } from '../[locale]/work/blocks/work-overview/work-overview-block'
 import { ContentBlock } from './blocks/content'
 import { CtaBlock } from './blocks/cta'
@@ -18,7 +17,6 @@ import { ImageGridBlock } from './blocks/image-grid'
 import { KeywordListBlock } from './blocks/keyword-list'
 import { PricingBlock } from './blocks/pricing'
 import { SkillsBlock } from './blocks/skills'
-import { SplitWithImageBlock } from './blocks/split-with-image'
 import { type PageBlocks } from './types'
 
 type PageBlockType = NonNullable<PageBlocks[keyof PageBlocks]>
@@ -46,9 +44,7 @@ const getComponent = (componentKey: string) => {
 		PageBlocksProducts: ProductsOverviewBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
-		PageBlocksWiki: WikiOverviewBlock,
 		PageBlocksWork: WorkOverviewBlock,
-		PageBlocksSplitWithImage: SplitWithImageBlock,
 	} as const
 
 	if (!Object.keys(componentsMap).includes(componentKey)) {

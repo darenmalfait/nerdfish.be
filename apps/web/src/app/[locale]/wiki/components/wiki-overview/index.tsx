@@ -12,20 +12,29 @@ import { type Wiki } from 'content-collections'
 import * as React from 'react'
 import { wiki } from '../../api'
 import { filterWiki } from '../../utils'
-import { WikiOverview } from './wiki-overview'
-import { type PageBlocksWiki } from '~/app/cms/types'
+import {
+	WikiOverviewContent,
+	type WikiOverviewContentProps,
+} from './wiki-overview-content'
 
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug
 }
 
-export async function WikiOverviewBlockContent(
-	data: PageBlocksWiki & {
-		relatedTo?: PartialDeep<Wiki>
-	},
-) {
-	const { header, searchEnabled, tags, count, relatedTo } = data
+export interface WikiOverviewProps
+	extends Omit<WikiOverviewContentProps, 'items'> {
+	relatedTo?: PartialDeep<Wiki>
+	count?: number
+	tags?: string[]
+}
 
+export async function WikiOverviewData({
+	relatedTo,
+	searchEnabled,
+	count,
+	tags,
+	...props
+}: WikiOverviewProps) {
 	const localizedItems = await wiki.getAll()
 
 	const relatedItems =
@@ -64,31 +73,19 @@ export async function WikiOverviewBlockContent(
 	const limitedItems = count ? items.slice(0, count) : items
 
 	return (
-		<WikiOverview
-			searchEnabled={searchEnabled ?? false}
-			featuredEnabled={false}
+		<WikiOverviewContent
+			{...props}
+			searchEnabled={searchEnabled}
 			items={limitedItems}
-			header={header}
 		/>
 	)
 }
 
-export async function WikiOverviewBlock(
-	data: PageBlocksWiki & {
-		relatedTo?: PartialDeep<Wiki>
-	},
-) {
-	const { header, searchEnabled } = data
-
+export async function WikiOverview(props: WikiOverviewProps) {
 	return (
 		<React.Suspense
 			fallback={
-				<WikiOverview
-					featuredEnabled={false}
-					searchEnabled={searchEnabled ?? false}
-					items={[]}
-					header={header}
-				>
+				<WikiOverviewContent {...props} items={[]}>
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (
 							<li key={i} className="col-span-4">
@@ -106,10 +103,10 @@ export async function WikiOverviewBlock(
 							</li>
 						))}
 					</ArticleOverviewContentGrid>
-				</WikiOverview>
+				</WikiOverviewContent>
 			}
 		>
-			<WikiOverviewBlockContent {...data} />
+			<WikiOverviewData {...props} />
 		</React.Suspense>
 	)
 }
