@@ -21,6 +21,7 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '~/app/components/hero'
+import { Link } from '~/app/components/link'
 import { SkillItem, Skills } from '~/app/components/skills'
 import { Split, SplitContent, SplitImage } from '~/app/components/split'
 
@@ -127,7 +128,7 @@ export default async function AboutPage(props: PageProps) {
 				/>
 			</Section>
 			<Section>
-				<SectionHeader>
+				<SectionHeader cta={{ url: '/blog', title: t('blog.cta'), as: Link }}>
 					<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
