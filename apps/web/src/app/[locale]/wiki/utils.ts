@@ -78,7 +78,7 @@ export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 }
 
 export function getWikiPath(post: PartialDeep<Wiki>) {
-	return `/wiki/${post.slug}`
+	return `/en/wiki/${post.slug}`
 }
 
 export function mapWikiToArticle(items: PartialDeep<Wiki>[]): Article[] {
