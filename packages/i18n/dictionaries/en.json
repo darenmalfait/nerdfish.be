@@ -123,6 +123,51 @@
 		"vat": "Any prices indicated are exclusive of VAT."
 	},
 	"pages": {
+		"about": {
+			"_meta": {
+				"description": "Discover Daren Malfait, a freelance full-stack web developer specializing in React, TypeScript, and modern web design. Crafting custom, responsive websites and applications to elevate your business online.",
+				"title": "Daren Malfait - Full-Stack Developer & Web Design Expert | React, TypeScript & Modern Web Development"
+			},
+			"blog": {
+				"cta": "More blogs",
+				"subtitle": "Explore my thoughts on web development, design trends, and the latest technologies. From coding tips to project stories, this is where I share ideas to help you stay inspired and informed.",
+				"title": "From the Desk of a Web Developer"
+			},
+			"cta": {
+				"label": "Contact",
+				"subtitle": "Custom websites and applications tailored to help your business grow and       stand out.",
+				"title": "Let’s Create Something Exceptional Together"
+			},
+			"hero": {
+				"cta": "Let's work together",
+				"subtitle": "Hi, I'm Daren. I'm a Full-Stack Developer and Web Design Expert. I'm passionate about crafting modern, responsive websites and applications while balancing work and life with a love for sports and staying active.",
+				"title": "About"
+			},
+			"my-toolbox": {
+				"subtitle": "HTML, CSS, JS, building small, medium, and big web applications with JavaScript libraries, frameworks, custom plugins, features, animations, and coding interactive layouts. I have also full-stack developer experience and most of all, I have a big interest in learning and I'm not scared of tackling new languages and challenges.",
+				"title": "My toolbox"
+			},
+			"personal": {
+				"content": {
+					"first": "As a developer, I spend much of my day sitting at a desk, immersed in building seamless web experiences. But I strongly believe that to perform at my best, maintaining a healthy balance is essential. That’s why I prioritize physical activity like cycling and running in my free time. These activities not only help me stay fit but also provide a refreshing mental reset, enabling me to return to work with renewed focus and creativity.",
+					"second": "For me, exercise is more than just a routine—it’s a way to ensure I’m sharp, motivated, and able to bring my best to every project. Cycling through nature or running after a long workday gives me the clarity and energy to approach challenges with a fresh perspective. This balance helps me remain productive while delivering exceptional results for my clients."
+				},
+				"image": {
+					"alt": "Daren out cycling"
+				},
+				"title": "The balance between code and life"
+			},
+			"professional": {
+				"content": {
+					"first": "With over a decade of experience in web development, I specialize in building custom, high-performance websites and applications. As a freelance engineer, I focus on delivering exceptional front-end experiences with React, JavaScript, TypeScript, and modern frameworks like Next.js and Gatsby.",
+					"second": "I’m passionate about clean, responsive design, fast loading times, and user-centric development that drives results for my clients. I work closely with businesses and agencies to create unique, visually engaging web solutions that are as functional as they are beautiful."
+				},
+				"image": {
+					"alt": "Daren on a mountain"
+				},
+				"title": "Who I am"
+			}
+		},
 		"ai": {
 			"_meta": {
 				"description": "Ask Daren Malfait anything",

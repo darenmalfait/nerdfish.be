@@ -1,5 +1,4 @@
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
-import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
 	SectionHeader,
@@ -7,7 +6,6 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { Paragraph } from '@repo/design-system/components/ui'
-import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
@@ -19,12 +17,12 @@ import { Features } from '../components/features'
 import {
 	Hero,
 	HeroContent,
+	HeroCTA,
 	HeroImage,
 	HeroSubtitle,
 	HeroTitle,
 } from '../components/hero'
 import { Highlights } from '../components/highlights'
-import { Link } from '../components/link'
 import { BlogOverview } from './blog/blocks/blog-overview'
 import { Testimonials } from './testimonials/blocks/testimonials'
 import { WorkOverview } from './work/blocks/work-overview'
@@ -74,12 +72,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
 					<Paragraph className="!mt-sm">{t('hero.content')}</Paragraph>
 					<div className="mt-md w-full">
-						<MagnetButton size="lg" asChild>
-							<Link href="/contact" className="flex items-center">
-								{t('hero.cta')}
-								<ArrowRightIcon className="text-accent ml-sm size-4" />
-							</Link>
-						</MagnetButton>
+						<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
 					</div>
 				</HeroContent>
 			</Hero>
