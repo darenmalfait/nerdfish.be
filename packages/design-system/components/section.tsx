@@ -74,6 +74,7 @@ export interface SectionHeaderProps extends React.ComponentProps<'header'> {
 	cta?: {
 		title: string
 		url: string
+		as?: React.ElementType
 	}
 	as?: React.ElementType
 }
@@ -95,7 +96,7 @@ export function SectionHeader({
 				{children}
 				{cta?.url ? (
 					<div className="mt-lg flex justify-start">
-						<ArrowLink href={cta.url} direction="right">
+						<ArrowLink as={cta.as} href={cta.url} direction="right">
 							{cta.title}
 						</ArrowLink>
 					</div>

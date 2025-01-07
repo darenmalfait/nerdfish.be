@@ -61,22 +61,19 @@ export interface ArrowLinkProps {
 	direction?: ArrowIconProps['direction']
 	href?: string
 	children: React.ReactNode
-	as?: string
+	as?: React.ElementType
 }
-
-const MotionLink = motion(Link)
-const MotionSpan = motion.span
 
 function ArrowLink({
 	children,
 	direction = 'right',
 	className,
 	href,
+	as,
 	...props
 }: ArrowLinkProps) {
+	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
 	const [ref, state] = useElementState()
-
-	const Tag = href ? MotionLink : MotionSpan
 
 	return (
 		<Tag
@@ -110,10 +107,11 @@ function BackLink({
 	href,
 	className,
 	children,
-}: { href: string } & Pick<ArrowLinkProps, 'className' | 'children'>) {
+	as,
+}: { href: string } & Pick<ArrowLinkProps, 'className' | 'children' | 'as'>) {
 	const [ref, state] = useElementState()
 
-	const Tag = href ? MotionLink : MotionSpan
+	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
 
 	return (
 		<Tag
