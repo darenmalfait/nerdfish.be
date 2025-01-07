@@ -4,11 +4,13 @@
 		"baseUrl": ".",
 		"paths": {
 			"~/*": ["src/*"],
-			"~/content/*": ["content/*"],
-			"~/tina/*": ["tina/*"],
+			"@repo/*": ["../../packages/*"],
 			"env": ["./env.ts"],
+			"routing": ["./src/routing.ts"],
 			"content-collections": ["./.content-collections/generated"],
-			"@repo/*": ["../../packages/*"]
+
+			// tina
+			"~/tina/*": ["tina/*"]
 		},
 		"plugins": [
 			{

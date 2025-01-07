@@ -5,8 +5,6 @@ import { ChevronLeftIcon } from '@repo/design-system/lib/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import errorImage from '~/assets/images/nerdfish.png'
-
 const title = "404 - Page doesn't exist"
 const subtitle = "Sorry, we couldn't find the page you were looking for."
 
@@ -16,7 +14,7 @@ export default function Custom404() {
 			<Section className="gap-md max-w-5xl text-center">
 				<Image
 					placeholder="blur"
-					src={errorImage}
+					src="/images/nerdfish.png"
 					alt={title}
 					width={500}
 					height={500}
