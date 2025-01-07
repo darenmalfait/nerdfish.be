@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
-import A11yError from 'playwright/a11y-logger'
+import A11yError from 'playwright/utils/a11y-logger'
 import { A11YTAGS } from './constants'
 
 test.beforeEach(async ({ page }) => {
