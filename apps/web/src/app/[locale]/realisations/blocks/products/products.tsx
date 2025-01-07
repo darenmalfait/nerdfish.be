@@ -100,11 +100,13 @@ function ProductItem({
 	)
 }
 
-export interface ProductsOverviewProps {
+export interface ProductsOverviewContentProps {
 	products: Product[]
 }
 
-export function ProductsOverview({ products }: ProductsOverviewProps) {
+export function ProductsOverviewContent({
+	products,
+}: ProductsOverviewContentProps) {
 	return (
 		<div className="space-y-6">
 			<Grid asChild className="auto-rows-[15rem]">

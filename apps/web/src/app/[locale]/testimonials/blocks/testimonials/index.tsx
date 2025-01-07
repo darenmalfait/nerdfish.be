@@ -11,7 +11,7 @@ import {
 export interface TestimonialsProps
 	extends Omit<TestimonialsContentProps, 'testimonials'> {
 	filter?: {
-		type?: Testimonial['type']
+		type?: Testimonial['type'][]
 		tags?: Testimonial['tags']
 	}
 }
