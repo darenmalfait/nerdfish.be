@@ -1,12 +1,15 @@
 import { cx } from '@nerdfish/utils'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
 	SectionHeaderSubtitle,
 } from '@repo/design-system/components/section'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
+import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import capitalize from 'lodash/capitalize'
 import Image from 'next/image'
 import * as React from 'react'
+import { Link } from './link'
 
 const AnimatedText = React.forwardRef<
 	HTMLSpanElement,
@@ -72,6 +75,21 @@ export function HeroTitle({
 				aria-label={title}
 			/>
 		</div>
+	)
+}
+
+export function HeroCTA({
+	children,
+	className,
+	...props
+}: React.ComponentProps<typeof Link>) {
+	return (
+		<MagnetButton size="lg" asChild>
+			<Link {...props} className={cx('flex items-center', className)}>
+				{children}
+				<ArrowRightIcon className="text-accent ml-sm size-4" />
+			</Link>
+		</MagnetButton>
 	)
 }
 
