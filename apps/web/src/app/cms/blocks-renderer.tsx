@@ -3,7 +3,6 @@ import type * as React from 'react'
 import { BlogOverviewBlock } from '../[locale]/blog/blocks/blog-overview/blog-overview-block'
 import { BookingBlock } from '../[locale]/contact/blocks/booking'
 import { ChatbotBlock } from '../[locale]/contact/blocks/chat'
-import { ProductsOverviewBlock } from '../[locale]/realisations/blocks/products/products-block'
 import { TestimonialsBlock } from '../[locale]/testimonials/blocks/testimonials/testimonials-block'
 import { WorkOverviewBlock } from '../[locale]/work/blocks/work-overview/work-overview-block'
 import { ContentBlock } from './blocks/content'
@@ -11,8 +10,6 @@ import { CtaBlock } from './blocks/cta'
 import { FAQBlock } from './blocks/faq'
 import { FeaturesBlock } from './blocks/features'
 import { HeroBlock } from './blocks/hero'
-import { HighlightBlock } from './blocks/highlight'
-import { HighlightsBlock } from './blocks/highlights'
 import { ImageGridBlock } from './blocks/image-grid'
 import { KeywordListBlock } from './blocks/keyword-list'
 import { PricingBlock } from './blocks/pricing'
@@ -36,12 +33,9 @@ const getComponent = (componentKey: string) => {
 		PageBlocksFaq: FAQBlock,
 		PageBlocksFeatures: FeaturesBlock,
 		PageBlocksHero: HeroBlock,
-		PageBlocksHighlight: HighlightBlock,
-		PageBlocksHighlights: HighlightsBlock,
 		PageBlocksImageGrid: ImageGridBlock,
 		PageBlocksKeywordList: KeywordListBlock,
 		PageBlocksPricing: PricingBlock,
-		PageBlocksProducts: ProductsOverviewBlock,
 		PageBlocksSkills: SkillsBlock,
 		PageBlocksTestimonials: TestimonialsBlock,
 		PageBlocksWork: WorkOverviewBlock,
