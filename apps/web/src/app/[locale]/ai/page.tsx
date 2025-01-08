@@ -29,7 +29,7 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
-	const t = await getTranslations('pages.ai')
+	const t = await getTranslations('ai.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -53,7 +53,7 @@ export async function generateMetadata(
 
 export default async function AiPage(props: PageProps) {
 	await props.params
-	const t = await getTranslations('pages.ai')
+	const t = await getTranslations('ai.page')
 
 	return (
 		<>
