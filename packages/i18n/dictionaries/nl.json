@@ -61,8 +61,22 @@
 			"title": "Chat"
 		}
 	},
-
 	"blog": {
+		"content": {
+			"backToBlog": "Alle artikelen",
+			"related": {
+				"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
+				"title": "Gerelateerde artikelen"
+			}
+		},
+		"overview": {
+			"filterByTopic": "Filter blogposts op onderwerp",
+			"loadMore": "Laad meer",
+			"readMore": "Lees blogpost",
+			"readMoreAbout": "Lees blog: {title}",
+			"search": "Zoek blog artikelen",
+			"seeAll": "Bekijk alle blogposts"
+		},
 		"page": {
 			"_meta": {
 				"description": "Ontdek web design en development inzichten met Nerdfish. Vind expert tips, project verhalen, en creatieve inspiratie om je digitale aanwezigheid naar een hoger niveau te tillen.",
@@ -73,44 +87,9 @@
 			},
 			"subtitle": "Inzichten, updates en verhalen over design, development en creatieve projecten, die een kijkje geven in het proces en de inspiratie achter het werk.",
 			"title": "Blog"
-		},
-		"overview": {
-			"filterByTopic": "Filter blogposts op onderwerp",
-			"loadMore": "Laad meer",
-			"readMore": "Lees blogpost",
-			"readMoreAbout": "Lees blog: {title}",
-			"search": "Zoek blog artikelen",
-			"seeAll": "Bekijk alle blogposts"
-		},
-		"content": {
-			"related": {
-				"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
-				"title": "Gerelateerde artikelen"
-			}
 		}
 	},
 	"contact": {
-		"page": {
-			"_meta": {
-				"description": "Neem contact op met Daren Malfait, een freelance webdesigner gespecialiseerd in creatieve en functionele websites. Neem vandaag nog contact op.",
-				"title": "Contact Daren Malfait | Freelance Webdesigner & Digitale Creator"
-			},
-			"contact": {
-				"subtitle": "Of je nu een website op maat nodig hebt, hulp bij een digitaal project, of een betrouwbare freelancer zoekt, ik ben slechts een bericht verwijderd. Ik reageer meestal binnen een dag, dus laten we samen iets geweldigs creëren.",
-				"title": "Laten we samen je ideeën tot leven brengen"
-			},
-			"content": {
-				"body": "Liever een persoonlijke aanpak? Hier vind je al mijn contactgegevens! Of je nu een e-mail wilt sturen, wilt bellen of langskomen, al mijn contactgegevens staan hier. Laten we contact maken op de manier die het beste bij jou past.",
-				"title": "Neem rechtstreeks contact op",
-				"vat": "BTW"
-			},
-			"form": {
-				"openFormLabel": "Laten we beginnen",
-				"subtitle": "Vul hieronder de gegevens in en ik neem contact met je op. Laten we je ideeën tot leven brengen.",
-				"title": "Vertel me over jouw project"
-			},
-			"title": "Contact"
-		},
 		"chat": {
 			"close": "Sluit chat",
 			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
@@ -171,6 +150,27 @@
 			},
 			"send": "Versturen",
 			"success": "Je bericht is succesvol verzonden."
+		},
+		"page": {
+			"_meta": {
+				"description": "Neem contact op met Daren Malfait, een freelance webdesigner gespecialiseerd in creatieve en functionele websites. Neem vandaag nog contact op.",
+				"title": "Contact Daren Malfait | Freelance Webdesigner & Digitale Creator"
+			},
+			"contact": {
+				"subtitle": "Of je nu een website op maat nodig hebt, hulp bij een digitaal project, of een betrouwbare freelancer zoekt, ik ben slechts een bericht verwijderd. Ik reageer meestal binnen een dag, dus laten we samen iets geweldigs creëren.",
+				"title": "Laten we samen je ideeën tot leven brengen"
+			},
+			"content": {
+				"body": "Liever een persoonlijke aanpak? Hier vind je al mijn contactgegevens! Of je nu een e-mail wilt sturen, wilt bellen of langskomen, al mijn contactgegevens staan hier. Laten we contact maken op de manier die het beste bij jou past.",
+				"title": "Neem rechtstreeks contact op",
+				"vat": "BTW"
+			},
+			"form": {
+				"openFormLabel": "Laten we beginnen",
+				"subtitle": "Vul hieronder de gegevens in en ik neem contact met je op. Laten we je ideeën tot leven brengen.",
+				"title": "Vertel me over jouw project"
+			},
+			"title": "Contact"
 		},
 		"title": "Contact"
 	},
@@ -655,7 +655,6 @@
 		"readMoreAbout": "Lees meer over {subject}",
 		"viewMore": "Bekijk {subject}"
 	},
-
 	"global": {
 		"about": "over",
 		"discover": "Ontdek {topic}",
@@ -765,6 +764,15 @@
 		}
 	},
 	"wiki": {
+		"overview": {
+			"backToWiki": "Alle artikelen",
+			"filterByTopic": "Filter wiki per topic",
+			"loadMore": "Laad meer artikelen",
+			"readMore": "Lees artikel",
+			"readMoreAbout": "Lees meer over {title}",
+			"search": "Zoek knowledge base",
+			"seeAll": "Bekijk knowledge base"
+		},
 		"page": {
 			"_meta": {
 				"description": "Ik verzamel dingen die ik op deze pagina wil bewaren maar die nog niet klaar zijn om blogposts te worden.",
@@ -775,17 +783,24 @@
 			},
 			"subtitle": "Verzameling van artikelen en bronnen",
 			"title": "Kennisbank"
-		},
-		"overview": {
-			"filterByTopic": "Filter wiki per topic",
-			"loadMore": "Laad meer artikelen",
-			"readMore": "Lees artikel",
-			"readMoreAbout": "Lees meer over {title}",
-			"search": "Zoek knowledge base",
-			"seeAll": "Bekijk knowledge base"
 		}
 	},
 	"work": {
+		"content": {
+			"related": {
+				"subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
+				"title": "Dit vind je wellicht ook leuk"
+			}
+		},
+		"overview": {
+			"backToWork": "Meer projecten",
+			"filterByTopic": "Filter projecten op onderwerp",
+			"loadMore": "Laad meer",
+			"readMore": "Bekijk project",
+			"readMoreAbout": "Lees meer over {title}",
+			"search": "Zoek projecten",
+			"seeAll": "Bekijk alle projecten"
+		},
 		"page": {
 			"_meta": {
 				"description": "Ontdek een diverse portfolio van projecten, waaronder innovatief webdesign, impactvolle branding en bijdragen aan open-source initiatieven die samenwerking en innovatie stimuleren.",
@@ -817,20 +832,6 @@
 				},
 				"subtitle": "Creatieve en gebruikersgerichte webdesign projecten die esthetiek combineren met functionaliteit, voor boeiende digitale ervaringen.",
 				"title": "Webdesign Projecten"
-			}
-		},
-		"overview": {
-			"filterByTopic": "Filter projecten op onderwerp",
-			"loadMore": "Laad meer",
-			"readMore": "Bekijk project",
-			"readMoreAbout": "Lees meer over {title}",
-			"search": "Zoek projecten",
-			"seeAll": "Bekijk alle projecten"
-		},
-		"content": {
-			"related": {
-				"subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
-				"title": "Dit vind je wellicht ook leuk"
 			}
 		}
 	}
