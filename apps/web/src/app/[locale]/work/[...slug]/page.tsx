@@ -40,7 +40,7 @@ export default async function WorkPage(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }) {
 	const params = await props.params
-	const t = await getTranslations()
+	const t = await getTranslations('work.content')
 	const { work } = await getRouteData(params.slug.join('/'), params.locale)
 
 	return (
@@ -48,9 +48,9 @@ export default async function WorkPage(props: {
 			relatedContent={
 				<Section>
 					<SectionHeader>
-						<SectionHeaderTitle>{t('work.related.title')}</SectionHeaderTitle>
+						<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
 						<SectionHeaderSubtitle>
-							{t('work.related.subtitle')}
+							{t('related.subtitle')}
 						</SectionHeaderSubtitle>
 					</SectionHeader>
 					<WorkOverview featuredEnabled count={1} relatedTo={work} />

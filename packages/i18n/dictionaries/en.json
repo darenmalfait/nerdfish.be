@@ -751,41 +751,6 @@
 			}
 		}
 	},
-	"pages": {
-		"work": {
-			"_meta": {
-				"description": "Explore a diverse portfolio of projects, including innovative web design, impactful branding, and contributions to open-source initiatives that drive collaboration and innovation.",
-				"title": "Projects Portfolio | Web Design, Branding & Open-Source Contributions"
-			},
-			"branding": {
-				"subtitle": "Strategic and creative branding projects that build memorable identities, connecting businesses with their audiences through impactful design.",
-				"title": "Branding Projects"
-			},
-			"contact": {
-				"cta": {
-					"subtitle": "Get in touch.",
-					"title": "Need some ideas?"
-				}
-			},
-			"hero": {
-				"subtitle": "A curated selection of work spanning web design, branding, and meaningful contributions to open-source initiatives.",
-				"title": "Projects"
-			},
-			"products": {
-				"subtitle": "Collaborative projects that support and enhance the open-source community, driving innovation and shared growth through code and ideas.",
-				"title": "Open source"
-			},
-			"webdesign": {
-				"cta": {
-					"label": "Contact",
-					"subtitle": "Lets talk.",
-					"title": "Got a website in mind?"
-				},
-				"subtitle": "Creative and user-focused web design projects that blend aesthetics with functionality, delivering engaging digital experiences.",
-				"title": "Web Design Projects"
-			}
-		}
-	},
 	"theme": {
 		"changeTheme": "Change site color theme",
 		"dark": "Dark",
@@ -820,15 +785,52 @@
 		}
 	},
 	"work": {
-		"filterByTopic": "Filter projects by topic",
-		"loadMore": "Load more",
-		"readMore": "Explore project",
-		"readMoreAbout": "Read more about {title}",
-		"related": {
-			"subtitle": "Explore a featured project related to this design",
-			"title": "You might like this"
+		"page": {
+			"_meta": {
+				"description": "Explore a diverse portfolio of projects, including innovative web design, impactful branding, and contributions to open-source initiatives that drive collaboration and innovation.",
+				"title": "Projects Portfolio | Web Design, Branding & Open-Source Contributions"
+			},
+			"branding": {
+				"subtitle": "Strategic and creative branding projects that build memorable identities, connecting businesses with their audiences through impactful design.",
+				"title": "Branding Projects"
+			},
+			"contact": {
+				"cta": {
+					"subtitle": "Get in touch.",
+					"title": "Need some ideas?"
+				}
+			},
+			"hero": {
+				"subtitle": "A curated selection of work spanning web design, branding, and meaningful contributions to open-source initiatives.",
+				"title": "Projects"
+			},
+			"products": {
+				"subtitle": "Collaborative projects that support and enhance the open-source community, driving innovation and shared growth through code and ideas.",
+				"title": "Open source"
+			},
+			"webdesign": {
+				"cta": {
+					"label": "Contact",
+					"subtitle": "Lets talk.",
+					"title": "Got a website in mind?"
+				},
+				"subtitle": "Creative and user-focused web design projects that blend aesthetics with functionality, delivering engaging digital experiences.",
+				"title": "Web Design Projects"
+			}
 		},
-		"search": "Search projects",
-		"seeAll": "See all projects"
+		"overview": {
+			"filterByTopic": "Filter projects by topic",
+			"loadMore": "Load more",
+			"readMore": "Explore project",
+			"readMoreAbout": "Read more about {title}",
+			"search": "Search projects",
+			"seeAll": "See all projects"
+		},
+		"content": {
+			"related": {
+				"subtitle": "Explore a featured project related to this design",
+				"title": "You might like this"
+			}
+		}
 	}
 }

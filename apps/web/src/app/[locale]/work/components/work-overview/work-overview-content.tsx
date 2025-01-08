@@ -45,7 +45,7 @@ export function WorkOverviewContent({
 	header,
 	children,
 }: WorkOverviewContentProps) {
-	const t = useTranslations('work')
+	const t = useTranslations('work.overview')
 	const articles = React.useMemo(() => mapWorkToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
