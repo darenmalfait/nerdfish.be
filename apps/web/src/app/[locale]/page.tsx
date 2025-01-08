@@ -35,7 +35,7 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
-	const t = await getTranslations('pages.home')
+	const t = await getTranslations('home.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -58,7 +58,7 @@ export async function generateMetadata(
 export default async function HomePage(props: { params: Promise<WithLocale> }) {
 	// need to await this before using getTranslations
 	await props.params
-	const t = await getTranslations('pages.home')
+	const t = await getTranslations('home.page')
 
 	return (
 		<>

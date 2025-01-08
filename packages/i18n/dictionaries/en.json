@@ -475,8 +475,8 @@
 		"switchLanguage": "Switch Language",
 		"vat": "Any prices indicated are exclusive of VAT."
 	},
-	"pages": {
-		"home": {
+	"home": {
+		"page": {
 			"_meta": {
 				"description": "Elevate your online presence with expert web design and development services by Nerdfish in Harelbeke, Belgium. From stunning websites to seamless UX/UI design, let's bring your vision to life.",
 				"title": "Professional Web Design & Development in Harelbeke, Belgium"
@@ -526,7 +526,9 @@
 				"subtitle": "Explore a range of services designed to bring your ideas to life with creativity, precision, and innovation.",
 				"title": "Crafting Excellence in Every Dimension"
 			}
-		},
+		}
+	},
+	"pages": {
 		"uxui-design": {
 			"_meta": {
 				"description": "Transform your digital presence with expert UX/UI design services. Create intuitive, engaging interfaces that delight users and drive results.",
