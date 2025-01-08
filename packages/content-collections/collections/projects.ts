@@ -7,7 +7,7 @@ import { getSlugAndLocale, image, seo } from '../utils'
 
 export const projects = defineCollection({
 	name: 'projects',
-	directory: 'content/projects',
+	directory: '@repo/content-collections/content/projects',
 	include: '**/*.mdx',
 	schema: (z) => ({
 		seo,

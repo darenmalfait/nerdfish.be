@@ -6,7 +6,11 @@
 			"~/*": ["src/*"],
 			"@repo/*": ["../../packages/*"],
 			"env": ["./env.ts"],
+
+			// i18n
 			"routing": ["./src/routing.ts"],
+
+			// content-collections
 			"content-collections": ["./.content-collections/generated"]
 		},
 		"plugins": [

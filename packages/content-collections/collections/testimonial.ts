@@ -5,7 +5,7 @@ export const testimonialTypes = ['colleague', 'project', 'client'] as const
 
 export const testimonials = defineCollection({
 	name: 'testimonials',
-	directory: 'content/testimonials',
+	directory: '@repo/content-collections/content/testimonials',
 	include: '**/*.mdx',
 	schema: (z) => ({
 		type: z.enum(testimonialTypes),

@@ -4,7 +4,7 @@ import { image } from '../utils'
 
 export const products = defineCollection({
 	name: 'products',
-	directory: 'content/products',
+	directory: '@repo/content-collections/content/products',
 	include: '**/*.mdx',
 	schema: (z) => ({
 		title: z.string(),

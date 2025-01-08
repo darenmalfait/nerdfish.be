@@ -6,7 +6,7 @@ import { seo } from '../utils'
 
 export const wiki = defineCollection({
 	name: 'wiki',
-	directory: 'content/wiki',
+	directory: '@repo/content-collections/content/wiki',
 	include: '**/*.mdx',
 	schema: (z) => ({
 		seo,
