@@ -25,10 +25,6 @@ export const basePathNames = {
 		en: '/work',
 		nl: '/werk',
 	},
-	'/schedule-a-meeting': {
-		en: '/schedule-a-meeting',
-		nl: '/plan-een-meeting',
-	},
 } satisfies BasePathNames<typeof i18n.locales>
 
 export const pathnames = {
