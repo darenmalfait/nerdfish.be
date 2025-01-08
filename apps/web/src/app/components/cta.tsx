@@ -5,9 +5,10 @@ import { H2 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import type * as React from 'react'
 import { Link } from './link'
-import { type PageBlocksCta } from '~/app/cms/types'
 
-export interface CtaProps extends PageBlocksCta {
+export interface CtaProps {
+	title: string
+	subtitle: string
 	link?: {
 		href: string
 		label: string

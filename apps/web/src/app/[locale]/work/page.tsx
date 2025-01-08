@@ -11,9 +11,9 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { ProductOverview } from '../realisations/blocks/products'
-import { Testimonials } from '../testimonials/blocks/testimonials'
-import { WorkOverview } from './blocks/work-overview'
+import { ProductOverview } from '../realisations/components/products-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
+import { WorkOverview } from './components/work-overview'
 import { Cta } from '~/app/components/cta'
 import {
 	Hero,
@@ -31,7 +31,7 @@ export async function generateMetadata(
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 
-	const t = await getTranslations('pages.work')
+	const t = await getTranslations('work.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -55,7 +55,7 @@ export async function generateMetadata(
 
 export default async function WorkPage(props: PageProps) {
 	await props.params
-	const t = await getTranslations('pages.work')
+	const t = await getTranslations('work.page')
 
 	return (
 		<>

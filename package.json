@@ -10,7 +10,6 @@
   "scripts": {
     "build": "turbo build",
     "build:content-collections": "turbo build:content-collections",
-    "build:tina": "turbo build:tina",
     "checks": "npm-run-all2 format lint typecheck",
     "checks:fix": "npm-run-all2 format:fix lint:fix typecheck",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",

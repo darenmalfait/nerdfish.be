@@ -6,7 +6,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from './blocks/blog-overview'
+import { BlogOverview } from './components/blog-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -17,7 +17,7 @@ export async function generateMetadata(
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 
-	const t = await getTranslations('pages.blog')
+	const t = await getTranslations('blog.overview.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -39,9 +39,9 @@ export async function generateMetadata(
 	})
 }
 
-export default async function BlogPage(props: PageProps) {
+export default async function BlogOverviewPage(props: PageProps) {
 	await props.params
-	const t = await getTranslations('pages.blog')
+	const t = await getTranslations('blog.page')
 
 	return (
 		<Section>

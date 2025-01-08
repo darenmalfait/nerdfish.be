@@ -1,3 +1,4 @@
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
 	SectionHeader,
@@ -11,8 +12,8 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from '../blog/blocks/blog-overview'
-import { Testimonials } from '../testimonials/blocks/testimonials'
+import { BlogOverview } from '../blog/components/blog-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
 import { Cta } from '~/app/components/cta'
 import {
 	Hero,
@@ -34,7 +35,7 @@ export async function generateMetadata(
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 
-	const t = await getTranslations('pages.about')
+	const t = await getTranslations('about.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -58,7 +59,7 @@ export async function generateMetadata(
 
 export default async function AboutPage(props: PageProps) {
 	await props.params
-	const t = await getTranslations('pages.about')
+	const t = await getTranslations('about.page')
 
 	return (
 		<>
@@ -134,13 +135,15 @@ export default async function AboutPage(props: PageProps) {
 				</SectionHeader>
 				<BlogOverview count={2} />
 			</Section>
-			<Section>
-				<Testimonials
-					filter={{
-						type: ['colleague', 'client'],
-					}}
-				/>
-			</Section>
+			<InViewBackground className="bg-blog/20">
+				<Section>
+					<Testimonials
+						filter={{
+							type: ['colleague', 'client'],
+						}}
+					/>
+				</Section>
+			</InViewBackground>
 		</>
 	)
 }

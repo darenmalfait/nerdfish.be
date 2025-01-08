@@ -8,9 +8,6 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  NEXT_PUBLIC_TINA_BRANCH: ${{ github.head_ref }}
-  NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-  TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
   RESEND_API_KEY: 're_test'
   EMAIL_FROM: 'test'
   NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
@@ -43,7 +40,7 @@ jobs:
         uses: ./packages/github-actions/install
 
       - name: Build for types
-        run: pnpm build:tina
+        run: pnpm run build:content-collections
 
       - name: Run lint
         run: pnpm lint
@@ -60,7 +57,7 @@ jobs:
         uses: ./packages/github-actions/install
 
       - name: Build for types
-        run: pnpm run build:content-collections && pnpm build:tina
+        run: pnpm run build:content-collections
 
       - name: Cache TypeScript TSBuild Info Files
         id: cache-typescript-tsbuildinfo

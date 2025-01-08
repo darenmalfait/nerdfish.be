@@ -12,7 +12,6 @@ export default [
 			'**/dist/**',
 			'**/next-env.d.ts',
 			'**/next/**',
-			'**/tina-lock.json',
 			'**/public/**',
 			'**/generated/**',
 			'**/.content-collections/**',

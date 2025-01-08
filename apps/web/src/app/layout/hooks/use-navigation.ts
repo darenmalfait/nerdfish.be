@@ -29,22 +29,22 @@ export function useNavigation(): Navigation {
 				{
 					label: t('main.expertise.webdesign.title'),
 					description: t('main.expertise.webdesign.description'),
-					href: '/webdesign',
+					href: '/expertise/webdesign',
 				},
 				{
 					label: t('main.expertise.freelance.title'),
 					description: t('main.expertise.freelance.description'),
-					href: '/freelance',
+					href: '/expertise/freelance',
 				},
 				{
 					label: t('main.expertise.branding.title'),
 					description: t('main.expertise.branding.description'),
-					href: '/branding',
+					href: '/expertise/branding',
 				},
 				{
 					label: t('main.expertise.3dprinting.title'),
 					description: t('main.expertise.3dprinting.description'),
-					href: '/3d-printing',
+					href: '/expertise/3d-printing',
 				},
 			],
 		},
