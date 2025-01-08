@@ -1,144 +1,6 @@
 {
-	"blog": {
+	"3d-printing": {
 		"page": {
-			"_meta": {
-				"description": "Explore web design and development insights with Nerdfish. Discover expert tips, project stories, and creative inspiration to elevate your digital presence.",
-				"title": "Creative Web Design & Development Insights"
-			},
-			"image": {
-				"alt": "Typewriter"
-			},
-			"subtitle": "Insights, updates, and stories about design, development, and creative projects, offering a glimpse into the process and inspiration behind the work.",
-			"title": "Blog"
-		},
-		"overview": {
-			"filterByTopic": "Filter blog posts by topic",
-			"loadMore": "Load more",
-			"readMore": "Read blog post",
-			"readMoreAbout": "Read blog: {title}",
-			"search": "Search blog articles",
-			"seeAll": "See all blog posts"
-		},
-		"content": {
-			"related": {
-				"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
-				"title": "Related Posts"
-			}
-		}
-	},
-	"contact": {
-		"chat": {
-			"close": "Close chat",
-			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
-			"initialMessage": "Hi, how can I help you today?",
-			"inputPlaceholder": "Ask a question",
-			"premadeQuestions": {
-				"ask": "Ask: {question}",
-				"currentJob": "Current job",
-				"currentJobQuestion": "Tell me about your current position.",
-				"experience": "Experience",
-				"experienceQuestion": "Tell me about your work experience.",
-				"favoriteLanguage": "Favorite language",
-				"favoriteLanguageQuestion": "What's your favorite programming language?",
-				"title": "Pre-defined questions",
-				"whoAreYou": "Who are you",
-				"whoAreYouQuestion": "Who are you?"
-			},
-			"send": "Send",
-			"title": "Chat with an AI version of me"
-		},
-		"cta": {
-			"booking": "Schedule a call"
-		},
-		"form": {
-			"dataUsage": "We only use your data to get in touch with you.",
-			"fields": {
-				"errors": {
-					"generic": "An error occurred while submitting the form.",
-					"phoneOrEmailRequired": "Either email or phone should be filled in.",
-					"recaptcha": "Please verify that you are not a robot."
-				},
-				"labels": {
-					"budgetRange": "What's your budget?",
-					"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
-					"company": "What's the name of your company?",
-					"contactInformation": "How can I reach you?",
-					"email": "Email address",
-					"name": "What's your name?",
-					"phone": "Phone number",
-					"projectType": "What services are you interested in?",
-					"projectTypeDescription": "Select all that apply",
-					"textMessage": "How can I help?"
-				},
-				"names": {
-					"budgetRange": "What's your budget?",
-					"company": "Company name",
-					"email": "Email address",
-					"name": "Name",
-					"phone": "Phone number",
-					"projectType": "Project type",
-					"textMessage": "Message"
-				}
-			},
-			"sections": {
-				"customer": "Please tell me about yourself",
-				"message": "What's up?",
-				"project": "About your project"
-			},
-			"send": "Submit",
-			"success": "Your message has been sent successfully."
-		},
-		"title": "Contact"
-	},
-	"features": {
-		"readMoreAbout": "Read more about {subject}",
-		"viewMore": "View {subject}"
-	},
-	"global": {
-		"about": "about",
-		"discover": "Discover {topic}",
-		"navigation": {
-			"main": {
-				"about": {
-					"label": "About"
-				},
-				"blog": {
-					"label": "Blog"
-				},
-				"contact": {
-					"label": "Contact"
-				},
-				"expertise": {
-					"3dprinting": {
-						"description": "3D printing services for your projects",
-						"title": "3D Printing"
-					},
-					"branding": {
-						"description": "Crafting unique, consistent, and impactful brand identities tailored to your business",
-						"title": "Branding"
-					},
-					"freelance": {
-						"description": "Get help with your Javascript projects, from architecture to implementation.",
-						"title": "Freelance services"
-					},
-					"label": "Expertise",
-					"webdesign": {
-						"description": "Transform your ideas into visually stunning, user-friendly websites.",
-						"title": "Websites"
-					}
-				},
-				"work": {
-					"label": "Work"
-				}
-			},
-			"pages": "Pages"
-		},
-		"readMoreAbout": "read more about {topic}",
-		"switchLanguage": "Switch Language",
-		"vat": "Any prices indicated are exclusive of VAT."
-	},
-	"pages": {
-		"3d-printing": {
 			"_meta": {
 				"description": "Get top-notch 3D printing services with our advanced Bambu X1C FDM printer. Perfect for custom prototypes, functional parts, and unique designs. Enjoy precision, durability, and fast turnaround times. Bring your STL files to life today!",
 				"title": "3D Printing Services Harelbeke"
@@ -284,7 +146,147 @@
 				"subtitle": "3D print examples",
 				"title": "Toys"
 			}
+		}
+	},
+	"blog": {
+		"page": {
+			"_meta": {
+				"description": "Explore web design and development insights with Nerdfish. Discover expert tips, project stories, and creative inspiration to elevate your digital presence.",
+				"title": "Creative Web Design & Development Insights"
+			},
+			"image": {
+				"alt": "Typewriter"
+			},
+			"subtitle": "Insights, updates, and stories about design, development, and creative projects, offering a glimpse into the process and inspiration behind the work.",
+			"title": "Blog"
 		},
+		"overview": {
+			"filterByTopic": "Filter blog posts by topic",
+			"loadMore": "Load more",
+			"readMore": "Read blog post",
+			"readMoreAbout": "Read blog: {title}",
+			"search": "Search blog articles",
+			"seeAll": "See all blog posts"
+		},
+		"content": {
+			"related": {
+				"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
+				"title": "Related Posts"
+			}
+		}
+	},
+	"contact": {
+		"chat": {
+			"close": "Close chat",
+			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
+			"initialMessage": "Hi, how can I help you today?",
+			"inputPlaceholder": "Ask a question",
+			"premadeQuestions": {
+				"ask": "Ask: {question}",
+				"currentJob": "Current job",
+				"currentJobQuestion": "Tell me about your current position.",
+				"experience": "Experience",
+				"experienceQuestion": "Tell me about your work experience.",
+				"favoriteLanguage": "Favorite language",
+				"favoriteLanguageQuestion": "What's your favorite programming language?",
+				"title": "Pre-defined questions",
+				"whoAreYou": "Who are you",
+				"whoAreYouQuestion": "Who are you?"
+			},
+			"send": "Send",
+			"title": "Chat with an AI version of me"
+		},
+		"cta": {
+			"booking": "Schedule a call"
+		},
+		"form": {
+			"dataUsage": "We only use your data to get in touch with you.",
+			"fields": {
+				"errors": {
+					"generic": "An error occurred while submitting the form.",
+					"phoneOrEmailRequired": "Either email or phone should be filled in.",
+					"recaptcha": "Please verify that you are not a robot."
+				},
+				"labels": {
+					"budgetRange": "What's your budget?",
+					"budgetRangeDescription": "A transparent budget is important for us to understand your project.",
+					"company": "What's the name of your company?",
+					"contactInformation": "How can I reach you?",
+					"email": "Email address",
+					"name": "What's your name?",
+					"phone": "Phone number",
+					"projectType": "What services are you interested in?",
+					"projectTypeDescription": "Select all that apply",
+					"textMessage": "How can I help?"
+				},
+				"names": {
+					"budgetRange": "What's your budget?",
+					"company": "Company name",
+					"email": "Email address",
+					"name": "Name",
+					"phone": "Phone number",
+					"projectType": "Project type",
+					"textMessage": "Message"
+				}
+			},
+			"sections": {
+				"customer": "Please tell me about yourself",
+				"message": "What's up?",
+				"project": "About your project"
+			},
+			"send": "Submit",
+			"success": "Your message has been sent successfully."
+		},
+		"title": "Contact"
+	},
+	"features": {
+		"readMoreAbout": "Read more about {subject}",
+		"viewMore": "View {subject}"
+	},
+	"global": {
+		"about": "about",
+		"discover": "Discover {topic}",
+		"navigation": {
+			"main": {
+				"about": {
+					"label": "About"
+				},
+				"blog": {
+					"label": "Blog"
+				},
+				"contact": {
+					"label": "Contact"
+				},
+				"expertise": {
+					"3dprinting": {
+						"description": "3D printing services for your projects",
+						"title": "3D Printing"
+					},
+					"branding": {
+						"description": "Crafting unique, consistent, and impactful brand identities tailored to your business",
+						"title": "Branding"
+					},
+					"freelance": {
+						"description": "Get help with your Javascript projects, from architecture to implementation.",
+						"title": "Freelance services"
+					},
+					"label": "Expertise",
+					"webdesign": {
+						"description": "Transform your ideas into visually stunning, user-friendly websites.",
+						"title": "Websites"
+					}
+				},
+				"work": {
+					"label": "Work"
+				}
+			},
+			"pages": "Pages"
+		},
+		"readMoreAbout": "read more about {topic}",
+		"switchLanguage": "Switch Language",
+		"vat": "Any prices indicated are exclusive of VAT."
+	},
+	"pages": {
 		"about": {
 			"_meta": {
 				"description": "Discover Daren Malfait, a freelance full-stack web developer specializing in React, TypeScript, and modern web design. Crafting custom, responsive websites and applications to elevate your business online.",
