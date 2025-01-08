@@ -62,6 +62,21 @@
 		}
 	},
 	"blog": {
+		"content": {
+			"backToBlog": "All articles",
+			"related": {
+				"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
+				"title": "Related Posts"
+			}
+		},
+		"overview": {
+			"filterByTopic": "Filter blog posts by topic",
+			"loadMore": "Load more",
+			"readMore": "Read blog post",
+			"readMoreAbout": "Read blog: {title}",
+			"search": "Search blog articles",
+			"seeAll": "See all blog posts"
+		},
 		"page": {
 			"_meta": {
 				"description": "Explore web design and development insights with Nerdfish. Discover expert tips, project stories, and creative inspiration to elevate your digital presence.",
@@ -72,44 +87,9 @@
 			},
 			"subtitle": "Insights, updates, and stories about design, development, and creative projects, offering a glimpse into the process and inspiration behind the work.",
 			"title": "Blog"
-		},
-		"overview": {
-			"filterByTopic": "Filter blog posts by topic",
-			"loadMore": "Load more",
-			"readMore": "Read blog post",
-			"readMoreAbout": "Read blog: {title}",
-			"search": "Search blog articles",
-			"seeAll": "See all blog posts"
-		},
-		"content": {
-			"related": {
-				"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
-				"title": "Related Posts"
-			}
 		}
 	},
 	"contact": {
-		"page": {
-			"_meta": {
-				"description": "Get in touch with Daren Malfait, a freelance web designer specializing in creative and functional websites. Contact me today.",
-				"title": "Contact Daren Malfait, Freelance Web Designer & Digital Creator"
-			},
-			"contact": {
-				"subtitle": "Whether you need a custom website, help with a digital project, or a reliable freelancer, I’m just a message away. I usually respond within a day, so let’s start creating something amazing.",
-				"title": "Let’s work together to bring your ideas to life"
-			},
-			"content": {
-				"body": "Prefer a more personal touch? Here’s where you can find me! Whether it’s an email, a call, or a visit, all my contact details are right here. Let’s connect in the way that works best for you.",
-				"title": "Reach Me Directly",
-				"vat": "VAT"
-			},
-			"form": {
-				"openFormLabel": "Let's get started",
-				"subtitle": "Fill out the blanks below, and I’ll get back to you. Let’s bring your ideas to life.",
-				"title": "Tell me about your project"
-			},
-			"title": "Contact"
-		},
 		"chat": {
 			"close": "Close chat",
 			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
@@ -170,6 +150,27 @@
 			},
 			"send": "Submit",
 			"success": "Your message has been sent successfully."
+		},
+		"page": {
+			"_meta": {
+				"description": "Get in touch with Daren Malfait, a freelance web designer specializing in creative and functional websites. Contact me today.",
+				"title": "Contact Daren Malfait, Freelance Web Designer & Digital Creator"
+			},
+			"contact": {
+				"subtitle": "Whether you need a custom website, help with a digital project, or a reliable freelancer, I’m just a message away. I usually respond within a day, so let’s start creating something amazing.",
+				"title": "Let’s work together to bring your ideas to life"
+			},
+			"content": {
+				"body": "Prefer a more personal touch? Here’s where you can find me! Whether it’s an email, a call, or a visit, all my contact details are right here. Let’s connect in the way that works best for you.",
+				"title": "Reach Me Directly",
+				"vat": "VAT"
+			},
+			"form": {
+				"openFormLabel": "Let's get started",
+				"subtitle": "Fill out the blanks below, and I’ll get back to you. Let’s bring your ideas to life.",
+				"title": "Tell me about your project"
+			},
+			"title": "Contact"
 		},
 		"title": "Contact"
 	},
@@ -654,7 +655,6 @@
 		"readMoreAbout": "Read more about {subject}",
 		"viewMore": "View {subject}"
 	},
-
 	"global": {
 		"about": "about",
 		"discover": "Discover {topic}",
@@ -764,6 +764,15 @@
 		}
 	},
 	"wiki": {
+		"overview": {
+			"backToWiki": "All articles",
+			"filterByTopic": "Filter knowledge base by topic",
+			"loadMore": "Load more articles",
+			"readMore": "Read article",
+			"readMoreAbout": "Read more about {title}",
+			"search": "Search knowledge base",
+			"seeAll": "See knowledge base"
+		},
 		"page": {
 			"_meta": {
 				"description": "I collect things I want to keep on this page but are not ready to be blog posts.",
@@ -774,17 +783,24 @@
 			},
 			"subtitle": "Curated collection of articles and resources",
 			"title": "Knowledge Base"
-		},
-		"overview": {
-			"filterByTopic": "Filter knowledge base by topic",
-			"loadMore": "Load more articles",
-			"readMore": "Read article",
-			"readMoreAbout": "Read more about {title}",
-			"search": "Search knowledge base",
-			"seeAll": "See knowledge base"
 		}
 	},
 	"work": {
+		"content": {
+			"related": {
+				"subtitle": "Explore a featured project related to this design",
+				"title": "You might like this"
+			}
+		},
+		"overview": {
+			"backToWork": "More projects",
+			"filterByTopic": "Filter projects by topic",
+			"loadMore": "Load more",
+			"readMore": "Explore project",
+			"readMoreAbout": "Read more about {title}",
+			"search": "Search projects",
+			"seeAll": "See all projects"
+		},
 		"page": {
 			"_meta": {
 				"description": "Explore a diverse portfolio of projects, including innovative web design, impactful branding, and contributions to open-source initiatives that drive collaboration and innovation.",
@@ -816,20 +832,6 @@
 				},
 				"subtitle": "Creative and user-focused web design projects that blend aesthetics with functionality, delivering engaging digital experiences.",
 				"title": "Web Design Projects"
-			}
-		},
-		"overview": {
-			"filterByTopic": "Filter projects by topic",
-			"loadMore": "Load more",
-			"readMore": "Explore project",
-			"readMoreAbout": "Read more about {title}",
-			"search": "Search projects",
-			"seeAll": "See all projects"
-		},
-		"content": {
-			"related": {
-				"subtitle": "Explore a featured project related to this design",
-				"title": "You might like this"
 			}
 		}
 	}

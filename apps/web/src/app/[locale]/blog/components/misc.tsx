@@ -6,13 +6,13 @@ import { useTranslations } from '@repo/i18n/client'
 import { Link } from '~/app/components/link'
 
 export function BackToBlog() {
-	const t = useTranslations('blog')
+	const t = useTranslations('blog.content')
 
 	return (
 		<Button variant="ghost" className="-mx-md group" asChild>
 			<Link href="/blog">
 				<ChevronLeftIcon className="group-hover:-translate-x-xs mr-sm size-4 transition-transform" />
-				{t('seeAll')}
+				{t('backToBlog')}
 			</Link>
 		</Button>
 	)
