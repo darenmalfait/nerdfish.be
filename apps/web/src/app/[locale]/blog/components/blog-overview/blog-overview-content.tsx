@@ -20,15 +20,15 @@ import {
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
-import { type Wiki } from 'content-collections'
+import { type Post } from 'content-collections'
 import * as React from 'react'
-import { filterWiki, mapWikiToArticle } from '../../utils'
+import { filterBlog, mapBlogToArticle } from '../../utils'
 import { type ImageType } from '~/app/types'
 
-export interface WikiOverviewContentProps {
+export interface BlogOverviewContentProps {
 	searchEnabled?: boolean
 	featuredEnabled?: boolean
-	items: PartialDeep<Wiki>[]
+	items: PartialDeep<Post>[]
 	header?: {
 		title?: string
 		subtitle?: string
@@ -38,22 +38,22 @@ export interface WikiOverviewContentProps {
 	children?: React.ReactNode
 }
 
-export function WikiOverviewContent({
+export function BlogOverviewContent({
 	searchEnabled,
 	featuredEnabled,
 	items,
 	header,
 	children,
-}: WikiOverviewContentProps) {
-	const t = useTranslations('wiki.overview')
-	const articles = React.useMemo(() => mapWikiToArticle(items), [items])
+}: BlogOverviewContentProps) {
+	const t = useTranslations('blog.overview')
+	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const wikis = items.filter((wiki) => wiki.id && toFilterIds.has(wiki.id))
+			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapWikiToArticle(filterWiki(wikis, searchString))
+			return mapBlogToArticle(filterBlog(blogs, searchString))
 		},
 		[items],
 	)
@@ -68,7 +68,7 @@ export function WikiOverviewContent({
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage
 					image={{
-						src: header?.image?.src ?? undefined,
+						src: header?.image?.src ?? '',
 						alt: header?.image?.alt ?? header?.title ?? '',
 					}}
 				/>
@@ -102,7 +102,6 @@ export function WikiOverviewContent({
 
 			{children ?? (
 				<ArticleOverviewContentGrid
-					maxColumns={1}
 					readMoreLabel={t('readMore')}
 					ariaLabel={t('readMoreAbout', {
 						title: header?.title ?? '',

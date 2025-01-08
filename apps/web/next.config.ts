@@ -5,16 +5,31 @@ import { type NextConfig } from 'next'
 
 let nextConfig: NextConfig = {
 	...config,
-	images: {
-		remotePatterns: [{ hostname: 'assets.tina.io' }],
+	async redirects() {
+		// OLD LINKS
+		return [
+			...[
+				'/freelance',
+				'/3d-printing',
+				'/branding',
+				'/uxui-design',
+				'/webdesign',
+			].flatMap((href) => [
+				{
+					source: href,
+					destination: `/expertise${href}`,
+					permanent: true,
+				},
+				{
+					source: `/nl${href}`,
+					destination: `/nl/expertise${href}`,
+					permanent: true,
+				},
+			]),
+		]
 	},
 	async rewrites() {
-		return [
-			{
-				source: '/admin',
-				destination: '/admin/index.html',
-			},
-		]
+		return []
 	},
 }
 

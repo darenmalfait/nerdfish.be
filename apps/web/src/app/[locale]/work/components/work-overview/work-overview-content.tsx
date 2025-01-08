@@ -20,40 +20,40 @@ import {
 import { H1 } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
-import { type Wiki } from 'content-collections'
+import { type Project } from 'content-collections'
 import * as React from 'react'
-import { filterWiki, mapWikiToArticle } from '../../utils'
+import { filterWork, mapWorkToArticle } from '../../utils'
 import { type ImageType } from '~/app/types'
 
-export interface WikiOverviewContentProps {
+export interface WorkOverviewContentProps {
+	children?: React.ReactNode
 	searchEnabled?: boolean
 	featuredEnabled?: boolean
-	items: PartialDeep<Wiki>[]
+	items: PartialDeep<Project>[]
 	header?: {
 		title?: string
 		subtitle?: string
 		image?: ImageType
 		link?: string
 	} | null
-	children?: React.ReactNode
 }
 
-export function WikiOverviewContent({
+export function WorkOverviewContent({
 	searchEnabled,
 	featuredEnabled,
 	items,
 	header,
 	children,
-}: WikiOverviewContentProps) {
-	const t = useTranslations('wiki.overview')
-	const articles = React.useMemo(() => mapWikiToArticle(items), [items])
+}: WorkOverviewContentProps) {
+	const t = useTranslations('work.overview')
+	const articles = React.useMemo(() => mapWorkToArticle(items), [items])
 
 	const filterArticles = React.useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const wikis = items.filter((wiki) => wiki.id && toFilterIds.has(wiki.id))
+			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapWikiToArticle(filterWiki(wikis, searchString))
+			return mapWorkToArticle(filterWork(works, searchString))
 		},
 		[items],
 	)
@@ -102,7 +102,6 @@ export function WikiOverviewContent({
 
 			{children ?? (
 				<ArticleOverviewContentGrid
-					maxColumns={1}
 					readMoreLabel={t('readMore')}
 					ariaLabel={t('readMoreAbout', {
 						title: header?.title ?? '',

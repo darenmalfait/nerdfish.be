@@ -14,7 +14,6 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
-import { tinaField } from 'tinacms/dist/react'
 import { Link } from './link'
 
 interface CardWrapperProps extends React.ComponentProps<typeof motion.div> {
@@ -81,20 +80,9 @@ export function Highlights(props: HighlightsProps) {
 						>
 							<HighlightCard title={title}>
 								<HighlightCardContent>
-									<HighlightCardCategory
-										value={category}
-										data-tina-field={tinaField(item, 'category')}
-									/>
-									<HighlightCardTitle
-										data-tina-field={tinaField(item, 'title')}
-									>
-										{title}
-									</HighlightCardTitle>
-									<HighlightCardDescription
-										data-tina-field={tinaField(item, 'excerpt')}
-									>
-										{excerpt}
-									</HighlightCardDescription>
+									<HighlightCardCategory value={category} />
+									<HighlightCardTitle>{title}</HighlightCardTitle>
+									<HighlightCardDescription>{excerpt}</HighlightCardDescription>
 									{href ? (
 										<HighlightCardCTA
 											as={Link}

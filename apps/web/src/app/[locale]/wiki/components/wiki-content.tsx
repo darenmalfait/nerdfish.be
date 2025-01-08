@@ -6,7 +6,7 @@ import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { H1, Separator } from '@repo/design-system/components/ui'
 import { type Wiki } from 'content-collections'
 import { BackToWiki } from './misc'
-import { Body } from '~/app/cms/components/body'
+import { Body } from '~/app/components/body'
 
 const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
 

@@ -8,26 +8,22 @@ import { type Locale } from '@repo/i18n/types'
 
 export const basePathNames = {
 	'/': '/',
-	'/3d-printing': '/3d-printing',
 	'/ai': '/ai',
 	'/about': {
 		en: '/about',
 		nl: '/over-mij',
 	},
 	'/blog': '/blog',
-	'/branding': '/branding',
 	'/contact': '/contact',
-	'/freelance': '/freelance',
-	'/uxui-design': '/uxui-design',
-	'/webdesign': '/webdesign',
+	'/expertise/3d-printing': '/expertise/3d-printing',
+	'/expertise/branding': '/expertise/branding',
+	'/expertise/freelance': '/expertise/freelance',
+	'/expertise/uxui-design': '/expertise/uxui-design',
+	'/expertise/webdesign': '/expertise/webdesign',
 	'/wiki': '/wiki',
 	'/work': {
 		en: '/work',
 		nl: '/werk',
-	},
-	'/schedule-a-meeting': {
-		en: '/schedule-a-meeting',
-		nl: '/plan-een-meeting',
 	},
 } satisfies BasePathNames<typeof i18n.locales>
 
