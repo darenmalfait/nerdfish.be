@@ -8,6 +8,7 @@ import {
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
+import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
@@ -34,9 +35,15 @@ export async function generateMetadata(
 	const { locale } = await props.params
 	const t = await getTranslations('pages.freelance')
 
+	const title = t('_meta.title')
+	const description = t('_meta.description')
+
 	return createMetadata({
-		title: t('_meta.title'),
-		description: t('_meta.description'),
+		title,
+		description,
+		image: `/api/og?${pageParams.toSearchString({
+			heading: title,
+		})}`,
 		alternates: {
 			canonical: getPathname({ locale, href: '/freelance' }),
 			languages: getPathnames(
