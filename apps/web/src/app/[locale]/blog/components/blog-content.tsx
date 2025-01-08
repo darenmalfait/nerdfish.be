@@ -11,7 +11,7 @@ import Image from 'next/image'
 import type * as React from 'react'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
-import { Body } from '~/app/cms/components/body'
+import { Body } from '~/app/components/body'
 
 function BlogContent({
 	data,

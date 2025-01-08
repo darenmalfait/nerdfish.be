@@ -6,7 +6,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from './blocks/blog-overview'
+import { BlogOverview } from './components/blog-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>

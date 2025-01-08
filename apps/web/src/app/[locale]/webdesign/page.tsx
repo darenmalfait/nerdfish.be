@@ -23,9 +23,9 @@ import {
 } from '../../components/hero'
 import { Keyword, KeywordList } from '../../components/keyword-list'
 import { Pricing } from '../../components/pricing'
-import { BlogOverview } from '../blog/blocks/blog-overview'
-import { Testimonials } from '../testimonials/blocks/testimonials'
-import { WorkOverview } from '../work/blocks/work-overview'
+import { BlogOverview } from '../blog/components/blog-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
+import { WorkOverview } from '../work/components/work-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>

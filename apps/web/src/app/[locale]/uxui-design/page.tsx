@@ -22,7 +22,7 @@ import {
 } from '../../components/hero'
 import { Keyword, KeywordList } from '../../components/keyword-list'
 import { Pricing } from '../../components/pricing'
-import { BlogOverview } from '../blog/blocks/blog-overview'
+import { BlogOverview } from '../blog/components/blog-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>

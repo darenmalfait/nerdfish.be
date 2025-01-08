@@ -23,9 +23,9 @@ import {
 	HeroTitle,
 } from '../components/hero'
 import { Highlights } from '../components/highlights'
-import { BlogOverview } from './blog/blocks/blog-overview'
-import { Testimonials } from './testimonials/blocks/testimonials'
-import { WorkOverview } from './work/blocks/work-overview'
+import { BlogOverview } from './blog/components/blog-overview'
+import { Testimonials } from './testimonials/components/testimonials'
+import { WorkOverview } from './work/components/work-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>

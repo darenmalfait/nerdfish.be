@@ -5,16 +5,8 @@ import { type NextConfig } from 'next'
 
 let nextConfig: NextConfig = {
 	...config,
-	images: {
-		remotePatterns: [{ hostname: 'assets.tina.io' }],
-	},
 	async rewrites() {
-		return [
-			{
-				source: '/admin',
-				destination: '/admin/index.html',
-			},
-		]
+		return []
 	},
 }
 

@@ -10,9 +10,6 @@
 		"build:content-collections": {
 			"dependsOn": ["^build:content-collections"]
 		},
-		"build:tina": {
-			"dependsOn": ["^build:tina"]
-		},
 		"topo": {
 			"dependsOn": ["^topo"]
 		},

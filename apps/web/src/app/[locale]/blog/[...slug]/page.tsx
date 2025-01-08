@@ -1,10 +1,16 @@
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { BlogOverviewBlock } from '../blocks/blog-overview/blog-overview-block'
 import { BlogContent } from '../components/blog-content'
+import { BlogOverview } from '../components/blog-overview'
 import { getBlogPath } from '../utils'
 import { getRouteData } from './route-data'
 
@@ -41,14 +47,16 @@ export default async function BlogPage(props: {
 	return (
 		<BlogContent
 			relatedContent={
-				<BlogOverviewBlock
-					header={{
-						title: t('related.title'),
-						subtitle: t('related.subtitle'),
-					}}
-					count={2}
-					relatedTo={post}
-				/>
+				<Section>
+					<SectionHeader>
+						<SectionHeaderTitle title={t('related.title')} />
+						<SectionHeaderSubtitle>
+							{t('related.subtitle')}
+						</SectionHeaderSubtitle>
+					</SectionHeader>
+
+					<BlogOverview count={2} relatedTo={post} />
+				</Section>
 			}
 			data={post}
 			locale={params.locale}

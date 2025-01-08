@@ -16,9 +16,8 @@ import {
 	WebflowIcon,
 } from '@repo/design-system/lib/icons'
 import type * as React from 'react'
-import { type skills } from '~/tina/schema/blocks/skills.template'
 
-const skillIconMap: Record<(typeof skills)[number], React.ElementType> = {
+const skillIconMap: Record<string, React.ElementType> = {
 	javascript: JavascriptIcon,
 	typescript: TypescriptIcon,
 	node: NodeIcon,
@@ -44,6 +43,8 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 	if (!Object.keys(skillIconMap).includes(skill)) return null
 
 	const SkillIcon = skillIconMap[skill]
+
+	if (!SkillIcon) return null
 
 	return (
 		<li

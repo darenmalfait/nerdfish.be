@@ -10,15 +10,24 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { Chat } from '../contact/components/chat'
-import { HeroBlock } from '~/app/cms/blocks/hero'
+import {
+	Hero,
+	HeroTitle,
+	HeroContent,
+	HeroSubtitle,
+} from '~/app/components/hero'
 
 export function AIPageContent() {
 	const t = useTranslations()
+
 	return (
 		<>
-			<HeroBlock variant="secondary" title={t('pages.ai.title')}>
-				{t('pages.ai.description')}
-			</HeroBlock>
+			<Hero variant="secondary">
+				<HeroContent>
+					<HeroTitle title={t('pages.ai.title')} />
+					<HeroSubtitle>{t('pages.ai.description')}</HeroSubtitle>
+				</HeroContent>
+			</Hero>
 			<InViewBackground>
 				<Section>
 					<SectionHeader>

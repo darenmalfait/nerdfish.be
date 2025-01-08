@@ -11,8 +11,8 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from '../blog/blocks/blog-overview'
-import { Testimonials } from '../testimonials/blocks/testimonials'
+import { BlogOverview } from '../blog/components/blog-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
 import { Cta } from '~/app/components/cta'
 import {
 	Hero,

@@ -625,6 +625,153 @@
 					}
 				}
 			}
+		},
+		"3d-printing": {
+			"_meta": {
+				"title": "3D Printing Services Harelbeke",
+				"description": "Get top-notch 3D printing services with our advanced Bambu X1C FDM printer. Perfect for custom prototypes, functional parts, and unique designs. Enjoy precision, durability, and fast turnaround times. Bring your STL files to life today!"
+			},
+			"hero": {
+				"title": "3D Printing",
+				"subtitle": "Transforming Your Ideas into Tangible Creations with Precision and Speed"
+			},
+			"features": {
+				"title": "Our 3D Printing Advantage",
+				"subtitle": "Top features for precision, versatility, and quality",
+				"items": {
+					"0": {
+						"title": "Speed & Precision",
+						"description": "High-speed printing with exceptional accuracy, ensuring every detail is perfect."
+					},
+					"1": {
+						"title": "Multi-Material Support",
+						"description": "Print with various materials, including PLA, ABS, PETG, and more, for versatile solutions."
+					},
+					"2": {
+						"title": "Vibrant Colors",
+						"description": "Choose sustainable materials for environmentally conscious projects."
+					},
+					"3": {
+						"title": "Eco-Friendly Options",
+						"description": "Choose sustainable materials for environmentally conscious projects."
+					}
+				}
+			},
+			"cta": {
+				"title": "Got a project in mind?",
+				"subtitle": "Lets talk.",
+				"label": "Contact us"
+			},
+			"faq": {
+				"title": "Everything You Need to Know About Our 3D Services",
+				"subtitle": "Find quick answers to common questions about our 3D solutions, processes, and what to expect.",
+				"items": {
+					"0": {
+						"question": "What 3D services do you offer?",
+						"answer": "We specialize in 3D printing services, including high-quality prints using PLA and PETG materials. ASA and ABS are also options. Whether you're looking to prototype a product or create custom 3D prints, we provide precise and durable solutions for your needs."
+					},
+					"1": {
+						"question": "What 3D printer do you use for your projects?",
+						"answer": "We use the Bamboo Labs X1 Carbon (X1C) 3D printer, which is known for its speed, accuracy, and multi-material support. This advanced printer delivers fast and high-quality results, ensuring your projects meet the highest standards."
+					},
+					"2": {
+						"question": "How long does it take to complete a 3D print?",
+						"answer": "the time required depends on the size and complexity of your print. Simple designs may take a few hours, while larger or more intricate prints could take longer. We'll provide an estimated time frame before starting the project."
+					},
+					"3": {
+						"question": "What materials can you print with?",
+						"answer": "We offer PLA and PETG filaments for 3D printing. Both materials are durable, versatile, and ideal for most applications, from prototypes to finished products."
+					},
+					"4": {
+						"question": "How much does it cost to 3D print with PLA or PETG?",
+						"answer": "Our pricing is based on two factors:  €0.20 per gram for PLA/PETG filament €0.50 per hour of printing time You only pay for the material used and the time the printer is in use, ensuring a fair and transparent pricing model."
+					},
+					"5": {
+						"question": "Can you print from my existing 3D design files?",
+						"answer": "Yes, we can print from 3D design files you provide, such as STL, OBJ, or other common formats. If you have a ready-to-print design, we'll prepare it for the 3D printing process."
+					},
+					"6": {
+						"question": "How do I get started with my 3D printing project?",
+						"answer": "To get started, simply reach out to us with the details of your project. We'll review your design, provide a quote, and guide you through the printing process from start to finish."
+					}
+				}
+			},
+			"pricing": {
+				"title": "Choose the Plan That Fits Your 3D Printing Needs",
+				"subtitle": "Whether you need a simple print or custom design, we have a solution that fits your project and budget.",
+				"items": {
+					"0": {
+						"title": "Basic Print",
+						"description": "Perfect for customers who already have a 3D design ready. Simply send us your 3D files (STL, OBJ, etc.), and we'll handle the printing.",
+						"features": "€0.20 per gram for PLA/PETG filament | €0.50 per hour of printing time | Fast, efficient printing | Ideal for prototypes, models, or finished products",
+						"buttonText": "Get in touch"
+					},
+					"1": {
+						"title": "Customization",
+						"description": "We will assist with designing or altering your 3D model before proceeding to print.",
+						"features": "Collaborative process | Includes a set number of revisions",
+						"buttonText": "Ask for a quote"
+					}
+				}
+			},
+			"desk-storage": {
+				"title": "Desk storage",
+				"subtitle": "3D print examples",
+				"items": {
+					"0": {
+						"title": "Cube holder",
+						"description": "3D printed cube holder"
+					},
+					"1": {
+						"title": "Pen holder",
+						"description": "3D printed pen holder"
+					},
+					"2": {
+						"title": "Custom sunglass holder",
+						"description": "3D printed sunglass holder"
+					}
+				}
+			},
+			"toys": {
+				"title": "Toys",
+				"subtitle": "3D print examples",
+				"items": {
+					"0": {
+						"title": "Endless fidget cube",
+						"description": "3D printed endless fidget cube"
+					},
+					"1": {
+						"title": "Piggy bank",
+						"description": "3D printed piggy bank"
+					},
+					"2": {
+						"title": "Fidget rings",
+						"description": "3D printed fidget rings"
+					},
+					"3": {
+						"title": "Fidget clicker",
+						"description": "3D printed fidget clicker"
+					}
+				}
+			},
+			"misc": {
+				"title": "Misc",
+				"subtitle": "3D print examples",
+				"items": {
+					"0": {
+						"title": "Bike measure utility",
+						"description": "3D printed bike measure utility"
+					},
+					"1": {
+						"title": "Replacement parts",
+						"description": "3D printed replacement parts"
+					},
+					"2": {
+						"title": "Garage remote",
+						"description": "3D printed garage remote"
+					}
+				}
+			}
 		}
 	},
 	"theme": {

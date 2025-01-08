@@ -7,10 +7,7 @@
 			"@repo/*": ["../../packages/*"],
 			"env": ["./env.ts"],
 			"routing": ["./src/routing.ts"],
-			"content-collections": ["./.content-collections/generated"],
-
-			// tina
-			"~/tina/*": ["tina/*"]
+			"content-collections": ["./.content-collections/generated"]
 		},
 		"plugins": [
 			{
@@ -30,17 +27,7 @@
 		".next/types/**/*.ts",
 		"next-env.d.ts",
 		"next.config.mjs",
-		"postcss.config.cjs",
-		".forestry/config.ts",
-		".forestry/types.ts",
-		"tina/**/*.ts",
-		"tina/**/*.tsx"
+		"postcss.config.cjs"
 	],
-	"exclude": [
-		"node_modules",
-		".next",
-		"public",
-		"tina/__generated__",
-		"playwright-report"
-	]
+	"exclude": ["node_modules", ".next", "public", "playwright-report"]
 }
