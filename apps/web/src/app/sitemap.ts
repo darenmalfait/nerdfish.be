@@ -1,7 +1,7 @@
 import { supportedLanguages } from '@repo/i18n/config'
 import { env } from 'env'
 import { type MetadataRoute } from 'next'
-import { basePathNames, getPathnames, type Pathnames } from 'routing'
+import { basePathNames, getPathname, type Pathnames } from 'routing'
 import { blog } from './[locale]/blog/api'
 import { getBlogPath } from './[locale]/blog/utils'
 import { work } from './[locale]/work/api'
@@ -13,14 +13,19 @@ const nonDefaultLanguages = supportedLanguages
 	.filter(({ default: isDefault }) => !isDefault)
 	.map(({ code }) => code)
 
-function getEntriesForPath(path: Pathnames) {
+function getEntriesForPath(href: Pathnames) {
 	return {
-		url: `${BASE_URL}${path}`,
+		url: `${BASE_URL}${href}`,
 		lastModified: new Date(),
 		changeFrequency: 'monthly',
 		priority: 1,
 		alternates: {
-			languages: getPathnames(path, nonDefaultLanguages),
+			languages: Object.fromEntries(
+				nonDefaultLanguages.map((locale) => [
+					locale,
+					`${BASE_URL}${getPathname({ locale, href })}`,
+				]),
+			),
 		},
 	}
 }
