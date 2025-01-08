@@ -143,14 +143,19 @@ export function PriceCardPrice({
 	)
 }
 
-export type PriceCardActionProps = React.ComponentProps<typeof Link>
+export type PriceCardActionProps = React.ComponentProps<typeof Link> & {
+	as?: React.ElementType
+}
 
 export function PriceCardAction({
 	children,
 	href,
+	as,
 	...props
 }: PriceCardActionProps) {
 	const { isPopular } = usePriceCard()
+
+	const LinkElement = as ?? Link
 
 	return (
 		<CardFooter className="mt-lg flex-1 items-end">
@@ -160,9 +165,9 @@ export function PriceCardAction({
 				variant={isPopular ? 'accent' : 'default'}
 				asChild
 			>
-				<Link href={href} {...props}>
+				<LinkElement href={href} {...props}>
 					{children}
-				</Link>
+				</LinkElement>
 			</Button>
 		</CardFooter>
 	)

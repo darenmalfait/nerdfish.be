@@ -10,13 +10,13 @@ import {
 } from '@repo/design-system/components/ui'
 import * as React from 'react'
 
-export interface FAQItemProps
-	extends React.ComponentProps<typeof AccordionItem> {
+export interface FaqItemProps
+	extends Omit<React.ComponentProps<typeof AccordionItem>, 'value'> {
 	question: string
 	answer: string
 }
 
-export function FAQItem({ question, answer, ...props }: FAQItemProps) {
+export function FaqItem({ question, answer, ...props }: FaqItemProps) {
 	const id = React.useId()
 
 	return (
@@ -37,9 +37,9 @@ export function FAQItem({ question, answer, ...props }: FAQItemProps) {
 	)
 }
 
-export type FAQProps = React.ComponentProps<typeof Accordion>
+export type FaqProps = React.ComponentProps<typeof Accordion>
 
-export function FAQ({ className, children, ...props }: FAQProps) {
+export function Faq({ className, children, ...props }: FaqProps) {
 	return (
 		<div className="relative">
 			<Accordion {...props} className={cx('space-y-md', className)}>
