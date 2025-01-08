@@ -5,20 +5,39 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { getTranslations } from '@repo/i18n/server'
-import { type WithLocale } from '@repo/i18n/types'
+import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import * as React from 'react'
+import { blog } from '../api'
 import { BlogContent } from '../components/blog-content'
 import { BlogOverview } from '../components/blog-overview'
 import { getBlogPath } from '../utils'
-import { getRouteData } from './route-data'
 
-export async function generateMetadata(props: {
+type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
-}): Promise<Metadata | undefined> {
-	const params = await props.params
-	const { post } = await getRouteData(params.slug.join('/'), params.locale)
+}
+
+const getPageData = React.cache(async function getPageData(
+	slug: string,
+	locale?: Locale,
+) {
+	const post = await blog.get({ slug: decodeURIComponent(slug), locale })
+
+	if (!post) return notFound()
+
+	return {
+		post,
+	}
+})
+
+export async function generateMetadata(
+	props: PageProps,
+): Promise<Metadata | undefined> {
+	const { slug, locale } = await props.params
+	const { post } = await getPageData(slug.join('/'), locale)
 	const title = post.seo.title
 
 	return createMetadata({
@@ -33,16 +52,14 @@ export async function generateMetadata(props: {
 		alternates: {
 			canonical: post.seo.canonical ?? getBlogPath(post),
 		},
-		locale: params.locale,
+		locale,
 	})
 }
 
-export default async function BlogPage(props: {
-	params: Promise<WithLocale<{ slug: string[] }>>
-}) {
-	const params = await props.params
+export default async function BlogDetailPage(props: PageProps) {
+	const { slug, locale } = await props.params
 	const t = await getTranslations('blog')
-	const { post } = await getRouteData(params.slug.join('/'), params.locale)
+	const { post } = await getPageData(slug.join('/'), locale)
 
 	return (
 		<BlogContent
@@ -59,7 +76,7 @@ export default async function BlogPage(props: {
 				</Section>
 			}
 			data={post}
-			locale={params.locale}
+			locale={locale}
 		/>
 	)
 }
