@@ -1,15 +1,33 @@
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
+import {
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+	Section,
+} from '@repo/design-system/components/section'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { AIPageContent } from './ai-page-content'
+import * as React from 'react'
+import { Chat } from '../contact/components/chat'
+import {
+	Hero,
+	HeroTitle,
+	HeroContent,
+	HeroSubtitle,
+} from '~/app/components/hero'
 import { getPathname, getPathnames } from '~/routing'
 
-export async function generateMetadata(props: {
+type PageProps = {
 	params: Promise<WithLocale>
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata(
+	props: PageProps,
+): Promise<Metadata | undefined> {
 	const { locale } = await props.params
 	const t = await getTranslations('pages.ai')
 
@@ -33,6 +51,30 @@ export async function generateMetadata(props: {
 	})
 }
 
-export default async function AiPage() {
-	return <AIPageContent />
+export default async function AiPage(props: PageProps) {
+	await props.params
+	const t = await getTranslations('pages.ai')
+
+	return (
+		<>
+			<Hero variant="secondary">
+				<HeroContent>
+					<HeroTitle title={t('title')} />
+					<HeroSubtitle>{t('description')}</HeroSubtitle>
+				</HeroContent>
+			</Hero>
+			<InViewBackground>
+				<Section>
+					<SectionHeader>
+						<SectionHeaderTitle>AI</SectionHeaderTitle>
+						<SectionHeaderSubtitle>{t('disclaimer')}</SectionHeaderSubtitle>
+					</SectionHeader>
+
+					<div className="relative">
+						<Chat className="rounded-container bg-primary p-lg shadow-outline h-[75vh]" />
+					</div>
+				</Section>
+			</InViewBackground>
+		</>
+	)
 }
