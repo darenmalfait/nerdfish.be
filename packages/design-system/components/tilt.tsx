@@ -14,6 +14,7 @@ export interface TiltProps extends React.ComponentProps<typeof motion.div> {
 	rotationFactor?: number
 	isReverse?: boolean
 	springOptions?: SpringOptions
+	as?: React.ElementType
 }
 
 export function Tilt({
@@ -24,6 +25,7 @@ export function Tilt({
 	isReverse = false,
 	springOptions,
 	ref,
+	as,
 	...props
 }: TiltProps) {
 	const itemRef = React.useRef<HTMLDivElement>(null)
@@ -73,8 +75,10 @@ export function Tilt({
 		y.set(0)
 	}
 
+	const Component = as ? motion(as) : motion.div
+
 	return (
-		<motion.div
+		<Component
 			{...props}
 			ref={itemRef}
 			className={className}
@@ -87,6 +91,6 @@ export function Tilt({
 			onMouseLeave={handleMouseLeave}
 		>
 			{children}
-		</motion.div>
+		</Component>
 	)
 }

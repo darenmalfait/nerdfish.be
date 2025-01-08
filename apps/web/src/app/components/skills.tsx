@@ -1,4 +1,5 @@
 import { cx } from '@nerdfish/utils'
+import { Tilt } from '@repo/design-system/components/tilt'
 import {
 	CSSIcon,
 	FigmaIcon,
@@ -34,7 +35,7 @@ const skillIconMap: Record<string, React.ElementType> = {
 	webflow: WebflowIcon,
 }
 
-export interface SkillItemProps extends React.ComponentProps<'li'> {
+export interface SkillItemProps extends React.ComponentProps<typeof Tilt> {
 	skill?: keyof typeof skillIconMap
 }
 
@@ -47,21 +48,37 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 	if (!SkillIcon) return null
 
 	return (
-		<li
+		<Tilt
+			isReverse
+			as="li"
 			className={cx(
-				'aspect-1 rounded-container bg-muted col-span-1 flex w-full flex-col items-center justify-center',
+				'aspect-1 rounded-container bg-muted group/skill relative col-span-1 flex w-full flex-col items-center justify-center overflow-hidden',
 				className,
 			)}
 			{...props}
 		>
-			<div className="flex flex-col items-center text-center">
+			<div
+				className={cx(
+					'flex flex-col items-center text-center',
+					'transition-opacity duration-300 group-hover/skill:opacity-100',
+				)}
+			>
 				<SkillIcon
 					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
 					aria-hidden
 				/>
-				<span className="font-bold capitalize">{skill}</span>
+				<div className="group-hover/skill:motion-preset-fade absolute inset-0 hidden size-full backdrop-blur-2xl group-hover/skill:block" />
 			</div>
-		</li>
+			<div className="absolute inset-0 flex size-full items-center justify-center">
+				<span
+					className={cx(
+						'text-lg font-bold capitalize opacity-0 transition-opacity duration-300 group-hover/skill:opacity-100',
+					)}
+				>
+					{skill}
+				</span>
+			</div>
+		</Tilt>
 	)
 }
 
