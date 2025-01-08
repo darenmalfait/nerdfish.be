@@ -1,15 +1,30 @@
 {
 	"blog": {
-		"filterByTopic": "Filter blog posts by topic",
-		"loadMore": "Load more",
-		"readMore": "Read blog post",
-		"readMoreAbout": "Read blog: {title}",
-		"related": {
-			"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
-			"title": "Related Posts"
+		"page": {
+			"_meta": {
+				"description": "Explore web design and development insights with Nerdfish. Discover expert tips, project stories, and creative inspiration to elevate your digital presence.",
+				"title": "Creative Web Design & Development Insights"
+			},
+			"image": {
+				"alt": "Typewriter"
+			},
+			"subtitle": "Insights, updates, and stories about design, development, and creative projects, offering a glimpse into the process and inspiration behind the work.",
+			"title": "Blog"
 		},
-		"search": "Search blog articles",
-		"seeAll": "See all blog posts"
+		"overview": {
+			"filterByTopic": "Filter blog posts by topic",
+			"loadMore": "Load more",
+			"readMore": "Read blog post",
+			"readMoreAbout": "Read blog: {title}",
+			"search": "Search blog articles",
+			"seeAll": "See all blog posts"
+		},
+		"content": {
+			"related": {
+				"subtitle": "Explore blog posts connected to this topic, featuring insights, tips, and stories that dive deeper into related ideas and projects.",
+				"title": "Related Posts"
+			}
+		}
 	},
 	"contact": {
 		"chat": {
@@ -327,17 +342,6 @@
 			"description": "Want to know more about what I can do? You can ask your questions to my AI version.",
 			"disclaimer": "Disclaimer: This is not actually me, but AI. Answers might be highly inaccurate",
 			"title": "Chat"
-		},
-		"blog": {
-			"_meta": {
-				"description": "Explore web design and development insights with Nerdfish. Discover expert tips, project stories, and creative inspiration to elevate your digital presence.",
-				"title": "Creative Web Design & Development Insights"
-			},
-			"image": {
-				"alt": "Typewriter"
-			},
-			"subtitle": "Insights, updates, and stories about design, development, and creative projects, offering a glimpse into the process and inspiration behind the work.",
-			"title": "Blog"
 		},
 		"branding": {
 			"_meta": {

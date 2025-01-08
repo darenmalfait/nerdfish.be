@@ -58,7 +58,7 @@ export async function generateMetadata(
 
 export default async function BlogDetailPage(props: PageProps) {
 	const { slug, locale } = await props.params
-	const t = await getTranslations('blog')
+	const t = await getTranslations('blog.content')
 	const { post } = await getPageData(slug.join('/'), locale)
 
 	return (

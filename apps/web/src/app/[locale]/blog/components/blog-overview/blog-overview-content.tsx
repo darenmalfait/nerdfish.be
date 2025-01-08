@@ -45,7 +45,7 @@ export function BlogOverviewContent({
 	header,
 	children,
 }: BlogOverviewContentProps) {
-	const t = useTranslations('blog')
+	const t = useTranslations('blog.overview')
 	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
 
 	const filterArticles = React.useCallback(

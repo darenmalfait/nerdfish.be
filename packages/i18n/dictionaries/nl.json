@@ -1,15 +1,30 @@
 {
 	"blog": {
-		"filterByTopic": "Filter blogposts op onderwerp",
-		"loadMore": "Laad meer",
-		"readMore": "Lees blogpost",
-		"readMoreAbout": "Lees blog: {title}",
-		"related": {
-			"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
-			"title": "Gerelateerde artikelen"
+		"page": {
+			"_meta": {
+				"description": "Ontdek web design en development inzichten met Nerdfish. Vind expert tips, project verhalen, en creatieve inspiratie om je digitale aanwezigheid naar een hoger niveau te tillen.",
+				"title": "Creatieve Web Design & Development Inzichten"
+			},
+			"image": {
+				"alt": "Typmachine"
+			},
+			"subtitle": "Inzichten, updates en verhalen over design, development en creatieve projecten, die een kijkje geven in het proces en de inspiratie achter het werk.",
+			"title": "Blog"
 		},
-		"search": "Zoek blog artikelen",
-		"seeAll": "Bekijk alle blogposts"
+		"overview": {
+			"filterByTopic": "Filter blogposts op onderwerp",
+			"loadMore": "Laad meer",
+			"readMore": "Lees blogpost",
+			"readMoreAbout": "Lees blog: {title}",
+			"search": "Zoek blog artikelen",
+			"seeAll": "Bekijk alle blogposts"
+		},
+		"content": {
+			"related": {
+				"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
+				"title": "Gerelateerde artikelen"
+			}
+		}
 	},
 	"contact": {
 		"chat": {
@@ -327,17 +342,6 @@
 			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
 			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
 			"title": "Chat"
-		},
-		"blog": {
-			"_meta": {
-				"description": "Ontdek web design en development inzichten met Nerdfish. Vind expert tips, project verhalen, en creatieve inspiratie om je digitale aanwezigheid naar een hoger niveau te tillen.",
-				"title": "Creatieve Web Design & Development Inzichten"
-			},
-			"image": {
-				"alt": "Typmachine"
-			},
-			"subtitle": "Inzichten, updates en verhalen over design, development en creatieve projecten, die een kijkje geven in het proces en de inspiratie achter het werk.",
-			"title": "Blog"
 		},
 		"branding": {
 			"_meta": {
