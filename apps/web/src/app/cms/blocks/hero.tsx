@@ -4,7 +4,7 @@ import {
 	SectionHeaderSubtitle,
 } from '@repo/design-system/components/section'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import capitalize from 'lodash/capitalize'
+import { capitalize } from '@repo/design-system/lib/utils/capitalize'
 import Image from 'next/image'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'

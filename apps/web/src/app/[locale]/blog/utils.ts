@@ -3,8 +3,8 @@ import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
 import { type Post } from 'content-collections'
-import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'
 
 export function filterBlog(posts: PartialDeep<Post>[], searchString: string) {
 	if (!searchString) return posts
@@ -94,7 +94,7 @@ export function getBlogPath(post: PartialDeep<Post>) {
 
 export function mapBlogToArticle(items: PartialDeep<Post>[]): Article[] {
 	return items.map((item) => ({
-		id: item.id ?? uniqueId(),
+		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',
 		description: item.excerpt,
 		href: getBlogPath(item),
