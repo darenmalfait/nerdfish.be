@@ -32,7 +32,7 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
-	const t = await getTranslations('pages.uxui-design')
+	const t = await getTranslations('expertise.uxui-design.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -58,7 +58,7 @@ export default async function UXUIDesignPage(props: {
 	params: Promise<WithLocale>
 }) {
 	await props.params
-	const t = await getTranslations('pages.uxui-design')
+	const t = await getTranslations('expertise.uxui-design.page')
 
 	return (
 		<>
