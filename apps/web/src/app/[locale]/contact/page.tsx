@@ -14,7 +14,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { ContactFormViaButton } from './components/contact-form'
+import { ContactFormViaButton } from './components/drawer-contact-form'
 import { Link } from '~/app/components/link'
 
 type PageProps = {
@@ -25,7 +25,7 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
-	const t = await getTranslations('pages.contact')
+	const t = await getTranslations('contact.page')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -49,7 +49,7 @@ export async function generateMetadata(
 
 export default async function ContactPage(props: PageProps) {
 	await props.params
-	const t = await getTranslations('pages.contact')
+	const t = await getTranslations('contact.page')
 
 	return (
 		<>
