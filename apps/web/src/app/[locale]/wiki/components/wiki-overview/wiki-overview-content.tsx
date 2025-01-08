@@ -45,7 +45,7 @@ export function WikiOverviewContent({
 	header,
 	children,
 }: WikiOverviewContentProps) {
-	const t = useTranslations('wiki')
+	const t = useTranslations('wiki.overview')
 	const articles = React.useMemo(() => mapWikiToArticle(items), [items])
 
 	const filterArticles = React.useCallback(

@@ -752,17 +752,6 @@
 		}
 	},
 	"pages": {
-		"wiki": {
-			"_meta": {
-				"description": "I collect things I want to keep on this page but are not ready to be blog posts.",
-				"title": "Daren's knowledge base"
-			},
-			"image": {
-				"alt": "Bookcase"
-			},
-			"subtitle": "Curated collection of articles and resources",
-			"title": "Knowledge Base"
-		},
 		"work": {
 			"_meta": {
 				"description": "Explore a diverse portfolio of projects, including innovative web design, impactful branding, and contributions to open-source initiatives that drive collaboration and innovation.",
@@ -810,12 +799,25 @@
 		}
 	},
 	"wiki": {
-		"filterByTopic": "Filter knowledge base by topic",
-		"loadMore": "Load more articles",
-		"readMore": "Read article",
-		"readMoreAbout": "Read more about {title}",
-		"search": "Search knowledge base",
-		"seeAll": "See knowledge base"
+		"page": {
+			"_meta": {
+				"description": "I collect things I want to keep on this page but are not ready to be blog posts.",
+				"title": "Daren's knowledge base"
+			},
+			"image": {
+				"alt": "Bookcase"
+			},
+			"subtitle": "Curated collection of articles and resources",
+			"title": "Knowledge Base"
+		},
+		"overview": {
+			"filterByTopic": "Filter knowledge base by topic",
+			"loadMore": "Load more articles",
+			"readMore": "Read article",
+			"readMoreAbout": "Read more about {title}",
+			"search": "Search knowledge base",
+			"seeAll": "See knowledge base"
+		}
 	},
 	"work": {
 		"filterByTopic": "Filter projects by topic",

@@ -753,17 +753,6 @@
 		}
 	},
 	"pages": {
-		"wiki": {
-			"_meta": {
-				"description": "Ik verzamel dingen die ik op deze pagina wil bewaren maar die nog niet klaar zijn om blogposts te worden.",
-				"title": "Daren's kennisbank"
-			},
-			"image": {
-				"alt": "Boekenkast"
-			},
-			"subtitle": "Verzameling van artikelen en bronnen",
-			"title": "Kennisbank"
-		},
 		"work": {
 			"_meta": {
 				"description": "Ontdek een diverse portfolio van projecten, waaronder innovatief webdesign, impactvolle branding en bijdragen aan open-source initiatieven die samenwerking en innovatie stimuleren.",
@@ -811,12 +800,25 @@
 		}
 	},
 	"wiki": {
-		"filterByTopic": "Filter wiki per topic",
-		"loadMore": "Laad meer artikelen",
-		"readMore": "Lees artikel",
-		"readMoreAbout": "Lees meer over {title}",
-		"search": "Zoek knowledge base",
-		"seeAll": "Bekijk knowledge base"
+		"page": {
+			"_meta": {
+				"description": "Ik verzamel dingen die ik op deze pagina wil bewaren maar die nog niet klaar zijn om blogposts te worden.",
+				"title": "Daren's kennisbank"
+			},
+			"image": {
+				"alt": "Boekenkast"
+			},
+			"subtitle": "Verzameling van artikelen en bronnen",
+			"title": "Kennisbank"
+		},
+		"overview": {
+			"filterByTopic": "Filter wiki per topic",
+			"loadMore": "Laad meer artikelen",
+			"readMore": "Lees artikel",
+			"readMoreAbout": "Lees meer over {title}",
+			"search": "Zoek knowledge base",
+			"seeAll": "Bekijk knowledge base"
+		}
 	},
 	"work": {
 		"filterByTopic": "Filter projecten op onderwerp",
