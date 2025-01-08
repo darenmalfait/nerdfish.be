@@ -356,51 +356,8 @@
 		"readMoreAbout": "Lees meer over {subject}",
 		"viewMore": "Bekijk {subject}"
 	},
-	"global": {
-		"about": "over",
-		"discover": "Ontdek {topic}",
-		"navigation": {
-			"main": {
-				"about": {
-					"label": "Over mij"
-				},
-				"blog": {
-					"label": "Blog"
-				},
-				"contact": {
-					"label": "contact"
-				},
-				"expertise": {
-					"3dprinting": {
-						"description": "3D print diensten",
-						"title": "3D printen"
-					},
-					"branding": {
-						"description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
-						"title": "Branding"
-					},
-					"freelance": {
-						"description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
-						"title": "Freelance diensten"
-					},
-					"label": "Expertise",
-					"webdesign": {
-						"description": "Transformeer je ideeën in visueel aantrekkelijke, gebruiksvriendelijke websites.",
-						"title": "Websites"
-					}
-				},
-				"work": {
-					"label": "Werk"
-				}
-			},
-			"pages": "Pagina's"
-		},
-		"readMoreAbout": "Lees meer over {topic}",
-		"switchLanguage": "Wijzig taal",
-		"vat": "Prijzen zijn exclusief BTW."
-	},
-	"pages": {
-		"freelance": {
+	"freelance": {
+		"page": {
 			"_meta": {
 				"description": "Als freelance JavaScript ontwikkelaar bied ik maatwerk oplossingen, prestatie optimalisatie en innovatieve webapplicaties. Verbeter uw webontwikkeling met professionele JavaScript diensten.",
 				"title": "Javascript/Typescript Consultancy | Freelance Javascript/Typescript Ontwikkelaar | Maatwerk Oplossingen"
@@ -473,7 +430,52 @@
 				"subtitle": "HTML, CSS, JS, het bouwen van kleine, middelgrote en grote webapplicaties met JavaScript bibliotheken, frameworks, custom plugins, features, animaties en het coderen van interactieve layouts. Ik heb ook ervaring als full-stack developer en bovenal heb ik een grote interesse in leren en ben ik niet bang om nieuwe talen en uitdagingen aan te gaan.",
 				"title": "Vaardigheden & Tools"
 			}
+		}
+	},
+	"global": {
+		"about": "over",
+		"discover": "Ontdek {topic}",
+		"navigation": {
+			"main": {
+				"about": {
+					"label": "Over mij"
+				},
+				"blog": {
+					"label": "Blog"
+				},
+				"contact": {
+					"label": "contact"
+				},
+				"expertise": {
+					"3dprinting": {
+						"description": "3D print diensten",
+						"title": "3D printen"
+					},
+					"branding": {
+						"description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
+						"title": "Branding"
+					},
+					"freelance": {
+						"description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
+						"title": "Freelance diensten"
+					},
+					"label": "Expertise",
+					"webdesign": {
+						"description": "Transformeer je ideeën in visueel aantrekkelijke, gebruiksvriendelijke websites.",
+						"title": "Websites"
+					}
+				},
+				"work": {
+					"label": "Werk"
+				}
+			},
+			"pages": "Pagina's"
 		},
+		"readMoreAbout": "Lees meer over {topic}",
+		"switchLanguage": "Wijzig taal",
+		"vat": "Prijzen zijn exclusief BTW."
+	},
+	"pages": {
 		"home": {
 			"_meta": {
 				"description": "Versterk uw online aanwezigheid met professionele webdesign en development diensten door Nerdfish in Harelbeke, België. Van prachtige websites tot naadloze UX/UI design, samen brengen we uw visie tot leven.",
