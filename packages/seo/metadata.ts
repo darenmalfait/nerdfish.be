@@ -1,5 +1,5 @@
+import { merge } from '@repo/design-system/lib/utils/merge'
 import { keys as core } from '@repo/next-config/keys'
-import merge from 'lodash.merge'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
 

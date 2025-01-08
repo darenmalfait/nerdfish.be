@@ -3,8 +3,8 @@ import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { i18n } from '@repo/i18n/config'
 import { type Project } from 'content-collections'
-import uniqueId from 'lodash/uniqueId'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'
 
 export function filterWork(
 	works: PartialDeep<Project>[],
@@ -92,7 +92,7 @@ export function getWorkPath(post: PartialDeep<Project>) {
 
 export function mapWorkToArticle(items: PartialDeep<Project>[]): Article[] {
 	return items.map((item) => ({
-		id: item.id ?? uniqueId(),
+		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',
 		description: item.excerpt,
 		href: getWorkPath(item),

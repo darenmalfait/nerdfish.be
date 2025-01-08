@@ -2,8 +2,8 @@ import { type Article } from '@repo/design-system/components/article-overview'
 import { nonNullable } from '@repo/design-system/lib/utils/array'
 import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { type Wiki } from 'content-collections'
-import { uniqueId } from 'lodash'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
+import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'
 
 export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 	if (!searchString) return posts
@@ -83,7 +83,7 @@ export function getWikiPath(post: PartialDeep<Wiki>) {
 
 export function mapWikiToArticle(items: PartialDeep<Wiki>[]): Article[] {
 	return items.map((item) => ({
-		id: item.id ?? uniqueId(),
+		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',
 		description: item.excerpt,
 		href: getWikiPath(item),
