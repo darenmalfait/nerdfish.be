@@ -114,7 +114,7 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 	return (
 		<Grid
 			ref={ref}
-			className={cx('gap-lg auto-rows-auto', {
+			className={cx('gap-xl auto-rows-auto', {
 				'grid-cols-2': maxCols === '2',
 				'grid-cols-3': maxCols === '3',
 				'grid-cols-4': maxCols === '4',
