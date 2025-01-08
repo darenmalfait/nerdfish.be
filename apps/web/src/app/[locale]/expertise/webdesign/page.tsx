@@ -12,18 +12,20 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Faq, FaqItem } from '../../components/faq'
-import { Features } from '../../components/features'
+import { BlogOverview } from '../../blog/components/blog-overview'
+import { Testimonials } from '../../testimonials/components/testimonials'
+import { WorkOverview } from '../../work/components/work-overview'
+import { Cta } from '~/app/components/cta'
+import { Faq, FaqItem } from '~/app/components/faq'
+import { Features } from '~/app/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
-import { Keyword, KeywordList } from '../../components/keyword-list'
-import { SkillItem, Skills } from '../../components/skills'
-import { BlogOverview } from '../blog/components/blog-overview'
-import { Testimonials } from '../testimonials/components/testimonials'
+} from '~/app/components/hero'
+import { Keyword, KeywordList } from '~/app/components/keyword-list'
+import { Pricing } from '~/app/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -33,7 +35,7 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { locale } = await props.params
-	const t = await getTranslations('pages.freelance')
+	const t = await getTranslations('pages.webdesign')
 
 	const title = t('_meta.title')
 	const description = t('_meta.description')
@@ -45,9 +47,9 @@ export async function generateMetadata(
 			heading: title,
 		})}`,
 		alternates: {
-			canonical: getPathname({ locale, href: '/freelance' }),
+			canonical: getPathname({ locale, href: '/expertise/webdesign' }),
 			languages: getPathnames(
-				'/freelance',
+				'/expertise/webdesign',
 				i18n.locales.filter((l) => l !== locale),
 			),
 		},
@@ -55,11 +57,11 @@ export async function generateMetadata(
 	})
 }
 
-export default async function FreelancePage(props: {
+export default async function WebDesignPage(props: {
 	params: Promise<WithLocale>
 }) {
 	await props.params
-	const t = await getTranslations('pages.freelance')
+	const t = await getTranslations('pages.webdesign')
 
 	return (
 		<>
@@ -82,22 +84,22 @@ export default async function FreelancePage(props: {
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
-							icon: 'LucideCode',
+							icon: 'EyeIcon',
 						},
 						{
 							title: t('features.items.1.title'),
 							description: t('features.items.1.description'),
-							icon: 'LucideMonitor',
+							icon: 'Smartphone',
 						},
 						{
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
-							icon: 'LucideHandshake',
+							icon: 'MessageSquare',
 						},
 						{
 							title: t('features.items.3.title'),
 							description: t('features.items.3.description'),
-							icon: 'LucideRocket',
+							icon: 'Zap',
 						},
 					]}
 				/>
@@ -108,41 +110,76 @@ export default async function FreelancePage(props: {
 					<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<BlogOverview count={2} />
+				<BlogOverview count={2} tags={['webdesign']} />
 			</Section>
 
 			<Section>
 				<KeywordList>
-					<Keyword>UX/UI Design</Keyword>
-					<Keyword>Git & Github</Keyword>
-					<Keyword>Responsive Design</Keyword>
-					<Keyword>JavaScript</Keyword>
-					<Keyword>Node.js</Keyword>
-					<Keyword>TypeScript</Keyword>
-					<Keyword>React</Keyword>
+					<Keyword>Strategy</Keyword>
+					<Keyword>Web</Keyword>
+					<Keyword>Design</Keyword>
+					<Keyword>UX/UI</Keyword>
+					<Keyword>Accessibility</Keyword>
+					<Keyword>Performance</Keyword>
 				</KeywordList>
 			</Section>
 
 			<Section>
+				<Cta
+					title={t('cta.title')}
+					subtitle={t('cta.subtitle')}
+					link={{ href: '/contact', label: t('cta.label') }}
+				/>
+			</Section>
+
+			<Section>
 				<SectionHeader>
-					<SectionHeaderTitle>{t('skills.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('skills.subtitle')}</SectionHeaderSubtitle>
+					<SectionHeaderTitle>{t('pricing.title')}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>{t('pricing.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Skills>
-					<SkillItem skill="javascript" />
-					<SkillItem skill="react" />
-					<SkillItem skill="node" />
-					<SkillItem skill="tailwind" />
-					<SkillItem skill="next" />
-					<SkillItem skill="sanity" />
-					<SkillItem skill="webflow" />
-					<SkillItem skill="typescript" />
-					<SkillItem skill="vscode" />
-					<SkillItem skill="css" />
-					<SkillItem skill="html" />
-					<SkillItem skill="git" />
-					<SkillItem skill="figma" />
-				</Skills>
+				<Pricing
+					plans={[
+						{
+							title: t('pricing.items.0.title'),
+							description: t('pricing.items.0.description'),
+							price: 'TBD',
+							features: [
+								t('pricing.items.0.features.0'),
+								t('pricing.items.0.features.1'),
+								t('pricing.items.0.features.2'),
+								t('pricing.items.0.features.3'),
+							],
+							href: '/contact',
+							buttonText: t('pricing.items.0.cta'),
+						},
+						{
+							title: t('pricing.items.1.title'),
+							description: t('pricing.items.1.description'),
+							price: 'TBD',
+							features: [
+								t('pricing.items.1.features.0'),
+								t('pricing.items.1.features.1'),
+								t('pricing.items.1.features.2'),
+								t('pricing.items.1.features.3'),
+								t('pricing.items.1.features.4'),
+							],
+							href: '/contact',
+							buttonText: t('pricing.items.1.cta'),
+						},
+						{
+							title: t('pricing.items.2.title'),
+							description: t('pricing.items.2.description'),
+							price: 'TBD',
+							features: [
+								t('pricing.items.2.features.0'),
+								t('pricing.items.2.features.1'),
+								t('pricing.items.2.features.2'),
+							],
+							href: '/contact',
+							buttonText: t('pricing.items.2.cta'),
+						},
+					]}
+				/>
 			</Section>
 
 			<Section>
@@ -171,14 +208,6 @@ export default async function FreelancePage(props: {
 						question={t('faq.items.4.question')}
 						answer={t('faq.items.4.answer')}
 					/>
-					<FaqItem
-						question={t('faq.items.5.question')}
-						answer={t('faq.items.5.answer')}
-					/>
-					<FaqItem
-						question={t('faq.items.6.question')}
-						answer={t('faq.items.6.answer')}
-					/>
 				</Faq>
 			</Section>
 
@@ -186,11 +215,19 @@ export default async function FreelancePage(props: {
 				<Section>
 					<Testimonials
 						filter={{
-							type: ['colleague'],
+							type: ['project', 'client'],
 						}}
 					/>
 				</Section>
 			</InViewBackground>
+
+			<Section>
+				<SectionHeader>
+					<SectionHeaderTitle>{t('work.title')}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>{t('work.subtitle')}</SectionHeaderSubtitle>
+				</SectionHeader>
+				<WorkOverview count={2} tags={['webdesign']} />
+			</Section>
 		</>
 	)
 }

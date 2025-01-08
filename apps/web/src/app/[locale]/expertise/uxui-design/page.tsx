@@ -11,18 +11,18 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../../components/cta'
-import { Faq, FaqItem } from '../../components/faq'
-import { Features } from '../../components/features'
+import { BlogOverview } from '../../blog/components/blog-overview'
+import { Cta } from '~/app/components/cta'
+import { Faq, FaqItem } from '~/app/components/faq'
+import { Features } from '~/app/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
-import { Keyword, KeywordList } from '../../components/keyword-list'
-import { Pricing } from '../../components/pricing'
-import { BlogOverview } from '../blog/components/blog-overview'
+} from '~/app/components/hero'
+import { Keyword, KeywordList } from '~/app/components/keyword-list'
+import { Pricing } from '~/app/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -44,9 +44,9 @@ export async function generateMetadata(
 			heading: title,
 		})}`,
 		alternates: {
-			canonical: getPathname({ locale, href: '/uxui-design' }),
+			canonical: getPathname({ locale, href: '/expertise/uxui-design' }),
 			languages: getPathnames(
-				'/uxui-design',
+				'/expertise/uxui-design',
 				i18n.locales.filter((l) => l !== locale),
 			),
 		},

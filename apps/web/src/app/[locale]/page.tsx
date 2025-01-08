@@ -88,25 +88,25 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							title: 'Web Design',
 							description: t('features.webdesign.description'),
-							href: '/webdesign',
+							href: '/expertise/webdesign',
 							icon: 'MonitorSmartphone',
 						},
 						{
 							title: 'UX/UI Design',
 							description: t('features.uxui-design.description'),
-							href: '/uxui-design',
+							href: '/expertise/uxui-design',
 							icon: 'LayoutDashboard',
 						},
 						{
 							title: 'Branding',
 							description: t('features.branding.description'),
-							href: '/branding',
+							href: '/expertise/branding',
 							icon: 'Paintbrush2Icon',
 						},
 						{
 							title: 'Javascript Consulting',
 							description: t('features.freelance.description'),
-							href: '/freelance',
+							href: '/expertise/freelance',
 							icon: 'HandPlatterIcon',
 						},
 					]}
@@ -139,7 +139,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							title: 'Professional Website Development',
 							excerpt:
 								'Transform your ideas into visually stunning, user-friendly websites that perfectly reflect your brand and engage your target audience.',
-							href: '/webdesign',
+							href: '/expertise/webdesign',
 						},
 						{
 							id: 'freelance',
@@ -151,7 +151,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							title: 'Freelance Services',
 							excerpt:
 								'Offering expert React and TypeScript consulting to build high-quality, scalable web applications tailored to your needs.',
-							href: '/freelance',
+							href: '/expertise/freelance',
 						},
 						{
 							id: 'branding',
@@ -163,7 +163,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							title: 'Branding',
 							excerpt:
 								'From designing logos to creating digital graphics, I deliver creative, detail-oriented branding solutions that elevate your business.',
-							href: '/branding',
+							href: '/expertise/branding',
 						},
 					]}
 				/>

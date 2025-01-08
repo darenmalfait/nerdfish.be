@@ -5,6 +5,29 @@ import { type NextConfig } from 'next'
 
 let nextConfig: NextConfig = {
 	...config,
+	async redirects() {
+		// OLD LINKS
+		return [
+			...[
+				'/freelance',
+				'/3d-printing',
+				'/branding',
+				'/uxui-design',
+				'/webdesign',
+			].flatMap((href) => [
+				{
+					source: href,
+					destination: `/expertise${href}`,
+					permanent: true,
+				},
+				{
+					source: `/nl${href}`,
+					destination: `/nl/expertise${href}`,
+					permanent: true,
+				},
+			]),
+		]
+	},
 	async rewrites() {
 		return []
 	},

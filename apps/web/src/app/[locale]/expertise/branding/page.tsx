@@ -11,13 +11,13 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Features } from '../../components/features'
+import { Features } from '~/app/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
+} from '~/app/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -39,9 +39,9 @@ export async function generateMetadata(
 			heading: title,
 		})}`,
 		alternates: {
-			canonical: getPathname({ locale, href: '/branding' }),
+			canonical: getPathname({ locale, href: '/expertise/branding' }),
 			languages: getPathnames(
-				'/branding',
+				'/expertise/branding',
 				i18n.locales.filter((l) => l !== locale),
 			),
 		},

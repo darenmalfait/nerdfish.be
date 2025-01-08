@@ -11,17 +11,17 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../../components/cta'
-import { Faq, FaqItem } from '../../components/faq'
-import { Features } from '../../components/features'
+import { Cta } from '~/app/components/cta'
+import { Faq, FaqItem } from '~/app/components/faq'
+import { Features } from '~/app/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
-import { Pricing } from '../../components/pricing'
+} from '~/app/components/hero'
 import { ImageGrid } from '~/app/components/image-grid'
+import { Pricing } from '~/app/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -43,9 +43,9 @@ export async function generateMetadata(
 			heading: title,
 		})}`,
 		alternates: {
-			canonical: getPathname({ locale, href: '/3d-printing' }),
+			canonical: getPathname({ locale, href: '/expertise/3d-printing' }),
 			languages: getPathnames(
-				'/3d-printing',
+				'/expertise/3d-printing',
 				i18n.locales.filter((l) => l !== locale),
 			),
 		},
