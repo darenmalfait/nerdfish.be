@@ -7,7 +7,7 @@ import { getSlugAndLocale, image, seo } from '../utils'
 
 export const posts = defineCollection({
 	name: 'posts',
-	directory: '@repo/content-collections/content/blog',
+	directory: 'content/blog',
 	include: '**/*.mdx',
 	schema: (z) => ({
 		seo,
