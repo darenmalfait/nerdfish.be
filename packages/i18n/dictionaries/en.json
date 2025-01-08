@@ -212,6 +212,81 @@
 			},
 			"title": "Contact"
 		},
+		"freelance": {
+			"_meta": {
+				"description": "As a freelance JavaScript developer, I offer custom solutions, performance optimisation, and innovative web applications. Enhance your web development with professional JavaScript services.",
+				"title": "Javascript/Typescript Consultancy | Freelance Javascript/Typescript Developer | Custom Solutions"
+			},
+			"blog": {
+				"subtitle": "Dive into a curated selection of posts showcasing the latest trends, tips, and stories in web design and development. Inspiration and expertise, handpicked for you.",
+				"title": "Featured Insights"
+			},
+			"faq": {
+				"items": {
+					"0": {
+						"answer": "I specialize in creating custom websites and web applications, primarily focusing on front-end development and UX design. Whether it's a small business website or a full-scale web app, I deliver solutions tailored to your needs.",
+						"question": "What types of projects do you work on?"
+					},
+					"1": {
+						"answer": "I primarily work with React.js, TypeScript, JavaScript, and modern frameworks like Next.js, Remix, and Gatsby. I also have experience with Node.js for back-end development.",
+						"question": "What is your preferred tech stack?"
+					},
+					"2": {
+						"answer": "With over a decade of experience and a strong focus on clean, responsive design, I deliver high-quality results that help businesses achieve their goals. My commitment to communication and collaboration ensures a smooth and successful partnership.",
+						"question": "Why should I hire you as a freelancer?"
+					},
+					"3": {
+						"answer": "I've worked with a variety of industries, including e-commerce, corporate, digital agencies, and internal tools for corporate teams. My flexibility allows me to adapt to different industries' unique needs.",
+						"question": "What industries have you worked with?"
+					},
+					"4": {
+						"answer": "Both! I have experience collaborating with agencies as a technical lead and working directly with clients to develop tailored solutions.",
+						"question": "Do you work with agencies or direct clients?"
+					},
+					"5": {
+						"answer": "I follow best practices in coding, conduct thorough testing, and ensure cross-browser compatibility. I also prioritize performance optimization, accessibility, and responsive design to deliver a polished final product.",
+						"question": "How do you ensure the quality of your work?"
+					},
+					"6": {
+						"answer": "Yes, I'm happy to share examples or discuss relevant case studies. You can also check out my portfolio on my website or GitHub.",
+						"question": "Can you provide examples of your work?"
+					}
+				},
+				"subtitle": "Have questions about my skills, experience, or work process? Here are the answers to some of the most common questions I receive. If there's something else you'd like to know, don't hesitate to reach out!",
+				"title": "Get to Know Me"
+			},
+			"features": {
+				"items": {
+					"0": {
+						"description": "Every project is unique. I craft solutions specifically designed to meet your business needs and objectives, ensuring seamless functionality and unmatched performance.",
+						"title": "Custom-Tailored Solutions"
+					},
+					"1": {
+						"description": "Specializing in React and modern front-end technologies, I create responsive, user-friendly designs that leave a lasting impression on your audience.",
+						"title": "Front-End Expertise"
+					},
+					"2": {
+						"description": "I value sustained partnerships and prioritize clear communication, ensuring smooth project delivery and ongoing support for your business.",
+						"title": "Long-Term Collaboration"
+					},
+					"3": {
+						"description": "From fast loading times to intuitive navigation, I focus on delivering web experiences that drive engagement and achieve measurable results.",
+						"title": "Performance-Driven Development"
+					}
+				},
+				"subtitle": "When you partner with me, you're not just hiring a developer—you're gaining a trusted collaborator focused on delivering impactful, results-driven web solutions. Here's how I help your business succeed.",
+				"title": "What sets me apart"
+			},
+			"hero": {
+				"subtitle": "I'm a javascript/typescript developer with more than 10 years of experience from Harelbeke, Belgium.",
+				"title": "nerdfish"
+			},
+			"skills": {
+				"description": "",
+				"subtitle": "HTML, CSS, JS, building small, medium, and big web applications with JavaScript libraries, frameworks, custom plugins, features, animations, and coding interactive layouts. I have also full-stack developer experience and most of all, I have a big interest in learning and I'm not scared of tackling new languages and challenges.",
+				"title": "Skills & Tools"
+			}
+		},
 		"home": {
 			"_meta": {
 				"description": "Elevate your online presence with expert web design and development services by Nerdfish in Harelbeke, Belgium. From stunning websites to seamless UX/UI design, let's bring your vision to life.",
@@ -343,26 +418,26 @@
 						"title": "Starter"
 					},
 					"1": {
-						"title": "Business",
-						"description": "Perfect for businesses getting off the ground, or improving your online presence",
 						"cta": "Ask for a quote",
+						"description": "Perfect for businesses getting off the ground, or improving your online presence",
 						"features": {
 							"0": "1-10 pages",
 							"1": "Content Management System",
 							"2": "SSL Secure",
 							"3": "Responsive website",
 							"4": "Webshop/Ecommerce"
-						}
+						},
+						"title": "Business"
 					},
 					"2": {
-						"title": "Expert",
-						"description": "Custom solution for your business",
 						"cta": "Ask for a quote",
+						"description": "Custom solution for your business",
 						"features": {
 							"0": "Custom solution",
 							"1": "Webshop/Ecommerce",
 							"2": "Branding"
-						}
+						},
+						"title": "Expert"
 					}
 				},
 				"subtitle": "An option for every budget",
