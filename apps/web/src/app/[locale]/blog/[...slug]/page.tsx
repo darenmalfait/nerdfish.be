@@ -49,7 +49,7 @@ export default async function BlogPage(props: {
 			relatedContent={
 				<Section>
 					<SectionHeader>
-						<SectionHeaderTitle title={t('related.title')} />
+						<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
 						<SectionHeaderSubtitle>
 							{t('related.subtitle')}
 						</SectionHeaderSubtitle>

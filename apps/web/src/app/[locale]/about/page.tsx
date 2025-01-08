@@ -1,3 +1,4 @@
+import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
 	SectionHeader,
@@ -134,13 +135,15 @@ export default async function AboutPage(props: PageProps) {
 				</SectionHeader>
 				<BlogOverview count={2} />
 			</Section>
-			<Section>
-				<Testimonials
-					filter={{
-						type: ['colleague', 'client'],
-					}}
-				/>
-			</Section>
+			<InViewBackground className="bg-blog/20">
+				<Section>
+					<Testimonials
+						filter={{
+							type: ['colleague', 'client'],
+						}}
+					/>
+				</Section>
+			</InViewBackground>
 		</>
 	)
 }

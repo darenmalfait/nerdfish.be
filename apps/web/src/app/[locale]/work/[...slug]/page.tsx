@@ -48,7 +48,7 @@ export default async function WorkPage(props: {
 			relatedContent={
 				<Section>
 					<SectionHeader>
-						<SectionHeaderTitle title={t('work.related.title')} />
+						<SectionHeaderTitle>{t('work.related.title')}</SectionHeaderTitle>
 						<SectionHeaderSubtitle>
 							{t('work.related.subtitle')}
 						</SectionHeaderSubtitle>
