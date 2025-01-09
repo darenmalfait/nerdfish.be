@@ -643,8 +643,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2)))
       tailwindcss-motion:
-        specifier: ^1.0.0
-        version: 1.0.0(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2)))
+        specifier: ^1.0.1
+        version: 1.0.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2)))
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -657,7 +657,7 @@ importers:
     dependencies:
       '@nerdfish/config':
         specifier: ^1.6.1
-        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.2)
+        version: 1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.2)
 
 packages:
 
@@ -7778,8 +7778,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
-  tailwindcss-motion@1.0.0:
-    resolution: {integrity: sha512-Bc8XJxiSGjup0NHsph4OBGXXFfmbInFUhvVVluKPScQD1R2kDQTZIODqumsI/lONryeTpDdKzwuuw1a99Z38bQ==}
+  tailwindcss-motion@1.0.1:
+    resolution: {integrity: sha512-ZqarvI3XSclT46Dq1wOo9qG9Yx0TIyEtkMfTo8l0JuVKvO1WiSbvAECuTqdYHpC9Ml7abuJIk7u907SBHYprwQ==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
@@ -9901,7 +9901,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2)':
+  '@ianvs/prettier-plugin-sort-imports@4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2)':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/generator': 7.24.6
@@ -9910,6 +9910,8 @@ snapshots:
       '@babel/types': 7.25.8
       prettier: 3.4.2
       semver: 7.6.3
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.5.12
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -10079,7 +10081,7 @@ snapshots:
       - acorn
       - supports-color
 
-  '@nerdfish/config@1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.2)':
+  '@nerdfish/config@1.6.1(@ianvs/prettier-plugin-sort-imports@4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.2)':
     dependencies:
       '@eslint/compat': 1.2.3(eslint@9.17.0(jiti@2.4.2))
       '@total-typescript/ts-reset': 0.6.1
@@ -10092,7 +10094,7 @@ snapshots:
       eslint-plugin-unicorn: 56.0.1(eslint@9.17.0(jiti@2.4.2))
       globals: 15.12.0
       prettier-plugin-packagejson: 2.5.3(prettier@3.4.2)
-      prettier-plugin-tailwindcss: 0.6.8(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(prettier@3.4.2)
+      prettier-plugin-tailwindcss: 0.6.8(@ianvs/prettier-plugin-sort-imports@4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2))(prettier@3.4.2)
       tslib: 2.8.1
       typescript-eslint: 8.15.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
     transitivePeerDependencies:
@@ -15870,11 +15872,11 @@ snapshots:
     optionalDependencies:
       prettier: 3.4.2
 
-  prettier-plugin-tailwindcss@0.6.8(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(prettier@3.4.2):
+  prettier-plugin-tailwindcss@0.6.8(@ianvs/prettier-plugin-sort-imports@4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2))(prettier@3.4.2):
     dependencies:
       prettier: 3.4.2
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.2.1(prettier@3.4.2)
+      '@ianvs/prettier-plugin-sort-imports': 4.2.1(@vue/compiler-sfc@3.5.12)(prettier@3.4.2)
 
   prettier@3.3.3: {}
 
@@ -16888,7 +16890,7 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2))
 
-  tailwindcss-motion@1.0.0(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2))):
+  tailwindcss-motion@1.0.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2))):
     dependencies:
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.10.4)(typescript@5.7.2))
 
