@@ -2,6 +2,7 @@
   "name": "email",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "email build",
     "clean": "rm -rf .next dist node_modules .turbo",
