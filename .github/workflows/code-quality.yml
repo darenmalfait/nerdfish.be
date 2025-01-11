@@ -97,21 +97,8 @@ jobs:
 
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4
+        uses: actions/upload-artifact@v4
         with:
-          name: report
-          path: apps/web/playwright-report/
-
-      - name: Save PR number
-        if: always()
-        env:
-          PR_NUMBER: ${{ github.event.number }}
-        run: |
-          echo $PR_NUMBER > prNumber
-
-      - name: Upload prNumber
-        if: always()
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4
-        with:
-          name: prNumber
-          path: prNumber
+          name: playwright-report-${{ github.event.number }} # E.g. playwright-123
+          path: playwright-report
+          retention-days: 7
