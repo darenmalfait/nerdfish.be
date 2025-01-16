@@ -188,6 +188,7 @@ export function ContactForm() {
 
 													<FormControl>
 														<PhoneInput
+															defaultCountry="BE"
 															inputSize="lg"
 															className="w-full"
 															{...field}
