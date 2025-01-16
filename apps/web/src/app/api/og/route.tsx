@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unknown-property */
 import { fetchFont } from '@repo/og-utils/fetch-font'
 import { pageParams } from '@repo/og-utils/zod-params'

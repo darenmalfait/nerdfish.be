@@ -2,6 +2,7 @@
 
 import { blogParams, pageParams } from '@repo/og-utils/zod-params'
 import { env } from 'env'
+import Image from 'next/image'
 import * as React from 'react'
 
 const OG_IMAGE_URL = `${env.NEXT_PUBLIC_URL}/api/og`
@@ -20,7 +21,7 @@ export function Images() {
 		<div className="flex flex-col gap-12">
 			<div>
 				<h2>/api/og</h2>
-				<img
+				<Image
 					alt="ayo"
 					src={`${OG_IMAGE_URL}?${pageParams.toSearchString({
 						heading: 'Inferring types is fun, but not really',
@@ -29,7 +30,7 @@ export function Images() {
 			</div>
 			<div>
 				<h2>/api/og/blog</h2>
-				<img
+				<Image
 					alt="ayo"
 					src={`${OG_IMAGE_URL}/blog?${blogParams.toSearchString({
 						title:
