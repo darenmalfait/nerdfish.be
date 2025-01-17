@@ -14,6 +14,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.6.0
         version: 19.6.0
+      '@nerdfish/config':
+        specifier: ^1.8.0
+        version: 1.8.0(@ianvs/prettier-plugin-sort-imports@4.2.1(prettier@3.4.2))(@typescript-eslint/utils@8.15.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.18.0(jiti@2.4.2))(prettier@3.4.2)(typescript@5.7.3)
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
