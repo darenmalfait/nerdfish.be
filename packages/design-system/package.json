@@ -10,7 +10,7 @@
   "dependencies": {
     "@nerdfish/ui": "^7.7.8",
     "@nerdfish/utils": "^2.0.1",
-    "@number-flow/react": "^0.5.1",
+    "@number-flow/react": "^0.5.5",
     "@radix-ui/react-progress": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@reach/checkbox": "^0.18.0",
@@ -21,10 +21,10 @@
     "lodash.capitalize": "^4.2.1",
     "lodash.merge": "^4.6.2",
     "lodash.startcase": "^4.4.0",
-    "lucide-react": "^0.471.0",
+    "lucide-react": "^0.473.0",
     "match-sorter": "^8.0.0",
-    "motion": "^11.17.0",
-    "next": "15.1.4",
+    "motion": "^11.18.1",
+    "next": "15.1.5",
     "prism-react-renderer": "^2.4.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -37,7 +37,7 @@
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.merge": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
-    "@types/react": "19.0.4",
+    "@types/react": "19.0.7",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
   }
