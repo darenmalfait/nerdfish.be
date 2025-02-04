@@ -4,6 +4,13 @@ import { createSecureHeaders } from 'next-secure-headers'
 
 export const config: NextConfig = {
 	trailingSlash: false,
+	// We are doing this with github actions
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 	experimental: {
 		serverActions: {
 			bodySizeLimit: '2mb',
