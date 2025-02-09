@@ -9,13 +9,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo build",
-    "build:content-collections": "turbo build:content-collections",
+    "build": "dotenv -- turbo build",
+    "build:content-collections": "dotenv -- turbo build:content-collections",
     "checks": "npm-run-all2 format lint typecheck",
     "checks:fix": "npm-run-all2 format:fix lint:fix typecheck",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
-    "dev": "turbo dev",
-    "sync:env": "turbo sync:env",
+    "dev": "dotenv -- turbo dev",
     "preinstall": "npx only-allow pnpm",
     "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
     "format:fix": "prettier . --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
@@ -23,12 +22,12 @@
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "prepare": "husky",
     "typecheck": "turbo typecheck",
-    "test:e2e": "turbo test:e2e",
-    "test:e2e:install": "playwright install",
-    "test:e2e:ui": "turbo test:e2e:ui",
-    "test:e2e:inspector": "turbo test:e2e:inspector",
+    "test:e2e": "dotenv -- turbo test:e2e",
+    "test:e2e:install": "dotenv -- playwright install",
+    "test:e2e:ui": "dotenv -- turbo test:e2e:ui",
+    "test:e2e:inspector": "dotenv -- turbo test:e2e:inspector",
     "create-package": "turbo gen",
-    "vercel-build": " turbo build"
+    "vercel-build": "dotenv -- turbo build"
   },
   "prettier": "@nerdfish/config/prettier",
   "devDependencies": {
@@ -37,6 +36,7 @@
     "@nerdfish/config": "^1.8.0",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.4.0",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9.19.0",
     "husky": "^9.1.7",
     "npm-run-all2": "^7.0.2",

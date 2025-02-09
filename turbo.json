@@ -25,10 +25,6 @@
 			"persistent": true,
 			"cache": false
 		},
-		"sync:env": {
-			"cache": false,
-			"dependsOn": ["^sync:env"]
-		},
 		"test:e2e": {
 			"outputs": ["playwright-report/**"]
 		},

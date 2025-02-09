@@ -10,7 +10,6 @@
     "clean": "rm -rf .next dist node_modules .turbo",
     "dev": "content-collections build && next dev --turbopack",
     "start": "next start",
-    "sync:env": "cp ../../.env .env",
     "test:e2e": "playwright test",
     "test:e2e:inspector": "playwright test $1 --debug",
     "test:e2e:ui": "playwright test --ui --ui-port=8080",
