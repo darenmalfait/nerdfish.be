@@ -17,6 +17,7 @@ export const contactSchema = withRecaptcha(
 	z.object({
 		name: z.string().min(2).max(32),
 		company: optionalField(z.string().min(2).max(32)),
+		vatNumber: optionalField(z.string().min(2).max(32)),
 		contact: z
 			.object({
 				email: optionalField(z.string().email()),

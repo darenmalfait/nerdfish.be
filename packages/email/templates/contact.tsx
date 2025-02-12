@@ -17,6 +17,7 @@ export const ContactEmail = ({
 	company,
 	message,
 	budgetRange,
+	vatNumber,
 	projectType,
 }: {
 	readonly name: string
@@ -26,6 +27,7 @@ export const ContactEmail = ({
 	readonly message: string
 	readonly budgetRange?: number[]
 	readonly projectType?: string[]
+	readonly vatNumber?: string
 }) => (
 	<Tailwind>
 		<Html>
@@ -42,10 +44,15 @@ export const ContactEmail = ({
 								{name} {email ? `(${email})` : ''}
 								{company ? ` from ${company}` : ''} has sent you a message:
 							</Text>
-							{phone ? (
+							{vatNumber?.length ? (
+								<Text className="mt-4 text-zinc-500">
+									VAT number: {vatNumber}
+								</Text>
+							) : null}
+							{phone?.length ? (
 								<Text className="mt-4 text-zinc-500">Phone: {phone}</Text>
 							) : null}
-							{projectType && projectType.length > 0 ? (
+							{projectType?.length ? (
 								<Text className="mt-4 text-zinc-500">
 									Interested in: {projectType.join(', ')}
 								</Text>

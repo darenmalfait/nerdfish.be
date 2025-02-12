@@ -74,6 +74,7 @@ export function ContactForm() {
 				email: '',
 				phone: '',
 			},
+			vatNumber: '',
 			company: '',
 			textMessage: '',
 			projectType: [],
@@ -145,6 +146,23 @@ export function ContactForm() {
 								)}
 							/>
 						</div>
+
+						{form.watch('company') ? (
+							<FormField
+								control={form.control}
+								name="vatNumber"
+								render={({ field }) => (
+									<FormItem className="w-full">
+										<FormLabel>{t('fields.labels.vatNumber')}</FormLabel>
+
+										<FormControl>
+											<Input inputSize="lg" {...field} />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						) : null}
 
 						<FormField
 							control={form.control}
