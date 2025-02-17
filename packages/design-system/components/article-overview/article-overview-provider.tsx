@@ -1,5 +1,6 @@
 'use client'
 
+import { parseAsString, useQueryStates } from 'nuqs'
 import * as React from 'react'
 import { nonNullable } from '../../lib/utils/array'
 import { type Article } from './types'
@@ -12,7 +13,8 @@ interface ArticleOverviewContextProps {
 	featuredArticleEnabled: boolean
 	filter: string
 	toggleFilter: (tag: string) => void
-	setFilter: (filter: string) => void
+	setFilter: (filter: string) => Promise<void>
+	resetFilter: () => Promise<void>
 	itemsToShow: number
 	loadMore: () => void
 }
@@ -53,23 +55,36 @@ export function ArticleOverviewProvider({
 	featuredArticleEnabled = false,
 	customFilterFunction,
 }: ArticleOverviewProviderProps) {
-	const [filter, setFilter] = React.useState('')
+	const [params, setParams] = useQueryStates({
+		search: parseAsString.withDefault(''),
+	})
+
 	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
 
 	const filteredArticles = customFilterFunction
-		? customFilterFunction(allArticles, filter)
-		: filterArticles(allArticles, filter)
+		? customFilterFunction(allArticles, params.search)
+		: filterArticles(allArticles, params.search)
 
-	function toggleFilter(tag: string) {
-		setFilter((current) => {
-			const currentTags = current.split(' ').filter(Boolean)
-			const tagExists = currentTags.includes(tag)
+	async function setFilter(filter: string) {
+		await setParams({
+			search: filter,
+		})
+	}
 
-			const newTags = tagExists
-				? currentTags.filter((t) => t !== tag)
-				: [...currentTags, tag]
+	async function toggleFilter(tag: string) {
+		const currentTags = params.search.split(' ').filter(Boolean)
+		const tagExists = currentTags.includes(tag)
 
-			return newTags.join(' ')
+		await setParams({
+			search: tagExists
+				? currentTags.filter((t) => t !== tag).join(' ')
+				: [...currentTags, tag].join(' '),
+		})
+	}
+
+	async function resetFilter() {
+		await setParams({
+			search: '',
 		})
 	}
 
@@ -86,9 +101,10 @@ export function ArticleOverviewProvider({
 			value={{
 				articles: filteredArticles,
 				toggleFilter,
-				filter,
-				tags,
+				filter: params.search,
+				resetFilter,
 				setFilter,
+				tags,
 				searchEnabled,
 				featuredArticleEnabled,
 				itemsToShow,

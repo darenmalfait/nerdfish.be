@@ -127,7 +127,7 @@ export function ArticleOverviewSearchContent({
 						type="search"
 						value={filter}
 						onChange={(event) => {
-							setFilter(event.currentTarget.value.toLowerCase())
+							return setFilter(event.currentTarget.value.toLowerCase())
 						}}
 						className="shadow-outline"
 						name="q"
@@ -355,7 +355,7 @@ export function ArticlesOverviewEmptyState({
 	className,
 	...props
 }: ArticlesOverviewEmptyStateProps) {
-	const { setFilter, articles, searchEnabled } = useArticleOverview()
+	const { resetFilter, articles, searchEnabled } = useArticleOverview()
 
 	if (!searchEnabled) return null
 	if (articles.length > 0) return null
@@ -369,9 +369,7 @@ export function ArticlesOverviewEmptyState({
 					{description ?? 'Try searching for something else.'}
 				</EmptyStateDescription>
 				<EmptyStateActions>
-					<Button onClick={() => setFilter('')}>
-						{clearSearch ?? 'Clear search'}
-					</Button>
+					<Button onClick={resetFilter}>{clearSearch ?? 'Clear search'}</Button>
 				</EmptyStateActions>
 			</EmptyState>
 		</div>

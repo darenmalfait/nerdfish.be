@@ -1,6 +1,7 @@
 'use client'
 
 import { ThemeProvider as NerdfishThemeProvider } from '@nerdfish/theme'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import type * as React from 'react'
 import { ThemeProvider } from './theme/theme-provider'
 
@@ -10,9 +11,11 @@ interface AppProvidersProps {
 
 function AppProviders({ children }: AppProvidersProps) {
 	return (
-		<ThemeProvider>
-			<NerdfishThemeProvider>{children}</NerdfishThemeProvider>
-		</ThemeProvider>
+		<NuqsAdapter>
+			<ThemeProvider>
+				<NerdfishThemeProvider>{children}</NerdfishThemeProvider>
+			</ThemeProvider>
+		</NuqsAdapter>
 	)
 }
 
