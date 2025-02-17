@@ -5,57 +5,56 @@ import { ContactEmail } from '@repo/email/templates/contact'
 import { parseError } from '@repo/observability/error'
 import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'
-import { type ContactFormData, contactSchema } from './validation'
+import { createSafeActionClient } from 'next-safe-action'
+import { contactSchema } from './validation'
 
-export async function submitContactForm(payload: ContactFormData) {
-	const data = contactSchema.parse(payload)
+export const submitContactForm = createSafeActionClient()
+	.schema(contactSchema)
+	.action(async ({ parsedInput }) => {
+		const { success, error: recaptchaError } = await verifyRecaptcha(
+			parsedInput.recaptchaResponse,
+		)
 
-	const { success, error: recaptchaError } = await verifyRecaptcha(
-		payload.recaptchaResponse,
-	)
+		if (!success) return { error: recaptchaError ?? 'Recaptcha failed' }
 
-	if (!success) {
-		return { error: recaptchaError ?? 'Recaptcha failed' }
-	}
+		const {
+			name,
+			contact,
+			textMessage: message,
+			company,
+			budgetRange,
+			projectType,
+			vatNumber,
+		} = parsedInput
 
-	const {
-		name,
-		contact,
-		textMessage: message,
-		company,
-		budgetRange,
-		projectType,
-		vatNumber,
-	} = data
+		try {
+			if (env.SKIP_EMAILS || !env.EMAIL_FROM) return { success: true }
 
-	try {
-		if (env.SKIP_EMAILS || !env.EMAIL_FROM) return { success: true }
+			await resend.emails.send({
+				from: env.EMAIL_FROM,
+				to: env.EMAIL_FROM,
+				subject: 'Contact form submission',
+				replyTo: `${name} <${contact.email}>`,
+				react: (
+					<ContactEmail
+						name={name}
+						email={contact.email}
+						message={message}
+						company={company}
+						budgetRange={budgetRange}
+						projectType={projectType}
+						vatNumber={vatNumber}
+						phone={contact.phone}
+					/>
+				),
+			})
 
-		await resend.emails.send({
-			from: env.EMAIL_FROM,
-			to: env.EMAIL_FROM,
-			subject: 'Contact form submission',
-			replyTo: `${name} <${contact.email}>`,
-			react: (
-				<ContactEmail
-					name={name}
-					email={contact.email}
-					message={message}
-					company={company}
-					budgetRange={budgetRange}
-					projectType={projectType}
-					vatNumber={vatNumber}
-					phone={contact.phone}
-				/>
-			),
-		})
+			return {
+				success: true,
+			}
+		} catch (error) {
+			const errorMessage = parseError(error)
 
-		return {
-			success: true,
+			return { error: errorMessage }
 		}
-	} catch (error) {
-		const errorMessage = parseError(error)
-
-		return { error: errorMessage }
-	}
-}
+	})

@@ -137,11 +137,14 @@
 				"names": {
 					"budgetRange": "Wat is je budget?",
 					"company": "Bedrijfsnaam",
-					"email": "E-mailadres",
 					"name": "Naam",
-					"phone": "Telefoonnummer",
+					"contact": {
+						"email": "E-mailadres",
+						"phone": "Telefoonnummer"
+					},
 					"projectType": "Project type",
-					"textMessage": "Bericht"
+					"textMessage": "Bericht",
+					"vatNumber": "BTW nummer"
 				}
 			},
 			"sections": {

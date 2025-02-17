@@ -92,12 +92,12 @@ export function ContactForm() {
 				recaptchaResponse,
 			})
 
-			if (result.success) {
+			if (result?.data?.success) {
 				setIsSubmitted(true)
 				return form.reset()
 			}
 
-			if (result.error) setError(result.error)
+			if (result?.data?.error) setError(result.data.error)
 			else setError(t('fields.errors.generic'))
 		} catch (e) {
 			const errorMessage = parseError(e)

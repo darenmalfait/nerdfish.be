@@ -137,11 +137,14 @@
 				"names": {
 					"budgetRange": "What's your budget?",
 					"company": "Company name",
-					"email": "Email address",
 					"name": "Name",
-					"phone": "Phone number",
+					"contact": {
+						"email": "Email address",
+						"phone": "Phone number"
+					},
 					"projectType": "Project type",
-					"textMessage": "Message"
+					"textMessage": "Message",
+					"vatNumber": "VAT number"
 				}
 			},
 			"sections": {
