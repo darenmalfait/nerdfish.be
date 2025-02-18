@@ -1,5 +1,6 @@
 'use server'
 
+import { type ActionResponse } from '@repo/design-system/lib/actions'
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
 import { parseError } from '@repo/observability/error'
@@ -10,12 +11,13 @@ import { contactSchema } from './validation'
 
 export const submitContactForm = createSafeActionClient()
 	.schema(contactSchema)
-	.action(async ({ parsedInput }) => {
+	.action(async ({ parsedInput }): Promise<ActionResponse> => {
 		const { success, error: recaptchaError } = await verifyRecaptcha(
 			parsedInput.recaptchaResponse,
 		)
 
-		if (!success) return { error: recaptchaError ?? 'Recaptcha failed' }
+		if (!success)
+			return { success: false, error: recaptchaError ?? 'Recaptcha failed' }
 
 		const {
 			name,
@@ -55,6 +57,6 @@ export const submitContactForm = createSafeActionClient()
 		} catch (error) {
 			const errorMessage = parseError(error)
 
-			return { error: errorMessage }
+			return { success: false, error: errorMessage }
 		}
 	})

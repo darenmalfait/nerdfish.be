@@ -56,14 +56,14 @@ export function ArticleOverviewProvider({
 	customFilterFunction,
 }: ArticleOverviewProviderProps) {
 	const [params, setParams] = useQueryStates({
-		search: parseAsString.withDefault(''),
+		search: parseAsString,
 	})
 
 	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
 
 	const filteredArticles = customFilterFunction
-		? customFilterFunction(allArticles, params.search)
-		: filterArticles(allArticles, params.search)
+		? customFilterFunction(allArticles, params.search ?? '')
+		: filterArticles(allArticles, params.search ?? '')
 
 	async function setFilter(filter: string) {
 		await setParams({
@@ -72,7 +72,7 @@ export function ArticleOverviewProvider({
 	}
 
 	async function toggleFilter(tag: string) {
-		const currentTags = params.search.split(' ').filter(Boolean)
+		const currentTags = params.search?.split(' ').filter(Boolean) ?? []
 		const tagExists = currentTags.includes(tag)
 
 		await setParams({
@@ -101,7 +101,7 @@ export function ArticleOverviewProvider({
 			value={{
 				articles: filteredArticles,
 				toggleFilter,
-				filter: params.search,
+				filter: params.search ?? '',
 				resetFilter,
 				setFilter,
 				tags,
