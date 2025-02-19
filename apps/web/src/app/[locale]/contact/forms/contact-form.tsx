@@ -32,8 +32,12 @@ import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { submitContactForm } from './actions'
-import { type ContactFormData, contactSchema, projectTypes } from './validation'
+import { submitContactForm } from './contact-form.actions'
+import {
+	type ContactFormData,
+	contactFormSchema,
+	projectTypes,
+} from './contact-form.schema'
 
 function Fieldset({
 	children,
@@ -67,7 +71,7 @@ export function ContactForm() {
 	const [error, setError] = React.useState<string>()
 
 	const form = useForm<ContactFormData>({
-		resolver: zodResolver(contactSchema),
+		resolver: zodResolver(contactFormSchema),
 		defaultValues: {
 			name: '',
 			contact: {

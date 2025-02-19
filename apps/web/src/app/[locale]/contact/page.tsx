@@ -14,7 +14,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { ContactFormViaButton } from './components/drawer-contact-form'
+import { ContactFormViaButton } from './components/contact-form-drawer'
 import { Link } from '~/app/components/link'
 
 type PageProps = {

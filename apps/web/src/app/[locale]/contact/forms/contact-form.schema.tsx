@@ -13,7 +13,7 @@ const phoneRegex = new RegExp(
 	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
 )
 
-export const contactSchema = withRecaptcha(
+export const contactFormSchema = withRecaptcha(
 	z.object({
 		name: z.string().min(2).max(32),
 		company: optionalField(z.string().min(2).max(32)),
@@ -41,4 +41,4 @@ export const contactSchema = withRecaptcha(
 	}),
 )
 
-export type ContactFormData = z.infer<typeof contactSchema>
+export type ContactFormData = z.infer<typeof contactFormSchema>

@@ -7,11 +7,11 @@ import { parseError } from '@repo/observability/error'
 import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'
 import { createSafeActionClient } from 'next-safe-action'
-import { contactSchema } from './validation'
+import { contactFormSchema } from './contact-form.schema'
 
 export const submitContactForm = createSafeActionClient()
-	.schema(contactSchema)
-	.action(async ({ parsedInput }): Promise<ActionResponse> => {
+	.schema(contactFormSchema)
+	.action(async ({ parsedInput }): Promise<ActionResponse<void>> => {
 		const { success, error: recaptchaError } = await verifyRecaptcha(
 			parsedInput.recaptchaResponse,
 		)

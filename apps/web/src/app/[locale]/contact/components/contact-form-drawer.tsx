@@ -14,7 +14,7 @@ import {
 import { ArrowRightIcon } from '@repo/design-system/lib/icons'
 import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
-import { ContactForm } from './contact-form'
+import { ContactForm } from '../forms/contact-form'
 
 export function ContactFormViaButton() {
 	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)

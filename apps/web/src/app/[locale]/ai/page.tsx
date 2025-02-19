@@ -12,7 +12,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import * as React from 'react'
-import { Chat } from '../contact/components/chat'
+import { Chat } from './components/chat'
 import {
 	Hero,
 	HeroTitle,
