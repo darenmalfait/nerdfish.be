@@ -1,6 +1,5 @@
 'use client'
 
-import { type VariantProps, cva, cx } from '@nerdfish/utils'
 import { type Message, type ToolInvocation } from '@repo/ai'
 import { useChat } from '@repo/ai/react'
 import {
@@ -9,9 +8,10 @@ import {
 	LoadingAnimation,
 	Separator,
 } from '@repo/design-system/components/ui'
-import { useScrollToBottom } from '@repo/design-system/hooks/use-scroll-to-bottom'
-import { SendHorizonalIcon } from '@repo/design-system/lib/icons'
+import { SendHorizonalIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
+import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
+import { type VariantProps, cva, cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 
 const chatMessageVariants = cva(

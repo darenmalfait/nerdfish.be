@@ -1,6 +1,6 @@
 import { type Article } from '@repo/design-system/components/article-overview'
-import { nonNullable } from '@repo/design-system/lib/utils/array'
-import { type PartialDeep } from '@repo/design-system/lib/utils/types'
+import { type PartialDeep } from '@repo/lib/types'
+import { nonNullable } from '@repo/lib/utils/array'
 import { type Wiki } from 'content-collections'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'

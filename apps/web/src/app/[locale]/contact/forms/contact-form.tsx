@@ -24,7 +24,7 @@ import {
 	SliderThumb,
 	Textarea,
 } from '@repo/design-system/components/ui'
-import { ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'

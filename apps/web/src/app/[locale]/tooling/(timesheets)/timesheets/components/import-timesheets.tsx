@@ -5,8 +5,8 @@ import {
 	TooltipTrigger,
 } from '@repo/design-system/components/ui'
 
-import { ImportIcon } from '@repo/design-system/lib/icons'
-import { nonNullable } from '@repo/design-system/lib/utils/array'
+import { ImportIcon } from '@repo/design-system/icons'
+import { nonNullable } from '@repo/lib/utils/array'
 import dynamic from 'next/dynamic'
 import * as React from 'react'
 import { useTimesheet } from '../timesheet-provider'

@@ -11,7 +11,7 @@ import {
 	DrawerContent,
 	DrawerTitle,
 } from '@repo/design-system/components/ui'
-import { ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { ContactForm } from '../forms/contact-form'

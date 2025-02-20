@@ -1,8 +1,8 @@
 'use server'
 
-import { type ActionResponse } from '@repo/design-system/lib/actions'
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
+import { type ActionResponse } from '@repo/lib/types'
 import { parseError } from '@repo/observability/error'
 import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'

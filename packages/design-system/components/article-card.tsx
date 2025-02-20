@@ -1,11 +1,11 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
-import { ArrowRightIcon } from '../lib/icons'
+import { ArrowRightIcon } from '../icons'
 import { getCategoryColors } from './category-indicator'
 import { Cursor } from './cursor'
 import { DateFormatter } from './date-formatter'

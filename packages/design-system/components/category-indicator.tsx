@@ -1,4 +1,4 @@
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 
 const foregroundMap: Record<string, string> = {
 	// Blog

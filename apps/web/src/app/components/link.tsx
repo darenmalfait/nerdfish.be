@@ -1,6 +1,6 @@
 'use client'
 
-import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import NextLink from 'next/link'
 import * as React from 'react'
 import { routing, Link as RouteLink } from 'routing'

@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import * as ProgressPrimitive from '@radix-ui/react-progress'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 
 export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root>

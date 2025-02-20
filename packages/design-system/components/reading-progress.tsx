@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import NumberFlow from '@number-flow/react'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 
 export interface ReadingProgressProps {

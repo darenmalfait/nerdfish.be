@@ -17,6 +17,8 @@ export const config: Config = {
 
 		// App specific
 		'./node_modules/@repo/calcom/components/**/*.{ts,tsx}',
+		'./node_modules/@repo/calendar/components/**/*.{ts,tsx}',
+		'./node_modules/@repo/timesheets/components/**/*.{ts,tsx}',
 	],
 	darkMode: 'class',
 	plugins: [

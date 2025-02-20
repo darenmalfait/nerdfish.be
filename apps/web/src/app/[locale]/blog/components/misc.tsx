@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@repo/design-system/components/ui'
-import { ChevronLeftIcon } from '@repo/design-system/lib/icons'
+import { ChevronLeftIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { Link } from '~/app/components/link'
 

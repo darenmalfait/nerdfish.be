@@ -1,8 +1,8 @@
 'use client'
 
+import { nonNullable } from '@repo/lib/utils/array'
 import { parseAsString, useQueryStates } from 'nuqs'
 import * as React from 'react'
-import { nonNullable } from '../../lib/utils/array'
 import { type Article } from './types'
 import { filterArticles } from './utils'
 

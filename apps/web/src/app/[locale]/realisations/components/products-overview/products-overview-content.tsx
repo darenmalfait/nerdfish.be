@@ -1,6 +1,5 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import {
 	Avatar,
 	AvatarFallback,
@@ -10,7 +9,8 @@ import {
 	GridCard,
 	Skeleton,
 } from '@repo/design-system/components/ui'
-import { GithubIcon, GlobeIcon } from '@repo/design-system/lib/icons'
+import { GithubIcon, GlobeIcon } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import { type Product } from 'content-collections'
 import Link from 'next/link'
 

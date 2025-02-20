@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import { Slot } from '@radix-ui/react-slot'
+import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
 import * as React from 'react'
 
