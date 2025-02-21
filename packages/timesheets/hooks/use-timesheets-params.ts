@@ -26,6 +26,7 @@ export function useTimesheetsParams(initialDate?: string) {
 
 	return {
 		...params,
+		range: params.range,
 		setParams,
 	}
 }
