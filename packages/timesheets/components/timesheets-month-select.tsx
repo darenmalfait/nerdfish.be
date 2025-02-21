@@ -5,15 +5,15 @@ import { addMonths, format, formatISO, startOfMonth } from 'date-fns'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { TIMEZONE } from '../utils'
 
-type TrackerMonthSelectProps = {
+type TimesheetsMonthSelectProps = {
 	className?: string
 	dateFormat?: string
 }
 
-export function TrackerMonthSelect({
+export function TimesheetsMonthSelect({
 	className,
 	dateFormat = 'MMM',
-}: TrackerMonthSelectProps) {
+}: TimesheetsMonthSelectProps) {
 	const { date, setParams } = useTimesheetsParams()
 	const currentDate = date
 		? new TZDate(date, TIMEZONE)

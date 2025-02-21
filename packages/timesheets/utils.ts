@@ -9,7 +9,7 @@ export function sortDates(dates: string[]) {
 	return dates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
 }
 
-export function getTrackerDates(
+export function getTimesheetsDates(
 	range: string[] | null,
 	selectedDate: string | null,
 ): Date[] {
