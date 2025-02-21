@@ -3,8 +3,6 @@ import { format } from 'date-fns'
 
 export const TIMEZONE = 'Europe/Brussels'
 
-export const NEW_EVENT_ID = 'new-event'
-
 export function sortDates(dates: string[]) {
 	return dates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
 }

@@ -1,6 +1,7 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
+import { TimesheetsRecordForm } from '@repo/timesheets/forms/timesheets-record-form'
 import * as React from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { CalendarOverview } from './calendar-overview'
@@ -28,6 +29,9 @@ export function TimesheetGenerator() {
 		<div className="p-md pb-3xl print:p-0">
 			<div className="rounded-base p-md shadow-outline mb-xl container print:hidden">
 				<CalendarOverview />
+			</div>
+			<div className="rounded-base p-md shadow-outline mb-xl container print:hidden">
+				<TimesheetsRecordForm />
 			</div>
 			<div className="mx-auto w-[80mm] print:[box-shadow:none]">
 				<div
