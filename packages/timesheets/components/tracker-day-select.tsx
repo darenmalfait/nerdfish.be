@@ -3,7 +3,7 @@ import { Button, ButtonGroup } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon, ChevronRightIcon } from '@repo/design-system/icons'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { addDays, formatISO, subDays } from 'date-fns'
-import { useTrackerParams } from '../hooks/use-tracker-params'
+import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { formatDateRange, getTrackerDates, TIMEZONE } from '../utils'
 
 type TrackerDaySelectProps = {
@@ -11,7 +11,7 @@ type TrackerDaySelectProps = {
 }
 
 export function TrackerDaySelect({ className }: TrackerDaySelectProps) {
-	const { setParams, range, selectedDate } = useTrackerParams()
+	const { setParams, range, selectedDate } = useTimesheetsParams()
 	const currentDate = getTrackerDates(range, selectedDate)
 
 	const selectPrevDay = () => {

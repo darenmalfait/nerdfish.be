@@ -2,7 +2,7 @@ import { TZDate } from '@date-fns/tz'
 import { Button, ButtonGroup } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon, ChevronRightIcon } from '@repo/design-system/icons'
 import { addMonths, format, formatISO, startOfMonth } from 'date-fns'
-import { useTrackerParams } from '../hooks/use-tracker-params'
+import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { TIMEZONE } from '../utils'
 
 type TrackerMonthSelectProps = {
@@ -14,7 +14,7 @@ export function TrackerMonthSelect({
 	className,
 	dateFormat = 'MMM',
 }: TrackerMonthSelectProps) {
-	const { date, setParams } = useTrackerParams()
+	const { date, setParams } = useTimesheetsParams()
 	const currentDate = date
 		? new TZDate(date, TIMEZONE)
 		: new TZDate(new Date(), TIMEZONE)
