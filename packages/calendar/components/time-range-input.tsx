@@ -3,8 +3,8 @@
 import { inputVariants } from '@repo/design-system/components/ui'
 import { ArrowRightIcon, ClockIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
-import { differenceInMinutes, parse } from '@repo/lib/utils/date'
 import * as React from 'react'
+import { differenceInMinutes, parse } from '../utils'
 
 const hideTimeIconClass = '[&::-webkit-calendar-picker-indicator]:hidden'
 

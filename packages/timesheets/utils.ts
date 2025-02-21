@@ -1,5 +1,13 @@
-import { type TZDate } from '@date-fns/tz'
-import { format } from 'date-fns'
+import {
+	getTimeFromDate,
+	NEW_EVENT_ID,
+	type TZDate,
+	format,
+	parseISO,
+	addSeconds,
+} from '@repo/calendar/utils'
+import { type TimesheetsRecordFormData } from './forms/timesheets-record-form.schema'
+import { type TimesheetRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'
 
@@ -44,4 +52,25 @@ export function formatDateRange(dates: TZDate[]): string {
 
 	// Different months
 	return `${formatFullDate(startDate)} - ${formatFullDate(endDate)}`
+}
+
+export const transformTimesheetsRecord = (
+	event: TimesheetRecord,
+	selectedDate: string | null,
+): TimesheetsRecordFormData => {
+	const start = event.start
+		? parseISO(event.start)
+		: parseISO(`${event.date || selectedDate}T09:00:00`)
+	const end = event.end
+		? parseISO(event.end)
+		: addSeconds(start, event.duration || 0)
+
+	return {
+		...event,
+		id: event.id ?? NEW_EVENT_ID,
+		start: getTimeFromDate(start),
+		end: getTimeFromDate(end),
+		project: event.project,
+		description: event.description,
+	}
 }

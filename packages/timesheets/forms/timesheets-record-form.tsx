@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
-import { NEW_EVENT_ID } from '@repo/calendar/utils'
+import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
 import {
 	Button,
 	Form,
@@ -14,7 +14,6 @@ import {
 	Input,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
-import { parse, differenceInSeconds } from '@repo/lib/utils/date'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import {

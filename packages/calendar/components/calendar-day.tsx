@@ -17,7 +17,7 @@ import {
 	setHours,
 	setMinutes,
 	startOfDay,
-} from '@repo/lib/utils/date'
+} from 'date-fns'
 import * as React from 'react'
 import { type CalendarEvent } from '../schemas'
 import {

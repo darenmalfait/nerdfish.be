@@ -1,4 +1,4 @@
-import { DateFormatter } from '@repo/design-system/components/date-formatter'
+import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
