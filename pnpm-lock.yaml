@@ -316,9 +316,6 @@ importers:
       '@repo/lib':
         specifier: workspace:*
         version: link:../lib
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
       zod:
         specifier: ^3.24.1
         version: 3.24.1
