@@ -100,8 +100,6 @@ export function CalendarDay({
 
 	// events handlers
 	const handleDeleteEvent = (eventId: string) => {
-		if (eventId === NEW_EVENT_ID) return
-
 		onDeleteEvent?.(eventId)
 
 		setValue(value.filter((event) => event.id !== eventId))
@@ -272,7 +270,7 @@ export function CalendarDay({
 			</div>
 
 			<div
-				className="border-muted relative flex-grow cursor-default select-none border border-t-0"
+				className="relative flex-grow cursor-default select-none border-none"
 				onMouseMove={handleMouseMove}
 				onMouseDown={(e) => {
 					if (e.button === 0 && !isContextMenuOpen) {
@@ -287,7 +285,7 @@ export function CalendarDay({
 				{hours.map((hour) => (
 					<React.Fragment key={hour}>
 						<div
-							className="border-border user-select-none absolute w-full border-t"
+							className="border-primary/50 user-select-none absolute w-full border-t"
 							style={{ top: `${hour * CALENDARY_DAY_ROW_HEIGHT}px` }}
 						/>
 					</React.Fragment>
@@ -313,8 +311,7 @@ export function CalendarDay({
 								<div
 									onClick={() => handleEventClick(event)}
 									className={cx(
-										'border-border dark:text-primary absolute w-full border-t bg-[#F0F0F0]/[0.95] text-[#606060] dark:bg-[#1D1D1D]/[0.95]',
-										selectedEvent?.id === event.id && '!text-primary',
+										'shadow-outline bg-muted/95 text-primary absolute w-full border-t',
 										event.id !== NEW_EVENT_ID && 'cursor-move',
 									)}
 									style={{
@@ -325,7 +322,7 @@ export function CalendarDay({
 										event.id !== NEW_EVENT_ID && handleEventMoveStart(e, event)
 									}
 								>
-									<div className="pointer-events-none flex select-none flex-col justify-between p-4 text-xs">
+									<div className="p-md pointer-events-none flex select-none flex-col justify-between text-xs">
 										<span>
 											{event.title} (
 											{secondsToHoursAndMinutes(
@@ -357,16 +354,14 @@ export function CalendarDay({
 								</div>
 							</ContextMenuTrigger>
 							<ContextMenuContent>
-								{onDeleteEvent ? (
-									<ContextMenuItem
-										onClick={(e) => {
-											e.stopPropagation()
-											handleDeleteEvent(event.id)
-										}}
-									>
-										Delete <ContextMenuShortcut>⌫</ContextMenuShortcut>
-									</ContextMenuItem>
-								) : null}
+								<ContextMenuItem
+									onClick={(e) => {
+										e.stopPropagation()
+										handleDeleteEvent(event.id)
+									}}
+								>
+									Delete <ContextMenuShortcut>⌫</ContextMenuShortcut>
+								</ContextMenuItem>
 							</ContextMenuContent>
 						</ContextMenu>
 					)

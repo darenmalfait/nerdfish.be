@@ -1,38 +1,28 @@
-import { Calendar } from '@repo/design-system/components/ui'
+import { CalendarDay } from '@repo/calendar/components/calendar-day'
 import * as React from 'react'
-import { useTimesheet } from '../timesheet-provider'
-import { getCrypto } from '../utils'
 
+// TODO: Remove this
 export function CalendarOverview() {
-	const { timesheet, setTimesheet } = useTimesheet()
+	// 	const { timesheet, setTimesheet } = useTimesheet()
 
-	function onDayClick(day: Date) {
-		const existingEntry = timesheet.timeEntries?.find(
-			(entry) => entry.day.toDateString() === day.toDateString(),
-		)
+	// 	function onDayClick(day: Date) {
+	// 		const existingEntry = timesheet.timeEntries?.find(
+	// 			(entry) => entry.day.toDateString() === day.toDateString(),
+	// 		)
 
-		const updatedTimeEntries = existingEntry
-			? timesheet.timeEntries?.filter(
-					(entry) => entry.day.toDateString() !== day.toDateString(),
-				)
-			: [
-					...(timesheet.timeEntries ?? []),
-					{ day, hours: 8, project: '', id: getCrypto().randomUUID() },
-				]
+	// 		const updatedTimeEntries = existingEntry
+	// 			? timesheet.timeEntries?.filter(
+	// 					(entry) => entry.day.toDateString() !== day.toDateString(),
+	// 				)
+	// 			: [
+	// 					...(timesheet.timeEntries ?? []),
+	// 					{ day, hours: 8, project: '', id: getCrypto().randomUUID() },
+	// 				]
 
-		setTimesheet({
-			timeEntries: updatedTimeEntries,
-		})
-	}
+	// 		setTimesheet({
+	// 			timeEntries: updatedTimeEntries,
+	// 		})
+	// 	}
 
-	return (
-		<Calendar
-			today={undefined}
-			selected={timesheet.timeEntries?.map((entry) => entry.day)}
-			onDayClick={onDayClick}
-			classNames={{
-				row: 'flex gap-xs mb-xs',
-			}}
-		/>
-	)
+	return <CalendarDay />
 }
