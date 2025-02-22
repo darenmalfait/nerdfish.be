@@ -63,6 +63,7 @@ export function TimesheetsSchedule({
 	React.useEffect(() => {
 		if (scrollRef.current) {
 			const currentHour = new Date().getHours()
+
 			if (currentHour >= 12) {
 				scrollRef.current.scrollTo({
 					top: scrollRef.current.scrollHeight,
@@ -121,8 +122,16 @@ export function TimesheetsSchedule({
 		<div>
 			<TimesheetsDaySelect />
 
-			<ScrollArea ref={scrollRef} className="mb-lg mt-8 h-[calc(100vh-480px)]">
+			<ScrollArea
+				ref={scrollRef}
+				className="mb-lg mt-lg p-md rounded-base shadow-outline h-[calc(80vh-480px)]"
+			>
 				<CalendarDay
+					selectedEvent={
+						selectedEvent
+							? transformTimesheetsRecordToCalendarEvent(selectedEvent)
+							: undefined
+					}
 					value={data.map(transformTimesheetsRecordToCalendarEvent)}
 					onDeleteEvent={handleDeleteEvent}
 					onChange={(values) => {

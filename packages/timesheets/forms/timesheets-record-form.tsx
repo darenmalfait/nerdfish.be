@@ -12,6 +12,7 @@ import {
 	FormLabel,
 	FormMessage,
 	Input,
+	Textarea,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
@@ -144,7 +145,12 @@ export function TimesheetsRecordForm({
 						<FormItem>
 							<FormLabel>Description</FormLabel>
 							<FormControl>
-								<Input placeholder="Description" {...field} />
+								<Textarea
+									placeholder="Description"
+									{...field}
+									rows={3}
+									className="resize-none"
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
