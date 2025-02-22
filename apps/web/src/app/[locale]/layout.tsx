@@ -1,5 +1,5 @@
 import { Section } from '@repo/design-system/components/section'
-import { LoadingAnimation } from '@repo/design-system/components/ui'
+import { LoadingAnimation, Toaster } from '@repo/design-system/components/ui'
 import { fonts } from '@repo/design-system/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
@@ -54,6 +54,7 @@ export default async function RootLayout(props: {
 							</main>
 
 							<Footer />
+							<Toaster />
 						</div>
 					</NextIntlClientProvider>
 				</AppProviders>

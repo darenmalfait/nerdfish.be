@@ -298,7 +298,7 @@ export function TimesheetsCalendar({ data }: TimesheetsCalendarProps) {
 	}
 
 	return (
-		<div ref={ref} className="border-muted grid grid-cols-7 gap-px border">
+		<div ref={ref} className="shadow-outline grid grid-cols-7 gap-px">
 			{firstWeek.map((day) => (
 				<div
 					key={day.toString()}

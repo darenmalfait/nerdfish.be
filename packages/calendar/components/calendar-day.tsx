@@ -313,6 +313,8 @@ export function CalendarDay({
 									className={cx(
 										'shadow-outline bg-muted/95 text-primary absolute w-full border-t',
 										event.id !== NEW_EVENT_ID && 'cursor-move',
+										event.id === selectedEvent?.id &&
+											'bg-inverted/80 text-inverted z-50',
 									)}
 									style={{
 										top: `${startSlot * CALENDARY_DAY_SLOT_HEIGHT}px`,
@@ -323,7 +325,7 @@ export function CalendarDay({
 									}
 								>
 									<div className="p-md pointer-events-none flex select-none flex-col justify-between text-xs">
-										<span>
+										<span className="font-bold">
 											{event.title} (
 											{secondsToHoursAndMinutes(
 												differenceInSeconds(event.end, event.start),

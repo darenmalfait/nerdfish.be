@@ -13,7 +13,7 @@ export function useTimesheetsParams(initialDate?: string) {
 			initialDate ?? formatISO(new Date(), { representation: 'date' }),
 		),
 		create: parseAsBoolean,
-		projectId: parseAsString,
+		project: parseAsString,
 		update: parseAsBoolean,
 		selectedDate: parseAsString,
 		range: parseAsArrayOf(parseAsString),

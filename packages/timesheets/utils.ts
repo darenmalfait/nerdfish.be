@@ -1,3 +1,4 @@
+import { type CalendarEvent } from '@repo/calendar/schemas'
 import {
 	getTimeFromDate,
 	NEW_EVENT_ID,
@@ -5,6 +6,7 @@ import {
 	format,
 	parseISO,
 	addSeconds,
+	differenceInSeconds,
 } from '@repo/calendar/utils'
 import { type TimesheetsRecordFormData } from './forms/timesheets-record-form.schema'
 import { type TimesheetRecord } from './schemas'
@@ -54,10 +56,10 @@ export function formatDateRange(dates: TZDate[]): string {
 	return `${formatFullDate(startDate)} - ${formatFullDate(endDate)}`
 }
 
-export const transformTimesheetsRecord = (
+export function transformTimesheetsRecordToFormData(
 	event: TimesheetRecord,
 	selectedDate: string | null,
-): TimesheetsRecordFormData => {
+): TimesheetsRecordFormData {
 	const start = event.start
 		? parseISO(event.start)
 		: parseISO(`${event.date || selectedDate}T09:00:00`)
@@ -72,5 +74,32 @@ export const transformTimesheetsRecord = (
 		end: getTimeFromDate(end),
 		project: event.project,
 		description: event.description,
+	}
+}
+
+export function transformTimesheetsRecordToCalendarEvent(
+	event: TimesheetRecord,
+): CalendarEvent {
+	return {
+		...event,
+		id: event.id ?? NEW_EVENT_ID,
+		start: parseISO(event.start),
+		end: parseISO(event.end),
+		title: event.project,
+		description: event.description,
+	}
+}
+
+export function transformCalendarEventToTimesheetsRecord(
+	event: CalendarEvent,
+): TimesheetRecord {
+	return {
+		...event,
+		id: event.id,
+		project: event.title,
+		duration: Math.max(0, differenceInSeconds(event.end, event.start)),
+		date: new Date(event.start).toISOString(),
+		start: event.start.toISOString(),
+		end: event.end.toISOString(),
 	}
 }
