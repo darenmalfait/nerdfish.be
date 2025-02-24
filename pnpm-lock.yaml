@@ -382,8 +382,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/ui':
-        specifier: ^7.9.0
-        version: 7.9.0(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(vue@3.5.12(typescript@5.7.3))
+        specifier: ^7.9.1
+        version: 7.9.1(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(vue@3.5.12(typescript@5.7.3))
       '@number-flow/react':
         specifier: ^0.5.5
         version: 0.5.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -536,6 +536,12 @@ importers:
       react-hotkeys-hook:
         specifier: ^4.6.1
         version: 4.6.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+
+  packages/location:
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -714,6 +720,9 @@ importers:
       '@repo/lib':
         specifier: workspace:*
         version: link:../lib
+      '@repo/location':
+        specifier: workspace:*
+        version: link:../location
       nuqs:
         specifier: ^2.3.2
         version: 2.3.2(next@15.1.6(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
@@ -2324,8 +2333,8 @@ packages:
   '@nerdfish/theme@2.5.1':
     resolution: {integrity: sha512-5h3fuCdRf6UP2fydpRjuXKsapsq1Ru4E0zSDbtwlP9CQySmH1xxl27aU+yzRRf2tKFt6kunwWJkqbe4MJWCo3g==}
 
-  '@nerdfish/ui@7.9.0':
-    resolution: {integrity: sha512-49dyaK7pZCyT5f+sfFDgb2HDQ/W45RDPWWaWsVXHFsYz/Qe+6G8QI0bmAYEz5En+i//xNkDLY+L8u+RfnZRNNQ==}
+  '@nerdfish/ui@7.9.1':
+    resolution: {integrity: sha512-fgfMVgYPKGu8Bt15hit+aHQO2kfyXRAW/xecyjbLMrrrsHBCU8Xaq6jqnVk6p1cB0Yl8OzEt2RN0li6YcgmJjg==}
 
   '@nerdfish/utils@2.0.1':
     resolution: {integrity: sha512-ibKCDPjpDVCh9s22cC4c/Y9ChixMHWeN2xbkVxdQfCdC8eNZ3lwColyIPa+ZajSw3cX8gT/2L/qYoKYH/xFGEQ==}
@@ -10313,7 +10322,7 @@ snapshots:
     dependencies:
       '@nerdfish/utils': 2.0.1
 
-  '@nerdfish/ui@7.9.0(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(vue@3.5.12(typescript@5.7.3))':
+  '@nerdfish/ui@7.9.1(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(vue@3.5.12(typescript@5.7.3))':
     dependencies:
       '@nerdfish/utils': 2.0.1
       '@radix-ui/react-accordion': 1.2.3(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)

@@ -1,6 +1,9 @@
 'use client'
 
-import { inputVariants } from '@repo/design-system/components/ui'
+import {
+	inputVariants,
+	useControllableState,
+} from '@repo/design-system/components/ui'
 import { ArrowRightIcon, ClockIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
@@ -9,7 +12,7 @@ import { differenceInMinutes, parse } from '../utils'
 const hideTimeIconClass = '[&::-webkit-calendar-picker-indicator]:hidden'
 
 export function TimeRangeInput({
-	value,
+	value: valueProp,
 	onChange,
 	className,
 }: {
@@ -17,27 +20,30 @@ export function TimeRangeInput({
 	onChange: (value: { start: string; end: string }) => void
 	className?: string
 }) {
-	const [startTime, setStartTime] = React.useState(value.start)
-	const [endTime, setEndTime] = React.useState(value.end)
-	const [duration, setDuration] = React.useState('')
+	const [value = { start: '', end: '' }, setValue] = useControllableState<{
+		start: string
+		end: string
+	}>(
+		valueProp,
+		{
+			start: '',
+			end: '',
+		},
+		onChange,
+	)
 
-	React.useEffect(() => {
-		setStartTime(value.start)
-		setEndTime(value.end)
-	}, [value])
-
-	React.useEffect(() => {
-		if (!startTime || !endTime) {
-			return
+	const duration = React.useMemo(() => {
+		if (!value.start || !value.end) {
+			return ''
 		}
 
-		const start = parse(startTime, 'HH:mm', new Date())
-		const end = parse(endTime, 'HH:mm', new Date())
+		const start = parse(value.start, 'HH:mm', new Date())
+		const end = parse(value.end, 'HH:mm', new Date())
 		const diff = differenceInMinutes(end, start)
 		const hours = Math.floor(diff / 60)
 		const minutes = diff % 60
-		setDuration(`${hours}h ${minutes}min`)
-	}, [startTime, endTime])
+		return `${hours}h ${minutes}min`
+	}, [value.start, value.end])
 
 	return (
 		<div className={cx(inputVariants(), 'gap-sm flex items-center', className)}>
@@ -45,11 +51,8 @@ export function TimeRangeInput({
 				<ClockIcon className="text-muted size-4" />
 				<input
 					type="time"
-					value={startTime}
-					onChange={(e) => {
-						setStartTime(e.target.value)
-						onChange({ ...value, start: e.target.value })
-					}}
+					value={value.start}
+					onChange={(e) => setValue({ ...value, start: e.target.value })}
 					className={cx(
 						'bg-transparent text-sm focus:outline-none',
 						hideTimeIconClass,
@@ -62,11 +65,8 @@ export function TimeRangeInput({
 			<div className="flex flex-1 items-center justify-end space-x-2">
 				<input
 					type="time"
-					value={endTime}
-					onChange={(e) => {
-						setEndTime(e.target.value)
-						onChange({ ...value, end: e.target.value })
-					}}
+					value={value.end}
+					onChange={(e) => setValue({ ...value, end: e.target.value })}
 					className={cx(
 						'bg-transparent text-sm focus:outline-none',
 						hideTimeIconClass,

@@ -9,7 +9,7 @@ import {
 	differenceInSeconds,
 } from '@repo/calendar/utils'
 import { type TimesheetsRecordFormData } from './forms/timesheets-record-form.schema'
-import { type TimesheetRecord } from './schemas'
+import { type TimesheetsProject, type TimesheetsRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'
 
@@ -57,7 +57,7 @@ export function formatDateRange(dates: TZDate[]): string {
 }
 
 export function transformTimesheetsRecordToFormData(
-	event: TimesheetRecord,
+	event: TimesheetsRecord,
 	selectedDate: string | null,
 ): TimesheetsRecordFormData {
 	const start = event.start
@@ -72,31 +72,32 @@ export function transformTimesheetsRecordToFormData(
 		id: event.id ?? NEW_EVENT_ID,
 		start: getTimeFromDate(start),
 		end: getTimeFromDate(end),
-		project: event.project,
+		projectId: event.projectId,
 		description: event.description,
 	}
 }
 
 export function transformTimesheetsRecordToCalendarEvent(
-	event: TimesheetRecord,
+	event: TimesheetsRecord,
+	project?: TimesheetsProject | undefined,
 ): CalendarEvent {
 	return {
 		...event,
 		id: event.id ?? NEW_EVENT_ID,
 		start: parseISO(event.start),
 		end: parseISO(event.end),
-		title: event.project,
+		project,
 		description: event.description,
 	}
 }
 
 export function transformCalendarEventToTimesheetsRecord(
 	event: CalendarEvent,
-): TimesheetRecord {
+): TimesheetsRecord {
 	return {
 		...event,
 		id: event.id,
-		project: event.title,
+		projectId: event.project?.id,
 		duration: Math.max(0, differenceInSeconds(event.end, event.start)),
 		date: new Date(event.start).toISOString(),
 		start: event.start.toISOString(),

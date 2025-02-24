@@ -11,20 +11,23 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-	Input,
+	LoadingAnimation,
 	Textarea,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
+import { type TimesheetsProject } from '../schemas'
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,
 } from './timesheets-record-form.schema'
+import { TimesheetsSelectProject } from './timesheets-select-project'
 
 interface TimesheetsRecordFormProps {
 	defaultValues?: TimesheetsRecordFormData
 	onSubmit?: (data: TimesheetsRecordFormData) => void
+	projects: TimesheetsProject[]
 	className?: string
 }
 
@@ -33,13 +36,13 @@ export function TimesheetsRecordForm({
 	onSubmit,
 	className,
 }: TimesheetsRecordFormProps) {
-	const { id, start, end, project, description } = defaultValues ?? {}
+	const { id, start, end, description, projectId } = defaultValues ?? {}
 
 	const form = useForm<TimesheetsRecordFormData>({
 		resolver: zodResolver(timesheetsRecordFormSchema),
 		defaultValues: defaultValues ?? {
 			duration: 0,
-			project: '',
+			projectId: '',
 			start: '',
 			end: '',
 		},
@@ -61,8 +64,8 @@ export function TimesheetsRecordForm({
 			form.setValue('end', end)
 		}
 
-		if (project) {
-			form.setValue('project', project, { shouldValidate: true })
+		if (projectId) {
+			form.setValue('projectId', projectId, { shouldValidate: true })
 		}
 
 		if (description) {
@@ -79,7 +82,7 @@ export function TimesheetsRecordForm({
 				form.setValue('duration', durationInSeconds, { shouldValidate: true })
 			}
 		}
-	}, [defaultValues, description, end, form, id, project, start])
+	}, [defaultValues, description, end, form, id, projectId, start])
 
 	function handleSubmit(data: TimesheetsRecordFormData) {
 		onSubmit?.(data)
@@ -126,12 +129,12 @@ export function TimesheetsRecordForm({
 
 				<FormField
 					control={form.control}
-					name="project"
+					name="projectId"
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel>Project</FormLabel>
 							<FormControl>
-								<Input placeholder="Project" {...field} />
+								<TimesheetsSelectProject {...field} placeholder="Project" />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -159,10 +162,13 @@ export function TimesheetsRecordForm({
 
 				<div className="flex justify-between">
 					<Button
-						className="w-full"
+						className="flex w-full items-center"
 						disabled={form.formState.isSubmitting}
 						type="submit"
 					>
+						{form.formState.isSubmitting ? (
+							<LoadingAnimation variant="classic" className="mr-sm size-4" />
+						) : null}
 						{isUpdate ? 'Update' : 'Add'}
 					</Button>
 				</div>

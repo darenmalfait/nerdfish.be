@@ -43,7 +43,7 @@ export interface CalendarDayProps
 	value?: CalendarEvent[]
 	defaultValue?: CalendarEvent[]
 	selectedEvent?: CalendarEvent | null
-	defaultTitle?: string
+	defaultProject?: CalendarEvent['project']
 
 	// events
 	onEventSelect?: (event: CalendarEvent | null) => void
@@ -59,7 +59,7 @@ export function CalendarDay({
 	value: valueProp,
 	defaultValue = [],
 	selectedEvent: selectedEventProp,
-	defaultTitle = '',
+	defaultProject,
 
 	// events
 	onEventSelect,
@@ -134,7 +134,7 @@ export function CalendarDay({
 		setIsDragging(true)
 		setDragStartSlot(slot)
 
-		const newEvent = createNewEvent(slot, defaultTitle)
+		const newEvent = createNewEvent(slot, defaultProject)
 
 		setValue([...value.filter((event) => event.id !== NEW_EVENT_ID), newEvent])
 		setSelectedEvent(newEvent)
@@ -326,7 +326,7 @@ export function CalendarDay({
 								>
 									<div className="p-md pointer-events-none flex select-none flex-col justify-between text-xs">
 										<span className="font-bold">
-											{event.title} (
+											{event.project?.name} (
 											{secondsToHoursAndMinutes(
 												differenceInSeconds(event.end, event.start),
 											)}

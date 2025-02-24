@@ -40,7 +40,10 @@ export function secondsToHoursAndMinutes(seconds: number) {
 	return '0h'
 }
 
-export const createNewEvent = (slot: number, title: string): CalendarEvent => {
+export const createNewEvent = (
+	slot: number,
+	project?: CalendarEvent['project'],
+): CalendarEvent => {
 	const startDate = setMinutes(
 		setHours(new Date(), Math.floor(slot / 4)),
 		(slot % 4) * 15,
@@ -50,7 +53,7 @@ export const createNewEvent = (slot: number, title: string): CalendarEvent => {
 		id: NEW_EVENT_ID,
 		start: startDate,
 		end: endDate,
-		title,
+		project,
 	}
 }
 

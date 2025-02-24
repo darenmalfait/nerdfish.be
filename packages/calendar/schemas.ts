@@ -4,7 +4,12 @@ export const calendarEventSchema = z.object({
 	id: z.string(),
 	start: z.date(),
 	end: z.date(),
-	title: z.string(),
+	project: z
+		.object({
+			id: z.string(),
+			name: z.string(),
+		})
+		.optional(),
 	subtitle: z.string().optional(),
 	description: z.string().optional(),
 })

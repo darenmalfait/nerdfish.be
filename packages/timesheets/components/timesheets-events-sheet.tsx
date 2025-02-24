@@ -12,20 +12,12 @@ import {
 	SheetTitle,
 	useMediaQuery,
 } from '@repo/design-system/components/ui'
-import * as React from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { type TimesheetsData } from '../schemas'
+import { useTimesheets } from '../providers/timesheets-provider'
 import { TimesheetsSchedule } from './timesheets-schedule'
 
-interface TimesheetsEventsSheetProps
-	extends Omit<React.ComponentProps<typeof TimesheetsSchedule>, 'data'> {
-	data: TimesheetsData
-}
-
-export function TimesheetsEventsSheet({
-	data,
-	...scheduleProps
-}: TimesheetsEventsSheetProps) {
+export function TimesheetsEventsSheet() {
+	const { timesheets } = useTimesheets()
 	const isDesktop = useMediaQuery('(min-width: 768px)')
 	const { setParams, project, range, selectedDate, update, create } =
 		useTimesheetsParams()
@@ -36,7 +28,7 @@ export function TimesheetsEventsSheet({
 		(Boolean(project) || range?.length === 2 || Boolean(selectedDate))
 
 	const events = selectedDate
-		? (data[formatISO(selectedDate, { representation: 'date' })] ?? [])
+		? (timesheets[formatISO(selectedDate, { representation: 'date' })] ?? [])
 		: []
 
 	if (isDesktop) {
@@ -51,7 +43,7 @@ export function TimesheetsEventsSheet({
 					<SheetHeader className="mb-lg">
 						<SheetTitle>Schedule</SheetTitle>
 					</SheetHeader>
-					<TimesheetsSchedule data={events} {...scheduleProps} />
+					<TimesheetsSchedule data={events} />
 				</SheetContent>
 			</Sheet>
 		)
@@ -70,7 +62,7 @@ export function TimesheetsEventsSheet({
 				<DrawerHeader>
 					<DrawerTitle>Schedule</DrawerTitle>
 				</DrawerHeader>
-				<TimesheetsSchedule data={events} {...scheduleProps} />
+				<TimesheetsSchedule data={events} />
 			</DrawerContent>
 		</Drawer>
 	)

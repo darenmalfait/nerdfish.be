@@ -2,15 +2,18 @@
 
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { cx } from '@repo/lib/utils/base'
-import { type TimesheetRecord } from '../schemas'
+import { useTimesheets } from '../providers/timesheets-provider'
+import { type TimesheetsRecord } from '../schemas'
 
 export function TimesheetsCalendarEvents({
 	data = [],
 	isToday,
 }: {
-	data?: TimesheetRecord[]
+	data?: TimesheetsRecord[]
 	isToday: boolean
 }) {
+	const { projects } = useTimesheets()
+
 	return (
 		<div className="flex w-full flex-col space-y-2 font-sans">
 			{data.length > 0 ? (
@@ -21,8 +24,8 @@ export function TimesheetsCalendarEvents({
 					)}
 					key={data[0]?.id}
 				>
-					{data[0]?.project} ({secondsToHoursAndMinutes(data[0]?.duration ?? 0)}
-					)
+					{projects.find((project) => project.id === data[0]?.projectId)?.name}{' '}
+					({secondsToHoursAndMinutes(data[0]?.duration ?? 0)})
 				</div>
 			) : null}
 			{data.length > 1 ? (

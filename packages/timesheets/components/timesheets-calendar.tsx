@@ -18,7 +18,8 @@ import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { type TimesheetsData, type TimesheetRecord } from '../schemas'
+import { useTimesheets } from '../providers/timesheets-provider'
+import { type TimesheetsRecord } from '../schemas'
 import { TIMEZONE } from '../utils'
 import { TimesheetsCalendarEvents } from './timesheets-calendar-events'
 
@@ -157,7 +158,7 @@ function handleMonthChange(
 
 interface TimesheetsCalendarDayProps {
 	date: TZDate
-	data: Record<string, TimesheetRecord[]>
+	data: Record<string, TimesheetsRecord[]>
 	localRange: [string, string | null]
 	isDragging: boolean
 	handleMouseDown: (date: TZDate) => void
@@ -224,17 +225,15 @@ function TimesheetsCalendarDay({
 	)
 }
 
-interface TimesheetsCalendarProps {
-	data: TimesheetsData
-}
-
-export function TimesheetsCalendar({ data }: TimesheetsCalendarProps) {
+export function TimesheetsCalendar() {
 	const {
 		date: currentDate,
 		setParams,
 		selectedDate,
 		range,
 	} = useTimesheetsParams()
+	const { timesheets } = useTimesheets()
+
 	const { calendarDays, firstWeek } = useCalendarDates(
 		new TZDate(currentDate, TIMEZONE),
 	)
@@ -311,7 +310,7 @@ export function TimesheetsCalendar({ data }: TimesheetsCalendarProps) {
 				<TimesheetsCalendarDay
 					key={index.toString()}
 					date={date}
-					data={data}
+					data={timesheets}
 					localRange={localRange}
 					isDragging={isDragging}
 					handleMouseDown={handleMouseDown}

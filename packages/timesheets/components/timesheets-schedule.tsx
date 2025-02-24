@@ -9,7 +9,8 @@ import * as React from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheets-record-form'
 import { type TimesheetsRecordFormData } from '../forms/timesheets-record-form.schema'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { type TimesheetRecord } from '../schemas'
+import { useTimesheets } from '../providers/timesheets-provider'
+import { type TimesheetsRecord } from '../schemas'
 import {
 	transformCalendarEventToTimesheetsRecord,
 	transformTimesheetsRecordToCalendarEvent,
@@ -39,26 +40,21 @@ export type TimesheetsScheduleUpdateEvent = (
 ) => Promise<ActionResponse<void>>
 
 interface TimesheetsScheduleProps {
-	data: TimesheetRecord[]
-
-	// events
-	onCreateEvent?: TimesheetsScheduleCreateEvent
-	onDeleteEvent?: TimesheetsScheduleDeleteEvent
-	onUpdateEvent?: TimesheetsScheduleUpdateEvent
+	data: TimesheetsRecord[]
 }
 
 export function TimesheetsSchedule({
 	data: dataProp,
-	onCreateEvent,
-	onDeleteEvent,
-	onUpdateEvent,
 }: TimesheetsScheduleProps) {
+	const { onCreateEvent, onDeleteEvent, onUpdateEvent, projects } =
+		useTimesheets()
+
 	const scrollRef = React.useRef<HTMLDivElement>(null)
 	const { selectedDate, range, setParams } = useTimesheetsParams()
 	const [selectedEvent, setSelectedEvent] = React.useState<
-		TimesheetRecord | undefined
+		TimesheetsRecord | undefined
 	>(dataProp.length > 0 ? dataProp[dataProp.length - 1] : undefined)
-	const [data, setData] = React.useState<TimesheetRecord[]>(dataProp)
+	const [data, setData] = React.useState<TimesheetsRecord[]>(dataProp)
 
 	React.useEffect(() => {
 		if (scrollRef.current) {
@@ -87,13 +83,13 @@ export function TimesheetsSchedule({
 		if (isCreate) {
 			setSelectedEvent(undefined)
 
-			const result = await onCreateEvent?.({
+			const result = await onCreateEvent({
 				values,
 				selectedDate,
 				range,
 			})
 
-			if (!result?.success) return toast.error('Failed to create event')
+			if (!result.success) return toast.error('Failed to create event')
 
 			await setParams({ selectedDate: null, range: null })
 			return toast.success('Event created')
@@ -101,9 +97,9 @@ export function TimesheetsSchedule({
 			if (!values.id)
 				throw new Error('something went wrong, could not update event')
 
-			const result = await onUpdateEvent?.(values.id, values, selectedDate)
+			const result = await onUpdateEvent(values.id, values, selectedDate)
 
-			if (!result?.success) return toast.error('Failed to update event')
+			if (!result.success) return toast.error('Failed to update event')
 
 			await setParams({ selectedDate: null, range: null })
 			return toast.success('Event updated')
@@ -112,7 +108,7 @@ export function TimesheetsSchedule({
 
 	async function handleDeleteEvent(id: string) {
 		setData(data.filter((e) => e.id !== id))
-		await onDeleteEvent?.(id, selectedDate)
+		await onDeleteEvent(id, selectedDate)
 		await setParams({ selectedDate: null, range: null })
 
 		return toast.success('Event deleted')
@@ -129,10 +125,18 @@ export function TimesheetsSchedule({
 				<CalendarDay
 					selectedEvent={
 						selectedEvent
-							? transformTimesheetsRecordToCalendarEvent(selectedEvent)
+							? transformTimesheetsRecordToCalendarEvent(
+									selectedEvent,
+									projects.find((p) => p.id === selectedEvent.projectId),
+								)
 							: undefined
 					}
-					value={data.map(transformTimesheetsRecordToCalendarEvent)}
+					value={data.map((event) =>
+						transformTimesheetsRecordToCalendarEvent(
+							event,
+							projects.find((p) => p.id === event.projectId),
+						),
+					)}
 					onDeleteEvent={handleDeleteEvent}
 					onChange={(values) => {
 						setData(values.map(transformCalendarEventToTimesheetsRecord))
@@ -146,6 +150,8 @@ export function TimesheetsSchedule({
 			</ScrollArea>
 
 			<TimesheetsRecordForm
+				key={selectedEvent?.id}
+				projects={projects}
 				defaultValues={
 					selectedEvent
 						? transformTimesheetsRecordToFormData(selectedEvent, selectedDate)
