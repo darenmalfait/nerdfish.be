@@ -436,18 +436,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
-      '@types/lodash.camelcase':
-        specifier: ^4.3.9
-        version: 4.3.9
-      '@types/lodash.capitalize':
-        specifier: ^4.2.9
-        version: 4.2.9
-      '@types/lodash.merge':
-        specifier: ^4.6.9
-        version: 4.6.9
-      '@types/lodash.startcase':
-        specifier: ^4.4.9
-        version: 4.4.9
+      '@types/lodash':
+        specifier: ^4.17.15
+        version: 4.17.15
       '@types/react':
         specifier: 19.0.8
         version: 19.0.8
@@ -4225,26 +4216,17 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/lodash.camelcase@4.3.9':
-    resolution: {integrity: sha512-ys9/hGBfsKxzmFI8hckII40V0ASQ83UM2pxfQRghHAwekhH4/jWtjz/3/9YDy7ZpUd/H0k2STSqmPR28dnj7Zg==}
-
-  '@types/lodash.capitalize@4.2.9':
-    resolution: {integrity: sha512-SV1dav/WbuI816SVig4trFz8ID/m5maVzC8I/E/DejPvmlXvIhw7Y0GWxJ03UhU6qaZOj6qQnR1xxC0mP7ZXoQ==}
-
-  '@types/lodash.merge@4.6.9':
-    resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
-
   '@types/lodash.mergewith@4.6.7':
     resolution: {integrity: sha512-3m+lkO5CLRRYU0fhGRp7zbsGi6+BZj0uTVSwvcKU+nSlhjA9/QRNfuSGnD2mX6hQA7ZbmcCkzk5h4ZYGOtk14A==}
 
   '@types/lodash.mergewith@4.6.9':
     resolution: {integrity: sha512-fgkoCAOF47K7sxrQ7Mlud2TH023itugZs2bUg8h/KzT+BnZNrR2jAOmaokbLunHNnobXVWOezAeNn/lZqwxkcw==}
 
-  '@types/lodash.startcase@4.4.9':
-    resolution: {integrity: sha512-C0M4DlN1pnn2vEEhLHkTHxiRZ+3GlTegpoAEHHGXnuJkSOXyJMHGiSc+SLRzBlFZWHsBkixe6FqvEAEU04g14g==}
-
   '@types/lodash@4.17.13':
     resolution: {integrity: sha512-lfx+dftrEZcdBPczf9d0Qv0x+j/rfNCMuC6OcfXmO8gkfeNAY88PgKUbvG56whcN23gc27yenwF6oJZXGFpYxg==}
+
+  '@types/lodash@4.17.15':
+    resolution: {integrity: sha512-w/P33JFeySuhN6JLkysYUK2gEmy9kHHFN7E8ro0tkfmlDOgxBDzWEZ/J8cWA+fHqFevpswDTFZnDx+R9lbL6xw==}
 
   '@types/mdast@4.0.3':
     resolution: {integrity: sha512-LsjtqsyF+d2/yFOYaN22dHZI1Cpwkrj+g06G8+qtUKlhovPW89YhqSnfKtMbkgmEtYpH2gydRNULd6y8mciAFg==}
@@ -12633,18 +12615,6 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/lodash.camelcase@4.3.9':
-    dependencies:
-      '@types/lodash': 4.17.13
-
-  '@types/lodash.capitalize@4.2.9':
-    dependencies:
-      '@types/lodash': 4.17.13
-
-  '@types/lodash.merge@4.6.9':
-    dependencies:
-      '@types/lodash': 4.17.13
-
   '@types/lodash.mergewith@4.6.7':
     dependencies:
       '@types/lodash': 4.17.13
@@ -12653,11 +12623,9 @@ snapshots:
     dependencies:
       '@types/lodash': 4.17.13
 
-  '@types/lodash.startcase@4.4.9':
-    dependencies:
-      '@types/lodash': 4.17.13
-
   '@types/lodash@4.17.13': {}
+
+  '@types/lodash@4.17.15': {}
 
   '@types/mdast@4.0.3':
     dependencies:
