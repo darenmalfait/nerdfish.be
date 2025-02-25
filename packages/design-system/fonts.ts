@@ -1,4 +1,4 @@
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 

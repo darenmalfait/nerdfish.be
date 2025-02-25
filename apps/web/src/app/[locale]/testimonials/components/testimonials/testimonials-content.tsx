@@ -1,8 +1,8 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import { H1, H2 } from '@repo/design-system/components/ui'
-import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import { type Testimonial } from 'content-collections'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'

@@ -1,4 +1,3 @@
-import { cx } from '@nerdfish/utils'
 import {
 	Button,
 	Dialog,
@@ -12,8 +11,8 @@ import {
 	DialogDescription,
 	DialogTrigger,
 } from '@repo/design-system/components/ui'
-
-import { PlusIcon, PrinterIcon } from '@repo/design-system/lib/icons'
+import { PlusIcon, PrinterIcon } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { type TimeEntry } from '../utils'

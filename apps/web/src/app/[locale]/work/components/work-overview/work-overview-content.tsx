@@ -18,8 +18,8 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { H1 } from '@repo/design-system/components/ui'
-import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { useTranslations } from '@repo/i18n/client'
+import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
 import * as React from 'react'
 import { filterWork, mapWorkToArticle } from '../../utils'

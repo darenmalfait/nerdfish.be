@@ -1,3 +1,5 @@
+export { camelCase, capitalize, startCase } from 'lodash'
+
 export function stripPreSlash(value: string): string {
 	return value ? value.replace(/^\/+/g, '') : value
 }

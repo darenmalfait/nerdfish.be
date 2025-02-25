@@ -1,5 +1,5 @@
-import { cx } from '@nerdfish/utils'
 import { Skeleton } from '@repo/design-system/components/ui'
+import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
 import type * as React from 'react'
 

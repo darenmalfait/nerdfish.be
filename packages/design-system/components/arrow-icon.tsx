@@ -1,4 +1,4 @@
-import { cva, cx, type VariantProps } from '@nerdfish/utils'
+import { cva, cx, type VariantProps } from '@repo/lib/utils/base'
 import { ArrowRight } from 'lucide-react'
 import * as React from 'react'
 

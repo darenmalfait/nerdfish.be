@@ -1,9 +1,9 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 import Link from 'next/link'
 import * as React from 'react'
-import { CheckIcon } from '../lib/icons'
+import { CheckIcon } from '../icons'
 import {
 	Button,
 	Card,

@@ -1,6 +1,5 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import {
 	Button,
 	Drawer,
@@ -12,8 +11,9 @@ import {
 	H3,
 	ScrollArea,
 } from '@repo/design-system/components/ui'
-import { Logo, MenuIcon, XIcon } from '@repo/design-system/lib/icons'
-import { stripPreSlash } from '@repo/design-system/lib/utils/string'
+import { Logo, MenuIcon, XIcon } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 import {

@@ -2,7 +2,7 @@
 
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { H2 } from '@repo/design-system/components/ui'
-import { ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { ArrowRightIcon } from '@repo/design-system/icons'
 import type * as React from 'react'
 import { Link } from './link'
 

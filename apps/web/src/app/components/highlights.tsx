@@ -1,6 +1,5 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import { type Article } from '@repo/design-system/components/article-overview'
 import {
 	HighlightCard,
@@ -12,6 +11,7 @@ import {
 	HighlightCardTitle,
 } from '@repo/design-system/components/highlight-card'
 import { useTranslations } from '@repo/i18n/client'
+import { cx } from '@repo/lib/utils/base'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
 import { Link } from './link'

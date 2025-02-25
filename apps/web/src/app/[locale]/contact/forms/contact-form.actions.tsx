@@ -1,15 +1,15 @@
 'use server'
 
-import { type ActionResponse } from '@repo/design-system/lib/actions'
 import { resend } from '@repo/email'
 import { ContactEmail } from '@repo/email/templates/contact'
+import { type ActionResponse } from '@repo/lib/types'
 import { parseError } from '@repo/observability/error'
 import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'
 import { createSafeActionClient } from 'next-safe-action'
 import { contactFormSchema } from './contact-form.schema'
 
-export const submitContactForm = createSafeActionClient()
+export const submitContactFormAction = createSafeActionClient()
 	.schema(contactFormSchema)
 	.action(async ({ parsedInput }): Promise<ActionResponse<void>> => {
 		const { success, error: recaptchaError } = await verifyRecaptcha(

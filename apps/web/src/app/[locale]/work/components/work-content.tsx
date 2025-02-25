@@ -1,4 +1,3 @@
-import { cx } from '@nerdfish/utils'
 import {
 	CategoryIndicator,
 	getCategoryColors,
@@ -10,7 +9,8 @@ import {
 	Paragraph,
 	Skeleton,
 } from '@repo/design-system/components/ui'
-import { ArrowRight } from '@repo/design-system/lib/icons'
+import { ArrowRight } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import { type Project } from 'content-collections'
 import Image from 'next/image'
 import Link from 'next/link'

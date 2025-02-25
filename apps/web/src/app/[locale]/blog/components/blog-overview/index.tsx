@@ -7,8 +7,8 @@ import {
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { Skeleton } from '@repo/design-system/components/ui'
-import { type PartialDeep } from '@repo/design-system/lib/utils/types'
 import { getLocale } from '@repo/i18n/server'
+import { type PartialDeep } from '@repo/lib/types'
 import {
 	type Blog as BlogJsonLd,
 	JsonLd,

@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.2",
-    "@nerdfish/utils": "^2.0.1",
     "@repo/design-system": "workspace:*",
-    "@repo/i18n": "workspace:*"
+    "@repo/i18n": "workspace:*",
+    "@repo/lib": "workspace:*"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*"

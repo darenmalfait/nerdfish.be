@@ -1,9 +1,9 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import { Badge } from '@repo/design-system/components/ui'
-import { ClockIcon, ArrowRightIcon } from '@repo/design-system/lib/icons'
+import { ClockIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { type Locale } from '@repo/i18n/types'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 

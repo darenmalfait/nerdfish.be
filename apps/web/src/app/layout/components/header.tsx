@@ -1,5 +1,5 @@
 import { Button } from '@repo/design-system/components/ui'
-import { Logo } from '@repo/design-system/lib/icons'
+import { Logo } from '@repo/design-system/icons'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { MainNavigation } from './navigation'
 import { Link } from '~/app/components/link'

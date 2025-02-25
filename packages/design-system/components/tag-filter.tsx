@@ -1,6 +1,6 @@
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
-import { FilterIcon } from '../lib/icons'
+import { FilterIcon } from '../icons'
 import { Tag } from './tag'
 import {
 	Button,

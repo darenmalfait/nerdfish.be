@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/ui'
-import { cx } from '@nerdfish/utils'
+import { cx } from '@repo/lib/utils/base'
 import { motion, useMotionValue, useSpring } from 'motion/react'
 import * as React from 'react'
 

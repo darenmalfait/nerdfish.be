@@ -1,6 +1,5 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import {
 	Accordion,
 	AccordionContent,
@@ -8,6 +7,7 @@ import {
 	AccordionTrigger,
 	H3,
 } from '@repo/design-system/components/ui'
+import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 
 export interface FaqItemProps

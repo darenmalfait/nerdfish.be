@@ -1,4 +1,3 @@
-import { cx } from '@nerdfish/utils'
 import { Tilt } from '@repo/design-system/components/tilt'
 import {
 	CSSIcon,
@@ -15,7 +14,8 @@ import {
 	TypescriptIcon,
 	VSCodeIcon,
 	WebflowIcon,
-} from '@repo/design-system/lib/icons'
+} from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import type * as React from 'react'
 
 const skillIconMap: Record<string, React.ElementType> = {

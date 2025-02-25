@@ -1,6 +1,5 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import {
 	PriceCard,
 	PriceCardAction,
@@ -12,6 +11,7 @@ import {
 	PriceCardTitle,
 } from '@repo/design-system/components/price-card'
 import { useTranslations } from '@repo/i18n/client'
+import { cx } from '@repo/lib/utils/base'
 import type * as React from 'react'
 import { Link } from './link'
 

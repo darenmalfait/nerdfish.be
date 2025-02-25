@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
 import { Grid, GridCard, Skeleton } from '@repo/design-system/components/ui'
+import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'

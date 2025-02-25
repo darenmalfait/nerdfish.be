@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
-import { Check, Copy } from '../lib/icons'
+import { cx } from '@repo/lib/utils/base'
+import { Check, Copy } from '../icons'
 import {
 	Button,
 	type ButtonProps,

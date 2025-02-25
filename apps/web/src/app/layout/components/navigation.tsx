@@ -1,6 +1,5 @@
 'use client'
 
-import { cva, cx } from '@nerdfish/utils'
 import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import {
 	Button,
@@ -11,9 +10,10 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 } from '@repo/design-system/components/ui'
-import { stripPreSlash } from '@repo/design-system/lib/utils/string'
 import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
+import { cva, cx } from '@repo/lib/utils/base'
+import { stripPreSlash } from '@repo/lib/utils/string'
 import * as React from 'react'
 import { usePathname } from 'routing'
 import {

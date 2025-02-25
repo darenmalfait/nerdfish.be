@@ -7,7 +7,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@repo/design-system/components/ui'
-import { GlobeIcon } from '@repo/design-system/lib/icons'
+import { GlobeIcon } from '@repo/design-system/icons'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { i18n, supportedLanguages } from '../config'

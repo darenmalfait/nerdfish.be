@@ -1,7 +1,7 @@
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import { Section } from '@repo/design-system/components/section'
 import { Button, H1, Paragraph } from '@repo/design-system/components/ui'
-import { ChevronLeftIcon } from '@repo/design-system/lib/icons'
+import { ChevronLeftIcon } from '@repo/design-system/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 

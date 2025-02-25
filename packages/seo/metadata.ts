@@ -1,4 +1,4 @@
-import { merge } from '@repo/design-system/lib/utils/merge'
+import { merge } from '@repo/lib/utils/object'
 import { keys as core } from '@repo/next-config/keys'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'

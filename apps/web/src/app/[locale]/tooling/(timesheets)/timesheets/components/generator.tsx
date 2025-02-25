@@ -3,7 +3,6 @@
 
 import * as React from 'react'
 import { useTimesheet } from '../timesheet-provider'
-import { CalendarOverview } from './calendar-overview'
 import { TimesheetsContent } from './timesheets-content'
 import { Toolbar } from './toolbar'
 
@@ -27,9 +26,6 @@ export function TimesheetGenerator() {
 	return (
 		<div className="p-md pb-3xl print:p-0">
 			<div className="mx-auto w-[80mm] print:[box-shadow:none]">
-				<div className="rounded-base p-md pb-lg shadow-outline mb-xl flex justify-center print:hidden">
-					<CalendarOverview />
-				</div>
 				<div
 					ref={ref}
 					className="rounded-base p-md pb-lg shadow-outline relative"

@@ -1,6 +1,10 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
+import {
+	type ElementState,
+	useElementState,
+} from '@repo/lib/hooks/use-element-state'
+import { cx } from '@repo/lib/utils/base'
 import { type Variant, motion } from 'motion/react'
 import Link from 'next/link'
 import type * as React from 'react'
@@ -8,11 +12,7 @@ import {
 	ArrowIcon,
 	type ArrowIconVariants,
 	type ArrowIconProps,
-} from '../lib/icons'
-import {
-	type ElementState,
-	useElementState,
-} from '../lib/utils/use-element-state'
+} from '../icons'
 
 const arrowVariants: Record<
 	NonNullable<ArrowIconVariants['direction']>,

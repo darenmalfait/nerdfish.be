@@ -1,0 +1,22 @@
+{
+  "name": "@repo/timesheets",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@repo/calendar": "workspace:*",
+    "@repo/design-system": "workspace:*",
+    "@repo/lib": "workspace:*",
+    "@repo/location": "workspace:*",
+    "nuqs": "^2.3.2",
+    "react-hook-form": "^7.54.2"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}
