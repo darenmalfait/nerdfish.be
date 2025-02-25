@@ -14,7 +14,7 @@ runs:
 
     - uses: pnpm/action-setup@v4
 
-    - uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
+    - uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
       name: pnpm-cache
       id: pnpm-cache
       with:
@@ -26,7 +26,7 @@ runs:
           ${{ runner.os }}-pnpm
 
     - name: Cache TypeScript TSBuild Info Files
-      uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
+      uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4
       with:
         path: '*/*/node_modules/.cache/tsbuildinfo.json'
         # Commit hash is for working around this: https://github.com/actions/cache/issues/106
