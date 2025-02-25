@@ -29,10 +29,11 @@ import { useTranslations } from '@repo/i18n/client'
 import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'
 import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
+import { useAction } from 'next-safe-action/hooks'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { submitContactForm } from './contact-form.actions'
+import { submitContactFormAction } from './contact-form.actions'
 import {
 	type ContactFormData,
 	contactFormSchema,
@@ -57,18 +58,14 @@ function Fieldset({
 const BUDGET_RANGE = [500, 10000]
 
 export function ContactForm() {
+	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
+	const [error, setError] = React.useState<string>()
+
 	const tZod = useTranslations('zod')
 	const tFormFields = useTranslations('contact.form.fields.names')
 	const tCustomErrors = useTranslations('contact.form.fields.errors')
 	const t = useTranslations('contact.form')
 	z.setErrorMap(makeZodI18nMap({ tZod, tFormFields, tCustomErrors }))
-
-	const numberFormatter = useNumberFormatter({
-		notation: 'compact',
-	})
-	const { execute } = useRecaptcha()
-	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
-	const [error, setError] = React.useState<string>()
 
 	const form = useForm<ContactFormData>({
 		resolver: zodResolver(contactFormSchema),
@@ -86,23 +83,34 @@ export function ContactForm() {
 		},
 	})
 
-	async function onSubmit(data: ContactFormData) {
-		try {
-			setError(undefined)
-			const recaptchaResponse = await execute()
-
-			const result = await submitContactForm({
-				...data,
-				recaptchaResponse,
-			})
-
-			if (result?.data?.success) {
+	const submitContactForm = useAction(submitContactFormAction, {
+		onSuccess: ({ data }) => {
+			if (data?.success) {
 				setIsSubmitted(true)
 				return form.reset()
 			}
 
-			if (result?.data?.error) setError(result.data.error)
+			if (data?.error) setError(data.error)
 			else setError(t('fields.errors.generic'))
+		},
+		onError: () => {
+			setError('Something went wrong')
+		},
+	})
+	const numberFormatter = useNumberFormatter({
+		notation: 'compact',
+	})
+	const recaptcha = useRecaptcha()
+
+	async function onSubmit(data: ContactFormData) {
+		try {
+			setError(undefined)
+			const recaptchaResponse = await recaptcha.execute()
+
+			return submitContactForm.execute({
+				...data,
+				recaptchaResponse,
+			})
 		} catch (e) {
 			const errorMessage = parseError(e)
 			setError(errorMessage)

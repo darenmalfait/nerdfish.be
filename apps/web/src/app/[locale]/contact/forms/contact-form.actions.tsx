@@ -9,7 +9,7 @@ import { env } from 'env'
 import { createSafeActionClient } from 'next-safe-action'
 import { contactFormSchema } from './contact-form.schema'
 
-export const submitContactForm = createSafeActionClient()
+export const submitContactFormAction = createSafeActionClient()
 	.schema(contactFormSchema)
 	.action(async ({ parsedInput }): Promise<ActionResponse<void>> => {
 		const { success, error: recaptchaError } = await verifyRecaptcha(
