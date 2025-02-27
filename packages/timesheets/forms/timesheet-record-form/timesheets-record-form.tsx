@@ -17,12 +17,12 @@ import {
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
-import { type TimesheetsProject } from '../schemas'
+import { TimesheetsSelectProject } from '../../components/timesheets-select-project'
+import { type TimesheetsProject } from '../../schemas'
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,
 } from './timesheets-record-form.schema'
-import { TimesheetsSelectProject } from './timesheets-select-project'
 
 interface TimesheetsRecordFormProps {
 	defaultValues?: TimesheetsRecordFormData

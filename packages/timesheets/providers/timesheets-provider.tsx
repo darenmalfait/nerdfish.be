@@ -13,8 +13,9 @@ import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
 import { type ActionResponse } from '@repo/lib/types'
 import { getCrypto } from '@repo/lib/utils/misc'
 import * as React from 'react'
-import { type TimesheetsProjectFormData } from '../forms/timesheets-project-form.schema'
-import { type TimesheetsRecordFormData } from '../forms/timesheets-record-form.schema'
+
+import { type TimesheetsProjectFormData } from '../forms/timesheet-project-form/timesheets-project-form.schema'
+import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import {
 	type TimesheetsRecord,
 	type TimesheetsData,

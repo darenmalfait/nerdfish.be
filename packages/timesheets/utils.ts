@@ -8,7 +8,7 @@ import {
 	addSeconds,
 	differenceInSeconds,
 } from '@repo/calendar/utils'
-import { type TimesheetsRecordFormData } from './forms/timesheets-record-form.schema'
+import { type TimesheetsRecordFormData } from './forms/timesheet-record-form/timesheets-record-form.schema'
 import { type TimesheetsProject, type TimesheetsRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'

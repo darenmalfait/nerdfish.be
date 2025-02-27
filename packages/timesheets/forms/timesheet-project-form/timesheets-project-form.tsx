@@ -26,7 +26,7 @@ import { cx } from '@repo/lib/utils/base'
 import { uniqueCurrencies } from '@repo/location/currencies'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
-import { type TimesheetsProject } from '../schemas'
+import { type TimesheetsProject } from '../../schemas'
 import {
 	timesheetsProjectFormSchema,
 	type TimesheetsProjectFormData,

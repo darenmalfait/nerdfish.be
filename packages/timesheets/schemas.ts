@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { timesheetsProjectFormSchema } from './forms/timesheets-project-form.schema'
-import { timesheetsRecordFormSchema } from './forms/timesheets-record-form.schema'
+import { timesheetsProjectFormSchema } from './forms/timesheet-project-form/timesheets-project-form.schema'
+import { timesheetsRecordFormSchema } from './forms/timesheet-record-form/timesheets-record-form.schema'
 
 export const timesheetsProjectSchema = timesheetsProjectFormSchema.extend({
 	id: z.string(),
