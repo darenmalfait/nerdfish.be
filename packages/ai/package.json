@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^1.1.13",
+    "@ai-sdk/openai": "^1.1.14",
     "@t3-oss/env-nextjs": "^0.12.0",
-    "ai": "^4.1.45",
+    "ai": "^4.1.46",
     "zod": "^3.24.2"
   },
   "devDependencies": {
