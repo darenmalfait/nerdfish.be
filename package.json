@@ -35,13 +35,13 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@nerdfish/config": "^1.8.0",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.4.2",
+    "@turbo/gen": "^2.4.4",
     "dotenv-cli": "^8.0.0",
     "eslint": "^9.21.0",
     "husky": "^9.1.7",
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.5.2",
-    "turbo": "^2.4.2"
+    "turbo": "^2.4.4"
   },
-  "packageManager": "pnpm@10.4.1"
+  "packageManager": "pnpm@10.5.2"
 }
