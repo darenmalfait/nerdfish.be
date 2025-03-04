@@ -29,7 +29,7 @@ export function HighlightCardImage({
 		<div
 			{...props}
 			className={cx(
-				'mt-lg aspect-h-4 aspect-w-3 rounded-container pointer-events-none relative col-span-full h-0 overflow-hidden lg:col-span-4 lg:col-start-8 lg:mt-0',
+				'mt-lg aspect-h-4 aspect-w-3 pointer-events-none relative col-span-full h-0 overflow-hidden rounded-[calc(theme(borderRadius.container)-theme(padding.lg))] lg:col-span-4 lg:col-start-9 lg:mt-0',
 				className,
 			)}
 		>
@@ -61,7 +61,7 @@ export function HighlightCardContent({
 		<div
 			{...props}
 			className={cx(
-				'py-lg col-span-4 flex flex-col md:col-span-6 lg:col-span-5 lg:col-start-2 lg:justify-start',
+				'col-span-4 flex h-full flex-col md:col-span-6 lg:col-span-7 lg:justify-start',
 				className,
 			)}
 		>
@@ -223,7 +223,7 @@ export function HighlightCard({
 			{...props}
 		>
 			<div className="'rounded-container lg:bg-transparent' block no-underline outline-none">
-				<div className="rounded-container p-lg relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12 lg:px-0">
+				<div className="rounded-container p-lg relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12">
 					{children}
 				</div>
 			</div>
