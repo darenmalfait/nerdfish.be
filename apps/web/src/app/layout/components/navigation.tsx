@@ -32,7 +32,7 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'space-y-sm rounded-base p-md focus-within:outline-active hover:bg-muted group relative flex h-full w-full select-none flex-col justify-end leading-none no-underline outline-none transition-colors',
+						'space-y-sm p-md focus-within:outline-active hover:bg-muted group relative flex h-full w-full select-none flex-col justify-end rounded-[calc(theme(borderRadius.base)-theme(padding.xs))] leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
