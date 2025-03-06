@@ -11,7 +11,7 @@
     "@content-collections/cli": "^0.1.6",
     "@content-collections/core": "^0.8.0",
     "@content-collections/mdx": "^0.2.0",
-    "@content-collections/next": "^0.2.4",
+    "@content-collections/next": "^0.2.5",
     "@repo/design-system": "workspace:*",
     "fumadocs-core": "^14.7.7",
     "lqip-modern": "^2.2.1",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.13.5",
+    "@types/node": "22.13.8",
     "@types/react": "19.0.10",
     "@types/react-dom": "^19.0.4",
     "next": "15.2.0"
