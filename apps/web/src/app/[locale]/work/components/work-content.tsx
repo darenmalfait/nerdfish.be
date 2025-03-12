@@ -61,7 +61,7 @@ function WorkContent({
 													<span className={getCategoryColors(category)}>
 														<ArrowRight
 															className={cx(
-																'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 text-current transition-all',
+																'ml-sm group-hover:translate-x-xs group-hover:text-foreground size-4 text-current transition-all',
 															)}
 														/>
 													</span>

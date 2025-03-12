@@ -10,7 +10,7 @@ const subtitle = "Sorry, we couldn't find the page you were looking for."
 
 export default function Custom404() {
 	return (
-		<InViewBackground className="bg-muted">
+		<InViewBackground className="bg-background-muted">
 			<Section className="gap-md max-w-5xl text-center">
 				<Image
 					placeholder="blur"
@@ -22,7 +22,9 @@ export default function Custom404() {
 				/>
 				<div className="mb-lg text-center">
 					<H1 variant="primary">{title}</H1>
-					<Paragraph className="text-muted text-xl">{subtitle}</Paragraph>
+					<Paragraph className="text-foreground-muted text-xl">
+						{subtitle}
+					</Paragraph>
 				</div>
 				<Button size="lg" asChild>
 					<Link href="/" className="mx-auto flex w-auto">

@@ -8,14 +8,14 @@
 	}
 
 	body {
-		@apply bg-primary min-h-screen overscroll-none;
+		@apply bg-background min-h-screen overscroll-none;
 	}
 
 	.prose pre {
-		@apply bg-muted;
+		@apply bg-background-muted;
 	}
 
 	.prose pre {
-		@apply bg-muted;
+		@apply bg-background-muted;
 	}
 }

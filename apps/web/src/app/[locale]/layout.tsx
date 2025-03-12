@@ -41,7 +41,7 @@ export default async function RootLayout(props: {
 							<Header />
 
 							<main className="rounded-b-container relative w-full max-w-full flex-1">
-								<div className="-z-1 rounded-container bg-primary absolute inset-0" />
+								<div className="-z-1 rounded-container bg-background absolute inset-0" />
 								<React.Suspense
 									fallback={
 										<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">

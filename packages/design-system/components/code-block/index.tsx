@@ -14,7 +14,7 @@ export function CodeBlock(props: { children: any; lang?: string }) {
 	const theme = {
 		...themes.shadesOfPurple,
 		plain: {
-			backgroundColor: 'bg-muted',
+			backgroundColor: 'bg-background-muted',
 			color: themes.shadesOfPurple.plain.color,
 		},
 	}

@@ -10,7 +10,7 @@ export function Header() {
 			<header className="relative z-40 w-full flex-none">
 				<div className="container max-w-none">
 					<div className="py-mdx relative flex w-full items-center">
-						<Button asChild variant="link" className="-mx-sm text-primary">
+						<Button asChild variant="link" className="-mx-sm text-foreground">
 							<div>
 								<Link href="/" aria-label="Home">
 									<Logo className="h-6 w-auto fill-white" />

@@ -19,10 +19,12 @@ const chatMessageVariants = cva(
 	{
 		variants: {
 			userRole: {
-				user: 'ml-auto w-full max-w-fit rounded-br-none bg-info text-right text-info',
-				assistant: 'mr-auto w-full max-w-fit rounded-tl-none bg-muted',
-				system: 'mr-auto w-full max-w-fit rounded-tl-none bg-muted',
-				error: 'mr-auto w-full max-w-fit rounded-tl-none bg-danger text-danger',
+				user: 'ml-auto w-full max-w-fit rounded-br-none bg-info-background text-right text-info-foreground',
+				assistant:
+					'mr-auto w-full max-w-fit rounded-tl-none bg-background-muted',
+				system: 'mr-auto w-full max-w-fit rounded-tl-none bg-background-muted',
+				error:
+					'mr-auto w-full max-w-fit rounded-tl-none bg-danger-background text-danger-foreground',
 			},
 		},
 		defaultVariants: {
@@ -245,7 +247,7 @@ export function Chat({
 				/>
 			</form>
 			<Separator className="my-md" />
-			<p className="text-muted text-sm">{t('disclaimer')}</p>
+			<p className="text-foreground-muted text-sm">{t('disclaimer')}</p>
 		</div>
 	)
 }

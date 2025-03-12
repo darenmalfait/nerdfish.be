@@ -89,7 +89,7 @@ export function PriceCardFeature({
 }: PriceCardFeatureProps) {
 	return (
 		<li className={cx('gap-sm flex items-center', className)} {...props}>
-			<CheckIcon className="text-success size-3" />
+			<CheckIcon className="text-success-foreground size-3" />
 			<span className="font-medium">{children}</span>
 		</li>
 	)
@@ -110,9 +110,9 @@ export function PriceCardDescription({
 	return (
 		<CardDescription
 			className={cx(
-				'text-muted text-lg',
+				'text-foreground-muted text-lg',
 				{
-					'text-inverted/60': isPopular,
+					'text-background/60': isPopular,
 				},
 				className,
 			)}
@@ -191,8 +191,8 @@ export function PriceCard({
 				className={cx(
 					'p-md',
 					{
-						'bg-inverted text-inverted': isPopular,
-						'bg-secondary': !isPopular,
+						'bg-foreground text-background': isPopular,
+						'bg-background-secondary': !isPopular,
 					},
 					className,
 				)}

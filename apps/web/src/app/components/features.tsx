@@ -42,7 +42,7 @@ const featureCardVariants = cva(
 		variants: {
 			variant: {
 				default: '',
-				secondary: 'rounded-container bg-muted p-lg',
+				secondary: 'rounded-container bg-background-muted p-lg',
 			},
 		},
 		defaultVariants: {
@@ -73,7 +73,7 @@ function Feature({
 		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
-					className="mb-lg aspect-1 text-primary flex items-center justify-center"
+					className="mb-lg aspect-1 text-foreground flex items-center justify-center"
 					aria-hidden
 				>
 					<Icon className="flex h-5 shrink-0" />
@@ -81,10 +81,10 @@ function Feature({
 			) : null}
 			<div className="flex h-full flex-col justify-between">
 				<div>
-					<H3 className="mb-md text-primary flex flex-none items-end">
+					<H3 className="mb-md text-foreground flex flex-none items-end">
 						{title}
 					</H3>
-					<p className="text-primary/80 flex-auto text-lg">{description}</p>
+					<p className="text-foreground/80 flex-auto text-lg">{description}</p>
 				</div>
 				<DetailLink href={href} title={title ?? ''} />
 			</div>

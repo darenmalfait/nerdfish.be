@@ -52,7 +52,7 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 			isReverse
 			as="li"
 			className={cx(
-				'aspect-1 rounded-container bg-muted group/skill relative col-span-1 flex w-full flex-col items-center justify-center overflow-hidden',
+				'aspect-1 rounded-container bg-background-muted group/skill relative col-span-1 flex w-full flex-col items-center justify-center overflow-hidden',
 				className,
 			)}
 			{...props}

@@ -29,14 +29,14 @@ export function ContactFormViaButton() {
 				className="motion-opacity-in-[0%] motion-delay-500 group w-full"
 			>
 				{t('openFormLabel')}
-				<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-inverted transition-all" />
+				<ArrowRightIcon className="ml-md text-accent group-hover:translate-x-sm group-hover:text-background transition-all" />
 			</MagnetButton>
 			<Drawer
 				repositionInputs={false}
 				open={contactFormOpen}
 				onOpenChange={setContactFormOpen}
 			>
-				<DrawerContent className="bg-primary max-h-[85vh]">
+				<DrawerContent className="bg-background max-h-[85vh]">
 					<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
 					<div className="pb-xl container">
 						<SectionHeader>

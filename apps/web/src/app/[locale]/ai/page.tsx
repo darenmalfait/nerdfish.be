@@ -71,7 +71,7 @@ export default async function AiPage(props: PageProps) {
 					</SectionHeader>
 
 					<div className="relative">
-						<Chat className="rounded-container bg-primary p-lg shadow-outline h-[75vh]" />
+						<Chat className="rounded-container bg-background p-lg shadow-outline h-[75vh]" />
 					</div>
 				</Section>
 			</InViewBackground>

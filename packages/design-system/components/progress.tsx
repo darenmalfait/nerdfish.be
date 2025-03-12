@@ -10,7 +10,7 @@ export function Progress({ className, value, ...props }: ProgressProps) {
 	return (
 		<ProgressPrimitive.Root
 			className={cx(
-				'bg-secondary relative h-4 w-full overflow-hidden rounded-full',
+				'bg-background-secondary relative h-4 w-full overflow-hidden rounded-full',
 				className,
 			)}
 			{...props}

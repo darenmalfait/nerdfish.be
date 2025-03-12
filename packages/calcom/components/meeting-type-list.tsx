@@ -26,7 +26,7 @@ export function MeetingTypeList({
 
 				return (
 					<li
-						className="rounded-base bg-primary shadow-outline hover:bg-muted"
+						className="rounded-base bg-background shadow-outline hover:bg-background-muted"
 						key={slug}
 					>
 						<button

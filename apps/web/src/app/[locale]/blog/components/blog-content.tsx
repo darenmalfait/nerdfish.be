@@ -60,7 +60,7 @@ function BlogContent({
 					</div>
 					<header className="flex flex-col">
 						{date ? (
-							<span className="mb-xs text-muted text-lg">
+							<span className="mb-xs text-foreground-muted text-lg">
 								<DateFormatter dateString={date} format="dd MMMM yyyy" />
 							</span>
 						) : null}
