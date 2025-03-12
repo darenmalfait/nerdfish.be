@@ -382,8 +382,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/ui':
-        specifier: ^7.9.1
-        version: 7.9.1(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(vue@3.5.12(typescript@5.8.2))
+        specifier: ^7.10.0
+        version: 7.10.0(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(vue@3.5.12(typescript@5.8.2))
       '@number-flow/react':
         specifier: ^0.5.5
         version: 0.5.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -672,8 +672,8 @@ importers:
   packages/tailwind-config:
     dependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^3.8.2
-        version: 3.8.2(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2))
+        specifier: ^3.9.0
+        version: 3.9.0(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2))
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))
@@ -2323,14 +2323,14 @@ packages:
   '@nerdfish/config@1.8.0':
     resolution: {integrity: sha512-/MibSYgyUnc3D+V0VeXWiVzhH0b4U4McH6EC0tatbOn0zZQCNpAGmmy12VQrun4iXU+ZmS5TKZKrk9fdYXdNuA==}
 
-  '@nerdfish/tailwind-config@3.8.2':
-    resolution: {integrity: sha512-lkj272Bx2iJKCgsDxaBlsDFvKNLiNcBWJ2yVlbKBLePPPixxNxbw7yK2tfpcg8NH98CpOl45bCd0pvrifu1X5g==}
+  '@nerdfish/tailwind-config@3.9.0':
+    resolution: {integrity: sha512-YgPp5ScwvkeCadT7HbW7mB8UvaTOq8Zx/ubFjv8aZbbgod1oNpn9lSrdNVvUKGHTKgTzcGXiY4UhvdW0T1EmgA==}
 
   '@nerdfish/theme@2.5.1':
     resolution: {integrity: sha512-5h3fuCdRf6UP2fydpRjuXKsapsq1Ru4E0zSDbtwlP9CQySmH1xxl27aU+yzRRf2tKFt6kunwWJkqbe4MJWCo3g==}
 
-  '@nerdfish/ui@7.9.1':
-    resolution: {integrity: sha512-fgfMVgYPKGu8Bt15hit+aHQO2kfyXRAW/xecyjbLMrrrsHBCU8Xaq6jqnVk6p1cB0Yl8OzEt2RN0li6YcgmJjg==}
+  '@nerdfish/ui@7.10.0':
+    resolution: {integrity: sha512-9T1Bb8eq6U+pSwsXidWilFbJWyafBJBkwr+STZoTsJ8E10Z2RAQxiQrwNRl9lfjtCaWXBDoE0MvWHFhJrpXkYg==}
 
   '@nerdfish/utils@2.0.1':
     resolution: {integrity: sha512-ibKCDPjpDVCh9s22cC4c/Y9ChixMHWeN2xbkVxdQfCdC8eNZ3lwColyIPa+ZajSw3cX8gT/2L/qYoKYH/xFGEQ==}
@@ -6446,8 +6446,8 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
 
-  lucide-react@0.475.0:
-    resolution: {integrity: sha512-NJzvVu1HwFVeZ+Gwq2q00KygM1aBhy/ZrhY9FsAgJtpB+E4R7uxRk9M2iKvHa6/vNxZydIB59htha4c2vvwvVg==}
+  lucide-react@0.477.0:
+    resolution: {integrity: sha512-yCf7aYxerFZAbd8jHJxjwe1j7jEMPptjnaOqdYeirFnEy85cNR3/L+o0I875CYFYya+eEVzZSbNuRk8BZPDpVw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -10351,7 +10351,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/tailwind-config@3.8.2(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2))':
+  '@nerdfish/tailwind-config@3.9.0(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2))':
     dependencies:
       '@nerdfish/theme': 2.5.1
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2))
@@ -10362,7 +10362,7 @@ snapshots:
     dependencies:
       '@nerdfish/utils': 2.0.1
 
-  '@nerdfish/ui@7.9.1(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(vue@3.5.12(typescript@5.8.2))':
+  '@nerdfish/ui@7.10.0(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(vue@3.5.12(typescript@5.8.2))':
     dependencies:
       '@nerdfish/utils': 2.0.1
       '@radix-ui/react-accordion': 1.2.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -10391,7 +10391,7 @@ snapshots:
       cmdk: 1.0.4(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       date-fns: 4.1.0
       input-otp: 1.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      lucide-react: 0.475.0(react@19.0.0)
+      lucide-react: 0.477.0(react@19.0.0)
       react: 19.0.0
       react-aria: 3.37.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-day-picker: 8.10.1(date-fns@4.1.0)(react@19.0.0)
@@ -15183,7 +15183,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  lucide-react@0.475.0(react@19.0.0):
+  lucide-react@0.477.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 

@@ -104,7 +104,7 @@ export function HighlightCardSubtitle({
 		<div
 			{...props}
 			className={cx(
-				'mt-md text-primary line-clamp-2 text-xl font-bold',
+				'mt-md text-foreground line-clamp-2 text-xl font-bold',
 				className,
 			)}
 		/>
@@ -128,7 +128,7 @@ export function HighlightCardCategory({
 				variant="default"
 				{...props}
 				className={cx(
-					'mb-md bg-inverted/10 px-md py-sm bg-primary text-primary w-auto text-base',
+					'mb-md bg-foreground/10 px-md py-sm bg-background text-foreground w-auto text-base',
 					className,
 				)}
 			>
@@ -152,7 +152,7 @@ export function HighlightCardDescription({
 		<p
 			{...props}
 			className={cx(
-				'mt-md text-primary/80 line-clamp-2 text-xl font-semibold',
+				'mt-md text-foreground/80 line-clamp-2 text-xl font-semibold',
 				className,
 			)}
 		>
@@ -187,14 +187,14 @@ export function HighlightCardCTA({
 				size="lg"
 				variant="ghost"
 				asChild
-				className="bg-primary/70 hover:bg-primary group"
+				className="bg-background/70 hover:bg-background group"
 			>
 				<LinkElement href={href} {...props}>
 					{children}{' '}
 					<span className={getCategoryColors(category ?? 'unknown')}>
 						<ArrowRightIcon
 							className={cx(
-								'ml-sm group-hover:translate-x-xs group-hover:text-primary size-4 transition-transform',
+								'ml-sm group-hover:translate-x-xs group-hover:text-foreground size-4 transition-transform',
 							)}
 						/>
 					</span>
@@ -217,7 +217,7 @@ export function HighlightCard({
 	return (
 		<div
 			className={cx(
-				'focus-outline rounded-container bg-muted relative w-full max-w-full overflow-hidden outline-none',
+				'focus-outline rounded-container bg-background-muted relative w-full max-w-full overflow-hidden outline-none',
 				className,
 			)}
 			{...props}

@@ -23,7 +23,7 @@ function WikiContent({ data }: { data: Wiki }) {
 
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
-						<span className="mb-xs text-muted text-lg">
+						<span className="mb-xs text-foreground-muted text-lg">
 							<DateFormatter dateString={date} format="dd MMMM yyyy" />
 						</span>
 					) : null}

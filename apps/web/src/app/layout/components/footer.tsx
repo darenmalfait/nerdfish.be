@@ -18,7 +18,7 @@ function Disclaimer() {
 					<div>
 						<Logo className="h-4 w-auto items-center text-current" />
 					</div>
-					<div className="text-primary/80 flex justify-start text-sm">
+					<div className="text-foreground/80 flex justify-start text-sm">
 						© {currentYear} {companyInfo.companyName}
 					</div>
 				</div>
@@ -36,18 +36,18 @@ function Disclaimer() {
 
 function SiteFooterHeading() {
 	return (
-		<H1 as="h2" className="mb-xl py-lg text-primary">
+		<H1 as="h2" className="mb-xl py-lg text-foreground">
 			<Link
 				href="/contact"
-				className="!text-primary group"
+				className="!text-foreground group"
 				aria-label="Let’s work together"
 			>
 				<TextSlideUp>
-					<span className="!text-primary">
+					<span className="!text-foreground">
 						Let’s work{' '}
 						<ArrowRight className="ml-xs group-hover:translate-x-xs group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
-					<span className="!text-primary">together</span>
+					<span className="!text-foreground">together</span>
 				</TextSlideUp>
 			</Link>
 		</H1>
@@ -57,17 +57,17 @@ function SiteFooterHeading() {
 function SiteFooterContent() {
 	return (
 		<div className="my-lg gap-lg grid md:grid-cols-[repeat(4,250px)]">
-			<p className="text-primary/80 text-lg lg:text-xl">
+			<p className="text-foreground/80 text-lg lg:text-xl">
 				Made by{' '}
 				<Link
-					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					className="text-foreground cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://www.nerdfish.be"
 				>
 					nerdfish
 				</Link>
 				, development with user experience in mind. The code is{' '}
 				<Link
-					className="text-primary cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					className="text-foreground cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://github.com/darenmalfait/nerdfish.be"
 					target="_blank"
 				>
@@ -80,16 +80,16 @@ function SiteFooterContent() {
 				<h3 className="text-lg font-semibold leading-tight lg:text-xl lg:leading-tight">
 					Get in touch
 				</h3>
-				<span className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo.companyName}
 				</span>
 				<Link
-					className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight"
+					className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight"
 					href={`mailto:${companyInfo.email}`}
 				>
 					{companyInfo.email}
 				</Link>
-				<span className="text-primary/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo.vat}
 				</span>
 			</div>
@@ -106,7 +106,7 @@ export function Footer({ className, ...props }: FooterProps) {
 			{...props}
 		>
 			<div
-				className="text-primary container max-w-none"
+				className="text-foreground container max-w-none"
 				aria-labelledby="footer-heading"
 			>
 				<SiteFooterHeading />

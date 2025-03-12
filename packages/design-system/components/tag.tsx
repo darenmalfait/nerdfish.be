@@ -37,10 +37,11 @@ export function Tag({
 			className={cx(
 				'focus-outline relative mb-4 mr-4 block h-auto w-auto cursor-pointer rounded-full transition after:rounded-full',
 				{
-					'bg-muted text-primary': !selected,
-					'bg-inverted text-inverted': selected,
+					'bg-background-muted text-foreground': !selected,
+					'bg-foreground text-background': selected,
 					'hover:focus-ring opacity-100': !disabled,
-					'bg-muted/30 text-muted cursor-default': disabled,
+					'bg-background-muted/30 text-foreground-muted cursor-default':
+						disabled,
 					'px-6 py-3': size === 'md',
 					'px-4 py-2 text-sm': size === 'sm',
 				},

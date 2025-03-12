@@ -60,7 +60,7 @@ export function SectionHeaderSubtitle({
 	return (
 		<div
 			className={cx(
-				'text-muted max-w-7xl text-xl font-semibold lg:text-2xl',
+				'text-foreground-muted max-w-7xl text-xl font-semibold lg:text-2xl',
 				className,
 			)}
 			{...props}

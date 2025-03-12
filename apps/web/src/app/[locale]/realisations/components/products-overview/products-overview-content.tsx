@@ -28,7 +28,7 @@ function ProductItem({
 			<div />
 			<div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-focus-within:-translate-y-10 group-hover:-translate-y-10">
 				{image?.src ? (
-					<Avatar className="text-primary size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
+					<Avatar className="text-foreground size-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-focus-within:scale-75 group-hover:scale-75">
 						<AvatarImage
 							src={image.src}
 							className="object-cover"
@@ -39,8 +39,8 @@ function ProductItem({
 						</AvatarFallback>
 					</Avatar>
 				) : null}
-				<h3 className="text-primary text-xl font-bold">{title}</h3>
-				<p className="text-muted max-w-lg">{description}</p>
+				<h3 className="text-foreground text-xl font-bold">{title}</h3>
+				<p className="text-foreground-muted max-w-lg">{description}</p>
 				<span
 					className="block truncate whitespace-nowrap font-bold"
 					aria-hidden
@@ -114,7 +114,7 @@ export function ProductsOverviewContent({
 					{products.map((product) => (
 						<GridCard
 							key={product.id}
-							className="bg-muted lg:col-span-1"
+							className="bg-background-muted lg:col-span-1"
 							asChild
 						>
 							<li>

@@ -23,14 +23,14 @@ export function FaqItem({ question, answer, ...props }: FaqItemProps) {
 		<AccordionItem
 			{...props}
 			value={id}
-			className="rounded-container bg-muted p-lg py-sm focus-within:outline-active hover:bg-muted/50 group border-none outline-none transition-colors"
+			className="rounded-container bg-background-muted p-lg py-sm focus-within:outline-active hover:bg-background-muted/50 group border-none outline-none transition-colors"
 		>
 			<AccordionTrigger className="py-lg !outline-none after:hidden hover:no-underline">
 				<H3 variant="primary" as="span">
 					{question}
 				</H3>
 			</AccordionTrigger>
-			<AccordionContent className="prose prose-xl pt-md text-primary text-xl">
+			<AccordionContent className="prose prose-xl pt-md text-foreground text-xl">
 				{answer}
 			</AccordionContent>
 		</AccordionItem>

@@ -45,7 +45,7 @@ export function HeroSubtitle({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<SectionHeaderSubtitle className="prose dark:prose-invert !text-primary/80 max-w-2xl [&_strong]:font-black">
+		<SectionHeaderSubtitle className="prose dark:prose-invert !text-foreground/80 max-w-2xl [&_strong]:font-black">
 			{children}
 		</SectionHeaderSubtitle>
 	)
@@ -67,8 +67,8 @@ export function HeroTitle({
 				{...props}
 				as={as ?? 'h1'}
 				className={cx(
-					'text-primary font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]',
-					'text-primary relative font-black',
+					'text-foreground font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]',
+					'text-foreground relative font-black',
 					className,
 				)}
 				value={capitalize(title)}

@@ -15,7 +15,7 @@ export function SlowLoading() {
 
 	return (
 		<div className="gap-md py-2xl flex flex-col">
-			<Card className="bg-muted mx-auto w-full max-w-sm">
+			<Card className="bg-background-muted mx-auto w-full max-w-sm">
 				<CardHeader>
 					<div className="relative flex h-36 w-full items-center justify-center">
 						<Skeleton className="absolute inset-0 h-36 w-full object-cover" />
@@ -30,7 +30,7 @@ export function SlowLoading() {
 					</div>
 				</CardContent>
 			</Card>
-			<caption className="text-muted-foreground text-sm">
+			<caption className="text-foreground-muted-foreground text-sm">
 				{t('caption')}
 			</caption>
 		</div>

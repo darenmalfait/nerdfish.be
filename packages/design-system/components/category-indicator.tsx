@@ -15,7 +15,7 @@ const foregroundMap: Record<string, string> = {
 	print: 'text-work-print group-hover:ring-current',
 
 	// other
-	expertise: 'text-info',
+	expertise: 'text-info-foreground',
 }
 
 export function getCategoryColors(category = 'unkown'): string {
@@ -43,7 +43,7 @@ export function CategoryIndicator({
 			<span
 				className={cx(
 					getCategoryColors(category),
-					'bg-muted py-sm z-10 inline-block w-auto rounded-xl px-4 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
+					'bg-background-muted py-sm z-10 inline-block w-auto rounded-xl px-4 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{
 						'absolute right-6 top-6 lg:left-6 lg:right-[unset]': !inline,
 					},

@@ -29,7 +29,7 @@ function ReadMoreCursor({ children }: { children: React.ReactNode }) {
 			attachToParent
 		>
 			<motion.div
-				className="bg-popover before:empty-content before:rounded-container before:bg-muted/50 before:-z-1 flex size-16 items-center justify-center rounded-full text-current transition-transform before:absolute before:inset-0 group-active:scale-125"
+				className="bg-popover before:empty-content before:rounded-container before:bg-background-muted/50 before:-z-1 flex size-16 items-center justify-center rounded-full text-current transition-transform before:absolute before:inset-0 group-active:scale-125"
 				transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 			>
 				<ArrowRightIcon className="size-8" />
@@ -131,7 +131,7 @@ export function ArticleCardDate({
 	return (
 		<div
 			{...props}
-			className={cx('mb-sm text-muted text-xl font-bold', className)}
+			className={cx('mb-sm text-foreground-muted text-xl font-bold', className)}
 		>
 			{children}
 		</div>
@@ -148,7 +148,10 @@ export function ArticleCardDescription({
 	if (!children) return null
 
 	return (
-		<div {...props} className={cx('text-muted mt-0 line-clamp-2', className)}>
+		<div
+			{...props}
+			className={cx('text-foreground-muted mt-0 line-clamp-2', className)}
+		>
 			{children}
 		</div>
 	)
@@ -170,7 +173,7 @@ export function ArticleCardCategory({
 			variant="default"
 			{...props}
 			className={cx(
-				'mb-sm bg-muted px-md py-sm relative text-sm',
+				'mb-sm bg-background-muted px-md py-sm relative text-sm',
 				getCategoryColors(value),
 				className,
 			)}

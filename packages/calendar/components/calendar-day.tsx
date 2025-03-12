@@ -256,7 +256,7 @@ export function CalendarDay({
 	}
 
 	return (
-		<div {...props} className={cx('text-primary flex text-xs', className)}>
+		<div {...props} className={cx('text-foreground flex text-xs', className)}>
 			<div className="w-20 flex-shrink-0 select-none">
 				{hours.map((hour) => (
 					<div
@@ -311,10 +311,10 @@ export function CalendarDay({
 								<div
 									onClick={() => handleEventClick(event)}
 									className={cx(
-										'shadow-outline bg-muted/95 text-primary absolute w-full border-t',
+										'shadow-outline bg-background-muted/95 text-foreground absolute w-full border-t',
 										event.id !== NEW_EVENT_ID && 'cursor-move',
 										event.id === selectedEvent?.id &&
-											'bg-inverted/80 text-inverted z-50',
+											'bg-foreground/80 text-background z-50',
 									)}
 									style={{
 										top: `${startSlot * CALENDARY_DAY_SLOT_HEIGHT}px`,

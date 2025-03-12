@@ -12,10 +12,10 @@ function Author({ author }: { author: Testimonial['author'] }) {
 
 	return (
 		<div className="gap-xs flex flex-col justify-center">
-			<span className="before:bg-inverted flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
+			<span className="before:bg-foreground flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
 				{author.name}
 			</span>
-			<span className="text-primary/80 text-sm">{author.company}</span>
+			<span className="text-foreground/80 text-sm">{author.company}</span>
 		</div>
 	)
 }
@@ -30,7 +30,7 @@ function TestimonialActions({
 	if (!onNext || !onPrevious) return null
 
 	return (
-		<div className="gap-md rounded-container p-md md:hover:bg-primary group flex transition duration-300 hover:scale-110">
+		<div className="gap-md rounded-container p-md md:hover:bg-background group flex transition duration-300 hover:scale-110">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
@@ -76,7 +76,7 @@ function TestimonialItem({
 		<div className="gap-xl relative flex flex-col justify-center">
 			<Element
 				as="blockquote"
-				className='text-primary font-bold before:content-["“"] after:content-["”"]'
+				className='text-foreground font-bold before:content-["“"] after:content-["”"]'
 			>
 				{testimonial.quote}
 			</Element>

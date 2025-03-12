@@ -48,7 +48,7 @@ export function TimeRangeInput({
 	return (
 		<div className={cx(inputVariants(), 'gap-sm flex items-center', className)}>
 			<div className="space-x-sm flex flex-1 items-center">
-				<ClockIcon className="text-muted size-4" />
+				<ClockIcon className="text-foreground-muted size-4" />
 				<input
 					type="time"
 					value={value.start}
@@ -60,7 +60,7 @@ export function TimeRangeInput({
 				/>
 			</div>
 			<div className="mx-4 flex flex-shrink-0 items-center justify-center">
-				<ArrowRightIcon className="text-muted size-4" />
+				<ArrowRightIcon className="text-foreground-muted size-4" />
 			</div>
 			<div className="flex flex-1 items-center justify-end space-x-2">
 				<input
@@ -72,7 +72,7 @@ export function TimeRangeInput({
 						hideTimeIconClass,
 					)}
 				/>
-				<span className="text-muted text-sm">{duration}</span>
+				<span className="text-foreground-muted text-sm">{duration}</span>
 			</div>
 		</div>
 	)

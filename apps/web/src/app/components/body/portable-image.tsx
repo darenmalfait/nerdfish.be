@@ -28,7 +28,7 @@ function PortableImage({
 				alt={alt}
 			/>
 			{caption ? (
-				<p className="text-muted text-center text-sm">{caption}</p>
+				<p className="text-foreground-muted text-center text-sm">{caption}</p>
 			) : null}
 		</div>
 	)

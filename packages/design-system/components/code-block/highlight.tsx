@@ -64,7 +64,7 @@ export function Highlight({
 									{...lineProps}
 									key={i}
 									className={cx(
-										shouldHighlightLine(i) ? 'bg-inverted/15' : undefined,
+										shouldHighlightLine(i) ? 'bg-foreground/15' : undefined,
 										lineProps.className,
 									)}
 								>

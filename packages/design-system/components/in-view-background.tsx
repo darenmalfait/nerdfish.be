@@ -11,7 +11,7 @@ export interface InViewBackgroundProps extends React.ComponentProps<'div'> {
 
 export function InViewBackground({
 	children,
-	className = 'bg-muted',
+	className = 'bg-background-muted',
 	ref,
 	...rest
 }: InViewBackgroundProps) {

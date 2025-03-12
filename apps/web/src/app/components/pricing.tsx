@@ -60,7 +60,7 @@ export function Pricing(props: PricingProps) {
 					</PriceCard>
 				))}
 			</div>
-			<p className="mt-sm text-primary text-center text-sm">{t('vat')}</p>
+			<p className="mt-sm text-foreground text-center text-sm">{t('vat')}</p>
 		</>
 	)
 }

@@ -42,7 +42,7 @@ export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 			<div
 				className={cx(
 					'gap-sm rounded-container bg-popover p-sm mx-auto flex w-fit max-w-full items-center text-sm font-bold md:text-base',
-					'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
+					'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
 				)}
 			>
 				{title ? (

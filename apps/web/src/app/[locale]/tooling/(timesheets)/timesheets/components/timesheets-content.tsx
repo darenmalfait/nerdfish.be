@@ -185,7 +185,13 @@ function EditTimeEntryButton({
 }
 
 function Spacer() {
-	return <Row day="------------------" hours="------" className="text-muted" />
+	return (
+		<Row
+			day="------------------"
+			hours="------"
+			className="text-foreground-muted"
+		/>
+	)
 }
 
 export function TimesheetsContent() {
@@ -200,7 +206,8 @@ export function TimesheetsContent() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'rounded-base bg-danger p-sm text-danger print:hidden': !person,
+								'rounded-base bg-danger-background p-sm text-danger-foreground print:hidden':
+									!person,
 							})}
 						>
 							{person?.length ? person : 'SET PERSON'}
@@ -232,7 +239,7 @@ export function TimesheetsContent() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'rounded-base bg-danger p-sm text-danger print:hidden':
+								'rounded-base bg-danger-background p-sm text-danger-foreground print:hidden':
 									!invoiceReference,
 							})}
 						>
@@ -295,15 +302,15 @@ export function TimesheetsContent() {
 				/>
 			</div>
 
-			<div className="text-muted text-center text-sm">
+			<div className="text-foreground-muted text-center text-sm">
 				*** END OF TIMESHEET ***
 			</div>
 			<Separator className="my-lg" />
 			<div className="flex flex-col items-center">
 				<Logo className="mb-md h-4 w-auto" />
-				<div className="text-muted text-sm">Daren Malfait BV</div>
-				<div className="text-muted text-sm">BE0794123756</div>
-				<div className="text-muted text-sm">daren@nerdfish.be</div>
+				<div className="text-foreground-muted text-sm">Daren Malfait BV</div>
+				<div className="text-foreground-muted text-sm">BE0794123756</div>
+				<div className="text-foreground-muted text-sm">daren@nerdfish.be</div>
 			</div>
 		</div>
 	)

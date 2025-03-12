@@ -29,7 +29,7 @@ export function TimesheetsCalendarEvents({
 				</div>
 			) : null}
 			{data.length > 1 ? (
-				<div className="text-primary w-full p-1 text-left text-xs">
+				<div className="text-foreground w-full p-1 text-left text-xs">
 					+{data.length - 1} more
 				</div>
 			) : null}

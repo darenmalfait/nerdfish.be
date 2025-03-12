@@ -80,7 +80,7 @@ function ArrowLink({
 			{...props}
 			href={href ?? '#'}
 			className={cx(
-				'space-x-md text-primary inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
+				'space-x-md text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
 				className,
 			)}
 			ref={ref as any}
@@ -117,7 +117,7 @@ function BackLink({
 		<Tag
 			href={href}
 			className={cx(
-				'text-primary flex space-x-4 focus:outline-none',
+				'text-foreground flex space-x-4 focus:outline-none',
 				className,
 			)}
 			ref={ref as any}

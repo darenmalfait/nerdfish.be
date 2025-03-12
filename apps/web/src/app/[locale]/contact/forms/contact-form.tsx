@@ -311,7 +311,7 @@ export function ContactForm() {
 												<FormDescription>
 													{t('fields.labels.budgetRangeDescription')}
 												</FormDescription>
-												<div className="pt-md text-muted flex items-center justify-center font-semibold">
+												<div className="pt-md text-foreground-muted flex items-center justify-center font-semibold">
 													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
 													{numberFormatter.format(field.value?.[1] ?? 0)}
 													{field.value?.[1] === max ? '+' : ''}
@@ -319,7 +319,7 @@ export function ContactForm() {
 											</FormLabel>
 
 											<div className="mt-xl gap-sm flex items-center">
-												<span className="mr-md text-muted text-nowrap text-lg font-semibold">
+												<span className="mr-md text-foreground-muted text-nowrap text-lg font-semibold">
 													€ {numberFormatter.format(min)}
 												</span>
 												<FormControl>
@@ -340,7 +340,7 @@ export function ContactForm() {
 														<SliderThumb />
 													</Slider>
 												</FormControl>
-												<span className="ml-md text-muted text-nowrap text-lg font-semibold">
+												<span className="ml-md text-foreground-muted text-nowrap text-lg font-semibold">
 													€ {numberFormatter.format(max)}+
 												</span>
 											</div>

@@ -32,7 +32,7 @@ const MainNavigationSubItem = React.forwardRef<
 			<NavigationMenuLink asChild>
 				<Link
 					className={cx(
-						'space-y-sm p-md focus-within:outline-active hover:bg-muted group relative flex h-full w-full select-none flex-col justify-end rounded-[calc(theme(borderRadius.base)-theme(padding.xs))] leading-none no-underline outline-none transition-colors',
+						'space-y-sm p-md focus-within:outline-active hover:bg-background-muted group relative flex h-full w-full select-none flex-col justify-end rounded-[calc(theme(borderRadius.base)-theme(padding.xs))] leading-none no-underline outline-none transition-colors',
 						className,
 					)}
 					ref={ref}
@@ -41,7 +41,7 @@ const MainNavigationSubItem = React.forwardRef<
 				>
 					<div className="text-sm font-black leading-none">{label}</div>
 					{description ? (
-						<p className="text-muted mb-0 line-clamp-1 text-sm leading-snug">
+						<p className="text-foreground-muted mb-0 line-clamp-1 text-sm leading-snug">
 							{description}
 						</p>
 					) : null}
@@ -53,12 +53,12 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'focus-outline relative h-auto flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-primary focus:bg-transparent active:bg-transparent md:text-sm',
+	'focus-outline relative h-auto flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-foreground focus:bg-transparent active:bg-transparent md:text-sm',
 	{
 		variants: {
 			variant: {
-				active: '!bg-transparent !text-inverted',
-				default: 'text-primary',
+				active: '!bg-transparent !text-background',
+				default: 'text-foreground',
 			},
 		},
 	},
@@ -111,7 +111,7 @@ const MainNavigationItem = React.forwardRef<
 				>
 					<NavigationMenuTrigger>{label}</NavigationMenuTrigger>
 				</Button>
-				<NavigationMenuContent className="rounded-base bg-primary">
+				<NavigationMenuContent className="rounded-base bg-background">
 					<ul
 						className={cx(
 							'gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]',
@@ -246,7 +246,7 @@ export function MainNavigation() {
 		<div
 			className={cx(
 				'rounded-container bg-popover p-xs fixed inset-x-0 mx-auto w-fit max-w-full',
-				'before:empty-content before:rounded-container before:bg-muted/50 before:absolute before:inset-0',
+				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
 				'bottom-lg md:bottom-auto md:top-5',
 			)}
 		>
@@ -261,7 +261,7 @@ export function MainNavigation() {
 				>
 					<AnimatedBackground
 						value={activeId}
-						className="rounded-container bg-inverted"
+						className="rounded-container bg-foreground"
 						transition={{
 							type: 'spring',
 							bounce: 0.2,
