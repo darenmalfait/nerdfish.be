@@ -27,7 +27,7 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
       husky:
         specifier: ^9.1.7
@@ -585,7 +585,7 @@ importers:
         specifier: 19.0.4
         version: 19.0.4(@types/react@19.0.12)
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
       typescript:
         specifier: ^5.8.2
@@ -607,7 +607,7 @@ importers:
         specifier: ^22.13.12
         version: 22.13.12
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
       typescript:
         specifier: ^5.8.2
@@ -666,7 +666,7 @@ importers:
         specifier: 19.0.4
         version: 19.0.4(@types/react@19.0.12)
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
 
   packages/tailwind-config:
@@ -697,7 +697,7 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
 
   packages/timesheets:
