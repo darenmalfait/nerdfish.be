@@ -245,9 +245,9 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'rounded-container bg-popover p-xs fixed inset-x-0 mx-auto w-fit max-w-full',
+				'hidden md:flex',
+				'rounded-container bg-popover p-xs inset-x-0 mx-auto w-fit max-w-full',
 				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
-				'bottom-lg md:bottom-auto md:top-5',
 			)}
 		>
 			<NavigationMenu

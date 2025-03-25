@@ -1,6 +1,7 @@
 import { Button } from '@repo/design-system/components/ui'
 import { Logo } from '@repo/design-system/icons'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
+import { MobileNavigation } from './mobile-navigation'
 import { MainNavigation } from './navigation'
 import { Link } from '~/app/components/link'
 
@@ -17,11 +18,12 @@ export function Header() {
 								</Link>
 							</div>
 						</Button>
-						<div className="ml-auto flex items-center">
+						<div className="mx-auto flex flex-1 items-center">
 							<MainNavigation />
 
-							<div className="space-x-sm flex flex-1 justify-end sm:flex-grow-0">
+							<div className="space-x-sm gap-md flex flex-1 flex-grow justify-end md:flex-grow-0">
 								<LocaleSwitcher />
+								<MobileNavigation />
 							</div>
 						</div>
 					</div>
