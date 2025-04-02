@@ -205,7 +205,7 @@ export const makeZodI18nMap: MakeZodI18nMap = (option) => (issue, ctx) => {
 				'errors.custom',
 			)
 
-			message = (tCustomErrors ?? tZod)(key as Parameters<typeof tZod>[0], {
+			message = (tCustomErrors ?? tZod)(key, {
 				...values,
 				...path,
 			})

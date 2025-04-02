@@ -1,3 +1,4 @@
+import { Timesheets } from '@repo/timesheets/components/timesheets'
 import * as React from 'react'
 import { TimesheetGenerator } from './components/generator'
 import { TimesheetProvider } from './timesheet-provider'
@@ -16,6 +17,9 @@ export default function TimesheetGeneratorPage() {
 			<TimesheetProvider>
 				<TimesheetGenerator />
 			</TimesheetProvider>
+			<div className="container">
+				<Timesheets />
+			</div>
 		</React.Suspense>
 	)
 }

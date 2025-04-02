@@ -19,8 +19,8 @@ export function TimesheetsCalendarEvents({
 			{data.length > 0 ? (
 				<div
 					className={cx(
-						'line-clamp-1 min-h-[23px] w-full bg-[#F0F0F0] p-1 text-left text-xs text-[#606060] dark:bg-[#1D1D1D] dark:text-[#878787]',
-						isToday && '!bg-background',
+						'bg-foreground rounded-base text-background px-sm py-xs line-clamp-1 min-h-[23px] w-full text-left text-xs',
+						isToday && 'bg-foreground',
 					)}
 					key={data[0]?.id}
 				>
