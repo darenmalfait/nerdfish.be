@@ -35,10 +35,7 @@ export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 	}, [offset])
 
 	return (
-		<div
-			aria-hidden
-			className="container sticky inset-x-0 top-2 z-40 md:fixed md:bottom-8 md:top-auto"
-		>
+		<div aria-hidden className="container fixed inset-x-0 bottom-8 z-40">
 			<div
 				className={cx(
 					'gap-sm rounded-container bg-popover p-sm mx-auto flex w-fit max-w-full items-center text-sm font-bold md:text-base',
