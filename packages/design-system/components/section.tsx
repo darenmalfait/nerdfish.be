@@ -37,7 +37,7 @@ export function SectionHeaderTitle({
 		<H1
 			as="h2"
 			variant="primary"
-			className={cx('mb-lg max-w-7xl font-bold', className)}
+			className={cx('mb-lg font-title max-w-7xl leading-[1.1]', className)}
 			{...props}
 		>
 			<TextBalancer>{children}</TextBalancer>

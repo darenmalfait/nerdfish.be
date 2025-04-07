@@ -31,8 +31,9 @@ export const config: Config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+				sans: ['var(--font-nebula-sans)', ...defaultTheme.fontFamily.sans],
 				mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+				title: ['var(--font-nebula-sans)', ...defaultTheme.fontFamily.sans],
 			},
 			container: {
 				center: true,
