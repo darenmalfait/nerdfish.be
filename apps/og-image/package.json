@@ -13,14 +13,14 @@
     "@repo/og-utils": "workspace:*",
     "@t3-oss/env-nextjs": "^0.12.0",
     "next": "15.3.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.14.1",
     "@types/react": "19.1.2",
-    "@types/react-dom": "19.0.4",
+    "@types/react-dom": "19.1.2",
     "typescript": "^5.8.3"
   }
 }
