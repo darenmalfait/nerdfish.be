@@ -36,13 +36,13 @@
     "@nerdfish/config": "^1.9.1",
     "@next/eslint-plugin-next": "^15.3.0",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.4.4",
+    "@turbo/gen": "^2.5.0",
     "dotenv-cli": "^8.0.0",
     "eslint": "^9.24.0",
     "husky": "^9.1.7",
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.5.3",
-    "turbo": "^2.4.4"
+    "turbo": "^2.5.0"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.8.1"
 }
