@@ -71,7 +71,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 					<HeroTitle title="nerdfish" />
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
 					<Paragraph className="!mt-sm">{t('hero.content')}</Paragraph>
-					<div className="mt-md w-full">
+					<div className="mt-lg w-full">
 						<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
 					</div>
 				</HeroContent>

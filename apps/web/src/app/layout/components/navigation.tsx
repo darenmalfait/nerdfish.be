@@ -80,9 +80,12 @@ const MainNavigationItem = React.forwardRef<
 					<Button
 						size="sm"
 						variant="ghost"
-						className={getMainItemClassName({
-							variant: isActive ? 'active' : 'default',
-						})}
+						className={cx(
+							getMainItemClassName({
+								variant: isActive ? 'active' : 'default',
+							}),
+							{ 'hover:bg-inverted/10': !isActive },
+						)}
 						asChild
 					>
 						<Link {...props} ref={ref} href={`/${stripPreSlash(href)}`}>
@@ -246,8 +249,7 @@ export function MainNavigation() {
 		<div
 			className={cx(
 				'hidden md:flex',
-				'rounded-container bg-popover p-xs inset-x-0 mx-auto w-fit max-w-full',
-				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
+				'rounded-container bg-muted p-xs inset-x-0 mx-auto w-fit max-w-full',
 			)}
 		>
 			<NavigationMenu

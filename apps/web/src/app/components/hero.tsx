@@ -146,7 +146,7 @@ export function Hero({ variant = 'default', children }: HeroProps) {
 			})}
 		>
 			{variant === 'default' ? (
-				<div className="-z-1 inset-x-md rounded-container lg:inset-x-md absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-70" />
+				<div className="-z-1 inset-x-md rounded-container lg:inset-x-md absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-100" />
 			) : null}
 			<div
 				className={cx('container relative mx-auto px-0', {
@@ -154,7 +154,17 @@ export function Hero({ variant = 'default', children }: HeroProps) {
 					dark: variant === 'default',
 				})}
 			>
-				{children}
+				<div
+					style={
+						variant === 'default'
+							? ({
+									'--colors-foreground-primary': '0 0% 100%',
+								} as React.CSSProperties)
+							: {}
+					}
+				>
+					{children}
+				</div>
 			</div>
 		</Section>
 	)
