@@ -159,6 +159,7 @@ export function Hero({ variant = 'default', children }: HeroProps) {
 						variant === 'default'
 							? ({
 									'--colors-foreground-primary': '0 0% 100%',
+									'--colors-foreground-muted': '0 0% 100%',
 								} as React.CSSProperties)
 							: {}
 					}
