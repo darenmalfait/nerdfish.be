@@ -88,7 +88,7 @@ function BlogContent({
 					) : null}
 
 					{body ? (
-						<div className="prose dark:prose-invert prose-lg md:prose-xl lg:prose-2xl mx-auto">
+						<div className="prose prose-lg md:prose-xl lg:prose-2xl mx-auto">
 							<Body content={body} />
 						</div>
 					) : null}

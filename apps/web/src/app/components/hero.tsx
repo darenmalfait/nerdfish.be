@@ -45,7 +45,7 @@ export function HeroSubtitle({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<SectionHeaderSubtitle className="prose dark:prose-invert !text-foreground/80 max-w-2xl [&_strong]:font-black">
+		<SectionHeaderSubtitle className="prose max-w-2xl [&_strong]:font-black">
 			{children}
 		</SectionHeaderSubtitle>
 	)

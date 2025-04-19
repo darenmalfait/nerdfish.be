@@ -8,7 +8,7 @@ import { type Wiki } from 'content-collections'
 import { BackToWiki } from './misc'
 import { Body } from '~/app/components/body'
 
-const prose = 'prose dark:prose-invert md:prose-lg lg:prose-xl max-w-4xl'
+const prose = 'prose md:prose-lg lg:prose-xl max-w-4xl'
 
 function WikiContent({ data }: { data: Wiki }) {
 	const { title, date, body } = data

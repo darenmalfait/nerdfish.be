@@ -34,10 +34,7 @@ export function SplitContent({
 }: SplitContentProps) {
 	return (
 		<div
-			className={cx(
-				'prose prose-xl lg:prose-2xl dark:prose-invert w-full',
-				className,
-			)}
+			className={cx('prose prose-xl lg:prose-2xl w-full', className)}
 			{...props}
 		>
 			{children}

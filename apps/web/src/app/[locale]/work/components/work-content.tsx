@@ -17,7 +17,7 @@ import Link from 'next/link'
 import type * as React from 'react'
 import { Body } from './work-body'
 
-const prose = 'prose dark:prose-invert max-w-4xl'
+const prose = 'prose max-w-4xl'
 
 function WorkContent({
 	data,

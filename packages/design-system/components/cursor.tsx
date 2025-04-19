@@ -11,8 +11,9 @@ import {
 	useSpring,
 } from 'motion/react'
 import * as React from 'react'
+import { ClientOnly } from './client-only'
 
-export interface CursorProps {
+export interface CursorComponentProps {
 	children: React.ReactNode
 	className?: string
 	springConfig?: SpringOptions
@@ -26,7 +27,7 @@ export interface CursorProps {
 	onPositionChange?: (x: number, y: number) => void
 }
 
-export function Cursor({
+export function CursorComponent({
 	children,
 	className,
 	springConfig,
@@ -34,7 +35,7 @@ export function Cursor({
 	variants,
 	transition,
 	onPositionChange,
-}: CursorProps) {
+}: CursorComponentProps) {
 	const cursorX = useMotionValue(
 		typeof window !== 'undefined' ? window.innerWidth / 2 : 0,
 	)
@@ -120,5 +121,13 @@ export function Cursor({
 				) : null}
 			</AnimatePresence>
 		</motion.div>
+	)
+}
+
+export function Cursor({ children, ...props }: CursorComponentProps) {
+	return (
+		<ClientOnly>
+			<CursorComponent {...props}>{children}</CursorComponent>
+		</ClientOnly>
 	)
 }

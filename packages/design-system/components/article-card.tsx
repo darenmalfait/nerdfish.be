@@ -11,9 +11,6 @@ import { Cursor } from './cursor'
 import { Badge, H2, type H3, Skeleton } from './ui'
 
 function ReadMoreCursor({ children }: { children: React.ReactNode }) {
-	// This component is not needed on the server
-	if (typeof window === 'undefined') return null
-
 	return (
 		<Cursor
 			className="fixed z-50 -ml-4 -mt-4"
