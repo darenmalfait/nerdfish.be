@@ -7,7 +7,7 @@ import * as React from 'react'
 import { ArrowRightIcon } from '../icons'
 import { getCategoryColors } from './category-indicator'
 import { MagnetButton } from './magnet'
-import { Badge, H1, type H2 } from './ui'
+import { Badge, Button, H1, type H2 } from './ui'
 
 export interface HighlightCardImageProps extends React.ComponentProps<'div'> {
 	src?: string | null
@@ -182,23 +182,18 @@ export function HighlightCardCTA({
 
 	return (
 		<div className={cx('mt-lg flex flex-1 items-end justify-start', className)}>
-			<MagnetButton
-				size="lg"
-				variant="ghost"
-				asChild
-				className="bg-background/70 hover:bg-background group"
-			>
+			<Button size="lg" asChild className="group">
 				<LinkElement href={href} {...props}>
 					{children}{' '}
-					<span className={getCategoryColors(category ?? 'unknown')}>
+					<span>
 						<ArrowRightIcon
 							className={cx(
-								'ml-sm group-hover:translate-x-xs group-hover:text-foreground size-4 transition-transform',
+								'ml-sm group-hover:translate-x-xs size-4 transition-transform',
 							)}
 						/>
 					</span>
 				</LinkElement>
-			</MagnetButton>
+			</Button>
 		</div>
 	)
 }
