@@ -5,8 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
 import { ArrowRightIcon } from '../icons'
-import { getCategoryColors } from './category-indicator'
-import { MagnetButton } from './magnet'
 import { Badge, Button, H1, type H2 } from './ui'
 
 export interface HighlightCardImageProps extends React.ComponentProps<'div'> {

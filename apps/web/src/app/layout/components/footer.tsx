@@ -18,7 +18,7 @@ function Disclaimer() {
 					<div>
 						<Logo className="h-4 w-auto items-center text-current" />
 					</div>
-					<div className="text-foreground/80 flex justify-start text-sm">
+					<div className="text-muted flex justify-start text-sm">
 						© {currentYear} {companyInfo.companyName}
 					</div>
 				</div>
@@ -57,17 +57,17 @@ function SiteFooterHeading() {
 function SiteFooterContent() {
 	return (
 		<div className="my-lg gap-lg grid md:grid-cols-[repeat(4,250px)]">
-			<p className="text-foreground/80 text-lg lg:text-xl">
+			<p className="text-muted text-lg lg:text-xl">
 				Made by{' '}
 				<Link
-					className="text-foreground cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://www.nerdfish.be"
 				>
 					nerdfish
 				</Link>
 				, development with user experience in mind. The code is{' '}
 				<Link
-					className="text-foreground cursor-pointer font-medium transition duration-300 hover:opacity-70"
+					className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
 					href="https://github.com/darenmalfait/nerdfish.be"
 					target="_blank"
 				>
@@ -80,16 +80,16 @@ function SiteFooterContent() {
 				<h3 className="text-lg font-semibold leading-tight lg:text-xl lg:leading-tight">
 					Get in touch
 				</h3>
-				<span className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-muted block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo.companyName}
 				</span>
 				<Link
-					className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight"
+					className="text-accent block text-lg leading-tight lg:text-xl lg:leading-tight"
 					href={`mailto:${companyInfo.email}`}
 				>
 					{companyInfo.email}
 				</Link>
-				<span className="text-foreground/80 block text-lg leading-tight lg:text-xl lg:leading-tight">
+				<span className="text-muted block text-lg leading-tight lg:text-xl lg:leading-tight">
 					{companyInfo.vat}
 				</span>
 			</div>
