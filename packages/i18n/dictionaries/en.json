@@ -137,11 +137,11 @@
 				"names": {
 					"budgetRange": "What's your budget?",
 					"company": "Company name",
-					"name": "Name",
 					"contact": {
 						"email": "Email address",
 						"phone": "Phone number"
 					},
+					"name": "Name",
 					"projectType": "Project type",
 					"textMessage": "Message",
 					"vatNumber": "VAT number"
@@ -658,6 +658,9 @@
 	"features": {
 		"readMoreAbout": "Read more about {subject}",
 		"viewMore": "View {subject}"
+	},
+	"footer": {
+		"follow-us": "follow us"
 	},
 	"global": {
 		"about": "about",

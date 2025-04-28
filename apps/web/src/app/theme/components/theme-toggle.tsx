@@ -1,6 +1,11 @@
 'use client'
 
-import { Button } from '@repo/design-system/components/ui'
+import {
+	Button,
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from '@repo/design-system/components/ui'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
@@ -58,30 +63,51 @@ export const ThemeToggle = React.forwardRef<
 				className,
 			)}
 		>
-			<ThemeToggleItem
-				isActive={mounted ? theme === 'system' : false}
-				aria-label={t('setTheme', { theme: t('system') })}
-				onClick={setTheme}
-				value="system"
-			>
-				<LaptopIcon className="size-4" />
-			</ThemeToggleItem>
-			<ThemeToggleItem
-				isActive={mounted ? theme === 'light' : false}
-				onClick={setTheme}
-				aria-label={t('setTheme', { theme: t('light') })}
-				value="light"
-			>
-				<SunIcon className="size-4" />
-			</ThemeToggleItem>
-			<ThemeToggleItem
-				isActive={mounted ? theme === 'dark' : false}
-				onClick={setTheme}
-				aria-label={t('setTheme', { theme: t('dark') })}
-				value="dark"
-			>
-				<MoonIcon className="size-4" />
-			</ThemeToggleItem>
+			<Tooltip delayDuration={0}>
+				<TooltipTrigger asChild>
+					<ThemeToggleItem
+						isActive={mounted ? theme === 'system' : false}
+						aria-label={t('setTheme', { theme: t('system') })}
+						onClick={setTheme}
+						value="system"
+					>
+						<LaptopIcon className="size-4" />
+					</ThemeToggleItem>
+				</TooltipTrigger>
+				<TooltipContent>
+					<p>{t('system')}</p>
+				</TooltipContent>
+			</Tooltip>
+			<Tooltip delayDuration={0}>
+				<TooltipTrigger asChild>
+					<ThemeToggleItem
+						isActive={mounted ? theme === 'light' : false}
+						onClick={setTheme}
+						aria-label={t('setTheme', { theme: t('light') })}
+						value="light"
+					>
+						<SunIcon className="size-4" />
+					</ThemeToggleItem>
+				</TooltipTrigger>
+				<TooltipContent>
+					<p>{t('light')}</p>
+				</TooltipContent>
+			</Tooltip>
+			<Tooltip delayDuration={0}>
+				<TooltipTrigger asChild>
+					<ThemeToggleItem
+						isActive={mounted ? theme === 'dark' : false}
+						onClick={setTheme}
+						aria-label={t('setTheme', { theme: t('dark') })}
+						value="dark"
+					>
+						<MoonIcon className="size-4" />
+					</ThemeToggleItem>
+				</TooltipTrigger>
+				<TooltipContent>
+					<p>{t('dark')}</p>
+				</TooltipContent>
+			</Tooltip>
 		</div>
 	)
 })
