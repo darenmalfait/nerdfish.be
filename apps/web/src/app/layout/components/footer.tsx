@@ -126,7 +126,10 @@ function SiteFooterContent() {
 								<ul className="gap-sm grid">
 									{navItemsWithoutSubItems(navigation).map((item) => (
 										<li key={item.label}>
-											<Link href={item.href} className="font-semibold">
+											<Link
+												href={item.href}
+												className="font-semibold capitalize"
+											>
 												{item.label}
 											</Link>
 										</li>
@@ -150,7 +153,10 @@ function SiteFooterContent() {
 							<ul className="gap-sm text-muted grid">
 								{item.sub?.map((subItem) => (
 									<li key={subItem.label}>
-										<Link href={subItem.href} className="font-normal">
+										<Link
+											href={subItem.href}
+											className="font-normal capitalize"
+										>
 											{subItem.label}
 										</Link>
 									</li>
