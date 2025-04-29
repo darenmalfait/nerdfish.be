@@ -10,12 +10,4 @@
 	body {
 		@apply bg-background min-h-screen overscroll-none;
 	}
-
-	.prose pre {
-		@apply bg-background-muted;
-	}
-
-	.prose pre {
-		@apply bg-background-muted;
-	}
 }
