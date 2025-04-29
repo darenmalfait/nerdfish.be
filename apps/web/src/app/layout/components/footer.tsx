@@ -81,11 +81,11 @@ function SiteFooterContent() {
 	return (
 		<div className="gap-lg flex w-full flex-col items-start justify-between">
 			<section
-				className="w-full text-center lg:w-1/2 lg:text-left"
+				className="w-full text-center md:text-left lg:w-1/2"
 				aria-labelledby="footer-heading"
 			>
 				<h2 className="mb-sm" id="footer-heading">
-					<Logo className="h-12 w-auto items-center text-current" />
+					<Logo className="mx-auto h-12 w-auto items-center text-current md:mx-0" />
 					<span className="sr-only">Nerdfish</span>
 				</h2>
 				<p className="max-w-xl" lang="en">
@@ -102,13 +102,13 @@ function SiteFooterContent() {
 			</section>
 
 			<section
-				className="grid w-full max-w-5xl place-items-center gap-12 text-center sm:text-left"
+				className="gap-lg grid w-full text-center md:max-w-5xl md:text-left lg:place-items-center"
 				aria-label="Footer navigation and links"
 			>
-				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full">
-					<div className="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1">
+				<div className="gap-md grid grid-cols-1 md:grid-cols-2 lg:w-full lg:grid-cols-3">
+					<div className="gap-lg grid md:col-span-1 md:grid-cols-1 lg:grid-cols-1">
 						<section
-							className="flex flex-col items-center gap-2 sm:items-start"
+							className="gap-sm flex flex-col items-center md:items-start"
 							aria-labelledby="follow-us-heading"
 						>
 							<h2
@@ -121,7 +121,7 @@ function SiteFooterContent() {
 								<SocialLinks />
 							</div>
 						</section>
-						<section className="flex flex-col gap-2">
+						<section className="gap-sm flex flex-col">
 							<nav aria-label="Page navigation">
 								<ul className="gap-sm grid">
 									{navItemsWithoutSubItems(navigation).map((item) => (
