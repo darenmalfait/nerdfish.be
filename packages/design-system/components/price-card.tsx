@@ -192,7 +192,7 @@ export function PriceCard({
 					'p-md',
 					{
 						'bg-foreground text-background': isPopular,
-						'bg-background-secondary': !isPopular,
+						'bg-background-muted': !isPopular,
 					},
 					className,
 				)}
