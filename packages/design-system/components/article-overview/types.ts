@@ -7,7 +7,7 @@ export interface Article {
 	}
 	base64Placeholder?: string
 	href: string
-	excerpt?: string
+	description?: string
 	tags?: string[]
 	category?: string
 	date?: string

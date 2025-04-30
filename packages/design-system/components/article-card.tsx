@@ -196,7 +196,7 @@ export function ArticleCard({
 	...props
 }: ArticleCardProps) {
 	return (
-		<div
+		<article
 			className={cx('group relative w-full outline-none', className)}
 			{...props}
 		>
@@ -212,6 +212,6 @@ export function ArticleCard({
 				</div>
 			)}
 			<div className="sr-only">{children}</div>
-		</div>
+		</article>
 	)
 }

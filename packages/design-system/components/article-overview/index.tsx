@@ -9,6 +9,7 @@ import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
+	ArticleCardDescription,
 	ArticleCardImage,
 	ArticleCardTitle,
 } from '../article-card'
@@ -251,7 +252,9 @@ const FeaturedArticle = ({
 			<HighlightCardContent>
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>
-				<HighlightCardDescription>{article.excerpt}</HighlightCardDescription>
+				<HighlightCardDescription>
+					{article.description}
+				</HighlightCardDescription>
 				<HighlightCardCTA
 					category={article.category}
 					href={article.href}
@@ -329,6 +332,10 @@ export function ArticleOverviewContentGrid({
 								<ArticleCardContent>
 									<ArticleCardCategory>{article.category}</ArticleCardCategory>
 									<ArticleCardTitle>{article.title}</ArticleCardTitle>
+
+									<ArticleCardDescription>
+										{article.description}
+									</ArticleCardDescription>
 								</ArticleCardContent>
 							</ArticleCard>
 						</li>

@@ -137,7 +137,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							},
 							category: 'Expertise',
 							title: 'Professional Website Development',
-							excerpt:
+							description:
 								'Transform your ideas into visually stunning, user-friendly websites that perfectly reflect your brand and engage your target audience.',
 							href: '/expertise/webdesign',
 						},
@@ -149,7 +149,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							},
 							category: 'Expertise',
 							title: 'Freelance Services',
-							excerpt:
+							description:
 								'Offering expert React and TypeScript consulting to build high-quality, scalable web applications tailored to your needs.',
 							href: '/expertise/freelance',
 						},
@@ -161,7 +161,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							},
 							category: 'Expertise',
 							title: 'Branding',
-							excerpt:
+							description:
 								'From designing logos to creating digital graphics, I deliver creative, detail-oriented branding solutions that elevate your business.',
 							href: '/expertise/branding',
 						},

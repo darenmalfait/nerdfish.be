@@ -50,7 +50,6 @@ export function mapBlogToArticle(items: PartialDeep<Post>[]): Article[] {
 	return items.map((item) => ({
 		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',
-		description: item.excerpt,
 		href: getBlogPath(item),
 		tags: nonNullable(item.tags ?? []),
 		category: item.category,

@@ -66,7 +66,7 @@ export function Highlights(props: HighlightsProps) {
 			<div className="gap-3xl flex flex-col">
 				{items.map((item, i) => {
 					const targetScale = 1 - (items.length - 1 - i) * 0.2
-					const { title, category, excerpt, image, href } = item
+					const { title, category, description, image, href } = item
 
 					return (
 						<CardWrapper
@@ -82,7 +82,9 @@ export function Highlights(props: HighlightsProps) {
 								<HighlightCardContent>
 									<HighlightCardCategory value={category} />
 									<HighlightCardTitle>{title}</HighlightCardTitle>
-									<HighlightCardDescription>{excerpt}</HighlightCardDescription>
+									<HighlightCardDescription>
+										{description}
+									</HighlightCardDescription>
 									{href ? (
 										<HighlightCardCTA
 											as={Link}

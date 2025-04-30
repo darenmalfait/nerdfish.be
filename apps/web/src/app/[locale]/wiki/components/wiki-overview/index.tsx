@@ -2,7 +2,7 @@ import {
 	ArticleCard,
 	ArticleCardCategory,
 	ArticleCardContent,
-	ArticleCardImage,
+	ArticleCardDescription,
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
@@ -90,7 +90,6 @@ export async function WikiOverview(props: WikiOverviewProps) {
 						{Array.from({ length: 2 }).map((_, i) => (
 							<li key={i} className="col-span-4">
 								<ArticleCard>
-									<ArticleCardImage alt="" />
 									<ArticleCardContent>
 										<ArticleCardCategory className="w-16">
 											<Skeleton className="bg-transparent" />
@@ -98,6 +97,9 @@ export async function WikiOverview(props: WikiOverviewProps) {
 										<ArticleCardTitle>
 											<Skeleton count={2} />
 										</ArticleCardTitle>
+										<ArticleCardDescription>
+											<Skeleton count={2} />
+										</ArticleCardDescription>
 									</ArticleCardContent>
 								</ArticleCard>
 							</li>
