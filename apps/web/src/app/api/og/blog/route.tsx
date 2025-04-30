@@ -25,7 +25,7 @@ export async function GET(req: Request) {
 		? props.image.startsWith('http')
 			? props.image
 			: `${env.NEXT_PUBLIC_URL}${props.image}`
-		: `${env.NEXT_PUBLIC_URL}/uploads/fish-og.png`
+		: `${env.NEXT_PUBLIC_URL}/uploads/og.png`
 
 	const paint = '#f8f8f8'
 

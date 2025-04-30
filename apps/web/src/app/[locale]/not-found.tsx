@@ -13,7 +13,6 @@ export default function Custom404() {
 		<InViewBackground className="bg-background-muted">
 			<Section className="gap-md max-w-5xl text-center">
 				<Image
-					placeholder="blur"
 					src="/images/nerdfish.png"
 					alt={title}
 					width={500}

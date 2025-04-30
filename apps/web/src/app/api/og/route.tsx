@@ -79,7 +79,7 @@ export async function GET(req: Request) {
 						top: '40px',
 						objectFit: 'cover',
 					}}
-					src={`${env.NEXT_PUBLIC_URL}/uploads/fish-og.png`}
+					src={`${env.NEXT_PUBLIC_URL}/uploads/og.png`}
 					tw="rounded-[2.625rem] shadow-2xl"
 					height={550}
 					width={700}

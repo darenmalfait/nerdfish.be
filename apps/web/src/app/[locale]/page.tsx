@@ -18,7 +18,6 @@ import {
 	Hero,
 	HeroContent,
 	HeroCTA,
-	HeroImage,
 	HeroSubtitle,
 	HeroTitle,
 } from '../components/hero'
@@ -63,10 +62,6 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 	return (
 		<>
 			<Hero>
-				<HeroImage
-					src="/uploads/nerdy-fish-no-bg_tlt9pd.png"
-					alt={t('hero.image.alt')}
-				/>
 				<HeroContent>
 					<HeroTitle title="nerdfish" />
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
