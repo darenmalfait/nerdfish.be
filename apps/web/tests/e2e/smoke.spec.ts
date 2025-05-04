@@ -8,7 +8,7 @@ test('App loads and nav works', async ({ page }) => {
 	).toBeVisible()
 
 	const nav = page.getByRole('navigation')
-	const blogLink = nav.getByRole('link', { name: 'Blog' })
+	const blogLink = nav.getByRole('link', { name: 'Blog' }).first()
 	await blogLink.click()
 
 	// Expects the URL to contain intro.
