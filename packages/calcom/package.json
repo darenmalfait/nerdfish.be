@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@calcom/embed-react": "^1.5.2",
+    "@calcom/embed-react": "^1.5.3",
     "@repo/design-system": "workspace:*",
     "@repo/i18n": "workspace:*",
     "@repo/lib": "workspace:*"

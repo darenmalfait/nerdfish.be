@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "15.3.1",
-    "@t3-oss/env-nextjs": "^0.13.0",
+    "@t3-oss/env-nextjs": "^0.13.4",
     "@vercel/toolbar": "^0.1.36",
     "next-secure-headers": "^2.2.0",
-    "zod": "^3.24.3"
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
