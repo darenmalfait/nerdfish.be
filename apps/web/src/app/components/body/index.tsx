@@ -15,7 +15,7 @@ export function Body(props: React.ComponentProps<typeof BaseBody>) {
 			{...rest}
 			components={{
 				Button: PortableButton,
-				code_block: PortableCode,
+				pre: PortableCode,
 				image: PortableImage,
 				img: PortableImage,
 				h1: ({ children }: { children: React.ReactNode }) => (

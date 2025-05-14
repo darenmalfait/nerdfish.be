@@ -24,7 +24,7 @@ We will handle the second way when we come to it.
 Always create a backup of your current network settings. Then, if something were
 to go wrong, at least you can go back to the previous settings.
 
-```powershell
+```
 sudo cp /etc/dhcpcd.conf /etc/dhcpcd.conf.backup
 ```
 
@@ -33,13 +33,13 @@ sudo cp /etc/dhcpcd.conf /etc/dhcpcd.conf.backup
 The IP configuration of the network adapters is saved in the configuration file
 dhcpcd.conf in the /etc folder. Open the file with the nano editor:
 
-```powershell
+```
 sudo nano /etc/dhcpcd.conf
 ```
 
 At the bottom of the file, add the following lines:
 
-```powershell
+```
 interface eth0
  static ip_address=192.168.1.30/24
  static routers=192.168.0.1
@@ -59,7 +59,7 @@ Once you have changed the file, save the adjustments with Ctrl + X, y,
 enter\`.The changes will not be visible immediately. So you're probably better
 of restarting your raspberry pi at this point.
 
-```powershell
+```
 sudo reboot -h 0
 ```
 

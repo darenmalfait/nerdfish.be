@@ -17,13 +17,13 @@ on a raspberry pi can easily be done by installing it using docker.
 
 ## Create a volume
 
-```powershell
+```bash
 docker volume create uptime-kuma
 ```
 
 ## Start the container
 
-```powershell
+```bash
 docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
 ```
 

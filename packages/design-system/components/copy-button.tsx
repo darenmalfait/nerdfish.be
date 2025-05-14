@@ -1,13 +1,11 @@
 'use client'
 
-import { cx } from '@repo/lib/utils/base'
-import { Check, Copy } from '../icons'
+import { CheckIcon, CopyIcon } from '../icons'
 import {
 	Button,
 	type ButtonProps,
 	Tooltip,
 	TooltipContent,
-	TooltipProvider,
 	TooltipTrigger,
 	useCopyToClipboard,
 } from './ui'
@@ -24,26 +22,24 @@ export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 	const label = copiedText ? 'Copied' : 'Copy'
 
 	return (
-		<TooltipProvider>
-			<Tooltip>
-				<TooltipTrigger asChild>
-					<Button
-						size="iconSm"
-						aria-label="copy"
-						{...props}
-						className={cx('absolute right-2 top-2', className)}
-						variant={copiedText ? 'success' : 'ghost'}
-						onClick={() => handleCopy(code, COPY_TIMOUT)}
-					>
-						{copiedText ? (
-							<Check className="size-4" />
-						) : (
-							<Copy className="size-4" />
-						)}
-					</Button>
-				</TooltipTrigger>
-				<TooltipContent>{label}</TooltipContent>
-			</Tooltip>
-		</TooltipProvider>
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<Button
+					size="iconSm"
+					aria-label="copy"
+					{...props}
+					className={className}
+					variant={copiedText ? 'success' : 'secondary'}
+					onClick={() => handleCopy(code, COPY_TIMOUT)}
+				>
+					{copiedText ? (
+						<CheckIcon className="size-4" />
+					) : (
+						<CopyIcon className="size-4" />
+					)}
+				</Button>
+			</TooltipTrigger>
+			<TooltipContent side="left">{label}</TooltipContent>
+		</Tooltip>
 	)
 }

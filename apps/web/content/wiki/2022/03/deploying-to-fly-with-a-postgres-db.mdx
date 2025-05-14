@@ -26,7 +26,7 @@ BEFORE you deploy.
 - [Install Fly](https://fly.io/docs/getting-started/installing-flyctl/)
 - Sign up and log in to Fly
 
-```powershell
+```
 flyctl auth signup
 ```
 
@@ -36,7 +36,7 @@ In development, it's better to use a local database, The easiest way to do this
 is using Docker. To start your Postgres database, first make sure you have
 Docker running, then run the following command:
 
-```powershell
+```
 docker-compose up
 ```
 
@@ -44,7 +44,7 @@ That may take a moment to start up as it needs to get the Postgres image from
 the Docker registry. After it is ready, you'll need to migrate your database.
 With the database prepared to accept connections, open a new tab and run this:
 
-```powershell
+```
 npx prisma migrate deploy
 ```
 
@@ -64,7 +64,7 @@ With your Postgres database up and running in one tab and set up with tables for
 your data model via Prisma, you're ready to start the dev server. But first, run
 this command in a new tab in your terminal:
 
-```powershell
+```
 npm run dev
 ```
 
@@ -75,7 +75,7 @@ changes.
 
 Using GitHub actions, you can automatically deploy your application to fly.
 
-```powershell
+```
 name: Fly Deploy Production
 on:
   push:
@@ -109,7 +109,7 @@ Before your first deployment, you'll need to do a few things:
 - Create a new GitHub Repository
 - Create two apps on Fly, one for staging and one for production:
 
-```powershell
+```
 fly create [YOUR_APP_NAME]-staging
 fly create [YOUR_APP_NAME]
 ```
@@ -119,7 +119,7 @@ settings on Fly and create a new token, then add it to your repo secrets with
 the name FLY_API_TOKEN. Finally, you'll need to add a SESSION_SECRET to your fly
 app secrets. To do that, you can run the following commands:
 
-```powershell
+```
 fly secrets set SESSION_SECRET=$(openssl rand -hex 32) -c fly.staging.toml
 fly secrets set SESSION_SECRET=$(openssl rand -hex 32) -c fly.production.toml
 ```
@@ -132,13 +132,13 @@ secret.
   following for both of your environments and follow the prompts (your App name
   is "\[YOUR_APP_NAME]-db")
 
-```powershell
+```
 fly postgres create
 ```
 
 afterwards, you'll need to connect your database to each of your apps
 
-```powershell
+```
 fly postgres attach --postgres-app [YOUR_APP_NAME]-db --app [YOUR_APP_NAME]
 ```
 

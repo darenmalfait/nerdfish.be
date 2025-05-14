@@ -24,7 +24,7 @@ packages easier. Here's my flow of how I update packages.
 
 If you don't want to install the package globally, you can run it with npx.
 
-```powershell
+```bash
 npm install -g npm-check-updates
 ```
 
@@ -33,7 +33,7 @@ npm install -g npm-check-updates
 When you run the command below, you will get an overview of all packages that
 have updates available.&#x20;
 
-```powershell
+```bash
 npx npm-check-updates
 ```
 
@@ -46,25 +46,25 @@ something breaks.
 
 ### Patches
 
-```powershell
+```bash
 npx npm-check-updates -u -t patch
 ```
 
 #### Monorepo
 
-```powershell
+```bash
 npx npm-check-updates -u -t patch --deep
 ```
 
 ### Minor versions
 
-```powershell
+```bash
 npx npm-check-updates -u -t minor
 ```
 
 #### Monorepo
 
-```powershell
+```bash
 npx npm-check-updates -u -t minor --deep
 ```
 
@@ -75,7 +75,7 @@ look up the package and go and check the release notes. Once you do, you have
 two options. You could update all the major versions with `npx ncu -u -t major`,
 but it's better to update them one by one.
 
-```powershell
+```bash
 npx npm-check-updates -u -f eslint
 ```
 
