@@ -117,7 +117,8 @@ commit. Some common types include:
 - `chore`: Does not impact production.
 
 The scope is an optional string that describes the part of the codebase that the
-commit affects.
+commit affects. The scope provides additional context and depends on the specific project.
+Avoid using issue identifiers as scopes.
 
 The subject is a brief description of the changes made in the commit. It should
 be written in an imperative mood and should not exceed 50 characters.
@@ -125,8 +126,30 @@ be written in an imperative mood and should not exceed 50 characters.
 For example, a commit message following the Angular convention might look like
 this:
 
+Here are some more examples:
+
 ```
-feat(search): add support for searching by date range
+feat: add gluten-free pizza option to the menu
+```
+
+```
+feat(app): add "add extra toppings" button for salads
+```
+
+```
+feat!: remove tomato soup from the specials menu
+
+refers to JIRA-1337
+
+BREAKING CHANGES: tomato soup has been removed from the menu.
+```
+
+```
+feat: JIRA-1337 add tomato soup to the specials menu
+```
+
+```
+style: remove extra spaces in the recipe instructions
 ```
 
 ### The commit body
@@ -142,14 +165,16 @@ wrapped to a maximum line length of 72 characters.
 Here is an example of a commit message with a body:
 
 ```
-feat(search): add support for searching by date range
+feat: add tomato soup to the menu
+
+refers to JIRA-1337
+```
 
 This commit adds a new feature to the search module that allows users to search for records within a specific date range. The date range can be specified using two new fields on the search form: a start date and an end date.
 
 - Adds new fields to the search form for specifying the date range
 - Updates the search API to accept the start and end dates as parameters
 - Modifies the search results page to display the selected date range
-```
 
 In general, the body of a commit message should provide enough information to
 understand the changes and motivations behind them without going into
@@ -164,7 +189,8 @@ of the breaking change.
 For example:
 
 ```
-feat(search): add support for searching by date range
+
+feat(app): add support for searching by date range
 
 BREAKING CHANGE: The search API now requires a start and end date to be specified for all searches. The old API, which only accepted a single search term, is no longer supported.
 
@@ -173,6 +199,7 @@ This commit adds a new feature to the search module that allows users to search 
 - Adds new fields to the search form for specifying the date range
 - Updates the search API to accept the start and end dates as parameters
 - Modifies the search results page to display the selected date range
+
 ```
 
 The description of the breaking change should explain the change's impact and
@@ -181,7 +208,7 @@ any steps users will need to take to migrate to the new version.
 You can also append '!' to the scope/type to get the same result:
 
 ```
-feat(search)!: add support for searching by date range
+feat(app)!: add support for searching by date range
 ```
 
 ### Semantic versioning

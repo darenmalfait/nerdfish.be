@@ -40,7 +40,8 @@ chore: initial commit
 
 ### Types
 
-- API relevant changes:
+API relevant changes:
+
 - feat: Commits that add or remove a new feature.
 - fix: Commits that fix a bug.
 - refactor: Commits that restructure or rewrite code without changing behavior.
@@ -73,8 +74,9 @@ The description is a concise summary of the change.
 - Is a mandatory part of the format.
 - Use the imperative, present tense: "change" not "changed" or "changes."
 - Think of This commit will... or This commit should....
-- Don’t capitalize the first letter.
+- Don't capitalize the first letter.
 - No period (.) at the end.
+- Can include ticket numbers, e.g., feat(app): 123 add user profile
 
 ### Body
 
@@ -111,7 +113,39 @@ BREAKING CHANGES: tomato soup has been removed from the menu.
 ```
 
 ```
+feat: JIRA-1337 add tomato soup to the specials menu
+```
+
+```
 style: remove extra spaces in the recipe instructions
+```
+
+## Tools
+
+### Better Commits CLI
+
+The [Better Commits CLI](https://github.com/Everduin94/better-commits) helps you create conventional commits through a series of prompts. Key features:
+
+- Generate conventional commits through interactive prompts
+- Infers ticket numbers and commit types from branch names
+- Consistent branch creation with flexible workflow hooks
+- Interactive git status/add on commit
+- Preview commit messages in color
+- Support for git emojis per commit type
+- Configure globally or per repository
+
+Install:
+
+```bash
+npm install -g better-commits
+```
+
+Use:
+
+```bash
+better-commits
+# or
+npx better-commits
 ```
 
 ## References
