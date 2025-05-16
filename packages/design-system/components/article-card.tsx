@@ -2,38 +2,35 @@
 
 import { cx } from '@repo/lib/utils/base'
 import { motion } from 'motion/react'
+import { Cursor } from 'motion-cursor'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
 import { ArrowRightIcon } from '../icons'
 import { getCategoryColors } from './category-indicator'
-import { Cursor } from './cursor'
-import { Badge, H2, type H3, Skeleton } from './ui'
+import { Badge, Button, H2, type H3, Skeleton } from './ui'
 
-function ReadMoreCursor({ children }: { children: React.ReactNode }) {
+function ReadMoreCursor({
+	active,
+	readMoreLabel,
+}: {
+	active: boolean
+	readMoreLabel: string
+}) {
+	if (!active) return null
 	return (
-		<Cursor
-			className="fixed z-50 -ml-4 -mt-4"
-			variants={{
-				initial: {
-					scale: 0,
-				},
-				animate: {
-					scale: 1,
-				},
-				exit: {
-					scale: 0,
-				},
-			}}
-			attachToParent
-		>
-			<motion.div
-				className="bg-popover before:empty-content before:rounded-container before:bg-background-muted/50 before:-z-1 flex size-16 items-center justify-center rounded-full text-current transition-transform before:absolute before:inset-0 group-active:scale-125"
-				transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+		<Cursor className="fixed z-50 !bg-transparent">
+			<Button
+				variant="ghost"
+				className="bg-popover before:empty-content before:rounded-container before:bg-background-muted/50 before:-z-1 before:absolute before:inset-0"
+				asChild
+				size="xl"
 			>
-				<ArrowRightIcon className="size-8" />
-				{children}
-			</motion.div>
+				<div className="flex items-center justify-center">
+					<span className="mr-md">{readMoreLabel}</span>
+					<ArrowRightIcon className="size-8" />
+				</div>
+			</Button>
 		</Cursor>
 	)
 }
@@ -53,10 +50,14 @@ export function ArticleCardImage({
 	readMoreLabel = 'Read More',
 	base64Placeholder,
 }: ArticleCardImageProps) {
+	const [isHovering, setIsHovering] = React.useState(false)
+
 	if (!src) return null
 
 	return (
-		<div
+		<motion.div
+			onHoverEnd={() => setIsHovering(false)}
+			onHoverStart={() => setIsHovering(true)}
 			className={cx(
 				'aspect-h-4 aspect-w-3 rounded-container shadow-outline ring-offset-inverted relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
@@ -76,10 +77,8 @@ export function ArticleCardImage({
 				/>
 			) : null}
 
-			<ReadMoreCursor>
-				<span className="sr-only">{readMoreLabel}</span>
-			</ReadMoreCursor>
-		</div>
+			<ReadMoreCursor active={isHovering} readMoreLabel={readMoreLabel} />
+		</motion.div>
 	)
 }
 
