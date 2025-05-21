@@ -8,10 +8,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nerdfish/ui": "^7.12.0",
+    "@nerdfish/ui": "^7.12.1",
     "@number-flow/react": "^0.5.9",
-    "@radix-ui/react-progress": "^1.1.6",
-    "@radix-ui/react-slot": "^1.2.2",
+    "@radix-ui/react-progress": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "@reach/checkbox": "^0.18.0",
     "@repo/lib": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
@@ -19,7 +19,7 @@
     "fuse.js": "^7.1.0",
     "geist": "^1.4.2",
     "lodash": "^4.17.21",
-    "motion": "^12.11.3",
+    "motion": "^12.12.1",
     "motion-cursor": "^1.0.5",
     "next": "15.3.2",
     "react": "19.1.0",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/lodash": "^4.17.16",
+    "@types/lodash": "^4.17.17",
     "@types/react": "19.1.4",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
