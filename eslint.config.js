@@ -34,6 +34,7 @@ export default [
 			'**/public/**',
 			'**/generated/**',
 			'**/.content-collections/**',
+			'**/.obsidian/**',
 		],
 	},
 ]

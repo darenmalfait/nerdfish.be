@@ -5,6 +5,7 @@ node_modules
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -23,6 +24,7 @@ build
 dist
 
 # misc
+.obsidian
 .DS_Store
 *.pem
 
