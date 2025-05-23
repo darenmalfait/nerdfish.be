@@ -41,7 +41,7 @@
     "@vercel/og": "^0.6.8",
     "csv-import-react": "^1.0.14",
     "fuse.js": "^7.1.0",
-    "motion": "^12.12.1",
+    "motion": "^12.12.2",
     "negotiator": "^1.0.0",
     "next": "15.3.2",
     "next-safe-action": "^7.10.8",
@@ -50,14 +50,14 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.56.4",
     "typescript": "^5.8.3",
-    "zod": "^3.25.12"
+    "zod": "^3.25.28"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@svgr/webpack": "^8.1.0",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^22.15.21",
-    "@types/react": "19.1.4",
+    "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
     "@vercel/toolbar": "^0.1.37",
     "autoprefixer": "^10.4.21",
