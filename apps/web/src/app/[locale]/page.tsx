@@ -5,7 +5,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { Paragraph } from '@repo/design-system/components/ui'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
@@ -14,14 +13,8 @@ import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../components/cta'
 import { Features } from '../components/features'
-import {
-	Hero,
-	HeroContent,
-	HeroCTA,
-	HeroSubtitle,
-	HeroTitle,
-} from '../components/hero'
 import { Highlights } from '../components/highlights'
+import { WelcomeHero } from '../components/welcome-hero/welcome-hero'
 import { BlogOverview } from './blog/components/blog-overview'
 import { Testimonials } from './testimonials/components/testimonials'
 import { WorkOverview } from './work/components/work-overview'
@@ -61,16 +54,10 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			<Hero>
-				<HeroContent>
-					<HeroTitle title="nerdfish" />
-					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-					<Paragraph className="!mt-sm">{t('hero.content')}</Paragraph>
-					<div className="mt-lg w-full">
-						<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
-					</div>
-				</HeroContent>
-			</Hero>
+			<Section className="!py-lg">
+				<WelcomeHero />
+			</Section>
+
 			<Section>
 				<SectionHeader>
 					<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
