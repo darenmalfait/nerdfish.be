@@ -22,7 +22,7 @@ export function Tilt({
 	className,
 	style,
 	rotationFactor = 15,
-	isReverse = false,
+	isReverse = true,
 	springOptions,
 	ref,
 	as,

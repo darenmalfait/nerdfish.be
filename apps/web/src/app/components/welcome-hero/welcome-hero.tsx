@@ -13,7 +13,7 @@ export function HeroCTA({
 	...props
 }: React.ComponentProps<typeof Link>) {
 	return (
-		<MagnetButton size="lg" asChild>
+		<MagnetButton size="xl" asChild className="hover:!bg-inverted/80">
 			<Link {...props} className={cx('flex items-center', className)}>
 				{children}
 				<ArrowRightIcon className="text-inverted ml-sm size-4" />
@@ -26,7 +26,9 @@ export function WelcomeHero() {
 	const t = useTranslations('home.page')
 
 	return (
-		<header className="bg-muted p-lg lg:p-xl rounded-container group/hero">
+		<header
+			className={cx('bg-secondary p-lg lg:p-xl rounded-container group/hero')}
+		>
 			<div className={cx('gap-lg relative flex flex-col px-0')}>
 				<h1 className="text-foreground font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]">
 					<div className="bg-[url('/images/blobs.png')] bg-cover !bg-clip-text !uppercase !text-transparent [word-spacing:90vw]">
