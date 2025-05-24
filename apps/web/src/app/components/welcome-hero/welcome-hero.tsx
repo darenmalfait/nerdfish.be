@@ -3,6 +3,7 @@
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Link } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/icons'
+import { useTranslations } from '@repo/i18n/client'
 import { cx } from 'class-variance-authority'
 import * as React from 'react'
 
@@ -22,6 +23,8 @@ export function HeroCTA({
 }
 
 export function WelcomeHero() {
+	const t = useTranslations('home.page')
+
 	return (
 		<header className="bg-muted p-lg lg:p-xl rounded-container group/hero">
 			<div className={cx('gap-lg relative flex flex-col px-0')}>
@@ -31,7 +34,7 @@ export function WelcomeHero() {
 					</div>
 				</h1>
 				<div className="relative">
-					<HeroCTA href="/contact">Get in touch</HeroCTA>
+					<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
 				</div>
 			</div>
 		</header>
