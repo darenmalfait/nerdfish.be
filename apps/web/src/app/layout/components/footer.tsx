@@ -5,6 +5,7 @@ import { H1 } from '@repo/design-system/components/ui'
 import { ArrowRight, Logo } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
+import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { cx } from '@repo/lib/utils/base'
 import { kebabCase } from '@repo/lib/utils/string'
 import * as React from 'react'
@@ -18,7 +19,7 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="text-muted/70 mt-8 flex flex-col items-center gap-2 text-xs sm:mt-0 sm:flex-row sm:gap-x-4 sm:gap-y-0 sm:text-sm">
+		<div className="text-muted/70 mt-8 flex flex-col items-center justify-center gap-2 text-xs sm:mt-0 sm:flex-row sm:gap-x-4 sm:gap-y-0 sm:text-sm md:justify-self-start">
 			<span>
 				© {currentYear} {companyName}
 			</span>
@@ -180,7 +181,8 @@ function SiteFooterContent() {
 							nerdfish
 						</Link>
 					</p>
-					<div className="flex justify-center md:justify-end">
+					<div className="gap-md mb-lg flex justify-center md:justify-end">
+						<LocaleSwitcher />
 						<ThemeToggle />
 					</div>
 				</div>

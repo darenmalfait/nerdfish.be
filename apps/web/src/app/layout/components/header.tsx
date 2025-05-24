@@ -4,6 +4,7 @@ import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { MobileNavigation } from './mobile-navigation'
 import { MainNavigation } from './navigation'
 import { Link } from '~/app/components/link'
+import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 export function Header() {
 	return (
@@ -21,7 +22,8 @@ export function Header() {
 						<div className="mx-auto flex flex-1 items-center">
 							<MainNavigation />
 
-							<div className="space-x-sm gap-md flex flex-1 flex-grow justify-end md:flex-grow-0">
+							<div className="gap-md flex flex-1 flex-grow justify-end md:flex-grow-0">
+								<ThemeToggle />
 								<LocaleSwitcher />
 								<MobileNavigation />
 							</div>
