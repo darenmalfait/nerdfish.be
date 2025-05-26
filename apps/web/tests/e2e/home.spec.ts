@@ -11,7 +11,7 @@ test.describe('homepage a11y', () => {
 	test('homepage should not have any automatically detectable WCAG A or AA violations in light mode', async ({
 		page,
 	}) => {
-		await page.getByLabel('Switch to Light theme').click()
+		await page.getByLabel('Switch to Light theme').first().click()
 
 		await expect(
 			page.getByRole('heading', { level: 1, name: 'Nerdfish' }),
@@ -29,7 +29,7 @@ test.describe('homepage a11y', () => {
 	test('homepage should not have any automatically detectable WCAG A or AA violations in dark Mode', async ({
 		page,
 	}) => {
-		await page.getByLabel('Switch to Dark theme').click()
+		await page.getByLabel('Switch to Dark theme').first().click()
 
 		await expect(
 			page.getByRole('heading', { level: 1, name: 'Nerdfish' }),
