@@ -17,3 +17,8 @@
 .prose code {
 	box-shadow: none;
 }
+
+.prose hr {
+	border-color: hsl(var(--colors-foreground-muted));
+	opacity: 0.2;
+}

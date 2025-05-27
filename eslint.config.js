@@ -35,6 +35,9 @@ export default [
 			'**/generated/**',
 			'**/.content-collections/**',
 			'**/.obsidian/**',
+			'**/.makemd/**',
+			'**/.space/**',
+			'**/.trash/**',
 		],
 	},
 ]

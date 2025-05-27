@@ -2,7 +2,7 @@ import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
-import { H1, Separator } from '@repo/design-system/components/ui'
+import { Badge, H2, Separator } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { type Wiki } from 'content-collections'
 import { BackToWiki } from './misc'
@@ -17,19 +17,21 @@ function WikiContent({ data }: { data: Wiki }) {
 		<>
 			<ReadingProgress title={title} offset={400} />
 			<Section className="max-w-4xl">
-				<div className="mb-lg">
+				<div className="mb-lg pb-lg border-muted/20 border-b">
 					<BackToWiki />
 				</div>
 
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
-						<span className="mb-xs text-foreground-muted text-lg">
-							<DateFormatter dateString={date} format="dd MMMM yyyy" />
-						</span>
+						<div className="mb-sm">
+							<Badge variant="secondary">
+								<DateFormatter dateString={date} format="dd MMMM yyyy" />
+							</Badge>
+						</div>
 					) : null}
-					<H1 className="w-auto" variant="primary">
+					<H2 as="h1" className="w-auto" variant="primary">
 						<TextBalancer>{title}</TextBalancer>
-					</H1>
+					</H2>
 				</header>
 
 				<Separator className="my-lg container max-w-4xl" />

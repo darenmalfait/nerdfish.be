@@ -17,7 +17,7 @@ function PortableCode({ children, ...rest }: PortableCodeProps) {
 	const language = match ? match[1] : 'text'
 
 	return (
-		<CodeBlock>
+		<CodeBlock className="mb-lg">
 			<CodeBlockGroup className="border-muted/10 p-sm bg-popover border-b">
 				<div className="flex items-center gap-2">
 					<div className="bg-foreground/10 text-primary px-sm py-xs rounded-[calc(theme(borderRadius.base)-theme(padding.sm))] text-xs font-medium">
