@@ -29,7 +29,7 @@ function WikiContent({ data }: { data: Wiki }) {
 							</Badge>
 						</div>
 					) : null}
-					<H2 as="h1" className="w-auto" variant="primary">
+					<H2 as="h1" className="!mt-0 w-auto" variant="primary">
 						<TextBalancer>{title}</TextBalancer>
 					</H2>
 				</header>
