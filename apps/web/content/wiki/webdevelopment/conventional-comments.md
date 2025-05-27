@@ -106,8 +106,6 @@ Can be automatically parsed into:
 
 ## Labels
 
-## Labels
-
 We strongly suggest using the following labels:
 
 |                 |                                                                                                                                                                                                                                                                                           |
@@ -149,7 +147,7 @@ Could we consider using the framework instead?
 
 Decorations may be specific to each organization. If needed, we recommend
 establishing a minimal set of decorations (leaving room for discretion) with no
-ambiguity. Possible decorations include: | | | | ------------------ |
+ambiguity.
 
 ---
 

@@ -17,10 +17,9 @@ function WikiContent({ data }: { data: Wiki }) {
 		<>
 			<ReadingProgress title={title} offset={400} />
 			<Section className="max-w-4xl">
-				<div className="mb-lg pb-lg border-muted/20 border-b">
+				<div className="mb-lg">
 					<BackToWiki />
 				</div>
-
 				<header className={cx('flex max-w-4xl flex-col', prose)}>
 					{date ? (
 						<div className="mb-sm">
