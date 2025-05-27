@@ -7,7 +7,8 @@ import { seo } from '../utils'
 export const wiki = defineCollection({
 	name: 'wiki',
 	directory: 'content/wiki',
-	include: '**/*.mdx',
+	include: ['**/*.mdx', '**/*.md'],
+	exclude: ['**/_templates/**', '**/.obsidian/**'],
 	schema: (z) => ({
 		seo,
 		title: z.string(),
