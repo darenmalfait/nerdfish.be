@@ -176,7 +176,7 @@ export function ArticleOverviewFilter({
 	)
 
 	return (
-		<div className={cx('mb-lg', className)} {...props}>
+		<div className={cx('mb-xl', className)} {...props}>
 			<TagFilter
 				tags={tags}
 				enabledTags={enabledTags}

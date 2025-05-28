@@ -1,7 +1,6 @@
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { FilterIcon } from '../icons'
-import { Tag } from './tag'
 import {
 	Button,
 	Drawer,
@@ -10,6 +9,11 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 	H5,
+	Toggle,
+	ToggleGroup,
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
 } from './ui'
 
 type TagFilterContextProps = {
@@ -32,45 +36,16 @@ function useTagFilter(): TagFilterContextProps {
 	return context
 }
 
-export interface TagFilterTagProps
-	extends Omit<React.ComponentProps<typeof Tag>, 'onClick'> {
-	tag: string
-	selected: boolean
-	onClick: (tag: string) => void
+export type TagFilterTagsProps = {
+	className?: string
 }
 
-function FilterTag({
-	tag,
-	selected,
-	onClick,
-	disabled,
-	size,
-}: TagFilterTagProps) {
-	return (
-		<Tag
-			tag={tag}
-			selected={selected}
-			onClick={() => onClick(tag)}
-			disabled={disabled}
-			size={size}
-		/>
-	)
-}
-
-export interface TagFilterTagsProps extends React.ComponentProps<'div'> {
-	size?: React.ComponentProps<typeof Tag>['size']
-}
-
-export function TagFilterTags({
-	size,
-	className,
-	...props
-}: TagFilterTagsProps) {
+export function TagFilterTags({ className }: TagFilterTagsProps) {
 	const { selectedTags, tags, enabledTags, onToggleTag } = useTagFilter()
 
 	return (
-		<div
-			{...props}
+		<ToggleGroup
+			type="multiple"
 			className={cx(
 				'col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10',
 				className,
@@ -81,17 +56,18 @@ export function TagFilterTags({
 				const disabled = enabledTags?.includes(tag) ? false : !selected
 
 				return (
-					<FilterTag
-						key={tag}
-						tag={tag}
-						size={size}
-						selected={selected ?? false}
-						onClick={onToggleTag}
+					<Toggle
+						variant="outline"
 						disabled={disabled}
-					/>
+						key={tag}
+						pressed={selected}
+						onPressedChange={() => onToggleTag(tag)}
+					>
+						{tag}
+					</Toggle>
 				)
 			})}
-		</div>
+		</ToggleGroup>
 	)
 }
 
@@ -109,21 +85,26 @@ export function TagFilterTitle({
 	return (
 		<H5
 			as={as}
-			className="mb-md gap-sm flex items-center justify-between"
+			className="mb-md gap-sm flex items-center justify-end lg:justify-between"
 			{...props}
 		>
-			{children}
+			<span className="hidden lg:block">{children}</span>
 			<Drawer repositionInputs={false}>
-				<DrawerTrigger asChild className="lg:hidden">
-					<Button
-						variant={selectedTags.length > 0 ? 'accent' : 'secondary'}
-						size="icon"
-					>
-						<FilterIcon size="sm" className="size-4" />
-					</Button>
-				</DrawerTrigger>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<DrawerTrigger asChild className="lg:hidden">
+							<Button
+								variant={selectedTags.length > 0 ? 'default' : 'secondary'}
+								size="icon"
+							>
+								<FilterIcon size="sm" className="size-4" />
+							</Button>
+						</DrawerTrigger>
+					</TooltipTrigger>
+					<TooltipContent side="left">{children}</TooltipContent>
+				</Tooltip>
 				<DrawerContent className="max-h-[85vh]">
-					<div className="container">
+					<div className="pb-lg container">
 						<DrawerHeader>
 							<DrawerTitle>{children}</DrawerTitle>
 						</DrawerHeader>
