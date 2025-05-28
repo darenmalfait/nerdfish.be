@@ -22,7 +22,7 @@ function ReadMoreCursor({
 		<Cursor className="fixed z-50 !bg-transparent">
 			<Button
 				variant="ghost"
-				className="bg-popover before:empty-content before:rounded-container before:bg-background-muted/50 before:-z-1 before:absolute before:inset-0"
+				className="bg-popover before:empty-content before:rounded-base before:bg-background-muted/50 before:-z-1 before:absolute before:inset-0"
 				asChild
 				size="xl"
 			>

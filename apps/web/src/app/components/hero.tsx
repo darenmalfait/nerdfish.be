@@ -1,9 +1,10 @@
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
+	SectionHeader,
 	SectionHeaderSubtitle,
+	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { capitalize } from '@repo/lib/utils/string'
@@ -11,41 +12,11 @@ import Image from 'next/image'
 import * as React from 'react'
 import { Link } from './link'
 
-const AnimatedText = React.forwardRef<
-	HTMLSpanElement,
-	Omit<React.ComponentPropsWithRef<'span'>, 'children'> & {
-		as?: React.ElementType
-		value?: string
-		letterClassName?: string
-	}
->(function AnimatedText({ as, value, letterClassName, ...props }, ref) {
-	const Tag = as ?? 'span'
-
-	const letters = value?.split('')
-
-	return (
-		<Tag {...props} aria-label={value} ref={ref}>
-			{letters?.map((letter, index) => (
-				<span
-					className={cx(
-						'inline-block transition-colors',
-						'hover:animate-rubber cursor-default',
-						letterClassName,
-					)}
-					key={`${letter}-${index}`}
-				>
-					{letter === ' ' ? '\u00A0' : letter}
-				</span>
-			))}
-		</Tag>
-	)
-})
-
 export function HeroSubtitle({ children }: { children?: React.ReactNode }) {
 	if (!children) return null
 
 	return (
-		<SectionHeaderSubtitle className="prose max-w-2xl [&_strong]:font-black">
+		<SectionHeaderSubtitle className="prose [&_strong]:font-black">
 			{children}
 		</SectionHeaderSubtitle>
 	)
@@ -62,19 +33,9 @@ export function HeroTitle({
 	if (!title) return null
 
 	return (
-		<div className="mb-lg flex flex-col">
-			<AnimatedText
-				{...props}
-				as={as ?? 'h1'}
-				className={cx(
-					'text-foreground font-sans text-4xl font-black leading-none sm:text-[11.6250vw] sm:leading-[11.6250vw] 2xl:text-[12rem] 2xl:leading-[12rem]',
-					'text-foreground relative font-black',
-					className,
-				)}
-				value={capitalize(title)}
-				aria-label={title}
-			/>
-		</div>
+		<SectionHeaderTitle {...props} as={as ?? 'h1'}>
+			{capitalize(title)}
+		</SectionHeaderTitle>
 	)
 }
 
@@ -84,10 +45,10 @@ export function HeroCTA({
 	...props
 }: React.ComponentProps<typeof Link>) {
 	return (
-		<MagnetButton size="lg" asChild>
+		<MagnetButton size="xl" className="mt-xl group" asChild>
 			<Link {...props} className={cx('flex items-center', className)}>
 				{children}
-				<ArrowRightIcon className="text-accent ml-sm size-4" />
+				<ArrowRightIcon className="text-accent ml-sm group-hover:translate-x-sm size-6 transition-all" />
 			</Link>
 		</MagnetButton>
 	)
@@ -129,47 +90,18 @@ export function HeroContent({ children, ...props }: HeroContentProps) {
 	if (!children) return null
 
 	return (
-		<TextSlideUp eager {...props}>
+		<SectionHeader eager {...props}>
 			{children}
-		</TextSlideUp>
+		</SectionHeader>
 	)
 }
 
-export interface HeroProps extends React.ComponentProps<'div'> {
-	variant?: 'default' | 'secondary'
-}
-export function Hero({ variant = 'default', children }: HeroProps) {
+export type HeroProps = React.ComponentProps<'div'>
+
+export function Hero({ children }: HeroProps) {
 	return (
-		<Section
-			className={cx('group/section relative', {
-				'max-w-none': variant === 'default',
-			})}
-		>
-			{variant === 'default' ? (
-				<>
-					<div className="-z-1 inset-x-md rounded-container lg:inset-x-md absolute inset-y-0 bottom-0 bg-[linear-gradient(to_right_top,#38438b,#944b94,#d75a88,#ff7e71,#ffb25f,#ffeb68)] opacity-100" />
-					<div className="-z-1 inset-x-md rounded-container lg:inset-x-md bg-primary/30 absolute inset-y-0 bottom-0" />
-				</>
-			) : null}
-			<div
-				className={cx('container relative mx-auto px-0', {
-					'px-lg lg:min-h-[40vh]': variant === 'default',
-					dark: variant === 'default',
-				})}
-			>
-				<div
-					style={
-						variant === 'default'
-							? ({
-									'--colors-foreground-primary': '0 0% 100%',
-									'--colors-foreground-muted': '0 0% 100%',
-								} as React.CSSProperties)
-							: {}
-					}
-				>
-					{children}
-				</div>
-			</div>
+		<Section className={cx('group/section relative')}>
+			<div className="container relative mx-auto px-0">{children}</div>
 		</Section>
 	)
 }

@@ -63,13 +63,11 @@ export default async function AboutPage(props: PageProps) {
 
 	return (
 		<>
-			<Hero variant="secondary">
+			<Hero>
 				<HeroContent>
 					<HeroTitle title={t('hero.title')} />
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-					<div className="mt-md w-full">
-						<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
-					</div>
+					<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
 				</HeroContent>
 			</Hero>
 			<Section>

@@ -77,6 +77,7 @@ export interface SectionHeaderProps extends React.ComponentProps<'header'> {
 		as?: React.ElementType
 	}
 	as?: React.ElementType
+	eager?: boolean
 }
 
 export function SectionHeader({
@@ -84,6 +85,7 @@ export function SectionHeader({
 	className,
 	cta,
 	as,
+	eager,
 	...props
 }: SectionHeaderProps) {
 	const Element = as ?? 'header'
@@ -92,7 +94,7 @@ export function SectionHeader({
 
 	return (
 		<Element className={cx('mb-xl', className)} {...props}>
-			<TextSlideUp>
+			<TextSlideUp eager={eager}>
 				{children}
 				{cta?.url ? (
 					<div className="mt-lg flex justify-start">

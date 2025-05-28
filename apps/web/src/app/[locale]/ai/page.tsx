@@ -57,7 +57,7 @@ export default async function AiPage(props: PageProps) {
 
 	return (
 		<>
-			<Hero variant="secondary">
+			<Hero>
 				<HeroContent>
 					<HeroTitle title={t('title')} />
 					<HeroSubtitle>{t('description')}</HeroSubtitle>

@@ -1,10 +1,4 @@
-import {
-	Section,
-	SectionHeader,
-	SectionHeaderSubtitle,
-	SectionHeaderTitle,
-} from '@repo/design-system/components/section'
-import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
+import { Section } from '@repo/design-system/components/section'
 import { H2, Paragraph } from '@repo/design-system/components/ui'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { i18n } from '@repo/i18n/config'
@@ -15,6 +9,12 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { ContactFormViaButton } from './components/contact-form-drawer'
+import {
+	Hero,
+	HeroContent,
+	HeroSubtitle,
+	HeroTitle,
+} from '~/app/components/hero'
 import { Link } from '~/app/components/link'
 
 type PageProps = {
@@ -53,19 +53,14 @@ export default async function ContactPage(props: PageProps) {
 
 	return (
 		<>
-			<Section>
+			<Hero>
 				<h1 className="sr-only">{t('title')}</h1>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('contact.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('contact.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<TextSlideUp
-					delay={400}
-					className="gap-lg flex flex-col items-center !overflow-visible md:flex-row"
-				>
+				<HeroContent>
+					<HeroTitle title={t('contact.title')} />
+					<HeroSubtitle>{t('contact.subtitle')}</HeroSubtitle>
 					<ContactFormViaButton />
-				</TextSlideUp>
-			</Section>
+				</HeroContent>
+			</Hero>
 			<Section>
 				<div className="mx-auto max-w-3xl">
 					<H2 variant="primary">{t('content.title')}</H2>

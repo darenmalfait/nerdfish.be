@@ -63,7 +63,7 @@ export default async function FreelancePage(props: {
 
 	return (
 		<>
-			<Hero variant="secondary">
+			<Hero>
 				<HeroContent>
 					<HeroTitle title={t('hero.title')} />
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>

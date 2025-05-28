@@ -59,7 +59,7 @@ export default async function WorkPage(props: PageProps) {
 
 	return (
 		<>
-			<Hero variant="secondary">
+			<Hero>
 				<HeroContent>
 					<HeroTitle title={t('hero.title')} />
 					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
