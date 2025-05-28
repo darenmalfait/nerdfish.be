@@ -276,6 +276,7 @@ export interface ArticleOverviewContentGridProps
 	readMoreLabel?: string
 	ariaLabel?: string
 	maxColumns?: number
+	custumArticleCard?: React.ComponentType<{ article: Article }>
 }
 
 export function ArticleOverviewContentGrid({
@@ -283,6 +284,7 @@ export function ArticleOverviewContentGrid({
 	readMoreLabel = 'Read more',
 	ariaLabel = 'Read more about',
 	maxColumns = 2,
+	custumArticleCard: CustomArticleCard,
 	...props
 }: ArticleOverviewContentGridProps) {
 	const { articles, featuredArticleEnabled, filter, itemsToShow } =
@@ -316,6 +318,10 @@ export function ArticleOverviewContentGrid({
 			>
 				{children}
 				{articlesToShow.map((article) => {
+					if (CustomArticleCard) {
+						return <CustomArticleCard key={article.id} article={article} />
+					}
+
 					return (
 						<li
 							key={article.id}
