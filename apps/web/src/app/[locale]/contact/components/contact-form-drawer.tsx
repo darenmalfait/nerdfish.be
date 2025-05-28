@@ -1,5 +1,6 @@
 'use client'
 
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	SectionHeader,
 	SectionHeaderSubtitle,
@@ -10,10 +11,10 @@ import {
 	DrawerContent,
 	DrawerTitle,
 } from '@repo/design-system/components/ui'
+import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import { ContactForm } from '../forms/contact-form'
-import { HeroCTA } from '~/app/components/hero'
 
 export function ContactFormViaButton() {
 	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)
@@ -21,13 +22,15 @@ export function ContactFormViaButton() {
 
 	return (
 		<>
-			<HeroCTA
-				type="button"
+			<MagnetButton
+				size="xl"
+				className="mt-xl group flex items-center"
 				onClick={() => setContactFormOpen(true)}
-				className="motion-opacity-in-[0%] motion-delay-500 group w-full"
 			>
 				{t('openFormLabel')}
-			</HeroCTA>
+				<ArrowRightIcon className="text-accent ml-sm group-hover:translate-x-sm size-6 transition-all" />
+			</MagnetButton>
+
 			<Drawer
 				repositionInputs={false}
 				open={contactFormOpen}
