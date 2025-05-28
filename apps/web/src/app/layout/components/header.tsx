@@ -22,8 +22,8 @@ export function Header() {
 						<div className="mx-auto flex flex-1 items-center">
 							<MainNavigation />
 
-							<div className="gap-md flex flex-1 flex-grow justify-end md:flex-grow-0">
-								<ThemeToggle />
+							<div className="gap-md flex flex-1 flex-grow justify-end lg:flex-grow-0">
+								<ThemeToggle className="hidden sm:flex" />
 								<LocaleSwitcher />
 								<MobileNavigation />
 							</div>

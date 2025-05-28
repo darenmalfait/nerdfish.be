@@ -118,7 +118,7 @@ function SiteFooterContent() {
 							>
 								{t('follow-us')}
 							</h2>
-							<div className="-mx-sm">
+							<div>
 								<SocialLinks />
 							</div>
 						</section>

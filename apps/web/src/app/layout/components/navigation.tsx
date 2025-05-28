@@ -53,7 +53,7 @@ const MainNavigationSubItem = React.forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	'focus-outline relative h-auto flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-foreground focus:bg-transparent active:bg-transparent md:text-sm',
+	'focus-outline !rounded-full relative h-auto flex cursor-pointer items-center whitespace-nowrap bg-transparent font-bold text-xs capitalize outline-none transition hover:text-foreground focus:bg-transparent active:bg-transparent lg:text-sm',
 	{
 		variants: {
 			variant: {
@@ -78,8 +78,7 @@ const MainNavigationItem = React.forwardRef<
 			<NavigationMenuItem asChild>
 				<NavigationMenuLink asChild>
 					<Button
-						size="sm"
-						variant="ghost"
+						variant="secondary"
 						className={cx(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
@@ -105,8 +104,7 @@ const MainNavigationItem = React.forwardRef<
 		<NavigationMenuItem asChild>
 			<span>
 				<Button
-					size="sm"
-					variant="ghost"
+					variant="secondary"
 					className={getMainItemClassName({
 						variant: isActive ? 'active' : 'default',
 					})}
@@ -117,7 +115,7 @@ const MainNavigationItem = React.forwardRef<
 				<NavigationMenuContent className="rounded-base bg-background">
 					<ul
 						className={cx(
-							'gap-sm p-xs flex flex-col md:w-[400px] lg:w-[500px]',
+							'gap-sm p-xs flex flex-col lg:w-[400px] lg:w-[500px]',
 						)}
 					>
 						{sub.map((subNavItem) => {
@@ -142,7 +140,7 @@ export function SocialLinks() {
 			<ul className="gap-sm flex flex-row items-center">
 				{socials.twitter ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Twitter feed"
 								href={socials.twitter}
@@ -155,7 +153,7 @@ export function SocialLinks() {
 				) : null}
 				{socials.bluesky ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Bluesky feed"
 								href={socials.bluesky}
@@ -168,7 +166,7 @@ export function SocialLinks() {
 				) : null}
 				{socials.facebook ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Facebook page"
 								href={socials.facebook}
@@ -181,7 +179,7 @@ export function SocialLinks() {
 				) : null}
 				{socials.instagram ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Instagram"
 								href={socials.instagram}
@@ -194,7 +192,7 @@ export function SocialLinks() {
 				) : null}
 				{socials.linkedIn ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="LinkedIn profile"
 								href={socials.linkedIn}
@@ -207,7 +205,7 @@ export function SocialLinks() {
 				) : null}
 				{socials.github ? (
 					<li>
-						<Button variant="ghost" className={socialLinkClassName} asChild>
+						<Button variant="secondary" className={socialLinkClassName} asChild>
 							<Link
 								aria-label="Github Repository"
 								href={socials.github}
@@ -248,14 +246,14 @@ export function MainNavigation() {
 	return (
 		<div
 			className={cx(
-				'hidden md:flex',
+				'hidden lg:flex',
 				'rounded-container bg-muted p-xs inset-x-0 mx-auto w-fit max-w-full',
 			)}
 		>
 			<NavigationMenu
 				ref={ref}
 				aria-label="main"
-				viewportClassName="-translate-y-[calc(100%+50px)] md:translate-y-0"
+				viewportClassName="-translate-y-[calc(100%+50px)] lg:translate-y-0"
 			>
 				<NavigationMenuList
 					className="space-x-xs relative flex flex-1"

@@ -9,7 +9,7 @@ export function BackToWiki() {
 	const t = useTranslations('wiki.overview')
 
 	return (
-		<Button variant="default" size="sm" asChild>
+		<Button variant="default" asChild>
 			<Link href="/wiki">
 				<ChevronLeftIcon className="mr-2 size-4" />
 				{t('backToWiki')}

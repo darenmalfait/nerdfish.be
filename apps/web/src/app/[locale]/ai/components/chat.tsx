@@ -207,7 +207,6 @@ export function Chat({
 				{premadeQuestions.map((q) => (
 					<li key={q.buttonName}>
 						<Button
-							size="sm"
 							variant="outline"
 							className="whitespace-nowrap"
 							onClick={() => {

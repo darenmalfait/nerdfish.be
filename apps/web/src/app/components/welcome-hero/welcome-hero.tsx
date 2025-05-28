@@ -29,10 +29,15 @@ export function HeroCTA({
 	...props
 }: React.ComponentProps<typeof Link>) {
 	return (
-		<MagnetButton size="xl" asChild variant="accentuate">
+		<MagnetButton
+			size="xl"
+			asChild
+			variant="default"
+			className="hover:!bg-inverted/80"
+		>
 			<Link {...props} className={cx('gap-sm flex items-center', className)}>
 				{children}
-				<ArrowRightIcon className="text-foreground ml-sm size-6" />
+				<ArrowRightIcon className="ml-sm size-6" />
 			</Link>
 		</MagnetButton>
 	)

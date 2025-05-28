@@ -11,9 +11,6 @@ import {
 	H5,
 	Toggle,
 	ToggleGroup,
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
 } from './ui'
 
 type TagFilterContextProps = {
@@ -80,29 +77,20 @@ export function TagFilterTitle({
 	as = 'h2',
 	...props
 }: TagFilterTitleProps) {
-	const { selectedTags = [] } = useTagFilter()
-
 	return (
 		<H5
 			as={as}
-			className="mb-md gap-sm flex items-center justify-end lg:justify-between"
+			className="mb-md gap-sm flex items-center justify-start"
 			{...props}
 		>
 			<span className="hidden lg:block">{children}</span>
 			<Drawer repositionInputs={false}>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<DrawerTrigger asChild className="lg:hidden">
-							<Button
-								variant={selectedTags.length > 0 ? 'default' : 'secondary'}
-								size="icon"
-							>
-								<FilterIcon size="sm" className="size-4" />
-							</Button>
-						</DrawerTrigger>
-					</TooltipTrigger>
-					<TooltipContent side="left">{children}</TooltipContent>
-				</Tooltip>
+				<DrawerTrigger asChild className="lg:hidden">
+					<Button>
+						<span className="mr-sm">{children}</span>
+						<FilterIcon className="size-4" />
+					</Button>
+				</DrawerTrigger>
 				<DrawerContent className="max-h-[85vh]">
 					<div className="pb-lg container">
 						<DrawerHeader>

@@ -28,6 +28,7 @@ const ThemeToggleItem = React.forwardRef<
 			variant={isActive ? 'secondary' : 'ghost'}
 			ref={ref}
 			className={cx(
+				'!rounded-[calc(theme(borderRadius.base)-theme(padding.xs))]',
 				{
 					'opacity-60 hover:bg-transparent hover:opacity-100': !isActive,
 				},
@@ -59,7 +60,7 @@ export const ThemeToggle = React.forwardRef<
 			aria-label={t('changeTheme')}
 			{...props}
 			className={cx(
-				'shadow-outline p-xs gap-xs rounded-container flex items-center',
+				'shadow-outline p-xs gap-xs rounded-base flex items-center',
 				className,
 			)}
 		>

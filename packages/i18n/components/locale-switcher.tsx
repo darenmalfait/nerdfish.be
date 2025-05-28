@@ -26,8 +26,7 @@ export function LocaleSwitcher() {
 				<Button
 					variant="outline"
 					aria-label={t('switchLanguage')}
-					className="gap-sm"
-					size="sm"
+					className="gap-sm !rounded-base"
 				>
 					<GlobeIcon className="size-4" />
 					<span aria-hidden className="hidden lg:flex">
@@ -38,12 +37,12 @@ export function LocaleSwitcher() {
 					</span>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="p-xs shadow-outline">
+			<DropdownMenuContent className="rounded-base bg-muted !p-md">
 				<ul>
 					{i18n.locales.map((locale) => {
 						return (
 							<li key={locale}>
-								<DropdownMenuItem>
+								<DropdownMenuItem className="hover:!bg-background !rounded-[calc(theme(borderRadius.base)-theme(padding.md))]">
 									<Link
 										href={`/${locale}`}
 										lang={locale}

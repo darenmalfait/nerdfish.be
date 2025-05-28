@@ -20,7 +20,7 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 
 	return (
 		<div className="mt-md">
-			<MagnetButton className="-mx-sm group" variant="ghost" asChild>
+			<MagnetButton className="group -mx-[1.5rem]" variant="ghost" asChild>
 				<Link
 					href={href}
 					className="inline-flex items-center"
