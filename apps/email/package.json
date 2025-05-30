@@ -14,16 +14,16 @@
     "@react-email/components": "^0.0.41",
     "@repo/email": "workspace:*",
     "@repo/next-config": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.13.4",
-    "next": "15.3.2",
+    "@t3-oss/env-nextjs": "^0.13.6",
+    "next": "15.3.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-email": "^4.0.15"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.15.21",
-    "@types/react": "19.1.5",
+    "@types/node": "^22.15.26",
+    "@types/react": "19.1.6",
     "typescript": "^5.8.3"
   }
 }
