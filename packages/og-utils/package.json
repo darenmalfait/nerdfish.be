@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "@repo/next-config": "workspace:*",
-    "zod": "^3.25.41"
+    "zod": "^3.25.43"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.15.26",
+    "@types/node": "^22.15.29",
     "eslint": "^9.27.0",
     "typescript": "^5.8.3"
   }
