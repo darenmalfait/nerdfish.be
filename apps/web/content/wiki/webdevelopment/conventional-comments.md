@@ -195,7 +195,6 @@ writing helpful review feedback:
 - [Conventional Commits](https://www.conventionalcommits.org)
 - [Google Engineering Practices](https://github.com/google/eng-practices/blob/57c895ad4b09c8941288c04e44a08797b76b4d4d/review/reviewer/standard.md#mentoring)
   The characters used in the examples are respectfully adapted from Lewis
-  Carroll's [Alice in Wonderland][alice], illustrated by [John
-  Tenniel][jtenniel]. [alice]:
-  https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland [jtenniel]:
-  https://en.wikipedia.org/wiki/John_Tenniel
+  Carroll's
+  [Alice in Wonderland](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland),
+  illustrated by [John Tenniel](https://en.wikipedia.org/wiki/John_Tenniel).
