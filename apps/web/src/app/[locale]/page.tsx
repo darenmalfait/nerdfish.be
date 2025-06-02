@@ -114,7 +114,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'webdesign',
 							image: {
-								src: '/uploads/blog/web-developer-purple-bg.png',
+								src: '/uploads/blog/web-developer-fox.png',
 								alt: 'Someone painting on a canvas',
 							},
 							category: 'Expertise',
