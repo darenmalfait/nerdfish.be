@@ -27,13 +27,18 @@ import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
 import { cx } from '@repo/lib/utils/base'
 import { type Wiki } from 'content-collections'
+import { env } from 'env'
 import * as React from 'react'
 import { filterWiki, mapWikiToArticle } from '../../utils'
 import { type ImageType } from '~/app/types'
 
 function Tag({ tag }: { tag: string }) {
+	const isClient = typeof window !== 'undefined'
+
 	// take url without query params
-	const currentUrl = new URL(window.location.href)
+	const currentUrl = new URL(
+		isClient ? window.location.href : env.NEXT_PUBLIC_URL,
+	)
 	const urlWithoutQueryParams = currentUrl.pathname
 
 	return (
