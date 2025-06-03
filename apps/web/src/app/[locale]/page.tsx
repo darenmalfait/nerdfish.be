@@ -138,7 +138,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'branding',
 							image: {
-								src: '/uploads/projects/nerdfish-ui.png',
+								src: '/uploads/blog/desk-with-branding.png',
 								alt: 'Stylized branding materials like logos and business cards',
 							},
 							category: 'Expertise',
