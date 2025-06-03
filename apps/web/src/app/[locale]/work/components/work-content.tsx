@@ -44,13 +44,15 @@ function WorkContent({
 						})}
 					>
 						<div className="py-lg xl:sticky xl:top-0">
+							<CategoryIndicator className="mb-md" category={category} inline />
+
 							<header className={cx('mb-lg flex max-w-4xl flex-col', prose)}>
 								<H4 as="h1" variant="primary" className="!m-0 w-auto !text-4xl">
 									{title}
 								</H4>
-								<div className="mt-xs gap-md relative flex">
+								<div className="mt-xs gap-md mb-md relative flex items-center">
 									{url ? (
-										<div className="mb-md">
+										<div>
 											<Button variant="secondary" asChild>
 												<Link
 													className="group no-underline"
@@ -69,7 +71,6 @@ function WorkContent({
 											</Button>
 										</div>
 									) : null}
-									<CategoryIndicator category={category} inline />
 								</div>
 							</header>
 
