@@ -5,7 +5,6 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-	H3,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
@@ -14,24 +13,65 @@ export interface FaqItemProps
 	extends Omit<React.ComponentProps<typeof AccordionItem>, 'value'> {
 	question: string
 	answer: string
+	icon?: React.ReactNode
+	iconPosition?: 'left' | 'right'
 }
 
-export function FaqItem({ question, answer, ...props }: FaqItemProps) {
+export function FaqItem({
+	question,
+	answer,
+	icon,
+	iconPosition,
+	...props
+}: FaqItemProps) {
 	const id = React.useId()
 
 	return (
 		<AccordionItem
 			{...props}
 			value={id}
-			className="rounded-container bg-background-muted p-lg py-sm focus-within:outline-active hover:bg-background-muted/50 group border-none outline-none transition-colors"
+			className="prose prose-xl mx-auto !border-transparent"
 		>
-			<AccordionTrigger className="py-lg !outline-none after:hidden hover:no-underline">
-				<H3 variant="primary" as="span">
-					{question}
-				</H3>
+			<AccordionTrigger
+				className={cx(
+					'gap-x-md py-sm flex w-full items-center justify-start !no-underline',
+					'group',
+				)}
+			>
+				<div
+					className={cx(
+						'bg-muted rounded-base space-x-sm p-sm relative flex items-center transition-colors',
+						'hover:bg-inverted/30',
+						'group-data-[state=open]:bg-accent group-data-[state=open]:text-white',
+					)}
+				>
+					{icon ? (
+						<span
+							className={cx(
+								'absolute bottom-6',
+								iconPosition === 'right' ? 'right-0' : 'left-0',
+							)}
+							style={{
+								transform:
+									iconPosition === 'right' ? 'rotate(7deg)' : 'rotate(-4deg)',
+							}}
+						>
+							{icon}
+						</span>
+					) : null}
+					<span className="font-medium">{question}</span>
+				</div>
 			</AccordionTrigger>
-			<AccordionContent className="prose prose-xl pt-md text-foreground text-xl">
-				{answer}
+			<AccordionContent className="prose prose-xl text-foreground !pb-md max-w-none text-xl">
+				<div className="ml-7 md:ml-16">
+					<div
+						className={cx(
+							'bg-inverted text-inverted rounded-base px-md py-sm relative max-w-none',
+						)}
+					>
+						{answer}
+					</div>
+				</div>
 			</AccordionContent>
 		</AccordionItem>
 	)
@@ -42,7 +82,7 @@ export type FaqProps = React.ComponentProps<typeof Accordion>
 export function Faq({ className, children, ...props }: FaqProps) {
 	return (
 		<div className="relative">
-			<Accordion {...props} className={cx('space-y-md', className)}>
+			<Accordion {...props} className={cx('space-y-xs', className)}>
 				{children}
 			</Accordion>
 		</div>
