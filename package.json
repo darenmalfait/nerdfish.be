@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@nerdfish/config": "^1.9.2",
+    "@nerdfish/config": "^1.9.3",
     "@next/eslint-plugin-next": "^15.3.3",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.5.4",
@@ -44,5 +44,5 @@
     "prettier": "^3.5.3",
     "turbo": "^2.5.4"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.1"
 }
