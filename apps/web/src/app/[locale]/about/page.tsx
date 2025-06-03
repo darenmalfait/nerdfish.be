@@ -15,6 +15,8 @@ import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Cta } from '~/app/components/cta'
+import { FaqItem, Faq } from '~/app/components/faq'
+import { Features } from '~/app/components/features'
 import {
 	Hero,
 	HeroContent,
@@ -85,6 +87,38 @@ export default async function AboutPage(props: PageProps) {
 			</Section>
 			<Section>
 				<SectionHeader>
+					<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>
+						{t('features.subtitle')}
+					</SectionHeaderSubtitle>
+				</SectionHeader>
+				<Features
+					items={[
+						{
+							title: t('features.items.0.title'),
+							description: t('features.items.0.description'),
+							icon: 'LucideCode',
+						},
+						{
+							title: t('features.items.1.title'),
+							description: t('features.items.1.description'),
+							icon: 'LucideMonitor',
+						},
+						{
+							title: t('features.items.2.title'),
+							description: t('features.items.2.description'),
+							icon: 'LucideHandshake',
+						},
+						{
+							title: t('features.items.3.title'),
+							description: t('features.items.3.description'),
+							icon: 'LucideRocket',
+						},
+					]}
+				/>
+			</Section>
+			<Section>
+				<SectionHeader>
 					<SectionHeaderTitle>{t('my-toolbox.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>
 						{t('my-toolbox.subtitle')}
@@ -127,12 +161,49 @@ export default async function AboutPage(props: PageProps) {
 				/>
 			</Section>
 			<Section>
+				<SectionHeader>
+					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
+					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
+				</SectionHeader>
+				<Faq type="single">
+					<FaqItem
+						question={t('faq.items.0.question')}
+						answer={t('faq.items.0.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.1.question')}
+						answer={t('faq.items.1.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.2.question')}
+						answer={t('faq.items.2.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.3.question')}
+						answer={t('faq.items.3.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.4.question')}
+						answer={t('faq.items.4.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.5.question')}
+						answer={t('faq.items.5.answer')}
+					/>
+					<FaqItem
+						question={t('faq.items.6.question')}
+						answer={t('faq.items.6.answer')}
+					/>
+				</Faq>
+			</Section>
+			<Section>
 				<SectionHeader cta={{ url: '/blog', title: t('blog.cta'), as: Link }}>
 					<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
 				<BlogOverview count={2} />
 			</Section>
+
 			<InViewBackground className="bg-blog/20">
 				<Section>
 					<Testimonials

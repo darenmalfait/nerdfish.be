@@ -8,22 +8,30 @@ let nextConfig: NextConfig = {
 	async redirects() {
 		// OLD LINKS
 		return [
-			...[
-				'/freelance',
-				'/3d-printing',
-				'/branding',
-				'/uxui-design',
-				'/webdesign',
-			].flatMap((href) => [
+			...['/3d-printing', '/branding', '/uxui-design', '/webdesign'].flatMap(
+				(href) => [
+					{
+						source: href,
+						destination: `/expertise${href}`,
+						permanent: true,
+					},
+					{
+						source: `/nl${href}`,
+						destination: `/nl/expertise${href}`,
+						permanent: true,
+					},
+				],
+			),
+			...['/freelance', '/expertise/freelance'].flatMap((href) => [
 				{
 					source: href,
-					destination: `/expertise${href}`,
-					permanent: true,
+					destination: `/about`,
+					permanent: false,
 				},
 				{
 					source: `/nl${href}`,
-					destination: `/nl/expertise${href}`,
-					permanent: true,
+					destination: `/nl/over-mij`,
+					permanent: false,
 				},
 			]),
 		]

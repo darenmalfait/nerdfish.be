@@ -20,7 +20,7 @@ export function Cta(props: CtaProps) {
 
 	return (
 		<div className="gap-lg flex flex-col justify-between md:flex-row md:items-center">
-			<div className="space-y-md flex flex-col lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
+			<div className="space-y-md flex max-w-6xl flex-col lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
 				<div className="space-y-sm">
 					<H2>{title}</H2>
 					<H2 variant="secondary" as="div">

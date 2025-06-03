@@ -88,7 +88,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							title: 'Javascript Consulting',
 							description: t('features.freelance.description'),
-							href: '/expertise/freelance',
+							href: '/about',
 							icon: 'HandPlatterIcon',
 						},
 					]}
@@ -133,7 +133,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							title: 'Freelance Services',
 							description:
 								'Offering expert React and TypeScript consulting to build high-quality, scalable web applications tailored to your needs.',
-							href: '/expertise/freelance',
+							href: '/about',
 						},
 						{
 							id: 'branding',
