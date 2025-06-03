@@ -1,7 +1,8 @@
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
-import { H1, Skeleton } from '@repo/design-system/components/ui'
+import { TextBalancer } from '@repo/design-system/components/text-balancer'
+import { Badge, H2, Skeleton } from '@repo/design-system/components/ui'
 import { type Locale } from '@repo/i18n/types'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
@@ -58,16 +59,19 @@ function BlogContent({
 					<div className="mb-lg">
 						<BackToBlog />
 					</div>
-					<header className="flex flex-col">
+					<header className="mb-lg flex max-w-4xl flex-col">
 						{date ? (
-							<span className="mb-xs text-foreground-muted text-lg">
-								<DateFormatter dateString={date} format="dd MMMM yyyy" />
-							</span>
+							<div className="mb-sm">
+								<Badge variant="secondary">
+									<DateFormatter dateString={date} format="dd MMMM yyyy" />
+								</Badge>
+							</div>
 						) : null}
-						<H1 variant="primary" className="!mb-xl w-auto">
-							{title}
-						</H1>
+						<H2 as="h1" className="!mt-0 w-auto" variant="primary">
+							<TextBalancer>{title}</TextBalancer>
+						</H2>
 					</header>
+
 					{heroImg.src ? (
 						<div className="mb-xl mx-auto">
 							<div className="rounded-container relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden">
