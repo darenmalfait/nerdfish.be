@@ -4,6 +4,7 @@ import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { Badge, H2, Skeleton } from '@repo/design-system/components/ui'
 import { type Locale } from '@repo/i18n/types'
+import { cx } from '@repo/lib/utils/base'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
 import { type Post } from 'content-collections'
@@ -13,6 +14,8 @@ import type * as React from 'react'
 import { getBlogPath } from '../utils'
 import { BackToBlog } from './misc'
 import { Body } from '~/app/components/body'
+
+const prose = 'prose md:prose-lg lg:prose-xl max-w-4xl mx-auto'
 
 function BlogContent({
 	data,
@@ -56,10 +59,10 @@ function BlogContent({
 			<article>
 				<ReadingProgress title={title} offset={2500} />
 				<Section>
-					<div className="mb-lg">
+					<div className={cx('mb-lg', prose)}>
 						<BackToBlog />
 					</div>
-					<header className="mb-lg flex max-w-4xl flex-col">
+					<header className={cx('mb-xl mx-auto flex flex-col', prose)}>
 						{date ? (
 							<div className="mb-sm">
 								<Badge variant="secondary">
@@ -92,7 +95,7 @@ function BlogContent({
 					) : null}
 
 					{body ? (
-						<div className="prose prose-lg md:prose-xl lg:prose-2xl mx-auto">
+						<div className={prose}>
 							<Body content={body} />
 						</div>
 					) : null}

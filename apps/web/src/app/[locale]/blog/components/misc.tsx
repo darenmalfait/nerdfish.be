@@ -9,7 +9,7 @@ export function BackToBlog() {
 	const t = useTranslations('blog.content')
 
 	return (
-		<Button variant="ghost" className="group -mx-[1.5rem]" asChild>
+		<Button variant="ghost" className="group -mx-[1.5rem] no-underline" asChild>
 			<Link href="/blog">
 				<ChevronLeftIcon className="group-hover:-translate-x-xs mr-sm size-4 transition-transform" />
 				{t('backToBlog')}
