@@ -9,9 +9,9 @@ export function BackToWiki() {
 	const t = useTranslations('wiki.overview')
 
 	return (
-		<Button variant="default" asChild>
+		<Button variant="ghost" className="group -mx-[1.5rem]" asChild>
 			<Link href="/wiki">
-				<ChevronLeftIcon className="mr-2 size-4" />
+				<ChevronLeftIcon className="group-hover:-translate-x-xs mr-sm size-4 transition-transform" />
 				{t('backToWiki')}
 			</Link>
 		</Button>
