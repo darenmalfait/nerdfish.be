@@ -24,11 +24,11 @@ function ReadMoreCursor({
 				variant="ghost"
 				className="bg-popover before:empty-content before:rounded-base before:bg-background-muted/50 before:-z-1 before:absolute before:inset-0"
 				asChild
-				size="xl"
+				size="lg"
 			>
 				<div className="flex items-center justify-center">
 					<span className="mr-md">{readMoreLabel}</span>
-					<ArrowRightIcon className="size-8" />
+					<ArrowRightIcon className="size-6" />
 				</div>
 			</Button>
 		</Cursor>
