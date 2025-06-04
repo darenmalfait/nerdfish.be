@@ -11,7 +11,7 @@ export default function Custom404() {
 	return (
 		<Section className="gap-md max-w-5xl text-center">
 			<Image
-				src="/images/404.png"
+				src="/images/404-transparent.png"
 				alt={title}
 				width={500}
 				height={500}
