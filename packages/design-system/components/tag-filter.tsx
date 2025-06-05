@@ -18,6 +18,7 @@ type TagFilterContextProps = {
 	enabledTags?: string[]
 	selectedTags?: string[]
 	onToggleTag: (tag: string) => void
+	renderAdditionalItems?: () => React.ReactNode
 }
 
 const TagFilterContext = React.createContext<TagFilterContextProps | null>(null)
@@ -38,7 +39,13 @@ export type TagFilterTagsProps = {
 }
 
 export function TagFilterTags({ className }: TagFilterTagsProps) {
-	const { selectedTags, tags, enabledTags, onToggleTag } = useTagFilter()
+	const {
+		selectedTags,
+		tags,
+		enabledTags,
+		onToggleTag,
+		renderAdditionalItems,
+	} = useTagFilter()
 
 	return (
 		<ToggleGroup
@@ -64,12 +71,14 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 					</Toggle>
 				)
 			})}
+			{renderAdditionalItems?.()}
 		</ToggleGroup>
 	)
 }
 
 export interface TagFilterTitleProps extends React.ComponentProps<typeof H5> {
 	as?: React.ElementType
+	renderAdditionalItems?: () => React.ReactNode
 }
 
 export function TagFilterTitle({
@@ -106,11 +115,13 @@ export function TagFilterTitle({
 
 export interface TagFilterProps extends TagFilterContextProps {
 	children: React.ReactNode
+	renderAdditionalItems?: () => React.ReactNode
 }
 
 export function TagFilter({
 	selectedTags = [],
 	children,
+	renderAdditionalItems,
 	...tagsProps
 }: TagFilterProps) {
 	return (
@@ -118,9 +129,10 @@ export function TagFilter({
 			value={React.useMemo(() => {
 				return {
 					selectedTags,
+					renderAdditionalItems,
 					...tagsProps,
 				}
-			}, [selectedTags, tagsProps])}
+			}, [renderAdditionalItems, selectedTags, tagsProps])}
 		>
 			{children}
 			<TagFilterTags className="hidden lg:flex" />

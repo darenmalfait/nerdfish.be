@@ -1,6 +1,8 @@
 'use client'
 
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
+import { Button } from '@repo/design-system/components/ui'
+import { useTranslations } from '@repo/i18n/client'
 import * as React from 'react'
 import {
 	SkillItem,
@@ -10,15 +12,9 @@ import {
 } from '~/app/components/skills'
 
 export function Toolbox() {
-	const [selectedSkills, setSelectedSkills] = React.useState<string[]>([])
+	const t = useTranslations('about.page.my-toolbox')
 
-	const handleSkillClick = (category: string) => {
-		if (selectedSkills.includes(category)) {
-			setSelectedSkills([])
-		} else {
-			setSelectedSkills([category])
-		}
-	}
+	const [selectedSkills, setSelectedSkills] = React.useState<string[]>([])
 
 	const filteredSkills =
 		selectedSkills.length > 0
@@ -32,8 +28,22 @@ export function Toolbox() {
 			<div>
 				<SkillsFilter
 					selectedTags={selectedSkills}
-					onToggleTag={handleSkillClick}
+					onToggleTag={(category) => setSelectedSkills([category])}
 					enabledTags={skills.map((skill) => skill.category).flat()}
+					renderAdditionalItems={() => {
+						if (selectedSkills.length) {
+							return (
+								<Button
+									size="xs"
+									variant="link"
+									onClick={() => setSelectedSkills([])}
+								>
+									{t('clear-filter')}
+								</Button>
+							)
+						}
+						return null
+					}}
 				>
 					<TagFilterTitle>Filter skills by category</TagFilterTitle>
 				</SkillsFilter>
