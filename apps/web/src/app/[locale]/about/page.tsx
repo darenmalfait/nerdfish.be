@@ -15,6 +15,7 @@ import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
+import { Toolbox } from './components/toolbox'
 import { Cta } from '~/app/components/cta'
 import { FaqItem, Faq } from '~/app/components/faq'
 import { Features } from '~/app/components/features'
@@ -26,7 +27,6 @@ import {
 	HeroTitle,
 } from '~/app/components/hero'
 import { Link } from '~/app/components/link'
-import { SkillItem, Skills } from '~/app/components/skills'
 import { Split, SplitContent, SplitImage } from '~/app/components/split'
 
 type PageProps = {
@@ -125,21 +125,7 @@ export default async function AboutPage(props: PageProps) {
 						{t('my-toolbox.subtitle')}
 					</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Skills>
-					<SkillItem skill="javascript" />
-					<SkillItem skill="react" />
-					<SkillItem skill="node" />
-					<SkillItem skill="tailwind" />
-					<SkillItem skill="next" />
-					<SkillItem skill="sanity" />
-					<SkillItem skill="webflow" />
-					<SkillItem skill="typescript" />
-					<SkillItem skill="vscode" />
-					<SkillItem skill="css" />
-					<SkillItem skill="html" />
-					<SkillItem skill="git" />
-					<SkillItem skill="figma" />
-				</Skills>
+				<Toolbox />
 			</Section>
 			<Section>
 				<Split>

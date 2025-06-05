@@ -1,3 +1,6 @@
+'use client'
+
+import { TagFilter } from '@repo/design-system/components/tag-filter'
 import { Tilt } from '@repo/design-system/components/tilt'
 import {
 	CSSIcon,
@@ -18,22 +21,82 @@ import {
 import { cx } from '@repo/lib/utils/base'
 import type * as React from 'react'
 
-const skillIconMap: Record<string, React.ElementType> = {
-	javascript: JavascriptIcon,
-	typescript: TypescriptIcon,
-	node: NodeIcon,
-	react: ReactIcon,
-	sass: SassIcon,
-	vscode: VSCodeIcon,
-	css: CSSIcon,
-	html: HTMLIcon,
-	git: GitIcon,
-	figma: FigmaIcon,
-	next: NextJSIcon,
-	tailwind: TailwindIcon,
-	sanity: SanityIcon,
-	webflow: WebflowIcon,
-}
+export const skills = [
+	{
+		name: 'javascript',
+		category: ['frontend', 'backend'],
+		icon: JavascriptIcon,
+	},
+	{
+		name: 'typescript',
+		category: ['frontend', 'backend'],
+		icon: TypescriptIcon,
+	},
+	{
+		name: 'node',
+		category: ['backend'],
+		icon: NodeIcon,
+	},
+	{
+		name: 'react',
+		category: ['frontend'],
+		icon: ReactIcon,
+	},
+	{
+		name: 'sass',
+		category: ['frontend'],
+		icon: SassIcon,
+	},
+	{
+		name: 'tailwind',
+		category: ['frontend'],
+		icon: TailwindIcon,
+	},
+	{
+		name: 'sanity',
+		category: ['frontend'],
+		icon: SanityIcon,
+	},
+	{
+		name: 'vscode',
+		category: ['frontend'],
+		icon: VSCodeIcon,
+	},
+	{
+		name: 'css',
+		category: ['frontend'],
+		icon: CSSIcon,
+	},
+	{
+		name: 'html',
+		category: ['frontend'],
+		icon: HTMLIcon,
+	},
+	{
+		name: 'git',
+		category: ['frontend', 'backend'],
+		icon: GitIcon,
+	},
+	{
+		name: 'figma',
+		category: ['design'],
+		icon: FigmaIcon,
+	},
+	{
+		name: 'next',
+		category: ['frontend', 'backend'],
+		icon: NextJSIcon,
+	},
+	{
+		name: 'webflow',
+		category: ['design'],
+		icon: WebflowIcon,
+	},
+]
+
+const skillIconMap = Object.fromEntries(
+	skills.map(({ name, icon }) => [name, icon]),
+) as Record<string, React.ElementType>
 
 export interface SkillItemProps extends React.ComponentProps<typeof Tilt> {
 	skill?: keyof typeof skillIconMap
@@ -82,14 +145,27 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 	)
 }
 
+export type SkillsFilterProps = Omit<
+	React.ComponentProps<typeof TagFilter>,
+	'tags'
+>
+
+export function SkillsFilter({ ...props }: SkillsFilterProps) {
+	const tags = [...new Set(skills.map(({ category }) => category).flat())]
+
+	return <TagFilter {...props} tags={tags} />
+}
+
 export interface SkillsProps extends React.ComponentProps<'ul'> {
 	maxCols?: number
+	hideFilter?: boolean
 }
 
 export function Skills({
 	children,
 	maxCols = 5,
 	className,
+	hideFilter,
 	...props
 }: SkillsProps) {
 	if (!children) return null
