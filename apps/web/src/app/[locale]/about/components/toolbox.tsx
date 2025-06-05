@@ -14,9 +14,9 @@ export function Toolbox() {
 
 	const handleSkillClick = (category: string) => {
 		if (selectedSkills.includes(category)) {
-			setSelectedSkills((prev) => prev.filter((skill) => skill !== category))
+			setSelectedSkills([])
 		} else {
-			setSelectedSkills((prev) => [...prev, category])
+			setSelectedSkills([category])
 		}
 	}
 
