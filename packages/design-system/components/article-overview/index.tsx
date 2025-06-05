@@ -4,7 +4,7 @@ import { nonNullable } from '@repo/lib/utils/array'
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
 import * as React from 'react'
-import { NewspaperIcon, PlusIcon, SearchIcon } from '../../icons'
+import { NewspaperIcon, SearchIcon } from '../../icons'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -216,9 +216,8 @@ export function ArticleOverviewLoadMoreButton({
 			className={cx('mt-2xl flex w-full justify-center', className)}
 			{...props}
 		>
-			<Button size="lg" variant="outline" onClick={loadMore}>
-				<span className="mr-sm">{children}</span>{' '}
-				<PlusIcon className="size-4" />
+			<Button size="lg" variant="secondary" onClick={loadMore}>
+				{children}
 			</Button>
 		</div>
 	)
