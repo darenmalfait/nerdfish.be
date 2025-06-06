@@ -244,7 +244,7 @@ export function ContactForm() {
 									<FormDescription>
 										{t('fields.labels.projectTypeDescription')}
 									</FormDescription>
-									<div className="gap-sm flex">
+									<div className="gap-sm flex flex-wrap">
 										{projectTypes.map((type) => (
 											<FormField
 												key={type}
