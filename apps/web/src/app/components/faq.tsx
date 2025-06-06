@@ -40,7 +40,7 @@ export function FaqItem({
 			>
 				<div
 					className={cx(
-						'bg-muted rounded-base space-x-sm p-sm relative flex items-center transition-colors',
+						'bg-muted rounded-base space-x-sm p-md relative flex items-center text-lg transition-colors',
 						'hover:bg-inverted/30',
 						'group-data-[state=open]:bg-accent group-data-[state=open]:text-white',
 					)}
@@ -66,7 +66,7 @@ export function FaqItem({
 				<div className="ml-7 md:ml-16">
 					<div
 						className={cx(
-							'bg-inverted text-inverted rounded-base px-md py-sm relative max-w-none',
+							'bg-inverted text-inverted rounded-base p-md relative max-w-none',
 						)}
 					>
 						{answer}
