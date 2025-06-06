@@ -19,13 +19,8 @@ function ReadMoreCursor({
 }) {
 	if (!active) return null
 	return (
-		<Cursor className="fixed z-50 !bg-transparent">
-			<Button
-				variant="ghost"
-				className="bg-popover before:empty-content before:rounded-base before:bg-background-muted/50 before:-z-1 before:absolute before:inset-0"
-				asChild
-				size="lg"
-			>
+		<Cursor className="group fixed z-50 !bg-transparent">
+			<Button variant="default" asChild size="xl">
 				<div className="flex items-center justify-center">
 					<span className="mr-md">{readMoreLabel}</span>
 					<ArrowRightIcon className="size-6" />
