@@ -11,17 +11,18 @@ export function Header() {
 		<div className="w-full bg-transparent print:hidden">
 			<header className="relative z-40 w-full flex-none">
 				<div className="container max-w-none">
-					<div className="py-mdx relative flex w-full items-center">
-						<Button asChild variant="link" className="-mx-sm text-foreground">
-							<div>
-								<Link href="/" aria-label="Home">
-									<Logo className="h-6 w-auto fill-white" />
-								</Link>
-							</div>
-						</Button>
-						<div className="mx-auto flex flex-1 items-center">
-							<MainNavigation />
-
+					<div className="py-mdx gap-sm relative flex w-full items-center">
+						<div className="flex-1">
+							<Button asChild variant="link" className="-mx-sm text-foreground">
+								<div>
+									<Link href="/" aria-label="Home">
+										<Logo className="h-6 w-auto fill-white" />
+									</Link>
+								</div>
+							</Button>
+						</div>
+						<MainNavigation />
+						<div className="mx-auto flex flex-1 items-center justify-end">
 							<div className="gap-md flex flex-1 flex-grow justify-end lg:flex-grow-0">
 								<ThemeToggle className="hidden sm:flex" />
 								<LocaleSwitcher />
