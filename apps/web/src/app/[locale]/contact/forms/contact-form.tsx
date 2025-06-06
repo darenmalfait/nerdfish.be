@@ -262,6 +262,7 @@ export function ContactForm() {
 																<Button
 																	asChild
 																	aria-label={type}
+																	size="xs"
 																	variant={checked ? 'accent' : 'outline'}
 																	className="inline cursor-pointer"
 																>
