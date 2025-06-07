@@ -13,17 +13,17 @@
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.6",
     "@repo/design-system": "workspace:*",
-    "fumadocs-core": "^15.5.0",
+    "fumadocs-core": "^15.5.1",
     "lqip-modern": "^2.2.1",
     "react": "^19.1.0",
     "reading-time": "^1.5.0",
-    "zod": "^3.25.49"
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.15.29",
+    "@types/node": "22.15.30",
     "@types/react": "19.1.6",
-    "@types/react-dom": "^19.1.5",
+    "@types/react-dom": "^19.1.6",
     "next": "15.3.3"
   }
 }
