@@ -37,7 +37,7 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/timesheets": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.13.6",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "@vercel/og": "^0.6.8",
     "csv-import-react": "^1.0.14",
     "fuse.js": "^7.1.0",
@@ -50,14 +50,14 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.57.0",
     "typescript": "^5.8.3",
-    "zod": "^3.25.56"
+    "zod": "^3.25.58"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@svgr/webpack": "^8.1.0",
     "@types/negotiator": "^0.6.4",
-    "@types/node": "^22.15.30",
-    "@types/react": "19.1.6",
+    "@types/node": "^22.15.31",
+    "@types/react": "19.1.7",
     "@types/react-dom": "19.1.6",
     "@vercel/toolbar": "^0.1.37",
     "autoprefixer": "^10.4.21",
@@ -65,7 +65,7 @@
     "husky": "^9.1.7",
     "postcss": "^8.5.4",
     "postcss-import": "^16.1.0",
-    "postcss-nesting": "^13.0.1",
+    "postcss-nesting": "^13.0.2",
     "tailwindcss": "^3.4.17"
   }
 }
