@@ -48,15 +48,15 @@ export function TimesheetsMonthSelect({
 
 	return (
 		<ButtonGroup className={className}>
-			<Button size="icon" onClick={selectPrevMonth}>
+			<Button variant="secondary" onClick={selectPrevMonth}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>
-			<Button asChild className="pointer-events-none">
+			<Button variant="secondary" className="pointer-events-none">
 				<span className="w-full text-center">
 					{format(currentDate, dateFormat)}
 				</span>
 			</Button>
-			<Button size="icon" onClick={selectNextMonth}>
+			<Button variant="secondary" onClick={selectNextMonth}>
 				<ChevronRightIcon className="size-4" />
 			</Button>
 		</ButtonGroup>

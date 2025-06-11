@@ -285,7 +285,7 @@ export function CalendarDay({
 				{hours.map((hour) => (
 					<React.Fragment key={hour}>
 						<div
-							className="border-primary/50 user-select-none absolute w-full border-t"
+							className="user-select-none border-foreground/20 absolute w-full border-t"
 							style={{ top: `${hour * CALENDARY_DAY_ROW_HEIGHT}px` }}
 						/>
 					</React.Fragment>

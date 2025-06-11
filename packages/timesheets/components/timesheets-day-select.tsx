@@ -38,7 +38,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 
 	return (
 		<ButtonGroup className={className}>
-			<Button variant="secondary" size="icon" onClick={selectPrevDay}>
+			<Button variant="secondary" onClick={selectPrevDay}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>
 			<Button variant="secondary" asChild className="pointer-events-none">
@@ -58,7 +58,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 						: null}
 				</span>
 			</Button>
-			<Button variant="secondary" size="icon" onClick={selectNextDay}>
+			<Button variant="secondary" onClick={selectNextDay}>
 				<ChevronRightIcon className="size-4" />
 			</Button>
 		</ButtonGroup>

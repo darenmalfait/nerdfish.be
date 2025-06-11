@@ -62,7 +62,7 @@ export function TimeRangeInput({
 			<div className="mx-4 flex flex-shrink-0 items-center justify-center">
 				<ArrowRightIcon className="text-foreground-muted size-4" />
 			</div>
-			<div className="flex flex-1 items-center justify-end space-x-2">
+			<div className="space-x-md flex flex-1 items-center justify-end">
 				<input
 					type="time"
 					value={value.end}
@@ -72,7 +72,7 @@ export function TimeRangeInput({
 						hideTimeIconClass,
 					)}
 				/>
-				<span className="text-foreground-muted text-sm">{duration}</span>
+				<span className="text-muted text-xs font-normal">{duration}</span>
 			</div>
 		</div>
 	)

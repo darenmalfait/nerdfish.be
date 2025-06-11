@@ -13,6 +13,7 @@ import {
 	EmptyState,
 	EmptyStateDescription,
 	toast,
+	inputVariants,
 } from '@repo/design-system/components/ui'
 import { CheckIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
@@ -34,6 +35,7 @@ export function TimesheetsSelectProject({
 	defaultValue,
 	onChange: onChangeProp,
 	disabled,
+	className,
 	ref,
 	...props
 }: TimesheetsSelectProjectProps) {
@@ -45,6 +47,7 @@ export function TimesheetsSelectProject({
 	}))
 
 	const inputRef = React.useRef<HTMLInputElement>(null)
+	React.useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
 	const [value, setValue] = useControllableState(
 		valueProp,
@@ -57,8 +60,6 @@ export function TimesheetsSelectProject({
 	)
 
 	const [isOpen, setOpen] = React.useState(false)
-
-	React.useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
 	const handleKeyDown = React.useCallback(
 		(event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -105,10 +106,12 @@ export function TimesheetsSelectProject({
 			<div>
 				<CommandInput
 					{...props}
+					className={cx(inputVariants({}), className)}
 					ref={inputRef}
 					value={inputValue}
 					onValueChange={setInputValue}
 					onFocus={() => setOpen(true)}
+					onBlur={() => setOpen(false)}
 					disabled={disabled}
 				/>
 			</div>
@@ -116,7 +119,7 @@ export function TimesheetsSelectProject({
 				<CommandList>
 					<div
 						className={cx(
-							'animate-in rounded-base bg-popover p-sm text-foreground shadow-outline absolute top-0 z-10 w-full shadow-md outline-none',
+							'animate-in rounded-base bg-popover text-foreground shadow-outline top-sm absolute z-10 w-full shadow-md outline-none',
 							isOpen ? 'block' : 'hidden',
 						)}
 					>
@@ -136,6 +139,7 @@ export function TimesheetsSelectProject({
 											onSelect={() => handleSelectOption(option)}
 											className={cx(
 												'gap-sm flex w-full items-center',
+												'rounded-[calc(theme(borderRadius.base)-theme(padding.sm))]',
 												isSelected ? null : 'pl-lg',
 											)}
 										>
@@ -153,6 +157,7 @@ export function TimesheetsSelectProject({
 						) ? (
 							<CommandGroup>
 								<CommandItem
+									className="rounded-[calc(theme(borderRadius.base)-theme(padding.sm))]"
 									key={inputValue}
 									value={inputValue}
 									onSelect={async () => {
