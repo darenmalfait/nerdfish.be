@@ -237,7 +237,7 @@ export function Chat({
 							aria-label={t('send')}
 						>
 							{isLoading ? (
-								<LoadingAnimation variant="classic" className="size-4" />
+								<LoadingAnimation className="size-4" />
 							) : (
 								<SendHorizonalIcon className="size-4" />
 							)}

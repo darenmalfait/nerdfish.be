@@ -167,7 +167,7 @@ export function TimesheetsRecordForm({
 						type="submit"
 					>
 						{form.formState.isSubmitting ? (
-							<LoadingAnimation variant="classic" className="mr-sm size-4" />
+							<LoadingAnimation className="mr-sm size-4" />
 						) : null}
 						{isUpdate ? 'Update' : 'Add'}
 					</Button>

@@ -19,7 +19,7 @@ export function SlowLoading() {
 				<CardHeader>
 					<div className="relative flex h-36 w-full items-center justify-center">
 						<Skeleton className="absolute inset-0 h-36 w-full object-cover" />
-						<LoadingAnimation variant="classic" />
+						<LoadingAnimation />
 					</div>
 				</CardHeader>
 				<CardContent>
