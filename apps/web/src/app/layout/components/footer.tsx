@@ -55,7 +55,7 @@ function SiteFooterHeading() {
 				<TextSlideUp>
 					<span className="!text-foreground">
 						Let&apos;s work
-						<ArrowRight className="ml-xs group-hover:translate-x-xs group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
+						<ArrowRight className="ml-lg group-hover:translate-x-xs group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
 					<span className="!text-foreground">together</span>
 				</TextSlideUp>

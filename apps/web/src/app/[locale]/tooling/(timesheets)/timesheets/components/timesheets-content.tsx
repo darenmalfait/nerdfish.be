@@ -42,7 +42,8 @@ function RowActions({
 						type="button"
 						onClick={onRemove}
 						variant="danger"
-						size="iconSm"
+						size="sm"
+						icon
 						aria-label="Remove entry"
 					>
 						<XIcon className="h-4 w-4" />
@@ -162,7 +163,8 @@ function EditTimeEntryButton({
 			<Button
 				type="button"
 				variant="secondary"
-				size="iconSm"
+				icon
+				size="sm"
 				aria-label="Edit entry"
 				asChild
 			>

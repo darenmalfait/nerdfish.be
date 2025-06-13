@@ -231,16 +231,12 @@ export function Chat({
 					addOnTrailing={
 						<Button
 							disabled={!input || !!error || isLoading}
-							size="icon"
+							icon
 							type="submit"
 							variant="accent"
 							aria-label={t('send')}
 						>
-							{isLoading ? (
-								<LoadingAnimation className="size-4" />
-							) : (
-								<SendHorizonalIcon className="size-4" />
-							)}
+							{isLoading ? <LoadingAnimation /> : <SendHorizonalIcon />}
 						</Button>
 					}
 				/>

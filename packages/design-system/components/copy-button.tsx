@@ -25,7 +25,8 @@ export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 		<Tooltip>
 			<TooltipTrigger asChild>
 				<Button
-					size="iconSm"
+					icon
+					size="sm"
 					aria-label="copy"
 					{...props}
 					className={className}

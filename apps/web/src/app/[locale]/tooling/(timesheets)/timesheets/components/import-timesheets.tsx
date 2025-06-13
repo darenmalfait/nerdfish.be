@@ -81,6 +81,7 @@ export function ImportTimeEntriesButton() {
 					className="group transition-all"
 					aria-label="Import Time Entries"
 					type="button"
+					icon
 					asChild
 				>
 					<TooltipTrigger>

@@ -37,7 +37,7 @@ function AddTimeEntryButton() {
 				<TooltipTrigger asChild>
 					<Button
 						type="button"
-						size="icon"
+						icon
 						variant="ghost"
 						aria-label="Add entry"
 						asChild
@@ -86,7 +86,7 @@ export function Toolbar() {
 								<Button
 									type="button"
 									variant="ghost"
-									size="icon"
+									icon
 									aria-label="Print"
 									onClick={() => window.print()}
 								>

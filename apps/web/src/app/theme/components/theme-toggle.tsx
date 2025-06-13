@@ -23,7 +23,8 @@ const ThemeToggleItem = React.forwardRef<
 	return (
 		<Button
 			role="radio"
-			size="iconSm"
+			size="sm"
+			icon
 			aria-checked={isActive}
 			variant={isActive ? 'secondary' : 'ghost'}
 			ref={ref}
@@ -72,7 +73,7 @@ export const ThemeToggle = React.forwardRef<
 						onClick={setTheme}
 						value="system"
 					>
-						<LaptopIcon className="size-4" />
+						<LaptopIcon />
 					</ThemeToggleItem>
 				</TooltipTrigger>
 				<TooltipContent>
@@ -87,7 +88,7 @@ export const ThemeToggle = React.forwardRef<
 						aria-label={t('setTheme', { theme: t('light') })}
 						value="light"
 					>
-						<SunIcon className="size-4" />
+						<SunIcon />
 					</ThemeToggleItem>
 				</TooltipTrigger>
 				<TooltipContent>
@@ -102,7 +103,7 @@ export const ThemeToggle = React.forwardRef<
 						aria-label={t('setTheme', { theme: t('dark') })}
 						value="dark"
 					>
-						<MoonIcon className="size-4" />
+						<MoonIcon />
 					</ThemeToggleItem>
 				</TooltipTrigger>
 				<TooltipContent>

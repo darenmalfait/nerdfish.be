@@ -59,7 +59,7 @@ function ProductItem({
 							<Button
 								variant="default"
 								asChild
-								size="xs"
+								size="sm"
 								className="pointer-events-auto"
 							>
 								<Link
@@ -77,7 +77,7 @@ function ProductItem({
 							<Button
 								variant="default"
 								asChild
-								size="xs"
+								size="sm"
 								className="pointer-events-auto"
 							>
 								<Link

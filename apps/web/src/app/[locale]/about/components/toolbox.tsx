@@ -34,7 +34,7 @@ export function Toolbox() {
 						if (selectedSkills.length) {
 							return (
 								<Button
-									size="xs"
+									size="sm"
 									variant="link"
 									onClick={() => setSelectedSkills([])}
 								>
