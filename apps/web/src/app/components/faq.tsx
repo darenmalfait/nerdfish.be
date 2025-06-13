@@ -21,6 +21,7 @@ export function FaqItem({
 	question,
 	answer,
 	icon,
+	id: idProp,
 	iconPosition,
 	...props
 }: FaqItemProps) {
@@ -29,7 +30,7 @@ export function FaqItem({
 	return (
 		<AccordionItem
 			{...props}
-			value={id}
+			value={idProp ?? id}
 			className="prose prose-xl mx-auto !border-transparent"
 		>
 			<AccordionTrigger

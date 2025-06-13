@@ -152,32 +152,39 @@ export default async function AboutPage(props: PageProps) {
 					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Faq type="single">
+				<Faq type="single" defaultValue="projects">
 					<FaqItem
+						id="projects"
 						question={t('faq.items.0.question')}
 						answer={t('faq.items.0.answer')}
 					/>
 					<FaqItem
+						id="techstack"
 						question={t('faq.items.1.question')}
 						answer={t('faq.items.1.answer')}
 					/>
 					<FaqItem
+						id="hire"
 						question={t('faq.items.2.question')}
 						answer={t('faq.items.2.answer')}
 					/>
 					<FaqItem
+						id="inductires"
 						question={t('faq.items.3.question')}
 						answer={t('faq.items.3.answer')}
 					/>
 					<FaqItem
+						id="customers"
 						question={t('faq.items.4.question')}
 						answer={t('faq.items.4.answer')}
 					/>
 					<FaqItem
+						id="quality"
 						question={t('faq.items.5.question')}
 						answer={t('faq.items.5.answer')}
 					/>
 					<FaqItem
+						id="examples"
 						question={t('faq.items.6.question')}
 						answer={t('faq.items.6.answer')}
 					/>
