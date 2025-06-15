@@ -16,7 +16,7 @@ importers:
         version: 19.8.1
       '@nerdfish/config':
         specifier: ^1.9.3
-        version: 1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)
+        version: 1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)
       '@next/eslint-plugin-next':
         specifier: ^15.3.3
         version: 15.3.3
@@ -30,8 +30,8 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0
       eslint:
-        specifier: ^9.28.0
-        version: 9.28.0(jiti@2.4.2)
+        specifier: ^9.29.0
+        version: 9.29.0(jiti@2.4.2)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -61,7 +61,7 @@ importers:
         version: 0.13.8(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.64)
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -70,7 +70,7 @@ importers:
         version: 19.1.0(react@19.1.0)
       react-email:
         specifier: ^4.0.16
-        version: 4.0.16(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 4.0.16(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -98,7 +98,7 @@ importers:
         version: 0.13.8(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.64)
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -126,10 +126,10 @@ importers:
     dependencies:
       '@axe-core/playwright':
         specifier: ^4.10.2
-        version: 4.10.2(playwright-core@1.52.0)
+        version: 4.10.2(playwright-core@1.53.0)
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.57.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.58.0(react@19.1.0))
       '@nerdfish/theme':
         specifier: ^2.8.0
         version: 2.8.0
@@ -137,8 +137,8 @@ importers:
         specifier: 15.3.3
         version: 15.3.3
       '@playwright/test':
-        specifier: ^1.52.0
-        version: 1.52.0
+        specifier: ^1.53.0
+        version: 1.53.0
       '@react-aria/i18n':
         specifier: ^3.12.10
         version: 3.12.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -200,20 +200,20 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       motion:
-        specifier: ^12.16.0
-        version: 12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.18.1
+        version: 12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       negotiator:
         specifier: ^1.0.0
         version: 1.0.0
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-safe-action:
         specifier: ^7.10.8
-        version: 7.10.8(next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(zod@3.25.64)
+        version: 7.10.8(next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(zod@3.25.64)
       nuqs:
         specifier: ^2.4.3
-        version: 2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -221,8 +221,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.57.0
-        version: 7.57.0(react@19.1.0)
+        specifier: ^7.58.0
+        version: 7.58.0(react@19.1.0)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -250,7 +250,7 @@ importers:
         version: 19.1.6(@types/react@19.1.8)
       '@vercel/toolbar':
         specifier: ^0.1.37
-        version: 0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.5)
@@ -346,13 +346,13 @@ importers:
         version: 0.2.2(@content-collections/core@0.9.1(typescript@5.8.3))(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@content-collections/next':
         specifier: ^0.2.6
-        version: 0.2.6(@content-collections/core@0.9.1(typescript@5.8.3))(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+        version: 0.2.6(@content-collections/core@0.9.1(typescript@5.8.3))(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@repo/design-system':
         specifier: workspace:*
         version: link:../design-system
       fumadocs-core:
         specifier: ^15.5.2
-        version: 15.5.2(@types/react@19.1.8)(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.5.2(@types/react@19.1.8)(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       lqip-modern:
         specifier: ^2.2.1
         version: 2.2.1
@@ -380,7 +380,7 @@ importers:
         version: 19.1.6(@types/react@19.1.8)
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   packages/design-system:
     dependencies:
@@ -410,19 +410,19 @@ importers:
         version: 7.1.0
       geist:
         specifier: ^1.4.2
-        version: 1.4.2(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+        version: 1.4.2(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
       motion:
-        specifier: ^12.16.0
-        version: 12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.18.1
+        version: 12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       motion-cursor:
         specifier: ^1.0.5
         version: 1.0.5(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -467,8 +467,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       resend:
-        specifier: ^4.5.2
-        version: 4.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^4.6.0
+        version: 4.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
         specifier: ^3.25.64
         version: 3.25.64
@@ -495,10 +495,10 @@ importers:
         version: link:../design-system
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-intl:
         specifier: ^3.26.5
-        version: 3.26.5(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 3.26.5(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -551,7 +551,7 @@ importers:
         version: 0.13.8(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.64)
       '@vercel/toolbar':
         specifier: ^0.1.37
-        version: 0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-secure-headers:
         specifier: ^2.2.0
         version: 2.2.0
@@ -564,7 +564,7 @@ importers:
         version: link:../typescript-config
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   packages/observability:
     dependencies:
@@ -585,8 +585,8 @@ importers:
         specifier: 19.1.6
         version: 19.1.6(@types/react@19.1.8)
       eslint:
-        specifier: ^9.28.0
-        version: 9.28.0(jiti@2.4.2)
+        specifier: ^9.29.0
+        version: 9.29.0(jiti@2.4.2)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -607,8 +607,8 @@ importers:
         specifier: ^22.15.31
         version: 22.15.31
       eslint:
-        specifier: ^9.28.0
-        version: 9.28.0(jiti@2.4.2)
+        specifier: ^9.29.0
+        version: 9.29.0(jiti@2.4.2)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -645,7 +645,7 @@ importers:
         version: link:../next-config
       next:
         specifier: 15.3.3
-        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -666,8 +666,8 @@ importers:
         specifier: 19.1.6
         version: 19.1.6(@types/react@19.1.8)
       eslint:
-        specifier: ^9.28.0
-        version: 9.28.0(jiti@2.4.2)
+        specifier: ^9.29.0
+        version: 9.29.0(jiti@2.4.2)
 
   packages/tailwind-config:
     dependencies:
@@ -697,14 +697,14 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
-        specifier: ^9.28.0
-        version: 9.28.0(jiti@2.4.2)
+        specifier: ^9.29.0
+        version: 9.29.0(jiti@2.4.2)
 
   packages/timesheets:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.57.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.58.0(react@19.1.0))
       '@repo/calendar':
         specifier: workspace:*
         version: link:../calendar
@@ -719,10 +719,10 @@ importers:
         version: link:../location
       nuqs:
         specifier: ^2.4.3
-        version: 2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react-hook-form:
-        specifier: ^7.57.0
-        version: 7.57.0(react@19.1.0)
+        specifier: ^7.58.0
+        version: 7.58.0(react@19.1.0)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -732,7 +732,7 @@ importers:
     dependencies:
       '@nerdfish/config':
         specifier: ^1.9.3
-        version: 1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)
+        version: 1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)
 
 packages:
 
@@ -1877,8 +1877,8 @@ packages:
       eslint:
         optional: true
 
-  '@eslint/config-array@0.20.0':
-    resolution: {integrity: sha512-fxlS1kkIjx8+vy2SjuCB94q3htSNrufYTXubwiBFeaQHbH6Ipi43gFJq2zCMt6PHhImH3Xmr0NksKDvchWlpQQ==}
+  '@eslint/config-array@0.20.1':
+    resolution: {integrity: sha512-OL0RJzC/CBzli0DrrR31qzj6d6i6Mm3HByuhflhl4LOBiWxN+3i6/t/ZQQNii4tjksXi8r2CRW1wMpWA2ULUEw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/config-helpers@0.2.1':
@@ -1897,8 +1897,8 @@ packages:
     resolution: {integrity: sha512-gtF186CXhIl1p4pJNGZw8Yc6RlshoePRvE0X91oPGb3vZ8pM3qOS9W9NGPat9LziaBV7XrJWGylNQXkGcnM3IQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.28.0':
-    resolution: {integrity: sha512-fnqSjGWd/CoIp4EXIxWVK/sHA6DOHN4+8Ix2cX5ycOY7LG0UY8nHCU5pIp2eaE1Mc7Qd8kHspYNzYXT2ojPLzg==}
+  '@eslint/js@9.29.0':
+    resolution: {integrity: sha512-3PIF4cBw/y+1u2EazflInpV+lYsSG0aByVIQzAgb1m1MhHFSbqTyNqtBKHgWf/9Ykud+DhILS9EGkmekVhbKoQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
@@ -2428,8 +2428,8 @@ packages:
     resolution: {integrity: sha512-fdDH1LSGfZdTH2sxdpVMw31BanV28K/Gry0cVFxaNP77neJSkd82mM8ErPNYs9e+0O7SdHBLTDzDgwUuy18RnQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.52.0':
-    resolution: {integrity: sha512-uh6W7sb55hl7D6vsAeA+V2p5JnlAqzhqFyF0VcJkKZXkgnFcVG9PziERRHQfPLfNGx1C292a4JqbWzhR8L4R1g==}
+  '@playwright/test@1.53.0':
+    resolution: {integrity: sha512-15hjKreZDcp7t6TL/7jkAo6Df5STZN09jGiv5dbP9A6vMVncXRqE7/B2SncsyOwrkZRBH2i6/TPOL8BVmm3c7w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4333,6 +4333,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.15.0:
+    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   adler-32@1.3.1:
     resolution: {integrity: sha512-ynZ4w/nUUv5rrsR8UUGoe1VC9hZj6V5hU9Qw1HlMDJGEJw5S7TfTErWTjMys6M7vr0YWcPqs3qAr4ss0nDfP+A==}
     engines: {node: '>=0.8'}
@@ -5266,8 +5271,8 @@ packages:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
     engines: {node: '>=8.0.0'}
 
-  eslint-scope@8.3.0:
-    resolution: {integrity: sha512-pUNxi75F8MJ/GdeKtVLSbYg4ZI34J6C0C7sbL4YOp2exGwen7ZsuBqKzUhXd0qMQ362yET3z+uPwKeg/0C2XCQ==}
+  eslint-scope@8.4.0:
+    resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   eslint-visitor-keys@3.4.3:
@@ -5278,8 +5283,12 @@ packages:
     resolution: {integrity: sha512-UyLnSehNt62FFhSwjZlHmeokpRK59rcz29j+F1/aDgbkbRTk7wIc9XzdoasMUbRNKDM0qQt/+BJ4BrpFeABemw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  eslint@9.28.0:
-    resolution: {integrity: sha512-ocgh41VhRlf9+fVpe7QKzwLj9c92fDiqOj8Y3Sd4/ZmVA4Btx4PlUYPq4pp9JDyupkf1upbEXecxL2mwNV7jPQ==}
+  eslint-visitor-keys@4.2.1:
+    resolution: {integrity: sha512-Uhdk5sfqcee/9H/rCOJikYz67o0a2Tw2hGRPOG2Y1R2dg7brRe1uG0yaNQDHu+TO/uQPF/5eCapvYSmHUjt7JQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  eslint@9.29.0:
+    resolution: {integrity: sha512-GsGizj2Y1rCWDu6XoEekL3RLilp0voSePurjZIkxL3wlm5o5EC9VpgaP7lrCvjnkuLvzFBQWB3vWB3K5KQTveQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
     peerDependencies:
@@ -5291,8 +5300,8 @@ packages:
   esm-env@1.2.2:
     resolution: {integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==}
 
-  espree@10.3.0:
-    resolution: {integrity: sha512-0QYC8b24HWY8zjRnDTL6RiHfDbAWn63qb4LMj1Z4b076A4une81+z03Kg7l7mn/48PUTqoLptSXez8oknU8Clg==}
+  espree@10.4.0:
+    resolution: {integrity: sha512-j6PAQ2uUr79PZhBjP5C5fhl8e39FmRnOjsD5lGnWrFU8i2G776tBK7+nP8KuQUTTyAZUwfQqXAgrVH5MbH9CYQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   esprima@4.0.1:
@@ -5486,8 +5495,8 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@12.16.0:
-    resolution: {integrity: sha512-xryrmD4jSBQrS2IkMdcTmiS4aSKckbS7kLDCuhUn9110SQKG1w3zlq1RTqCblewg+ZYe+m3sdtzQA6cRwo5g8Q==}
+  framer-motion@12.18.1:
+    resolution: {integrity: sha512-6o4EDuRPLk4LSZ1kRnnEOurbQ86MklVk+Y1rFBUKiF+d2pCdvMjWVu0ZkyMVCTwl5UyTH2n/zJEJx+jvTYuxow==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6585,17 +6594,17 @@ packages:
       react-dom:
         optional: true
 
-  motion-dom@12.16.0:
-    resolution: {integrity: sha512-Z2nGwWrrdH4egLEtgYMCEN4V2qQt1qxlKy/uV7w691ztyA41Q5Rbn0KNGbsNVDZr9E8PD2IOQ3hSccRnB6xWzw==}
+  motion-dom@12.18.1:
+    resolution: {integrity: sha512-dR/4EYT23Snd+eUSLrde63Ws3oXQtJNw/krgautvTfwrN/2cHfCZMdu6CeTxVfRRWREW3Fy1f5vobRDiBb/q+w==}
 
-  motion-utils@12.12.1:
-    resolution: {integrity: sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==}
+  motion-utils@12.18.1:
+    resolution: {integrity: sha512-az26YDU4WoDP0ueAkUtABLk2BIxe28d8NH1qWT8jPGhPyf44XTdDUh8pDk9OPphaSrR9McgpcJlgwSOIw/sfkA==}
 
   motion-utils@12.9.4:
     resolution: {integrity: sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==}
 
-  motion@12.16.0:
-    resolution: {integrity: sha512-P3HA83fnPMEGBLfKdD5vDdjH1Aa3wM3jT3+HX3fCVpy/4/lJiqvABajLgZenBu+rzkFzmeaPkvT7ouf9Tq5tVQ==}
+  motion@12.18.1:
+    resolution: {integrity: sha512-w1ns2hWQ4COhOvnZf4rg4mW0Pl36mzcShpgt0fSfI6qJxKUbi3kHho/HSKeJFRoY0TO1m5/7C8lG1+Li0uC9Fw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6973,13 +6982,13 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  playwright-core@1.52.0:
-    resolution: {integrity: sha512-l2osTgLXSMeuLZOML9qYODUQoPPnUsKsb5/P6LJ2e6uPKXUdPK5WYhN4z03G+YNbWmGDY4YENauNu4ZKczreHg==}
+  playwright-core@1.53.0:
+    resolution: {integrity: sha512-mGLg8m0pm4+mmtB7M89Xw/GSqoNC+twivl8ITteqvAndachozYe2ZA7srU6uleV1vEdAHYqjq+SV8SNxRRFYBw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.52.0:
-    resolution: {integrity: sha512-JAwMNMBlxJ2oD1kce4KPtMkDeKGHQstdpFPcPH3maElAXon/QZeTvtsfXmTMRyO9TslfoYOXkSsvao2nE1ilTw==}
+  playwright@1.53.0:
+    resolution: {integrity: sha512-ghGNnIEYZC4E+YtclRn4/p6oYbdPiASELBIYkBXfaTVKreQUYbMUYQDwS12a8F0/HtIjr/CkGjtwABeFPGcS4Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -7208,8 +7217,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-hook-form@7.57.0:
-    resolution: {integrity: sha512-RbEks3+cbvTP84l/VXGUZ+JMrKOS8ykQCRYdm5aYsxnDquL0vspsyNhGRO7pcH6hsZqWlPOjLye7rJqdtdAmlg==}
+  react-hook-form@7.58.0:
+    resolution: {integrity: sha512-zGijmEed35oNfOfy7ub99jfjkiLhHwA3dl5AgyKdWC6QQzhnc7tkWewSa+T+A2EpLrc6wo5DUoZctS9kufWJjA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -7442,8 +7451,8 @@ packages:
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
 
-  resend@4.5.2:
-    resolution: {integrity: sha512-Uu11/254nkDFgVXQp18rzuz+9kRy5Ud4qr7FW98Yg4I4jkDKX1cr/8JKdrcJI753oknEq69/i3VTLbtrveQUGw==}
+  resend@4.6.0:
+    resolution: {integrity: sha512-D5T2I82FvEUYFlrHzaDvVtr5ADHdhuoLaXgLFGABKyNtQgPWIuz0Vp2L2Evx779qjK37aF4kcw1yXJDHhA2JnQ==}
     engines: {node: '>=18'}
 
   resolve-from@4.0.0:
@@ -8448,10 +8457,10 @@ snapshots:
   '@ark/util@0.46.0':
     optional: true
 
-  '@axe-core/playwright@4.10.2(playwright-core@1.52.0)':
+  '@axe-core/playwright@4.10.2(playwright-core@1.53.0)':
     dependencies:
       axe-core: 4.10.3
-      playwright-core: 1.52.0
+      playwright-core: 1.53.0
 
   '@babel/code-frame@7.26.2':
     dependencies:
@@ -9564,11 +9573,11 @@ snapshots:
       - acorn
       - supports-color
 
-  '@content-collections/next@0.2.6(@content-collections/core@0.9.1(typescript@5.8.3))(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+  '@content-collections/next@0.2.6(@content-collections/core@0.9.1(typescript@5.8.3))(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
     dependencies:
       '@content-collections/core': 0.9.1(typescript@5.8.3)
       '@content-collections/integrations': 0.2.1(@content-collections/core@0.9.1(typescript@5.8.3))
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -9783,18 +9792,18 @@ snapshots:
   '@esbuild/win32-x64@0.25.1':
     optional: true
 
-  '@eslint-community/eslint-utils@4.5.1(eslint@9.28.0(jiti@2.4.2))':
+  '@eslint-community/eslint-utils@4.5.1(eslint@9.29.0(jiti@2.4.2))':
     dependencies:
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint/compat@1.2.7(eslint@9.28.0(jiti@2.4.2))':
+  '@eslint/compat@1.2.7(eslint@9.29.0(jiti@2.4.2))':
     optionalDependencies:
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
 
-  '@eslint/config-array@0.20.0':
+  '@eslint/config-array@0.20.1':
     dependencies:
       '@eslint/object-schema': 2.1.6
       debug: 4.4.0
@@ -9816,7 +9825,7 @@ snapshots:
     dependencies:
       ajv: 6.12.6
       debug: 4.4.0
-      espree: 10.3.0
+      espree: 10.4.0
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.1
@@ -9826,7 +9835,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/js@9.28.0': {}
+  '@eslint/js@9.29.0': {}
 
   '@eslint/object-schema@2.1.6': {}
 
@@ -9889,10 +9898,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@hookform/resolvers@5.1.1(react-hook-form@7.57.0(react@19.1.0))':
+  '@hookform/resolvers@5.1.1(react-hook-form@7.58.0(react@19.1.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.57.0(react@19.1.0)
+      react-hook-form: 7.58.0(react@19.1.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -10157,23 +10166,23 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
-  '@nerdfish/config@1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)':
+  '@nerdfish/config@1.9.3(@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(prettier@3.5.3)(typescript@5.8.3)':
     dependencies:
-      '@eslint/compat': 1.2.7(eslint@9.28.0(jiti@2.4.2))
+      '@eslint/compat': 1.2.7(eslint@9.29.0(jiti@2.4.2))
       '@total-typescript/ts-reset': 0.6.1
-      '@vitest/eslint-plugin': 1.1.38(@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint-plugin-import-x: 4.9.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint-plugin-jest-dom: 5.5.0(eslint@9.28.0(jiti@2.4.2))
-      eslint-plugin-react: 7.37.4(eslint@9.28.0(jiti@2.4.2))
-      eslint-plugin-react-hooks: 5.2.0(eslint@9.28.0(jiti@2.4.2))
-      eslint-plugin-testing-library: 6.5.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint-plugin-unicorn: 59.0.1(eslint@9.28.0(jiti@2.4.2))
-      eslint-plugin-vitest: 0.5.4(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      '@vitest/eslint-plugin': 1.1.38(@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-plugin-import-x: 4.9.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-plugin-jest-dom: 5.5.0(eslint@9.29.0(jiti@2.4.2))
+      eslint-plugin-react: 7.37.4(eslint@9.29.0(jiti@2.4.2))
+      eslint-plugin-react-hooks: 5.2.0(eslint@9.29.0(jiti@2.4.2))
+      eslint-plugin-testing-library: 6.5.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-plugin-unicorn: 59.0.1(eslint@9.29.0(jiti@2.4.2))
+      eslint-plugin-vitest: 0.5.4(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       globals: 16.0.0
       prettier-plugin-packagejson: 2.5.10(prettier@3.5.3)
       prettier-plugin-tailwindcss: 0.6.11(prettier@3.5.3)
       tslib: 2.8.1
-      typescript-eslint: 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      typescript-eslint: 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
     transitivePeerDependencies:
       - '@ianvs/prettier-plugin-sort-imports'
       - '@prettier/plugin-pug'
@@ -10245,7 +10254,7 @@ snapshots:
       react-aria: 3.41.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-day-picker: 9.7.0(react@19.1.0)
       react-dom: 19.1.0(react@19.1.0)
-      react-hook-form: 7.57.0(react@19.1.0)
+      react-hook-form: 7.58.0(react@19.1.0)
       react-phone-number-input: 3.4.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-resizable-panels: 2.1.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-stately: 3.39.0(react@19.1.0)
@@ -10395,9 +10404,9 @@ snapshots:
 
   '@pkgr/core@0.1.2': {}
 
-  '@playwright/test@1.52.0':
+  '@playwright/test@1.53.0':
     dependencies:
-      playwright: 1.52.0
+      playwright: 1.53.0
 
   '@polka/url@1.0.0-next.28': {}
 
@@ -12515,15 +12524,15 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
-  '@typescript-eslint/eslint-plugin@8.27.0(@typescript-eslint/parser@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/eslint-plugin@8.27.0(@typescript-eslint/parser@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
-      '@typescript-eslint/parser': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       '@typescript-eslint/scope-manager': 8.27.0
-      '@typescript-eslint/type-utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/type-utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.27.0
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       graphemer: 1.4.0
       ignore: 5.3.2
       natural-compare: 1.4.0
@@ -12532,14 +12541,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/parser@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.27.0
       '@typescript-eslint/types': 8.27.0
       '@typescript-eslint/typescript-estree': 8.27.0(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.27.0
       debug: 4.4.0
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -12559,12 +12568,12 @@ snapshots:
       '@typescript-eslint/types': 8.27.0
       '@typescript-eslint/visitor-keys': 8.27.0
 
-  '@typescript-eslint/type-utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/type-utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/typescript-estree': 8.27.0(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       debug: 4.4.0
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       ts-api-utils: 2.1.0(typescript@5.8.3)
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -12619,39 +12628,39 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@5.62.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/utils@5.62.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.28.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.5.1(eslint@9.29.0(jiti@2.4.2))
       '@types/json-schema': 7.0.15
       '@types/semver': 7.5.8
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       eslint-scope: 5.1.1
       semver: 7.7.1
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@typescript-eslint/utils@7.18.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/utils@7.18.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.28.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.5.1(eslint@9.29.0(jiti@2.4.2))
       '@typescript-eslint/scope-manager': 7.18.0
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.28.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.5.1(eslint@9.29.0(jiti@2.4.2))
       '@typescript-eslint/scope-manager': 8.27.0
       '@typescript-eslint/types': 8.27.0
       '@typescript-eslint/typescript-estree': 8.27.0(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -12713,7 +12722,7 @@ snapshots:
   '@unrs/rspack-resolver-binding-win32-x64-msvc@1.2.2':
     optional: true
 
-  '@vercel/microfrontends@1.2.0(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@vercel/microfrontends@1.2.0(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@next/env': 15.1.6
       ajv: 8.17.1
@@ -12725,7 +12734,7 @@ snapshots:
       nanoid: 3.3.11
       path-to-regexp: 6.2.1
     optionalDependencies:
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
@@ -12737,10 +12746,10 @@ snapshots:
       satori: 0.12.2
       yoga-wasm-web: 0.3.3
 
-  '@vercel/toolbar@0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@vercel/toolbar@0.1.37(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@tinyhttp/app': 1.3.0
-      '@vercel/microfrontends': 1.2.0(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@vercel/microfrontends': 1.2.0(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       chokidar: 3.6.0
       execa: 5.1.1
       fast-glob: 3.3.3
@@ -12749,7 +12758,7 @@ snapshots:
       jsonc-parser: 3.3.1
       strip-ansi: 6.0.1
     optionalDependencies:
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
     transitivePeerDependencies:
       - '@sveltejs/kit'
@@ -12758,10 +12767,10 @@ snapshots:
       - debug
       - react-dom
 
-  '@vitest/eslint-plugin@1.1.38(@typescript-eslint/utils@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@vitest/eslint-plugin@1.1.38(@typescript-eslint/utils@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@typescript-eslint/utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      '@typescript-eslint/utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.29.0(jiti@2.4.2)
     optionalDependencies:
       typescript: 5.8.3
 
@@ -12787,11 +12796,17 @@ snapshots:
     dependencies:
       acorn: 8.14.1
 
+  acorn-jsx@5.3.2(acorn@8.15.0):
+    dependencies:
+      acorn: 8.15.0
+
   acorn-walk@8.3.4:
     dependencies:
       acorn: 8.14.1
 
   acorn@8.14.1: {}
+
+  acorn@8.15.0: {}
 
   adler-32@1.3.1: {}
 
@@ -13794,13 +13809,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import-x@4.9.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3):
+  eslint-plugin-import-x@4.9.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
       '@types/doctrine': 0.0.9
-      '@typescript-eslint/utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
       debug: 4.4.0
       doctrine: 3.0.0
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
       get-tsconfig: 4.10.0
       is-glob: 4.0.3
@@ -13813,17 +13828,17 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-jest-dom@5.5.0(eslint@9.28.0(jiti@2.4.2)):
+  eslint-plugin-jest-dom@5.5.0(eslint@9.29.0(jiti@2.4.2)):
     dependencies:
       '@babel/runtime': 7.26.10
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       requireindex: 1.2.0
 
-  eslint-plugin-react-hooks@5.2.0(eslint@9.28.0(jiti@2.4.2)):
+  eslint-plugin-react-hooks@5.2.0(eslint@9.29.0(jiti@2.4.2)):
     dependencies:
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
 
-  eslint-plugin-react@7.37.4(eslint@9.28.0(jiti@2.4.2)):
+  eslint-plugin-react@7.37.4(eslint@9.29.0(jiti@2.4.2)):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlast: 1.2.5
@@ -13831,7 +13846,7 @@ snapshots:
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
       es-iterator-helpers: 1.2.1
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       estraverse: 5.3.0
       hasown: 2.0.2
       jsx-ast-utils: 3.3.5
@@ -13845,23 +13860,23 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-testing-library@6.5.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3):
+  eslint-plugin-testing-library@6.5.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/utils': 5.62.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      '@typescript-eslint/utils': 5.62.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.29.0(jiti@2.4.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  eslint-plugin-unicorn@59.0.1(eslint@9.28.0(jiti@2.4.2)):
+  eslint-plugin-unicorn@59.0.1(eslint@9.29.0(jiti@2.4.2)):
     dependencies:
       '@babel/helper-validator-identifier': 7.27.1
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.28.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.5.1(eslint@9.29.0(jiti@2.4.2))
       '@eslint/plugin-kit': 0.2.8
       ci-info: 4.2.0
       clean-regexp: 1.0.0
       core-js-compat: 3.41.0
-      eslint: 9.28.0(jiti@2.4.2)
+      eslint: 9.29.0(jiti@2.4.2)
       esquery: 1.6.0
       find-up-simple: 1.0.1
       globals: 16.0.0
@@ -13874,10 +13889,10 @@ snapshots:
       semver: 7.7.1
       strip-indent: 4.0.0
 
-  eslint-plugin-vitest@0.5.4(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3):
+  eslint-plugin-vitest@0.5.4(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/utils': 7.18.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      '@typescript-eslint/utils': 7.18.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.29.0(jiti@2.4.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13887,7 +13902,7 @@ snapshots:
       esrecurse: 4.3.0
       estraverse: 4.3.0
 
-  eslint-scope@8.3.0:
+  eslint-scope@8.4.0:
     dependencies:
       esrecurse: 4.3.0
       estraverse: 5.3.0
@@ -13896,15 +13911,17 @@ snapshots:
 
   eslint-visitor-keys@4.2.0: {}
 
-  eslint@9.28.0(jiti@2.4.2):
+  eslint-visitor-keys@4.2.1: {}
+
+  eslint@9.29.0(jiti@2.4.2):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.28.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.5.1(eslint@9.29.0(jiti@2.4.2))
       '@eslint-community/regexpp': 4.12.1
-      '@eslint/config-array': 0.20.0
+      '@eslint/config-array': 0.20.1
       '@eslint/config-helpers': 0.2.1
       '@eslint/core': 0.14.0
       '@eslint/eslintrc': 3.3.1
-      '@eslint/js': 9.28.0
+      '@eslint/js': 9.29.0
       '@eslint/plugin-kit': 0.3.1
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
@@ -13916,9 +13933,9 @@ snapshots:
       cross-spawn: 7.0.6
       debug: 4.4.0
       escape-string-regexp: 4.0.0
-      eslint-scope: 8.3.0
-      eslint-visitor-keys: 4.2.0
-      espree: 10.3.0
+      eslint-scope: 8.4.0
+      eslint-visitor-keys: 4.2.1
+      espree: 10.4.0
       esquery: 1.6.0
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
@@ -13940,11 +13957,11 @@ snapshots:
 
   esm-env@1.2.2: {}
 
-  espree@10.3.0:
+  espree@10.4.0:
     dependencies:
-      acorn: 8.14.1
-      acorn-jsx: 5.3.2(acorn@8.14.1)
-      eslint-visitor-keys: 4.2.0
+      acorn: 8.15.0
+      acorn-jsx: 5.3.2(acorn@8.15.0)
+      eslint-visitor-keys: 4.2.1
 
   esprima@4.0.1: {}
 
@@ -14134,10 +14151,10 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  framer-motion@12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.16.0
-      motion-utils: 12.12.1
+      motion-dom: 12.18.1
+      motion-utils: 12.18.1
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 1.3.1
@@ -14162,7 +14179,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fumadocs-core@15.5.2(@types/react@19.1.8)(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  fumadocs-core@15.5.2(@types/react@19.1.8)(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@formatjs/intl-localematcher': 0.6.1
       '@orama/orama': 3.1.6
@@ -14182,7 +14199,7 @@ snapshots:
       unist-util-visit: 5.0.0
     optionalDependencies:
       '@types/react': 19.1.8
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
@@ -14203,9 +14220,9 @@ snapshots:
 
   fuse.js@7.1.0: {}
 
-  geist@1.4.2(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
+  geist@1.4.2(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
     dependencies:
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   gensync@1.0.0-beta.2: {}
 
@@ -15527,7 +15544,7 @@ snapshots:
 
   motion-cursor@1.0.5(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion: 12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      motion: 12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       motion-utils: 12.9.4
     optionalDependencies:
       react: 19.1.0
@@ -15535,17 +15552,17 @@ snapshots:
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
 
-  motion-dom@12.16.0:
+  motion-dom@12.18.1:
     dependencies:
-      motion-utils: 12.12.1
+      motion-utils: 12.18.1
 
-  motion-utils@12.12.1: {}
+  motion-utils@12.18.1: {}
 
   motion-utils@12.9.4: {}
 
-  motion@12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      framer-motion: 12.16.0(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion: 12.18.1(@emotion/is-prop-valid@1.3.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 1.3.1
@@ -15578,17 +15595,17 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-intl@3.26.5(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  next-intl@3.26.5(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       '@formatjs/intl-localematcher': 0.5.10
       negotiator: 1.0.0
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       use-intl: 3.26.5(react@19.1.0)
 
-  next-safe-action@7.10.8(next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(zod@3.25.64):
+  next-safe-action@7.10.8(next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(zod@3.25.64):
     dependencies:
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     optionalDependencies:
@@ -15596,7 +15613,7 @@ snapshots:
 
   next-secure-headers@2.2.0: {}
 
-  next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@next/env': 15.3.3
       '@swc/counter': 0.1.3
@@ -15617,7 +15634,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 15.3.3
       '@next/swc-win32-x64-msvc': 15.3.3
       '@opentelemetry/api': 1.9.0
-      '@playwright/test': 1.52.0
+      '@playwright/test': 1.53.0
       sharp: 0.34.1
     transitivePeerDependencies:
       - '@babel/core'
@@ -15679,12 +15696,12 @@ snapshots:
     dependencies:
       esm-env: 1.2.2
 
-  nuqs@2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  nuqs@2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       mitt: 3.0.1
       react: 19.1.0
     optionalDependencies:
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   object-assign@4.1.1: {}
 
@@ -15932,11 +15949,11 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  playwright-core@1.52.0: {}
+  playwright-core@1.53.0: {}
 
-  playwright@1.52.0:
+  playwright@1.53.0:
     dependencies:
-      playwright-core: 1.52.0
+      playwright-core: 1.53.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -16140,7 +16157,7 @@ snapshots:
       prop-types: 15.8.1
       react: 19.1.0
 
-  react-email@4.0.16(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-email@4.0.16(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/parser': 7.27.1
       '@babel/traverse': 7.27.1
@@ -16152,7 +16169,7 @@ snapshots:
       glob: 11.0.2
       log-symbols: 7.0.0
       mime-types: 3.0.1
-      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.3.3(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       normalize-path: 3.0.0
       ora: 8.2.0
       socket.io: 4.8.1
@@ -16183,7 +16200,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.8
 
-  react-hook-form@7.57.0(react@19.1.0):
+  react-hook-form@7.58.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 
@@ -16507,7 +16524,7 @@ snapshots:
 
   requires-port@1.0.0: {}
 
-  resend@4.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  resend@4.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@react-email/render': 1.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
@@ -17258,12 +17275,12 @@ snapshots:
       possible-typed-array-names: 1.1.0
       reflect.getprototypeof: 1.0.10
 
-  typescript-eslint@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3):
+  typescript-eslint@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.27.0(@typescript-eslint/parser@8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      '@typescript-eslint/parser': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      '@typescript-eslint/utils': 8.27.0(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint: 9.28.0(jiti@2.4.2)
+      '@typescript-eslint/eslint-plugin': 8.27.0(@typescript-eslint/parser@8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.27.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.29.0(jiti@2.4.2)
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
