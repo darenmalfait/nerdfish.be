@@ -1,0 +1,13 @@
+{
+	"commit_scope": {
+		"enable": true,
+		"initial_value": "app",
+		"custom_scope": true
+	},
+	"branch_pre_commands": [
+		"git stash",
+		"git checkout main",
+		"git pull -r origin main",
+		"pnpm install"
+	]
+}
