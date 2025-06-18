@@ -1,833 +1,833 @@
 {
-  "about": {
-    "page": {
-      "_meta": {
-        "description": "Ontdek Daren Malfait, freelance full-stack web developer in Harelbeke. Expert in React, TypeScript en modern webdesign voor responsieve websites en webapplicaties.",
-        "title": "Webdeveloper & webdesign expert | React & TypeScript specialist"
-      },
-      "blog": {
-        "cta": "Meer artikelen",
-        "subtitle": "Ontdek mijn gedachten over webontwikkeling, design trends en de nieuwste technologieën. Van codingtips tot projectverhalen, dit is waar ik ideeën deel om je geïnspireerd en geïnformeerd te houden.",
-        "title": "Vanuit het bureau van een webdeveloper"
-      },
-      "cta": {
-        "label": "Contact",
-        "subtitle": "Aangepaste websites en applicaties op maat om uw bedrijf te laten groeien en       op te vallen.",
-        "title": "Laten we samen iets uitzonderlijks creëren"
-      },
-      "faq": {
-        "items": {
-          "0": {
-            "answer": "Ik ben gespecialiseerd in het maken van maatwerk websites en webapplicaties, met een primaire focus op front-end development en UX design. Of het nu gaat om een website voor een klein bedrijf of een volledige webapplicatie, ik lever oplossingen op maat van jouw behoeften.",
-            "question": "Aan wat voor projecten werk je?"
-          },
-          "1": {
-            "answer": "Ik werk voornamelijk met React.js, TypeScript, JavaScript en moderne frameworks zoals Next.js, Remix en Gatsby. Ik heb ook ervaring met Node.js voor back-end development.",
-            "question": "Wat is je favoriete tech stack?"
-          },
-          "2": {
-            "answer": "Met meer dan tien jaar ervaring en een sterke focus op clean, responsive design, lever ik hoogwaardige resultaten die bedrijven helpen hun doelen te bereiken. Mijn toewijding aan communicatie en samenwerking zorgt voor een soepel en succesvol partnership.",
-            "question": "Waarom zou ik jou als freelancer moeten inhuren?"
-          },
-          "3": {
-            "answer": "Ik heb gewerkt met verschillende industrieën, waaronder e-commerce, corporate, digitale bureaus en interne tools voor bedrijfsteams. Mijn flexibiliteit stelt me in staat om me aan te passen aan de unieke behoeften van verschillende industrieën.",
-            "question": "Met welke industrieën heb je gewerkt?"
-          },
-          "4": {
-            "answer": "Beide! Ik heb ervaring met samenwerken met bureaus als technisch lead en werk ook direct met klanten om oplossingen op maat te ontwikkelen.",
-            "question": "Werk je met bureaus of directe klanten?"
-          },
-          "5": {
-            "answer": "Ik volg best practices in codering, voer grondige tests uit en zorg voor cross-browser compatibiliteit. Ik geef ook prioriteit aan prestatie-optimalisatie, toegankelijkheid en responsive design om een gepolijst eindproduct te leveren.",
-            "question": "Hoe waarborg je de kwaliteit van je werk?"
-          },
-          "6": {
-            "answer": "Ja, ik deel graag voorbeelden of bespreek relevante case studies. Je kunt ook mijn portfolio bekijken op mijn website of GitHub.",
-            "question": "Kun je voorbeelden van je werk laten zien?"
-          }
-        },
-        "subtitle": "Heb je vragen over mijn vaardigheden, ervaring of werkwijze? Hier zijn de antwoorden op enkele van de meest gestelde vragen. Als je iets anders wilt weten, aarzel dan niet om contact op te nemen!",
-        "title": "Leer mij kennen"
-      },
-      "features": {
-        "items": {
-          "0": {
-            "description": "Elk project is uniek. Ik ontwikkel oplossingen die specifiek zijn ontworpen om aan jouw zakelijke behoeften en doelstellingen te voldoen, met naadloze functionaliteit en ongeëvenaarde prestaties.",
-            "title": "Op Maat Gemaakte Oplossingen"
-          },
-          "1": {
-            "description": "Gespecialiseerd in React en moderne front-end technologieën, creëer ik responsieve, gebruiksvriendelijke designs die een blijvende indruk achterlaten op je publiek.",
-            "title": "Front-End Expertise"
-          },
-          "2": {
-            "description": "Ik hecht waarde aan duurzame partnerships en prioriteer heldere communicatie, wat zorgt voor een soepele projectoplevering en doorlopende ondersteuning voor je bedrijf.",
-            "title": "Langdurige Samenwerking"
-          },
-          "3": {
-            "description": "Van snelle laadtijden tot intuïtieve navigatie, ik focus op het leveren van web-ervaringen die betrokkenheid stimuleren en meetbare resultaten behalen.",
-            "title": "Prestatiegerichte Ontwikkeling"
-          }
-        },
-        "subtitle": "Wanneer je met mij samenwerkt, huur je niet zomaar een ontwikkelaar in - je krijgt een betrouwbare partner die zich richt op het leveren van impactvolle, resultaatgerichte weboplossingen. Zo help ik jouw bedrijf succesvol te zijn.",
-        "title": "Wat mij onderscheidt"
-      },
-      "hero": {
-        "cta": "Laten we samenwerken",
-        "subtitle": "Hallo, ik ben Daren. Ik ben een Full-Stack Developer en Web Design Expert. Ik ben gepassioneerd door het bouwen van moderne, responsieve websites en applicaties, terwijl ik werk en leven in balans houd met een liefde voor sport en actief blijven.",
-        "title": "Over mij"
-      },
-      "my-toolbox": {
-        "clear-filter": "Verwijder filter",
-        "subtitle": "HTML, CSS, JS, het bouwen van kleine, middelgrote en grote webapplicaties met JavaScript libraries, frameworks, aangepaste plugins, features, animaties       en het coderen van interactieve layouts. Ik heb ook full-stack developer ervaring en bovenal heb ik een grote interesse in leren en ben ik niet bang om nieuwe talen en uitdagingen aan te gaan.",
-        "title": "Mijn gereedschapskist"
-      },
-      "personal": {
-        "content": {
-          "first": "Als developer breng ik een groot deel van mijn dag zittend aan een bureau door, verdiept in het bouwen van naadloze web-ervaringen. Maar ik geloof sterk dat voor optimale prestaties het behouden van een gezonde balans essentieel is. Daarom geef ik prioriteit aan fysieke activiteit zoals fietsen en hardlopen in mijn vrije tijd. Deze activiteiten helpen me niet alleen fit te blijven, maar zorgen ook voor een verfrissende mentale reset, waardoor ik met hernieuwde focus en creativiteit aan het werk kan.",
-          "second": "Voor mij is beweging meer dan alleen een routine - het is een manier om ervoor te zorgen dat ik scherp, gemotiveerd en in staat ben om het beste van mezelf te geven bij elk project. Fietsen door de natuur of hardlopen na een lange werkdag geeft me de helderheid en energie om uitdagingen met een frisse blik te benaderen. Deze balans helpt me productief te blijven terwijl ik uitzonderlijke resultaten lever voor mijn klanten."
-        },
-        "image": {
-          "alt": "Daren aan het fietsen"
-        },
-        "title": "De balans tussen code en leven"
-      },
-      "professional": {
-        "content": {
-          "first": "Met meer dan tien jaar ervaring in webontwikkeling, ben ik gespecialiseerd in het bouwen van aangepaste, hoogwaardige websites en applicaties. Als freelance engineer focus ik op het leveren van uitzonderlijke front-end ervaringen met React, JavaScript, TypeScript en moderne frameworks zoals Next.js en Gatsby.",
-          "second": "Ik ben gepassioneerd door clean, responsief design, snelle laadtijden en gebruikersgerichte ontwikkeling die resultaten oplevert voor mijn klanten. Ik werk nauw samen met bedrijven en bureaus om unieke, visueel aantrekkelijke weboplossingen te creëren die even functioneel als mooi zijn."
-        },
-        "image": {
-          "alt": "Daren op een berg"
-        },
-        "title": "Wie ik ben"
-      }
-    }
-  },
-  "ai": {
-    "page": {
-      "_meta": {
-        "description": "Vraag Daren Malfait, expert in webdesign en development, alles over digitale oplossingen. Direct antwoord op uw vragen over websites en applicaties.",
-        "title": "Nerdfish - Daren Malfait AI"
-      },
-      "booking": {
-        "subtitle": "Plan een call",
-        "title": "Liever in het echt spreken?"
-      },
-      "description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
-      "disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
-      "title": "Chat"
-    }
-  },
-  "blog": {
-    "content": {
-      "backToBlog": "Alle artikelen",
-      "related": {
-        "subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
-        "title": "Gerelateerde artikelen"
-      }
-    },
-    "overview": {
-      "filterByTopic": "Filter blogposts op onderwerp",
-      "loadMore": "Laad meer",
-      "readMore": "Lees blogpost",
-      "readMoreAbout": "Lees blog: {title}",
-      "search": "Zoek blog artikelen",
-      "seeAll": "Bekijk alle blogposts"
-    },
-    "page": {
-      "_meta": {
-        "description": "Expert tips over webdesign en development, projectverhalen en creatieve inspiratie. Ontdek hoe je je digitale aanwezigheid naar een hoger niveau tilt.",
-        "title": "Webdesign & development blog | Expert tips & project stories"
-      },
-      "image": {
-        "alt": "Typmachine"
-      },
-      "subtitle": "Inzichten, updates en verhalen over design, development en creatieve projecten, die een kijkje geven in het proces en de inspiratie achter het werk.",
-      "title": "Blog"
-    }
-  },
-  "contact": {
-    "chat": {
-      "close": "Sluit chat",
-      "disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
-      "initialMessage": "Hoi, hoe kan ik je vandaag helpen?",
-      "inputPlaceholder": "Stel een vraag",
-      "premadeQuestions": {
-        "ask": "Vraag: {question}",
-        "currentJob": "Huidige baan",
-        "currentJobQuestion": "Vertel me over je huidige functie.",
-        "experience": "Ervaring",
-        "experienceQuestion": "Vertel me over je werkervaring.",
-        "favoriteLanguage": "Favoriete taal",
-        "favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
-        "title": "Vooraf gedefinieerde vragen",
-        "whoAreYou": "Wie ben je",
-        "whoAreYouQuestion": "Wie ben je?"
-      },
-      "send": "Versturen",
-      "title": "Chat met een AI-versie van mij"
-    },
-    "cta": {
-      "booking": "Plan een gesprek"
-    },
-    "form": {
-      "dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
-      "fields": {
-        "errors": {
-          "generic": "Er is een fout opgetreden bij het versturen van het formulier.",
-          "phoneOrEmailRequired": "E-mail of telefoonnummer moet worden ingevuld.",
-          "recaptcha": "Bevestig dat je geen robot bent."
-        },
-        "labels": {
-          "budgetRange": "Wat is je budget?",
-          "budgetRangeDescription": "Een transparant budget is belangrijk voor ons om je project te begrijpen.",
-          "company": "Wat is de naam van je bedrijf?",
-          "contactInformation": "Hoe kan ik je bereiken?",
-          "email": "E-mailadres",
-          "name": "Wat is je naam?",
-          "phone": "Telefoonnummer",
-          "projectType": "In welke diensten ben je geïnteresseerd?",
-          "projectTypeDescription": "Selecteer alles wat van toepassing is",
-          "textMessage": "Hoe kan ik je helpen?",
-          "vatNumber": "BTW nummer:"
-        },
-        "names": {
-          "budgetRange": "Wat is je budget?",
-          "company": "Bedrijfsnaam",
-          "contact": {
-            "email": "E-mailadres",
-            "phone": "Telefoonnummer"
-          },
-          "name": "Naam",
-          "projectType": "Project type",
-          "textMessage": "Bericht",
-          "vatNumber": "BTW nummer"
-        }
-      },
-      "sections": {
-        "customer": "Vertel me wat over jezelf",
-        "message": "Wat is er?",
-        "project": "Over jouw project"
-      },
-      "send": "Versturen",
-      "success": "Je bericht is succesvol verzonden."
-    },
-    "page": {
-      "_meta": {
-        "description": "Neem contact op met Daren Malfait, freelance webdesigner in Harelbeke. Expert in creatieve en functionele websites. Direct antwoord op al uw vragen.",
-        "title": "Contact webdesign expert | Freelance webdeveloper in Harelbeke"
-      },
-      "contact": {
-        "subtitle": "Of je nu een website op maat nodig hebt, hulp bij een digitaal project, of een betrouwbare freelancer zoekt, ik ben slechts een bericht verwijderd. Ik reageer meestal binnen een dag, dus laten we samen iets geweldigs creëren.",
-        "title": "Laten we samen je ideeën tot leven brengen"
-      },
-      "content": {
-        "body": "Liever een persoonlijke aanpak? Hier vind je al mijn contactgegevens! Of je nu een e-mail wilt sturen, wilt bellen of langskomen, al mijn contactgegevens staan hier. Laten we contact maken op de manier die het beste bij jou past.",
-        "title": "Neem rechtstreeks contact op",
-        "vat": "BTW"
-      },
-      "form": {
-        "openFormLabel": "Laten we beginnen",
-        "subtitle": "Vul hieronder de gegevens in en ik neem contact met je op. Laten we je ideeën tot leven brengen.",
-        "title": "Vertel me over jouw project"
-      },
-      "title": "Contact"
-    },
-    "title": "Contact"
-  },
-  "expertise": {
-    "3d-printing": {
-      "page": {
-        "_meta": {
-          "description": "Krijg eersteklas 3D-printservices met onze geavanceerde Bambu X1C FDM-printer. Perfect voor aangepaste prototypes, functionele onderdelen en unieke ontwerpen. Geniet van precisie, duurzaamheid en snelle levertijden. Breng uw STL-bestanden vandaag nog tot leven!",
-          "title": "3D print services in Harelbeke | Prototypes & maatwerk"
-        },
-        "cta": {
-          "label": "Neem contact op",
-          "subtitle": "Laten we praten.",
-          "title": "Heeft u een project in gedachten?"
-        },
-        "desk-storage": {
-          "items": {
-            "0": {
-              "description": "3D geprinte kubushouder",
-              "title": "Kubus houder"
-            },
-            "1": {
-              "description": "3D geprinte pennenhouder",
-              "title": "Pennenhouder"
-            },
-            "2": {
-              "description": "3D geprinte zonnebrilhouder",
-              "title": "Aangepaste zonnebrilhouder"
-            }
-          },
-          "subtitle": "3D-print voorbeelden",
-          "title": "Bureauopslag"
-        },
-        "faq": {
-          "items": {
-            "0": {
-              "answer": "Wij zijn gespecialiseerd in 3D-printservices, waaronder hoogwaardige prints met PLA- en PETG-materialen. ASA en ABS zijn ook mogelijk. Of u nu een product wilt prototypen of aangepaste 3D-prints wilt maken, wij bieden nauwkeurige en duurzame oplossingen voor uw behoeften.",
-              "question": "Welke 3D-diensten biedt u aan?"
-            },
-            "1": {
-              "answer": "Wij gebruiken de Bamboo Labs X1 Carbon (X1C) 3D-printer, die bekend staat om zijn snelheid, nauwkeurigheid en ondersteuning voor meerdere materialen. Deze geavanceerde printer levert snelle en hoogwaardige resultaten, zodat uw projecten aan de hoogste normen voldoen.",
-              "question": "Welke 3D-printer gebruikt u voor uw projecten?"
-            },
-            "2": {
-              "answer": "De benodigde tijd hangt af van de grootte en complexiteit van uw print. Eenvoudige ontwerpen kunnen enkele uren duren, terwijl grotere of meer ingewikkelde prints langer kunnen duren. We geven een geschatte tijdsduur voordat we met het project beginnen.",
-              "question": "Hoe lang duurt het om een 3D-print te voltooien?"
-            },
-            "3": {
-              "answer": "Wij bieden PLA- en PETG-filamenten voor 3D-printen. Beide materialen zijn duurzaam, veelzijdig en ideaal voor de meeste toepassingen, van prototypes tot eindproducten.",
-              "question": "Met welke materialen kunt u printen?"
-            },
-            "4": {
-              "answer": "Onze prijzen zijn gebaseerd op twee factoren: €0,20 per gram voor PLA/PETG filament €0,50 per uur printtijd U betaalt alleen voor het gebruikte materiaal en de tijd dat de printer in gebruik is, wat zorgt voor een eerlijk en transparant prijsmodel.",
-              "question": "Hoeveel kost het om te 3D-printen met PLA of PETG?"
-            },
-            "5": {
-              "answer": "Ja, we kunnen printen vanaf 3D-ontwerpbestanden die u aanlevert, zoals STL, OBJ of andere gangbare formaten. Als u een printklaar ontwerp heeft, bereiden wij het voor op het 3D-printproces.",
-              "question": "Kunt u printen vanaf mijn bestaande 3D-ontwerpbestanden?"
-            },
-            "6": {
-              "answer": "Om te beginnen neemt u simpelweg contact met ons op met de details van uw project. Wij bekijken uw ontwerp, geven een offerte en begeleiden u door het printproces van begin tot eind.",
-              "question": "Hoe begin ik met mijn 3D-printproject?"
-            }
-          },
-          "subtitle": "Vind snel antwoorden op veelgestelde vragen over onze 3D-oplossingen, processen en wat u kunt verwachten.",
-          "title": "Alles wat u moet weten over onze 3D-diensten"
-        },
-        "features": {
-          "items": {
-            "0": {
-              "description": "Snel printen met uitzonderlijke nauwkeurigheid, zodat elk detail perfect is.",
-              "title": "Snelheid & Precisie"
-            },
-            "1": {
-              "description": "Print met verschillende materialen, waaronder PLA, ABS, PETG en meer, voor veelzijdige oplossingen.",
-              "title": "Multi-Materiaal Ondersteuning"
-            },
-            "2": {
-              "description": "Kies duurzame materialen voor milieubewuste projecten.",
-              "title": "Levendige Kleuren"
-            },
-            "3": {
-              "description": "Kies duurzame materialen voor milieubewuste projecten.",
-              "title": "Milieuvriendelijke Opties"
-            }
-          },
-          "subtitle": "Topfuncties voor precisie, veelzijdigheid en kwaliteit",
-          "title": "Onze 3D-print voordelen"
-        },
-        "hero": {
-          "subtitle": "Uw ideeën omzetten in tastbare creaties met precisie en snelheid",
-          "title": "3D-Printen"
-        },
-        "misc": {
-          "items": {
-            "0": {
-              "description": "3D geprinte fiets meetgereedschap",
-              "title": "Fiets meetgereedschap"
-            },
-            "1": {
-              "description": "3D geprinte vervangingsonderdelen",
-              "title": "Vervangingsonderdelen"
-            },
-            "2": {
-              "description": "3D geprinte garagedeuropener",
-              "title": "Garagedeuropener"
-            }
-          },
-          "subtitle": "3D-print voorbeelden",
-          "title": "Diversen"
-        },
-        "pricing": {
-          "items": {
-            "0": {
-              "buttonText": "Neem contact op",
-              "description": "Perfect voor klanten die al een 3D-ontwerp klaar hebben. Stuur ons simpelweg uw 3D-bestanden (STL, OBJ, etc.), en wij verzorgen het printen.",
-              "features": "€0,20 per gram voor PLA/PETG filament | €0,50 per uur printtijd | Snel, efficiënt printen | Ideaal voor prototypes, modellen of eindproducten",
-              "title": "Basis Print"
-            },
-            "1": {
-              "buttonText": "Vraag een offerte",
-              "description": "Wij helpen bij het ontwerpen of aanpassen van uw 3D-model voordat we overgaan tot printen.",
-              "features": "Samenwerkingsproces | Inclusief een vast aantal revisies",
-              "title": "Maatwerk"
-            }
-          },
-          "subtitle": "Of u nu een eenvoudige print of een aangepast ontwerp nodig heeft, wij hebben een oplossing die past bij uw project en budget.",
-          "title": "Kies het plan dat bij uw 3D-printbehoeften past"
-        },
-        "toys": {
-          "items": {
-            "0": {
-              "description": "3D geprinte eindeloze friemelkubus",
-              "title": "Eindeloze friemelkubus"
-            },
-            "1": {
-              "description": "3D geprinte spaarpot",
-              "title": "Spaarpot"
-            },
-            "2": {
-              "description": "3D geprinte friemelringen",
-              "title": "Friemelringen"
-            },
-            "3": {
-              "description": "3D geprinte friemelklikker",
-              "title": "Friemelklikker"
-            }
-          },
-          "subtitle": "3D-print voorbeelden",
-          "title": "Speelgoed"
-        }
-      }
-    },
-    "branding": {
-      "page": {
-        "_meta": {
-          "description": "Een op maat gemaakte website kan een klein bedrijf een concurrentievoordeel geven door een unieke online identiteit te vestigen, de geloofwaardigheid te verbeteren, een betere gebruikerservaring te bieden, zoekmachines te optimaliseren, flexibiliteit en schaalbaarheid te bieden, en uiteindelijk de verkoop en omzet te stimuleren.",
-          "title": "Branding & merkidentiteit | Unieke bedrijfsidentiteit ontwerpen"
-        },
-        "features": {
-          "items": {
-            "0": {
-              "description": "Ik creëer aangepaste branding die uw unieke visie en zakelijke doelen weerspiegelt, zodat uw identiteit opvalt en resoneert met uw doelgroep.",
-              "title": "Op maat gemaakte brandingoplossingen"
-            },
-            "1": {
-              "description": "Symboliseert gelaagd ontwerp en consistentie, perfect om te laten zien hoe uw branding naadloos werkt op verschillende platforms.",
-              "title": "Consistentie over alle platforms"
-            },
-            "2": {
-              "description": "Dit icoon staat voor teamwerk en samenwerking, en benadrukt uw partnerschap met klanten in het ontwerpproces.",
-              "title": "Samenwerkende aanpak"
-            }
-          },
-          "subtitle": "Uniek, responsief en gebouwd om te converteren.",
-          "title": "Ontworpen om te imponeren, gebouwd om te presteren"
-        },
-        "hero": {
-          "subtitle": "Breng uw online aanwezigheid offline",
-          "title": "Branding"
-        }
-      }
-    },
-    "uxui-design": {
-      "page": {
-        "_meta": {
-          "description": "Ontdek hoe UX/UI design meer is dan alleen esthetiek. Ik ontwerp boeiende, gebruiksvriendelijke interfaces die naadloos werken en bedrijfsresultaten verbeteren. Van wireframing tot interactieontwerp, samen creëren we impactvolle gebruikerservaringen.",
-          "title": "UX/UI design expert | Gebruiksvriendelijke interfaces in Harelbeke"
-        },
-        "blog": {
-          "subtitle": "Ontdek inzichten en best practices in UX/UI design die helpen betere digitale ervaringen te creëren.",
-          "title": "UX/UI Design Inzichten"
-        },
-        "cta": {
-          "label": "Neem contact op",
-          "subtitle": "Laten we praten",
-          "title": "Klaar om je gebruikerservaring te verbeteren?"
-        },
-        "faq": {
-          "items": {
-            "0": {
-              "answer": "UX/UI design richt zich op het creëren van intuïtieve, gebruiksvriendelijke interfaces die de gebruikerstevredenheid verhogen en bedrijfsdoelen bereiken.",
-              "question": "Wat is UX/UI design?"
-            },
-            "1": {
-              "answer": "De investering varieert op basis van projectomvang en complexiteit. We bieden verschillende pakketten om aan verschillende behoeften en budgetten te voldoen.",
-              "question": "Hoeveel kost UX/UI design?"
-            },
-            "2": {
-              "answer": "De tijdlijn hangt af van de projectomvang. Een basis design kan 2-3 weken duren, terwijl complexe projecten 4-8 weken kunnen vergen.",
-              "question": "Hoe lang duurt het design proces?"
-            },
-            "3": {
-              "answer": "We voeren gebruikersonderzoek uit, maken wireframes, ontwerpen interfaces en leveren interactieve prototypes voor testing.",
-              "question": "Wat is er inbegrepen in het design proces?"
-            },
-            "4": {
-              "answer": "Ja, we bieden doorlopende ondersteuning en kunnen aanpassingen maken op basis van gebruikersfeedback en veranderende behoeften.",
-              "question": "Kunnen er wijzigingen worden aangebracht na het initiële design?"
-            }
-          },
-          "subtitle": "Veelgestelde vragen over UX/UI design",
-          "title": "Veelgestelde vragen"
-        },
-        "features": {
-          "items": {
-            "0": {
-              "description": "Visualiseren van layouts en flows om duidelijke, gebruikersgerichte wireframes en interactieve prototypes te bouwen.",
-              "title": "Wireframing & Prototyping"
-            },
-            "1": {
-              "description": "Begrijpen van gebruikersbehoeften door onderzoek om ontwerpbeslissingen te informeren die de gebruikerstevredenheid verbeteren.",
-              "title": "Gebruikersonderzoek"
-            },
-            "2": {
-              "description": "Zorgen dat elke gebruikersactie soepel en responsief aanvoelt.",
-              "title": "Interactie-ontwerp"
-            },
-            "3": {
-              "description": "Creatieve oplossingen die esthetiek en functionaliteit in balans brengen.",
-              "title": "Innovatief Design"
-            }
-          },
-          "subtitle": "Gericht op bruikbaarheid, esthetiek en naadloze gebruikersinteractie",
-          "title": "Belangrijke UX/UI Design aspecten"
-        },
-        "hero": {
-          "subtitle": "Boeiende, gebruikersgerichte interfaces die de gebruikerservaring en bedrijfsresultaten verbeteren.",
-          "title": "UX/UI Design"
-        },
-        "pricing": {
-          "items": {
-            "0": {
-              "cta": "Begin nu",
-              "description": "Essentiële UX/UI design diensten",
-              "features": {
-                "0": "Gebruikersonderzoek",
-                "1": "Wireframes",
-                "2": "Basis UI Design",
-                "3": "Één revisieronde"
-              },
-              "title": "Basis"
-            },
-            "1": {
-              "cta": "Neem contact op",
-              "description": "Complete design oplossing",
-              "features": {
-                "0": "Uitgebreid gebruikersonderzoek",
-                "1": "Wireframes & Prototypes",
-                "2": "Volledig UI Design",
-                "3": "Meerdere revisies",
-                "4": "Design System"
-              },
-              "title": "Professional"
-            },
-            "2": {
-              "cta": "Laten we praten",
-              "description": "Maatwerk enterprise oplossing",
-              "features": {
-                "0": "Maatwerk oplossing",
-                "1": "Volledig design proces",
-                "2": "Doorlopende ondersteuning"
-              },
-              "title": "Enterprise"
-            }
-          },
-          "subtitle": "Vind het juiste pakket voor jouw behoeften",
-          "title": "Prijzen"
-        }
-      }
-    },
-    "webdesign": {
-      "page": {
-        "_meta": {
-          "description": "Professioneel webdesign en development in Harelbeke. Van responsieve websites tot UX/UI design. Expert in React, TypeScript en moderne webtechnologieën.",
-          "title": "Professioneel Webdesign & Development in Harelbeke, België"
-        },
-        "blog": {
-          "subtitle": "Ontdek onze nieuwste tips, trends en best practices in webdesign. Blijf geïnspireerd en creëer websites die boeien en converteren.",
-          "title": "Inzichten over Webdesign"
-        },
-        "cta": {
-          "label": "Neem contact op",
-          "subtitle": "Laten we praten",
-          "title": "Heeft u een website in gedachten?"
-        },
-        "faq": {
-          "items": {
-            "0": {
-              "answer": "Soms kan het al veel helpen om enkele optimalisaties aan je huidige website door te voeren.",
-              "question": "Heb ik een nieuwe website nodig?"
-            },
-            "1": {
-              "answer": "Je kunt een website krijgen voor bijna elk budget. Met een hoger budget krijg je meer flexibiliteit en complexiteit. Je kunt al een starter website krijgen vanaf 500 euro.",
-              "question": "Hoeveel kost een website?"
-            },
-            "2": {
-              "answer": "Dit hangt af van de complexiteit van de website. Een starter website kan in 2 weken gebouwd worden. Een complexere website kan tot 4 weken duren.",
-              "question": "Hoe lang duurt het om een website te bouwen?"
-            },
-            "3": {
-              "answer": "Dit hangt af van het pakket dat je kiest. Maar meestal is er een ontwerp, een content management systeem, een SSL certificaat en SEO optimalisaties bij inbegrepen.",
-              "question": "Wat is er bij de prijs inbegrepen?"
-            },
-            "4": {
-              "answer": "Afhankelijk van het pakket dat je kiest, kun je zelf kleine wijzigingen aanbrengen via het CMS. Voor complexere wijzigingen kun je contact met mij opnemen.",
-              "question": "Wat als er wijzigingen nodig zijn nadat de website is gebouwd?"
-            }
-          },
-          "subtitle": "Antwoorden op uw meest gestelde vragen over webdesign",
-          "title": "Veelgestelde vragen"
-        },
-        "features": {
-          "items": {
-            "0": {
-              "description": "Uw website is uw digitale visitekaartje. Ik creëer opvallende ontwerpen die uw unieke identiteit weerspiegelen en uw publiek direct aanspreken.",
-              "title": "Laat het opvallen"
-            },
-            "1": {
-              "description": "Uw website moet overal perfect werken. Ik bouw snelle, responsieve websites die er op elk apparaat professioneel uitzien.",
-              "title": "Responsief ontwerp"
-            },
-            "2": {
-              "description": "Ik vertaal uw bedrijfsdoelen naar een effectieve website die bezoekers aanzet tot actie, of het nu gaat om leads, verkoop of merkbekendheid.",
-              "title": "Conversiegericht ontwerp"
-            },
-            "3": {
-              "description": "Snelheid is essentieel. Ik optimaliseer uw website voor maximale prestaties, snelle laadtijden en een soepele gebruikerservaring.",
-              "title": "Optimale prestaties"
-            }
-          },
-          "subtitle": "Uniek, responsief en gebouwd om te converteren.",
-          "title": "Ontworpen om indruk te maken, gebouwd om te presteren"
-        },
-        "hero": {
-          "subtitle": "Verbeter uw online aanwezigheid en groei uw bedrijf",
-          "title": "Websites"
-        },
-        "pricing": {
-          "items": {
-            "0": {
-              "cta": "Vraag een offerte",
-              "description": "Begin met een betere online aanwezigheid",
-              "features": {
-                "0": "1-5 pagina's",
-                "1": "Responsieve website",
-                "2": "SSL Beveiliging",
-                "3": "SEO geoptimaliseerd"
-              },
-              "title": "Starter"
-            },
-            "1": {
-              "cta": "Vraag een offerte",
-              "description": "Premium website om uw online aanwezigheid te verbeteren",
-              "features": {
-                "0": "1-10 pagina's",
-                "1": "Content Management Systeem",
-                "2": "SSL Beveiliging",
-                "3": "Responsieve website",
-                "4": "Webshop/E-commerce"
-              },
-              "title": "Business"
-            },
-            "2": {
-              "cta": "Vraag een offerte",
-              "description": "Aangepaste oplossing voor uw bedrijf",
-              "features": {
-                "0": "Maatwerk oplossing",
-                "1": "Webshop",
-                "2": "Branding"
-              },
-              "title": "Expert"
-            }
-          },
-          "subtitle": "Een optie voor elk budget",
-          "title": "Prijzen"
-        },
-        "work": {
-          "subtitle": "Het creëren van impactvolle ontwerpen voor echte resultaten.",
-          "title": "Enkele projecten"
-        }
-      }
-    }
-  },
-  "features": {
-    "readMoreAbout": "Lees meer over {subject}",
-    "viewMore": "Bekijk {subject}"
-  },
-  "footer": {
-    "follow-us": "volg ons"
-  },
-  "global": {
-    "about": "over",
-    "discover": "Ontdek {topic}",
-    "navigation": {
-      "main": {
-        "about": {
-          "label": "Over mij"
-        },
-        "blog": {
-          "label": "Blog"
-        },
-        "contact": {
-          "label": "contact"
-        },
-        "expertise": {
-          "3dprinting": {
-            "description": "3D print diensten",
-            "title": "3D printen"
-          },
-          "branding": {
-            "description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
-            "title": "Branding"
-          },
-          "freelance": {
-            "description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
-            "title": "Freelance diensten"
-          },
-          "label": "Expertise",
-          "webdesign": {
-            "description": "Transformeer je ideeën in visueel aantrekkelijke, gebruiksvriendelijke websites.",
-            "title": "Websites"
-          }
-        },
-        "work": {
-          "label": "Werk"
-        }
-      },
-      "pages": "Pagina's"
-    },
-    "readMoreAbout": "Lees meer over {topic}",
-    "switchLanguage": "Wijzig taal",
-    "vat": "Prijzen zijn exclusief BTW."
-  },
-  "home": {
-    "page": {
-      "_meta": {
-        "description": "Versterk uw online aanwezigheid met professionele webdesign en development diensten door Nerdfish in Harelbeke, België. Van prachtige websites tot naadloze UX/UI design, samen brengen we uw visie tot leven.",
-        "title": "Professioneel Webdesign & Development in Harelbeke, België"
-      },
-      "blog": {
-        "subtitle": "Lees mijn laatste blog posts",
-        "title": "Ervaringen en inzichten"
-      },
-      "caseStudy": {
-        "subtitle": "Een diepgaande kijk op het creëren van een serene, gebruikersgerichte ervaring voor de massagetherapie praktijk van Carline Deseyn",
-        "title": "Case Study: Equilibra Website Ontwerp"
-      },
-      "cta": {
-        "action": "Neem contact op",
-        "subtitle": "Laten we praten.",
-        "title": "Heb je een project in gedachten?"
-      },
-      "features": {
-        "branding": {
-          "description": "Van logo's tot digitale graphics - ik help je visie tot leven te brengen met oog voor detail en een creatieve aanpak.",
-          "title": "Branding"
-        },
-        "freelance": {
-          "description": "Expert in React en TypeScript voor het bouwen van robuuste, schaalbare webapplicaties van hoge kwaliteit.",
-          "title": "Javascript Consultancy"
-        },
-        "subtitle": "Gespecialiseerde diensten om jouw visie tot leven te brengen:",
-        "title": "Professionele Web Oplossingen",
-        "uxui-design": {
-          "description": "Intuïtieve interfaces die naadloos werken. Strakke, aantrekkelijke ontwerpen die zowel mooi als moeiteloos te gebruiken zijn.",
-          "title": "UX/UI Design"
-        },
-        "webdesign": {
-          "description": "Ik design visueel aantrekkelijke, gebruiksvriendelijke websites met moderne ontwerpprincipes. Jouw merk vertaald naar een boeiende online aanwezigheid.",
-          "title": "Webdesign"
-        }
-      },
-      "hero": {
-        "content": "Bekijk mijn werk. Neem contact op. Laten we samenwerken!",
-        "cta": "Contacteer me",
-        "image": {
-          "alt": "Een nerdy vis, glimlachend, met een bril op"
-        },
-        "subtitle": "Ik ben een web developer met meer dan 10 jaar ervaring uit Harelbeke, België."
-      },
-      "highlights": {
-        "subtitle": "Ontdek een scala aan diensten ontworpen om uw ideeën tot leven te brengen met creativiteit, precisie en innovatie.",
-        "title": "Uitmuntendheid in elk aspect"
-      }
-    }
-  },
-  "product": {
-    "content": {
-      "about": "Over",
-      "open": "Open",
-      "source": "Broncode"
-    }
-  },
-  "theme": {
-    "changeTheme": "Verander kleurschema van de website",
-    "dark": "Donker",
-    "light": "Licht",
-    "setTheme": "Wissel naar {theme} kleurschema",
-    "system": "Systeem"
-  },
-  "widgets": {
-    "slowLoading": {
-      "caption": "Voorbeeld van laadanimatie"
-    }
-  },
-  "wiki": {
-    "overview": {
-      "backToWiki": "Alle artikelen",
-      "filterByTopic": "Filter wiki per topic",
-      "loadMore": "Laad meer artikelen",
-      "readMore": "Lees artikel",
-      "readMoreAbout": "Lees meer over {title}",
-      "search": "Zoek knowledge base",
-      "seeAll": "Bekijk knowledge base"
-    },
-    "page": {
-      "_meta": {
-        "description": "Ontdek Daren's kennisbank met expert tips over webdesign, development en digitale strategieën. Praktische inzichten voor betere online resultaten.",
-        "title": "Daren's kennisbank"
-      },
-      "image": {
-        "alt": "Boekenkast"
-      },
-      "subtitle": "Verzameling van artikelen en bronnen",
-      "title": "Kennisbank"
-    }
-  },
-  "work": {
-    "content": {
-      "related": {
-        "subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
-        "title": "Dit vind je wellicht ook leuk"
-      }
-    },
-    "overview": {
-      "backToWork": "Meer projecten",
-      "filterByTopic": "Filter projecten op onderwerp",
-      "loadMore": "Laad meer",
-      "readMore": "Bekijk project",
-      "readMoreAbout": "Lees meer over {title}",
-      "search": "Zoek projecten",
-      "seeAll": "Bekijk alle projecten"
-    },
-    "page": {
-      "_meta": {
-        "description": "Bekijk projecten in webdesign, branding en open-source bijdragen. Ontdek hoe we bedrijven helpen groeien met innovatieve digitale oplossingen.",
-        "title": "Project Portfolio | Webdesign, Branding & Open-Source Bijdragen"
-      },
-      "branding": {
-        "subtitle": "Strategische en creatieve branding projecten die memorabele identiteiten opbouwen en bedrijven verbinden met hun doelgroep door impactvol design.",
-        "title": "Branding Projecten"
-      },
-      "contact": {
-        "cta": {
-          "subtitle": "Neem contact op.",
-          "title": "Heeft u ideeën nodig?"
-        }
-      },
-      "hero": {
-        "subtitle": "Een zorgvuldig geselecteerde verzameling werk op het gebied van webdesign, branding en betekenisvolle bijdragen aan open-source initiatieven.",
-        "title": "Projecten"
-      },
-      "products": {
-        "subtitle": "Samenwerkingsprojecten die de open-source gemeenschap ondersteunen en versterken, en innovatie en gedeelde groei stimuleren door code en ideeën.",
-        "title": "Open source"
-      },
-      "webdesign": {
-        "cta": {
-          "label": "Contact",
-          "subtitle": "Laten we praten.",
-          "title": "Heeft u een website in gedachten?"
-        },
-        "subtitle": "Creatieve en gebruikersgerichte webdesign projecten die esthetiek combineren met functionaliteit, voor boeiende digitale ervaringen.",
-        "title": "Webdesign Projecten"
-      }
-    }
-  }
+	"about": {
+		"page": {
+			"_meta": {
+				"description": "Ontdek Daren Malfait, freelance full-stack web developer in Harelbeke. Expert in React, TypeScript en modern webdesign voor responsieve websites en webapplicaties.",
+				"title": "Webdeveloper & webdesign expert | React & TypeScript specialist"
+			},
+			"blog": {
+				"cta": "Meer artikelen",
+				"subtitle": "Ontdek mijn gedachten over webontwikkeling, design trends en de nieuwste technologieën. Van codingtips tot projectverhalen, dit is waar ik ideeën deel om je geïnspireerd en geïnformeerd te houden.",
+				"title": "Vanuit het bureau van een webdeveloper"
+			},
+			"cta": {
+				"label": "Contact",
+				"subtitle": "Aangepaste websites en applicaties op maat om uw bedrijf te laten groeien en       op te vallen.",
+				"title": "Laten we samen iets uitzonderlijks creëren"
+			},
+			"faq": {
+				"items": {
+					"0": {
+						"answer": "Ik ben gespecialiseerd in het maken van maatwerk websites en webapplicaties, met een primaire focus op front-end development en UX design. Of het nu gaat om een website voor een klein bedrijf of een volledige webapplicatie, ik lever oplossingen op maat van jouw behoeften.",
+						"question": "Aan wat voor projecten werk je?"
+					},
+					"1": {
+						"answer": "Ik werk voornamelijk met React.js, TypeScript, JavaScript en moderne frameworks zoals Next.js, Remix en Gatsby. Ik heb ook ervaring met Node.js voor back-end development.",
+						"question": "Wat is je favoriete tech stack?"
+					},
+					"2": {
+						"answer": "Met meer dan tien jaar ervaring en een sterke focus op clean, responsive design, lever ik hoogwaardige resultaten die bedrijven helpen hun doelen te bereiken. Mijn toewijding aan communicatie en samenwerking zorgt voor een soepel en succesvol partnership.",
+						"question": "Waarom zou ik jou als freelancer moeten inhuren?"
+					},
+					"3": {
+						"answer": "Ik heb gewerkt met verschillende industrieën, waaronder e-commerce, corporate, digitale bureaus en interne tools voor bedrijfsteams. Mijn flexibiliteit stelt me in staat om me aan te passen aan de unieke behoeften van verschillende industrieën.",
+						"question": "Met welke industrieën heb je gewerkt?"
+					},
+					"4": {
+						"answer": "Beide! Ik heb ervaring met samenwerken met bureaus als technisch lead en werk ook direct met klanten om oplossingen op maat te ontwikkelen.",
+						"question": "Werk je met bureaus of directe klanten?"
+					},
+					"5": {
+						"answer": "Ik volg best practices in codering, voer grondige tests uit en zorg voor cross-browser compatibiliteit. Ik geef ook prioriteit aan prestatie-optimalisatie, toegankelijkheid en responsive design om een gepolijst eindproduct te leveren.",
+						"question": "Hoe waarborg je de kwaliteit van je werk?"
+					},
+					"6": {
+						"answer": "Ja, ik deel graag voorbeelden of bespreek relevante case studies. Je kunt ook mijn portfolio bekijken op mijn website of GitHub.",
+						"question": "Kun je voorbeelden van je werk laten zien?"
+					}
+				},
+				"subtitle": "Heb je vragen over mijn vaardigheden, ervaring of werkwijze? Hier zijn de antwoorden op enkele van de meest gestelde vragen. Als je iets anders wilt weten, aarzel dan niet om contact op te nemen!",
+				"title": "Leer mij kennen"
+			},
+			"features": {
+				"items": {
+					"0": {
+						"description": "Elk project is uniek. Ik ontwikkel oplossingen die specifiek zijn ontworpen om aan jouw zakelijke behoeften en doelstellingen te voldoen, met naadloze functionaliteit en ongeëvenaarde prestaties.",
+						"title": "Op Maat Gemaakte Oplossingen"
+					},
+					"1": {
+						"description": "Gespecialiseerd in React en moderne front-end technologieën, creëer ik responsieve, gebruiksvriendelijke designs die een blijvende indruk achterlaten op je publiek.",
+						"title": "Front-End Expertise"
+					},
+					"2": {
+						"description": "Ik hecht waarde aan duurzame partnerships en prioriteer heldere communicatie, wat zorgt voor een soepele projectoplevering en doorlopende ondersteuning voor je bedrijf.",
+						"title": "Langdurige Samenwerking"
+					},
+					"3": {
+						"description": "Van snelle laadtijden tot intuïtieve navigatie, ik focus op het leveren van web-ervaringen die betrokkenheid stimuleren en meetbare resultaten behalen.",
+						"title": "Prestatiegerichte Ontwikkeling"
+					}
+				},
+				"subtitle": "Wanneer je met mij samenwerkt, huur je niet zomaar een ontwikkelaar in - je krijgt een betrouwbare partner die zich richt op het leveren van impactvolle, resultaatgerichte weboplossingen. Zo help ik jouw bedrijf succesvol te zijn.",
+				"title": "Wat mij onderscheidt"
+			},
+			"hero": {
+				"cta": "Laten we samenwerken",
+				"subtitle": "Hallo, ik ben Daren. Ik ben een Full-Stack Developer en Web Design Expert. Ik ben gepassioneerd door het bouwen van moderne, responsieve websites en applicaties, terwijl ik werk en leven in balans houd met een liefde voor sport en actief blijven.",
+				"title": "Over mij"
+			},
+			"my-toolbox": {
+				"clear-filter": "Verwijder filter",
+				"subtitle": "HTML, CSS, JS, het bouwen van kleine, middelgrote en grote webapplicaties met JavaScript libraries, frameworks, aangepaste plugins, features, animaties       en het coderen van interactieve layouts. Ik heb ook full-stack developer ervaring en bovenal heb ik een grote interesse in leren en ben ik niet bang om nieuwe talen en uitdagingen aan te gaan.",
+				"title": "Mijn gereedschapskist"
+			},
+			"personal": {
+				"content": {
+					"first": "Als developer breng ik een groot deel van mijn dag zittend aan een bureau door, verdiept in het bouwen van naadloze web-ervaringen. Maar ik geloof sterk dat voor optimale prestaties het behouden van een gezonde balans essentieel is. Daarom geef ik prioriteit aan fysieke activiteit zoals fietsen en hardlopen in mijn vrije tijd. Deze activiteiten helpen me niet alleen fit te blijven, maar zorgen ook voor een verfrissende mentale reset, waardoor ik met hernieuwde focus en creativiteit aan het werk kan.",
+					"second": "Voor mij is beweging meer dan alleen een routine - het is een manier om ervoor te zorgen dat ik scherp, gemotiveerd en in staat ben om het beste van mezelf te geven bij elk project. Fietsen door de natuur of hardlopen na een lange werkdag geeft me de helderheid en energie om uitdagingen met een frisse blik te benaderen. Deze balans helpt me productief te blijven terwijl ik uitzonderlijke resultaten lever voor mijn klanten."
+				},
+				"image": {
+					"alt": "Daren aan het fietsen"
+				},
+				"title": "De balans tussen code en leven"
+			},
+			"professional": {
+				"content": {
+					"first": "Met meer dan tien jaar ervaring in webontwikkeling, ben ik gespecialiseerd in het bouwen van aangepaste, hoogwaardige websites en applicaties. Als freelance engineer focus ik op het leveren van uitzonderlijke front-end ervaringen met React, JavaScript, TypeScript en moderne frameworks zoals Next.js en Gatsby.",
+					"second": "Ik ben gepassioneerd door clean, responsief design, snelle laadtijden en gebruikersgerichte ontwikkeling die resultaten oplevert voor mijn klanten. Ik werk nauw samen met bedrijven en bureaus om unieke, visueel aantrekkelijke weboplossingen te creëren die even functioneel als mooi zijn."
+				},
+				"image": {
+					"alt": "Daren op een berg"
+				},
+				"title": "Wie ik ben"
+			}
+		}
+	},
+	"ai": {
+		"page": {
+			"_meta": {
+				"description": "Vraag Daren Malfait, expert in webdesign en development, alles over digitale oplossingen. Direct antwoord op uw vragen over websites en applicaties.",
+				"title": "Nerdfish - Daren Malfait AI"
+			},
+			"booking": {
+				"subtitle": "Plan een call",
+				"title": "Liever in het echt spreken?"
+			},
+			"description": "Wil je meer weten over wat ik kan doen? Je kan je vragen kwijt aan mijn AI-versie.",
+			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
+			"title": "Chat"
+		}
+	},
+	"blog": {
+		"content": {
+			"backToBlog": "Alle artikelen",
+			"related": {
+				"subtitle": "Ontdek blogartikelen die verband houden met dit onderwerp, met inzichten, tips en verhalen die dieper ingaan op gerelateerde ideeën en projecten.",
+				"title": "Gerelateerde artikelen"
+			}
+		},
+		"overview": {
+			"filterByTopic": "Filter blogposts op onderwerp",
+			"loadMore": "Laad meer",
+			"readMore": "Lees blogpost",
+			"readMoreAbout": "Lees blog: {title}",
+			"search": "Zoek blog artikelen",
+			"seeAll": "Bekijk alle blogposts"
+		},
+		"page": {
+			"_meta": {
+				"description": "Expert tips over webdesign en development, projectverhalen en creatieve inspiratie. Ontdek hoe je je digitale aanwezigheid naar een hoger niveau tilt.",
+				"title": "Webdesign & development blog | Expert tips & project stories"
+			},
+			"image": {
+				"alt": "Typmachine"
+			},
+			"subtitle": "Inzichten, updates en verhalen over design, development en creatieve projecten, die een kijkje geven in het proces en de inspiratie achter het werk.",
+			"title": "Blog"
+		}
+	},
+	"contact": {
+		"chat": {
+			"close": "Sluit chat",
+			"disclaimer": "Disclaimer: Dit ben ik niet echt, maar een AI. Antwoorden kunnen erg onnauwkeurig zijn",
+			"initialMessage": "Hoi, hoe kan ik je vandaag helpen?",
+			"inputPlaceholder": "Stel een vraag",
+			"premadeQuestions": {
+				"ask": "Vraag: {question}",
+				"currentJob": "Huidige baan",
+				"currentJobQuestion": "Vertel me over je huidige functie.",
+				"experience": "Ervaring",
+				"experienceQuestion": "Vertel me over je werkervaring.",
+				"favoriteLanguage": "Favoriete taal",
+				"favoriteLanguageQuestion": "Wat is je favoriete programmeertaal?",
+				"title": "Vooraf gedefinieerde vragen",
+				"whoAreYou": "Wie ben je",
+				"whoAreYouQuestion": "Wie ben je?"
+			},
+			"send": "Versturen",
+			"title": "Chat met een AI-versie van mij"
+		},
+		"cta": {
+			"booking": "Plan een gesprek"
+		},
+		"form": {
+			"dataUsage": "We gebruiken je gegevens alleen om contact met je op te nemen.",
+			"fields": {
+				"errors": {
+					"generic": "Er is een fout opgetreden bij het versturen van het formulier.",
+					"phoneOrEmailRequired": "E-mail of telefoonnummer moet worden ingevuld.",
+					"recaptcha": "Bevestig dat je geen robot bent."
+				},
+				"labels": {
+					"budgetRange": "Wat is je budget?",
+					"budgetRangeDescription": "Een transparant budget is belangrijk voor ons om je project te begrijpen.",
+					"company": "Wat is de naam van je bedrijf?",
+					"contactInformation": "Hoe kan ik je bereiken?",
+					"email": "E-mailadres",
+					"name": "Wat is je naam?",
+					"phone": "Telefoonnummer",
+					"projectType": "In welke diensten ben je geïnteresseerd?",
+					"projectTypeDescription": "Selecteer alles wat van toepassing is",
+					"textMessage": "Hoe kan ik je helpen?",
+					"vatNumber": "BTW nummer:"
+				},
+				"names": {
+					"budgetRange": "Wat is je budget?",
+					"company": "Bedrijfsnaam",
+					"contact": {
+						"email": "E-mailadres",
+						"phone": "Telefoonnummer"
+					},
+					"name": "Naam",
+					"projectType": "Project type",
+					"textMessage": "Bericht",
+					"vatNumber": "BTW nummer"
+				}
+			},
+			"sections": {
+				"customer": "Vertel me wat over jezelf",
+				"message": "Wat is er?",
+				"project": "Over jouw project"
+			},
+			"send": "Versturen",
+			"success": "Je bericht is succesvol verzonden."
+		},
+		"page": {
+			"_meta": {
+				"description": "Neem contact op met Daren Malfait, freelance webdesigner in Harelbeke. Expert in creatieve en functionele websites. Direct antwoord op al uw vragen.",
+				"title": "Contact webdesign expert | Freelance webdeveloper in Harelbeke"
+			},
+			"contact": {
+				"subtitle": "Of je nu een website op maat nodig hebt, hulp bij een digitaal project, of een betrouwbare freelancer zoekt, ik ben slechts een bericht verwijderd. Ik reageer meestal binnen een dag, dus laten we samen iets geweldigs creëren.",
+				"title": "Laten we samen je ideeën tot leven brengen"
+			},
+			"content": {
+				"body": "Liever een persoonlijke aanpak? Hier vind je al mijn contactgegevens! Of je nu een e-mail wilt sturen, wilt bellen of langskomen, al mijn contactgegevens staan hier. Laten we contact maken op de manier die het beste bij jou past.",
+				"title": "Neem rechtstreeks contact op",
+				"vat": "BTW"
+			},
+			"form": {
+				"openFormLabel": "Laten we beginnen",
+				"subtitle": "Vul hieronder de gegevens in en ik neem contact met je op. Laten we je ideeën tot leven brengen.",
+				"title": "Vertel me over jouw project"
+			},
+			"title": "Contact"
+		},
+		"title": "Contact"
+	},
+	"expertise": {
+		"3d-printing": {
+			"page": {
+				"_meta": {
+					"description": "Krijg eersteklas 3D-printservices met onze geavanceerde Bambu X1C FDM-printer. Perfect voor aangepaste prototypes, functionele onderdelen en unieke ontwerpen. Geniet van precisie, duurzaamheid en snelle levertijden. Breng uw STL-bestanden vandaag nog tot leven!",
+					"title": "3D print services in Harelbeke | Prototypes & maatwerk"
+				},
+				"cta": {
+					"label": "Neem contact op",
+					"subtitle": "Laten we praten.",
+					"title": "Heeft u een project in gedachten?"
+				},
+				"desk-storage": {
+					"items": {
+						"0": {
+							"description": "3D geprinte kubushouder",
+							"title": "Kubus houder"
+						},
+						"1": {
+							"description": "3D geprinte pennenhouder",
+							"title": "Pennenhouder"
+						},
+						"2": {
+							"description": "3D geprinte zonnebrilhouder",
+							"title": "Aangepaste zonnebrilhouder"
+						}
+					},
+					"subtitle": "3D-print voorbeelden",
+					"title": "Bureauopslag"
+				},
+				"faq": {
+					"items": {
+						"0": {
+							"answer": "Wij zijn gespecialiseerd in 3D-printservices, waaronder hoogwaardige prints met PLA- en PETG-materialen. ASA en ABS zijn ook mogelijk. Of u nu een product wilt prototypen of aangepaste 3D-prints wilt maken, wij bieden nauwkeurige en duurzame oplossingen voor uw behoeften.",
+							"question": "Welke 3D-diensten biedt u aan?"
+						},
+						"1": {
+							"answer": "Wij gebruiken de Bamboo Labs X1 Carbon (X1C) 3D-printer, die bekend staat om zijn snelheid, nauwkeurigheid en ondersteuning voor meerdere materialen. Deze geavanceerde printer levert snelle en hoogwaardige resultaten, zodat uw projecten aan de hoogste normen voldoen.",
+							"question": "Welke 3D-printer gebruikt u voor uw projecten?"
+						},
+						"2": {
+							"answer": "De benodigde tijd hangt af van de grootte en complexiteit van uw print. Eenvoudige ontwerpen kunnen enkele uren duren, terwijl grotere of meer ingewikkelde prints langer kunnen duren. We geven een geschatte tijdsduur voordat we met het project beginnen.",
+							"question": "Hoe lang duurt het om een 3D-print te voltooien?"
+						},
+						"3": {
+							"answer": "Wij bieden PLA- en PETG-filamenten voor 3D-printen. Beide materialen zijn duurzaam, veelzijdig en ideaal voor de meeste toepassingen, van prototypes tot eindproducten.",
+							"question": "Met welke materialen kunt u printen?"
+						},
+						"4": {
+							"answer": "Onze prijzen zijn gebaseerd op twee factoren: €0,20 per gram voor PLA/PETG filament €0,50 per uur printtijd U betaalt alleen voor het gebruikte materiaal en de tijd dat de printer in gebruik is, wat zorgt voor een eerlijk en transparant prijsmodel.",
+							"question": "Hoeveel kost het om te 3D-printen met PLA of PETG?"
+						},
+						"5": {
+							"answer": "Ja, we kunnen printen vanaf 3D-ontwerpbestanden die u aanlevert, zoals STL, OBJ of andere gangbare formaten. Als u een printklaar ontwerp heeft, bereiden wij het voor op het 3D-printproces.",
+							"question": "Kunt u printen vanaf mijn bestaande 3D-ontwerpbestanden?"
+						},
+						"6": {
+							"answer": "Om te beginnen neemt u simpelweg contact met ons op met de details van uw project. Wij bekijken uw ontwerp, geven een offerte en begeleiden u door het printproces van begin tot eind.",
+							"question": "Hoe begin ik met mijn 3D-printproject?"
+						}
+					},
+					"subtitle": "Vind snel antwoorden op veelgestelde vragen over onze 3D-oplossingen, processen en wat u kunt verwachten.",
+					"title": "Alles wat u moet weten over onze 3D-diensten"
+				},
+				"features": {
+					"items": {
+						"0": {
+							"description": "Snel printen met uitzonderlijke nauwkeurigheid, zodat elk detail perfect is.",
+							"title": "Snelheid & Precisie"
+						},
+						"1": {
+							"description": "Print met verschillende materialen, waaronder PLA, ABS, PETG en meer, voor veelzijdige oplossingen.",
+							"title": "Multi-Materiaal Ondersteuning"
+						},
+						"2": {
+							"description": "Kies duurzame materialen voor milieubewuste projecten.",
+							"title": "Levendige Kleuren"
+						},
+						"3": {
+							"description": "Kies duurzame materialen voor milieubewuste projecten.",
+							"title": "Milieuvriendelijke Opties"
+						}
+					},
+					"subtitle": "Topfuncties voor precisie, veelzijdigheid en kwaliteit",
+					"title": "Onze 3D-print voordelen"
+				},
+				"hero": {
+					"subtitle": "Uw ideeën omzetten in tastbare creaties met precisie en snelheid",
+					"title": "3D-Printen"
+				},
+				"misc": {
+					"items": {
+						"0": {
+							"description": "3D geprinte fiets meetgereedschap",
+							"title": "Fiets meetgereedschap"
+						},
+						"1": {
+							"description": "3D geprinte vervangingsonderdelen",
+							"title": "Vervangingsonderdelen"
+						},
+						"2": {
+							"description": "3D geprinte garagedeuropener",
+							"title": "Garagedeuropener"
+						}
+					},
+					"subtitle": "3D-print voorbeelden",
+					"title": "Diversen"
+				},
+				"pricing": {
+					"items": {
+						"0": {
+							"buttonText": "Neem contact op",
+							"description": "Perfect voor klanten die al een 3D-ontwerp klaar hebben. Stuur ons simpelweg uw 3D-bestanden (STL, OBJ, etc.), en wij verzorgen het printen.",
+							"features": "€0,20 per gram voor PLA/PETG filament | €0,50 per uur printtijd | Snel, efficiënt printen | Ideaal voor prototypes, modellen of eindproducten",
+							"title": "Basis Print"
+						},
+						"1": {
+							"buttonText": "Vraag een offerte",
+							"description": "Wij helpen bij het ontwerpen of aanpassen van uw 3D-model voordat we overgaan tot printen.",
+							"features": "Samenwerkingsproces | Inclusief een vast aantal revisies",
+							"title": "Maatwerk"
+						}
+					},
+					"subtitle": "Of u nu een eenvoudige print of een aangepast ontwerp nodig heeft, wij hebben een oplossing die past bij uw project en budget.",
+					"title": "Kies het plan dat bij uw 3D-printbehoeften past"
+				},
+				"toys": {
+					"items": {
+						"0": {
+							"description": "3D geprinte eindeloze friemelkubus",
+							"title": "Eindeloze friemelkubus"
+						},
+						"1": {
+							"description": "3D geprinte spaarpot",
+							"title": "Spaarpot"
+						},
+						"2": {
+							"description": "3D geprinte friemelringen",
+							"title": "Friemelringen"
+						},
+						"3": {
+							"description": "3D geprinte friemelklikker",
+							"title": "Friemelklikker"
+						}
+					},
+					"subtitle": "3D-print voorbeelden",
+					"title": "Speelgoed"
+				}
+			}
+		},
+		"branding": {
+			"page": {
+				"_meta": {
+					"description": "Een op maat gemaakte website kan een klein bedrijf een concurrentievoordeel geven door een unieke online identiteit te vestigen, de geloofwaardigheid te verbeteren, een betere gebruikerservaring te bieden, zoekmachines te optimaliseren, flexibiliteit en schaalbaarheid te bieden, en uiteindelijk de verkoop en omzet te stimuleren.",
+					"title": "Branding & merkidentiteit | Unieke bedrijfsidentiteit ontwerpen"
+				},
+				"features": {
+					"items": {
+						"0": {
+							"description": "Ik creëer aangepaste branding die uw unieke visie en zakelijke doelen weerspiegelt, zodat uw identiteit opvalt en resoneert met uw doelgroep.",
+							"title": "Op maat gemaakte brandingoplossingen"
+						},
+						"1": {
+							"description": "Symboliseert gelaagd ontwerp en consistentie, perfect om te laten zien hoe uw branding naadloos werkt op verschillende platforms.",
+							"title": "Consistentie over alle platforms"
+						},
+						"2": {
+							"description": "Dit icoon staat voor teamwerk en samenwerking, en benadrukt uw partnerschap met klanten in het ontwerpproces.",
+							"title": "Samenwerkende aanpak"
+						}
+					},
+					"subtitle": "Uniek, responsief en gebouwd om te converteren.",
+					"title": "Ontworpen om te imponeren, gebouwd om te presteren"
+				},
+				"hero": {
+					"subtitle": "Breng uw online aanwezigheid offline",
+					"title": "Branding"
+				}
+			}
+		},
+		"uxui-design": {
+			"page": {
+				"_meta": {
+					"description": "Ontdek hoe UX/UI design meer is dan alleen esthetiek. Ik ontwerp boeiende, gebruiksvriendelijke interfaces die naadloos werken en bedrijfsresultaten verbeteren. Van wireframing tot interactieontwerp, samen creëren we impactvolle gebruikerservaringen.",
+					"title": "UX/UI design expert | Gebruiksvriendelijke interfaces in Harelbeke"
+				},
+				"blog": {
+					"subtitle": "Ontdek inzichten en best practices in UX/UI design die helpen betere digitale ervaringen te creëren.",
+					"title": "UX/UI Design Inzichten"
+				},
+				"cta": {
+					"label": "Neem contact op",
+					"subtitle": "Laten we praten",
+					"title": "Klaar om je gebruikerservaring te verbeteren?"
+				},
+				"faq": {
+					"items": {
+						"0": {
+							"answer": "UX/UI design richt zich op het creëren van intuïtieve, gebruiksvriendelijke interfaces die de gebruikerstevredenheid verhogen en bedrijfsdoelen bereiken.",
+							"question": "Wat is UX/UI design?"
+						},
+						"1": {
+							"answer": "De investering varieert op basis van projectomvang en complexiteit. We bieden verschillende pakketten om aan verschillende behoeften en budgetten te voldoen.",
+							"question": "Hoeveel kost UX/UI design?"
+						},
+						"2": {
+							"answer": "De tijdlijn hangt af van de projectomvang. Een basis design kan 2-3 weken duren, terwijl complexe projecten 4-8 weken kunnen vergen.",
+							"question": "Hoe lang duurt het design proces?"
+						},
+						"3": {
+							"answer": "We voeren gebruikersonderzoek uit, maken wireframes, ontwerpen interfaces en leveren interactieve prototypes voor testing.",
+							"question": "Wat is er inbegrepen in het design proces?"
+						},
+						"4": {
+							"answer": "Ja, we bieden doorlopende ondersteuning en kunnen aanpassingen maken op basis van gebruikersfeedback en veranderende behoeften.",
+							"question": "Kunnen er wijzigingen worden aangebracht na het initiële design?"
+						}
+					},
+					"subtitle": "Veelgestelde vragen over UX/UI design",
+					"title": "Veelgestelde vragen"
+				},
+				"features": {
+					"items": {
+						"0": {
+							"description": "Visualiseren van layouts en flows om duidelijke, gebruikersgerichte wireframes en interactieve prototypes te bouwen.",
+							"title": "Wireframing & Prototyping"
+						},
+						"1": {
+							"description": "Begrijpen van gebruikersbehoeften door onderzoek om ontwerpbeslissingen te informeren die de gebruikerstevredenheid verbeteren.",
+							"title": "Gebruikersonderzoek"
+						},
+						"2": {
+							"description": "Zorgen dat elke gebruikersactie soepel en responsief aanvoelt.",
+							"title": "Interactie-ontwerp"
+						},
+						"3": {
+							"description": "Creatieve oplossingen die esthetiek en functionaliteit in balans brengen.",
+							"title": "Innovatief Design"
+						}
+					},
+					"subtitle": "Gericht op bruikbaarheid, esthetiek en naadloze gebruikersinteractie",
+					"title": "Belangrijke UX/UI Design aspecten"
+				},
+				"hero": {
+					"subtitle": "Boeiende, gebruikersgerichte interfaces die de gebruikerservaring en bedrijfsresultaten verbeteren.",
+					"title": "UX/UI Design"
+				},
+				"pricing": {
+					"items": {
+						"0": {
+							"cta": "Begin nu",
+							"description": "Essentiële UX/UI design diensten",
+							"features": {
+								"0": "Gebruikersonderzoek",
+								"1": "Wireframes",
+								"2": "Basis UI Design",
+								"3": "Één revisieronde"
+							},
+							"title": "Basis"
+						},
+						"1": {
+							"cta": "Neem contact op",
+							"description": "Complete design oplossing",
+							"features": {
+								"0": "Uitgebreid gebruikersonderzoek",
+								"1": "Wireframes & Prototypes",
+								"2": "Volledig UI Design",
+								"3": "Meerdere revisies",
+								"4": "Design System"
+							},
+							"title": "Professional"
+						},
+						"2": {
+							"cta": "Laten we praten",
+							"description": "Maatwerk enterprise oplossing",
+							"features": {
+								"0": "Maatwerk oplossing",
+								"1": "Volledig design proces",
+								"2": "Doorlopende ondersteuning"
+							},
+							"title": "Enterprise"
+						}
+					},
+					"subtitle": "Vind het juiste pakket voor jouw behoeften",
+					"title": "Prijzen"
+				}
+			}
+		},
+		"webdesign": {
+			"page": {
+				"_meta": {
+					"description": "Professioneel webdesign en development in Harelbeke. Van responsieve websites tot UX/UI design. Expert in React, TypeScript en moderne webtechnologieën.",
+					"title": "Professioneel Webdesign & Development in Harelbeke, België"
+				},
+				"blog": {
+					"subtitle": "Ontdek onze nieuwste tips, trends en best practices in webdesign. Blijf geïnspireerd en creëer websites die boeien en converteren.",
+					"title": "Inzichten over Webdesign"
+				},
+				"cta": {
+					"label": "Neem contact op",
+					"subtitle": "Laten we praten",
+					"title": "Heeft u een website in gedachten?"
+				},
+				"faq": {
+					"items": {
+						"0": {
+							"answer": "Soms kan het al veel helpen om enkele optimalisaties aan je huidige website door te voeren.",
+							"question": "Heb ik een nieuwe website nodig?"
+						},
+						"1": {
+							"answer": "Je kunt een website krijgen voor bijna elk budget. Met een hoger budget krijg je meer flexibiliteit en complexiteit. Je kunt al een starter website krijgen vanaf 500 euro.",
+							"question": "Hoeveel kost een website?"
+						},
+						"2": {
+							"answer": "Dit hangt af van de complexiteit van de website. Een starter website kan in 2 weken gebouwd worden. Een complexere website kan tot 4 weken duren.",
+							"question": "Hoe lang duurt het om een website te bouwen?"
+						},
+						"3": {
+							"answer": "Dit hangt af van het pakket dat je kiest. Maar meestal is er een ontwerp, een content management systeem, een SSL certificaat en SEO optimalisaties bij inbegrepen.",
+							"question": "Wat is er bij de prijs inbegrepen?"
+						},
+						"4": {
+							"answer": "Afhankelijk van het pakket dat je kiest, kun je zelf kleine wijzigingen aanbrengen via het CMS. Voor complexere wijzigingen kun je contact met mij opnemen.",
+							"question": "Wat als er wijzigingen nodig zijn nadat de website is gebouwd?"
+						}
+					},
+					"subtitle": "Antwoorden op uw meest gestelde vragen over webdesign",
+					"title": "Veelgestelde vragen"
+				},
+				"features": {
+					"items": {
+						"0": {
+							"description": "Uw website is uw digitale visitekaartje. Ik creëer opvallende ontwerpen die uw unieke identiteit weerspiegelen en uw publiek direct aanspreken.",
+							"title": "Laat het opvallen"
+						},
+						"1": {
+							"description": "Uw website moet overal perfect werken. Ik bouw snelle, responsieve websites die er op elk apparaat professioneel uitzien.",
+							"title": "Responsief ontwerp"
+						},
+						"2": {
+							"description": "Ik vertaal uw bedrijfsdoelen naar een effectieve website die bezoekers aanzet tot actie, of het nu gaat om leads, verkoop of merkbekendheid.",
+							"title": "Conversiegericht ontwerp"
+						},
+						"3": {
+							"description": "Snelheid is essentieel. Ik optimaliseer uw website voor maximale prestaties, snelle laadtijden en een soepele gebruikerservaring.",
+							"title": "Optimale prestaties"
+						}
+					},
+					"subtitle": "Uniek, responsief en gebouwd om te converteren.",
+					"title": "Ontworpen om indruk te maken, gebouwd om te presteren"
+				},
+				"hero": {
+					"subtitle": "Verbeter uw online aanwezigheid en groei uw bedrijf",
+					"title": "Websites"
+				},
+				"pricing": {
+					"items": {
+						"0": {
+							"cta": "Vraag een offerte",
+							"description": "Begin met een betere online aanwezigheid",
+							"features": {
+								"0": "1-5 pagina's",
+								"1": "Responsieve website",
+								"2": "SSL Beveiliging",
+								"3": "SEO geoptimaliseerd"
+							},
+							"title": "Starter"
+						},
+						"1": {
+							"cta": "Vraag een offerte",
+							"description": "Premium website om uw online aanwezigheid te verbeteren",
+							"features": {
+								"0": "1-10 pagina's",
+								"1": "Content Management Systeem",
+								"2": "SSL Beveiliging",
+								"3": "Responsieve website",
+								"4": "Webshop/E-commerce"
+							},
+							"title": "Business"
+						},
+						"2": {
+							"cta": "Vraag een offerte",
+							"description": "Aangepaste oplossing voor uw bedrijf",
+							"features": {
+								"0": "Maatwerk oplossing",
+								"1": "Webshop",
+								"2": "Branding"
+							},
+							"title": "Expert"
+						}
+					},
+					"subtitle": "Een optie voor elk budget",
+					"title": "Prijzen"
+				},
+				"work": {
+					"subtitle": "Het creëren van impactvolle ontwerpen voor echte resultaten.",
+					"title": "Enkele projecten"
+				}
+			}
+		}
+	},
+	"features": {
+		"readMoreAbout": "Lees meer over {subject}",
+		"viewMore": "Bekijk {subject}"
+	},
+	"footer": {
+		"follow-us": "volg ons"
+	},
+	"global": {
+		"about": "over",
+		"discover": "Ontdek {topic}",
+		"navigation": {
+			"main": {
+				"about": {
+					"label": "Over mij"
+				},
+				"blog": {
+					"label": "Blog"
+				},
+				"contact": {
+					"label": "contact"
+				},
+				"expertise": {
+					"3dprinting": {
+						"description": "3D print diensten",
+						"title": "3D printen"
+					},
+					"branding": {
+						"description": "Het creëren van unieke, consistente en impactvolle merkidentiteiten op maat van uw bedrijf",
+						"title": "Branding"
+					},
+					"freelance": {
+						"description": "Krijg hulp bij uw Javascript projecten, van architectuur tot implementatie.",
+						"title": "Freelance diensten"
+					},
+					"label": "Expertise",
+					"webdesign": {
+						"description": "Transformeer je ideeën in visueel aantrekkelijke, gebruiksvriendelijke websites.",
+						"title": "Websites"
+					}
+				},
+				"work": {
+					"label": "Werk"
+				}
+			},
+			"pages": "Pagina's"
+		},
+		"readMoreAbout": "Lees meer over {topic}",
+		"switchLanguage": "Wijzig taal",
+		"vat": "Prijzen zijn exclusief BTW."
+	},
+	"home": {
+		"page": {
+			"_meta": {
+				"description": "Versterk uw online aanwezigheid met professionele webdesign en development diensten door Nerdfish in Harelbeke, België. Van prachtige websites tot naadloze UX/UI design, samen brengen we uw visie tot leven.",
+				"title": "Professioneel Webdesign & Development in Harelbeke, België"
+			},
+			"blog": {
+				"subtitle": "Lees mijn laatste blog posts",
+				"title": "Ervaringen en inzichten"
+			},
+			"caseStudy": {
+				"subtitle": "Een diepgaande kijk op het creëren van een serene, gebruikersgerichte ervaring voor de massagetherapie praktijk van Carline Deseyn",
+				"title": "Case Study: Equilibra Website Ontwerp"
+			},
+			"cta": {
+				"action": "Neem contact op",
+				"subtitle": "Laten we praten.",
+				"title": "Heb je een project in gedachten?"
+			},
+			"features": {
+				"branding": {
+					"description": "Van logo's tot digitale graphics - ik help je visie tot leven te brengen met oog voor detail en een creatieve aanpak.",
+					"title": "Branding"
+				},
+				"freelance": {
+					"description": "Expert in React en TypeScript voor het bouwen van robuuste, schaalbare webapplicaties van hoge kwaliteit.",
+					"title": "Javascript Consultancy"
+				},
+				"subtitle": "Gespecialiseerde diensten om jouw visie tot leven te brengen:",
+				"title": "Professionele Web Oplossingen",
+				"uxui-design": {
+					"description": "Intuïtieve interfaces die naadloos werken. Strakke, aantrekkelijke ontwerpen die zowel mooi als moeiteloos te gebruiken zijn.",
+					"title": "UX/UI Design"
+				},
+				"webdesign": {
+					"description": "Ik design visueel aantrekkelijke, gebruiksvriendelijke websites met moderne ontwerpprincipes. Jouw merk vertaald naar een boeiende online aanwezigheid.",
+					"title": "Webdesign"
+				}
+			},
+			"hero": {
+				"content": "Bekijk mijn werk. Neem contact op. Laten we samenwerken!",
+				"cta": "Contacteer me",
+				"image": {
+					"alt": "Een nerdy vis, glimlachend, met een bril op"
+				},
+				"subtitle": "Ik ben een web developer met meer dan 10 jaar ervaring uit Harelbeke, België."
+			},
+			"highlights": {
+				"subtitle": "Ontdek een scala aan diensten ontworpen om uw ideeën tot leven te brengen met creativiteit, precisie en innovatie.",
+				"title": "Uitmuntendheid in elk aspect"
+			}
+		}
+	},
+	"product": {
+		"content": {
+			"about": "Over",
+			"open": "Open",
+			"source": "Broncode"
+		}
+	},
+	"theme": {
+		"changeTheme": "Verander kleurschema van de website",
+		"dark": "Donker",
+		"light": "Licht",
+		"setTheme": "Wissel naar {theme} kleurschema",
+		"system": "Systeem"
+	},
+	"widgets": {
+		"slowLoading": {
+			"caption": "Voorbeeld van laadanimatie"
+		}
+	},
+	"wiki": {
+		"overview": {
+			"backToWiki": "Alle artikelen",
+			"filterByTopic": "Filter wiki per topic",
+			"loadMore": "Laad meer artikelen",
+			"readMore": "Lees artikel",
+			"readMoreAbout": "Lees meer over {title}",
+			"search": "Zoek knowledge base",
+			"seeAll": "Bekijk knowledge base"
+		},
+		"page": {
+			"_meta": {
+				"description": "Ontdek Daren's kennisbank met expert tips over webdesign, development en digitale strategieën. Praktische inzichten voor betere online resultaten.",
+				"title": "Daren's kennisbank"
+			},
+			"image": {
+				"alt": "Boekenkast"
+			},
+			"subtitle": "Verzameling van artikelen en bronnen",
+			"title": "Kennisbank"
+		}
+	},
+	"work": {
+		"content": {
+			"related": {
+				"subtitle": "Ontdek een uitgelicht project gerelateerd aan dit ontwerp",
+				"title": "Dit vind je wellicht ook leuk"
+			}
+		},
+		"overview": {
+			"backToWork": "Meer projecten",
+			"filterByTopic": "Filter projecten op onderwerp",
+			"loadMore": "Laad meer",
+			"readMore": "Bekijk project",
+			"readMoreAbout": "Lees meer over {title}",
+			"search": "Zoek projecten",
+			"seeAll": "Bekijk alle projecten"
+		},
+		"page": {
+			"_meta": {
+				"description": "Bekijk projecten in webdesign, branding en open-source bijdragen. Ontdek hoe we bedrijven helpen groeien met innovatieve digitale oplossingen.",
+				"title": "Project Portfolio | Webdesign, Branding & Open-Source Bijdragen"
+			},
+			"branding": {
+				"subtitle": "Strategische en creatieve branding projecten die memorabele identiteiten opbouwen en bedrijven verbinden met hun doelgroep door impactvol design.",
+				"title": "Branding Projecten"
+			},
+			"contact": {
+				"cta": {
+					"subtitle": "Neem contact op.",
+					"title": "Heeft u ideeën nodig?"
+				}
+			},
+			"hero": {
+				"subtitle": "Een zorgvuldig geselecteerde verzameling werk op het gebied van webdesign, branding en betekenisvolle bijdragen aan open-source initiatieven.",
+				"title": "Projecten"
+			},
+			"products": {
+				"subtitle": "Samenwerkingsprojecten die de open-source gemeenschap ondersteunen en versterken, en innovatie en gedeelde groei stimuleren door code en ideeën.",
+				"title": "Open source"
+			},
+			"webdesign": {
+				"cta": {
+					"label": "Contact",
+					"subtitle": "Laten we praten.",
+					"title": "Heeft u een website in gedachten?"
+				},
+				"subtitle": "Creatieve en gebruikersgerichte webdesign projecten die esthetiek combineren met functionaliteit, voor boeiende digitale ervaringen.",
+				"title": "Webdesign Projecten"
+			}
+		}
+	}
 }
