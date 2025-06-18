@@ -36,7 +36,7 @@ export function ProductCardTitle({
 	return (
 		<p
 			className={cx(
-				'text-foreground text-md group-hover:text-accent font-semibold',
+				'text-foreground text-md group-hover:text-brand font-semibold',
 				'flex items-center text-base font-semibold transition-all duration-300',
 				className,
 			)}
@@ -69,7 +69,7 @@ export function ProductCard({
 			<Link
 				className={cx(
 					'gap-x-md p-md rounded-base mx-auto flex w-full max-w-4xl',
-					'hover:bg-muted focus-within:outline-accent group transition-all',
+					'hover:bg-background-muted focus-within:outline-accent group transition-all',
 					className,
 				)}
 				{...props}
