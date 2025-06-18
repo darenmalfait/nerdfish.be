@@ -118,7 +118,7 @@ export default async function BlogDetailPage(props: PageProps) {
 								<Button asChild className="gap-sm flex w-full">
 									<Link target="_blank" href={product.url}>
 										<GlobeIcon className="size-4" />
-										Open
+										{t('open')}
 									</Link>
 								</Button>
 							) : null}
@@ -130,7 +130,7 @@ export default async function BlogDetailPage(props: PageProps) {
 								>
 									<Link target="_blank" href={product.sourceUrl}>
 										<GithubIcon className="size-4" />
-										Source
+										{t('source')}
 									</Link>
 								</Button>
 							) : null}
@@ -146,10 +146,11 @@ export default async function BlogDetailPage(props: PageProps) {
 								key={image.src}
 								className="md:basis-1/2 lg:basis-1/3"
 							>
-								<div className="shadow-outline rounded-base overflow-hidden">
+								<div className="shadow-outline rounded-base aspect-w-4 aspect-h-3 overflow-hidden">
 									<Image
 										src={image.src}
 										alt={image.alt}
+										className="absolute inset-0 object-cover"
 										width={500}
 										height={500}
 									/>
