@@ -19,12 +19,12 @@ const chatMessageVariants = cva(
 	{
 		variants: {
 			userRole: {
-				user: 'ml-auto w-full max-w-fit rounded-br-none bg-info-background text-right text-info-foreground',
+				user: 'ml-auto w-full max-w-fit rounded-br-none bg-background-info text-right text-foreground-info-contrast',
 				assistant:
 					'mr-auto w-full max-w-fit rounded-tl-none bg-background-muted',
 				system: 'mr-auto w-full max-w-fit rounded-tl-none bg-background-muted',
 				error:
-					'mr-auto w-full max-w-fit rounded-tl-none bg-danger-background text-danger-foreground',
+					'mr-auto w-full max-w-fit rounded-tl-none bg-background-danger text-foreground-danger-contrast',
 			},
 		},
 		defaultVariants: {
@@ -233,7 +233,7 @@ export function Chat({
 							disabled={!input || !!error || isLoading}
 							icon
 							type="submit"
-							variant="accent"
+							variant="brand"
 							aria-label={t('send')}
 						>
 							{isLoading ? <LoadingAnimation /> : <SendHorizonalIcon />}

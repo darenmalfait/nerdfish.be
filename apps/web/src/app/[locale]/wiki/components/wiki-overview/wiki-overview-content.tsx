@@ -79,7 +79,7 @@ function WikiOverviewArticleCard({ article }: { article: Article }) {
 		<div className="gap-sm mb-lg flex flex-col">
 			<ArticleCardTags tags={article.tags} />
 			<ArticleCard href={article.href} className="group/article-card">
-				<ArticleCardTitle className="group-hover/article-card:text-accent line-clamp-2 max-w-3xl transition-colors">
+				<ArticleCardTitle className="group-hover/article-card:text-brand line-clamp-2 max-w-3xl transition-colors">
 					{article.title}
 				</ArticleCardTitle>
 				<ArticleCardDescription className="line-clamp-3 max-w-3xl">

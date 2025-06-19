@@ -37,7 +37,7 @@ export function LocaleSwitcher() {
 					</span>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="rounded-base bg-muted !p-md">
+			<DropdownMenuContent className="rounded-base bg-background-muted !p-md">
 				<ul>
 					{i18n.locales.map((locale) => {
 						return (

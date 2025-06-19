@@ -263,7 +263,7 @@ export function ContactForm() {
 																	asChild
 																	aria-label={type}
 																	size="sm"
-																	variant={checked ? 'accent' : 'outline'}
+																	variant={checked ? 'brand' : 'outline'}
 																	className="inline cursor-pointer"
 																>
 																	<span>{type}</span>
@@ -325,7 +325,7 @@ export function ContactForm() {
 												</span>
 												<FormControl>
 													<Slider
-														variant="accent"
+														variant="brand"
 														min={500}
 														max={10000}
 														step={100}

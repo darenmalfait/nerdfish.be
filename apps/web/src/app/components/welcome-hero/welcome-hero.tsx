@@ -33,7 +33,7 @@ export function HeroCTA({
 			size="xl"
 			asChild
 			variant="default"
-			className="hover:!bg-inverted/80"
+			className="hover:!bg-background-inverted/80"
 		>
 			<Link {...props} className={cx('gap-sm flex items-center', className)}>
 				{children}
@@ -79,7 +79,7 @@ export function WelcomeHero() {
 			ref={containerRef}
 			style={{ scale, borderRadius }}
 			className={cx(
-				'bg-secondary shadow-soft-xl p-lg lg:p-xl rounded-container group/hero relative overflow-hidden',
+				'bg-background shadow-soft-xl p-lg lg:p-xl rounded-container group/hero relative overflow-hidden',
 			)}
 		>
 			<GridBackground />

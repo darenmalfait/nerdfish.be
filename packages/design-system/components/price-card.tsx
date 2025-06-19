@@ -162,7 +162,7 @@ export function PriceCardAction({
 			<Button
 				size="lg"
 				className="w-full"
-				variant={isPopular ? 'accent' : 'default'}
+				variant={isPopular ? 'brand' : 'default'}
 				asChild
 			>
 				<LinkElement href={href} {...props}>

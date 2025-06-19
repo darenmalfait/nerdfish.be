@@ -83,7 +83,7 @@ const MainNavigationItem = React.forwardRef<
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
 							}),
-							{ 'hover:bg-inverted/10': !isActive },
+							{ 'hover:bg-background-inverted/10': !isActive },
 						)}
 						asChild
 					>
@@ -247,7 +247,7 @@ export function MainNavigation() {
 		<div
 			className={cx(
 				'hidden lg:flex',
-				'rounded-container bg-muted p-xs inset-x-0 mx-auto w-fit max-w-full',
+				'rounded-container bg-background-muted p-xs inset-x-0 mx-auto w-fit max-w-full',
 			)}
 		>
 			<NavigationMenu

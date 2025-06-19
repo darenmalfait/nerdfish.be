@@ -34,11 +34,11 @@ function Disclaimer() {
 			{/* Mobile dividers */}
 			<span
 				aria-hidden="true"
-				className="bg-muted/30 block h-px w-4 sm:hidden"
+				className="bg-background-muted/30 block h-px w-4 sm:hidden"
 			/>
 			<span
 				aria-hidden="true"
-				className="bg-muted/30 block h-px w-4 sm:hidden"
+				className="bg-background-muted/30 block h-px w-4 sm:hidden"
 			/>
 		</div>
 	)
@@ -55,7 +55,7 @@ function SiteFooterHeading() {
 				<TextSlideUp>
 					<span className="!text-foreground">
 						Let&apos;s work
-						<ArrowRight className="ml-lg group-hover:translate-x-xs group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
+						<ArrowRight className="ml-lg group-hover:translate-x-xs group-hover:text-brand inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
 					<span className="!text-foreground">together</span>
 				</TextSlideUp>
@@ -92,7 +92,7 @@ function SiteFooterContent() {
 				<p className="max-w-xl" lang="en">
 					Development with user experience in mind. The code of this website is{' '}
 					<Link
-						className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
+						className="text-brand cursor-pointer font-medium transition duration-300 hover:opacity-70"
 						href="https://github.com/darenmalfait/nerdfish.be"
 						target="_blank"
 					>
@@ -175,7 +175,7 @@ function SiteFooterContent() {
 					<p className="flex justify-center gap-2 lg:justify-start">
 						Made by
 						<Link
-							className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
+							className="text-brand cursor-pointer font-medium transition duration-300 hover:opacity-70"
 							href="https://www.nerdfish.be"
 						>
 							nerdfish

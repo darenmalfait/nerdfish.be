@@ -208,7 +208,7 @@ export function TimesheetsContent() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'rounded-base bg-danger-background p-sm text-danger-foreground print:hidden':
+								'rounded-base bg-background-danger p-sm text-foreground-danger-contrast print:hidden':
 									!person,
 							})}
 						>
@@ -241,7 +241,7 @@ export function TimesheetsContent() {
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'rounded-base bg-danger-background p-sm text-danger-foreground print:hidden':
+								'rounded-base bg-background-danger p-sm text-foreground-danger-contrast print:hidden':
 									!invoiceReference,
 							})}
 						>

@@ -34,7 +34,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 		return (
 			<Link
 				onClick={onClick}
-				className={cx('text-[1.15rem]', isActive && 'border-accent border-b-2')}
+				className={cx('text-[1.15rem]', isActive && 'border-brand border-b-2')}
 				href={item.href}
 			>
 				{item.label}
@@ -57,7 +57,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 								onClick={onClick}
 								className={cx(
 									'text-foreground/80 text-[1.15rem]',
-									isActive && 'border-accent border-b-2',
+									isActive && 'border-brand border-b-2',
 								)}
 								href={subNavItem.href}
 							>

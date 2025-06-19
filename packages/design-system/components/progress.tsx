@@ -16,7 +16,7 @@ export function Progress({ className, value, ...props }: ProgressProps) {
 			{...props}
 		>
 			<ProgressPrimitive.Indicator
-				className="bg-accent h-full w-full flex-1 transition-all"
+				className="bg-brand h-full w-full flex-1 transition-all"
 				style={{ transform: `translateX(-${100 - (value ?? 0)}%)` }}
 			/>
 		</ProgressPrimitive.Root>

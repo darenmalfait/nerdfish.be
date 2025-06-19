@@ -129,10 +129,10 @@ importers:
         version: 4.10.2(playwright-core@1.53.0)
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.58.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.58.1(react@19.1.0))
       '@nerdfish/theme':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^3.0.0
+        version: 3.0.0
       '@next/env':
         specifier: 15.3.3
         version: 15.3.3
@@ -221,8 +221,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.58.0
-        version: 7.58.0(react@19.1.0)
+        specifier: ^7.58.1
+        version: 7.58.1(react@19.1.0)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -385,8 +385,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/ui':
-        specifier: ^7.15.0
-        version: 7.15.0(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)
+        specifier: ^8.0.0
+        version: 8.0.0(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)
       '@number-flow/react':
         specifier: ^0.5.10
         version: 0.5.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -672,8 +672,8 @@ importers:
   packages/tailwind-config:
     dependencies:
       '@nerdfish/tailwind-config':
-        specifier: ^3.10.0
-        version: 3.10.0(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3))
+        specifier: ^4.0.0
+        version: 4.0.0(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3))
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3)))
@@ -704,7 +704,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.58.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.58.1(react@19.1.0))
       '@repo/calendar':
         specifier: workspace:*
         version: link:../calendar
@@ -721,8 +721,8 @@ importers:
         specifier: ^2.4.3
         version: 2.4.3(next@15.3.3(@opentelemetry/api@1.9.0)(@playwright/test@1.53.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react-hook-form:
-        specifier: ^7.58.0
-        version: 7.58.0(react@19.1.0)
+        specifier: ^7.58.1
+        version: 7.58.1(react@19.1.0)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -2240,14 +2240,14 @@ packages:
   '@nerdfish/config@1.9.3':
     resolution: {integrity: sha512-f2bqXMjX4w7w3a1l8wHajM8H2fIMKnpTHFtqWeZ9lTgLIx8WmMoVIJumxGld63DBcj/0F/fjhUmhAxwMHComAw==}
 
-  '@nerdfish/tailwind-config@3.10.0':
-    resolution: {integrity: sha512-68Y+FykL/00EOzrFmH/k6+NYXPx3zfoFvd13cWoM1MMqITUHORWluKIKEGDbQZZWx0fcieSwv/ZFdES4qvGbIA==}
+  '@nerdfish/tailwind-config@4.0.0':
+    resolution: {integrity: sha512-579jVlEkJKisnybhX/suo+BWTumsoq7v7KibjGp/0dLPOXyqoHwuFSnKq4DSgfSjE+X5xRIsv+xRaYOHlaX1Vg==}
 
-  '@nerdfish/theme@2.8.0':
-    resolution: {integrity: sha512-MEdWivrbacLLoM2Mzq9YNWECSAro4habJhUfSgfF6SnlCi4s5/22H9L0zkUXeSZkeh2fHuFTVpXISF0JUkxuGg==}
+  '@nerdfish/theme@3.0.0':
+    resolution: {integrity: sha512-C13xRPrLktV26dRb/QIL02EF3S6qoDlntD1ixVNLZBLC9LzqgO7TABsK0N+9yfDtV12t9VNRBUTkneXfjSpb2A==}
 
-  '@nerdfish/ui@7.15.0':
-    resolution: {integrity: sha512-Tv7wcTl+eF/Y7Rd2fXKetdrKI6oL087joliNo8x2LWvZXFwSB0hdzWQEkRq1uELbYdt7XGppc9q2lYxoUTFUUA==}
+  '@nerdfish/ui@8.0.0':
+    resolution: {integrity: sha512-qW3CBTlz58ZfxbSTPFxUU06tFrYGO/ZGviF/HlH4zCxkfYw/55s0z4hq9ajgQ9NOBlkK81aFNq8j/JDF3IeCVA==}
 
   '@nerdfish/utils@2.0.1':
     resolution: {integrity: sha512-ibKCDPjpDVCh9s22cC4c/Y9ChixMHWeN2xbkVxdQfCdC8eNZ3lwColyIPa+ZajSw3cX8gT/2L/qYoKYH/xFGEQ==}
@@ -6311,8 +6311,8 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
 
-  lucide-react@0.514.0:
-    resolution: {integrity: sha512-HXD0OAMd+JM2xCjlwG1EGW9Nuab64dhjO3+MvdyD+pSUeOTBaVAPhQblKIYmmX4RyBYbdzW0VWnJpjJmxWGr6w==}
+  lucide-react@0.516.0:
+    resolution: {integrity: sha512-aybBJzLHcw1CIn3rUcRkztB37dsJATtpffLNX+0/w+ws2p21nYIlOwX/B5fqxq8F/BjqVemnJX8chKwRidvROg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -7217,8 +7217,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-hook-form@7.58.0:
-    resolution: {integrity: sha512-zGijmEed35oNfOfy7ub99jfjkiLhHwA3dl5AgyKdWC6QQzhnc7tkWewSa+T+A2EpLrc6wo5DUoZctS9kufWJjA==}
+  react-hook-form@7.58.1:
+    resolution: {integrity: sha512-Lml/KZYEEFfPhUVgE0RdCVpnC4yhW+PndRhbiTtdvSlQTL8IfVR+iQkBjLIvmmc6+GGoVeM11z37ktKFPAb0FA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -9898,10 +9898,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@hookform/resolvers@5.1.1(react-hook-form@7.58.0(react@19.1.0))':
+  '@hookform/resolvers@5.1.1(react-hook-form@7.58.1(react@19.1.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.58.0(react@19.1.0)
+      react-hook-form: 7.58.1(react@19.1.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -10209,18 +10209,18 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/tailwind-config@3.10.0(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3))':
+  '@nerdfish/tailwind-config@4.0.0(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3))':
     dependencies:
-      '@nerdfish/theme': 2.8.0
+      '@nerdfish/theme': 3.0.0
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.31)(typescript@5.8.3))
     transitivePeerDependencies:
       - ts-node
 
-  '@nerdfish/theme@2.8.0':
+  '@nerdfish/theme@3.0.0':
     dependencies:
       '@nerdfish/utils': 2.0.1
 
-  '@nerdfish/ui@7.15.0(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)':
+  '@nerdfish/ui@8.0.0(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)':
     dependencies:
       '@nerdfish/utils': 2.0.1
       '@radix-ui/react-accordion': 1.2.11(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -10249,12 +10249,12 @@ snapshots:
       cmdk: 1.1.1(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       date-fns: 4.1.0
       input-otp: 1.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      lucide-react: 0.514.0(react@19.1.0)
+      lucide-react: 0.516.0(react@19.1.0)
       react: 19.1.0
       react-aria: 3.41.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-day-picker: 9.7.0(react@19.1.0)
       react-dom: 19.1.0(react@19.1.0)
-      react-hook-form: 7.58.0(react@19.1.0)
+      react-hook-form: 7.58.1(react@19.1.0)
       react-phone-number-input: 3.4.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-resizable-panels: 2.1.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-stately: 3.39.0(react@19.1.0)
@@ -10549,7 +10549,7 @@ snapshots:
       aria-hidden: 1.2.4
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      react-remove-scroll: 2.6.3(@types/react@19.1.8)(react@19.1.0)
+      react-remove-scroll: 2.7.1(@types/react@19.1.8)(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.1.8
       '@types/react-dom': 19.1.6(@types/react@19.1.8)
@@ -10659,7 +10659,7 @@ snapshots:
       aria-hidden: 1.2.4
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      react-remove-scroll: 2.6.3(@types/react@19.1.8)(react@19.1.0)
+      react-remove-scroll: 2.7.1(@types/react@19.1.8)(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.1.8
       '@types/react-dom': 19.1.6(@types/react@19.1.8)
@@ -10704,7 +10704,7 @@ snapshots:
       aria-hidden: 1.2.4
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      react-remove-scroll: 2.6.3(@types/react@19.1.8)(react@19.1.0)
+      react-remove-scroll: 2.7.1(@types/react@19.1.8)(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.1.8
       '@types/react-dom': 19.1.6(@types/react@19.1.8)
@@ -10842,7 +10842,7 @@ snapshots:
       aria-hidden: 1.2.4
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      react-remove-scroll: 2.6.3(@types/react@19.1.8)(react@19.1.0)
+      react-remove-scroll: 2.7.1(@types/react@19.1.8)(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.1.8
       '@types/react-dom': 19.1.6(@types/react@19.1.8)
@@ -15003,7 +15003,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  lucide-react@0.514.0(react@19.1.0):
+  lucide-react@0.516.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 
@@ -16200,7 +16200,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.8
 
-  react-hook-form@7.58.0(react@19.1.0):
+  react-hook-form@7.58.1(react@19.1.0):
     dependencies:
       react: 19.1.0
 

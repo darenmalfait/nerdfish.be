@@ -205,7 +205,7 @@ function TimesheetsCalendarDay({
 			onMouseUp={handleMouseUp}
 			className={cx(
 				'relative flex aspect-square select-none space-x-2 px-3 pb-10 pt-2 text-left font-mono text-lg transition-all duration-100 md:aspect-[4/2]',
-				isCurrentMonth && isToday(date) ? 'bg-accent/10' : 'bg-background',
+				isCurrentMonth && isToday(date) ? 'bg-brand/10' : 'bg-background',
 				!isCurrentMonth &&
 					'bg-[repeating-linear-gradient(-60deg,#DBDBDB,#DBDBDB_1px,transparent_1px,transparent_5px)] dark:bg-[repeating-linear-gradient(-60deg,#2C2C2C,#2C2C2C_1px,transparent_1px,transparent_5px)]',
 				selectedDate === formattedDate && 'ring-primary ring-1',

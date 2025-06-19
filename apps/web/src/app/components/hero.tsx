@@ -48,7 +48,7 @@ export function HeroCTA({
 		<MagnetButton size="xl" className="mt-xl group" asChild>
 			<Link {...props} className={cx('flex items-center', className)}>
 				{children}
-				<ArrowRightIcon className="text-accent ml-sm group-hover:translate-x-sm size-6 transition-all" />
+				<ArrowRightIcon className="text-brand ml-sm group-hover:translate-x-sm size-6 transition-all" />
 			</Link>
 		</MagnetButton>
 	)

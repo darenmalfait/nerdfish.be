@@ -28,7 +28,7 @@ export function ContactFormViaButton() {
 				onClick={() => setContactFormOpen(true)}
 			>
 				{t('openFormLabel')}
-				<ArrowRightIcon className="text-accent ml-sm group-hover:translate-x-sm size-6 transition-all" />
+				<ArrowRightIcon className="text-brand ml-sm group-hover:translate-x-sm size-6 transition-all" />
 			</MagnetButton>
 
 			<Drawer

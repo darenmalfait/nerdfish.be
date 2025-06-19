@@ -41,9 +41,9 @@ export function FaqItem({
 			>
 				<div
 					className={cx(
-						'bg-muted rounded-base space-x-sm p-md relative flex items-center text-lg transition-colors',
-						'hover:bg-inverted/30',
-						'group-data-[state=open]:bg-accent group-data-[state=open]:text-white',
+						'bg-background-muted rounded-base space-x-sm p-md relative flex items-center text-lg transition-colors',
+						'hover:bg-background-inverted/30',
+						'group-data-[state=open]:bg-brand group-data-[state=open]:text-white',
 					)}
 				>
 					{icon ? (
@@ -67,7 +67,7 @@ export function FaqItem({
 				<div className="ml-7 md:ml-16">
 					<div
 						className={cx(
-							'bg-inverted text-inverted rounded-base p-md relative max-w-none',
+							'bg-background-inverted text-inverted rounded-base p-md relative max-w-none',
 						)}
 					>
 						{answer}

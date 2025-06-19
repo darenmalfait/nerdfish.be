@@ -15,7 +15,7 @@ const foregroundMap: Record<string, string> = {
 	print: 'text-work-print group-hover:ring-current',
 
 	// other
-	expertise: 'text-info-foreground',
+	expertise: 'text-foreground-info',
 }
 
 export function getCategoryColors(category = 'unkown'): string {
