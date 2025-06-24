@@ -6,7 +6,7 @@ export function getProductPath(post: PartialDeep<Product>) {
 	const locale = post.locale
 
 	const localePath = locale === i18n.defaultLocale ? '' : `/${locale}`
-	const blogPath = `/product/${post.slug}`
+	const productPath = `/product/${post.slug}`
 
-	return `${localePath}${blogPath}`
+	return `${localePath}${productPath}`
 }

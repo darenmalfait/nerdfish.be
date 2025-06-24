@@ -74,7 +74,7 @@ export async function generateMetadata(
 
 const prose = 'prose md:prose-lg lg:prose-xl max-w-4xl mx-auto'
 
-export default async function BlogDetailPage(props: PageProps) {
+export default async function ProductDetailPage(props: PageProps) {
 	const { slug, locale } = await props.params
 
 	const [{ product }, t] = await Promise.all([
