@@ -138,30 +138,32 @@ export default async function ProductDetailPage(props: PageProps) {
 					</div>
 				</div>
 			</Section>
-			<Section>
-				<Carousel>
-					<CarouselContent className="p-xs">
-						{product.images?.map((image) => (
-							<CarouselItem
-								key={image.src}
-								className="md:basis-1/2 lg:basis-1/3"
-							>
-								<div className="shadow-outline rounded-base aspect-w-4 aspect-h-3 overflow-hidden">
-									<Image
-										src={image.src}
-										alt={image.alt}
-										className="absolute inset-0 object-cover"
-										width={500}
-										height={500}
-									/>
-								</div>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-					<CarouselPrevious />
-					<CarouselNext />
-				</Carousel>
-			</Section>
+			{product.images?.length ? (
+				<Section>
+					<Carousel>
+						<CarouselContent className="p-xs">
+							{product.images.map((image) => (
+								<CarouselItem
+									key={image.src}
+									className="md:basis-1/2 lg:basis-1/3"
+								>
+									<div className="shadow-outline rounded-base aspect-w-4 aspect-h-3 overflow-hidden">
+										<Image
+											src={image.src}
+											alt={image.alt}
+											className="absolute inset-0 object-cover"
+											width={500}
+											height={500}
+										/>
+									</div>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<CarouselPrevious />
+						<CarouselNext />
+					</Carousel>
+				</Section>
+			) : null}
 		</>
 	)
 }
