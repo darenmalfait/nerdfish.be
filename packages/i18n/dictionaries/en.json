@@ -15,16 +15,6 @@
 				"subtitle": "Custom websites and applications tailored to help your business grow and       stand out.",
 				"title": "Let's Create Something Exceptional Together"
 			},
-			"hero": {
-				"cta": "Let's work together",
-				"subtitle": "Hi, I'm Daren. I'm a Full-Stack Developer and Web Design Expert. I'm passionate about crafting modern, responsive websites and applications while balancing work and life with a love for sports and staying active.",
-				"title": "About"
-			},
-			"my-toolbox": {
-				"subtitle": "HTML, CSS, JS, building small, medium, and big web applications with JavaScript libraries, frameworks, custom plugins, features, animations, and coding interactive layouts. I have also full-stack developer experience and most of all, I have a big interest in learning and I'm not scared of tackling new languages and challenges.",
-				"title": "My toolbox",
-				"clear-filter": "Clear filter"
-			},
 			"faq": {
 				"items": {
 					"0": {
@@ -80,6 +70,16 @@
 				},
 				"subtitle": "When you partner with me, you're not just hiring a developer—you're gaining a trusted collaborator focused on delivering impactful, results-driven web solutions. Here's how I help your business succeed.",
 				"title": "What sets me apart"
+			},
+			"hero": {
+				"cta": "Let's work together",
+				"subtitle": "Hi, I'm Daren. I'm a Full-Stack Developer and Web Design Expert. I'm passionate about crafting modern, responsive websites and applications while balancing work and life with a love for sports and staying active.",
+				"title": "About"
+			},
+			"my-toolbox": {
+				"clear-filter": "Clear filter",
+				"subtitle": "HTML, CSS, JS, building small, medium, and big web applications with JavaScript libraries, frameworks, custom plugins, features, animations, and coding interactive layouts. I have also full-stack developer experience and most of all, I have a big interest in learning and I'm not scared of tackling new languages and challenges.",
+				"title": "My toolbox"
 			},
 			"personal": {
 				"content": {
@@ -737,6 +737,13 @@
 				"subtitle": "Explore a range of services designed to bring your ideas to life with creativity, precision, and innovation.",
 				"title": "Crafting Excellence in Every Dimension"
 			}
+		}
+	},
+	"product": {
+		"content": {
+			"about": "About",
+			"open": "Open",
+			"source": "Source"
 		}
 	},
 	"theme": {
