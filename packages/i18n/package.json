@@ -9,15 +9,15 @@
   },
   "dependencies": {
     "@repo/design-system": "workspace:*",
-    "next": "15.3.4",
+    "next": "15.3.5",
     "next-intl": "^3.26.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "zod": "^3.25.67"
+    "zod": "^3.25.75"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "next": "15.3.4",
+    "next": "15.3.5",
     "typescript": "^5.8.3"
   }
 }
