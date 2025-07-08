@@ -6,7 +6,7 @@ import { Link } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from 'class-variance-authority'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { motion } from 'motion/react'
 import * as React from 'react'
 
 function GridBackground() {
@@ -46,40 +46,12 @@ export function HeroCTA({
 export function WelcomeHero() {
 	const containerRef = React.useRef<HTMLDivElement>(null)
 	const t = useTranslations('home.page')
-	const [scaleTo, setScaleTo] = React.useState(1)
-
-	const { scrollYProgress } = useScroll({
-		target: containerRef,
-		offset: ['start start', 'end start'],
-	})
-	const scale = useTransform(scrollYProgress, [0, 0.8], [1, scaleTo])
-	const borderRadius = useTransform(
-		scrollYProgress,
-		[0, 0.8],
-		['2.25rem', '0rem'],
-	)
-
-	React.useEffect(() => {
-		function setScale() {
-			if (containerRef.current) {
-				const containerWidth = containerRef.current.offsetWidth
-				const newScale = window.innerWidth / containerWidth
-				setScaleTo(newScale)
-			}
-		}
-
-		setScale()
-
-		window.addEventListener('resize', setScale)
-		return () => window.removeEventListener('resize', setScale)
-	}, [])
 
 	return (
 		<motion.header
 			ref={containerRef}
-			style={{ scale, borderRadius }}
 			className={cx(
-				'bg-background shadow-soft-xl p-lg lg:p-xl rounded-container group/hero relative overflow-hidden',
+				'bg-background-muted shadow-soft-xl p-lg lg:p-xl rounded-container group/hero relative overflow-hidden',
 			)}
 		>
 			<GridBackground />
