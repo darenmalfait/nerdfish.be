@@ -67,7 +67,7 @@ export function FaqItem({
 				<div className="ml-7 md:ml-16">
 					<div
 						className={cx(
-							'bg-background-inverted text-inverted rounded-base p-md relative max-w-none',
+							'bg-background-inverted text-foreground-inverted rounded-base p-md relative max-w-none',
 						)}
 					>
 						{answer}
