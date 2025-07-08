@@ -30,18 +30,18 @@ function TestimonialActions({
 	if (!onNext || !onPrevious) return null
 
 	return (
-		<div className="gap-md rounded-container p-md md:hover:bg-background group flex transition duration-300 hover:scale-110">
+		<div className="gap-md rounded-base p-md md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="active:-translate-x-xs rounded-container focus-visible:outline-active outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="active:-translate-x-xs rounded-base focus-visible:outline-active group-hover:text-foreground-inverted outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="rounded-container focus-visible:outline-active active:translate-x-xs outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="rounded-base focus-visible:outline-active active:translate-x-xs group-hover:text-foreground-inverted outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>
