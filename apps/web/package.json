@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@hookform/resolvers": "^5.1.1",
+    "@hookform/resolvers": "^5.2.0",
     "@nerdfish/theme": "^3.0.0",
     "@next/env": "15.4.1",
     "@playwright/test": "^1.54.1",
@@ -38,7 +38,7 @@
     "@repo/tailwind-config": "workspace:*",
     "@repo/timesheets": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
-    "@vercel/og": "^0.7.2",
+    "@vercel/og": "^0.8.5",
     "csv-import-react": "^1.0.14",
     "fuse.js": "^7.1.0",
     "motion": "^12.23.6",
@@ -48,7 +48,7 @@
     "nuqs": "^2.4.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-hook-form": "^7.60.0",
+    "react-hook-form": "^7.61.1",
     "typescript": "^5.8.3",
     "zod": "^3.25.76"
   },
