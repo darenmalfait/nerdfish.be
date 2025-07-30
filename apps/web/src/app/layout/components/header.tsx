@@ -11,8 +11,8 @@ export function Header() {
 		<div className="w-full bg-transparent print:hidden">
 			<header className="relative z-40 w-full flex-none">
 				<div className="container max-w-none">
-					<div className="py-mdx gap-sm relative flex w-full items-center">
-						<div className="flex-1">
+					<div className="py-mdx gap-sm relative flex w-full flex-row-reverse items-center justify-between lg:flex-row">
+						<div className="flex flex-1 items-center justify-end lg:justify-start">
 							<Button asChild variant="link" className="-mx-sm text-foreground">
 								<div>
 									<Link href="/" aria-label="Home">
@@ -23,7 +23,7 @@ export function Header() {
 						</div>
 						<MainNavigation />
 						<div className="mx-auto flex flex-1 items-center justify-end">
-							<div className="gap-md flex flex-1 flex-grow justify-end lg:flex-grow-0">
+							<div className="gap-md flex flex-1 flex-grow flex-row-reverse justify-end lg:flex-grow-0">
 								<ThemeToggle className="hidden sm:flex" />
 								<LocaleSwitcher />
 								<MobileNavigation />
