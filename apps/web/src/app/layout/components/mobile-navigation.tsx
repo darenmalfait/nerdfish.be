@@ -9,7 +9,7 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from '@repo/design-system/components/ui'
-import { MenuIcon } from '@repo/design-system/icons'
+import { Logo, MenuIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
 import { stripPreSlash } from '@repo/lib/utils/string'
@@ -77,18 +77,23 @@ export function MobileNavigation() {
 	const t = useTranslations('global')
 
 	return (
-		<Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+		<Drawer direction="left" open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
 			<DrawerTrigger asChild className="lg:hidden">
-				<Button variant="link" className="text-foreground m p-0">
+				<Button variant="link" className="text-foreground mr-md p-0">
 					<MenuIcon className="size-6" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent>
-				<DrawerHeader className="sr-only">
-					<DrawerTitle>Navigation</DrawerTitle>
-					<DrawerDescription>{t('navigation.pages')}</DrawerDescription>
+			<DrawerContent className="bg-popover">
+				<DrawerHeader>
+					<DrawerTitle className="p-md">
+						<Logo className="h-6 w-auto" />
+						<span className="sr-only">Navigation</span>
+					</DrawerTitle>
+					<DrawerDescription className="sr-only">
+						{t('navigation.pages')}
+					</DrawerDescription>
 				</DrawerHeader>
-				<div className="p-lg">
+				<div className="p-lg max-w-screen-xsm w-screen">
 					<ul className="space-y-md flex flex-col">
 						{navigation.map((mainNavItem) => {
 							return (
