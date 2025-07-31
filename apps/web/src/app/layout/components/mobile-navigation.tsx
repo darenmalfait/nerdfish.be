@@ -79,8 +79,8 @@ export function MobileNavigation() {
 	return (
 		<Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
 			<DrawerTrigger asChild className="lg:hidden">
-				<Button variant="link" className="text-foreground -mr-md">
-					<MenuIcon className="size-4" />
+				<Button variant="link" className="text-foreground m p-0">
+					<MenuIcon className="size-6" />
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent>

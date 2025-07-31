@@ -8,11 +8,12 @@ import {
 	DropdownMenuTrigger,
 } from '@repo/design-system/components/ui'
 import { GlobeIcon } from '@repo/design-system/icons'
+import { cx } from '@repo/lib/utils/base'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { i18n, supportedLanguages } from '../config'
 
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ className }: { className?: string }) {
 	const t = useTranslations('global')
 	const currentLocale = useLocale()
 
@@ -26,7 +27,7 @@ export function LocaleSwitcher() {
 				<Button
 					variant="outline"
 					aria-label={t('switchLanguage')}
-					className="gap-sm !rounded-base"
+					className={cx('gap-sm !rounded-base', className)}
 				>
 					<GlobeIcon className="size-4" />
 					<span aria-hidden className="hidden lg:flex">

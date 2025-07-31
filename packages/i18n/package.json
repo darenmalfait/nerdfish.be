@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@repo/design-system": "workspace:*",
+    "@repo/lib": "workspace:*",
     "next": "15.4.1",
     "next-intl": "^3.26.5",
     "react": "19.1.0",

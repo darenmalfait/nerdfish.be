@@ -25,7 +25,7 @@ export function Header() {
 						<div className="mx-auto flex flex-1 items-center justify-end">
 							<div className="gap-md flex flex-1 flex-grow flex-row-reverse justify-end lg:flex-grow-0">
 								<ThemeToggle className="hidden sm:flex" />
-								<LocaleSwitcher />
+								<LocaleSwitcher className="xsm:flex hidden" />
 								<MobileNavigation />
 							</div>
 						</div>
