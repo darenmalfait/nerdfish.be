@@ -10,7 +10,7 @@
   "dependencies": {
     "@repo/design-system": "workspace:*",
     "@repo/lib": "workspace:*",
-    "next": "15.4.1",
+    "next": "15.4.5",
     "next-intl": "^3.26.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "next": "15.4.1",
+    "next": "15.4.5",
     "typescript": "^5.8.3"
   }
 }

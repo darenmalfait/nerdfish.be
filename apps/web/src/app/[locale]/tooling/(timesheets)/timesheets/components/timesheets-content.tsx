@@ -91,9 +91,7 @@ function TimeEntries({
 			.sort((a, b) => a.day.getTime() - b.day.getTime())
 			.reduce<Record<string, TimeEntry[]>>((acc, entry) => {
 				const project = entry.project
-				if (!acc[project]) {
-					acc[project] = []
-				}
+				acc[project] ??= []
 				acc[project].push(entry)
 				return acc
 			}, {})

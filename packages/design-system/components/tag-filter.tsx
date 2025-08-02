@@ -1,3 +1,5 @@
+'use client'
+
 import { cx } from '@repo/lib/utils/base'
 import * as React from 'react'
 import { FilterIcon } from '../icons'
