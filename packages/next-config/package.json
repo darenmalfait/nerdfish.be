@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.4.5",
+    "@next/bundle-analyzer": "15.4.6",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@vercel/toolbar": "^0.1.38",
     "next-secure-headers": "^2.2.0",
@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "next": "15.4.5"
+    "next": "15.4.6"
   }
 }
