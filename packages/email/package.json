@@ -11,13 +11,13 @@
   "dependencies": {
     "@react-email/components": "^0.3.1",
     "@t3-oss/env-nextjs": "^0.13.8",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "resend": "^4.6.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
