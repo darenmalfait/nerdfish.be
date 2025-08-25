@@ -13,7 +13,7 @@
     "build:content-collections": "dotenv -- turbo build:content-collections",
     "checks": "npm-run-all2 format lint typecheck",
     "checks:fix": "npm-run-all2 format:fix lint:fix typecheck",
-    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
+    "clean": "turbo clean && rm -rf pnpm-lock.yaml && rm -rf node_modules && rm -rf .turbo",
     "create-package": "turbo gen",
     "dev": "dotenv -- turbo dev",
     "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
@@ -34,16 +34,16 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@nerdfish/config": "^1.9.3",
-    "@next/eslint-plugin-next": "^15.4.6",
+    "@next/eslint-plugin-next": "^15.5.0",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.5.6",
     "dotenv-cli": "^8.0.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "husky": "^9.1.7",
     "minimatch": "^10.0.3",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "turbo": "^2.5.6"
   },
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.15.0"
 }
