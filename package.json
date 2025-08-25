@@ -13,7 +13,7 @@
     "build:content-collections": "dotenv -- turbo build:content-collections",
     "checks": "npm-run-all2 format lint typecheck",
     "checks:fix": "npm-run-all2 format:fix lint:fix typecheck",
-    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
+    "clean": "turbo clean && rm -rf pnpm-lock.yaml && rm -rf node_modules && rm -rf .turbo",
     "create-package": "turbo gen",
     "dev": "dotenv -- turbo dev",
     "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
