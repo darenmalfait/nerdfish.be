@@ -15,7 +15,7 @@ test.beforeEach(async ({ contact }) => {
 test('shows validation errors for empty required fields', async ({
 	contact,
 }) => {
-	await contact.form.getByRole('button', { name: 'Submit' }).click()
+	await contact.submit()
 	await expect(
 		contact.form.getByText('Name must contain at least 2 character(s)'),
 	).toBeVisible()
