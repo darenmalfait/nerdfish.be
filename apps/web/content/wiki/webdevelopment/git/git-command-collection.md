@@ -99,3 +99,22 @@ git tag -d v[version]
 # Delete remote tag
 git push origin --delete v[version]
 ```
+
+## Origin
+
+### Change origin
+
+First, view the existing remotes to verify which URL is currently set:
+
+```bash
+git remote -v
+```
+
+Then, you can set it with:
+
+```bash
+git remote set-url origin <NEW_GIT_URL_HERE>
+```
+
+See [git help remote](https://git-scm.com/docs/git-remote). You also can edit
+.git/config and change the URLs there.
