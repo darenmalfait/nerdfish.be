@@ -1,5 +1,6 @@
 'use client'
 
+import { cx } from '@repo/lib/utils/base'
 import { CheckIcon, CopyIcon } from '../icons'
 import {
 	Button,
@@ -29,14 +30,14 @@ export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 					size="sm"
 					aria-label="copy"
 					{...props}
-					className={className}
+					className={cx(className, 'size-8')}
 					variant={copiedText ? 'success' : 'secondary'}
 					onClick={() => handleCopy(code, COPY_TIMOUT)}
 				>
 					{copiedText ? (
-						<CheckIcon className="size-4" />
+						<CheckIcon className="!size-3" />
 					) : (
-						<CopyIcon className="size-4" />
+						<CopyIcon className="!size-3" />
 					)}
 				</Button>
 			</TooltipTrigger>

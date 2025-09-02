@@ -25,7 +25,10 @@ function PortableCode({ children, ...rest }: PortableCodeProps) {
 					</div>
 				</div>
 				<div>
-					<CopyButton code={code} />
+					<CopyButton
+						code={code}
+						className="!rounded-[calc(theme(borderRadius.base)-theme(padding.sm))]"
+					/>
 				</div>
 			</CodeBlockGroup>
 			<CodeBlockCode code={code} />
