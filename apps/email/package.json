@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@react-email/components": "^0.5.1",
+    "@react-email/components": "^0.5.2",
     "@repo/email": "workspace:*",
     "@repo/next-config": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
