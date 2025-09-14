@@ -11,14 +11,14 @@
     "@repo/design-system": "workspace:*",
     "@repo/lib": "workspace:*",
     "@repo/next-config": "workspace:*",
-    "next": "15.5.2",
+    "next": "15.5.3",
     "react": "19.1.1",
     "schema-dts": "^1.1.5"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.17.2",
-    "@types/react": "19.1.12",
+    "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "eslint": "^9.34.0"
   }
