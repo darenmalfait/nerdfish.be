@@ -24,7 +24,7 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import * as React from 'react'
+import { cache } from 'react'
 import { product as productApi } from '../api'
 import { getProductPath } from '../utils'
 import { Body } from '~/app/components/body'
@@ -33,7 +33,7 @@ type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }
 
-const getPageData = React.cache(async function getPageData(
+const getPageData = cache(async function getPageData(
 	slug: string,
 	locale?: Locale,
 ) {

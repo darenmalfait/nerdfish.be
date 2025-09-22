@@ -4,11 +4,11 @@ import { Badge } from '@repo/design-system/components/ui'
 import { ClockIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { type Locale } from '@repo/i18n/types'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 
 export interface MeetingTypeListProps
-	extends Omit<React.ComponentProps<'ul'>, 'onSelect'> {
+	extends Omit<ComponentProps<'ul'>, 'onSelect'> {
 	onSelect: (slug: CalComMeetingTypes) => void
 	locale: Locale
 }

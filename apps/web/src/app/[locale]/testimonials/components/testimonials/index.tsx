@@ -1,7 +1,7 @@
 import { H1, Skeleton } from '@repo/design-system/components/ui'
 import { getLocale } from '@repo/i18n/server'
 import { type Testimonial } from 'content-collections'
-import * as React from 'react'
+import { Suspense } from 'react'
 import { testimonials as testimonialsApi } from '../../api'
 import {
 	TestimonialsContent,
@@ -42,7 +42,7 @@ async function TestimonialsData({
 
 export function Testimonials(props: TestimonialsProps) {
 	return (
-		<React.Suspense
+		<Suspense
 			fallback={
 				<TestimonialsContent {...props} testimonials={[]}>
 					<div className="relative flex w-full flex-col justify-center">
@@ -54,6 +54,6 @@ export function Testimonials(props: TestimonialsProps) {
 			}
 		>
 			<TestimonialsData {...props} />
-		</React.Suspense>
+		</Suspense>
 	)
 }

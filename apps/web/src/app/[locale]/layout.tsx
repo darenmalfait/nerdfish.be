@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
-import * as React from 'react'
+import { type ReactNode, Suspense } from 'react'
 import { AppProviders } from '../app-providers'
 import { Footer } from '../layout/components/footer'
 import { Header } from '../layout/components/header'
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export default async function RootLayout(props: {
-	children: React.ReactNode
+	children: ReactNode
 	params: Promise<WithLocale>
 }) {
 	const params = await props.params
@@ -42,7 +42,7 @@ export default async function RootLayout(props: {
 
 							<main className="rounded-b-container relative w-full max-w-full flex-1">
 								<div className="-z-1 rounded-container bg-background absolute inset-0" />
-								<React.Suspense
+								<Suspense
 									fallback={
 										<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
 											<LoadingAnimation className="size-8" variant="square" />
@@ -50,7 +50,7 @@ export default async function RootLayout(props: {
 									}
 								>
 									{children}
-								</React.Suspense>
+								</Suspense>
 							</main>
 
 							<Footer />

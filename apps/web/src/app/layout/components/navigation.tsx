@@ -14,7 +14,13 @@ import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cx } from '@repo/lib/utils/base'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import * as React from 'react'
+import {
+	type ComponentPropsWithoutRef,
+	type ComponentRef,
+	forwardRef,
+	useMemo,
+	useRef,
+} from 'react'
 import { usePathname } from 'routing'
 import {
 	useNavigation,
@@ -23,9 +29,9 @@ import {
 } from '../hooks/use-navigation'
 import { Link } from '~/app/components/link'
 
-const MainNavigationSubItem = React.forwardRef<
-	React.ComponentRef<typeof Link>,
-	React.ComponentPropsWithoutRef<typeof Link> & SubNavItem
+const MainNavigationSubItem = forwardRef<
+	ComponentRef<typeof Link>,
+	ComponentPropsWithoutRef<typeof Link> & SubNavItem
 >(({ href, label, description, className, ...props }, ref) => {
 	return (
 		<NavigationMenuItem className="w-full">
@@ -64,9 +70,9 @@ const getMainItemClassName = cva(
 	},
 )
 
-const MainNavigationItem = React.forwardRef<
-	React.ComponentRef<'a'>,
-	Omit<React.ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]
+const MainNavigationItem = forwardRef<
+	ComponentRef<'a'>,
+	Omit<ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]
 >(({ href, label, sub, ...props }, ref) => {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
@@ -225,9 +231,9 @@ export function MainNavigation() {
 	const { main: navigation } = useNavigation()
 	const pathname = usePathname()
 	const t = useTranslations('global')
-	const ref = React.useRef<HTMLUListElement>(null)
+	const ref = useRef<HTMLUListElement>(null)
 
-	const activeId = React.useMemo(() => {
+	const activeId = useMemo(() => {
 		const isActive = navigation.find((item) => {
 			return (
 				item.sub?.some(

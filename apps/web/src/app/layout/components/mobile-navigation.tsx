@@ -13,7 +13,7 @@ import { Logo, MenuIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import * as React from 'react'
+import { useState } from 'react'
 import { usePathname } from 'routing'
 import { type Navigation, useNavigation } from '../hooks/use-navigation'
 import { Link } from '~/app/components/link'
@@ -72,7 +72,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 }
 
 export function MobileNavigation() {
-	const [isDrawerOpen, setIsDrawerOpen] = React.useState(false)
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const { main: navigation } = useNavigation()
 	const t = useTranslations('global')
 

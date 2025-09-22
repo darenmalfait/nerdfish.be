@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import * as React from 'react'
 import { Images } from './images'
 
 import './app.css'

@@ -6,7 +6,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { type Product } from 'content-collections'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 import { Link } from '~/app/components/link'
 
 export function ProductCardImage({ icon }: Partial<Pick<Product, 'icon'>>) {
@@ -25,14 +25,11 @@ export function ProductCardImage({ icon }: Partial<Pick<Product, 'icon'>>) {
 export function ProductCardContent({
 	className,
 	...props
-}: React.ComponentProps<'div'>) {
+}: ComponentProps<'div'>) {
 	return <div className={cx('min-w-0', className)} {...props} />
 }
 
-export function ProductCardTitle({
-	className,
-	...props
-}: React.ComponentProps<'p'>) {
+export function ProductCardTitle({ className, ...props }: ComponentProps<'p'>) {
 	return (
 		<p
 			className={cx(
@@ -48,7 +45,7 @@ export function ProductCardTitle({
 export function ProductCardDescription({
 	className,
 	...props
-}: React.ComponentProps<'p'>) {
+}: ComponentProps<'p'>) {
 	return (
 		<p
 			className={cx(
@@ -63,7 +60,7 @@ export function ProductCardDescription({
 export function ProductCard({
 	className,
 	...props
-}: React.ComponentProps<typeof Link>) {
+}: ComponentProps<typeof Link>) {
 	return (
 		<li>
 			<Link

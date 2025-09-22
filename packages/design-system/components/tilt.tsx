@@ -8,13 +8,19 @@ import {
 	useSpring,
 	useTransform,
 } from 'motion/react'
-import * as React from 'react'
+import {
+	useImperativeHandle,
+	useRef,
+	type ComponentProps,
+	type ElementType,
+	type MouseEvent,
+} from 'react'
 
-export interface TiltProps extends React.ComponentProps<typeof motion.div> {
+export interface TiltProps extends ComponentProps<typeof motion.div> {
 	rotationFactor?: number
 	isReverse?: boolean
 	springOptions?: SpringOptions
-	as?: React.ElementType
+	as?: ElementType
 }
 
 export function Tilt({
@@ -28,8 +34,8 @@ export function Tilt({
 	as,
 	...props
 }: TiltProps) {
-	const itemRef = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
+	const itemRef = useRef<HTMLDivElement>(null)
+	useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
 
 	const x = useMotionValue(0)
 	const y = useMotionValue(0)
@@ -54,7 +60,7 @@ export function Tilt({
 
 	const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
 
-	function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+	function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
 		if (!itemRef.current) return
 
 		const rect = itemRef.current.getBoundingClientRect()

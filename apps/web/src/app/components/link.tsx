@@ -2,16 +2,16 @@
 
 import { stripPreSlash } from '@repo/lib/utils/string'
 import NextLink from 'next/link'
-import * as React from 'react'
+import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { routing, Link as RouteLink } from 'routing'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
 
-export type LinkProps = React.ComponentProps<'a'>
+export type LinkProps = ComponentProps<'a'>
 
 export function Link({ href, children, ref, ...props }: LinkProps) {
-	const itemRef = React.useRef<HTMLAnchorElement>(null)
-	React.useImperativeHandle(ref, () => itemRef.current as HTMLAnchorElement)
+	const itemRef = useRef<HTMLAnchorElement>(null)
+	useImperativeHandle(ref, () => itemRef.current as HTMLAnchorElement)
 
 	const isExternal = hrefParameters.some((hrefParameter) =>
 		href?.startsWith(hrefParameter),

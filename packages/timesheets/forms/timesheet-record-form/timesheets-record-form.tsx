@@ -15,7 +15,7 @@ import {
 	Textarea,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { TimesheetsSelectProject } from '../../components/timesheets-select-project'
 import { type TimesheetsProject } from '../../schemas'
@@ -48,7 +48,7 @@ export function TimesheetsRecordForm({
 		},
 	})
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (id && id !== NEW_EVENT_ID) {
 			form.setValue('id', id, { shouldValidate: true })
 		}

@@ -1,13 +1,13 @@
-import * as React from 'react'
+import { type RefObject, useEffect, useRef } from 'react'
 
 export function useScrollToBottom<T extends HTMLElement>(): [
-	React.RefObject<T | null>,
-	React.RefObject<T | null>,
+	RefObject<T | null>,
+	RefObject<T | null>,
 ] {
-	const containerRef = React.useRef<T | null>(null)
-	const endRef = React.useRef<T | null>(null)
+	const containerRef = useRef<T | null>(null)
+	const endRef = useRef<T | null>(null)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const container = containerRef.current
 		const end = endRef.current
 

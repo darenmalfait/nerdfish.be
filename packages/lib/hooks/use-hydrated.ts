@@ -1,11 +1,13 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 let hydrating = true
 export function useHydrated() {
-	const [hydrated, setHydrated] = React.useState(() => !hydrating)
-	React.useEffect(() => {
+	const [hydrated, setHydrated] = useState(() => !hydrating)
+
+	useEffect(() => {
 		hydrating = false
 		setHydrated(true)
 	}, [])
+
 	return hydrated
 }

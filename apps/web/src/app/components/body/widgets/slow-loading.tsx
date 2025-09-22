@@ -8,7 +8,6 @@ import {
 	Skeleton,
 } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
-import React from 'react'
 
 export function SlowLoading() {
 	const t = useTranslations('widgets.slowLoading')

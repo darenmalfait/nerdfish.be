@@ -5,7 +5,7 @@ import {
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
 import { ScrollArea, toast } from '@repo/design-system/components/ui'
 import { type ActionResponse } from '@repo/lib/types'
-import * as React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
 import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
@@ -49,14 +49,14 @@ export function TimesheetsSchedule({
 	const { onCreateEvent, onDeleteEvent, onUpdateEvent, projects } =
 		useTimesheets()
 
-	const scrollRef = React.useRef<HTMLDivElement>(null)
+	const scrollRef = useRef<HTMLDivElement>(null)
 	const { selectedDate, range, setParams } = useTimesheetsParams()
-	const [selectedEvent, setSelectedEvent] = React.useState<
+	const [selectedEvent, setSelectedEvent] = useState<
 		TimesheetsRecord | undefined
 	>(dataProp.length > 0 ? dataProp[dataProp.length - 1] : undefined)
-	const [data, setData] = React.useState<TimesheetsRecord[]>(dataProp)
+	const [data, setData] = useState<TimesheetsRecord[]>(dataProp)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (scrollRef.current) {
 			const currentHour = new Date().getHours()
 
@@ -72,7 +72,7 @@ export function TimesheetsSchedule({
 		}
 	}, [])
 
-	React.useEffect(() => {
+	useEffect(() => {
 		// in case the url changes
 		setData(dataProp)
 	}, [dataProp])

@@ -3,9 +3,14 @@
 import { Slot } from '@radix-ui/react-slot'
 import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
-import * as React from 'react'
+import {
+	Children,
+	useImperativeHandle,
+	useRef,
+	type ComponentProps,
+} from 'react'
 
-interface TextSlideUpItemProps extends React.ComponentProps<'div'> {
+interface TextSlideUpItemProps extends ComponentProps<'div'> {
 	delay?: number
 	animate?: boolean
 }
@@ -33,7 +38,7 @@ function TextSlideUpItem({
 	)
 }
 
-export interface TextSlideUpProps extends React.ComponentProps<'div'> {
+export interface TextSlideUpProps extends ComponentProps<'div'> {
 	staggerDelay?: number
 	delay?: number
 	asChild?: boolean
@@ -50,8 +55,8 @@ export function TextSlideUp({
 	ref,
 	...props
 }: TextSlideUpProps) {
-	const componentRef = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
+	const componentRef = useRef<HTMLDivElement>(null)
+	useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
 	const Component = asChild ? Slot : 'div'
 	const inView = useInView(componentRef, { once: true })
@@ -59,7 +64,7 @@ export function TextSlideUp({
 
 	return (
 		<Component ref={componentRef} className={className} {...props}>
-			{React.Children.map(children, (child, index) => {
+			{Children.map(children, (child, index) => {
 				const stagger = staggerDelay ? index * staggerDelay : 0
 				const itemDelay = delay + stagger
 

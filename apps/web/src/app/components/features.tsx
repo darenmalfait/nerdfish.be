@@ -8,11 +8,10 @@ import { type VariantProps, cva, cx } from '@repo/lib/utils/base'
 import { merge } from '@repo/lib/utils/object'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'
-import * as React from 'react'
+import { type ComponentProps, type ElementType, useRef } from 'react'
 import { Link } from './link'
 
-const dynamicHeroIcon = (name: keyof typeof Icons) =>
-	Icons[name] as React.ElementType
+const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name] as ElementType
 
 function DetailLink({ href, title }: { href?: string; title?: string }) {
 	const t = useTranslations('features')
@@ -51,7 +50,7 @@ const featureCardVariants = cva(
 	},
 )
 
-export interface FeatureProps extends React.ComponentProps<'div'> {
+export interface FeatureProps extends ComponentProps<'div'> {
 	variant?: VariantProps<typeof featureCardVariants>['variant']
 	title?: string
 	description?: string
@@ -92,7 +91,7 @@ function Feature({
 	)
 }
 
-export interface FeaturesProps extends React.ComponentProps<typeof Grid> {
+export interface FeaturesProps extends ComponentProps<typeof Grid> {
 	items: FeatureProps[]
 	layout?: {
 		maxCols?: '2' | '3' | '4'
@@ -101,7 +100,7 @@ export interface FeaturesProps extends React.ComponentProps<typeof Grid> {
 }
 
 export function Features({ items, layout: layoutProp }: FeaturesProps) {
-	const ref = React.useRef<HTMLDivElement>(null)
+	const ref = useRef<HTMLDivElement>(null)
 	const inView = useInView(ref, {
 		once: true,
 	})

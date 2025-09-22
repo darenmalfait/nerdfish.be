@@ -13,7 +13,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { Logo, PencilIcon, XIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { type TimeEntry } from '../utils'
 import { TimeEntryForm } from './time-entry-form'
@@ -85,7 +85,7 @@ function TimeEntries({
 	timeEntries?: TimeEntry[]
 	setTimeEntries: (timeEntries?: TimeEntry[]) => void
 }) {
-	const groupedEntries = React.useMemo(() => {
+	const groupedEntries = useMemo(() => {
 		if (!timeEntries) return {}
 		return timeEntries
 			.sort((a, b) => a.day.getTime() - b.day.getTime())
@@ -146,9 +146,9 @@ function EditTimeEntryButton({
 	entry: TimeEntry
 	onEdit: (entry: TimeEntry) => void
 }) {
-	const [editing, setEditing] = React.useState<boolean>(false)
+	const [editing, setEditing] = useState<boolean>(false)
 
-	const onSubmit = React.useCallback(
+	const onSubmit = useCallback(
 		(data: TimeEntry) => {
 			setEditing(false)
 			onEdit(data)

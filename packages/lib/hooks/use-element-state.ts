@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import { type Ref, useCallback, useEffect, useRef, useState } from 'react'
 
 export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 
@@ -8,25 +8,19 @@ export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 // but it's so much more now. The variants in framer motion support hover, focus
 // and tap, while this effect also listens to the keypress, so that `Enter`
 // results in an active state as well.
-function useElementState(): [
-	React.Ref<HTMLElement | SVGElement>,
-	ElementState,
-] {
-	const ref = React.useRef<HTMLElement | null>(null)
-	const [state, setState] = React.useState({
+function useElementState(): [Ref<HTMLElement | SVGElement>, ElementState] {
+	const ref = useRef<HTMLElement | null>(null)
+	const [state, setState] = useState({
 		focus: false,
 		hover: false,
 		active: false,
 	})
 
-	const setRef: React.Ref<HTMLElement | SVGElement> = React.useCallback(
-		(element: any) => {
-			ref.current = element
-		},
-		[],
-	)
+	const setRef: Ref<HTMLElement | SVGElement> = useCallback((element: any) => {
+		ref.current = element
+	}, [])
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const el = ref.current
 		if (!el) return
 

@@ -21,7 +21,7 @@ import { H1 } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Post } from 'content-collections'
-import * as React from 'react'
+import { type ReactNode, useCallback, useMemo } from 'react'
 import { filterBlog, mapBlogToArticle } from '../../utils'
 import { type ImageType } from '~/app/types'
 
@@ -35,7 +35,7 @@ export interface BlogOverviewContentProps {
 		image?: ImageType
 		link?: string
 	} | null
-	children?: React.ReactNode
+	children?: ReactNode
 }
 
 export function BlogOverviewContent({
@@ -46,9 +46,9 @@ export function BlogOverviewContent({
 	children,
 }: BlogOverviewContentProps) {
 	const t = useTranslations('blog.overview')
-	const articles = React.useMemo(() => mapBlogToArticle(items), [items])
+	const articles = useMemo(() => mapBlogToArticle(items), [items])
 
-	const filterArticles = React.useCallback(
+	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))

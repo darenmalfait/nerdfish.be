@@ -7,13 +7,13 @@ import {
 	AccordionTrigger,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useId, type ComponentProps, type ReactNode } from 'react'
 
 export interface FaqItemProps
-	extends Omit<React.ComponentProps<typeof AccordionItem>, 'value'> {
+	extends Omit<ComponentProps<typeof AccordionItem>, 'value'> {
 	question: string
 	answer: string
-	icon?: React.ReactNode
+	icon?: ReactNode
 	iconPosition?: 'left' | 'right'
 }
 
@@ -25,7 +25,7 @@ export function FaqItem({
 	iconPosition,
 	...props
 }: FaqItemProps) {
-	const id = React.useId()
+	const id = useId()
 
 	return (
 		<AccordionItem
@@ -78,7 +78,7 @@ export function FaqItem({
 	)
 }
 
-export type FaqProps = React.ComponentProps<typeof Accordion>
+export type FaqProps = ComponentProps<typeof Accordion>
 
 export function Faq({ className, children, ...props }: FaqProps) {
 	return (

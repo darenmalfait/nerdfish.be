@@ -13,10 +13,10 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
-import * as React from 'react'
+import { useRef, type ComponentProps } from 'react'
 import { Link } from './link'
 
-interface CardWrapperProps extends React.ComponentProps<typeof motion.div> {
+interface CardWrapperProps extends ComponentProps<typeof motion.div> {
 	progress: MotionValue<number>
 	range: [number, number]
 	targetScale: number
@@ -47,14 +47,14 @@ function CardWrapper({
 	)
 }
 
-export interface HighlightsProps extends React.ComponentProps<'div'> {
+export interface HighlightsProps extends ComponentProps<'div'> {
 	items: Article[]
 }
 
 export function Highlights(props: HighlightsProps) {
 	const { items } = props
 	const t = useTranslations('global')
-	const containerRef = React.useRef<HTMLDivElement>(null)
+	const containerRef = useRef<HTMLDivElement>(null)
 
 	const { scrollYProgress } = useScroll({
 		target: containerRef,

@@ -2,7 +2,7 @@
 
 import { nonNullable } from '@repo/lib/utils/array'
 import { parseAsString, useQueryStates } from 'nuqs'
-import * as React from 'react'
+import { createContext, type ReactNode, useContext, useState } from 'react'
 import { type Article } from './types'
 import { filterArticles } from './utils'
 
@@ -20,14 +20,14 @@ interface ArticleOverviewContextProps {
 }
 
 const ArticleOverviewContext =
-	React.createContext<ArticleOverviewContextProps | null>(null)
+	createContext<ArticleOverviewContextProps | null>(null)
 ArticleOverviewContext.displayName = 'ArticleOverviewContext'
 
 // import { useArticleOverview } fron "path-to-context/ArticleOverviewContext"
 // within functional component
 // const { sessionToken, ...ArticleOverviewContext } = useArticleOverview()
 export function useArticleOverview(): ArticleOverviewContextProps {
-	const context = React.useContext(ArticleOverviewContext)
+	const context = useContext(ArticleOverviewContext)
 
 	if (!context) {
 		throw new Error(
@@ -41,7 +41,7 @@ export function useArticleOverview(): ArticleOverviewContextProps {
 const PAGE_SIZE = 6
 
 export interface ArticleOverviewProviderProps {
-	children: React.ReactNode
+	children: ReactNode
 	allArticles: Article[]
 	searchEnabled?: boolean
 	featuredArticleEnabled?: boolean
@@ -59,7 +59,7 @@ export function ArticleOverviewProvider({
 		search: parseAsString,
 	})
 
-	const [itemsToShow, setItemsToShow] = React.useState(PAGE_SIZE)
+	const [itemsToShow, setItemsToShow] = useState(PAGE_SIZE)
 
 	const filteredArticles = customFilterFunction
 		? customFilterFunction(allArticles, params.search ?? '')

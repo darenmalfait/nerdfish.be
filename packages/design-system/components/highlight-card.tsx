@@ -3,11 +3,11 @@
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
 import Link from 'next/link'
-import * as React from 'react'
+import { type ElementType, type ReactNode, type ComponentProps } from 'react'
 import { ArrowRightIcon } from '../icons'
 import { Badge, Button, H1, type H2 } from './ui'
 
-export interface HighlightCardImageProps extends React.ComponentProps<'div'> {
+export interface HighlightCardImageProps extends ComponentProps<'div'> {
 	src?: string | null
 	alt?: string
 	base64Placeholder?: string
@@ -45,7 +45,7 @@ export function HighlightCardImage({
 	)
 }
 
-export type HighlightCardContentProps = React.ComponentProps<'div'>
+export type HighlightCardContentProps = ComponentProps<'div'>
 
 export function HighlightCardContent({
 	children,
@@ -67,7 +67,7 @@ export function HighlightCardContent({
 	)
 }
 
-export type HighlightCardTitleProps = React.ComponentProps<typeof H2>
+export type HighlightCardTitleProps = ComponentProps<typeof H2>
 
 export function HighlightCardTitle({
 	className,
@@ -88,7 +88,7 @@ export function HighlightCardTitle({
 	)
 }
 
-export type HighlightCardSubtitleProps = React.ComponentProps<'div'>
+export type HighlightCardSubtitleProps = ComponentProps<'div'>
 
 export function HighlightCardSubtitle({
 	children,
@@ -108,7 +108,7 @@ export function HighlightCardSubtitle({
 	)
 }
 
-export type HighlightCardCategoryProps = React.ComponentProps<'div'> & {
+export type HighlightCardCategoryProps = ComponentProps<'div'> & {
 	value?: string | null
 }
 
@@ -136,7 +136,7 @@ export function HighlightCardCategory({
 	)
 }
 
-export type HighlightCardDescriptionProps = React.ComponentProps<'p'>
+export type HighlightCardDescriptionProps = ComponentProps<'p'>
 
 export function HighlightCardDescription({
 	children,
@@ -159,11 +159,11 @@ export function HighlightCardDescription({
 }
 
 export interface HighlightCardCTAProps
-	extends Omit<React.ComponentProps<typeof Link>, 'as'> {
+	extends Omit<ComponentProps<typeof Link>, 'as'> {
 	href: string
-	children: React.ReactNode
+	children: ReactNode
 	category?: string | null
-	as?: React.ElementType
+	as?: ElementType
 }
 
 export function HighlightCardCTA({
@@ -196,7 +196,7 @@ export function HighlightCardCTA({
 	)
 }
 
-export interface HighlightCardProps extends React.ComponentProps<'div'> {
+export interface HighlightCardProps extends ComponentProps<'div'> {
 	title: string
 }
 

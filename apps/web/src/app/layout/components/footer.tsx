@@ -8,7 +8,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { cx } from '@repo/lib/utils/base'
 import { kebabCase } from '@repo/lib/utils/string'
-import * as React from 'react'
+import { type ComponentProps, useCallback } from 'react'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
 import { SocialLinks } from './navigation'
 import { Link } from '~/app/components/link'
@@ -68,14 +68,11 @@ function SiteFooterContent() {
 	const t = useTranslations('footer')
 	const { main: navigation } = useNavigation()
 
-	const navItemsWithoutSubItems = React.useCallback(
-		(items: NavigationItem[]) => {
-			return items.filter((item) => !item.sub)
-		},
-		[],
-	)
+	const navItemsWithoutSubItems = useCallback((items: NavigationItem[]) => {
+		return items.filter((item) => !item.sub)
+	}, [])
 
-	const navItemsWithSubItems = React.useCallback((items: NavigationItem[]) => {
+	const navItemsWithSubItems = useCallback((items: NavigationItem[]) => {
 		return items.filter((item) => item.sub)
 	}, [])
 
@@ -191,7 +188,7 @@ function SiteFooterContent() {
 	)
 }
 
-export type FooterProps = React.ComponentProps<'footer'>
+export type FooterProps = ComponentProps<'footer'>
 
 export function Footer({ className, ...props }: FooterProps) {
 	return (

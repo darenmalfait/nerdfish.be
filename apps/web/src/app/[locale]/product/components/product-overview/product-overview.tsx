@@ -1,6 +1,6 @@
 import { Skeleton } from '@repo/design-system/components/ui'
 import { getLocale } from '@repo/i18n/server'
-import * as React from 'react'
+import { Suspense } from 'react'
 import { product } from '../../api'
 import { getProductPath } from '../../utils'
 import {
@@ -58,8 +58,8 @@ function LoadingSkeleton() {
 
 export async function ProductOverview() {
 	return (
-		<React.Suspense fallback={<LoadingSkeleton />}>
+		<Suspense fallback={<LoadingSkeleton />}>
 			<ProductOverviewData />
-		</React.Suspense>
+		</Suspense>
 	)
 }

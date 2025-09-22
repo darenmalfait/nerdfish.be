@@ -15,7 +15,7 @@ import {
 	type WithContext,
 } from '@repo/seo/json-ld'
 import { type Post } from 'content-collections'
-import * as React from 'react'
+import { Suspense } from 'react'
 import { blog } from '../../api'
 import { filterBlog } from '../../utils'
 import {
@@ -99,7 +99,7 @@ export async function BlogOverviewData({
 
 export async function BlogOverview(props: BlogOverviewProps) {
 	return (
-		<React.Suspense
+		<Suspense
 			fallback={
 				<BlogOverviewContent {...props} items={[]}>
 					{props.featuredEnabled ? (
@@ -126,6 +126,6 @@ export async function BlogOverview(props: BlogOverviewProps) {
 			}
 		>
 			<BlogOverviewData {...props} />
-		</React.Suspense>
+		</Suspense>
 	)
 }

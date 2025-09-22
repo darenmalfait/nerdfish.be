@@ -1,7 +1,14 @@
 'use client'
 
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import {
+	type ComponentProps,
+	createContext,
+	type ElementType,
+	type ReactNode,
+	useContext,
+	useMemo,
+} from 'react'
 import { FilterIcon } from '../icons'
 import {
 	Button,
@@ -20,14 +27,14 @@ type TagFilterContextProps = {
 	enabledTags?: string[]
 	selectedTags?: string[]
 	onToggleTag: (tag: string) => void
-	renderAdditionalItems?: () => React.ReactNode
+	renderAdditionalItems?: () => ReactNode
 }
 
-const TagFilterContext = React.createContext<TagFilterContextProps | null>(null)
+const TagFilterContext = createContext<TagFilterContextProps | null>(null)
 TagFilterContext.displayName = 'TagFilterContext'
 
 function useTagFilter(): TagFilterContextProps {
-	const context = React.useContext(TagFilterContext)
+	const context = useContext(TagFilterContext)
 
 	if (!context) {
 		throw new Error('You should use useTagFilter within an TagFilterContext')
@@ -78,9 +85,9 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 	)
 }
 
-export interface TagFilterTitleProps extends React.ComponentProps<typeof H5> {
-	as?: React.ElementType
-	renderAdditionalItems?: () => React.ReactNode
+export interface TagFilterTitleProps extends ComponentProps<typeof H5> {
+	as?: ElementType
+	renderAdditionalItems?: () => ReactNode
 }
 
 export function TagFilterTitle({
@@ -116,8 +123,8 @@ export function TagFilterTitle({
 }
 
 export interface TagFilterProps extends TagFilterContextProps {
-	children: React.ReactNode
-	renderAdditionalItems?: () => React.ReactNode
+	children: ReactNode
+	renderAdditionalItems?: () => ReactNode
 }
 
 export function TagFilter({
@@ -128,7 +135,7 @@ export function TagFilter({
 }: TagFilterProps) {
 	return (
 		<TagFilterContext
-			value={React.useMemo(() => {
+			value={useMemo(() => {
 				return {
 					selectedTags,
 					renderAdditionalItems,

@@ -10,7 +10,7 @@ import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import * as React from 'react'
+import { cache } from 'react'
 import { blog } from '../api'
 import { BlogContent } from '../components/blog-content'
 import { BlogOverview } from '../components/blog-overview'
@@ -20,7 +20,7 @@ type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }
 
-const getPageData = React.cache(async function getPageData(
+const getPageData = cache(async function getPageData(
 	slug: string,
 	locale?: Locale,
 ) {

@@ -2,10 +2,15 @@
 
 import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
-import * as React from 'react'
+import {
+	useImperativeHandle,
+	useRef,
+	type ComponentProps,
+	type ReactNode,
+} from 'react'
 
-export interface InViewBackgroundProps extends React.ComponentProps<'div'> {
-	children: React.ReactNode
+export interface InViewBackgroundProps extends ComponentProps<'div'> {
+	children: ReactNode
 	className?: string
 }
 
@@ -15,8 +20,8 @@ export function InViewBackground({
 	ref,
 	...rest
 }: InViewBackgroundProps) {
-	const refObject = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => refObject.current as HTMLInputElement)
+	const refObject = useRef<HTMLDivElement>(null)
+	useImperativeHandle(ref, () => refObject.current as HTMLInputElement)
 
 	const isInView = useInView(refObject, { amount: 0.6 })
 

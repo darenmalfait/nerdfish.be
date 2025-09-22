@@ -17,12 +17,19 @@ import {
 } from '@repo/design-system/components/ui'
 import { CheckIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import {
+	type ComponentProps,
+	type KeyboardEvent,
+	useCallback,
+	useImperativeHandle,
+	useRef,
+	useState,
+} from 'react'
 import { useTimesheets } from '../providers/timesheets-provider'
 
 interface TimesheetsSelectProjectProps
 	extends Omit<
-		React.ComponentProps<typeof Input>,
+		ComponentProps<typeof Input>,
 		'onSelect' | 'value' | 'defaultValue' | 'onChange'
 	> {
 	value?: string
@@ -46,8 +53,8 @@ export function TimesheetsSelectProject({
 		value: project.id,
 	}))
 
-	const inputRef = React.useRef<HTMLInputElement>(null)
-	React.useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
+	const inputRef = useRef<HTMLInputElement>(null)
+	useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
 	const [value, setValue] = useControllableState(
 		valueProp,
@@ -55,14 +62,14 @@ export function TimesheetsSelectProject({
 		onChangeProp,
 	)
 
-	const [inputValue, setInputValue] = React.useState<string>(
+	const [inputValue, setInputValue] = useState<string>(
 		options.find((option) => option.value === value)?.label ?? '',
 	)
 
-	const [isOpen, setOpen] = React.useState(false)
+	const [isOpen, setOpen] = useState(false)
 
-	const handleKeyDown = React.useCallback(
-		(event: React.KeyboardEvent<HTMLDivElement>) => {
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLDivElement>) => {
 			const input = inputRef.current
 			if (!input) return
 
@@ -85,7 +92,7 @@ export function TimesheetsSelectProject({
 		[isOpen, options, setValue],
 	)
 
-	const handleSelectOption = React.useCallback(
+	const handleSelectOption = useCallback(
 		(selectedOption: AutocompleteOption) => {
 			setInputValue(selectedOption.label)
 			setValue(selectedOption.value)

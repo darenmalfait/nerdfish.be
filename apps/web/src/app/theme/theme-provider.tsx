@@ -1,6 +1,15 @@
 'use client'
 
-import * as React from 'react'
+import {
+	createContext,
+	memo,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useState,
+} from 'react'
 
 const colorSchemes = ['light', 'dark']
 const defaultThemes = ['light', 'dark']
@@ -37,17 +46,17 @@ interface ThemeContextProps {
 	systemTheme?: 'dark' | 'light' // If enableSystem is true, returns the System theme preference ("dark" or "light"), regardless what the active theme is
 }
 
-const ThemeContext = React.createContext<ThemeContextProps | null>(null)
+const ThemeContext = createContext<ThemeContextProps | null>(null)
 ThemeContext.displayName = 'ThemeContext'
 
 interface ThemeProviderProps {
 	forcedTheme?: string //  Forced theme name for the current page
 	defaultTheme?: string
 	themes?: string[]
-	children?: React.ReactNode
+	children?: ReactNode
 }
 
-const ThemeScript = React.memo(
+const ThemeScript = memo(
 	function ThemeScript({
 		forcedTheme,
 		defaultTheme,
@@ -128,13 +137,11 @@ function ThemeProvider({
 	defaultTheme = 'system',
 	children,
 }: ThemeProviderProps) {
-	const [theme, setThemeState] = React.useState(() =>
+	const [theme, setThemeState] = useState(() =>
 		getTheme(storageKey, defaultTheme),
 	)
-	const [resolvedTheme, setResolvedTheme] = React.useState(() =>
-		getTheme(storageKey),
-	)
-	const applyTheme = React.useCallback(
+	const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey))
+	const applyTheme = useCallback(
 		(themeToApply?: string) => {
 			if (!themeToApply) return
 			const name = themeToApply === 'system' ? getSystemTheme() : themeToApply
@@ -147,7 +154,7 @@ function ThemeProvider({
 		[themes],
 	)
 
-	const setTheme = React.useCallback((newTheme: string) => {
+	const setTheme = useCallback((newTheme: string) => {
 		setThemeState(newTheme)
 
 		// Save to storage
@@ -158,7 +165,7 @@ function ThemeProvider({
 		}
 	}, [])
 
-	const handleMediaQuery = React.useCallback(
+	const handleMediaQuery = useCallback(
 		(e: MediaQueryListEvent | MediaQueryList) => {
 			const resolved = getSystemTheme(e)
 			setResolvedTheme(resolved)
@@ -171,7 +178,7 @@ function ThemeProvider({
 	)
 
 	// Always listen to System preference
-	React.useEffect(() => {
+	useEffect(() => {
 		const media = window.matchMedia(MEDIA)
 
 		// Intentionally use deprecated listener methods to support iOS & old browsers
@@ -182,7 +189,7 @@ function ThemeProvider({
 	}, [handleMediaQuery])
 
 	// localStorage event handling
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleStorage = (e: StorageEvent) => {
 			if (e.key !== storageKey) {
 				return
@@ -198,11 +205,11 @@ function ThemeProvider({
 	}, [defaultTheme, setTheme])
 
 	// Whenever theme or forcedTheme changes, apply it
-	React.useEffect(() => {
+	useEffect(() => {
 		applyTheme(forcedTheme ?? theme)
 	}, [applyTheme, forcedTheme, theme])
 
-	const providerValue = React.useMemo<ThemeContextProps>(
+	const providerValue = useMemo<ThemeContextProps>(
 		() => ({
 			theme,
 			setTheme,
@@ -232,7 +239,7 @@ function ThemeProvider({
 // within functional component
 // const { sessionToken, ...ThemeContext } = useTheme()
 function useTheme(): ThemeContextProps {
-	const context = React.useContext(ThemeContext)
+	const context = useContext(ThemeContext)
 
 	if (!context) {
 		throw new Error('You should use useTheme within an ThemeContext')

@@ -13,7 +13,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { PlusIcon, PrinterIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useCallback, useState } from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { type TimeEntry } from '../utils'
 import { ImportTimeEntriesButton } from './import-timesheets'
@@ -21,9 +21,9 @@ import { TimeEntryForm } from './time-entry-form'
 
 function AddTimeEntryButton() {
 	const { timesheet, setTimesheet } = useTimesheet()
-	const [adding, setAdding] = React.useState<boolean>(false)
+	const [adding, setAdding] = useState<boolean>(false)
 
-	const onAdd = React.useCallback(
+	const onAdd = useCallback(
 		(data: TimeEntry) => {
 			setTimesheet({ timeEntries: [...(timesheet.timeEntries ?? []), data] })
 			return setAdding(false)

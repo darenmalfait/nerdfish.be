@@ -13,11 +13,11 @@ import {
 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import * as React from 'react'
+import { useState } from 'react'
 import { ContactForm } from '../forms/contact-form'
 
 export function ContactFormViaButton() {
-	const [contactFormOpen, setContactFormOpen] = React.useState<boolean>(false)
+	const [contactFormOpen, setContactFormOpen] = useState<boolean>(false)
 	const t = useTranslations('contact.page.form')
 
 	return (

@@ -9,12 +9,12 @@ import {
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { forwardRef, type HTMLAttributes, useEffect, useState } from 'react'
 import { useTheme } from '../theme-provider'
 
-const ThemeToggleItem = React.forwardRef<
+const ThemeToggleItem = forwardRef<
 	HTMLButtonElement,
-	Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
+	Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
 		isActive: boolean
 		value: string
 		onClick?: (value: string) => void
@@ -42,15 +42,15 @@ const ThemeToggleItem = React.forwardRef<
 })
 ThemeToggleItem.displayName = 'ThemeToggleItem'
 
-export const ThemeToggle = React.forwardRef<
+export const ThemeToggle = forwardRef<
 	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
+	HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
 	const t = useTranslations('theme')
 	const { theme, setTheme } = useTheme()
-	const [mounted, setMounted] = React.useState<boolean>(false)
+	const [mounted, setMounted] = useState<boolean>(false)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setMounted(true)
 	}, [])
 

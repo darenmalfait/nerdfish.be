@@ -5,7 +5,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { type Testimonial } from 'content-collections'
 import { AnimatePresence, motion } from 'motion/react'
-import * as React from 'react'
+import { type ReactNode, useCallback, useState } from 'react'
 
 function Author({ author }: { author: Testimonial['author'] }) {
 	if (!author?.name) return null
@@ -96,7 +96,7 @@ export interface TestimonialsContentProps {
 	layout?: {
 		variant?: 'primary' | 'secondary'
 	}
-	children?: React.ReactNode
+	children?: ReactNode
 }
 
 export function TestimonialsContent({
@@ -104,18 +104,18 @@ export function TestimonialsContent({
 	testimonials,
 	children,
 }: TestimonialsContentProps) {
-	const [currentTestimonial, setCurrentTestimonial] = React.useState(
+	const [currentTestimonial, setCurrentTestimonial] = useState(
 		testimonials.length ? testimonials.length - 1 : 0,
 	)
 
-	const onNext = React.useCallback(() => {
+	const onNext = useCallback(() => {
 		const nextTestimonialIndex =
 			currentTestimonial + 1 >= testimonials.length ? 0 : currentTestimonial + 1
 
 		setCurrentTestimonial(nextTestimonialIndex)
 	}, [currentTestimonial, testimonials.length])
 
-	const onPrevious = React.useCallback(() => {
+	const onPrevious = useCallback(() => {
 		const previousTestimonialIndex =
 			currentTestimonial - 1 < 0
 				? testimonials.length - 1

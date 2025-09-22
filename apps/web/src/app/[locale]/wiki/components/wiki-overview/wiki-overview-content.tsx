@@ -28,7 +28,12 @@ import { type PartialDeep } from '@repo/lib/types'
 import { cx } from '@repo/lib/utils/base'
 import { type Wiki } from 'content-collections'
 import { env } from 'env'
-import * as React from 'react'
+import {
+	type ComponentProps,
+	type ReactNode,
+	useCallback,
+	useMemo,
+} from 'react'
 import { filterWiki, mapWikiToArticle } from '../../utils'
 import { type ImageType } from '~/app/types'
 
@@ -54,7 +59,7 @@ function Tag({ tag }: { tag: string }) {
 }
 
 export interface ArticleCardTagsProps
-	extends Omit<React.ComponentProps<'div'>, 'children'> {
+	extends Omit<ComponentProps<'div'>, 'children'> {
 	tags?: string[]
 }
 
@@ -100,7 +105,7 @@ export interface WikiOverviewContentProps {
 		image?: ImageType
 		link?: string
 	} | null
-	children?: React.ReactNode
+	children?: ReactNode
 }
 
 export function WikiOverviewContent({
@@ -111,9 +116,9 @@ export function WikiOverviewContent({
 	children,
 }: WikiOverviewContentProps) {
 	const t = useTranslations('wiki.overview')
-	const articles = React.useMemo(() => mapWikiToArticle(items), [items])
+	const articles = useMemo(() => mapWikiToArticle(items), [items])
 
-	const filterArticles = React.useCallback(
+	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const wikis = items.filter((wiki) => wiki.id && toFilterIds.has(wiki.id))

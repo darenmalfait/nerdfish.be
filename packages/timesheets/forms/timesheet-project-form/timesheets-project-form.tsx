@@ -24,7 +24,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { uniqueCurrencies } from '@repo/location/currencies'
-import * as React from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { type TimesheetsProject } from '../../schemas'
 import {
@@ -44,7 +44,7 @@ export function TimesheetsProjectForm({
 	onSubmit,
 	className,
 }: TimesheetsProjectFormProps) {
-	const [advancedSettingsOpen, setAdvancedSettingsOpen] = React.useState(false)
+	const [advancedSettingsOpen, setAdvancedSettingsOpen] = useState(false)
 	const form = useForm<TimesheetsProjectFormData>({
 		resolver: zodResolver(timesheetsProjectFormSchema),
 		defaultValues: defaultValues ?? {

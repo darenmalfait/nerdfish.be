@@ -4,7 +4,7 @@ import { Grid, GridCard, Skeleton } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
-import * as React from 'react'
+import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { type ImageType } from '../types'
 
 export interface ImageGridContentProps {
@@ -38,13 +38,13 @@ function getGridItemClassName(index: number) {
 	return 'col-span-4'
 }
 
-export interface ImageGridProps extends React.ComponentProps<typeof Grid> {
+export interface ImageGridProps extends ComponentProps<typeof Grid> {
 	items: ImageGridContentProps[]
 }
 
 export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
-	const containerRef = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => containerRef.current as HTMLDivElement)
+	const containerRef = useRef<HTMLDivElement>(null)
+	useImperativeHandle(ref, () => containerRef.current as HTMLDivElement)
 
 	const isInView = useInView(containerRef, {
 		once: true,

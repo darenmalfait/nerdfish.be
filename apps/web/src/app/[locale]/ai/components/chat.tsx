@@ -12,7 +12,7 @@ import { SendHorizonalIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { useScrollToBottom } from '@repo/lib/hooks/use-scroll-to-bottom'
 import { type VariantProps, cva, cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { type ComponentPropsWithoutRef, forwardRef, useMemo } from 'react'
 
 const chatMessageVariants = cva(
 	'relative animate-rubber rounded-container px-5 py-2.5',
@@ -78,9 +78,9 @@ function MessageLoading() {
 	)
 }
 
-const ChatMessage = React.forwardRef<
+const ChatMessage = forwardRef<
 	HTMLParagraphElement,
-	React.ComponentPropsWithoutRef<'p'> &
+	ComponentPropsWithoutRef<'p'> &
 		VariantProps<typeof chatMessageVariants> & {
 			toolInvocations?: ToolInvocation[]
 		}
@@ -119,7 +119,7 @@ export function Chat({
 		body: {},
 	})
 
-	const premadeQuestions = React.useMemo(
+	const premadeQuestions = useMemo(
 		() => [
 			{
 				buttonName: t('premadeQuestions.whoAreYou'),

@@ -5,7 +5,7 @@ import { motion } from 'motion/react'
 import { Cursor } from 'motion-cursor'
 import Image from 'next/image'
 import Link from 'next/link'
-import * as React from 'react'
+import { type ComponentProps, type ReactNode, useState } from 'react'
 import { ArrowRightIcon } from '../icons'
 import { getCategoryColors } from './category-indicator'
 import { Badge, Button, H2, type H3, Skeleton } from './ui'
@@ -50,7 +50,7 @@ export function ArticleCardImage({
 	readMoreLabel = 'Read More',
 	base64Placeholder,
 }: ArticleCardImageProps) {
-	const [isHovering, setIsHovering] = React.useState(false)
+	const [isHovering, setIsHovering] = useState(false)
 
 	if (!src) return null
 
@@ -82,8 +82,8 @@ export function ArticleCardImage({
 	)
 }
 
-export interface ArticleCardContentProps extends React.ComponentProps<'div'> {
-	children: React.ReactNode
+export interface ArticleCardContentProps extends ComponentProps<'div'> {
+	children: ReactNode
 }
 
 export function ArticleCardContent({
@@ -98,7 +98,7 @@ export function ArticleCardContent({
 	)
 }
 
-export type ArticleCardTitleProps = React.ComponentProps<typeof H3>
+export type ArticleCardTitleProps = ComponentProps<typeof H3>
 
 export function ArticleCardTitle({
 	children,
@@ -117,7 +117,7 @@ export function ArticleCardTitle({
 	)
 }
 
-export type ArticleCardDateProps = React.ComponentProps<'div'>
+export type ArticleCardDateProps = ComponentProps<'div'>
 
 export function ArticleCardDate({
 	children,
@@ -136,7 +136,7 @@ export function ArticleCardDate({
 	)
 }
 
-export type ArticleCardDescriptionProps = React.ComponentProps<'p'>
+export type ArticleCardDescriptionProps = ComponentProps<'p'>
 
 export function ArticleCardDescription({
 	children,
@@ -155,7 +155,7 @@ export function ArticleCardDescription({
 	)
 }
 
-export type ArticleCardCategoryProps = React.ComponentProps<'div'>
+export type ArticleCardCategoryProps = ComponentProps<'div'>
 
 export function ArticleCardCategory({
 	children,
@@ -182,7 +182,7 @@ export function ArticleCardCategory({
 	)
 }
 
-export interface ArticleCardProps extends React.ComponentProps<'div'> {
+export interface ArticleCardProps extends ComponentProps<'div'> {
 	href?: string
 	title?: string
 }

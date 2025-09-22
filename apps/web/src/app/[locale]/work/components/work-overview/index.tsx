@@ -10,7 +10,7 @@ import { Skeleton } from '@repo/design-system/components/ui'
 import { getLocale } from '@repo/i18n/server'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
-import * as React from 'react'
+import { Suspense } from 'react'
 import { work } from '../../api'
 import { filterWork } from '../../utils'
 import {
@@ -83,7 +83,7 @@ export async function WorkOverviewData({
 
 export async function WorkOverview(props: WorkOverviewProps) {
 	return (
-		<React.Suspense
+		<Suspense
 			fallback={
 				<WorkOverviewContent {...props} items={[]}>
 					{props.featuredEnabled ? (
@@ -110,6 +110,6 @@ export async function WorkOverview(props: WorkOverviewProps) {
 			}
 		>
 			<WorkOverviewData {...props} />
-		</React.Suspense>
+		</Suspense>
 	)
 }

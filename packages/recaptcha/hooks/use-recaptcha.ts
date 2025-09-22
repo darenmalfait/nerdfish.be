@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { keys } from '../keys'
 
 /**
@@ -37,11 +37,11 @@ interface RecaptchaProps {
 }
 
 export function useRecaptcha(): RecaptchaProps {
-	const [greCaptchaInstance, setGreCaptchaInstance] = React.useState<null | {
+	const [greCaptchaInstance, setGreCaptchaInstance] = useState<null | {
 		execute: any
 	}>(null)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const loadScriptByUrl = (id: string, url: string) => {
 			const isScriptExist = document.getElementById(id)
 
@@ -82,7 +82,7 @@ export function useRecaptcha(): RecaptchaProps {
 		}
 	}, [])
 
-	const execute = React.useCallback(async () => {
+	const execute = useCallback(async () => {
 		if (!keys().NEXT_PUBLIC_RECAPTCHA_SITEKEY) {
 			return
 		}

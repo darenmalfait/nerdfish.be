@@ -1,6 +1,6 @@
 import { cva, cx, type VariantProps } from '@repo/lib/utils/base'
 import { ArrowRight } from 'lucide-react'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 
 export const arrowIconVariants = cva('', {
 	variants: {
@@ -20,7 +20,7 @@ export type ArrowIconVariants = VariantProps<typeof arrowIconVariants>
 
 export interface ArrowIconProps
 	extends ArrowIconVariants,
-		Omit<React.ComponentProps<'svg'>, 'direction'> {
+		Omit<ComponentProps<'svg'>, 'direction'> {
 	size?: number
 }
 

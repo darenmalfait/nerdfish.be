@@ -6,7 +6,7 @@ import {
 } from '@repo/design-system/components/ui'
 import { ArrowRightIcon, ClockIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useMemo } from 'react'
 import { differenceInMinutes, parse } from '../utils'
 
 const hideTimeIconClass = '[&::-webkit-calendar-picker-indicator]:hidden'
@@ -32,7 +32,7 @@ export function TimeRangeInput({
 		onChange,
 	)
 
-	const duration = React.useMemo(() => {
+	const duration = useMemo(() => {
 		if (!value.start || !value.end) {
 			return ''
 		}

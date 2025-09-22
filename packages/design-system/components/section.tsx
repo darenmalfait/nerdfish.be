@@ -1,12 +1,12 @@
 import { Slot } from '@radix-ui/react-slot'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { type ElementType, type ComponentProps } from 'react'
 import { ArrowLink } from './arrow-link'
 import { TextBalancer } from './text-balancer'
 import { TextSlideUp } from './text-slide-up'
 import { H1, type H2 } from './ui'
 
-export interface SectionProps extends React.ComponentProps<'section'> {
+export interface SectionProps extends ComponentProps<'section'> {
 	asChild?: boolean
 }
 
@@ -21,9 +21,8 @@ export function Section({ className, asChild, ...props }: SectionProps) {
 	)
 }
 
-export interface SectionHeaderTitleProps
-	extends React.ComponentProps<typeof H1> {
-	as?: React.ElementType
+export interface SectionHeaderTitleProps extends ComponentProps<typeof H1> {
+	as?: ElementType
 }
 
 export function SectionHeaderTitle({
@@ -45,9 +44,8 @@ export function SectionHeaderTitle({
 	)
 }
 
-export interface SectionHeaderSubtitleProps
-	extends React.ComponentProps<typeof H2> {
-	as?: React.ElementType
+export interface SectionHeaderSubtitleProps extends ComponentProps<typeof H2> {
+	as?: ElementType
 }
 
 export function SectionHeaderSubtitle({
@@ -70,13 +68,13 @@ export function SectionHeaderSubtitle({
 	)
 }
 
-export interface SectionHeaderProps extends React.ComponentProps<'header'> {
+export interface SectionHeaderProps extends ComponentProps<'header'> {
 	cta?: {
 		title: string
 		url: string
-		as?: React.ElementType
+		as?: ElementType
 	}
-	as?: React.ElementType
+	as?: ElementType
 	eager?: boolean
 }
 

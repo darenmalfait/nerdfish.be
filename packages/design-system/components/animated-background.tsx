@@ -2,13 +2,13 @@
 
 import { cx } from '@repo/lib/utils/base'
 import { AnimatePresence, type Transition, motion } from 'motion/react'
-import * as React from 'react'
+import { Children, cloneElement, useId, type ReactElement } from 'react'
 import { useControllableState } from './ui'
 
 export interface AnimatedBackgroundProps {
 	children?:
-		| React.ReactElement<{ 'data-id': string }>[]
-		| React.ReactElement<{ 'data-id': string }>
+		| ReactElement<{ 'data-id': string }>[]
+		| ReactElement<{ 'data-id': string }>
 		| any
 
 	defaultValue?: string
@@ -34,7 +34,7 @@ export function AnimatedBackground({
 		onValueChange,
 	)
 
-	const uniqueId = React.useId()
+	const uniqueId = useId()
 
 	function handleSetActiveId(id: string | null) {
 		setActiveId(id)
@@ -43,7 +43,7 @@ export function AnimatedBackground({
 
 	if (!children) return null
 
-	return React.Children.map(children, (child: React.ReactElement, index) => {
+	return Children.map(children, (child: ReactElement, index) => {
 		const id = (child as any).props['data-id']
 
 		const interactionProps = enableHover
@@ -55,7 +55,7 @@ export function AnimatedBackground({
 					onClick: () => handleSetActiveId(id),
 				}
 
-		return React.cloneElement(
+		return cloneElement(
 			child,
 			{
 				key: index,

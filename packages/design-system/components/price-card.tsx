@@ -2,7 +2,12 @@
 
 import { cx } from '@repo/lib/utils/base'
 import Link from 'next/link'
-import * as React from 'react'
+import {
+	type ComponentProps,
+	createContext,
+	type ElementType,
+	useContext,
+} from 'react'
 import { CheckIcon } from '../icons'
 import {
 	Button,
@@ -21,11 +26,11 @@ interface PriceCardContextProps {
 	price?: string
 }
 
-const PriceCardContext = React.createContext<PriceCardContextProps | null>(null)
+const PriceCardContext = createContext<PriceCardContextProps | null>(null)
 PriceCardContext.displayName = 'PriceCardContext'
 
 function usePriceCard(): PriceCardContextProps {
-	const context = React.useContext(PriceCardContext)
+	const context = useContext(PriceCardContext)
 
 	if (!context) {
 		throw new Error('You should use usePriceCard within an PriceCardContext')
@@ -34,7 +39,7 @@ function usePriceCard(): PriceCardContextProps {
 	return context
 }
 
-export type PriceCardHeaderProps = React.ComponentProps<'div'>
+export type PriceCardHeaderProps = ComponentProps<'div'>
 
 export function PriceCardHeader({
 	children,
@@ -49,7 +54,7 @@ export function PriceCardHeader({
 	)
 }
 
-export type PriceCardTitleProps = React.ComponentProps<typeof CardTitle>
+export type PriceCardTitleProps = ComponentProps<typeof CardTitle>
 
 export function PriceCardTitle({ children, ...props }: PriceCardTitleProps) {
 	if (!children) return null
@@ -57,7 +62,7 @@ export function PriceCardTitle({ children, ...props }: PriceCardTitleProps) {
 	return <CardTitle {...props}>{children}</CardTitle>
 }
 
-export type PriceCardFeaturesProps = React.ComponentProps<typeof CardContent>
+export type PriceCardFeaturesProps = ComponentProps<typeof CardContent>
 
 export function PriceCardFeatures({
 	children,
@@ -80,7 +85,7 @@ export function PriceCardFeatures({
 	)
 }
 
-export type PriceCardFeatureProps = React.ComponentProps<'li'>
+export type PriceCardFeatureProps = ComponentProps<'li'>
 
 export function PriceCardFeature({
 	children,
@@ -95,9 +100,7 @@ export function PriceCardFeature({
 	)
 }
 
-export type PriceCardDescriptionProps = React.ComponentProps<
-	typeof CardDescription
->
+export type PriceCardDescriptionProps = ComponentProps<typeof CardDescription>
 
 export function PriceCardDescription({
 	children,
@@ -123,7 +126,7 @@ export function PriceCardDescription({
 	)
 }
 
-export type PriceCardPriceProps = React.ComponentProps<typeof H3>
+export type PriceCardPriceProps = ComponentProps<typeof H3>
 
 export function PriceCardPrice({
 	children,
@@ -143,8 +146,8 @@ export function PriceCardPrice({
 	)
 }
 
-export type PriceCardActionProps = React.ComponentProps<typeof Link> & {
-	as?: React.ElementType
+export type PriceCardActionProps = ComponentProps<typeof Link> & {
+	as?: ElementType
 }
 
 export function PriceCardAction({
@@ -173,7 +176,7 @@ export function PriceCardAction({
 	)
 }
 
-export interface PriceCardProps extends React.ComponentProps<typeof Card> {
+export interface PriceCardProps extends ComponentProps<typeof Card> {
 	isPopular?: boolean
 	price?: string
 }

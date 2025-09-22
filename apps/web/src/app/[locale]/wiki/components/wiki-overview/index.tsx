@@ -9,7 +9,7 @@ import { ArticleOverviewContentGrid } from '@repo/design-system/components/artic
 import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
-import * as React from 'react'
+import { Suspense } from 'react'
 import { wiki } from '../../api'
 import { filterWiki } from '../../utils'
 import {
@@ -83,7 +83,7 @@ export async function WikiOverviewData({
 
 export async function WikiOverview(props: WikiOverviewProps) {
 	return (
-		<React.Suspense
+		<Suspense
 			fallback={
 				<WikiOverviewContent {...props} items={[]}>
 					<ArticleOverviewContentGrid>
@@ -109,6 +109,6 @@ export async function WikiOverview(props: WikiOverviewProps) {
 			}
 		>
 			<WikiOverviewData {...props} />
-		</React.Suspense>
+		</Suspense>
 	)
 }

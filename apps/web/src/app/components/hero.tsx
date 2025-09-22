@@ -9,10 +9,10 @@ import { ArrowRightIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { capitalize } from '@repo/lib/utils/string'
 import Image from 'next/image'
-import * as React from 'react'
+import { type ComponentProps, type ElementType, type ReactNode } from 'react'
 import { Link } from './link'
 
-export function HeroSubtitle({ children }: { children?: React.ReactNode }) {
+export function HeroSubtitle({ children }: { children?: ReactNode }) {
 	if (!children) return null
 
 	return (
@@ -27,8 +27,8 @@ export function HeroTitle({
 	as,
 	className,
 	...props
-}: React.ComponentProps<'h1'> & {
-	as?: React.ElementType
+}: ComponentProps<'h1'> & {
+	as?: ElementType
 }) {
 	if (!title) return null
 
@@ -43,7 +43,7 @@ export function HeroCTA({
 	children,
 	className,
 	...props
-}: React.ComponentProps<typeof Link>) {
+}: ComponentProps<typeof Link>) {
 	return (
 		<MagnetButton size="xl" className="mt-xl group" asChild>
 			<Link {...props} className={cx('flex items-center', className)}>
@@ -54,7 +54,7 @@ export function HeroCTA({
 	)
 }
 
-export type HeroImageProps = React.ComponentProps<typeof Image>
+export type HeroImageProps = ComponentProps<typeof Image>
 
 export function HeroImage({ src, className, ...props }: HeroImageProps) {
 	if (!src) return null
@@ -82,8 +82,8 @@ export function HeroImage({ src, className, ...props }: HeroImageProps) {
 	)
 }
 
-export interface HeroContentProps extends React.ComponentProps<'div'> {
-	children?: React.ReactNode
+export interface HeroContentProps extends ComponentProps<'div'> {
+	children?: ReactNode
 }
 
 export function HeroContent({ children, ...props }: HeroContentProps) {
@@ -96,7 +96,7 @@ export function HeroContent({ children, ...props }: HeroContentProps) {
 	)
 }
 
-export type HeroProps = React.ComponentProps<'div'>
+export type HeroProps = ComponentProps<'div'>
 
 export function Hero({ children }: HeroProps) {
 	return (

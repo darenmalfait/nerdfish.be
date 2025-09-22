@@ -3,7 +3,7 @@
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
 import { Button } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
-import * as React from 'react'
+import { useState } from 'react'
 import {
 	SkillItem,
 	skills,
@@ -14,7 +14,7 @@ import {
 export function Toolbox() {
 	const t = useTranslations('about.page.my-toolbox')
 
-	const [selectedSkills, setSelectedSkills] = React.useState<string[]>([])
+	const [selectedSkills, setSelectedSkills] = useState<string[]>([])
 
 	const filteredSkills =
 		selectedSkills.length > 0

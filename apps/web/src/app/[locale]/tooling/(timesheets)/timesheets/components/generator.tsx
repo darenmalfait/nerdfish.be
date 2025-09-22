@@ -1,18 +1,18 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
-import * as React from 'react'
+import { useEffect, useRef } from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { TimesheetsContent } from './timesheets-content'
 import { Toolbar } from './toolbar'
 
 export function TimesheetGenerator() {
-	const ref = React.useRef<HTMLDivElement>(null)
+	const ref = useRef<HTMLDivElement>(null)
 
 	const { timesheet } = useTimesheet()
 	const { invoiceReference, timeEntries } = timesheet
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (ref.current) {
 			// get height in mm
 			// 1 pixel (X) = 0.2645833333 mm

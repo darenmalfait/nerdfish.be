@@ -16,7 +16,7 @@ import {
 import { useClickAway } from '@repo/lib/hooks/use-click-away'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useCallback, useState } from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
 import { type TimesheetsRecord } from '../schemas'
@@ -181,18 +181,18 @@ function TimesheetsCalendarDay({
 		date.getMonth() === new TZDate(currentDate, TIMEZONE).getMonth()
 	const formattedDate = formatISO(date, { representation: 'date' })
 
-	const isInRange = React.useCallback(
+	const isInRange = useCallback(
 		(dte: TZDate) => checkIsInRange(dte, isDragging, localRange, range),
 		[isDragging, localRange, range],
 	)
 
-	const isFirstSelectedDate = React.useCallback(
+	const isFirstSelectedDate = useCallback(
 		(dte: TZDate) =>
 			checkIsFirstSelectedDate(dte, isDragging, localRange, range),
 		[isDragging, localRange, range],
 	)
 
-	const isLastSelectedDate = React.useCallback(
+	const isLastSelectedDate = useCallback(
 		(dte: TZDate) =>
 			checkIsLastSelectedDate(dte, isDragging, localRange, range),
 		[isDragging, localRange, range],
@@ -236,11 +236,11 @@ export function TimesheetsCalendar() {
 		new TZDate(currentDate, TIMEZONE),
 	)
 
-	const [localRange, setLocalRange] = React.useState<[string, string | null]>([
+	const [localRange, setLocalRange] = useState<[string, string | null]>([
 		'',
 		null,
 	])
-	const [isDragging, setIsDragging] = React.useState(false)
+	const [isDragging, setIsDragging] = useState(false)
 
 	useHotkeys(
 		'arrowLeft',

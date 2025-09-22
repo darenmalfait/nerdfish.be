@@ -4,9 +4,9 @@ import {
 	CodeBlockCode,
 	CodeBlockGroup,
 } from '@repo/design-system/components/ui'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 
-type PortableCodeProps = React.ComponentProps<'pre'>
+type PortableCodeProps = ComponentProps<'pre'>
 
 function PortableCode({ children, ...rest }: PortableCodeProps) {
 	const code =

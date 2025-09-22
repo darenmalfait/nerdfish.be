@@ -2,9 +2,9 @@
 
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 
-export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root>
+export type ProgressProps = ComponentProps<typeof ProgressPrimitive.Root>
 
 export function Progress({ className, value, ...props }: ProgressProps) {
 	return (

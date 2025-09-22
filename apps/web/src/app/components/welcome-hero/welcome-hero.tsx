@@ -7,7 +7,7 @@ import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from 'class-variance-authority'
 import { motion } from 'motion/react'
-import * as React from 'react'
+import { type ComponentProps, useRef } from 'react'
 
 function GridBackground() {
 	return (
@@ -27,7 +27,7 @@ export function HeroCTA({
 	children,
 	className,
 	...props
-}: React.ComponentProps<typeof Link>) {
+}: ComponentProps<typeof Link>) {
 	return (
 		<MagnetButton
 			size="xl"
@@ -44,7 +44,7 @@ export function HeroCTA({
 }
 
 export function WelcomeHero() {
-	const containerRef = React.useRef<HTMLDivElement>(null)
+	const containerRef = useRef<HTMLDivElement>(null)
 	const t = useTranslations('home.page')
 
 	return (

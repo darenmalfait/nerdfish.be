@@ -3,14 +3,14 @@
 import { blogParams, pageParams } from '@repo/og-utils/zod-params'
 import { env } from 'env'
 import Image from 'next/image'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 const OG_IMAGE_URL = `${env.NEXT_PUBLIC_URL}/api/og`
 
 export function Images() {
-	const [nonce, setNonce] = React.useState(Math.random())
+	const [nonce, setNonce] = useState(Math.random())
 
-	React.useEffect(() => {
+	useEffect(() => {
 		// randomize nonce on window focus
 		const handleFocus = () => setNonce(Math.random())
 		window.addEventListener('focus', handleFocus)

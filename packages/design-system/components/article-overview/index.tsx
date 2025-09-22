@@ -3,7 +3,12 @@
 import { nonNullable } from '@repo/lib/utils/array'
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
-import * as React from 'react'
+import {
+	type ComponentType,
+	type ComponentProps,
+	type ReactNode,
+	type ElementType,
+} from 'react'
 import { NewspaperIcon, SearchIcon } from '../../icons'
 import {
 	ArticleCard,
@@ -40,9 +45,8 @@ import { type Article } from './types'
 
 export type * from './types'
 
-export interface ArticleOverviewSearchProps
-	extends React.ComponentProps<'div'> {
-	children: React.ReactNode
+export interface ArticleOverviewSearchProps extends ComponentProps<'div'> {
+	children: ReactNode
 }
 
 export function ArticleOverviewSearch({
@@ -67,8 +71,7 @@ export function ArticleOverviewSearch({
 	)
 }
 
-export interface ArticleOverviewSearchImageProps
-	extends React.ComponentProps<'div'> {
+export interface ArticleOverviewSearchImageProps extends ComponentProps<'div'> {
 	image?: Article['image'] | null
 }
 
@@ -98,7 +101,7 @@ export function ArticleOverviewSearchImage({
 }
 
 export interface ArticleOverviewSearchContentProps
-	extends React.ComponentProps<'div'> {
+	extends ComponentProps<'div'> {
 	inputLabel?: string
 }
 
@@ -142,8 +145,7 @@ export function ArticleOverviewSearchContent({
 	)
 }
 
-export interface ArticleOverviewFilterProps
-	extends React.ComponentProps<'div'> {
+export interface ArticleOverviewFilterProps extends ComponentProps<'div'> {
 	title?: string
 }
 
@@ -190,7 +192,7 @@ export function ArticleOverviewFilter({
 }
 
 export interface ArticleOverviewLoadMoreButtonProps
-	extends React.ComponentProps<'div'> {
+	extends ComponentProps<'div'> {
 	children: string
 }
 
@@ -224,7 +226,7 @@ export function ArticleOverviewLoadMoreButton({
 }
 
 export interface FeaturedArticleProps
-	extends Omit<React.ComponentProps<typeof HighlightCard>, 'title'> {
+	extends Omit<ComponentProps<typeof HighlightCard>, 'title'> {
 	article?: Article
 	readMoreLabel?: string
 	ariaLabel?: string
@@ -270,12 +272,11 @@ const FeaturedArticle = ({
 	)
 }
 
-export interface ArticleOverviewContentGridProps
-	extends React.ComponentProps<'div'> {
+export interface ArticleOverviewContentGridProps extends ComponentProps<'div'> {
 	readMoreLabel?: string
 	ariaLabel?: string
 	maxColumns?: number
-	custumArticleCard?: React.ComponentType<{ article: Article }>
+	custumArticleCard?: ComponentType<{ article: Article }>
 }
 
 export function ArticleOverviewContentGrid({
@@ -351,9 +352,8 @@ export function ArticleOverviewContentGrid({
 	)
 }
 
-export interface ArticlesOverviewEmptyStateProps
-	extends React.ComponentProps<'div'> {
-	icon?: React.ElementType
+export interface ArticlesOverviewEmptyStateProps extends ComponentProps<'div'> {
+	icon?: ElementType
 	title?: string
 	description?: string
 	clearSearch?: string
@@ -388,7 +388,7 @@ export function ArticlesOverviewEmptyState({
 	)
 }
 
-export type ArticleOverviewProps = React.ComponentProps<
+export type ArticleOverviewProps = ComponentProps<
 	typeof ArticleOverviewProvider
 >
 

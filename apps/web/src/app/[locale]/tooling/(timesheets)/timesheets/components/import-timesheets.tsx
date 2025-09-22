@@ -8,7 +8,7 @@ import {
 import { ImportIcon } from '@repo/design-system/icons'
 import { nonNullable } from '@repo/lib/utils/array'
 import dynamic from 'next/dynamic'
-import * as React from 'react'
+import { useCallback, useState } from 'react'
 import { useTimesheet } from '../timesheet-provider'
 import { getCrypto } from '../utils'
 
@@ -46,9 +46,9 @@ const template = {
 
 export function ImportTimeEntriesButton() {
 	const { setTimesheet } = useTimesheet()
-	const [importing, setImporting] = React.useState<boolean>(false)
+	const [importing, setImporting] = useState<boolean>(false)
 
-	const onComplete = React.useCallback(
+	const onComplete = useCallback(
 		(data: {
 			rows: { values: { day: string; hours: string; project: string } }[]
 		}) => {

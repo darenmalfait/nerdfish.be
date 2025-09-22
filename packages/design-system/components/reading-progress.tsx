@@ -2,7 +2,7 @@
 
 import NumberFlow from '@number-flow/react'
 import { cx } from '@repo/lib/utils/base'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 export interface ReadingProgressProps {
 	offset?: number
@@ -10,9 +10,9 @@ export interface ReadingProgressProps {
 }
 
 export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
-	const [completion, setCompletion] = React.useState(0)
+	const [completion, setCompletion] = useState(0)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function updateScrollCompletion() {
 			// see how much we have scrolled
 			const currentProgress = window.scrollY

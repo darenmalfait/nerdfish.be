@@ -2,7 +2,7 @@
 
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Skeleton } from '@repo/design-system/components/ui'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 
 export function EmbeddedCal({
@@ -14,9 +14,9 @@ export function EmbeddedCal({
 	className?: string
 	theme?: 'light' | 'dark' | 'system'
 }) {
-	const [calLoading, setCalLoading] = React.useState<boolean>(true)
+	const [calLoading, setCalLoading] = useState<boolean>(true)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		async function loadCal() {
 			const cal = await getCalApi({
 				namespace: `${calcomSettings.profileName}/${bookingType}`,

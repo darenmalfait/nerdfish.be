@@ -3,20 +3,26 @@
 import { Button } from '@nerdfish/ui'
 import { cx } from '@repo/lib/utils/base'
 import { motion, useMotionValue, useSpring } from 'motion/react'
-import * as React from 'react'
+import {
+	type ComponentProps,
+	useEffect,
+	useImperativeHandle,
+	useRef,
+	useState,
+} from 'react'
 
 const SPRING_CONFIG = { damping: 30, stiffness: 150, mass: 0.2 }
 const MAX_DISTANCE = 0.1
 const MAX_SCALE = 1
 const MAX_ROTATE = 15
 
-export type MagnetProps = React.ComponentProps<typeof motion.div>
+export type MagnetProps = ComponentProps<typeof motion.div>
 
 export function Magnet({ children, className, ref, ...props }: MagnetProps) {
-	const itemRef = React.useRef<HTMLDivElement>(null)
-	React.useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
+	const itemRef = useRef<HTMLDivElement>(null)
+	useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
 
-	const [isHovered, setIsHovered] = React.useState(false)
+	const [isHovered, setIsHovered] = useState(false)
 	const x = useMotionValue(0)
 	const y = useMotionValue(0)
 	const scale = useMotionValue(1)
@@ -26,7 +32,7 @@ export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 	const springScale = useSpring(scale, { damping: 20, stiffness: 300 })
 	const springRotate = useSpring(rotate, { damping: 20, stiffness: 300 })
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function calculateDistance(e: MouseEvent) {
 			if (itemRef.current) {
 				const rect = itemRef.current.getBoundingClientRect()
@@ -97,7 +103,7 @@ export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 	)
 }
 
-export type MagnetButtonProps = React.ComponentProps<typeof Button>
+export type MagnetButtonProps = ComponentProps<typeof Button>
 
 export function MagnetButton({ children, ...props }: MagnetButtonProps) {
 	return (

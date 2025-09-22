@@ -18,7 +18,13 @@ import {
 	setMinutes,
 	startOfDay,
 } from 'date-fns'
-import * as React from 'react'
+import {
+	type MouseEvent,
+	useState,
+	type HTMLAttributes,
+	useEffect,
+	Fragment,
+} from 'react'
 import { type CalendarEvent } from '../schemas'
 import {
 	createNewEvent,
@@ -33,10 +39,7 @@ export const CALENDARY_DAY_ROW_HEIGHT = 36
 export const CALENDARY_DAY_SLOT_HEIGHT = 9
 
 export interface CalendarDayProps
-	extends Omit<
-		React.HTMLAttributes<HTMLDivElement>,
-		'onChange' | 'defaultValue'
-	> {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
 	timeFormat?: 24 | 12
 
 	// values
@@ -69,7 +72,7 @@ export function CalendarDay({
 	// rest
 	...props
 }: CalendarDayProps) {
-	const [isContextMenuOpen, setIsContextMenuOpen] = React.useState(false)
+	const [isContextMenuOpen, setIsContextMenuOpen] = useState(false)
 	const hours = Array.from({ length: 24 }, (_, i) => i)
 
 	// values
@@ -85,18 +88,13 @@ export function CalendarDay({
 	)
 
 	// mouse events
-	const [isDragging, setIsDragging] = React.useState(false)
-	const [dragStartSlot, setDragStartSlot] = React.useState<number | null>(null)
-	const [resizingEvent, setResizingEvent] =
-		React.useState<CalendarEvent | null>(null)
-	const [resizeStartY, setResizeStartY] = React.useState(0)
-	const [resizeType, setResizeType] = React.useState<'top' | 'bottom' | null>(
-		null,
-	)
-	const [movingEvent, setMovingEvent] = React.useState<CalendarEvent | null>(
-		null,
-	)
-	const [moveStartY, setMoveStartY] = React.useState(0)
+	const [isDragging, setIsDragging] = useState(false)
+	const [dragStartSlot, setDragStartSlot] = useState<number | null>(null)
+	const [resizingEvent, setResizingEvent] = useState<CalendarEvent | null>(null)
+	const [resizeStartY, setResizeStartY] = useState(0)
+	const [resizeType, setResizeType] = useState<'top' | 'bottom' | null>(null)
+	const [movingEvent, setMovingEvent] = useState<CalendarEvent | null>(null)
+	const [moveStartY, setMoveStartY] = useState(0)
 
 	// events handlers
 	const handleDeleteEvent = (eventId: string) => {
@@ -140,7 +138,7 @@ export function CalendarDay({
 		setSelectedEvent(newEvent)
 	}
 
-	const handleMouseMove = (e: React.MouseEvent) => {
+	const handleMouseMove = (e: MouseEvent) => {
 		if (isDragging && dragStartSlot !== null && selectedEvent) {
 			const rect = e.currentTarget.getBoundingClientRect()
 			const y = e.clientY - rect.top
@@ -216,7 +214,7 @@ export function CalendarDay({
 		}
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function handleMouseUp() {
 			setIsDragging(false)
 			setDragStartSlot(null)
@@ -230,7 +228,7 @@ export function CalendarDay({
 	}, [])
 
 	const handleEventResizeStart = (
-		e: React.MouseEvent,
+		e: MouseEvent,
 		event: CalendarEvent,
 		type: 'top' | 'bottom',
 	) => {
@@ -244,7 +242,7 @@ export function CalendarDay({
 	}
 
 	const handleEventMoveStart = (
-		mouseEvent: React.MouseEvent,
+		mouseEvent: MouseEvent,
 		calendarEvent: CalendarEvent,
 	) => {
 		mouseEvent.stopPropagation()
@@ -283,12 +281,12 @@ export function CalendarDay({
 				}}
 			>
 				{hours.map((hour) => (
-					<React.Fragment key={hour}>
+					<Fragment key={hour}>
 						<div
 							className="user-select-none border-foreground/20 absolute w-full border-t"
 							style={{ top: `${hour * CALENDARY_DAY_ROW_HEIGHT}px` }}
 						/>
-					</React.Fragment>
+					</Fragment>
 				))}
 				{value.map((event) => {
 					const startSlot = getSlotFromDate(event.start)

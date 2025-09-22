@@ -1,13 +1,13 @@
 'use client'
 
-import * as React from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export function useLocalStorage<T>(
 	key: string,
 	initialValue: T,
 ): [T, (value: T | ((val: T) => T)) => void] {
 	// Initialize state with a function to handle SSR
-	const [localState, setLocalState] = React.useState<T>(() => {
+	const [localState, setLocalState] = useState<T>(() => {
 		// Check if we're in a browser environment
 		if (typeof window === 'undefined') {
 			return initialValue
@@ -25,7 +25,7 @@ export function useLocalStorage<T>(
 	})
 
 	// Return a wrapped version of useState's setter function that persists the new value to localStorage
-	const handleSetState = React.useCallback(
+	const handleSetState = useCallback(
 		(value: T | ((val: T) => T)) => {
 			try {
 				// Allow value to be a function so we have same API as useState
@@ -44,7 +44,7 @@ export function useLocalStorage<T>(
 		[key, localState],
 	)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		// Handle storage changes in other tabs/windows
 		function handleStorageChange(event: StorageEvent) {
 			if (event.key === key && event.newValue) {

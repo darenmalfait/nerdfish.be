@@ -30,7 +30,7 @@ import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
 import { parseError } from '@repo/observability/error'
 import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import { useAction } from 'next-safe-action/hooks'
-import * as React from 'react'
+import { type ReactNode, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { submitContactFormAction } from './contact-form.actions'
@@ -40,13 +40,7 @@ import {
 	projectTypes,
 } from './contact-form.schema'
 
-function Fieldset({
-	children,
-	title,
-}: {
-	children: React.ReactNode
-	title: string
-}) {
+function Fieldset({ children, title }: { children: ReactNode; title: string }) {
 	return (
 		<fieldset className="mb-xl rounded-container">
 			<H3 className="mb-md">{title}</H3>
@@ -58,8 +52,8 @@ function Fieldset({
 const BUDGET_RANGE = [500, 10000]
 
 export function ContactForm() {
-	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
-	const [error, setError] = React.useState<string>()
+	const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
+	const [error, setError] = useState<string>()
 
 	const tZod = useTranslations('zod')
 	const tFormFields = useTranslations('contact.form.fields.names')

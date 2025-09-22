@@ -12,8 +12,8 @@ import {
 import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
 import { type ActionResponse } from '@repo/lib/types'
 import { getCrypto } from '@repo/lib/utils/misc'
-import * as React from 'react'
 
+import { createContext, type ReactNode, useCallback, useContext } from 'react'
 import { type TimesheetsProjectFormData } from '../forms/timesheet-project-form/timesheets-project-form.schema'
 import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import {
@@ -71,13 +71,11 @@ interface TimesheetsContextProps {
 	onUpdateProject: TimesheetsProjectUpdateEvent
 }
 
-const TimesheetsContext = React.createContext<TimesheetsContextProps | null>(
-	null,
-)
+const TimesheetsContext = createContext<TimesheetsContextProps | null>(null)
 TimesheetsContext.displayName = 'TimesheetsContext'
 
 interface TimesheetsProviderProps {
-	children: React.ReactNode
+	children: ReactNode
 }
 
 // import { TimesheetsProvider } from "path-to-context/TimesheetsContext"
@@ -92,7 +90,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[],
 	)
 
-	const onCreateEvent: TimesheetsScheduleCreateEvent = React.useCallback(
+	const onCreateEvent: TimesheetsScheduleCreateEvent = useCallback(
 		async ({ values, selectedDate, range }) => {
 			const sortedRange = range?.sort((a, b) => a.localeCompare(b))
 			const dates = getDates(selectedDate, sortedRange)
@@ -142,7 +140,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[timesheets, setTimesheets],
 	)
 
-	const onDeleteEvent: TimesheetsScheduleDeleteEvent = React.useCallback(
+	const onDeleteEvent: TimesheetsScheduleDeleteEvent = useCallback(
 		async (id, selectedDate) => {
 			if (!selectedDate) return { success: false }
 
@@ -162,7 +160,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[timesheets, setTimesheets],
 	)
 
-	const onUpdateEvent: TimesheetsScheduleUpdateEvent = React.useCallback(
+	const onUpdateEvent: TimesheetsScheduleUpdateEvent = useCallback(
 		async (id, values, selectedDate) => {
 			if (!selectedDate) return { success: false }
 
@@ -196,7 +194,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[timesheets, setTimesheets],
 	)
 
-	const onCreateProject: TimesheetsProjectCreateEvent = React.useCallback(
+	const onCreateProject: TimesheetsProjectCreateEvent = useCallback(
 		async (values) => {
 			const newProject = {
 				...values,
@@ -209,7 +207,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[projects, setProjects],
 	)
 
-	const onDeleteProject: TimesheetsProjectDeleteEvent = React.useCallback(
+	const onDeleteProject: TimesheetsProjectDeleteEvent = useCallback(
 		async (id) => {
 			setProjects(projects.filter((p) => p.id !== id))
 
@@ -218,7 +216,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[projects, setProjects],
 	)
 
-	const onUpdateProject: TimesheetsProjectUpdateEvent = React.useCallback(
+	const onUpdateProject: TimesheetsProjectUpdateEvent = useCallback(
 		async (id, values) => {
 			setProjects(projects.map((p) => (p.id === id ? { ...p, ...values } : p)))
 
@@ -252,7 +250,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 // within functional component
 // const { sessionToken, ...TimesheetsContext } = useTimesheets()
 export function useTimesheets(): TimesheetsContextProps {
-	const context = React.useContext(TimesheetsContext)
+	const context = useContext(TimesheetsContext)
 
 	if (!context) {
 		throw new Error('You should use useTimesheets within an TimesheetsContext')
