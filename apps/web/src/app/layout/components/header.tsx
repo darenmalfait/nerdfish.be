@@ -1,3 +1,6 @@
+'use client'
+
+import { Particles } from '@repo/design-system/components/particles'
 import { Button } from '@repo/design-system/components/ui'
 import { Logo } from '@repo/design-system/icons'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
@@ -13,11 +16,18 @@ export function Header() {
 				<div className="container max-w-none">
 					<div className="py-mdx gap-sm relative flex w-full flex-row-reverse items-center justify-between lg:flex-row">
 						<div className="flex flex-1 items-center justify-end lg:justify-start">
-							<Button asChild variant="link" className="-mx-sm text-foreground">
+							<Button
+								asChild
+								variant="link"
+								className="-mx-sm text-foreground group/header-logo relative"
+							>
 								<div>
 									<Link href="/" aria-label="Home">
 										<Logo className="h-6 w-auto fill-white" />
 									</Link>
+									<div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/header-logo:opacity-100">
+										<Particles />
+									</div>
 								</div>
 							</Button>
 						</div>
