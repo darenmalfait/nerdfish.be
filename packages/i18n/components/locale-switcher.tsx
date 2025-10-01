@@ -27,7 +27,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 				<Button
 					variant="outline"
 					aria-label={t('switchLanguage')}
-					className={cx('gap-sm !rounded-base', className)}
+					className={cx('gap-sm !rounded-base bg-tranparent', className)}
 				>
 					<GlobeIcon className="size-4" />
 					<span aria-hidden className="hidden lg:flex">

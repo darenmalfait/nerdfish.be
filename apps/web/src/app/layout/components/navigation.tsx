@@ -253,7 +253,7 @@ export function MainNavigation() {
 		<div
 			className={cx(
 				'hidden lg:flex',
-				'rounded-container bg-background-muted p-xs inset-x-0 mx-auto w-fit max-w-full',
+				'rounded-container bg-background-inverted/10 p-xs inset-x-0 mx-auto w-fit max-w-full',
 			)}
 		>
 			<NavigationMenu
