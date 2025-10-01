@@ -1,9 +1,9 @@
 import { type Article } from '@repo/design-system/components/article-overview'
 import { type PartialDeep } from '@repo/lib/types'
 import { nonNullable } from '@repo/lib/utils/array'
+import { getCrypto } from '@repo/lib/utils/misc'
 import { type Wiki } from 'content-collections'
 import Fuse from 'fuse.js'
-import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'
 
 export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 	if (!searchString) return posts

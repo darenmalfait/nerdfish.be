@@ -1,3 +1,4 @@
+import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
 import {
 	Button,
 	Tooltip,
@@ -6,11 +7,9 @@ import {
 } from '@repo/design-system/components/ui'
 
 import { ImportIcon } from '@repo/design-system/icons'
-import { nonNullable } from '@repo/lib/utils/array'
 import dynamic from 'next/dynamic'
 import { useCallback, useState } from 'react'
-import { useTimesheet } from '../timesheet-provider'
-import { getCrypto } from '../utils'
+import { useTimesheets } from '../providers/timesheets-provider'
 
 const CSVImporter = dynamic(
 	() => import('csv-import-react').then((mod) => mod.CSVImporter),
@@ -22,18 +21,18 @@ const CSVImporter = dynamic(
 const template = {
 	columns: [
 		{
-			name: 'Day',
-			key: 'day',
+			name: 'Started At',
+			key: 'started_at',
 			required: true,
 			suggested_mappings: ['started_at'],
-			description: 'The day of the week',
+			description: 'The time the work started',
 		},
 		{
-			name: 'Hours',
-			key: 'hours',
+			name: 'Ended At',
+			key: 'ended_at',
 			required: true,
-			suggested_mappings: ['hours'],
-			description: 'The number of hours worked',
+			suggested_mappings: ['ended_at'],
+			description: 'The time the work ended',
 		},
 		{
 			name: 'Project',
@@ -45,31 +44,60 @@ const template = {
 }
 
 export function ImportTimeEntriesButton() {
-	const { setTimesheet } = useTimesheet()
+	const { onImportEvents } = useTimesheets()
 	const [importing, setImporting] = useState<boolean>(false)
 
 	const onComplete = useCallback(
-		(data: {
-			rows: { values: { day: string; hours: string; project: string } }[]
+		async (data: {
+			rows: {
+				values: {
+					started_at: string
+					ended_at: string
+					project: string
+				}
+			}[]
 		}) => {
 			setImporting(false)
 
-			return setTimesheet({
-				timeEntries: nonNullable(
-					data.rows.map((row) => {
-						if (!row.values.day || !row.values.hours) return null
+			const entries = []
 
-						return {
-							id: getCrypto().randomUUID(),
-							day: new Date(row.values.day),
-							hours: Number(row.values.hours.replace(',', '.')),
-							project: row.values.project,
-						}
-					}),
-				),
-			})
+			for (const row of data.rows) {
+				if (!row.values.started_at.length || !row.values.ended_at.length)
+					continue
+
+				const date = new Date(row.values.started_at).toISOString()
+				const selectedDate = formatISO(date, { representation: 'date' })
+
+				// get the time from the date in format HH:mm
+				const start = format(new Date(row.values.started_at), 'HH:mm')
+				const end = format(new Date(row.values.ended_at), 'HH:mm')
+
+				const duration = differenceInSeconds(
+					new Date(row.values.ended_at),
+					new Date(row.values.started_at),
+				)
+
+				const newEvent = {
+					values: {
+						duration,
+						start,
+						end,
+						project: row.values.project,
+					},
+					selectedDate,
+					range: [selectedDate],
+				}
+
+				entries.push(newEvent)
+			}
+
+			await onImportEvents(entries)
+
+			return {
+				success: true,
+			}
 		},
-		[setTimesheet],
+		[onImportEvents],
 	)
 
 	return (

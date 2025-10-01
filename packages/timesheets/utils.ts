@@ -2,14 +2,19 @@ import { type CalendarEvent } from '@repo/calendar/schemas'
 import {
 	getTimeFromDate,
 	NEW_EVENT_ID,
-	type TZDate,
+	TZDate,
 	format,
 	parseISO,
 	addSeconds,
 	differenceInSeconds,
+	startOfMonth,
+	endOfMonth,
+	startOfWeek,
+	endOfWeek,
+	eachDayOfInterval,
 } from '@repo/calendar/utils'
 import { type TimesheetsRecordFormData } from './forms/timesheet-record-form/timesheets-record-form.schema'
-import { type TimesheetsProject, type TimesheetsRecord } from './schemas'
+import { type TimesheetsRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'
 
@@ -72,14 +77,14 @@ export function transformTimesheetsRecordToFormData(
 		id: event.id ?? NEW_EVENT_ID,
 		start: getTimeFromDate(start),
 		end: getTimeFromDate(end),
-		projectId: event.projectId,
+		project: event.project,
 		description: event.description,
 	}
 }
 
 export function transformTimesheetsRecordToCalendarEvent(
 	event: TimesheetsRecord,
-	project?: TimesheetsProject | undefined,
+	project?: string | undefined,
 ): CalendarEvent {
 	return {
 		...event,
@@ -97,10 +102,40 @@ export function transformCalendarEventToTimesheetsRecord(
 	return {
 		...event,
 		id: event.id,
-		projectId: event.project?.id,
+		project: event.project,
 		duration: Math.max(0, differenceInSeconds(event.end, event.start)),
 		date: new Date(event.start).toISOString(),
 		start: event.start.toISOString(),
 		end: event.end.toISOString(),
+	}
+}
+
+export function useCalendarDates(currentDate: TZDate) {
+	const weekStartsOn = 1
+
+	const monthStart = startOfMonth(currentDate)
+	const monthEnd = endOfMonth(currentDate)
+	const calendarStart = startOfWeek(monthStart, {
+		weekStartsOn,
+	})
+	const calendarEnd = endOfWeek(monthEnd, {
+		weekStartsOn,
+	})
+	const calendarDays = eachDayOfInterval({
+		start: calendarStart,
+		end: calendarEnd,
+	}).map((date) => new TZDate(date, 'UTC'))
+	const firstWeek = eachDayOfInterval({
+		start: calendarStart,
+		end: endOfWeek(calendarStart, { weekStartsOn }),
+	}).map((date) => new TZDate(date, 'UTC'))
+
+	return {
+		monthStart,
+		monthEnd,
+		calendarStart,
+		calendarEnd,
+		calendarDays,
+		firstWeek,
 	}
 }
