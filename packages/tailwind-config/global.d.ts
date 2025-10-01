@@ -1,4 +1,1 @@
-declare module '*.png'
-declare module '*.webp'
-
 declare module 'tailwindcss/lib/util/flattenColorPalette'

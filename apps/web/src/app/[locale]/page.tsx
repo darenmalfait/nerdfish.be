@@ -54,9 +54,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			<Section className="!py-lg">
-				<WelcomeHero />
-			</Section>
+			<WelcomeHero />
 
 			<Section>
 				<SectionHeader>

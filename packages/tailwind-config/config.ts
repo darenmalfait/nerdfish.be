@@ -2,6 +2,7 @@ import nerdfishConfig from '@nerdfish/tailwind-config'
 import aspectRatio from '@tailwindcss/aspect-ratio'
 import typography from '@tailwindcss/typography'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 import { type Config } from 'tailwindcss/types/config'
 import animate from 'tailwindcss-animate'
 
@@ -27,6 +28,7 @@ export const config: Config = {
 		animate,
 		typography,
 		require('tailwindcss-motion'),
+		addVariablesForColors,
 	],
 	theme: {
 		extend: {
@@ -56,6 +58,14 @@ export const config: Config = {
 				},
 			},
 			keyframes: {
+				aurora: {
+					from: {
+						backgroundPosition: '50% 50%, 50% 50%',
+					},
+					to: {
+						backgroundPosition: '350% 50%, 350% 50%',
+					},
+				},
 				float: {
 					'0%': {
 						transform: 'translateY(0)',
@@ -91,7 +101,20 @@ export const config: Config = {
 				scrollIndicator: 'scrollIndicator 2s ease-in-out infinite',
 				'background-position-spin':
 					'background-position-spin 3000ms infinite alternate',
+				aurora: 'aurora 60s linear infinite',
 			},
 		},
 	},
+}
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }: any) {
+	const allColors = flattenColorPalette(theme('colors'))
+	const newVars = Object.fromEntries(
+		Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+	)
+
+	addBase({
+		':root': newVars,
+	})
 }
