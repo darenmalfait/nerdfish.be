@@ -12,16 +12,24 @@ import {
 import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
 import { type ActionResponse } from '@repo/lib/types'
 import { getCrypto } from '@repo/lib/utils/misc'
-
-import { createContext, type ReactNode, useCallback, useContext } from 'react'
-import { type TimesheetsProjectFormData } from '../forms/timesheet-project-form/timesheets-project-form.schema'
-import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import {
-	type TimesheetsRecord,
-	type TimesheetsData,
-	type TimesheetsProject,
-} from '../schemas'
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useMemo,
+} from 'react'
+import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
+import { type TimesheetsRecord, type TimesheetsData } from '../schemas'
 import { TIMEZONE } from '../utils'
+
+export type TimesheetsScheduleImportEvents = (
+	entries: {
+		values: TimesheetsRecordFormData
+		selectedDate: string | null
+		range?: string[] | null
+	}[],
+) => Promise<ActionResponse<void>>
 
 export type TimesheetsScheduleCreateEvent = ({
 	values,
@@ -30,7 +38,7 @@ export type TimesheetsScheduleCreateEvent = ({
 }: {
 	values: TimesheetsRecordFormData
 	selectedDate: string | null
-	range: string[] | null
+	range?: string[] | null
 }) => Promise<ActionResponse<void>>
 
 export type TimesheetsScheduleDeleteEvent = (
@@ -44,31 +52,13 @@ export type TimesheetsScheduleUpdateEvent = (
 	selectedDate: string | null,
 ) => Promise<ActionResponse<void>>
 
-export type TimesheetsProjectCreateEvent = (
-	values: TimesheetsProjectFormData,
-) => Promise<ActionResponse<TimesheetsProject>>
-
-export type TimesheetsProjectDeleteEvent = (
-	id: string,
-) => Promise<ActionResponse<void>>
-
-export type TimesheetsProjectUpdateEvent = (
-	id: string,
-	values: TimesheetsProjectFormData,
-) => Promise<ActionResponse<void>>
-
 interface TimesheetsContextProps {
 	// events
 	timesheets: TimesheetsData
 	onCreateEvent: TimesheetsScheduleCreateEvent
+	onImportEvents: TimesheetsScheduleImportEvents
 	onDeleteEvent: TimesheetsScheduleDeleteEvent
 	onUpdateEvent: TimesheetsScheduleUpdateEvent
-
-	// projects
-	projects: TimesheetsProject[]
-	onCreateProject: TimesheetsProjectCreateEvent
-	onDeleteProject: TimesheetsProjectDeleteEvent
-	onUpdateProject: TimesheetsProjectUpdateEvent
 }
 
 const TimesheetsContext = createContext<TimesheetsContextProps | null>(null)
@@ -85,9 +75,69 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		'timesheets',
 		{},
 	)
-	const [projects, setProjects] = useLocalStorage<TimesheetsProject[]>(
-		'timesheets-projects',
-		[],
+
+	const onImportEvents: TimesheetsScheduleImportEvents = useCallback(
+		async (entries) => {
+			const allNewEntries: Record<string, TimesheetsRecord[]> = {}
+
+			for (const entry of entries) {
+				const { values, selectedDate, range } = entry
+				const sortedRange = range?.sort((a, b) => a.localeCompare(b))
+				const dates = getDates(selectedDate, sortedRange)
+				const baseDate =
+					dates[0] ?? selectedDate ?? format(new Date(), 'yyyy-MM-dd')
+
+				const startDate = parseISO(`${baseDate}T${values.start}`)
+				const endDate = parseISO(`${baseDate}T${values.end}`)
+
+				const newEvent = {
+					id: getCrypto().randomUUID(),
+					start: startDate.toISOString(),
+					end: endDate.toISOString(),
+					project: values.project,
+					description: values.description ?? '',
+					duration: Math.max(0, differenceInSeconds(endDate, startDate)),
+				}
+
+				const eventEntries = dates.map((date) => ({
+					...newEvent,
+					date: new TZDate(date, TIMEZONE).toISOString(),
+					start: new TZDate(newEvent.start, TIMEZONE).toISOString(),
+					end: new TZDate(newEvent.end, TIMEZONE).toISOString(),
+				}))
+
+				// Accumulate entries by date
+				eventEntries.forEach((eventEntry) => {
+					const key = formatISO(new Date(eventEntry.date), {
+						representation: 'date',
+					})
+
+					allNewEntries[key] ??= []
+					allNewEntries[key].push(eventEntry)
+				})
+			}
+
+			// Apply all changes at once
+			setTimesheets((currentTimesheets) => {
+				const updatedTimesheets = { ...currentTimesheets }
+
+				Object.entries(allNewEntries).forEach(([date, newEvents]) => {
+					// Get existing events for this date, filtering out NEW_EVENT_ID
+					const existingEvents =
+						updatedTimesheets[date]?.filter(
+							(e) => e.id && e.id !== NEW_EVENT_ID,
+						) ?? []
+
+					// Combine existing events with new events
+					updatedTimesheets[date] = [...existingEvents, ...newEvents]
+				})
+
+				return updatedTimesheets
+			})
+
+			return { success: true }
+		},
+		[setTimesheets],
 	)
 
 	const onCreateEvent: TimesheetsScheduleCreateEvent = useCallback(
@@ -104,7 +154,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 				id: getCrypto().randomUUID(),
 				start: startDate.toISOString(),
 				end: endDate.toISOString(),
-				projectId: values.projectId,
+				project: values.project,
 				description: values.description ?? '',
 				duration: Math.max(0, differenceInSeconds(endDate, startDate)),
 			}
@@ -194,52 +244,25 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		[timesheets, setTimesheets],
 	)
 
-	const onCreateProject: TimesheetsProjectCreateEvent = useCallback(
-		async (values) => {
-			const newProject = {
-				...values,
-				id: getCrypto().randomUUID(),
-			}
-			setProjects([...projects, newProject])
-
-			return { success: true, data: newProject }
-		},
-		[projects, setProjects],
-	)
-
-	const onDeleteProject: TimesheetsProjectDeleteEvent = useCallback(
-		async (id) => {
-			setProjects(projects.filter((p) => p.id !== id))
-
-			return { success: true }
-		},
-		[projects, setProjects],
-	)
-
-	const onUpdateProject: TimesheetsProjectUpdateEvent = useCallback(
-		async (id, values) => {
-			setProjects(projects.map((p) => (p.id === id ? { ...p, ...values } : p)))
-
-			return { success: true }
-		},
-		[projects, setProjects],
-	)
-
 	return (
 		<TimesheetsContext
-			value={{
-				// events
-				timesheets,
-				onCreateEvent,
-				onDeleteEvent,
-				onUpdateEvent,
-
-				// projects
-				projects,
-				onCreateProject,
-				onDeleteProject,
-				onUpdateProject,
-			}}
+			value={useMemo(
+				() => ({
+					// events
+					timesheets,
+					onCreateEvent,
+					onImportEvents,
+					onDeleteEvent,
+					onUpdateEvent,
+				}),
+				[
+					timesheets,
+					onCreateEvent,
+					onImportEvents,
+					onDeleteEvent,
+					onUpdateEvent,
+				],
+			)}
 		>
 			{children}
 		</TimesheetsContext>

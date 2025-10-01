@@ -11,14 +11,13 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
+	Input,
 	LoadingAnimation,
 	Textarea,
 } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { TimesheetsSelectProject } from '../../components/timesheets-select-project'
-import { type TimesheetsProject } from '../../schemas'
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,
@@ -27,7 +26,6 @@ import {
 interface TimesheetsRecordFormProps {
 	defaultValues?: TimesheetsRecordFormData
 	onSubmit?: (data: TimesheetsRecordFormData) => void
-	projects: TimesheetsProject[]
 	className?: string
 }
 
@@ -36,13 +34,13 @@ export function TimesheetsRecordForm({
 	onSubmit,
 	className,
 }: TimesheetsRecordFormProps) {
-	const { id, start, end, description, projectId } = defaultValues ?? {}
+	const { id, start, end, description, project } = defaultValues ?? {}
 
 	const form = useForm<TimesheetsRecordFormData>({
 		resolver: zodResolver(timesheetsRecordFormSchema),
 		defaultValues: defaultValues ?? {
 			duration: 0,
-			projectId: '',
+			project: '',
 			start: '',
 			end: '',
 		},
@@ -64,8 +62,8 @@ export function TimesheetsRecordForm({
 			form.setValue('end', end)
 		}
 
-		if (projectId) {
-			form.setValue('projectId', projectId, { shouldValidate: true })
+		if (project) {
+			form.setValue('project', project, { shouldValidate: true })
 		}
 
 		if (description) {
@@ -82,7 +80,7 @@ export function TimesheetsRecordForm({
 				form.setValue('duration', durationInSeconds, { shouldValidate: true })
 			}
 		}
-	}, [defaultValues, description, end, form, id, projectId, start])
+	}, [defaultValues, description, end, form, id, project, start])
 
 	function handleSubmit(data: TimesheetsRecordFormData) {
 		onSubmit?.(data)
@@ -129,12 +127,12 @@ export function TimesheetsRecordForm({
 
 				<FormField
 					control={form.control}
-					name="projectId"
+					name="project"
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel>Project</FormLabel>
 							<FormControl>
-								<TimesheetsSelectProject {...field} placeholder="Project" />
+								<Input {...field} placeholder="Project" />
 							</FormControl>
 							<FormMessage />
 						</FormItem>

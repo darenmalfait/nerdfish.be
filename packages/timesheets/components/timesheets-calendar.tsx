@@ -2,14 +2,9 @@
 
 import {
 	addMonths,
-	eachDayOfInterval,
-	endOfMonth,
-	endOfWeek,
 	format,
 	formatISO,
 	isToday,
-	startOfMonth,
-	startOfWeek,
 	subMonths,
 	TZDate,
 } from '@repo/calendar/utils'
@@ -18,40 +13,9 @@ import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cx } from '@repo/lib/utils/base'
 import { useCallback, useState } from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { useTimesheets } from '../providers/timesheets-provider'
-import { type TimesheetsRecord } from '../schemas'
-import { TIMEZONE } from '../utils'
+import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
+import { TIMEZONE, useCalendarDates } from '../utils'
 import { TimesheetsCalendarEvents } from './timesheets-calendar-events'
-
-function useCalendarDates(currentDate: TZDate) {
-	const weekStartsOn = 1
-
-	const monthStart = startOfMonth(currentDate)
-	const monthEnd = endOfMonth(currentDate)
-	const calendarStart = startOfWeek(monthStart, {
-		weekStartsOn,
-	})
-	const calendarEnd = endOfWeek(monthEnd, {
-		weekStartsOn,
-	})
-	const calendarDays = eachDayOfInterval({
-		start: calendarStart,
-		end: calendarEnd,
-	}).map((date) => new TZDate(date, 'UTC'))
-	const firstWeek = eachDayOfInterval({
-		start: calendarStart,
-		end: endOfWeek(calendarStart, { weekStartsOn }),
-	}).map((date) => new TZDate(date, 'UTC'))
-
-	return {
-		monthStart,
-		monthEnd,
-		calendarStart,
-		calendarEnd,
-		calendarDays,
-		firstWeek,
-	}
-}
 
 function checkIsInRange(
 	date: TZDate,
@@ -223,14 +187,17 @@ function TimesheetsCalendarDay({
 	)
 }
 
-export function TimesheetsCalendar() {
+export function TimesheetsCalendar({
+	timesheets,
+}: {
+	timesheets: TimesheetsData
+}) {
 	const {
 		date: currentDate,
 		setParams,
 		selectedDate,
 		range,
 	} = useTimesheetsParams()
-	const { timesheets } = useTimesheets()
 
 	const { calendarDays, firstWeek } = useCalendarDates(
 		new TZDate(currentDate, TIMEZONE),

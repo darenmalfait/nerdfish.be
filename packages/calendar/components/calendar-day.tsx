@@ -324,7 +324,7 @@ export function CalendarDay({
 								>
 									<div className="p-md pointer-events-none flex select-none flex-col justify-between text-xs">
 										<span className="font-bold">
-											{event.project?.name} (
+											{event.project} (
 											{secondsToHoursAndMinutes(
 												differenceInSeconds(event.end, event.start),
 											)}

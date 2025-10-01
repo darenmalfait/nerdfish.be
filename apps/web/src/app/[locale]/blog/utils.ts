@@ -2,9 +2,9 @@ import { type Article } from '@repo/design-system/components/article-overview'
 import { i18n } from '@repo/i18n/config'
 import { type PartialDeep } from '@repo/lib/types'
 import { nonNullable } from '@repo/lib/utils/array'
+import { getCrypto } from '@repo/lib/utils/misc'
 import { type Post } from 'content-collections'
 import Fuse from 'fuse.js'
-import { getCrypto } from '../tooling/(timesheets)/timesheets/utils'
 
 export function filterBlog(posts: PartialDeep<Post>[], searchString: string) {
 	if (!searchString) return posts

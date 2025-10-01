@@ -46,8 +46,7 @@ interface TimesheetsScheduleProps {
 export function TimesheetsSchedule({
 	data: dataProp,
 }: TimesheetsScheduleProps) {
-	const { onCreateEvent, onDeleteEvent, onUpdateEvent, projects } =
-		useTimesheets()
+	const { onCreateEvent, onDeleteEvent, onUpdateEvent } = useTimesheets()
 
 	const scrollRef = useRef<HTMLDivElement>(null)
 	const { selectedDate, range, setParams } = useTimesheetsParams()
@@ -127,15 +126,12 @@ export function TimesheetsSchedule({
 						selectedEvent
 							? transformTimesheetsRecordToCalendarEvent(
 									selectedEvent,
-									projects.find((p) => p.id === selectedEvent.projectId),
+									selectedEvent.project,
 								)
 							: undefined
 					}
 					value={data.map((event) =>
-						transformTimesheetsRecordToCalendarEvent(
-							event,
-							projects.find((p) => p.id === event.projectId),
-						),
+						transformTimesheetsRecordToCalendarEvent(event, event.project),
 					)}
 					onDeleteEvent={handleDeleteEvent}
 					onChange={(values) => {
@@ -151,7 +147,6 @@ export function TimesheetsSchedule({
 
 			<TimesheetsRecordForm
 				key={selectedEvent?.id}
-				projects={projects}
 				defaultValues={
 					selectedEvent
 						? transformTimesheetsRecordToFormData(selectedEvent, selectedDate)
