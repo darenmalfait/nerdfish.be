@@ -76,6 +76,7 @@ export interface SectionHeaderProps extends ComponentProps<'header'> {
 	}
 	as?: ElementType
 	eager?: boolean
+	skipAnimation?: boolean
 }
 
 export function SectionHeader({
@@ -84,12 +85,27 @@ export function SectionHeader({
 	cta,
 	as,
 	eager,
+	skipAnimation,
 	...props
 }: SectionHeaderProps) {
 	const Element = as ?? 'header'
 
 	if (!children) return null
 
+	if (skipAnimation) {
+		return (
+			<Element className={cx('mb-xl', className)} {...props}>
+				{children}
+				{cta?.url ? (
+					<div className="mt-lg flex justify-start">
+						<ArrowLink as={cta.as} href={cta.url} direction="right">
+							{cta.title}
+						</ArrowLink>
+					</div>
+				) : null}
+			</Element>
+		)
+	}
 	return (
 		<Element className={cx('mb-xl', className)} {...props}>
 			<TextSlideUp eager={eager}>
