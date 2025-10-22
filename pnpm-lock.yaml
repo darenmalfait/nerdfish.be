@@ -200,8 +200,8 @@ importers:
         specifier: ^0.8.5
         version: 0.8.5
       csv-import-react:
-        specifier: ^1.0.17
-        version: 1.0.17(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^1.0.18
+        version: 1.0.18(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       fuse.js:
         specifier: ^7.1.0
         version: 7.1.0
@@ -5611,8 +5611,8 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  csv-import-react@1.0.17:
-    resolution: {integrity: sha512-Pt/Ue8uaU9lPlkbyQlrunlK31yDVKnN5VxNFIuMOdJYCXeAVrs/fX02/O4Fsfv/D6gH9+Z6OyiQf+wRFl7LnZQ==}
+  csv-import-react@1.0.18:
+    resolution: {integrity: sha512-dtBj3gzw2GP/c94biSIr/ujbzt7D94+KmKfIi5ARCJQ0ysixMFfu45wIKkgPsuo4OU4bCDHst0lQ5HTi8DfQqA==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -15171,7 +15171,7 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  csv-import-react@1.0.17(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  csv-import-react@1.0.18(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       '@chakra-ui/alert': 2.2.2(@chakra-ui/system@2.6.2(@emotion/react@11.14.0(@types/react@19.1.13)(react@19.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.13)(react@19.1.1))(@types/react@19.1.13)(react@19.1.1))(react@19.1.1))(react@19.1.1)
       '@chakra-ui/button': 2.1.0(@chakra-ui/system@2.6.2(@emotion/react@11.14.0(@types/react@19.1.13)(react@19.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.13)(react@19.1.1))(@types/react@19.1.13)(react@19.1.1))(react@19.1.1))(react@19.1.1)
