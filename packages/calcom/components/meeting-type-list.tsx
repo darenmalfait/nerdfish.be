@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge } from '@repo/design-system/components/ui'
+import { Badge } from '@nerdfish/react/badge'
 import { ClockIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { type Locale } from '@repo/i18n/types'
 import { cx } from '@repo/lib/utils/base'
@@ -20,13 +20,13 @@ export function MeetingTypeList({
 	...props
 }: MeetingTypeListProps) {
 	return (
-		<ul className={cx('gap-sm flex flex-col', className)} {...props}>
+		<ul className={cx('gap-best-friends flex flex-col', className)} {...props}>
 			{calcomSettings.types.map(({ slug, title: bookingTitle, duration }) => {
 				const title = (bookingTitle as Record<Locale, string>)[locale]
 
 				return (
 					<li
-						className="rounded-base bg-background shadow-outline hover:bg-background-muted"
+						className="rounded-base bg-background border-border hover:bg-background-muted"
 						key={slug}
 					>
 						<button
@@ -36,13 +36,15 @@ export function MeetingTypeList({
 						>
 							<div className="flex w-full items-start justify-between gap-4 p-5">
 								<div className="flex flex-col">
-									<div className="mb-sm text-lg font-semibold">{title}</div>
+									<div className="mb-best-friends text-lg font-semibold">
+										{title}
+									</div>
 									<div className="flex w-full">
 										<Badge
-											variant="secondary"
+											variant="muted"
 											className="inline-flex w-auto items-center"
 										>
-											<ClockIcon className="mr-sm size-3" />
+											<ClockIcon className="mr-best-friends size-3" />
 											{duration} minutes
 										</Badge>
 									</div>

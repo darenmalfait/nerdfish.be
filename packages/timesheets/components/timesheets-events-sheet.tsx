@@ -1,17 +1,19 @@
 'use client'
 
-import { formatISO } from '@repo/calendar/utils'
 import {
 	Drawer,
 	DrawerContent,
 	DrawerHeader,
 	DrawerTitle,
+} from '@nerdfish/react/drawer'
+import {
 	Sheet,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
-	useMediaQuery,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/sheet'
+import { formatISO } from '@repo/calendar/utils'
+import { useMediaQuery } from '@repo/design-system/hooks/use-media-query'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
 import { TimesheetsSchedule } from './timesheets-schedule'
@@ -39,8 +41,8 @@ export function TimesheetsEventsSheet() {
 					setParams({ project: null, range: null, selectedDate: null })
 				}
 			>
-				<SheetContent className="overflow-y-auto">
-					<SheetHeader className="mb-lg">
+				<SheetContent className="p-friends overflow-y-auto" variant="inset">
+					<SheetHeader className="mb-casual">
 						<SheetTitle>Schedule</SheetTitle>
 					</SheetHeader>
 					<TimesheetsSchedule data={events} />
@@ -58,11 +60,13 @@ export function TimesheetsEventsSheet() {
 				}
 			}}
 		>
-			<DrawerContent className="px-md">
-				<DrawerHeader>
-					<DrawerTitle>Schedule</DrawerTitle>
-				</DrawerHeader>
-				<TimesheetsSchedule data={events} />
+			<DrawerContent className="px-friends">
+				<div className="py-casual relative max-h-screen overflow-y-auto">
+					<DrawerHeader>
+						<DrawerTitle>Schedule</DrawerTitle>
+					</DrawerHeader>
+					<TimesheetsSchedule data={events} />
+				</div>
 			</DrawerContent>
 		</Drawer>
 	)

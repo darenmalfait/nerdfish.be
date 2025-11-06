@@ -1,4 +1,4 @@
-import { H1, Skeleton } from '@repo/design-system/components/ui'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { getLocale } from '@repo/i18n/server'
 import { type Testimonial } from 'content-collections'
 import { Suspense } from 'react'
@@ -46,9 +46,9 @@ export function Testimonials(props: TestimonialsProps) {
 			fallback={
 				<TestimonialsContent {...props} testimonials={[]}>
 					<div className="relative flex w-full flex-col justify-center">
-						<H1>
+						<h1 className="typography-heading">
 							<Skeleton count={3} />
-						</H1>
+						</h1>
 					</div>
 				</TestimonialsContent>
 			}

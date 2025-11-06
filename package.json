@@ -30,6 +30,9 @@
     "vercel-build": "dotenv -- turbo build"
   },
   "prettier": "@nerdfish/config/prettier",
+  "dependencies": {
+    "tailwindcss": "^4.1.16"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",

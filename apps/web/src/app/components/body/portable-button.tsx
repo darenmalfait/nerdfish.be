@@ -1,5 +1,5 @@
+import { type ButtonProps } from '@nerdfish/react/button'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { type ButtonProps } from '@repo/design-system/components/ui'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import Link from 'next/link'
 
@@ -18,20 +18,20 @@ function PortableButton({
 		<div className="inline-block w-auto">
 			<MagnetButton
 				variant={variant}
-				asChild
 				className="cursor-pointer no-underline"
 				size="lg"
-			>
-				<Link
-					{...props}
-					href={slug}
-					aria-label={text}
-					target={isExternal ? '_blank' : undefined}
-					rel={isExternal ? 'noopener noreferrer' : undefined}
-				>
-					{text}
-				</Link>
-			</MagnetButton>
+				render={
+					<Link
+						{...props}
+						href={slug}
+						aria-label={text}
+						target={isExternal ? '_blank' : undefined}
+						rel={isExternal ? 'noopener noreferrer' : undefined}
+					>
+						{text}
+					</Link>
+				}
+			/>
 		</div>
 	)
 }

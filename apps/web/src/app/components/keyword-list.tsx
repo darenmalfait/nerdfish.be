@@ -1,35 +1,34 @@
-import { H1, Marquee } from '@repo/design-system/components/ui'
-import { cx } from '@repo/lib/utils/base'
-import type * as React from 'react'
+'use client'
 
-export interface KeywordProps
-	extends Omit<React.ComponentProps<typeof H1>, 'children'> {
+import { Marquee } from '@nerdfish/react/marquee'
+import { cx } from '@repo/lib/utils/base'
+import { type ComponentProps } from 'react'
+
+export interface KeywordProps extends Omit<ComponentProps<'span'>, 'children'> {
 	children: string
 }
 
 export function Keyword({ children, className, ...props }: KeywordProps) {
 	return (
-		<H1
-			as="span"
-			variant="primary"
+		<span
 			aria-label={children}
-			className={cx('uppercase', className)}
+			className={cx('typography-heading-lg uppercase', className)}
 			{...props}
 		>
 			<span>{children}</span>
 			<span aria-hidden className="ml-md">
 				-
 			</span>
-		</H1>
+		</span>
 	)
 }
 
-export type KeywordListProps = React.ComponentProps<typeof Marquee>
+export type KeywordListProps = ComponentProps<typeof Marquee>
 
 export function KeywordList({ children, ...props }: KeywordListProps) {
 	return (
 		<div className="max-w-full overflow-hidden">
-			<Marquee pauseOnHover duration={20000} repeat={5} {...props}>
+			<Marquee pauseOnHover repeat={5} {...props}>
 				{children}
 			</Marquee>
 		</div>

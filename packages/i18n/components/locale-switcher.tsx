@@ -1,12 +1,12 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
 import {
-	Button,
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/dropdown-menu'
 import { GlobeIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import Link from 'next/link'
@@ -23,27 +23,29 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button
-					variant="outline"
-					aria-label={t('switchLanguage')}
-					className={cx('gap-sm !rounded-base bg-tranparent', className)}
-				>
-					<GlobeIcon className="size-4" />
-					<span aria-hidden className="hidden lg:flex">
-						{selectedLanguage?.label}
-					</span>
-					<span aria-hidden className="lg:hidden">
-						{selectedLanguage?.code}
-					</span>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent className="rounded-base bg-background-muted !p-md">
+			<DropdownMenuTrigger
+				render={
+					<Button
+						variant="outline"
+						aria-label={t('switchLanguage')}
+						className={cx('gap-best-friends bg-transparent', className)}
+					>
+						<GlobeIcon className="size-4" />
+						<span aria-hidden className="hidden lg:flex">
+							{selectedLanguage?.label}
+						</span>
+						<span aria-hidden className="lg:hidden">
+							{selectedLanguage?.code}
+						</span>
+					</Button>
+				}
+			/>
+			<DropdownMenuContent>
 				<ul>
 					{i18n.locales.map((locale) => {
 						return (
 							<li key={locale}>
-								<DropdownMenuItem className="hover:!bg-background !rounded-[calc(theme(borderRadius.base)-theme(padding.md))]">
+								<DropdownMenuItem>
 									<Link
 										href={`/${locale}`}
 										lang={locale}

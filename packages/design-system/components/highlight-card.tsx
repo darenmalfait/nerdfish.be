@@ -1,11 +1,12 @@
 'use client'
 
+import { Badge } from '@nerdfish/react/badge'
+import { Button } from '@nerdfish/react/button'
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
 import Link from 'next/link'
 import { type ElementType, type ReactNode, type ComponentProps } from 'react'
 import { ArrowRightIcon } from '../icons'
-import { Badge, Button, H1, type H2 } from './ui'
 
 export interface HighlightCardImageProps extends ComponentProps<'div'> {
 	src?: string | null
@@ -26,13 +27,13 @@ export function HighlightCardImage({
 		<div
 			{...props}
 			className={cx(
-				'mt-lg aspect-h-4 aspect-w-3 pointer-events-none relative col-span-full h-0 overflow-hidden rounded-[calc(theme(borderRadius.container)-theme(padding.md))] lg:col-span-4 lg:col-start-9 lg:mt-0',
+				'mt-casual pointer-events-none relative col-span-full aspect-3/4 !h-full w-auto overflow-hidden rounded-[calc(var(--radius-container)-var(--spacing-friends))] lg:col-span-4 lg:col-start-9 lg:mt-0',
 				className,
 			)}
 		>
 			{src ? (
 				<Image
-					className="absolute inset-0 object-cover"
+					className="absolute inset-0 size-full object-cover"
 					src={src}
 					width={550}
 					height={550}
@@ -58,7 +59,7 @@ export function HighlightCardContent({
 		<div
 			{...props}
 			className={cx(
-				'p-md col-span-4 flex h-full flex-col md:col-span-6 lg:col-span-7 lg:justify-start',
+				'p-friends col-span-4 flex h-full flex-col md:col-span-6 lg:col-span-7 lg:justify-start',
 				className,
 			)}
 		>
@@ -67,7 +68,7 @@ export function HighlightCardContent({
 	)
 }
 
-export type HighlightCardTitleProps = ComponentProps<typeof H2>
+export type HighlightCardTitleProps = ComponentProps<'h2'>
 
 export function HighlightCardTitle({
 	className,
@@ -77,14 +78,9 @@ export function HighlightCardTitle({
 	if (!children) return null
 
 	return (
-		<H1
-			variant="primary"
-			as="h2"
-			className={cx('mt-0 md:!text-5xl xl:!text-7xl', className)}
-			{...props}
-		>
+		<h2 className={cx('typography-heading-sm mt-0', className)} {...props}>
 			<span className="leading-[1.1]">{children}</span>
-		</H1>
+		</h2>
 	)
 }
 
@@ -101,7 +97,7 @@ export function HighlightCardSubtitle({
 		<div
 			{...props}
 			className={cx(
-				'mt-md text-foreground line-clamp-2 text-xl font-bold',
+				'mt-friends text-foreground line-clamp-2 text-xl font-bold',
 				className,
 			)}
 		/>
@@ -125,7 +121,7 @@ export function HighlightCardCategory({
 				variant="default"
 				{...props}
 				className={cx(
-					'mb-md bg-foreground/10 px-md py-sm bg-background text-foreground w-auto text-base',
+					'mb-friends bg-foreground/10 px-best-friends py-best-friends text-foreground w-auto text-base',
 					className,
 				)}
 			>
@@ -149,7 +145,7 @@ export function HighlightCardDescription({
 		<p
 			{...props}
 			className={cx(
-				'mt-md text-foreground/80 line-clamp-2 text-xl font-semibold',
+				'mt-casual text-foreground/80 line-clamp-2 text-xl font-semibold',
 				className,
 			)}
 		>
@@ -179,19 +175,25 @@ export function HighlightCardCTA({
 	const LinkElement = as ?? Link
 
 	return (
-		<div className={cx('mt-lg flex flex-1 items-end justify-start', className)}>
-			<Button size="lg" asChild className="group">
-				<LinkElement href={href} {...props}>
-					{children}{' '}
-					<span>
-						<ArrowRightIcon
-							className={cx(
-								'ml-sm group-hover:translate-x-xs size-4 transition-transform',
-							)}
-						/>
-					</span>
-				</LinkElement>
-			</Button>
+		<div
+			className={cx('mt-casual flex flex-1 items-end justify-start', className)}
+		>
+			<Button
+				size="lg"
+				className="group"
+				render={
+					<LinkElement href={href} {...props}>
+						{children}{' '}
+						<span>
+							<ArrowRightIcon
+								className={cx(
+									'ml-best-friends group-hover:translate-x-bff size-4 transition-transform',
+								)}
+							/>
+						</span>
+					</LinkElement>
+				}
+			/>
 		</div>
 	)
 }
@@ -214,8 +216,8 @@ export function HighlightCard({
 			)}
 			{...props}
 		>
-			<div className="'rounded-container lg:bg-transparent' block no-underline outline-none">
-				<div className="rounded-container p-md relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12">
+			<div className="rounded-container block no-underline outline-none lg:bg-transparent">
+				<div className="rounded-container p-friends relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12">
 					{children}
 				</div>
 			</div>

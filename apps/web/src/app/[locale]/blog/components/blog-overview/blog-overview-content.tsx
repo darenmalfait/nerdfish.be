@@ -17,7 +17,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { H1 } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Post } from 'content-collections'
@@ -74,9 +73,7 @@ export function BlogOverviewContent({
 				/>
 				<ArticleOverviewSearchContent inputLabel={t('search')}>
 					<SectionHeader>
-						<H1 variant="primary" className="mb-lg">
-							{header?.title}
-						</H1>
+						<h1 className="typography-heading mb-casual">{header?.title}</h1>
 						<SectionHeaderSubtitle>
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>

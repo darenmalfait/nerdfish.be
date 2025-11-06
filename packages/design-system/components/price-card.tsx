@@ -1,5 +1,15 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@nerdfish/react/card'
+import { Separator } from '@nerdfish/react/separator'
 import { cx } from '@repo/lib/utils/base'
 import Link from 'next/link'
 import {
@@ -7,19 +17,9 @@ import {
 	createContext,
 	type ElementType,
 	useContext,
+	useMemo,
 } from 'react'
 import { CheckIcon } from '../icons'
-import {
-	Button,
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-	H3,
-	Separator,
-} from './ui'
 
 interface PriceCardContextProps {
 	isPopular?: boolean
@@ -46,10 +46,15 @@ export function PriceCardHeader({
 	className,
 	...props
 }: PriceCardHeaderProps) {
+	const { isPopular } = usePriceCard()
 	return (
 		<CardHeader className={cx('bg-transparent', className)} {...props}>
 			{children}
-			<Separator />
+			<Separator
+				className={cx('my-best-friends', {
+					'bg-background/20': isPopular,
+				})}
+			/>
 		</CardHeader>
 	)
 }
@@ -93,7 +98,10 @@ export function PriceCardFeature({
 	...props
 }: PriceCardFeatureProps) {
 	return (
-		<li className={cx('gap-sm flex items-center', className)} {...props}>
+		<li
+			className={cx('gap-best-friends flex items-center', className)}
+			{...props}
+		>
 			<CheckIcon className="text-success-foreground size-3" />
 			<span className="font-medium">{children}</span>
 		</li>
@@ -115,7 +123,7 @@ export function PriceCardDescription({
 			className={cx(
 				'text-foreground-muted text-lg',
 				{
-					'text-background/60': isPopular,
+					'text-foreground-inverted/80': isPopular,
 				},
 				className,
 			)}
@@ -126,7 +134,7 @@ export function PriceCardDescription({
 	)
 }
 
-export type PriceCardPriceProps = ComponentProps<typeof H3>
+export type PriceCardPriceProps = ComponentProps<'p'>
 
 export function PriceCardPrice({
 	children,
@@ -138,10 +146,8 @@ export function PriceCardPrice({
 	if (!price) return null
 
 	return (
-		<p className={cx('p-md', className)} {...props}>
-			<H3 as="span" className="inline text-4xl font-semibold leading-7">
-				{price}
-			</H3>
+		<p className={cx('p-friends', className)} {...props}>
+			<span className="inline text-4xl leading-7 font-semibold">{price}</span>
 		</p>
 	)
 }
@@ -161,17 +167,17 @@ export function PriceCardAction({
 	const LinkElement = as ?? Link
 
 	return (
-		<CardFooter className="mt-lg flex-1 items-end">
+		<CardFooter className="mt-casual flex-1 items-end">
 			<Button
 				size="lg"
 				className="w-full"
-				variant={isPopular ? 'brand' : 'default'}
-				asChild
-			>
-				<LinkElement href={href} {...props}>
-					{children}
-				</LinkElement>
-			</Button>
+				variant={isPopular ? 'accent' : 'default'}
+				render={
+					<LinkElement href={href} {...props}>
+						{children}
+					</LinkElement>
+				}
+			/>
 		</CardFooter>
 	)
 }
@@ -189,12 +195,13 @@ export function PriceCard({
 	...props
 }: PriceCardProps) {
 	return (
-		<PriceCardContext value={{ isPopular, price }}>
+		<PriceCardContext
+			value={useMemo(() => ({ isPopular, price }), [isPopular, price])}
+		>
 			<Card
 				className={cx(
-					'p-md',
 					{
-						'bg-foreground text-background': isPopular,
+						'bg-background-inverted text-foreground-inverted': isPopular,
 						'bg-background-muted': !isPopular,
 					},
 					className,

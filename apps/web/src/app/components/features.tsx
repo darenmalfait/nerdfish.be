@@ -1,7 +1,7 @@
 'use client'
 
+import { Grid } from '@repo/design-system/components/grid'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { Grid, H3 } from '@repo/design-system/components/ui'
 import { ArrowRight } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { type VariantProps, cva, cx } from '@repo/lib/utils/base'
@@ -18,19 +18,23 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 	if (!href) return null
 
 	return (
-		<div className="mt-md">
-			<MagnetButton className="group -mx-[1.5rem]" variant="ghost" asChild>
-				<Link
-					href={href}
-					className="inline-flex items-center"
-					aria-label={`${t('readMoreAbout', { subject: title })}`}
-				>
-					{t('viewMore', {
-						subject: title,
-					})}
-					<ArrowRight className="ml-sm group-hover:translate-x-xs size-4 transition-transform" />
-				</Link>
-			</MagnetButton>
+		<div className="mt-friends">
+			<MagnetButton
+				className="group -mx-[1.5rem]"
+				variant="ghost"
+				render={
+					<Link
+						href={href}
+						className="inline-flex items-center"
+						aria-label={`${t('readMoreAbout', { subject: title })}`}
+					>
+						{t('viewMore', {
+							subject: title,
+						})}
+						<ArrowRight className="ml-best-friends group-hover:translate-x-bff size-4 transition-transform" />
+					</Link>
+				}
+			/>
 		</div>
 	)
 }
@@ -41,7 +45,7 @@ const featureCardVariants = cva(
 		variants: {
 			variant: {
 				default: '',
-				secondary: 'rounded-container bg-background-muted p-lg',
+				secondary: 'rounded-container bg-background-muted p-casual',
 			},
 		},
 		defaultVariants: {
@@ -72,7 +76,7 @@ function Feature({
 		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
-					className="mb-lg aspect-1 text-foreground flex items-center justify-center"
+					className="mb-casual aspect-1 text-foreground flex items-center justify-center"
 					aria-hidden
 				>
 					<Icon className="flex h-5 shrink-0" />
@@ -80,10 +84,12 @@ function Feature({
 			) : null}
 			<div className="flex h-full flex-col justify-between">
 				<div>
-					<H3 className="mb-md text-foreground flex flex-none items-end">
+					<h3 className="typography-title mb-friends text-foreground flex flex-none items-end">
 						{title}
-					</H3>
-					<p className="text-foreground/80 flex-auto text-lg">{description}</p>
+					</h3>
+					<p className="text-foreground-muted flex-auto text-lg">
+						{description}
+					</p>
 				</div>
 				<DetailLink href={href} title={title ?? ''} />
 			</div>
@@ -113,7 +119,7 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 	return (
 		<Grid
 			ref={ref}
-			className={cx('gap-xl auto-rows-auto', {
+			className={cx('gap-acquaintances! auto-rows-auto', {
 				'grid-cols-2': maxCols === '2',
 				'grid-cols-3': maxCols === '3',
 				'grid-cols-4': maxCols === '4',

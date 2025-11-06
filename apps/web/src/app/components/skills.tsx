@@ -115,7 +115,7 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 			isReverse
 			as="li"
 			className={cx(
-				'aspect-1 rounded-container bg-background-muted group/skill relative col-span-1 flex w-full flex-col items-center justify-center overflow-hidden',
+				'rounded-container bg-background-muted group/skill relative col-span-1 flex aspect-square w-full flex-col items-center justify-center overflow-hidden',
 				className,
 			)}
 			{...props}
@@ -127,7 +127,7 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 				)}
 			>
 				<SkillIcon
-					className="mb-sm h-24 w-24 brightness-0 grayscale dark:invert"
+					className="mb-best-friends h-24 w-24 brightness-0 grayscale dark:invert"
 					aria-hidden
 				/>
 				<div className="group-hover/skill:motion-preset-fade absolute inset-0 hidden size-full backdrop-blur-2xl group-hover/skill:block" />
@@ -174,7 +174,7 @@ export function Skills({
 		<ul
 			{...props}
 			className={cx(
-				'gap-sm grid grid-cols-2 md:grid-cols-3',
+				'gap-friends grid grid-cols-2 md:grid-cols-3',
 				{
 					'lg:grid-cols-4': maxCols === 4,
 					'lg:grid-cols-5': maxCols === 5,

@@ -1,9 +1,5 @@
-import {
-	Avatar,
-	AvatarFallback,
-	AvatarImage,
-	Skeleton,
-} from '@repo/design-system/components/ui'
+import { Avatar, AvatarFallback, AvatarImage } from '@nerdfish/react/avatar'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { cx } from '@repo/lib/utils/base'
 import { type Product } from 'content-collections'
 import { type ComponentProps } from 'react'
@@ -33,7 +29,7 @@ export function ProductCardTitle({ className, ...props }: ComponentProps<'p'>) {
 	return (
 		<p
 			className={cx(
-				'text-foreground text-md group-hover:text-brand font-semibold',
+				'text-foreground text-md group-hover:text-accent font-semibold',
 				'flex items-center text-base font-semibold transition-all duration-300',
 				className,
 			)}
@@ -65,7 +61,7 @@ export function ProductCard({
 		<li>
 			<Link
 				className={cx(
-					'gap-x-md p-md rounded-base mx-auto flex w-full max-w-4xl',
+					'gap-x-friends p-friends rounded-base mx-auto flex w-full max-w-4xl',
 					'hover:bg-background-muted focus-within:outline-accent group transition-all',
 					className,
 				)}

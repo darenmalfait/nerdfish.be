@@ -30,7 +30,7 @@ export function InViewBackground({
 			<div
 				className={cx(
 					className,
-					'-z-1 fixed inset-0 overflow-hidden rounded-none opacity-0 duration-500',
+					'fixed inset-0 -z-1 overflow-hidden rounded-none opacity-0 duration-500',
 					isInView && 'opacity-100',
 				)}
 				{...rest}

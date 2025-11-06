@@ -8,7 +8,7 @@ export function Particles() {
 			{[...Array(6)].map((_, i) => (
 				<motion.div
 					key={i}
-					className="bg-inverted/60 absolute h-1 w-1 rounded-full"
+					className="bg-background-inverted/60 absolute h-1 w-1 rounded-full"
 					style={{
 						left: `${20 + Math.random() * 60}%`,
 						top: `${20 + Math.random() * 60}%`,

@@ -1,11 +1,10 @@
-import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
+import { Button } from '@nerdfish/react/button'
 import {
-	Button,
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from '@repo/design-system/components/ui'
-
+} from '@nerdfish/react/tooltip'
+import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
 import { ImportIcon } from '@repo/design-system/icons'
 import dynamic from 'next/dynamic'
 import { useCallback, useState } from 'react'
@@ -110,12 +109,12 @@ export function ImportTimeEntriesButton() {
 					aria-label="Import Time Entries"
 					type="button"
 					icon
-					asChild
-				>
-					<TooltipTrigger>
-						<ImportIcon className="size-4" />
-					</TooltipTrigger>
-				</Button>
+					render={
+						<TooltipTrigger>
+							<ImportIcon className="size-4" />
+						</TooltipTrigger>
+					}
+				/>
 				<TooltipContent>Import time entries</TooltipContent>
 			</Tooltip>
 			<CSVImporter

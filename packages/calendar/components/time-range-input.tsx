@@ -1,9 +1,7 @@
 'use client'
 
-import {
-	inputVariants,
-	useControllableState,
-} from '@repo/design-system/components/ui'
+import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
+import { inputVariants } from '@nerdfish/react/input'
 import { ArrowRightIcon, ClockIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { useMemo } from 'react'
@@ -46,7 +44,13 @@ export function TimeRangeInput({
 	}, [value.start, value.end])
 
 	return (
-		<div className={cx(inputVariants(), 'gap-sm flex items-center', className)}>
+		<div
+			className={cx(
+				inputVariants(),
+				'gap-best-friends flex items-center',
+				className,
+			)}
+		>
 			<div className="space-x-sm flex flex-1 items-center">
 				<ClockIcon className="text-foreground-muted size-4" />
 				<input
@@ -62,7 +66,7 @@ export function TimeRangeInput({
 			<div className="mx-4 flex flex-shrink-0 items-center justify-center">
 				<ArrowRightIcon className="text-foreground-muted size-4" />
 			</div>
-			<div className="space-x-md flex flex-1 items-center justify-end">
+			<div className="space-x-friends flex flex-1 items-center justify-end">
 				<input
 					type="time"
 					value={value.end}

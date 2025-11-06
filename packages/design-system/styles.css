@@ -1,0 +1,34 @@
+@import '@nerdfish/react/styles/global.css';
+@source "../../node_modules/@nerdfish/react";
+@source "../**/*.{ts,tsx}";
+
+:root {
+	--blog-unknown: var(--foreground-muted);
+	--blog-technical: var(--success);
+	--blog-project: var(--foreground);
+	--blog-wiki: var(--warning);
+	--blog-coaching: var(--destructive);
+	--blog: var(--info);
+
+	--work-webdesign: hsl(0 100% 70%);
+	--work-branding: hsl(170 100% 40%);
+	--work-print: hsl(230 70% 60%);
+	--work: hsl(210 10% 55%);
+}
+
+@theme inline {
+	--font-sans: var(--font-nebula-sans), sans-serif;
+	--font-mono: var(--font-geist-mono), monospace;
+
+	--color-blog-unknown: var(--blog-unknown);
+	--color-blog-technical: var(--blog-technical);
+	--color-blog-project: var(--blog-project);
+	--color-blog-wiki: var(--blog-wiki);
+	--color-blog-coaching: var(--blog-coaching);
+	--color-blog: var(--blog);
+
+	--color-work-webdesign: var(--work-webdesign);
+	--color-work-branding: var(--work-branding);
+	--color-work-print: var(--work-print);
+	--color-work: var(--work);
+}

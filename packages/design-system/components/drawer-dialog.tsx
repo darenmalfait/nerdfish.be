@@ -1,16 +1,11 @@
-import type * as React from 'react'
-import {
-	Dialog,
-	DialogContent,
-	Drawer,
-	DrawerContent,
-	useMediaQuery,
-} from './ui'
-
+import { Dialog, DialogContent } from '@nerdfish/react/dialog'
+import { Drawer, DrawerContent } from '@nerdfish/react/drawer'
+import { type ReactNode } from 'react'
+import { useMediaQuery } from '../hooks/use-media-query'
 export interface DrawerDialogProps {
 	open: boolean
 	onOpenChange: (open: boolean) => void
-	children: React.ReactNode
+	children: ReactNode
 }
 
 export function DrawerDialog({
@@ -23,7 +18,7 @@ export function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-container bg-background relative overflow-hidden !p-0 transition-all">
+				<DialogContent className="rounded-container bg-background relative overflow-hidden p-0! transition-all">
 					{children}
 				</DialogContent>
 			</Dialog>

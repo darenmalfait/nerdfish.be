@@ -1,4 +1,4 @@
-import { Skeleton } from '@repo/design-system/components/ui'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { getLocale } from '@repo/i18n/server'
 import { Suspense } from 'react'
 import { product } from '../../api'
@@ -16,7 +16,7 @@ export async function ProductOverviewData() {
 	const items = await product.getAll({ locale })
 
 	return (
-		<ul role="list" className="gap-md flex flex-col">
+		<ul role="list" className="gap-friends flex flex-col">
 			{items.map((item) => (
 				<ProductCard key={item.id} href={getProductPath(item)}>
 					<ProductCardImage icon={item.icon} />
@@ -48,7 +48,7 @@ function CardSkeleton() {
 
 function LoadingSkeleton() {
 	return (
-		<ul role="list" className="gap-md flex flex-col">
+		<ul role="list" className="gap-friends flex flex-col">
 			<CardSkeleton />
 			<CardSkeleton />
 			<CardSkeleton />

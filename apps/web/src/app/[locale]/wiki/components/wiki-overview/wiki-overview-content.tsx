@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 'use client'
 
+import { Badge } from '@nerdfish/react/badge'
 import {
 	ArticleCard,
 	ArticleCardDescription,
@@ -22,7 +23,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { Badge, H1, Link } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
 import { cx } from '@repo/lib/utils/base'
@@ -35,6 +35,7 @@ import {
 	useMemo,
 } from 'react'
 import { filterWiki, mapWikiToArticle } from '../../utils'
+import { Link } from '~/app/components/link'
 import { type ImageType } from '~/app/types'
 
 function Tag({ tag }: { tag: string }) {
@@ -50,7 +51,7 @@ function Tag({ tag }: { tag: string }) {
 		<Link href={`${urlWithoutQueryParams}?search=${tag}`}>
 			<Badge
 				className="hover:bg-foreground hover:text-background"
-				variant="secondary"
+				variant="muted"
 			>
 				{tag}
 			</Badge>
@@ -71,7 +72,13 @@ export function ArticleCardTags({
 	if (!tags) return null
 
 	return (
-		<div {...props} className={cx('gap-sm mb-sm flex flex-wrap', className)}>
+		<div
+			{...props}
+			className={cx(
+				'gap-best-friends mb-best-friends flex flex-wrap',
+				className,
+			)}
+		>
 			{tags.map((tag) => (
 				<Tag key={tag} tag={tag} />
 			))}
@@ -81,10 +88,10 @@ export function ArticleCardTags({
 
 function WikiOverviewArticleCard({ article }: { article: Article }) {
 	return (
-		<div className="gap-sm mb-lg flex flex-col">
+		<div className="gap-best-friends mb-casual flex flex-col">
 			<ArticleCardTags tags={article.tags} />
 			<ArticleCard href={article.href} className="group/article-card">
-				<ArticleCardTitle className="group-hover/article-card:text-brand line-clamp-2 max-w-3xl transition-colors">
+				<ArticleCardTitle className="group-hover/article-card:text-accent line-clamp-2 max-w-3xl transition-colors">
 					{article.title}
 				</ArticleCardTitle>
 				<ArticleCardDescription className="line-clamp-3 max-w-3xl">
@@ -144,9 +151,7 @@ export function WikiOverviewContent({
 				/>
 				<ArticleOverviewSearchContent inputLabel={t('search')}>
 					<SectionHeader>
-						<H1 variant="primary" className="mb-lg">
-							{header?.title}
-						</H1>
+						<h1 className="typography-heading mb-casual">{header?.title}</h1>
 						<SectionHeaderSubtitle>
 							{header?.subtitle ?? undefined}
 						</SectionHeaderSubtitle>

@@ -1,15 +1,15 @@
-import { Skeleton } from '@repo/design-system/components/ui'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
-import type * as React from 'react'
+import { type ComponentProps } from 'react'
 
-export type SplitImageProps = React.ComponentProps<typeof Image>
+export type SplitImageProps = ComponentProps<typeof Image>
 
 export function SplitImage({ className, ...props }: SplitImageProps) {
 	return (
 		<div
 			className={cx(
-				'aspect-1 rounded-container relative w-full overflow-hidden',
+				'rounded-container relative aspect-square w-full overflow-hidden',
 				className,
 			)}
 		>
@@ -25,7 +25,7 @@ export function SplitImage({ className, ...props }: SplitImageProps) {
 	)
 }
 
-export type SplitContentProps = React.ComponentProps<'div'>
+export type SplitContentProps = ComponentProps<'div'>
 
 export function SplitContent({
 	children,
@@ -33,22 +33,19 @@ export function SplitContent({
 	...props
 }: SplitContentProps) {
 	return (
-		<div
-			className={cx('prose prose-xl lg:prose-2xl w-full', className)}
-			{...props}
-		>
+		<div className={cx('typography w-full', className)} {...props}>
 			{children}
 		</div>
 	)
 }
 
-export type SplitProps = React.ComponentProps<'div'>
+export type SplitProps = ComponentProps<'div'>
 
 export function Split({ children, className, ...props }: SplitProps) {
 	return (
 		<div
 			className={cx(
-				'gap-lg flex flex-col md:flex-row md:items-center',
+				'gap-acquaintances flex flex-col md:flex-row md:items-center',
 				className,
 			)}
 			{...props}

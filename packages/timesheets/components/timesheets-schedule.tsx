@@ -1,9 +1,10 @@
+import { ScrollArea } from '@nerdfish/react/scroll-area'
+import { toast } from '@nerdfish/react/toast'
 import {
 	CalendarDay,
 	CALENDARY_DAY_ROW_HEIGHT,
 } from '@repo/calendar/components/calendar-day'
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
-import { ScrollArea, toast } from '@repo/design-system/components/ui'
 import { type ActionResponse } from '@repo/lib/types'
 import { useEffect, useRef, useState } from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
@@ -119,7 +120,7 @@ export function TimesheetsSchedule({
 
 			<ScrollArea
 				ref={scrollRef}
-				className="mb-lg mt-lg p-md rounded-base shadow-outline h-[calc(80vh-480px)]"
+				className="mb-casual mt-casual p-friends rounded-base border-border h-[calc(80vh-480px)]"
 			>
 				<CalendarDay
 					selectedEvent={

@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
-import { Button } from '@repo/design-system/components/ui'
 import { useTranslations } from '@repo/i18n/client'
 import { useState } from 'react'
 import {
@@ -24,7 +24,7 @@ export function Toolbox() {
 			: skills
 
 	return (
-		<div className="gap-xl flex flex-col">
+		<div className="gap-acquaintances flex flex-col">
 			<div>
 				<SkillsFilter
 					selectedTags={selectedSkills}

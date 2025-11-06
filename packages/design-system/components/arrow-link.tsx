@@ -80,7 +80,7 @@ function ArrowLink({
 			{...props}
 			href={href ?? '#'}
 			className={cx(
-				'space-x-md text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold !no-underline transition focus:outline-none',
+				'space-x-friends text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold no-underline! transition focus:outline-none',
 				className,
 			)}
 			ref={ref as any}
@@ -90,14 +90,14 @@ function ArrowLink({
 				<span className="mr-lg font-bold">{children}</span>
 			) : null}
 
-			<div className="p-sm relative inline-flex size-14 flex-none items-center justify-center">
+			<div className="p-best-friends relative inline-flex size-14 flex-none items-center justify-center">
 				<motion.span variants={arrowVariants[direction ?? 'right']}>
 					<ArrowIcon size={20} direction={direction} />
 				</motion.span>
 			</div>
 
 			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-lg text-xl font-bold">{children}</span>
+				<span className="ml-casual text-xl font-bold">{children}</span>
 			) : null}
 		</Tag>
 	)
@@ -117,7 +117,7 @@ function BackLink({
 		<Tag
 			href={href}
 			className={cx(
-				'text-foreground flex space-x-4 focus:outline-none',
+				'text-foreground space-x-friends flex focus:outline-none',
 				className,
 			)}
 			ref={ref as any}

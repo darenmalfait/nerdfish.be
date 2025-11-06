@@ -1,15 +1,15 @@
 'use client'
 
-import { cx } from '@repo/lib/utils/base'
-import { CheckIcon, CopyIcon } from '../icons'
+import { Button, type ButtonProps } from '@nerdfish/react/button'
+import { useCopyToClipboard } from '@nerdfish/react/hooks/use-copy-to-clipboard'
 import {
-	Button,
-	type ButtonProps,
 	Tooltip,
 	TooltipContent,
+	TooltipProvider,
 	TooltipTrigger,
-	useCopyToClipboard,
-} from './ui'
+} from '@nerdfish/react/tooltip'
+import { cx } from '@repo/lib/utils/base'
+import { CheckIcon, CopyIcon } from '../icons'
 
 const COPY_TIMOUT = 3000
 
@@ -23,25 +23,29 @@ export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 	const label = copiedText ? 'Copied' : 'Copy'
 
 	return (
-		<Tooltip>
-			<TooltipTrigger asChild>
-				<Button
-					icon
-					size="sm"
-					aria-label="copy"
-					{...props}
-					className={cx(className, 'size-8')}
-					variant={copiedText ? 'success' : 'secondary'}
-					onClick={() => handleCopy(code, COPY_TIMOUT)}
-				>
-					{copiedText ? (
-						<CheckIcon className="!size-3" />
-					) : (
-						<CopyIcon className="!size-3" />
-					)}
-				</Button>
-			</TooltipTrigger>
-			<TooltipContent side="left">{label}</TooltipContent>
-		</Tooltip>
+		<TooltipProvider>
+			<Tooltip>
+				<TooltipTrigger
+					render={
+						<Button
+							icon
+							size="sm"
+							aria-label="copy"
+							{...props}
+							className={cx(className, 'size-8')}
+							variant={copiedText ? 'success' : 'secondary'}
+							onClick={() => handleCopy(code, COPY_TIMOUT)}
+						>
+							{copiedText ? (
+								<CheckIcon className="size-3!" />
+							) : (
+								<CopyIcon className="size-3!" />
+							)}
+						</Button>
+					}
+				/>
+				<TooltipContent side="left">{label}</TooltipContent>
+			</Tooltip>
+		</TooltipProvider>
 	)
 }

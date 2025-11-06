@@ -1,5 +1,15 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
+import {
+	Drawer,
+	DrawerContent,
+	DrawerHeader,
+	DrawerTitle,
+	DrawerTrigger,
+} from '@nerdfish/react/drawer'
+import { Toggle } from '@nerdfish/react/toggle'
+import { ToggleGroup } from '@nerdfish/react/toggle-group'
 import { cx } from '@repo/lib/utils/base'
 import {
 	type ComponentProps,
@@ -10,17 +20,6 @@ import {
 	useMemo,
 } from 'react'
 import { FilterIcon } from '../icons'
-import {
-	Button,
-	Drawer,
-	DrawerContent,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-	H5,
-	Toggle,
-	ToggleGroup,
-} from './ui'
 
 type TagFilterContextProps = {
 	tags: string[]
@@ -58,9 +57,9 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 
 	return (
 		<ToggleGroup
-			type="multiple"
+			multiple
 			className={cx(
-				'col-span-full -mb-4 -mr-4 flex flex-wrap justify-start lg:col-span-10',
+				'-mr-friends gap-bff -mb-friends col-span-full flex flex-wrap justify-start lg:col-span-10',
 				className,
 			)}
 		>
@@ -85,27 +84,27 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 	)
 }
 
-export interface TagFilterTitleProps extends ComponentProps<typeof H5> {
+export interface TagFilterTitleProps extends ComponentProps<'h5'> {
 	as?: ElementType
 	renderAdditionalItems?: () => ReactNode
 }
 
 export function TagFilterTitle({
 	children,
-	as = 'h2',
+	as,
 	...props
 }: TagFilterTitleProps) {
+	const Element = as ?? 'h5'
 	return (
-		<H5
-			as={as}
-			className="mb-md gap-sm flex items-center justify-start"
+		<Element
+			className="mb-friends gap-best-friends flex items-center justify-start"
 			{...props}
 		>
 			<span className="hidden lg:block">{children}</span>
 			<Drawer repositionInputs={false}>
 				<DrawerTrigger asChild className="lg:hidden">
 					<Button>
-						<span className="mr-sm">{children}</span>
+						<span className="mr-best-friends">{children}</span>
 						<FilterIcon className="size-4" />
 					</Button>
 				</DrawerTrigger>
@@ -118,7 +117,7 @@ export function TagFilterTitle({
 					</div>
 				</DrawerContent>
 			</Drawer>
-		</H5>
+		</Element>
 	)
 }
 

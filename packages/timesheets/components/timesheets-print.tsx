@@ -1,19 +1,19 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
-import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import {
-	DialogTrigger,
 	Dialog,
-	Separator,
+	DialogTrigger,
 	DialogContent,
 	DialogHeader,
 	DialogTitle,
 	DialogDescription,
-	Field,
-	Label,
-	Input,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/dialog'
+import { Field } from '@nerdfish/react/field'
+import { Input } from '@nerdfish/react/input'
+import { Label } from '@nerdfish/react/label'
+import { Separator } from '@nerdfish/react/separator'
+import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { Logo } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { useEffect, useRef, useMemo, useState } from 'react'
@@ -100,18 +100,18 @@ export function TimesheetsContent({
 	const [invoiceRef, setInvoiceRef] = useState<string>('')
 	return (
 		<div>
-			<div className="mb-lg gap-sm flex flex-col items-start justify-start">
+			<div className="mb-casual gap-best-friends flex flex-col items-start justify-start">
 				<Logo className="h-6 w-auto" />
 			</div>
 
-			<div className="mb-lg gap-xs flex flex-col items-start justify-start">
+			<div className="mb-casual gap-bff flex flex-col items-start justify-start">
 				<h1 className="text-xl font-bold uppercase">Timesheets</h1>
 
 				<Dialog>
 					<DialogTrigger>
 						<div
 							className={cx('text-sm', {
-								'rounded-base bg-background-danger p-sm text-foreground-danger-contrast print:hidden':
+								'rounded-base bg-background-danger p-best-friends text-foreground-danger-contrast print:hidden':
 									!invoiceRef,
 							})}
 						>
@@ -138,7 +138,7 @@ export function TimesheetsContent({
 				</Dialog>
 			</div>
 
-			<div className="mb-lg gap-xs flex flex-col">
+			<div className="mb-casual gap-bff flex flex-col">
 				<Row day="DAY" hours="HOURS" />
 				<Spacer />
 
@@ -167,9 +167,9 @@ export function TimesheetsContent({
 			<div className="text-foreground-muted text-center text-sm">
 				*** END OF TIMESHEET ***
 			</div>
-			<Separator className="my-lg" />
+			<Separator className="my-casual" />
 			<div className="flex flex-col items-center">
-				<Logo className="mb-md h-4 w-auto" />
+				<Logo className="mb-friends h-4 w-auto" />
 				<div className="text-foreground-muted text-sm">Daren Malfait BV</div>
 				<div className="text-foreground-muted text-sm">BE0794123756</div>
 				<div className="text-foreground-muted text-sm">daren@nerdfish.be</div>
@@ -197,11 +197,11 @@ export function TimesheetsPrint({
 	}, [timeEntries, ref])
 
 	return (
-		<div className="p-md pb-3xl print:p-0">
+		<div className="p-friends pb-distant print:p-0">
 			<div className="mx-auto w-[80mm] print:[box-shadow:none]">
 				<div
 					ref={ref}
-					className="rounded-base p-md pb-lg shadow-outline relative"
+					className="rounded-base p-friends pb-lg border-border relative"
 				>
 					<TimesheetsContent timeEntries={timeEntries} />
 				</div>

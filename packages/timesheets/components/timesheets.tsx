@@ -44,7 +44,7 @@ function TimesheetsContent() {
 
 	return (
 		<>
-			<div className="gap-md mb-lg container flex flex-col print:hidden">
+			<div className="gap-friends mb-casual container flex flex-col print:hidden">
 				<div className="flex items-center justify-between">
 					<TimesheetsMonthSelect />
 				</div>

@@ -1,6 +1,7 @@
 'use client'
 
-import { Grid, GridCard, Skeleton } from '@repo/design-system/components/ui'
+import { Skeleton } from '@nerdfish/react/skeleton'
+import { Grid, GridCard } from '@repo/design-system/components/grid'
 import { cx } from '@repo/lib/utils/base'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
@@ -53,7 +54,7 @@ export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
 	return (
 		<Grid
 			className={cx(
-				'auto-rows-[40rem] !grid-cols-2 md:!grid-cols-4',
+				'auto-rows-[40rem] grid-cols-2! md:grid-cols-4!',
 				className,
 			)}
 			ref={containerRef}
