@@ -312,18 +312,15 @@ export function ContactForm() {
 
 									return (
 										<Field data-invalid={fieldState.invalid}>
-											<FieldLabel>
-												{t('fields.labels.budgetRange')}
-
-												<FieldDescription>
-													{t('fields.labels.budgetRangeDescription')}
-												</FieldDescription>
-												<div className="mt-acquaintances text-foreground-muted flex items-center justify-center font-semibold">
-													€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
-													{numberFormatter.format(field.value?.[1] ?? 0)}
-													{field.value?.[1] === max ? '+' : ''}
-												</div>
-											</FieldLabel>
+											<FieldLabel>{t('fields.labels.budgetRange')}</FieldLabel>
+											<FieldDescription>
+												{t('fields.labels.budgetRangeDescription')}
+											</FieldDescription>
+											<div className="mt-friends text-foreground-muted flex items-center justify-center font-semibold">
+												€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
+												{numberFormatter.format(field.value?.[1] ?? 0)}
+												{field.value?.[1] === max ? '+' : ''}
+											</div>
 
 											<div className="gap-best-friends flex items-center">
 												<span className="mr-friends text-foreground-muted text-base font-semibold text-nowrap">
@@ -353,7 +350,7 @@ export function ContactForm() {
 														</Slider>
 													)}
 												/>
-												<span className="ml-friends text-foreground-muted text-base font-semibold text-nowrap">
+												<span className="ml-friends pr-friends text-foreground-muted text-base font-semibold text-nowrap">
 													€ {numberFormatter.format(max)}+
 												</span>
 											</div>
