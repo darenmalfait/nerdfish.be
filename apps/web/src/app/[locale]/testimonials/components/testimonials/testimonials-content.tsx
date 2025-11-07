@@ -33,14 +33,14 @@ function TestimonialActions({
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:!opacity-100"
+				className="active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:!opacity-100"
+				className="rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>

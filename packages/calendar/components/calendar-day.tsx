@@ -255,7 +255,7 @@ export function CalendarDay({
 
 	return (
 		<div {...props} className={cx('text-foreground flex text-xs', className)}>
-			<div className="w-20 flex-shrink-0 select-none">
+			<div className="w-20 shrink-0 select-none">
 				{hours.map((hour) => (
 					<div
 						key={hour}
@@ -268,7 +268,7 @@ export function CalendarDay({
 			</div>
 
 			<div
-				className="relative flex-grow cursor-default border-none select-none"
+				className="relative grow cursor-default border-none select-none"
 				onMouseMove={handleMouseMove}
 				onMouseDown={(e) => {
 					if (e.button === 0 && !isContextMenuOpen) {

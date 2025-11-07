@@ -44,7 +44,7 @@ export function FaqItem({
 						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
 						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center text-lg transition-colors',
 						'hover:bg-background-inverted/30',
-						'group-[[data-panel-open]]/accordion-trigger:bg-accent group-[[data-panel-open]]/accordion-trigger:text-accent-contrast',
+						'group-data-panel-open/accordion-trigger:bg-accent group-data-panel-open/accordion-trigger:text-accent-contrast',
 					)}
 				>
 					{icon ? (

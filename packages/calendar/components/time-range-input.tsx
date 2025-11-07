@@ -63,7 +63,7 @@ export function TimeRangeInput({
 					)}
 				/>
 			</div>
-			<div className="mx-4 flex flex-shrink-0 items-center justify-center">
+			<div className="mx-4 flex shrink-0 items-center justify-center">
 				<ArrowRightIcon className="text-foreground-muted size-4" />
 			</div>
 			<div className="space-x-friends flex flex-1 items-center justify-end">

@@ -42,7 +42,7 @@ const MainNavigationSubItem = forwardRef<
 				render={
 					<Link
 						className={cx(
-							'space-y-best-friends p-friends focus-within:outline-active hover:bg-background-muted group rounded-[calc(theme(borderRadius.base)-theme(padding.bff))] relative flex h-full w-full flex-col justify-end leading-none no-underline transition-colors outline-none select-none',
+							'space-y-best-friends p-friends focus-within:outline-active hover:bg-background-muted group rounded-[calc(var(--radius-base)-theme(padding.bff))] relative flex h-full w-full flex-col justify-end leading-none no-underline transition-colors outline-none select-none',
 							className,
 						)}
 						ref={ref}

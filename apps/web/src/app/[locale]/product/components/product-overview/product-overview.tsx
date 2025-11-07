@@ -36,10 +36,10 @@ function CardSkeleton() {
 			<Skeleton className="size-12" />
 			<ProductCardContent>
 				<ProductCardTitle>
-					<Skeleton className="w-screen max-w-[200px]" />
+					<Skeleton className="w-screen max-w-50" />
 				</ProductCardTitle>
 				<ProductCardDescription>
-					<Skeleton className="w-screen max-w-[400px]" />
+					<Skeleton className="w-screen max-w-100" />
 				</ProductCardDescription>
 			</ProductCardContent>
 		</ProductCard>
