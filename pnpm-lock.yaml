@@ -141,8 +141,8 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.63.0(react@19.1.1))
       '@nerdfish/react':
-        specifier: ^1.0.1
-        version: 1.0.1(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)
+        specifier: ^1.0.2
+        version: 1.0.2(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)
       '@next/env':
         specifier: 15.5.6
         version: 15.5.6
@@ -376,8 +376,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.0.1
-        version: 1.0.1(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)
+        specifier: ^1.0.2
+        version: 1.0.2(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)
       '@number-flow/react':
         specifier: ^0.5.10
         version: 0.5.10(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2506,8 +2506,8 @@ packages:
   '@nerdfish/config@1.9.4':
     resolution: {integrity: sha512-YyX2v3Xs7syc+Wlwl3vB1TtbHOg/HTfUkDzhvcFrfcDJzv6MXsmib33dp9uLBsndrXugNzNKzDAzHdqtS1Zq0g==}
 
-  '@nerdfish/react@1.0.1':
-    resolution: {integrity: sha512-quTzU/459+X/vZPYDvH6ip7jy1uDuWG3wWaq7pa2QTn3+0zOvOJnCB4QRhHDCTlornn6TzzDe7GhqFTzIDGbHg==}
+  '@nerdfish/react@1.0.2':
+    resolution: {integrity: sha512-wKDXlnWBgxuJvDA+Y582yyY0PRMEu4mFgcVqkvcO3t+ETsS1mThbQce4IulN1P+IOmm6xNUCQ09xKq6XRCFjFA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
@@ -11203,7 +11203,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/react@1.0.1(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)':
+  '@nerdfish/react@1.0.2(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.4(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@nerdfish/utils': 2.0.1
@@ -11229,7 +11229,7 @@ snapshots:
       - react-is
       - redux
 
-  '@nerdfish/react@1.0.1(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)':
+  '@nerdfish/react@1.0.2(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react-is@16.13.1)(react@19.1.1)(redux@5.0.1)':
     dependencies:
       '@base-ui-components/react': 1.0.0-beta.4(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@nerdfish/utils': 2.0.1

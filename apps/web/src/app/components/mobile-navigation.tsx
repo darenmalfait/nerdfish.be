@@ -35,12 +35,13 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 			<Link
 				onClick={onClick}
 				className={cx(
-					'group/navigation-item gap-best-friends flex items-center text-[1.15rem]',
-					isActive && 'border-accent border-b-2',
+					'group/navigation-item gap-best-friends flex w-fit items-center text-[1.15rem]',
 				)}
 				href={item.href}
 			>
-				{item.label}
+				<span className={cx(isActive && 'border-accent border-b-2')}>
+					{item.label}
+				</span>
 				<div>
 					<ArrowLeftIcon className="text-accent size-4 opacity-0 transition-opacity duration-300 group-hover/navigation-item:opacity-100" />
 				</div>
@@ -62,12 +63,13 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 							<Link
 								onClick={onClick}
 								className={cx(
-									'group/navigation-item gap-best-friends text-foreground-muted hover:text-foreground flex items-center text-[1.15rem]',
-									isActive && 'border-accent border-b-2',
+									'group/navigation-item gap-best-friends text-foreground-muted hover:text-foreground flex w-fit items-center text-[1.15rem]',
 								)}
 								href={subNavItem.href}
 							>
-								{subNavItem.label}
+								<span className={cx(isActive && 'border-accent border-b-2')}>
+									{subNavItem.label}
+								</span>
 								<div>
 									<ArrowLeftIcon className="text-accent size-4 opacity-0 transition-opacity duration-300 group-hover/navigation-item:opacity-100" />
 								</div>
