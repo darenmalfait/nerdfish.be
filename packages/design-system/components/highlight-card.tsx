@@ -27,7 +27,7 @@ export function HighlightCardImage({
 		<div
 			{...props}
 			className={cx(
-				'mt-casual pointer-events-none relative col-span-full aspect-3/4 !h-full w-auto overflow-hidden rounded-[calc(var(--radius-container)-var(--spacing-friends))] lg:col-span-4 lg:col-start-9 lg:mt-0',
+				'mt-casual pointer-events-none relative col-span-full aspect-3/4 w-full overflow-hidden rounded-[calc(var(--radius-container)-var(--spacing-friends))] lg:col-span-4 lg:col-start-9 lg:mt-0 lg:h-full lg:w-auto',
 				className,
 			)}
 		>
