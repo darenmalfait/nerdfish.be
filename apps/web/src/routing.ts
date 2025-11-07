@@ -8,7 +8,6 @@ import { type Locale } from '@repo/i18n/types'
 
 export const basePathNames = {
 	'/': '/',
-	'/ai': '/ai',
 	'/about': {
 		en: '/about',
 		nl: '/over-mij',

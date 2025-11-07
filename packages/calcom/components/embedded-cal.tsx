@@ -1,7 +1,7 @@
 'use client'
 
 import Cal, { getCalApi } from '@calcom/embed-react'
-import { Skeleton } from '@repo/design-system/components/ui'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { useEffect, useState } from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 

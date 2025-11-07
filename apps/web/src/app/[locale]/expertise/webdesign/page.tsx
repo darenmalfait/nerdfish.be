@@ -187,7 +187,7 @@ export default async function WebDesignPage(props: {
 					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Faq type="single">
+				<Faq>
 					<FaqItem
 						question={t('faq.items.0.question')}
 						answer={t('faq.items.0.answer')}

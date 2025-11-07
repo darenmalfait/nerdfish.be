@@ -5,7 +5,7 @@ import {
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/accordion'
 import { cx } from '@repo/lib/utils/base'
 import { useId, type ComponentProps, type ReactNode } from 'react'
 
@@ -31,19 +31,20 @@ export function FaqItem({
 		<AccordionItem
 			{...props}
 			value={idProp ?? id}
-			className="prose prose-xl mx-auto !border-transparent"
+			className="typography group/accordion-item mx-auto border-transparent! focus-within:ring-0"
 		>
 			<AccordionTrigger
 				className={cx(
-					'gap-x-md py-sm flex w-full items-center justify-start !no-underline',
-					'group',
+					'gap-x-friends py-best-friends flex w-full items-center justify-start no-underline! hover:bg-transparent',
+					'group/accordion-trigger',
 				)}
 			>
 				<div
 					className={cx(
-						'bg-background-muted rounded-base space-x-sm p-md relative flex items-center text-lg transition-colors',
+						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
+						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center text-lg transition-colors',
 						'hover:bg-background-inverted/30',
-						'group-data-[state=open]:bg-brand group-data-[state=open]:text-white',
+						'group-[[data-panel-open]]/accordion-trigger:bg-accent group-[[data-panel-open]]/accordion-trigger:text-accent-contrast',
 					)}
 				>
 					{icon ? (
@@ -63,11 +64,11 @@ export function FaqItem({
 					<span className="font-medium">{question}</span>
 				</div>
 			</AccordionTrigger>
-			<AccordionContent className="prose prose-xl text-foreground !pb-md max-w-none text-xl">
+			<AccordionContent className="typography text-foreground pb-friends! pt-friends max-w-none text-xl">
 				<div className="ml-7 md:ml-16">
 					<div
 						className={cx(
-							'bg-background-inverted text-foreground-inverted rounded-base p-md relative max-w-none',
+							'bg-background-inverted text-foreground-inverted rounded-base p-friends relative max-w-none',
 						)}
 					>
 						{answer}
@@ -83,7 +84,7 @@ export type FaqProps = ComponentProps<typeof Accordion>
 export function Faq({ className, children, ...props }: FaqProps) {
 	return (
 		<div className="relative">
-			<Accordion {...props} className={cx('space-y-xs', className)}>
+			<Accordion {...props} className={cx('space-y-bff', className)}>
 				{children}
 			</Accordion>
 		</div>

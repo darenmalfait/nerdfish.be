@@ -4,24 +4,33 @@ import { type ElementType, type ComponentProps } from 'react'
 import { ArrowLink } from './arrow-link'
 import { TextBalancer } from './text-balancer'
 import { TextSlideUp } from './text-slide-up'
-import { H1, type H2 } from './ui'
 
 export interface SectionProps extends ComponentProps<'section'> {
 	asChild?: boolean
+	compact?: boolean
 }
 
-export function Section({ className, asChild, ...props }: SectionProps) {
+export function Section({
+	className,
+	asChild,
+	compact,
+	...props
+}: SectionProps) {
 	const Component = asChild ? Slot : 'section'
 
 	return (
 		<Component
-			className={cx('rounded-container py-xl md:py-3xl container', className)}
+			className={cx(
+				'rounded-container container',
+				compact ? 'py-casual' : 'py-distant md:py-strangers',
+				className,
+			)}
 			{...props}
 		/>
 	)
 }
 
-export interface SectionHeaderTitleProps extends ComponentProps<typeof H1> {
+export interface SectionHeaderTitleProps extends ComponentProps<'h2'> {
 	as?: ElementType
 }
 
@@ -33,18 +42,19 @@ export function SectionHeaderTitle({
 	if (!children || children === '') return null
 
 	return (
-		<H1
-			as="h2"
-			variant="primary"
-			className={cx('mb-lg font-title max-w-7xl leading-[1.1]', className)}
+		<h2
+			className={cx(
+				'typography-heading-sm mb-friends font-title max-w-7xl leading-[1.1]',
+				className,
+			)}
 			{...props}
 		>
 			<TextBalancer>{children}</TextBalancer>
-		</H1>
+		</h2>
 	)
 }
 
-export interface SectionHeaderSubtitleProps extends ComponentProps<typeof H2> {
+export interface SectionHeaderSubtitleProps extends ComponentProps<'h2'> {
 	as?: ElementType
 }
 
@@ -57,10 +67,7 @@ export function SectionHeaderSubtitle({
 
 	return (
 		<div
-			className={cx(
-				'text-foreground-muted max-w-7xl text-xl font-semibold lg:text-2xl',
-				className,
-			)}
+			className={cx('text-foreground-muted typography-title', className)}
 			{...props}
 		>
 			<TextBalancer>{children}</TextBalancer>
@@ -94,10 +101,10 @@ export function SectionHeader({
 
 	if (skipAnimation) {
 		return (
-			<Element className={cx('mb-xl', className)} {...props}>
+			<Element className={cx('mb-acquaintances', className)} {...props}>
 				{children}
 				{cta?.url ? (
-					<div className="mt-lg flex justify-start">
+					<div className="mt-casual flex justify-start">
 						<ArrowLink as={cta.as} href={cta.url} direction="right">
 							{cta.title}
 						</ArrowLink>
@@ -107,11 +114,11 @@ export function SectionHeader({
 		)
 	}
 	return (
-		<Element className={cx('mb-xl', className)} {...props}>
+		<Element className={cx('mb-acquaintances', className)} {...props}>
 			<TextSlideUp eager={eager}>
 				{children}
 				{cta?.url ? (
-					<div className="mt-lg flex justify-start">
+					<div className="mt-casual flex justify-start">
 						<ArrowLink as={cta.as} href={cta.url} direction="right">
 							{cta.title}
 						</ArrowLink>

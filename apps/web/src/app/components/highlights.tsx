@@ -33,7 +33,7 @@ function CardWrapper({
 	const scale = useTransform(progress, range, [1, targetScale])
 
 	return (
-		<div className="top-md md:top-3xl sticky flex justify-center">
+		<div className="top-friends md:top-distant sticky flex justify-center">
 			<motion.div
 				style={{ ...style, scale }}
 				className={cx(
@@ -63,7 +63,7 @@ export function Highlights(props: HighlightsProps) {
 
 	return (
 		<div ref={containerRef}>
-			<div className="gap-3xl flex flex-col">
+			<div className="gap-distant flex flex-col">
 				{items.map((item, i) => {
 					const targetScale = 1 - (items.length - 1 - i) * 0.2
 					const { title, category, description, image, href } = item

@@ -5,7 +5,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { H2 } from '@repo/design-system/components/ui'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
@@ -76,8 +75,8 @@ export default async function AboutPage(props: PageProps) {
 			<Section>
 				<Split>
 					<SplitContent>
-						<H2 variant="primary">{t('professional.title')}</H2>
-						<p>{t('professional.content.first')}</p>
+						<h2 className="typography-heading">{t('professional.title')}</h2>
+						<p className="typography-body">{t('professional.content.first')}</p>
 						<p>{t('professional.content.second')}</p>
 					</SplitContent>
 					<SplitImage
@@ -134,7 +133,7 @@ export default async function AboutPage(props: PageProps) {
 						alt={t('personal.image.alt')}
 					/>
 					<SplitContent>
-						<H2 variant="primary">{t('personal.title')}</H2>
+						<h2 className="typography-heading">{t('personal.title')}</h2>
 						<p>{t('personal.content.first')}</p>
 						<p>{t('personal.content.second')}</p>
 					</SplitContent>
@@ -152,7 +151,7 @@ export default async function AboutPage(props: PageProps) {
 					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Faq type="single" defaultValue="projects">
+				<Faq defaultValue={['projects']}>
 					<FaqItem
 						id="projects"
 						question={t('faq.items.0.question')}

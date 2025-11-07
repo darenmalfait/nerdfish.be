@@ -1,7 +1,9 @@
+import { Button } from '@nerdfish/react/button'
+import { ButtonGroup } from '@nerdfish/react/button-group'
 import { TZDate, addDays, formatISO, subDays } from '@repo/calendar/utils'
-import { Button, ButtonGroup } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon, ChevronRightIcon } from '@repo/design-system/icons'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
+import { cx } from '@repo/lib/utils/base'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { formatDateRange, getTimesheetsDates, TIMEZONE } from '../utils'
 
@@ -37,27 +39,31 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 	useHotkeys('arrowRight', selectNextDay)
 
 	return (
-		<ButtonGroup className={className}>
+		<ButtonGroup className={cx('w-full', className)}>
 			<Button variant="secondary" onClick={selectPrevDay}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>
-			<Button variant="secondary" asChild className="pointer-events-none">
-				<span className="w-full text-center">
-					{currentDate[0]
-						? formatDateRange(
-								range
-									? [
-											new TZDate(currentDate[0].getTime(), TIMEZONE),
-											new TZDate(
-												currentDate[1]?.getTime() ?? currentDate[0].getTime(),
-												TIMEZONE,
-											),
-										]
-									: [new TZDate(currentDate[0].getTime(), TIMEZONE)],
-							)
-						: null}
-				</span>
-			</Button>
+			<Button
+				variant="secondary"
+				className="pointer-events-none"
+				render={
+					<span className="w-full rounded-none text-center">
+						{currentDate[0]
+							? formatDateRange(
+									range
+										? [
+												new TZDate(currentDate[0].getTime(), TIMEZONE),
+												new TZDate(
+													currentDate[1]?.getTime() ?? currentDate[0].getTime(),
+													TIMEZONE,
+												),
+											]
+										: [new TZDate(currentDate[0].getTime(), TIMEZONE)],
+								)
+							: null}
+					</span>
+				}
+			/>
 			<Button variant="secondary" onClick={selectNextDay}>
 				<ChevronRightIcon className="size-4" />
 			</Button>

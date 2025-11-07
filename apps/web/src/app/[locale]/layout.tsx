@@ -1,5 +1,6 @@
+import { Spinner } from '@nerdfish/react/spinner'
+import { Toaster } from '@nerdfish/react/toast'
 import { Section } from '@repo/design-system/components/section'
-import { LoadingAnimation, Toaster } from '@repo/design-system/components/ui'
 import { fonts } from '@repo/design-system/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
@@ -7,13 +8,10 @@ import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { type ReactNode, Suspense } from 'react'
 import { AppProviders } from '../app-providers'
-import { Footer } from '../layout/components/footer'
-import { Header } from '../layout/components/header'
+import { SiteFooter } from '../components/site-footer'
+import { SiteHeader } from '../components/site-header'
 
-import '~/app/theme/styles/app.css'
-import '~/app/theme/styles/prose.css'
-import '@repo/tailwind-config/styles/global.css'
-import '@nerdfish/theme/dist/nerdfishui.css'
+import '~/app/theme/styles/global.css'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ lang: locale }))
@@ -38,14 +36,14 @@ export default async function RootLayout(props: {
 				<AppProviders>
 					<NextIntlClientProvider messages={messages} locale={params.locale}>
 						<div className="flex min-h-screen flex-col">
-							<Header />
+							<SiteHeader />
 
 							<main className="rounded-b-container relative w-full max-w-full flex-1">
-								<div className="-z-1 rounded-container bg-background absolute inset-0" />
+								<div className="rounded-container bg-background absolute inset-0 -z-1" />
 								<Suspense
 									fallback={
 										<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
-											<LoadingAnimation className="size-8" variant="square" />
+											<Spinner className="size-8" />
 										</Section>
 									}
 								>
@@ -53,7 +51,7 @@ export default async function RootLayout(props: {
 								</Suspense>
 							</main>
 
-							<Footer />
+							<SiteFooter />
 							<Toaster />
 						</div>
 					</NextIntlClientProvider>

@@ -16,7 +16,7 @@ export function HeroSubtitle({ children }: { children?: ReactNode }) {
 	if (!children) return null
 
 	return (
-		<SectionHeaderSubtitle className="prose [&_strong]:font-black">
+		<SectionHeaderSubtitle className="typography mt-friends [&_strong]:font-black">
 			{children}
 		</SectionHeaderSubtitle>
 	)
@@ -45,12 +45,16 @@ export function HeroCTA({
 	...props
 }: ComponentProps<typeof Link>) {
 	return (
-		<MagnetButton size="xl" className="mt-xl group" asChild>
-			<Link {...props} className={cx('flex items-center', className)}>
-				{children}
-				<ArrowRightIcon className="text-brand ml-sm group-hover:translate-x-sm size-6 transition-all" />
-			</Link>
-		</MagnetButton>
+		<MagnetButton
+			size="xl"
+			className="mt-acquaintances group"
+			render={
+				<Link {...props} className={cx('flex items-center', className)}>
+					{children}
+					<ArrowRightIcon className="text-accent ml-best-friends group-hover:translate-x-sm size-6 transition-all" />
+				</Link>
+			}
+		/>
 	)
 }
 
@@ -62,8 +66,8 @@ export function HeroImage({ src, className, ...props }: HeroImageProps) {
 	return (
 		<div
 			className={cx(
-				'motion-preset-shrink motion-preset-focus mb-md z-30 w-auto max-w-[50%] flex-none md:mb-0',
-				'-bottom-2/3 mt-12 max-w-[100%] rounded-xl md:absolute md:right-0 md:mt-0 md:max-w-[60%] lg:-bottom-1/2',
+				'motion-preset-shrink motion-preset-focus mb-friends z-30 w-auto max-w-[50%] flex-none md:mb-0',
+				'rounded-base -bottom-2/3 mt-12 max-w-full md:absolute md:right-0 md:mt-0 md:max-w-[60%] lg:-bottom-1/2',
 			)}
 		>
 			<Image
@@ -73,7 +77,7 @@ export function HeroImage({ src, className, ...props }: HeroImageProps) {
 				{...props}
 				// sticker effect
 				className={cx(
-					'[filter:drop-shadow(0px_0px_2px_#fff)] dark:[filter:drop-shadow(0px_0px_2px_#000)]',
+					'filter-[drop-shadow(0px_0px_2px_#fff)] dark:filter-[drop-shadow(0px_0px_2px_#000)]',
 					className,
 				)}
 				src={src}
@@ -101,7 +105,7 @@ export type HeroProps = ComponentProps<'div'>
 export function Hero({ children }: HeroProps) {
 	return (
 		<Section className={cx('group/section relative')}>
-			<div className="container relative mx-auto px-0">{children}</div>
+			<div className="relative container mx-auto px-0">{children}</div>
 		</Section>
 	)
 }

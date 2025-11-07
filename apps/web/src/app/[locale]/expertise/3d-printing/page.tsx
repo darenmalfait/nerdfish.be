@@ -114,7 +114,7 @@ export default async function ThreeDPrintingPage(props: {
 					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
 					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
 				</SectionHeader>
-				<Faq type="single">
+				<Faq>
 					{Array.from({ length: 7 }).map((_, i) => (
 						<FaqItem
 							key={i}

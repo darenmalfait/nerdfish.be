@@ -23,7 +23,7 @@ function SkillsBlock({
 	...props
 }: SkillsBlockProps) {
 	return (
-		<Section>
+		<Section compact>
 			<SectionHeader>
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderSubtitle>{description}</SectionHeaderSubtitle>
@@ -44,12 +44,12 @@ export function Body(props: ComponentProps<typeof BaseBody>) {
 			components={{
 				// blocks
 				Testimonials: (rest: ComponentProps<typeof Testimonials>) => (
-					<Section>
+					<Section compact>
 						<Testimonials {...rest} />
 					</Section>
 				),
 				ImageGrid: (rest: ComponentProps<typeof ImageGrid>) => (
-					<Section>
+					<Section compact>
 						<ImageGrid {...rest} />
 					</Section>
 				),

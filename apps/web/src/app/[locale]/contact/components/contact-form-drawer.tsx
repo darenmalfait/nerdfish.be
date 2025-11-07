@@ -1,16 +1,12 @@
 'use client'
 
+import { Drawer, DrawerContent, DrawerTitle } from '@nerdfish/react/drawer'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import {
-	Drawer,
-	DrawerContent,
-	DrawerTitle,
-} from '@repo/design-system/components/ui'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { useState } from 'react'
@@ -24,11 +20,11 @@ export function ContactFormViaButton() {
 		<>
 			<MagnetButton
 				size="xl"
-				className="mt-xl group flex items-center"
+				className="mt-acquaintances group flex items-center"
 				onClick={() => setContactFormOpen(true)}
 			>
 				{t('openFormLabel')}
-				<ArrowRightIcon className="text-brand ml-sm group-hover:translate-x-sm size-6 transition-all" />
+				<ArrowRightIcon className="text-accent ml-best-friends group-hover:translate-x-sm size-6 transition-all" />
 			</MagnetButton>
 
 			<Drawer
@@ -37,13 +33,15 @@ export function ContactFormViaButton() {
 				onOpenChange={setContactFormOpen}
 			>
 				<DrawerContent className="bg-background max-h-[85vh]">
-					<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
-					<div className="pb-xl container">
-						<SectionHeader>
-							<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
-							<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
-						</SectionHeader>
-						<ContactForm />
+					<div className="pt-casual relative max-h-screen overflow-y-auto">
+						<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
+						<div className="pb-acquaintances container max-w-4xl">
+							<SectionHeader>
+								<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
+								<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
+							</SectionHeader>
+							<ContactForm />
+						</div>
 					</div>
 				</DrawerContent>
 			</Drawer>

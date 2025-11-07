@@ -43,9 +43,10 @@ export function CategoryIndicator({
 			<span
 				className={cx(
 					getCategoryColors(category),
-					'bg-background-muted py-sm z-10 inline-block w-auto rounded-xl px-4 text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
+					'bg-background-muted py-best-friends px-best-friends rounded-base z-10 inline-block w-auto text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{
-						'absolute right-6 top-6 lg:left-6 lg:right-[unset]': !inline,
+						'top-casual right-casual lg:left-casual absolute lg:right-[unset]':
+							!inline,
 					},
 					className,
 				)}

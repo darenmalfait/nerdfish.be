@@ -23,11 +23,11 @@ export class ContactFormPage {
 		email: string,
 		message: string,
 	) {
-		await this.form.getByLabel("What's your name?*").fill(name)
+		await this.form.getByLabel("What's your name?").fill(name)
 		await this.form.getByLabel("What's the name of your").fill(company)
 		await this.form.getByLabel('Email address').fill(email)
 		await this.form.getByText('webdesign').click()
-		await this.form.getByLabel('How can I help?*').fill(message)
+		await this.form.getByLabel('How can I help?').fill(message)
 	}
 
 	async submit() {

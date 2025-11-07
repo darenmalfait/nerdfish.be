@@ -8,7 +8,7 @@ export const TableOfContents = ({ data }: TableOfContentsProperties) => {
 	const toc = getTableOfContents(data)
 
 	return (
-		<ul className="flex list-none flex-col gap-2 text-sm">
+		<ul className="gap-bff flex list-none flex-col text-sm">
 			{toc.map((item) => (
 				<li
 					key={item.url}

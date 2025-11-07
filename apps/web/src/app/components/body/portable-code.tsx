@@ -1,9 +1,9 @@
-import { CopyButton } from '@repo/design-system/components/copy-button'
 import {
 	CodeBlock,
 	CodeBlockCode,
 	CodeBlockGroup,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/code-block'
+import { CopyButton } from '@repo/design-system/components/copy-button'
 import { type ComponentProps } from 'react'
 
 type PortableCodeProps = ComponentProps<'pre'>
@@ -17,17 +17,17 @@ function PortableCode({ children, ...rest }: PortableCodeProps) {
 	const language = match ? match[1] : 'text'
 
 	return (
-		<CodeBlock className="mb-lg">
-			<CodeBlockGroup className="border-muted/10 p-sm bg-popover border-b">
-				<div className="flex items-center gap-2">
-					<div className="bg-foreground/10 text-primary px-sm py-xs rounded-[calc(theme(borderRadius.base)-theme(padding.sm))] text-xs font-medium">
+		<CodeBlock className="mt-casual mb-acquaintances">
+			<CodeBlockGroup className="border-border p-best-friends bg-popover border-b">
+				<div className="gap-bff flex items-center">
+					<div className="bg-foreground/10 text-primary px-sm py-xs rounded-[calc(var(--radius-base)-theme(padding.sm))] text-xs font-medium">
 						{language}
 					</div>
 				</div>
 				<div>
 					<CopyButton
 						code={code}
-						className="!rounded-[calc(theme(borderRadius.base)-theme(padding.sm))]"
+						className="rounded-[calc(var(--radius-base)-theme(padding.best-friends))]!"
 					/>
 				</div>
 			</CodeBlockGroup>

@@ -26,7 +26,7 @@ function TextSlideUpItem({
 		<div className={className} {...props}>
 			<div
 				className={cx({
-					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] [animation-duration:800ms]':
+					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] animation-duration-[800ms]':
 						animate,
 					invisible: !animate,
 				})}

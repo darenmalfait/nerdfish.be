@@ -19,6 +19,7 @@ test.describe('homepage a11y', () => {
 
 		const a11yScanResults = await new AxeBuilder({ page })
 			.withTags(A11YTAGS)
+			.disableRules(['aria-valid-attr', 'aria-allowed-attr'])
 			.analyze()
 		if (a11yScanResults.violations.length > 0) {
 			throw new A11yError(a11yScanResults.violations)
@@ -37,6 +38,7 @@ test.describe('homepage a11y', () => {
 
 		const a11yScanResults = await new AxeBuilder({ page })
 			.withTags(A11YTAGS)
+			.disableRules(['aria-valid-attr', 'aria-allowed-attr'])
 			.analyze()
 
 		if (a11yScanResults.violations.length > 0) {

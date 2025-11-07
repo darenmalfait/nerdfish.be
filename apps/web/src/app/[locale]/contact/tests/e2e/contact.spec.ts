@@ -38,6 +38,6 @@ test('Should submit form', async ({ contact }) => {
 
 	await expect(contact.form.getByText("What's your budget?")).toBeVisible()
 	await expect(
-		contact.form.getByRole('heading', { name: 'Success' }),
+		contact.form.getByText('Your message has been sent successfully'),
 	).toBeVisible()
 })

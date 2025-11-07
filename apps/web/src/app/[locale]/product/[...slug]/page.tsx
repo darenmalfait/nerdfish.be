@@ -1,3 +1,6 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@nerdfish/react/avatar'
+import { Button } from '@nerdfish/react/button'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	Carousel,
 	CarouselContent,
@@ -6,15 +9,6 @@ import {
 	CarouselPrevious,
 } from '@repo/design-system/components/carousel'
 import { Section } from '@repo/design-system/components/section'
-import {
-	Avatar,
-	AvatarFallback,
-	AvatarImage,
-	Button,
-	H2,
-	H3,
-	Skeleton,
-} from '@repo/design-system/components/ui'
 import { GithubIcon, GlobeIcon } from '@repo/design-system/icons'
 import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
@@ -72,8 +66,6 @@ export async function generateMetadata(
 	})
 }
 
-const prose = 'prose md:prose-lg lg:prose-xl max-w-4xl mx-auto'
-
 export default async function ProductDetailPage(props: PageProps) {
 	const { slug, locale } = await props.params
 
@@ -85,7 +77,7 @@ export default async function ProductDetailPage(props: PageProps) {
 	return (
 		<>
 			<Section className="mx-auto max-w-4xl">
-				<div className="gap-x-md mb-xl flex w-full items-center">
+				<div className="gap-x-friends mb-acquaintances flex w-full items-center">
 					<Avatar className="text-foreground rounded-subtle size-20 overflow-hidden">
 						<AvatarImage
 							src={product.icon.src}
@@ -97,42 +89,41 @@ export default async function ProductDetailPage(props: PageProps) {
 						</AvatarFallback>
 					</Avatar>
 					<div className="min-w-0">
-						<H2 variant="primary" as="h1">
-							{product.title}
-						</H2>
+						<h2 className="typography-heading">{product.title}</h2>
 						<p>{product.description}</p>
 					</div>
 				</div>
-				<div className="gap-lg flex flex-col justify-between md:flex-row">
-					<div className="flex-shrink flex-grow-[2] basis-0">
-						<H3 as="h2" className="mb-lg">
-							{t('about')}
-						</H3>
-						<div className={prose}>
+				<div className="gap-casual flex flex-col justify-between md:flex-row">
+					<div className="shrink grow-2 basis-0">
+						<h2 className="typography-heading-sm mb-casual">{t('about')}</h2>
+						<div className="typography mx-auto max-w-4xl">
 							<Body content={product.body} />
 						</div>
 					</div>
 					<div className="flex-1 items-stretch">
-						<div className="gap-sm flex flex-col">
+						<div className="gap-best-friends flex flex-col">
 							{product.url ? (
-								<Button asChild className="gap-sm flex w-full">
-									<Link target="_blank" href={product.url}>
-										<GlobeIcon className="size-4" />
-										{t('open')}
-									</Link>
-								</Button>
+								<Button
+									render={
+										<Link target="_blank" href={product.url}>
+											<GlobeIcon className="size-4" />
+											{t('open')}
+										</Link>
+									}
+									className="gap-best-friends flex w-full"
+								/>
 							) : null}
 							{product.sourceUrl ? (
 								<Button
 									variant="secondary"
-									asChild
-									className="gap-sm flex w-full"
-								>
-									<Link target="_blank" href={product.sourceUrl}>
-										<GithubIcon className="size-4" />
-										{t('source')}
-									</Link>
-								</Button>
+									render={
+										<Link target="_blank" href={product.sourceUrl}>
+											<GithubIcon className="size-4" />
+											{t('source')}
+										</Link>
+									}
+									className="gap-best-friends flex w-full"
+								/>
 							) : null}
 						</div>
 					</div>
@@ -140,18 +131,18 @@ export default async function ProductDetailPage(props: PageProps) {
 			</Section>
 			{product.images?.length ? (
 				<Section>
-					<Carousel>
-						<CarouselContent className="p-xs">
+					<Carousel opts={{ loop: true }}>
+						<CarouselContent className="p-bff">
 							{product.images.map((image) => (
 								<CarouselItem
 									key={image.src}
 									className="md:basis-1/2 lg:basis-1/3"
 								>
-									<div className="shadow-outline rounded-base aspect-w-4 aspect-h-3 overflow-hidden">
+									<div className="border-border rounded-base relative aspect-3/4 w-full overflow-hidden">
 										<Image
 											src={image.src}
 											alt={image.alt}
-											className="absolute inset-0 object-cover"
+											className="absolute inset-0 size-full object-cover"
 											width={500}
 											height={500}
 										/>

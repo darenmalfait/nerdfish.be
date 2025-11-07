@@ -1,5 +1,4 @@
 import { Section } from '@repo/design-system/components/section'
-import { H2, Paragraph } from '@repo/design-system/components/ui'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
@@ -62,10 +61,10 @@ export default async function ContactPage(props: PageProps) {
 				</HeroContent>
 			</Hero>
 			<Section>
-				<div className="mx-auto max-w-3xl">
-					<H2 variant="primary">{t('content.title')}</H2>
-					<Paragraph>{t('content.body')}</Paragraph>
-					<div className="gap-sm mt-md flex flex-col">
+				<div className="typography mx-auto max-w-3xl">
+					<h2>{t('content.title')}</h2>
+					<p>{t('content.body')}</p>
+					<div className="gap-best-friends mt-friends flex flex-col">
 						<div className="font-bold">{companyInfo.companyName}</div>
 						<div>
 							<Link href={`mailto:${companyInfo.email}`}>

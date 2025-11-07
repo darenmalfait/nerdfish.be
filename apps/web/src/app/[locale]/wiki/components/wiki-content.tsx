@@ -1,14 +1,13 @@
+import { Badge } from '@nerdfish/react/badge'
+import { Separator } from '@nerdfish/react/separator'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
-import { Badge, H2, Separator } from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { type Wiki } from 'content-collections'
 import { BackToWiki } from './misc'
 import { Body } from '~/app/components/body'
-
-const prose = 'prose md:prose-lg lg:prose-xl max-w-4xl'
 
 function WikiContent({ data }: { data: Wiki }) {
 	const { title, date, body } = data
@@ -17,24 +16,26 @@ function WikiContent({ data }: { data: Wiki }) {
 		<>
 			<ReadingProgress title={title} offset={400} />
 			<Section className="max-w-4xl">
-				<div className="mb-lg">
+				<div className="mb-casual">
 					<BackToWiki />
 				</div>
-				<header className={cx('flex max-w-4xl flex-col', prose)}>
+				<header className={cx('mx-auto flex max-w-4xl flex-col')}>
 					{date ? (
-						<div className="mb-sm">
-							<Badge variant="secondary">
+						<div className="mb-best-friends">
+							<Badge variant="muted">
 								<DateFormatter dateString={date} format="dd MMMM yyyy" />
 							</Badge>
 						</div>
 					) : null}
-					<H2 as="h1" className="!mt-0 w-auto" variant="primary">
+					<h1 className="typography-heading mt-0! w-auto">
 						<TextBalancer>{title}</TextBalancer>
-					</H2>
+					</h1>
 				</header>
 
-				<Separator className="my-lg container max-w-4xl" />
-				<div className={prose}>{body ? <Body content={body} /> : null}</div>
+				<Separator className="my-casual container max-w-4xl" />
+				<div className="typography mx-auto max-w-4xl">
+					{body ? <Body content={body} /> : null}
+				</div>
 			</Section>
 		</>
 	)

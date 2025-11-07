@@ -1,5 +1,5 @@
+import { Button } from '@nerdfish/react/button'
 import { Section } from '@repo/design-system/components/section'
-import { Button, H1, Paragraph } from '@repo/design-system/components/ui'
 import { ChevronLeftIcon } from '@repo/design-system/icons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,26 +9,29 @@ const subtitle = "Sorry, we couldn't find the page you were looking for."
 
 export default function Custom404() {
 	return (
-		<Section className="gap-md max-w-5xl text-center">
+		<Section className="gap-friends max-w-5xl text-center">
 			<Image
 				src="/images/404-transparent.png"
 				alt={title}
 				width={500}
 				height={500}
-				className="rounded-container mb-xl mx-auto"
+				className="rounded-container mb-acquaintances mx-auto"
 			/>
-			<div className="mb-lg text-center">
-				<H1 variant="primary">{title}</H1>
-				<Paragraph className="text-foreground-muted text-xl">
+			<div className="mb-casual text-center">
+				<h1 className="typography-heading">{title}</h1>
+				<p className="typography-body text-foreground-muted text-xl">
 					{subtitle}
-				</Paragraph>
+				</p>
 			</div>
-			<Button size="lg" asChild>
-				<Link href="/" className="mx-auto flex w-auto">
-					<ChevronLeftIcon className="mr-2 size-4" />
-					Go back home
-				</Link>
-			</Button>
+			<Button
+				size="lg"
+				render={
+					<Link href="/" className="mx-auto flex w-auto">
+						<ChevronLeftIcon className="mr-2 size-4" />
+						Go back home
+					</Link>
+				}
+			/>
 		</Section>
 	)
 }

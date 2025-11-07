@@ -1,10 +1,10 @@
+import { Button } from '@nerdfish/react/button'
 import {
-	Button,
+	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-	Tooltip,
 	TooltipProvider,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/tooltip'
 import { PrinterIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 
@@ -15,29 +15,30 @@ export function TimesheetsToolbar() {
 		<div
 			className={cx(
 				'print:hidden',
-				'rounded-container bg-popover p-xs fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
+				'rounded-container bg-popover p-bff fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
 				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
 				'bottom-lg',
 			)}
 		>
 			<TooltipProvider>
-				<ul className="gap-sm flex">
+				<ul className="gap-best-friends flex">
 					<li>
 						<ImportTimeEntriesButton />
 					</li>
 					<li>
 						<Tooltip>
-							<TooltipTrigger asChild>
-								<Button
-									type="button"
-									variant="ghost"
-									icon
-									aria-label="Print"
-									onClick={() => window.print()}
-								>
-									<PrinterIcon className="h-4 w-4" />
-								</Button>
-							</TooltipTrigger>
+							<Button
+								type="button"
+								variant="ghost"
+								icon
+								aria-label="Print"
+								onClick={() => window.print()}
+								render={
+									<TooltipTrigger>
+										<PrinterIcon className="h-4 w-4" />
+									</TooltipTrigger>
+								}
+							/>
 							<TooltipContent>Print</TooltipContent>
 						</Tooltip>
 					</li>

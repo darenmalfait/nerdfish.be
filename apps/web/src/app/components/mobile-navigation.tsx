@@ -1,15 +1,15 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
 import {
-	Button,
 	Drawer,
 	DrawerContent,
 	DrawerDescription,
 	DrawerHeader,
 	DrawerTitle,
 	DrawerTrigger,
-} from '@repo/design-system/components/ui'
-import { Logo, MenuIcon } from '@repo/design-system/icons'
+} from '@nerdfish/react/drawer'
+import { ArrowLeftIcon, Logo, MenuIcon, XIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from '@repo/lib/utils/base'
 import { stripPreSlash } from '@repo/lib/utils/string'
@@ -34,18 +34,24 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 		return (
 			<Link
 				onClick={onClick}
-				className={cx('text-[1.15rem]', isActive && 'border-brand border-b-2')}
+				className={cx(
+					'group/navigation-item gap-best-friends flex items-center text-[1.15rem]',
+					isActive && 'border-accent border-b-2',
+				)}
 				href={item.href}
 			>
 				{item.label}
+				<div>
+					<ArrowLeftIcon className="text-accent size-4 opacity-0 transition-opacity duration-300 group-hover/navigation-item:opacity-100" />
+				</div>
 			</Link>
 		)
 	}
 
 	return (
 		<div>
-			<div className="mb-md text-xl font-medium">{item.label}</div>
-			<ul className={cx('gap-sm flex flex-col')}>
+			<div className="mb-friends text-xl font-medium">{item.label}</div>
+			<ul className={cx('gap-best-friends flex flex-col')}>
 				{item.sub.map((subNavItem) => {
 					const isActive = stripPreSlash(pathname).startsWith(
 						stripPreSlash(subNavItem.href),
@@ -56,12 +62,15 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 							<Link
 								onClick={onClick}
 								className={cx(
-									'text-foreground/80 text-[1.15rem]',
-									isActive && 'border-brand border-b-2',
+									'group/navigation-item gap-best-friends text-foreground-muted hover:text-foreground flex items-center text-[1.15rem]',
+									isActive && 'border-accent border-b-2',
 								)}
 								href={subNavItem.href}
 							>
 								{subNavItem.label}
+								<div>
+									<ArrowLeftIcon className="text-accent size-4 opacity-0 transition-opacity duration-300 group-hover/navigation-item:opacity-100" />
+								</div>
 							</Link>
 						</li>
 					)
@@ -78,23 +87,37 @@ export function MobileNavigation() {
 
 	return (
 		<Drawer direction="left" open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
-			<DrawerTrigger asChild className="lg:hidden">
-				<Button variant="link" className="text-foreground mr-md p-0">
-					<MenuIcon className="size-6" />
+			<DrawerTrigger className="lg:hidden" asChild>
+				<Button
+					variant="outline"
+					icon
+					className="text-foreground mr-friends p-0"
+				>
+					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent className="bg-popover">
+			<DrawerContent className="bg-popover h-screen">
 				<DrawerHeader>
-					<DrawerTitle className="p-md">
-						<Logo className="h-6 w-auto" />
-						<span className="sr-only">Navigation</span>
+					<DrawerTitle className="p-best-friends flex items-center justify-between">
+						<div>
+							<Logo className="h-6 w-auto" />
+							<span className="sr-only">Navigation</span>
+						</div>
+						<Button
+							icon
+							variant="ghost"
+							className="p-0"
+							onClick={() => setIsDrawerOpen(false)}
+						>
+							<XIcon className="size-4" />
+						</Button>
 					</DrawerTitle>
 					<DrawerDescription className="sr-only">
 						{t('navigation.pages')}
 					</DrawerDescription>
 				</DrawerHeader>
-				<div className="p-lg max-w-screen-xsm w-screen">
-					<ul className="space-y-md flex flex-col">
+				<div className="p-casual max-w-screen-xsm w-screen">
+					<ul className="space-y-friends flex flex-col">
 						{navigation.map((mainNavItem) => {
 							return (
 								<li key={mainNavItem.label}>

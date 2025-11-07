@@ -168,14 +168,15 @@ function TimesheetsCalendarDay({
 			onMouseEnter={() => handleMouseEnter(date)}
 			onMouseUp={handleMouseUp}
 			className={cx(
-				'relative flex aspect-square select-none space-x-2 px-3 pb-10 pt-2 text-left font-mono text-lg transition-all duration-100 md:aspect-[4/2]',
-				isCurrentMonth && isToday(date) ? 'bg-brand/10' : 'bg-background',
+				'relative flex aspect-square space-x-2 px-3 pt-2 pb-10 text-left font-mono text-lg transition-all duration-100 select-none md:aspect-4/2',
+				'hover:bg-background-muted',
+				isCurrentMonth && isToday(date) ? 'bg-accent/10' : 'bg-background',
 				!isCurrentMonth &&
 					'bg-[repeating-linear-gradient(-60deg,#DBDBDB,#DBDBDB_1px,transparent_1px,transparent_5px)] dark:bg-[repeating-linear-gradient(-60deg,#2C2C2C,#2C2C2C_1px,transparent_1px,transparent_5px)]',
-				selectedDate === formattedDate && 'ring-primary ring-1',
-				isInRange(date) && 'ring-primary bg-opacity-50 ring-1',
-				isFirstSelectedDate(date) && 'ring-primary bg-opacity-50 ring-1',
-				isLastSelectedDate(date) && 'ring-primary bg-opacity-50 ring-1',
+				selectedDate === formattedDate && 'ring-ring ring-1',
+				isInRange(date) && 'ring-ring bg-opacity-50 ring-1',
+				isFirstSelectedDate(date) && 'ring-ring bg-opacity-50 ring-1',
+				isLastSelectedDate(date) && 'ring-ring bg-opacity-50 ring-1',
 			)}
 		>
 			<div>{format(date, 'd')}</div>
@@ -262,7 +263,7 @@ export function TimesheetsCalendar({
 	}
 
 	return (
-		<div ref={ref} className="shadow-outline grid grid-cols-7 gap-px">
+		<div ref={ref} className="border-border grid grid-cols-7 gap-px">
 			{firstWeek.map((day) => (
 				<div
 					key={day.toString()}

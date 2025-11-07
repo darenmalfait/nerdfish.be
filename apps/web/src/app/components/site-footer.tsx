@@ -1,7 +1,6 @@
 'use client'
 
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import { H1 } from '@repo/design-system/components/ui'
 import { ArrowRight, Logo } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
@@ -10,7 +9,7 @@ import { cx } from '@repo/lib/utils/base'
 import { kebabCase } from '@repo/lib/utils/string'
 import { type ComponentProps, useCallback } from 'react'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
-import { SocialLinks } from './navigation'
+import { SocialLinks } from './site-navigation'
 import { Link } from '~/app/components/link'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
@@ -19,7 +18,7 @@ function Disclaimer() {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<div className="text-muted/70 mt-8 flex flex-col items-center justify-center gap-2 text-xs sm:mt-0 sm:flex-row sm:gap-x-4 sm:gap-y-0 sm:text-sm md:justify-self-start">
+		<div className="text-muted/70 gap-bff mt-8 flex flex-col items-center justify-center text-xs sm:mt-0 sm:flex-row sm:gap-x-4 sm:gap-y-0 sm:text-sm md:justify-self-start">
 			<span>
 				© {currentYear} {companyName}
 			</span>
@@ -46,7 +45,7 @@ function Disclaimer() {
 
 function SiteFooterHeading() {
 	return (
-		<H1 as="h2" className="mb-xl py-lg text-foreground">
+		<h2 className="typography-heading-lg mb-acquaintances py-lg text-foreground">
 			<Link
 				href="/contact"
 				className="!text-foreground group"
@@ -55,12 +54,12 @@ function SiteFooterHeading() {
 				<TextSlideUp>
 					<span className="!text-foreground">
 						Let&apos;s work
-						<ArrowRight className="ml-lg group-hover:translate-x-xs group-hover:text-brand inline size-8 transform duration-300 md:size-12 lg:size-16" />
+						<ArrowRight className="ml-casual group-hover:translate-x-bff group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
-					<span className="!text-foreground">together</span>
+					<span className="text-foreground!">together</span>
 				</TextSlideUp>
 			</Link>
-		</H1>
+		</h2>
 	)
 }
 
@@ -77,19 +76,19 @@ function SiteFooterContent() {
 	}, [])
 
 	return (
-		<div className="gap-lg flex w-full flex-col items-start justify-between">
+		<div className="gap-casual flex w-full flex-col items-start justify-between">
 			<section
 				className="w-full text-center md:text-left lg:w-1/2"
 				aria-labelledby="footer-heading"
 			>
-				<h2 className="mb-sm" id="footer-heading">
+				<h2 className="mb-best-friends" id="footer-heading">
 					<Logo className="mx-auto h-12 w-auto items-center text-current md:mx-0" />
 					<span className="sr-only">Nerdfish</span>
 				</h2>
 				<p className="max-w-xl" lang="en">
 					Development with user experience in mind. The code of this website is{' '}
 					<Link
-						className="text-brand cursor-pointer font-medium transition duration-300 hover:opacity-70"
+						className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
 						href="https://github.com/darenmalfait/nerdfish.be"
 						target="_blank"
 					>
@@ -100,13 +99,13 @@ function SiteFooterContent() {
 			</section>
 
 			<section
-				className="gap-lg grid w-full text-center md:max-w-5xl md:text-left lg:place-items-center"
+				className="gap-casual grid w-full text-center md:max-w-5xl md:text-left lg:place-items-center"
 				aria-label="Footer navigation and links"
 			>
-				<div className="gap-md grid grid-cols-1 md:grid-cols-2 lg:w-full lg:grid-cols-3">
-					<div className="gap-lg grid md:col-span-1 md:grid-cols-1 lg:grid-cols-1">
+				<div className="gap-friends grid grid-cols-1 md:grid-cols-2 lg:w-full lg:grid-cols-3">
+					<div className="gap-casual grid md:col-span-1 md:grid-cols-1 lg:grid-cols-1">
 						<section
-							className="gap-sm flex flex-col items-center md:items-start"
+							className="gap-best-friends flex flex-col items-center md:items-start"
 							aria-labelledby="follow-us-heading"
 						>
 							<h2
@@ -119,9 +118,9 @@ function SiteFooterContent() {
 								<SocialLinks />
 							</div>
 						</section>
-						<section className="gap-sm flex flex-col">
+						<section className="gap-best-friends flex flex-col">
 							<nav aria-label="Page navigation">
-								<ul className="gap-sm grid">
+								<ul className="gap-best-friends grid">
 									{navItemsWithoutSubItems(navigation).map((item) => (
 										<li key={item.label}>
 											<Link
@@ -139,7 +138,7 @@ function SiteFooterContent() {
 					{navItemsWithSubItems(navigation).map((item) => (
 						<nav
 							key={item.label}
-							className="flex flex-col gap-2"
+							className="gap-bff flex flex-col"
 							aria-labelledby={`${kebabCase(item.label)}-heading`}
 						>
 							<h2
@@ -148,7 +147,7 @@ function SiteFooterContent() {
 							>
 								{item.label}
 							</h2>
-							<ul className="gap-sm text-muted grid">
+							<ul className="gap-best-friends text-foreground-muted grid">
 								{item.sub?.map((subItem) => (
 									<li key={subItem.label}>
 										<Link
@@ -165,20 +164,20 @@ function SiteFooterContent() {
 				</div>
 			</section>
 			<section
-				className="grid w-full grid-cols-[1fr_auto] items-center gap-2"
+				className="gap-bff grid w-full grid-cols-[1fr_auto] items-center"
 				aria-label="Copyright information"
 			>
-				<div className="gap-lg flex w-full flex-col justify-between md:flex-row md:items-center">
-					<p className="flex justify-center gap-2 lg:justify-start">
+				<div className="gap-casual flex w-full flex-col justify-between md:flex-row md:items-center">
+					<p className="gap-bff flex justify-center lg:justify-start">
 						Made by
 						<Link
-							className="text-brand cursor-pointer font-medium transition duration-300 hover:opacity-70"
+							className="text-accent cursor-pointer font-medium transition duration-300 hover:opacity-70"
 							href="https://www.nerdfish.be"
 						>
 							nerdfish
 						</Link>
 					</p>
-					<div className="gap-md mb-lg flex justify-center md:justify-end">
+					<div className="gap-friends mb-casual flex justify-center md:justify-end">
 						<LocaleSwitcher />
 						<ThemeToggle />
 					</div>
@@ -190,10 +189,10 @@ function SiteFooterContent() {
 
 export type FooterProps = ComponentProps<'footer'>
 
-export function Footer({ className, ...props }: FooterProps) {
+export function SiteFooter({ className, ...props }: FooterProps) {
 	return (
 		<footer
-			className={cx('mt-lg py-lg pb-xl print:hidden', className)}
+			className={cx('mt-casual py-lg pb-acquaintances print:hidden', className)}
 			{...props}
 		>
 			<div className="container">

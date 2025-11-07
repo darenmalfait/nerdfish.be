@@ -1,5 +1,19 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
+import {
+	Empty,
+	EmptyContent,
+	EmptyDescription,
+	EmptyHeader,
+	EmptyMedia,
+	EmptyTitle,
+} from '@nerdfish/react/empty'
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from '@nerdfish/react/input-group'
 import { nonNullable } from '@repo/lib/utils/array'
 import { cx } from '@repo/lib/utils/base'
 import Image from 'next/image'
@@ -29,15 +43,6 @@ import {
 } from '../highlight-card'
 import { TagFilter, TagFilterTitle } from '../tag-filter'
 import {
-	Button,
-	EmptyState,
-	EmptyStateActions,
-	EmptyStateDescription,
-	EmptyStateIcon,
-	EmptyStateTitle,
-	Input,
-} from '../ui'
-import {
 	ArticleOverviewProvider,
 	useArticleOverview,
 } from './article-overview-provider'
@@ -61,7 +66,7 @@ export function ArticleOverviewSearch({
 	return (
 		<div
 			className={cx(
-				'mb-2xl gap-x-md lg:pb-xl relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12',
+				'mb-distant gap-x-friends lg:pb-acquaintances relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12',
 				className,
 			)}
 			{...props}
@@ -84,11 +89,11 @@ export function ArticleOverviewSearchImage({
 
 	return (
 		<div
-			className="mb-lg px-lg col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
+			className="mb-casual px-casual col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
 			{...props}
 		>
 			<Image
-				className="rounded-xl"
+				className="rounded-base"
 				src={image.src}
 				width={550}
 				height={550}
@@ -127,18 +132,22 @@ export function ArticleOverviewSearchContent({
 				<label>
 					<span className="sr-only">{inputLabel ?? 'Search'}</span>
 
-					<Input
-						type="search"
-						value={filter}
-						onChange={(event) => {
-							return setFilter(event.currentTarget.value.toLowerCase())
-						}}
-						className="shadow-outline"
-						name="q"
-						placeholder={inputLabel ?? 'Search'}
-						icon={SearchIcon}
-						inputSize="lg"
-					/>
+					<InputGroup>
+						<InputGroupInput
+							type="search"
+							value={filter}
+							onChange={(event) => {
+								return setFilter(event.currentTarget.value.toLowerCase())
+							}}
+							className="border-border"
+							name="q"
+							placeholder={inputLabel ?? 'Search'}
+							size="lg"
+						/>
+						<InputGroupAddon>
+							<SearchIcon />
+						</InputGroupAddon>
+					</InputGroup>
 				</label>
 			</div>
 		</div>
@@ -178,7 +187,7 @@ export function ArticleOverviewFilter({
 	)
 
 	return (
-		<div className={cx('mb-xl', className)} {...props}>
+		<div className={cx('mb-acquaintances', className)} {...props}>
 			<TagFilter
 				tags={tags}
 				enabledTags={enabledTags}
@@ -215,7 +224,7 @@ export function ArticleOverviewLoadMoreButton({
 
 	return (
 		<div
-			className={cx('mt-2xl flex w-full justify-center', className)}
+			className={cx('mt-distant flex w-full justify-center', className)}
 			{...props}
 		>
 			<Button size="lg" variant="secondary" onClick={loadMore}>
@@ -246,7 +255,7 @@ const FeaturedArticle = ({
 
 	return (
 		<HighlightCard
-			className={cx('mb-xl', className)}
+			className={cx('mb-acquaintances', className)}
 			title={article.title}
 			{...props}
 		>
@@ -310,7 +319,7 @@ export function ArticleOverviewContentGrid({
 
 			<ul
 				className={cx(
-					'gap-x-lg gap-y-xl grid grid-cols-1',
+					'gap-x-acquaintances gap-y-acquaintances grid grid-cols-1',
 					maxColumns > 1 && 'md:grid-cols-2',
 					maxColumns > 2 && 'lg:grid-cols-3',
 					maxColumns > 3 && 'xl:grid-cols-4',
@@ -373,17 +382,24 @@ export function ArticlesOverviewEmptyState({
 	if (articles.length > 0) return null
 
 	return (
-		<div className={cx('pt-xl !col-span-full', className)} {...props}>
-			<EmptyState>
-				<EmptyStateIcon>{Icon ? <Icon /> : <NewspaperIcon />}</EmptyStateIcon>
-				<EmptyStateTitle>{title ?? 'No articles found'}</EmptyStateTitle>
-				<EmptyStateDescription>
-					{description ?? 'Try searching for something else.'}
-				</EmptyStateDescription>
-				<EmptyStateActions>
+		<div
+			className={cx('pt-acquaintances col-span-full!', className)}
+			{...props}
+		>
+			<Empty>
+				<EmptyHeader>
+					<EmptyMedia variant="icon">
+						{Icon ? <Icon /> : <NewspaperIcon />}
+					</EmptyMedia>
+					<EmptyTitle>{title ?? 'No articles found'}</EmptyTitle>
+					<EmptyDescription>
+						{description ?? 'Try searching for something else.'}
+					</EmptyDescription>
+				</EmptyHeader>
+				<EmptyContent>
 					<Button onClick={resetFilter}>{clearSearch ?? 'Clear search'}</Button>
-				</EmptyStateActions>
-			</EmptyState>
+				</EmptyContent>
+			</Empty>
 		</div>
 	)
 }

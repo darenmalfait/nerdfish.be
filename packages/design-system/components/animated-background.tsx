@@ -1,9 +1,9 @@
 'use client'
 
+import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { cx } from '@repo/lib/utils/base'
 import { AnimatePresence, type Transition, motion } from 'motion/react'
 import { Children, cloneElement, useId, type ReactElement } from 'react'
-import { useControllableState } from './ui'
 
 export interface AnimatedBackgroundProps {
 	children?:
@@ -69,7 +69,7 @@ export function AnimatedBackground({
 						<motion.div
 							style={{ originY: '0px' }}
 							layoutId={`background-${uniqueId}`}
-							className={cx('absolute inset-0', className)}
+							className={cx('absolute inset-0 h-full', className)}
 							transition={transition}
 							initial={{ opacity: defaultValue ? 1 : 0 }}
 							animate={{
@@ -81,7 +81,7 @@ export function AnimatedBackground({
 						/>
 					) : null}
 				</AnimatePresence>
-				<span className="z-10">{(child as any).props.children}</span>
+				<span className="z-10 h-full">{(child as any).props.children}</span>
 			</>,
 		)
 	})

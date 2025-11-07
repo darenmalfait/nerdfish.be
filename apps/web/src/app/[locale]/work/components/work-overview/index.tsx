@@ -1,3 +1,4 @@
+import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -6,7 +7,6 @@ import {
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
-import { Skeleton } from '@repo/design-system/components/ui'
 import { getLocale } from '@repo/i18n/server'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
@@ -87,7 +87,7 @@ export async function WorkOverview(props: WorkOverviewProps) {
 			fallback={
 				<WorkOverviewContent {...props} items={[]}>
 					{props.featuredEnabled ? (
-						<Skeleton className="mb-xl rounded-container aspect-[16/9] h-full" />
+						<Skeleton className="mb-acquaintances rounded-container aspect-video h-full" />
 					) : null}
 					<ArticleOverviewContentGrid>
 						{Array.from({ length: 2 }).map((_, i) => (

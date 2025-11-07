@@ -1,5 +1,8 @@
 'use client'
 
+import { Badge } from '@nerdfish/react/badge'
+import { Button } from '@nerdfish/react/button'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { cx } from '@repo/lib/utils/base'
 import { motion } from 'motion/react'
 import { Cursor } from 'motion-cursor'
@@ -8,7 +11,6 @@ import Link from 'next/link'
 import { type ComponentProps, type ReactNode, useState } from 'react'
 import { ArrowRightIcon } from '../icons'
 import { getCategoryColors } from './category-indicator'
-import { Badge, Button, H2, type H3, Skeleton } from './ui'
 
 function ReadMoreCursor({
 	active,
@@ -19,18 +21,18 @@ function ReadMoreCursor({
 }) {
 	if (!active) return null
 	return (
-		<Cursor className="group fixed z-50 !bg-transparent">
+		<Cursor className="group fixed z-50 bg-transparent!">
 			<Button
 				variant="default"
-				asChild
+				render={
+					<div className="flex items-center justify-center">
+						<span className="mr-friends">{readMoreLabel}</span>
+						<ArrowRightIcon className="size-6" />
+					</div>
+				}
 				size="xl"
-				className="bg-inverted/50 backdrop-blur-2xl"
-			>
-				<div className="flex items-center justify-center">
-					<span className="mr-md">{readMoreLabel}</span>
-					<ArrowRightIcon className="size-6" />
-				</div>
-			</Button>
+				className="bg-background-inverted/50 backdrop-blur-2xl"
+			/>
 		</Cursor>
 	)
 }
@@ -59,7 +61,7 @@ export function ArticleCardImage({
 			onHoverEnd={() => setIsHovering(false)}
 			onHoverStart={() => setIsHovering(true)}
 			className={cx(
-				'aspect-h-4 aspect-w-3 rounded-container shadow-outline ring-offset-inverted relative overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
 			)}
 		>
@@ -92,13 +94,13 @@ export function ArticleCardContent({
 	...props
 }: ArticleCardContentProps) {
 	return (
-		<div {...props} className={cx('mt-md', className)}>
+		<div {...props} className={cx('mt-casual', className)}>
 			{children}
 		</div>
 	)
 }
 
-export type ArticleCardTitleProps = ComponentProps<typeof H3>
+export type ArticleCardTitleProps = ComponentProps<'h3'>
 
 export function ArticleCardTitle({
 	children,
@@ -106,14 +108,15 @@ export function ArticleCardTitle({
 	...props
 }: ArticleCardTitleProps) {
 	return (
-		<H2
-			as="h3"
-			variant="primary"
+		<h3
 			{...props}
-			className={cx('mb-sm !mt-0 line-clamp-2', className)}
+			className={cx(
+				'mb-best-friends typography-title mt-bff line-clamp-2',
+				className,
+			)}
 		>
 			{children}
-		</H2>
+		</h3>
 	)
 }
 
@@ -129,7 +132,10 @@ export function ArticleCardDate({
 	return (
 		<div
 			{...props}
-			className={cx('mb-sm text-foreground-muted text-xl font-bold', className)}
+			className={cx(
+				'mb-best-friends text-foreground-muted text-xl font-bold',
+				className,
+			)}
 		>
 			{children}
 		</div>
@@ -171,7 +177,7 @@ export function ArticleCardCategory({
 			variant="default"
 			{...props}
 			className={cx(
-				'mb-sm bg-background-muted px-md py-sm relative text-sm',
+				'mb-best-friends bg-background-muted px-best-friends py-best-friends relative text-sm',
 				getCategoryColors(value),
 				className,
 			)}

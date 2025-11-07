@@ -8,31 +8,33 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nerdfish/ui": "^8.0.1",
+    "@nerdfish/react": "^1.0.1",
     "@number-flow/react": "^0.5.10",
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@repo/lib": "workspace:*",
-    "@repo/tailwind-config": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.16",
     "@uidotdev/usehooks": "^2.4.1",
     "embla-carousel-react": "^8.6.0",
     "fuse.js": "^7.1.0",
     "geist": "^1.5.1",
     "json-edit-react": "^1.29.0",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.552.0",
     "motion": "^12.23.24",
     "motion-cursor": "^1.0.5",
     "next": "15.5.6",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-wrap-balancer": "^1.1.1",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "tailwindcss": "^4.1.16",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/lodash": "^4.17.20",
     "@types/react": "19.1.13",
-    "tailwindcss": "^3.4.18",
     "typescript": "^5.9.3"
   }
 }

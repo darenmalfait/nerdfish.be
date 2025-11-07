@@ -18,11 +18,10 @@
   "dependencies": {
     "@axe-core/playwright": "^4.10.2",
     "@hookform/resolvers": "^5.2.2",
-    "@nerdfish/theme": "^3.0.1",
+    "@nerdfish/react": "^1.0.1",
     "@next/env": "15.5.6",
     "@playwright/test": "^1.55.1",
     "@react-aria/i18n": "^3.12.13",
-    "@repo/ai": "workspace:*",
     "@repo/calcom": "workspace:*",
     "@repo/calendar": "workspace:*",
     "@repo/content-collections": "workspace:*",
@@ -35,9 +34,9 @@
     "@repo/og-utils": "workspace:*",
     "@repo/recaptcha": "workspace:*",
     "@repo/seo": "workspace:*",
-    "@repo/tailwind-config": "workspace:*",
     "@repo/timesheets": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
+    "@tailwindcss/postcss": "^4.1.16",
     "@vercel/og": "^0.8.5",
     "csv-import-react": "^1.0.18",
     "fuse.js": "^7.1.0",
@@ -49,6 +48,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-hook-form": "^7.63.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3",
     "zod": "^3.25.76"
   },
@@ -66,6 +66,6 @@
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "postcss-nesting": "^13.0.2",
-    "tailwindcss": "^3.4.18"
+    "tailwindcss": "^4.1.16"
   }
 }

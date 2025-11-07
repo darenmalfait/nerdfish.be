@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@nerdfish/ui'
+import { Button } from '@nerdfish/react/button'
 import { cx } from '@repo/lib/utils/base'
 import useEmblaCarousel, {
 	type UseEmblaCarouselType,
@@ -150,8 +150,8 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 		>
 			<div
 				className={cx(
-					'flex',
-					orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+					'group/carousel-content flex',
+					orientation === 'horizontal' ? '-ml-friends' : '-mt-friends flex-col',
 					className,
 				)}
 				{...props}
@@ -169,8 +169,8 @@ function CarouselItem({ className, ...props }: ComponentProps<'div'>) {
 			aria-roledescription="slide"
 			data-slot="carousel-item"
 			className={cx(
-				'min-w-0 shrink-0 grow-0 basis-full',
-				orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+				'min-w-0 shrink-0 grow-0 basis-full transition-transform duration-300',
+				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
 				className,
 			)}
 			{...props}
@@ -192,9 +192,9 @@ function CarouselPrevious({
 			variant={variant}
 			icon={icon}
 			className={cx(
-				'absolute',
+				'absolute!',
 				orientation === 'horizontal'
-					? '-left-16 top-1/2 -translate-y-1/2'
+					? 'top-1/2 -left-16 -translate-y-1/2'
 					: '-top-16 left-1/2 -translate-x-1/2 rotate-90',
 				className,
 			)}
@@ -222,9 +222,9 @@ function CarouselNext({
 			variant={variant}
 			icon={icon}
 			className={cx(
-				'absolute',
+				'absolute!',
 				orientation === 'horizontal'
-					? '-right-16 top-1/2 -translate-y-1/2'
+					? 'top-1/2 -right-16 -translate-y-1/2'
 					: '-bottom-16 left-1/2 -translate-x-1/2 rotate-90',
 				className,
 			)}

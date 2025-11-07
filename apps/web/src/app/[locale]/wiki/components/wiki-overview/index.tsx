@@ -1,3 +1,4 @@
+import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -6,7 +7,6 @@ import {
 	ArticleCardTitle,
 } from '@repo/design-system/components/article-card'
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
-import { Skeleton } from '@repo/design-system/components/ui'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
 import { Suspense } from 'react'

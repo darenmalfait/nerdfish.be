@@ -1,6 +1,5 @@
 'use client'
 
-import { H1, H2 } from '@repo/design-system/components/ui'
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import { type Testimonial } from 'content-collections'
@@ -11,7 +10,7 @@ function Author({ author }: { author: Testimonial['author'] }) {
 	if (!author?.name) return null
 
 	return (
-		<div className="gap-xs flex flex-col justify-center">
+		<div className="gap-bff flex flex-col justify-center">
 			<span className="before:bg-foreground flex items-center font-medium before:mr-2 before:inline-block before:h-2 before:w-2 before:rounded-full before:content-['']">
 				{author.name}
 			</span>
@@ -30,18 +29,18 @@ function TestimonialActions({
 	if (!onNext || !onPrevious) return null
 
 	return (
-		<div className="gap-md rounded-base p-md md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
+		<div className="gap-friends rounded-base p-friends md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
 			<button
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
-				className="active:-translate-x-xs rounded-base focus-visible:outline-active group-hover:text-foreground-inverted outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:!opacity-100"
 			>
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
 				aria-label="Next testimonial"
 				onClick={onNext}
-				className="rounded-base focus-visible:outline-active active:translate-x-xs group-hover:text-foreground-inverted outline-none transition duration-300 hover:!opacity-100 group-hover:opacity-25"
+				className="rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:!opacity-100"
 			>
 				<ArrowRightIcon className="size-8" />
 			</button>
@@ -68,20 +67,22 @@ function TestimonialItem({
 	onNext?: () => void
 	onPrevious?: () => void
 }) {
-	const Element = layout?.variant === 'secondary' ? H2 : H1
-
 	if (!testimonial) return null
 
 	return (
-		<div className="gap-xl relative flex flex-col justify-center">
-			<Element
-				as="blockquote"
-				className='text-foreground font-bold before:content-["“"] after:content-["”"]'
+		<div className="gap-acquaintances relative flex flex-col justify-center">
+			<blockquote
+				className={cx(
+					layout?.variant === 'secondary'
+						? 'typography-heading'
+						: 'typography-heading-lg',
+					'text-foreground font-bold before:content-["“"] after:content-["”"]',
+				)}
 			>
 				{testimonial.quote}
-			</Element>
+			</blockquote>
 
-			<div className="gap-xl flex flex-col justify-between md:flex-row md:items-center">
+			<div className="gap-acquaintances flex flex-col justify-between md:flex-row md:items-center">
 				<Author author={testimonial.author} />
 				<div className="flex w-auto items-center justify-end">
 					<TestimonialActions onNext={onNext} onPrevious={onPrevious} />

@@ -6,8 +6,8 @@ import {
 	ContextMenuItem,
 	ContextMenuShortcut,
 	ContextMenuTrigger,
-	useControllableState,
-} from '@repo/design-system/components/ui'
+} from '@nerdfish/react/context-menu'
+import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cx } from '@repo/lib/utils/base'
 import {
@@ -268,7 +268,7 @@ export function CalendarDay({
 			</div>
 
 			<div
-				className="relative flex-grow cursor-default select-none border-none"
+				className="relative flex-grow cursor-default border-none select-none"
 				onMouseMove={handleMouseMove}
 				onMouseDown={(e) => {
 					if (e.button === 0 && !isContextMenuOpen) {
@@ -309,7 +309,7 @@ export function CalendarDay({
 								<div
 									onClick={() => handleEventClick(event)}
 									className={cx(
-										'shadow-outline bg-background-muted/95 text-foreground absolute w-full border-t',
+										'border-border bg-background-muted/95 text-foreground absolute w-full border-t',
 										event.id !== NEW_EVENT_ID && 'cursor-move',
 										event.id === selectedEvent?.id &&
 											'bg-foreground/80 text-background z-50',
@@ -322,7 +322,7 @@ export function CalendarDay({
 										event.id !== NEW_EVENT_ID && handleEventMoveStart(e, event)
 									}
 								>
-									<div className="p-md pointer-events-none flex select-none flex-col justify-between text-xs">
+									<div className="p-friends pointer-events-none flex flex-col justify-between text-xs select-none">
 										<span className="font-bold">
 											{event.project} (
 											{secondsToHoursAndMinutes(
@@ -338,13 +338,13 @@ export function CalendarDay({
 									{event.id !== NEW_EVENT_ID ? (
 										<>
 											<div
-												className="absolute left-0 right-0 top-0 h-2 cursor-ns-resize"
+												className="absolute top-0 right-0 left-0 h-2 cursor-ns-resize"
 												onMouseDown={(e) =>
 													handleEventResizeStart(e, event, 'top')
 												}
 											/>
 											<div
-												className="absolute bottom-0 left-0 right-0 h-2 cursor-ns-resize"
+												className="absolute right-0 bottom-0 left-0 h-2 cursor-ns-resize"
 												onMouseDown={(e) =>
 													handleEventResizeStart(e, event, 'bottom')
 												}

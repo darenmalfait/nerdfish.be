@@ -1,23 +1,21 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Button } from '@nerdfish/react/button'
+import {
+	FieldGroup,
+	Field,
+	FieldLabel,
+	FieldError,
+} from '@nerdfish/react/field'
+import { Input } from '@nerdfish/react/input'
+import { Spinner } from '@nerdfish/react/spinner'
+import { Textarea } from '@nerdfish/react/textarea'
 import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
 import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
-import {
-	Button,
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-	Input,
-	LoadingAnimation,
-	Textarea,
-} from '@repo/design-system/components/ui'
 import { cx } from '@repo/lib/utils/base'
 import { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,
@@ -89,18 +87,18 @@ export function TimesheetsRecordForm({
 	const isUpdate = id && id !== NEW_EVENT_ID
 
 	return (
-		<Form {...form}>
-			<form
-				noValidate
-				onSubmit={form.handleSubmit(handleSubmit)}
-				className={cx('gap-lg flex flex-col', className)}
-			>
-				<FormField
+		<form
+			noValidate
+			onSubmit={form.handleSubmit(handleSubmit)}
+			className={cx('gap-casual flex flex-col', className)}
+		>
+			<FieldGroup>
+				<Controller
 					control={form.control}
 					name="duration"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Duration</FormLabel>
+					render={({ field, fieldState }) => (
+						<Field>
+							<FieldLabel>Duration</FieldLabel>
 							<TimeRangeInput
 								value={{ start: form.watch('start'), end: form.watch('end') }}
 								onChange={(value) => {
@@ -120,57 +118,57 @@ export function TimesheetsRecordForm({
 									}
 								}}
 							/>
-							<FormMessage />
-						</FormItem>
+							{fieldState.invalid ? (
+								<FieldError errors={[fieldState.error]} />
+							) : null}
+						</Field>
 					)}
 				/>
-
-				<FormField
+				<Controller
 					control={form.control}
 					name="project"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Project</FormLabel>
-							<FormControl>
-								<Input {...field} placeholder="Project" />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
+					render={({ field, fieldState }) => (
+						<Field>
+							<FieldLabel>Project</FieldLabel>
+							<Input {...field} placeholder="Project" />
+							{fieldState.invalid ? (
+								<FieldError errors={[fieldState.error]} />
+							) : null}
+						</Field>
 					)}
 				/>
-
-				<FormField
+				<Controller
 					control={form.control}
 					name="description"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Description</FormLabel>
-							<FormControl>
-								<Textarea
-									placeholder="Description"
-									{...field}
-									rows={3}
-									className="resize-none"
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
+					render={({ field, fieldState }) => (
+						<Field>
+							<FieldLabel>Description</FieldLabel>
+							<Textarea
+								placeholder="Description"
+								{...field}
+								rows={3}
+								className="resize-none"
+							/>
+							{fieldState.invalid ? (
+								<FieldError errors={[fieldState.error]} />
+							) : null}
+						</Field>
 					)}
 				/>
+			</FieldGroup>
 
-				<div className="flex justify-between">
-					<Button
-						className="flex w-full items-center"
-						disabled={form.formState.isSubmitting}
-						type="submit"
-					>
-						{form.formState.isSubmitting ? (
-							<LoadingAnimation className="mr-sm size-4" />
-						) : null}
-						{isUpdate ? 'Update' : 'Add'}
-					</Button>
-				</div>
-			</form>
-		</Form>
+			<div className="flex justify-between">
+				<Button
+					className="flex w-full items-center"
+					disabled={form.formState.isSubmitting}
+					type="submit"
+				>
+					{form.formState.isSubmitting ? (
+						<Spinner className="mr-best-friends size-4" />
+					) : null}
+					{isUpdate ? 'Update' : 'Add'}
+				</Button>
+			</div>
+		</form>
 	)
 }
