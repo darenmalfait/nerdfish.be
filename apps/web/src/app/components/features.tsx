@@ -20,8 +20,8 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 	return (
 		<div className="mt-friends">
 			<MagnetButton
-				className="group -mx-[1.5rem]"
-				variant="ghost"
+				className="group -mx-4"
+				variant="link"
 				render={
 					<Link
 						href={href}

@@ -97,7 +97,7 @@ export function HighlightCardSubtitle({
 		<div
 			{...props}
 			className={cx(
-				'mt-friends text-foreground line-clamp-2 text-xl font-bold',
+				'typography-title mt-friends text-foreground line-clamp-2',
 				className,
 			)}
 		/>
@@ -145,7 +145,7 @@ export function HighlightCardDescription({
 		<p
 			{...props}
 			className={cx(
-				'mt-casual text-foreground/80 line-clamp-2 text-xl font-semibold',
+				'mt-casual text-foreground/80 typography-subtitle line-clamp-3',
 				className,
 			)}
 		>
@@ -176,7 +176,10 @@ export function HighlightCardCTA({
 
 	return (
 		<div
-			className={cx('mt-casual flex flex-1 items-end justify-start', className)}
+			className={cx(
+				'mt-acquaintances flex flex-1 items-end justify-start',
+				className,
+			)}
 		>
 			<Button
 				size="lg"
