@@ -27,7 +27,7 @@ function WorkContent({
 	return (
 		<div className="relative">
 			<Section
-				className="-mt-distant md:-mt-strangers gap-acquaintances mx-auto flex flex-col pt-0 xl:flex-row"
+				className="md:-mt-strangers gap-acquaintances mx-auto flex flex-col pt-0 xl:flex-row"
 				asChild
 			>
 				<article>
@@ -38,7 +38,7 @@ function WorkContent({
 							'container max-w-4xl': layout === 'full',
 						})}
 					>
-						<div className="py-casual xl:sticky xl:top-0">
+						<div className="py-casual max-w-4xl xl:sticky xl:top-0">
 							<CategoryIndicator
 								className="mb-friends"
 								category={category}

@@ -101,10 +101,10 @@ export function MobileNavigation() {
 			<DrawerContent className="bg-popover h-screen">
 				<DrawerHeader>
 					<DrawerTitle className="p-best-friends flex items-center justify-between">
-						<div>
+						<Link href="/" onClick={() => setIsDrawerOpen(false)}>
 							<Logo className="h-6 w-auto" />
 							<span className="sr-only">Navigation</span>
-						</div>
+						</Link>
 						<Button
 							icon
 							variant="ghost"
