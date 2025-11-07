@@ -74,8 +74,8 @@ function TestimonialItem({
 			<blockquote
 				className={cx(
 					layout?.variant === 'secondary'
-						? 'typography-heading'
-						: 'typography-heading-lg',
+						? 'typography-title'
+						: 'typography-heading-sm',
 					'text-foreground font-bold before:content-["“"] after:content-["”"]',
 				)}
 			>
