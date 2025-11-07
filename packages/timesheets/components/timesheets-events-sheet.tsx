@@ -61,7 +61,7 @@ export function TimesheetsEventsSheet() {
 			}}
 		>
 			<DrawerContent className="px-friends">
-				<div className="py-casual relative max-h-screen overflow-y-auto">
+				<div className="py-casual">
 					<DrawerHeader>
 						<DrawerTitle>Schedule</DrawerTitle>
 					</DrawerHeader>

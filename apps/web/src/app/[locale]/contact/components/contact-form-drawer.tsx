@@ -33,15 +33,13 @@ export function ContactFormViaButton() {
 				onOpenChange={setContactFormOpen}
 			>
 				<DrawerContent className="bg-background max-h-[85vh]">
-					<div className="pt-casual relative max-h-screen overflow-y-auto">
-						<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
-						<div className="pb-acquaintances container max-w-4xl">
-							<SectionHeader>
-								<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
-								<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
-							</SectionHeader>
-							<ContactForm />
-						</div>
+					<DrawerTitle className="sr-only">{t('title')}</DrawerTitle>
+					<div className="pb-acquaintances container max-w-4xl">
+						<SectionHeader>
+							<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
+							<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
+						</SectionHeader>
+						<ContactForm />
 					</div>
 				</DrawerContent>
 			</Drawer>
