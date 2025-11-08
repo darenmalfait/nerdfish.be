@@ -2,6 +2,12 @@
 
 import { Button, buttonVariants } from '@nerdfish/react/button'
 import {
+	Item,
+	ItemContent,
+	ItemDescription,
+	ItemTitle,
+} from '@nerdfish/react/item'
+import {
 	NavigationMenu,
 	NavigationMenuArrow,
 	NavigationMenuContent,
@@ -41,20 +47,17 @@ const MainNavigationSubItem = forwardRef<
 			<NavigationMenuLink
 				render={
 					<Link
-						className={cx(
-							'space-y-best-friends p-friends focus-within:outline-active hover:bg-background-muted group rounded-[calc(var(--radius-base)-theme(padding.bff))] relative flex h-full w-full flex-col justify-end leading-none no-underline transition-colors outline-none select-none',
-							className,
-						)}
+						className="p-0!"
 						ref={ref}
 						href={`/${stripPreSlash(href)}`}
 						{...props}
 					>
-						<div className="text-sm leading-none font-black">{label}</div>
-						{description ? (
-							<p className="text-foreground-muted mb-0 line-clamp-1 text-sm leading-snug">
-								{description}
-							</p>
-						) : null}
+						<Item className="p-best-friends!">
+							<ItemContent>
+								<ItemTitle>{label}</ItemTitle>
+								<ItemDescription>{description}</ItemDescription>
+							</ItemContent>
+						</Item>
 					</Link>
 				}
 			/>
