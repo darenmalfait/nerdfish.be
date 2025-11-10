@@ -5,14 +5,20 @@ import { Particles } from '@repo/design-system/components/particles'
 import { Logo } from '@repo/design-system/icons'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { MobileNavigation } from './mobile-navigation'
+import { ProgressiveBlur } from './progressive-blur'
 import { SiteNavigation } from './site-navigation'
 import { Link } from '~/app/components/link'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 export function SiteHeader() {
 	return (
-		<div className="w-full bg-transparent print:hidden">
-			<header className="relative z-40 w-full flex-none">
+		<div className="sticky top-0 z-40 w-full bg-transparent print:hidden">
+			<ProgressiveBlur
+				className="pointer-events-none absolute inset-0 h-full w-full"
+				direction="top"
+				blurIntensity={1}
+			/>
+			<header className="relative z-50 w-full flex-none">
 				<div className="container max-w-none">
 					<div className="py-friends gap-best-friends relative flex w-full flex-row-reverse items-center justify-between lg:flex-row">
 						<div className="flex flex-1 items-center justify-end lg:justify-start">

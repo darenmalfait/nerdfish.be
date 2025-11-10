@@ -91,14 +91,14 @@ export function MobileNavigation() {
 		<Drawer direction="left" open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
 			<DrawerTrigger className="lg:hidden" asChild>
 				<Button
-					variant="outline"
+					variant="secondary"
 					icon
-					className="text-foreground mr-friends p-0"
+					className="text-foreground hover:bg-background-muted! p-0"
 				>
 					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent className="bg-popover h-screen">
+			<DrawerContent className="bg-background h-screen rounded-none! backdrop-blur-sm backdrop-saturate-150">
 				<DrawerHeader>
 					<DrawerTitle className="p-best-friends flex items-center justify-between">
 						<Link href="/" onClick={() => setIsDrawerOpen(false)}>

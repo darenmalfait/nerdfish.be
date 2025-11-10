@@ -26,9 +26,12 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 			<DropdownMenuTrigger
 				render={
 					<Button
-						variant="outline"
+						variant="secondary"
 						aria-label={t('switchLanguage')}
-						className={cx('gap-best-friends bg-transparent', className)}
+						className={cx(
+							'gap-best-friends border-border! bg-background! hover:bg-background-muted!',
+							className,
+						)}
 					>
 						<GlobeIcon className="size-4" />
 						<span aria-hidden className="hidden lg:flex">

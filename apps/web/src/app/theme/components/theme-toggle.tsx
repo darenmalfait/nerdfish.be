@@ -63,7 +63,7 @@ export const ThemeToggle = forwardRef<
 				aria-label={t('changeTheme')}
 				{...props}
 				className={cx(
-					'border-border p-bff gap-bff rounded-base flex items-center border',
+					'border-border p-bff bg-background gap-bff rounded-base flex items-center border',
 					className,
 				)}
 			>
