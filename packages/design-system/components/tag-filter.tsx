@@ -59,7 +59,7 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 		<ToggleGroup
 			multiple
 			className={cx(
-				'-mr-friends gap-bff -mb-friends col-span-full flex flex-wrap justify-start lg:col-span-10',
+				'-mr-friends gap-best-friends -mb-friends col-span-full flex flex-wrap justify-start lg:col-span-10',
 				className,
 			)}
 		>
