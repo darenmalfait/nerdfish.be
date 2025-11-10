@@ -10,11 +10,11 @@ export function BackToBlog() {
 
 	return (
 		<Button
-			variant="link"
-			className="group -mx-[1.5rem] no-underline"
+			variant="secondary"
+			className="group no-underline"
 			render={
 				<Link href="/blog">
-					<ChevronLeftIcon className="group-hover:-translate-x-bff mr-best-friends size-4 transition-transform" />
+					<ChevronLeftIcon className="size-4 transition-transform" />
 					{t('backToBlog')}
 				</Link>
 			}

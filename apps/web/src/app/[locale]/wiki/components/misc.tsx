@@ -10,11 +10,11 @@ export function BackToWiki() {
 
 	return (
 		<Button
-			variant="link"
-			className="group -mx-[1.5rem]"
+			variant="secondary"
+			className="group"
 			render={
 				<Link href="/wiki">
-					<ChevronLeftIcon className="group-hover:-translate-x-bff mr-best-friends size-4 transition-transform" />
+					<ChevronLeftIcon className="size-4 transition-transform" />
 					{t('backToWiki')}
 				</Link>
 			}
