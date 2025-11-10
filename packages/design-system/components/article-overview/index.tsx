@@ -139,13 +139,13 @@ export function ArticleOverviewSearchContent({
 							onChange={(event) => {
 								return setFilter(event.currentTarget.value.toLowerCase())
 							}}
-							className="border-border"
+							className="border-border text-lg"
 							name="q"
 							placeholder={inputLabel ?? 'Search'}
-							size="lg"
+							size="xl"
 						/>
 						<InputGroupAddon>
-							<SearchIcon />
+							<SearchIcon className="size-6" />
 						</InputGroupAddon>
 					</InputGroup>
 				</label>
