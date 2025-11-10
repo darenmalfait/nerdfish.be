@@ -1,7 +1,6 @@
 import { Badge } from '@nerdfish/react/badge'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
-import { ReadingProgress } from '@repo/design-system/components/reading-progress'
 import { Section } from '@repo/design-system/components/section'
 import { type Locale } from '@repo/i18n/types'
 import { cx } from '@repo/lib/utils/base'
@@ -55,7 +54,6 @@ function BlogContent({
 		<>
 			<JsonLd code={jsonLd} />
 			<article>
-				<ReadingProgress title={title} offset={2500} />
 				<Section>
 					<div className={cx('mb-casual', 'mx-auto max-w-4xl')}>
 						<BackToBlog />
