@@ -76,7 +76,7 @@ function BlogContent({
 
 					{heroImg.src ? (
 						<div className="mb-acquaintances mx-auto">
-							<div className="rounded-container relative mx-auto aspect-4/3 max-w-7xl overflow-hidden">
+							<div className="rounded-container relative mx-auto aspect-4/3 max-w-7xl overflow-hidden shadow-md">
 								<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
 								{/* TODO: add aria description */}
 								<Image
