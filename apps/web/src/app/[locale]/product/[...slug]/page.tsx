@@ -131,11 +131,15 @@ export default async function ProductDetailPage(props: PageProps) {
 			</Section>
 			{product.images?.length ? (
 				<Section>
-					<Carousel opts={{ loop: true }}>
+					<Carousel opts={{ loop: true, align: 'center' }}>
 						<CarouselContent className="p-bff">
-							{product.images.map((image) => (
+							{product.images.map((image, index) => (
 								<CarouselItem
-									key={image.src}
+									scaleActive={
+										product.images?.length ? product.images.length > 5 : false
+									}
+									index={index}
+									key={index}
 									className="md:basis-1/2 lg:basis-1/3"
 								>
 									<div className="border-border rounded-base relative aspect-3/4 w-full overflow-hidden">

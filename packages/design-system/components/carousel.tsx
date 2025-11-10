@@ -2,6 +2,7 @@
 
 import { Button } from '@nerdfish/react/button'
 import { cx } from '@repo/lib/utils/base'
+import emblaClassName from 'embla-carousel-class-names'
 import useEmblaCarousel, {
 	type UseEmblaCarouselType,
 } from 'embla-carousel-react'
@@ -13,6 +14,7 @@ import {
 	useCallback,
 	useContext,
 	useEffect,
+	useMemo,
 	useState,
 } from 'react'
 
@@ -35,6 +37,8 @@ type CarouselContextProps = {
 	scrollNext: () => void
 	canScrollPrev: boolean
 	canScrollNext: boolean
+	isDragging: boolean
+	setIsDragging: (isDragging: boolean) => void
 } & CarouselProps
 
 const CarouselContext = createContext<CarouselContextProps | null>(null)
@@ -63,10 +67,16 @@ function Carousel({
 			...opts,
 			axis: orientation === 'horizontal' ? 'x' : 'y',
 		},
-		plugins,
+		[
+			...(plugins ?? []),
+			emblaClassName({
+				snapped: 'is-snapped',
+			}),
+		],
 	)
 	const [canScrollPrev, setCanScrollPrev] = useState(false)
 	const [canScrollNext, setCanScrollNext] = useState(false)
+	const [isDragging, setIsDragging] = useState(false)
 
 	const onSelect = useCallback((carouselApi: CarouselApi) => {
 		if (!carouselApi) return
@@ -113,17 +123,33 @@ function Carousel({
 	}, [api, onSelect])
 
 	return (
-		<CarouselContext.Provider
-			value={{
-				carouselRef,
-				api,
-				opts,
-				orientation,
-				scrollPrev,
-				scrollNext,
-				canScrollPrev,
-				canScrollNext,
-			}}
+		<CarouselContext
+			value={useMemo(
+				() => ({
+					carouselRef,
+					api,
+					opts,
+					orientation,
+					scrollPrev,
+					scrollNext,
+					canScrollPrev,
+					canScrollNext,
+					isDragging,
+					setIsDragging,
+				}),
+				[
+					carouselRef,
+					api,
+					opts,
+					orientation,
+					scrollPrev,
+					scrollNext,
+					canScrollPrev,
+					canScrollNext,
+					isDragging,
+					setIsDragging,
+				],
+			)}
 		>
 			<div
 				onKeyDownCapture={handleKeyDown}
@@ -131,11 +157,15 @@ function Carousel({
 				role="region"
 				aria-roledescription="carousel"
 				data-slot="carousel"
+				onMouseDown={() => setIsDragging(true)}
+				onMouseUp={() => {
+					setIsDragging(false)
+				}}
 				{...props}
 			>
 				{children}
 			</div>
-		</CarouselContext.Provider>
+		</CarouselContext>
 	)
 }
 
@@ -145,12 +175,12 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 	return (
 		<div
 			ref={carouselRef}
-			className="overflow-hidden"
+			className="py-friends overflow-hidden"
 			data-slot="carousel-content"
 		>
 			<div
 				className={cx(
-					'group/carousel-content flex',
+					'group/carousel-content flex cursor-grab',
 					orientation === 'horizontal' ? '-ml-friends' : '-mt-friends flex-col',
 					className,
 				)}
@@ -160,8 +190,14 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 	)
 }
 
-function CarouselItem({ className, ...props }: ComponentProps<'div'>) {
-	const { orientation } = useCarousel()
+function CarouselItem({
+	className,
+	children,
+	index,
+	scaleActive = true,
+	...props
+}: ComponentProps<'div'> & { index?: number; scaleActive?: boolean }) {
+	const { orientation, isDragging } = useCarousel()
 
 	return (
 		<div
@@ -169,12 +205,23 @@ function CarouselItem({ className, ...props }: ComponentProps<'div'>) {
 			aria-roledescription="slide"
 			data-slot="carousel-item"
 			className={cx(
-				'min-w-0 shrink-0 grow-0 basis-full transition-transform duration-300',
+				'min-w-0 shrink-0 grow-0 basis-full',
 				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
+				scaleActive && '[&.is-snapped>div]:scale-105',
+				isDragging && '[&.is-snapped>div]:scale-100',
 				className,
 			)}
 			{...props}
-		/>
+		>
+			<div
+				className={cx(
+					'scale-90 transition-transform duration-300',
+					isDragging && 'scale-100',
+				)}
+			>
+				{children}
+			</div>
+		</div>
 	)
 }
 
