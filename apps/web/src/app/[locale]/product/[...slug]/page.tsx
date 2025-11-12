@@ -130,19 +130,12 @@ export default async function ProductDetailPage(props: PageProps) {
 				</div>
 			</Section>
 			{product.images?.length ? (
-				<Section>
+				<Section className="max-w-none px-0">
 					<Carousel opts={{ loop: true, align: 'center' }}>
 						<CarouselContent className="p-bff">
 							{product.images.map((image, index) => (
-								<CarouselItem
-									scaleActive={
-										product.images?.length ? product.images.length > 5 : false
-									}
-									index={index}
-									key={index}
-									className="md:basis-1/2 lg:basis-1/3"
-								>
-									<div className="border-border rounded-base relative aspect-3/4 w-full overflow-hidden">
+								<CarouselItem index={index} key={index}>
+									<div className="border-border/20 rounded-base relative aspect-3/4 w-full overflow-hidden border shadow-md">
 										<Image
 											src={image.src}
 											alt={image.alt}
@@ -154,8 +147,12 @@ export default async function ProductDetailPage(props: PageProps) {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
+						<div className="pt-casual container">
+							<div className="gap-best-friends flex justify-center">
+								<CarouselPrevious />
+								<CarouselNext />
+							</div>
+						</div>
 					</Carousel>
 				</Section>
 			) : null}

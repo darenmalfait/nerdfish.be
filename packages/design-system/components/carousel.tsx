@@ -17,6 +17,7 @@ import {
 	useMemo,
 	useState,
 } from 'react'
+import { useMediaQuery } from '../hooks/use-media-query'
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -39,6 +40,7 @@ type CarouselContextProps = {
 	canScrollNext: boolean
 	isDragging: boolean
 	setIsDragging: (isDragging: boolean) => void
+	scaleActive: boolean
 } & CarouselProps
 
 const CarouselContext = createContext<CarouselContextProps | null>(null)
@@ -62,9 +64,13 @@ function Carousel({
 	children,
 	...props
 }: ComponentProps<'div'> & CarouselProps) {
+	const isMedium = useMediaQuery('(min-width: 48rem)')
+	const isLarge = useMediaQuery('(min-width: 64rem)')
+
 	const [carouselRef, api] = useEmblaCarousel(
 		{
 			...opts,
+			align: 'center',
 			axis: orientation === 'horizontal' ? 'x' : 'y',
 		},
 		[
@@ -122,6 +128,19 @@ function Carousel({
 		}
 	}, [api, onSelect])
 
+	const scaleActive = useMemo(() => {
+		if (!api) return true
+
+		if (isLarge) {
+			return api.slideNodes().length > 6
+		}
+		if (isMedium) {
+			return api.slideNodes().length > 4
+		}
+		return true
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [api, isLarge, isMedium, children])
+
 	return (
 		<CarouselContext
 			value={useMemo(
@@ -136,6 +155,7 @@ function Carousel({
 					canScrollNext,
 					isDragging,
 					setIsDragging,
+					scaleActive,
 				}),
 				[
 					carouselRef,
@@ -148,12 +168,20 @@ function Carousel({
 					canScrollNext,
 					isDragging,
 					setIsDragging,
+					scaleActive,
 				],
 			)}
 		>
 			<div
 				onKeyDownCapture={handleKeyDown}
-				className={cx('relative', className)}
+				className={cx(
+					'relative',
+					'[--slide-size:calc(100vw-48px)]',
+					'md:[--slide-size:calc(min(100vw,1440px)/2)]',
+					'lg:[--slide-size:calc(min(100vw,1440px)*14/48)]',
+
+					className,
+				)}
 				role="region"
 				aria-roledescription="carousel"
 				data-slot="carousel"
@@ -194,10 +222,9 @@ function CarouselItem({
 	className,
 	children,
 	index,
-	scaleActive = true,
 	...props
-}: ComponentProps<'div'> & { index?: number; scaleActive?: boolean }) {
-	const { orientation, isDragging } = useCarousel()
+}: ComponentProps<'div'> & { index?: number }) {
+	const { orientation, isDragging, scaleActive } = useCarousel()
 
 	return (
 		<div
@@ -205,7 +232,7 @@ function CarouselItem({
 			aria-roledescription="slide"
 			data-slot="carousel-item"
 			className={cx(
-				'min-w-0 shrink-0 grow-0 basis-full',
+				'min-w-0 shrink-0 grow-0 basis-(--slide-size)',
 				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
 				scaleActive && '[&.is-snapped>div]:scale-105',
 				isDragging && '[&.is-snapped>div]:scale-100',
@@ -215,7 +242,7 @@ function CarouselItem({
 		>
 			<div
 				className={cx(
-					'scale-90 transition-transform duration-300',
+					'scale-95 transition-transform duration-300',
 					isDragging && 'scale-100',
 				)}
 			>
@@ -226,25 +253,17 @@ function CarouselItem({
 }
 
 function CarouselPrevious({
-	className,
 	variant = 'secondary',
 	icon = true,
 	...props
 }: ComponentProps<typeof Button>) {
-	const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+	const { scrollPrev, canScrollPrev } = useCarousel()
 
 	return (
 		<Button
 			data-slot="carousel-previous"
 			variant={variant}
 			icon={icon}
-			className={cx(
-				'absolute!',
-				orientation === 'horizontal'
-					? 'top-1/2 -left-16 -translate-y-1/2'
-					: '-top-16 left-1/2 -translate-x-1/2 rotate-90',
-				className,
-			)}
 			disabled={!canScrollPrev}
 			onClick={scrollPrev}
 			{...props}
@@ -256,25 +275,17 @@ function CarouselPrevious({
 }
 
 function CarouselNext({
-	className,
 	variant = 'secondary',
 	icon = true,
 	...props
 }: ComponentProps<typeof Button>) {
-	const { orientation, scrollNext, canScrollNext } = useCarousel()
+	const { scrollNext, canScrollNext } = useCarousel()
 
 	return (
 		<Button
 			data-slot="carousel-next"
 			variant={variant}
 			icon={icon}
-			className={cx(
-				'absolute!',
-				orientation === 'horizontal'
-					? 'top-1/2 -right-16 -translate-y-1/2'
-					: '-bottom-16 left-1/2 -translate-x-1/2 rotate-90',
-				className,
-			)}
 			disabled={!canScrollNext}
 			onClick={scrollNext}
 			{...props}
