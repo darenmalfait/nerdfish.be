@@ -185,6 +185,8 @@ function Carousel({
 				role="region"
 				aria-roledescription="carousel"
 				data-slot="carousel"
+				onDragStart={() => setIsDragging(true)}
+				onDragEnd={() => setIsDragging(false)}
 				onMouseDown={() => setIsDragging(true)}
 				onMouseUp={() => {
 					setIsDragging(false)
