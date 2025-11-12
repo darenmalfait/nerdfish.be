@@ -36,7 +36,7 @@
     "@repo/seo": "workspace:*",
     "@repo/timesheets": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
-    "@tailwindcss/postcss": "^4.1.16",
+    "@tailwindcss/postcss": "^4.1.17",
     "@vercel/og": "^0.8.5",
     "csv-import-react": "^1.0.18",
     "fuse.js": "^7.1.0",
@@ -60,12 +60,12 @@
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "@vercel/toolbar": "^0.1.41",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "axe-core": "^4.10.3",
     "husky": "^9.1.7",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "postcss-nesting": "^13.0.2",
-    "tailwindcss": "^4.1.16"
+    "tailwindcss": "^4.1.17"
   }
 }
