@@ -38,8 +38,6 @@ type CarouselContextProps = {
 	scrollNext: () => void
 	canScrollPrev: boolean
 	canScrollNext: boolean
-	isDragging: boolean
-	setIsDragging: (isDragging: boolean) => void
 	scaleActive: boolean
 } & CarouselProps
 
@@ -82,7 +80,6 @@ function Carousel({
 	)
 	const [canScrollPrev, setCanScrollPrev] = useState(false)
 	const [canScrollNext, setCanScrollNext] = useState(false)
-	const [isDragging, setIsDragging] = useState(false)
 
 	const onSelect = useCallback((carouselApi: CarouselApi) => {
 		if (!carouselApi) return
@@ -153,8 +150,6 @@ function Carousel({
 					scrollNext,
 					canScrollPrev,
 					canScrollNext,
-					isDragging,
-					setIsDragging,
 					scaleActive,
 				}),
 				[
@@ -166,8 +161,6 @@ function Carousel({
 					scrollNext,
 					canScrollPrev,
 					canScrollNext,
-					isDragging,
-					setIsDragging,
 					scaleActive,
 				],
 			)}
@@ -185,12 +178,6 @@ function Carousel({
 				role="region"
 				aria-roledescription="carousel"
 				data-slot="carousel"
-				onDragStart={() => setIsDragging(true)}
-				onDragEnd={() => setIsDragging(false)}
-				onMouseDown={() => setIsDragging(true)}
-				onMouseUp={() => {
-					setIsDragging(false)
-				}}
 				{...props}
 			>
 				{children}
@@ -205,12 +192,12 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 	return (
 		<div
 			ref={carouselRef}
-			className="py-friends overflow-hidden"
+			className="py-friends cursor-grab overflow-hidden [&.is-dragging]:cursor-grabbing [&.is-dragging_[data-slot=carousel-item-content]]:scale-100!"
 			data-slot="carousel-content"
 		>
 			<div
 				className={cx(
-					'group/carousel-content flex cursor-grab',
+					'group/carousel-content flex',
 					orientation === 'horizontal' ? '-ml-friends' : '-mt-friends flex-col',
 					className,
 				)}
@@ -226,7 +213,7 @@ function CarouselItem({
 	index,
 	...props
 }: ComponentProps<'div'> & { index?: number }) {
-	const { orientation, isDragging, scaleActive } = useCarousel()
+	const { orientation, scaleActive } = useCarousel()
 
 	return (
 		<div
@@ -237,16 +224,13 @@ function CarouselItem({
 				'min-w-0 shrink-0 grow-0 basis-(--slide-size)',
 				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
 				scaleActive && '[&.is-snapped>div]:scale-105',
-				isDragging && '[&.is-snapped>div]:scale-100',
 				className,
 			)}
 			{...props}
 		>
 			<div
-				className={cx(
-					'scale-95 transition-transform duration-300',
-					isDragging && 'scale-100',
-				)}
+				data-slot="carousel-item-content"
+				className={cx('scale-95 transition-transform duration-300')}
 			>
 				{children}
 			</div>
