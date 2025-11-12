@@ -169,7 +169,7 @@ function Carousel({
 				onKeyDownCapture={handleKeyDown}
 				className={cx(
 					'relative',
-					'[--slide-size:calc(100vw-48px)]',
+					'[--slide-size:calc(100vw-96px)]',
 					'sm:[--slide-size:calc(min(100vw,1440px)/2)]',
 					'lg:[--slide-size:calc(min(100vw,1440px)*14/48)]',
 
