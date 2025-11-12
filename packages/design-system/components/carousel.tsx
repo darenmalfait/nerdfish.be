@@ -62,7 +62,7 @@ function Carousel({
 	children,
 	...props
 }: ComponentProps<'div'> & CarouselProps) {
-	const isMedium = useMediaQuery('(min-width: 48rem)')
+	const isSmall = useMediaQuery('(min-width: 40rem)')
 	const isLarge = useMediaQuery('(min-width: 64rem)')
 
 	const [carouselRef, api] = useEmblaCarousel(
@@ -129,14 +129,14 @@ function Carousel({
 		if (!api) return true
 
 		if (isLarge) {
-			return api.slideNodes().length > 6
+			return api.slideNodes().length > 5
 		}
-		if (isMedium) {
+		if (isSmall) {
 			return api.slideNodes().length > 4
 		}
 		return true
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [api, isLarge, isMedium, children])
+	}, [api, isLarge, isSmall, children])
 
 	return (
 		<CarouselContext
@@ -170,7 +170,7 @@ function Carousel({
 				className={cx(
 					'relative',
 					'[--slide-size:calc(100vw-48px)]',
-					'md:[--slide-size:calc(min(100vw,1440px)/2)]',
+					'sm:[--slide-size:calc(min(100vw,1440px)/2)]',
 					'lg:[--slide-size:calc(min(100vw,1440px)*14/48)]',
 
 					className,
@@ -192,7 +192,7 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 	return (
 		<div
 			ref={carouselRef}
-			className="py-friends cursor-grab overflow-hidden [&.is-dragging]:cursor-grabbing [&.is-dragging_[data-slot=carousel-item-content]]:scale-100!"
+			className="py-friends cursor-grab overflow-hidden [&.is-dragging]:cursor-grabbing [&.is-dragging_[data-slot=carousel-item-content]]:scale-100! [&.is-dragging_[data-slot=carousel-item-content]]:px-0!"
 			data-slot="carousel-content"
 		>
 			<div
@@ -230,7 +230,7 @@ function CarouselItem({
 		>
 			<div
 				data-slot="carousel-item-content"
-				className={cx('scale-95 transition-transform duration-300')}
+				className={cx('scale-95 transition-all duration-300')}
 			>
 				{children}
 			</div>
