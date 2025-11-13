@@ -10,10 +10,10 @@
   "dependencies": {
     "@nerdfish/react": "^1.0.3",
     "@number-flow/react": "^0.5.10",
-    "@radix-ui/react-progress": "^1.1.7",
-    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
     "@repo/lib": "workspace:*",
-    "@tailwindcss/postcss": "^4.1.16",
+    "@tailwindcss/postcss": "^4.1.17",
     "@uidotdev/usehooks": "^2.4.1",
     "embla-carousel-class-names": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
@@ -29,7 +29,7 @@
     "react-dom": "19.1.1",
     "react-wrap-balancer": "^1.1.1",
     "slugify": "^1.6.6",
-    "tailwindcss": "^4.1.16",
+    "tailwindcss": "^4.1.17",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
