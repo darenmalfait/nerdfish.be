@@ -2,13 +2,14 @@ import crypto from 'crypto'
 import { defineCollection } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import { remarkGfm } from 'fumadocs-core/mdx-plugins'
+import { z } from 'zod'
 import { getSlugAndLocale, image, seo } from '../utils'
 
 export const products = defineCollection({
 	name: 'products',
 	directory: 'content/products',
 	include: '**/*.mdx',
-	schema: (z) => ({
+	schema: z.object({
 		seo,
 		title: z.string(),
 		description: z.string(),

@@ -1,4 +1,5 @@
 import { defineCollection } from '@content-collections/core'
+import { z } from 'zod'
 import { getSlugAndLocale } from '../utils'
 
 export const testimonialTypes = ['colleague', 'project', 'client'] as const
@@ -7,7 +8,7 @@ export const testimonials = defineCollection({
 	name: 'testimonials',
 	directory: 'content/testimonials',
 	include: '**/*.mdx',
-	schema: (z) => ({
+	schema: z.object({
 		type: z.enum(testimonialTypes),
 		quote: z.string(),
 		author: z
