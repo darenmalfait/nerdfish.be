@@ -3,13 +3,14 @@ import { defineCollection } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import { remarkGfm } from 'fumadocs-core/mdx-plugins'
 import lqip, { type LqipModernOutput } from 'lqip-modern'
+import { z } from 'zod'
 import { getSlugAndLocale, image, seo } from '../utils'
 
 export const projects = defineCollection({
 	name: 'projects',
 	directory: 'content/projects',
 	include: '**/*.mdx',
-	schema: (z) => ({
+	schema: z.object({
 		seo,
 		title: z.string(),
 		excerpt: z.string(),

@@ -7,7 +7,7 @@ import { routing, Link as RouteLink } from 'routing'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
 
-export type LinkProps = ComponentProps<'a'>
+export type LinkProps = Omit<ComponentProps<'a'>, 'popover'>
 
 export function Link({ href, children, ref, ...props }: LinkProps) {
 	const itemRef = useRef<HTMLAnchorElement>(null)
