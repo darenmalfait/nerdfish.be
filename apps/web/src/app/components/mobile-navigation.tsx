@@ -98,7 +98,7 @@ export function MobileNavigation() {
 					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent className="bg-background h-screen rounded-none! backdrop-blur-sm backdrop-saturate-150">
+			<DrawerContent className="bg-background rounded-r-container! h-screen backdrop-blur-sm backdrop-saturate-150">
 				<DrawerHeader>
 					<DrawerTitle className="p-best-friends flex items-center justify-between">
 						<Link href="/" onClick={() => setIsDrawerOpen(false)}>
@@ -107,7 +107,7 @@ export function MobileNavigation() {
 						</Link>
 						<Button
 							icon
-							variant="ghost"
+							variant="link"
 							className="p-0"
 							onClick={() => setIsDrawerOpen(false)}
 						>
@@ -118,7 +118,7 @@ export function MobileNavigation() {
 						{t('navigation.pages')}
 					</DrawerDescription>
 				</DrawerHeader>
-				<div className="p-casual max-w-screen-xsm w-screen">
+				<div className="p-casual max-w-screen-xsm w-[90vw]">
 					<ul className="space-y-friends flex flex-col">
 						{navigation.map((mainNavItem) => {
 							return (
