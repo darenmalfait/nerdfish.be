@@ -35,7 +35,7 @@ export default async function RootLayout(props: {
 			<body className={fonts}>
 				<AppProviders>
 					<NextIntlClientProvider messages={messages} locale={params.locale}>
-						<div className="flex min-h-screen flex-col">
+						<div className="root flex min-h-screen flex-col">
 							<SiteHeader />
 
 							<main className="rounded-b-container relative w-full max-w-full flex-1">
