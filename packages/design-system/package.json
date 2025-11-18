@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nerdfish/react": "^1.0.4",
+    "@nerdfish/react": "^1.0.5",
     "@number-flow/react": "^0.5.10",
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/lodash": "^4.17.20",
-    "@types/react": "19.2.5",
+    "@types/react": "19.2.6",
     "typescript": "^5.9.3"
   }
 }
