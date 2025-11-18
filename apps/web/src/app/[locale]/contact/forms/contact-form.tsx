@@ -72,12 +72,12 @@ export function ContactForm() {
 
 	const submitContactForm = useAction(submitContactFormAction, {
 		onSuccess: ({ data }) => {
-			if (data?.success) {
+			if (data.success) {
 				setIsSubmitted(true)
 				return form.reset()
 			}
 
-			if (data?.error) setError(data.error)
+			if (data.error) setError(data.error)
 			else setError(t('fields.errors.generic'))
 		},
 		onError: () => {
