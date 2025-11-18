@@ -10,7 +10,7 @@ import {
 	eachDayOfInterval,
 } from '@repo/calendar/utils'
 import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
-import { type ActionResponse } from '@repo/lib/types'
+import { type ActionResponse } from '@repo/lib/utils/form'
 import { getCrypto } from '@repo/lib/utils/misc'
 import {
 	createContext,

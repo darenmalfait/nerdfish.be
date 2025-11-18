@@ -5,7 +5,7 @@ import {
 	CALENDARY_DAY_ROW_HEIGHT,
 } from '@repo/calendar/components/calendar-day'
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
-import { type ActionResponse } from '@repo/lib/types'
+import { type ActionResponse } from '@repo/lib/utils/form'
 import { useEffect, useRef, useState } from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
 import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
