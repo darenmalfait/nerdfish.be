@@ -1,11 +1,19 @@
 import { Badge } from '@nerdfish/react/badge'
+import {
+	Breadcrumb,
+	BreadcrumbList,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbSeparator,
+	BreadcrumbPage,
+} from '@nerdfish/react/breadcrumb'
 import { Separator } from '@nerdfish/react/separator'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { cx } from '@repo/lib/utils/base'
 import { type Wiki } from 'content-collections'
-import { BackToWiki } from './misc'
+import Link from 'next/link'
 import { Body } from '~/app/components/body'
 
 function WikiContent({ data }: { data: Wiki }) {
@@ -14,7 +22,21 @@ function WikiContent({ data }: { data: Wiki }) {
 	return (
 		<Section className="max-w-4xl">
 			<div className="mb-casual">
-				<BackToWiki />
+				<Breadcrumb>
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink render={<Link href="/">Nerdfish</Link>} />
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbLink render={<Link href="/wiki">Wiki</Link>} />
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbPage>{title}</BreadcrumbPage>
+						</BreadcrumbItem>
+					</BreadcrumbList>
+				</Breadcrumb>
 			</div>
 			<header className={cx('mx-auto flex max-w-4xl flex-col')}>
 				{date ? (

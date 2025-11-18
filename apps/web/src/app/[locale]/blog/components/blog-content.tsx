@@ -1,4 +1,12 @@
 import { Badge } from '@nerdfish/react/badge'
+import {
+	Breadcrumb,
+	BreadcrumbList,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbSeparator,
+	BreadcrumbPage,
+} from '@nerdfish/react/breadcrumb'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
@@ -9,9 +17,9 @@ import { author } from '@repo/seo/metadata'
 import { type Post } from 'content-collections'
 import { env } from 'env'
 import Image from 'next/image'
+import Link from 'next/link'
 import type * as React from 'react'
 import { getBlogPath } from '../utils'
-import { BackToBlog } from './misc'
 import { Body } from '~/app/components/body'
 
 function BlogContent({
@@ -56,7 +64,21 @@ function BlogContent({
 			<article>
 				<Section>
 					<div className={cx('mb-casual', 'mx-auto max-w-4xl')}>
-						<BackToBlog />
+						<Breadcrumb>
+							<BreadcrumbList>
+								<BreadcrumbItem>
+									<BreadcrumbLink render={<Link href="/">Nerdfish</Link>} />
+								</BreadcrumbItem>
+								<BreadcrumbSeparator />
+								<BreadcrumbItem>
+									<BreadcrumbLink render={<Link href="/blog">Blog</Link>} />
+								</BreadcrumbItem>
+								<BreadcrumbSeparator />
+								<BreadcrumbItem>
+									<BreadcrumbPage>{title}</BreadcrumbPage>
+								</BreadcrumbItem>
+							</BreadcrumbList>
+						</Breadcrumb>
 					</div>
 					<header
 						className={cx(

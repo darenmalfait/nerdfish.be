@@ -38,7 +38,7 @@ function WorkContent({
 							'container max-w-4xl': layout === 'full',
 						})}
 					>
-						<div className="py-casual max-w-4xl xl:sticky xl:top-0">
+						<div className="py-casual xl:top-acquaintances max-w-4xl xl:sticky">
 							<CategoryIndicator
 								className="mb-friends"
 								category={category}
