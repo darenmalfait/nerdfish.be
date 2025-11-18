@@ -12,6 +12,7 @@ import { Section } from '@repo/design-system/components/section'
 import { GithubIcon, GlobeIcon } from '@repo/design-system/icons'
 import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
+import { cx } from '@repo/lib/utils/base'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -104,6 +105,7 @@ export default async function ProductDetailPage(props: PageProps) {
 						<div className="gap-best-friends flex flex-col">
 							{product.url ? (
 								<Button
+									size="lg"
 									render={
 										<Link target="_blank" href={product.url}>
 											<GlobeIcon className="size-4" />
@@ -116,6 +118,7 @@ export default async function ProductDetailPage(props: PageProps) {
 							{product.sourceUrl ? (
 								<Button
 									variant="secondary"
+									size="lg"
 									render={
 										<Link target="_blank" href={product.sourceUrl}>
 											<GithubIcon className="size-4" />
@@ -147,10 +150,24 @@ export default async function ProductDetailPage(props: PageProps) {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<div className="pt-casual container">
-							<div className="gap-best-friends flex justify-center">
-								<CarouselPrevious />
-								<CarouselNext />
+						<div className="container">
+							<div className="flex w-auto items-center justify-end">
+								<div className="gap-friends rounded-base p-friends md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
+									<CarouselPrevious
+										variant="ghost"
+										className={cx(
+											'active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted! transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!',
+											'[&_svg]:size-8!',
+										)}
+									/>
+									<CarouselNext
+										variant="ghost"
+										className={cx(
+											'rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted! transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!',
+											'[&_svg]:size-8!',
+										)}
+									/>
+								</div>
 							</div>
 						</div>
 					</Carousel>
