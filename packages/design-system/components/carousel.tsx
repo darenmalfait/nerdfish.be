@@ -64,6 +64,7 @@ function Carousel({
 }: ComponentProps<'div'> & CarouselProps) {
 	const isSmall = useMediaQuery('(min-width: 40rem)')
 	const isLarge = useMediaQuery('(min-width: 64rem)')
+	const isXLarge = useMediaQuery('(min-width: 80rem)')
 
 	const [carouselRef, api] = useEmblaCarousel(
 		{
@@ -128,6 +129,9 @@ function Carousel({
 	const scaleActive = useMemo(() => {
 		if (!api) return true
 
+		if (isXLarge) {
+			return api.slideNodes().length > 8
+		}
 		if (isLarge) {
 			return api.slideNodes().length > 5
 		}
