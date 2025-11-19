@@ -14,7 +14,7 @@ export const projects = defineCollection({
 		seo,
 		title: z.string(),
 		excerpt: z.string(),
-		category: z.enum(['print', 'webdesign', 'branding']),
+		category: z.enum(['print', 'webdesign', 'branding', 'product']),
 		date: z.string(),
 		url: z.string().optional(),
 		heroImg: image,

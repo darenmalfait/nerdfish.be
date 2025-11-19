@@ -3,13 +3,15 @@
 import {
 	Carousel,
 	CarouselContent,
-	CarouselItem,
+	CarouselItem as BaseCarouselItem,
 } from '@repo/design-system/components/carousel'
+import { CategoryIndicator } from '@repo/design-system/components/category-indicator'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Section } from '@repo/design-system/components/section'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cx } from 'class-variance-authority'
+import { type Project } from 'content-collections'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import { type ComponentProps, useRef } from 'react'
@@ -21,34 +23,41 @@ import image2 from '../../../../public/uploads/projects/equilibra/equilibra-home
 import image5 from '../../../../public/uploads/projects/kapsalon-lieve/kapsalon-lieve-home.png'
 import { Link } from '~/app/components/link'
 
-const images = [
-	{
-		image: image1,
-		alt: 'Nerdfish UI Component Library Design',
-	},
+function CarouselItem({
+	children,
+	index,
+	category,
+	...props
+}: ComponentProps<'div'> & { index?: number; category?: Project['category'] }) {
+	return (
+		<BaseCarouselItem index={index} {...props}>
+			<div className="border-border/20 rounded-base relative aspect-3/4 w-full overflow-hidden border shadow-md">
+				<CategoryIndicator className="mb-friends" category={category} />
+				{children}
+			</div>
+		</BaseCarouselItem>
+	)
+}
 
-	{
-		image: image2,
-		alt: 'Equilibra Website Design',
-	},
-	{
-		image: image3,
-		alt: 'De Borgerij Website Design',
-	},
-
-	{
-		image: image4,
-		alt: 'Nerdfish Website Design',
-	},
-	{
-		image: image5,
-		alt: 'Kapsalon Lieve Website Design',
-	},
-	{
-		image: image6,
-		alt: 'Equilibra Content Page Design',
-	},
-]
+function CarouselImage({
+	src,
+	alt,
+	className,
+	...props
+}: ComponentProps<typeof Image>) {
+	return (
+		<Image
+			src={src}
+			alt={alt}
+			className={cx('absolute inset-0 size-full object-cover', className)}
+			placeholder={props.blurDataURL ? 'blur' : undefined}
+			loading="eager"
+			width={500}
+			height={500}
+			{...props}
+		/>
+	)
+}
 
 export function HeroCTA({
 	children,
@@ -81,22 +90,48 @@ export function WelcomeHero() {
 		<Section className="py-lg! max-w-none px-0">
 			<Carousel opts={{ loop: true, align: 'center' }}>
 				<CarouselContent className="p-bff">
-					{images.map((image, index) => (
-						<CarouselItem index={index} key={index}>
-							<div className="border-border/20 rounded-base relative aspect-3/4 w-full overflow-hidden border shadow-md">
-								<Image
-									src={image.image.src}
-									alt={image.alt}
-									className="absolute inset-0 size-full object-cover"
-									placeholder={image.image.blurDataURL ? 'blur' : undefined}
-									blurDataURL={image.image.blurDataURL}
-									loading="eager"
-									width={500}
-									height={500}
-								/>
-							</div>
-						</CarouselItem>
-					))}
+					<CarouselItem category="product">
+						<CarouselImage
+							src={image1.src}
+							alt="Nerdfish UI Component Library Design"
+							blurDataURL={image1.blurDataURL}
+						/>
+					</CarouselItem>
+					<CarouselItem category="webdesign">
+						<CarouselImage
+							src={image2.src}
+							alt="Equilibra Website Design"
+							blurDataURL={image2.blurDataURL}
+						/>
+					</CarouselItem>
+					<CarouselItem category="webdesign">
+						<CarouselImage
+							src={image3.src}
+							alt="De Borgerij Website Design"
+							blurDataURL={image3.blurDataURL}
+						/>
+					</CarouselItem>
+					<CarouselItem category="webdesign">
+						<CarouselImage
+							src={image4.src}
+							alt="Nerdfish Website Design"
+							blurDataURL={image4.blurDataURL}
+						/>
+					</CarouselItem>
+					<CarouselItem category="webdesign">
+						<CarouselImage
+							src={image5.src}
+							alt="Kapsalon Lieve Website Design"
+							blurDataURL={image5.blurDataURL}
+						/>
+					</CarouselItem>
+					<CarouselItem category="webdesign">
+						<CarouselImage
+							src={image6.src}
+							alt="Equilibra Content Page Design"
+							blurDataURL={image6.blurDataURL}
+						/>
+					</CarouselItem>
 				</CarouselContent>
 				<div className="py-casual px-casual sm:py-casual sm:px-acquaintances rounded-container border-border bg-background-secondary inset-x-friends w-[calc(100vw-theme(spacing.friends) * 2)] -bottom-distant absolute mx-auto max-w-md border text-center shadow-md backdrop-blur-md backdrop-saturate-150 md:max-w-lg lg:max-w-xl">
 					<motion.header

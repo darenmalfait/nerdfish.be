@@ -10,10 +10,10 @@
 	--blog-coaching: var(--destructive);
 	--blog: var(--info);
 
-	--work-webdesign: hsl(0 100% 70%);
-	--work-branding: hsl(170 100% 40%);
-	--work-print: hsl(230 70% 60%);
-	--work: hsl(210 10% 55%);
+	--work-webdesign: var(--destructive);
+	--work-branding: var(--success);
+	--work-print: var(--info);
+	--work: var(--foreground-muted);
 }
 
 @theme inline {
