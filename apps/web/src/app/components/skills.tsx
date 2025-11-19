@@ -16,7 +16,6 @@ import {
 	TailwindIcon,
 	TypescriptIcon,
 	VSCodeIcon,
-	WebflowIcon,
 } from '@repo/design-system/icons'
 import { cx } from '@repo/lib/utils/base'
 import type * as React from 'react'
@@ -86,11 +85,6 @@ export const skills = [
 		name: 'next',
 		category: ['frontend', 'backend'],
 		icon: NextJSIcon,
-	},
-	{
-		name: 'webflow',
-		category: ['design'],
-		icon: WebflowIcon,
 	},
 ]
 
