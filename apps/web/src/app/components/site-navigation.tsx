@@ -291,7 +291,9 @@ export function SiteNavigation() {
 		<div
 			className={cx(
 				'hidden lg:flex',
-				'rounded-container bg-background-muted/90 p-bff inset-x-0 mx-auto max-h-12 w-fit max-w-full',
+				'relative',
+				'rounded-container bg-background-inverted/30 p-bff inset-x-0 mx-auto max-h-12 w-fit max-w-full',
+				'before:bg-background/80 before:rounded-container before:absolute before:inset-0 before:content-[""]',
 			)}
 		>
 			<NavigationMenu ref={ref} aria-label="main">
