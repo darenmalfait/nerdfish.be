@@ -42,9 +42,10 @@ export function FaqItem({
 				<div
 					className={cx(
 						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
-						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center text-lg transition-colors',
-						'hover:bg-background-inverted/30',
+						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center transition-colors',
+						'hover:bg-background-inverted/30 group-data-panel-open/accordion-trigger:hover:bg-accent/80',
 						'group-data-panel-open/accordion-trigger:bg-accent group-data-panel-open/accordion-trigger:text-accent-contrast',
+						'typography-body',
 					)}
 				>
 					{icon ? (
@@ -64,11 +65,11 @@ export function FaqItem({
 					<span className="font-medium">{question}</span>
 				</div>
 			</AccordionTrigger>
-			<AccordionContent className="typography text-foreground pb-friends! pt-friends max-w-none text-xl">
+			<AccordionContent className="typography text-foreground pb-friends! pt-friends max-w-none">
 				<div className="ml-7 md:ml-16">
 					<div
 						className={cx(
-							'bg-background-inverted text-foreground-inverted rounded-base p-friends relative max-w-none',
+							'bg-background-inverted text-foreground-inverted rounded-base p-friends typography-body relative max-w-none',
 						)}
 					>
 						{answer}
