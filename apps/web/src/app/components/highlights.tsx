@@ -20,6 +20,7 @@ interface CardWrapperProps extends ComponentProps<typeof motion.div> {
 	progress: MotionValue<number>
 	range: [number, number]
 	targetScale: number
+	index: number
 }
 
 function CardWrapper({
@@ -27,15 +28,16 @@ function CardWrapper({
 	range,
 	targetScale,
 	children,
+	index,
 	style,
 	...props
 }: CardWrapperProps) {
 	const scale = useTransform(progress, range, [1, targetScale])
 
 	return (
-		<div className="top-friends md:top-distant sticky flex justify-center">
+		<div className={cn('top-distant sticky flex justify-center')}>
 			<motion.div
-				style={{ ...style, scale }}
+				style={{ ...style, scale, top: `${index * 25}px` }}
 				className={cn(
 					'relative top-0 flex origin-top items-center justify-center',
 				)}
@@ -65,8 +67,8 @@ export function Highlights(props: HighlightsProps) {
 		<div ref={containerRef}>
 			<div className="gap-distant flex flex-col">
 				{items.map((item, i) => {
-					const targetScale = 1 - (items.length - 1 - i) * 0.2
 					const { title, category, description, image, href } = item
+					const targetScale = 1 - (items.length - i) * 0.05
 
 					return (
 						<CardWrapper
@@ -77,6 +79,7 @@ export function Highlights(props: HighlightsProps) {
 							progress={scrollYProgress}
 							range={[i * 0.25, 1]}
 							targetScale={targetScale}
+							index={i}
 						>
 							<HighlightCard title={title}>
 								<HighlightCardContent>
