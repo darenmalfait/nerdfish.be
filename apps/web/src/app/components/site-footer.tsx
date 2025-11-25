@@ -5,7 +5,7 @@ import { ArrowRight, Logo } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { kebabCase } from '@repo/lib/utils/string'
 import { type ComponentProps, useCallback } from 'react'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
@@ -192,7 +192,7 @@ export type FooterProps = ComponentProps<'footer'>
 export function SiteFooter({ className, ...props }: FooterProps) {
 	return (
 		<footer
-			className={cx('mt-casual py-lg pb-acquaintances print:hidden', className)}
+			className={cn('mt-casual py-lg pb-acquaintances print:hidden', className)}
 			{...props}
 		>
 			<div className="container">

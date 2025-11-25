@@ -11,7 +11,7 @@ import {
 	PriceCardTitle,
 } from '@repo/design-system/components/price-card'
 import { useTranslations } from '@repo/i18n/client'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import type * as React from 'react'
 import { Link } from './link'
 
@@ -35,7 +35,7 @@ export function Pricing(props: PricingProps) {
 	return (
 		<>
 			<div
-				className={cx('grid grid-cols-1 gap-4 md:grid-cols-2', {
+				className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
 					'lg:grid-cols-3': plans.length > 2,
 				})}
 			>

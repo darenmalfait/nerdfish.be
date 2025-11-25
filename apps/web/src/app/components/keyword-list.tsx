@@ -1,7 +1,7 @@
 'use client'
 
 import { Marquee } from '@nerdfish/react/marquee'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type ComponentProps } from 'react'
 
 export interface KeywordProps extends Omit<ComponentProps<'span'>, 'children'> {
@@ -12,7 +12,7 @@ export function Keyword({ children, className, ...props }: KeywordProps) {
 	return (
 		<span
 			aria-label={children}
-			className={cx('typography-heading-lg uppercase', className)}
+			className={cn('typography-heading-lg uppercase', className)}
 			{...props}
 		>
 			<span>{children}</span>

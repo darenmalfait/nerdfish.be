@@ -1,7 +1,7 @@
 'use client'
 
 import { Slot } from '@radix-ui/react-slot'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useInView } from 'motion/react'
 import {
 	Children,
@@ -25,7 +25,7 @@ function TextSlideUpItem({
 	return (
 		<div className={className} {...props}>
 			<div
-				className={cx({
+				className={cn({
 					'motion-preset-fade motion-translate-x-in-[0%] motion-translate-y-in-[100%] animation-duration-[800ms]':
 						animate,
 					invisible: !animate,

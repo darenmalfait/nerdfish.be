@@ -4,7 +4,7 @@ import {
 	type ElementState,
 	useElementState,
 } from '@repo/lib/hooks/use-element-state'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type Variant, motion } from 'motion/react'
 import Link from 'next/link'
 import type * as React from 'react'
@@ -79,7 +79,7 @@ function ArrowLink({
 		<Tag
 			{...props}
 			href={href ?? '#'}
-			className={cx(
+			className={cn(
 				'space-x-friends text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold no-underline! transition focus:outline-none',
 				className,
 			)}
@@ -116,7 +116,7 @@ function BackLink({
 	return (
 		<Tag
 			href={href}
-			className={cx(
+			className={cn(
 				'text-foreground space-x-friends flex focus:outline-none',
 				className,
 			)}

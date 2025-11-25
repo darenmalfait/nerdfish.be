@@ -17,7 +17,7 @@ import {
 	TypescriptIcon,
 	VSCodeIcon,
 } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import type * as React from 'react'
 
 export const skills = [
@@ -108,14 +108,14 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 		<Tilt
 			isReverse
 			as="li"
-			className={cx(
+			className={cn(
 				'rounded-container bg-background-muted group/skill relative col-span-1 flex aspect-square w-full flex-col items-center justify-center overflow-hidden',
 				className,
 			)}
 			{...props}
 		>
 			<div
-				className={cx(
+				className={cn(
 					'flex flex-col items-center text-center',
 					'transition-opacity duration-300 group-hover/skill:opacity-100',
 				)}
@@ -128,7 +128,7 @@ export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 			</div>
 			<div className="absolute inset-0 flex size-full items-center justify-center">
 				<span
-					className={cx(
+					className={cn(
 						'text-lg font-bold capitalize opacity-0 transition-opacity duration-300 group-hover/skill:opacity-100',
 					)}
 				>
@@ -167,7 +167,7 @@ export function Skills({
 	return (
 		<ul
 			{...props}
-			className={cx(
+			className={cn(
 				'gap-friends grid grid-cols-2 md:grid-cols-3',
 				{
 					'lg:grid-cols-4': maxCols === 4,

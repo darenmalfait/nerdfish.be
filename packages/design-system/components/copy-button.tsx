@@ -8,7 +8,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { CheckIcon, CopyIcon } from '../icons'
 
 const COPY_TIMOUT = 3000
@@ -32,7 +32,7 @@ export function CopyButton({ code, className, ...props }: CopyButtonProps) {
 							size="sm"
 							aria-label="copy"
 							{...props}
-							className={cx(className, 'size-8')}
+							className={cn(className, 'size-8')}
 							variant={copiedText ? 'success' : 'secondary'}
 							onClick={() => handleCopy(code, COPY_TIMOUT)}
 						>

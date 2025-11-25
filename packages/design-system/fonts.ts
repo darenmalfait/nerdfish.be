@@ -1,4 +1,4 @@
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
 
@@ -39,7 +39,7 @@ const NebulaSans = localFont({
 	variable: '--font-nebula-sans',
 })
 
-export const fonts = cx(
+export const fonts = cn(
 	NebulaSans.variable,
 	GeistMono.variable,
 	'touch-manipulation font-sans antialiased',

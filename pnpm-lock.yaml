@@ -141,8 +141,8 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.66.1(react@19.2.0))
       '@nerdfish/react':
-        specifier: ^1.0.5
-        version: 1.0.5(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(eslint@9.39.1(jiti@2.6.1))(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
       '@next/env':
         specifier: 15.5.6
         version: 15.5.6
@@ -376,8 +376,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.0.5
-        version: 1.0.5(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(eslint@9.39.1(jiti@2.6.1))(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
       '@number-flow/react':
         specifier: ^0.5.10
         version: 0.5.10(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -528,8 +528,8 @@ importers:
   packages/lib:
     dependencies:
       '@nerdfish/utils':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: ^3.0.0
+        version: 3.0.0
       '@uidotdev/usehooks':
         specifier: ^2.4.1
         version: 2.4.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1290,8 +1290,8 @@ packages:
     resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
 
-  '@base-ui-components/react@1.0.0-beta.4':
-    resolution: {integrity: sha512-sPYKj26gbFHD2ZsrMYqQshXnMuomBodzPn+d0dDxWieTj232XCQ9QGt9fU9l5SDGC9hi8s24lDlg9FXPSI7T8A==}
+  '@base-ui-components/react@1.0.0-beta.6':
+    resolution: {integrity: sha512-jE07DkS7JcGKGH4/hNPTabyGfEzrfDhGPM0h9exGDWwRhEJXZK9xhJ4m3fr+yPf8gpddOCMMoKyV4xITJKrSOA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
@@ -1301,8 +1301,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@base-ui-components/utils@0.1.2':
-    resolution: {integrity: sha512-aEitDGpMsYO2qnSpYOwZNykn9Rzn2ioyEVk2fyDRH7t+TIHVKpp9CeV7SPTq43M9mMSDxQ+7UeZJVkrj2dCVIQ==}
+  '@base-ui-components/utils@0.2.0':
+    resolution: {integrity: sha512-uLLsLpYxPVq/QNsrfHwXuI+uiCr8+P/SLtTgrA4hL5b4UmWo3dnhwo38edfu+gCgfblrJveDj1D4RxEvDc7RXw==}
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
       react: ^17 || ^18 || ^19
@@ -2524,8 +2524,8 @@ packages:
   '@nerdfish/config@1.9.4':
     resolution: {integrity: sha512-YyX2v3Xs7syc+Wlwl3vB1TtbHOg/HTfUkDzhvcFrfcDJzv6MXsmib33dp9uLBsndrXugNzNKzDAzHdqtS1Zq0g==}
 
-  '@nerdfish/react@1.0.5':
-    resolution: {integrity: sha512-aJTlVg4kD63sqNfpNsCXmjWKlyM/l79B43eceN74KGUYgqH4dE+CIOeIXf26kARzDI/e1+A5LnwcqUJpEOg7JA==}
+  '@nerdfish/react@1.1.0':
+    resolution: {integrity: sha512-u1sMChZnHhi12efG6woOcBQdKzm/syyO82dnCFbqcXeaJp6eNxbUg+M0RNGy0Hr5nEn6MdD8KuoP6AUBvehQ3Q==}
     engines: {node: '>=24.11.1'}
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
@@ -2535,8 +2535,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@nerdfish/utils@2.0.1':
-    resolution: {integrity: sha512-ibKCDPjpDVCh9s22cC4c/Y9ChixMHWeN2xbkVxdQfCdC8eNZ3lwColyIPa+ZajSw3cX8gT/2L/qYoKYH/xFGEQ==}
+  '@nerdfish/utils@3.0.0':
+    resolution: {integrity: sha512-KeMN6heoUMW+06+dTsWzVxgN1aqL56E7kD9FUJEP2qk60ycEqWwTtOqh0mO+tA55PmXG/83A1M2KncUYlDEJbQ==}
 
   '@next/bundle-analyzer@15.5.6':
     resolution: {integrity: sha512-IHeyk2s9/fVDAGDLNbBkCSG8XBabhuMajiaJggjsg4GyFIswh78DzLo5Nl5th8QTs3U/teYeczvfeV9w1Tx3qA==}
@@ -5421,6 +5421,12 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
+  eslint-plugin-react-perf@3.3.3:
+    resolution: {integrity: sha512-EzPdxsRJg5IllCAH9ny/3nK7sv9251tvKmi/d3Ouv5KzI8TB3zNhzScxL9wnh9Hvv8GYC5LEtzTauynfOEYiAw==}
+    engines: {node: '>=6.9.1'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
+
   eslint-plugin-react@7.37.5:
     resolution: {integrity: sha512-Qteup0SqU15kdocexFNAJMvCJEfa2xUKNV4CC1xsVMrIIqEy3SQ/rqyxCWNzfrd3/ldy6HMlD2e0JDVpDg2qIA==}
     engines: {node: '>=4'}
@@ -6389,8 +6395,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libphonenumber-js@1.12.26:
-    resolution: {integrity: sha512-MagMOuqEXB2Pa90cWE+BoCmcKJx+de5uBIicaUkQ+uiEslZ0OBMNOkSZT/36syXNHu68UeayTxPm3DYM2IHoLQ==}
+  libphonenumber-js@1.12.29:
+    resolution: {integrity: sha512-P2aLrbeqHbmh8+9P35LXQfXOKc7XJ0ymUKl7tyeyQjdRNfzunXWxQXGc4yl3fUf28fqLRfPY+vIVvFXK7KEBTw==}
 
   lightningcss-android-arm64@1.30.2:
     resolution: {integrity: sha512-BH9sEdOCahSgmkVhBLeU7Hc9DWeZ1Eb6wNS6Da8igvUwAe0sqROHddIlvU06q3WyXVEOYDZ6ykBZQnjTbmo4+A==}
@@ -7491,8 +7497,8 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react-phone-number-input@3.4.13:
-    resolution: {integrity: sha512-9l5Zj4MChLwA+AwOtwS59s6ZfyJCuZrZU4EdHt6BJ9BhWwK1NFhtFcE4zMK4fP31GXnwjkesvadAjNHVPuVP0Q==}
+  react-phone-number-input@3.4.14:
+    resolution: {integrity: sha512-T9MziNuvthzv6+JAhKD71ab/jVXW5U20nQZRBJd6+q+ujmkC+/ISOf2GYo8pIi4VGjdIYRIHDftMAYn3WKZT3w==}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
@@ -7578,8 +7584,8 @@ packages:
   reading-time@1.5.0:
     resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
 
-  recharts@3.4.1:
-    resolution: {integrity: sha512-35kYg6JoOgwq8sE4rhYkVWwa6aAIgOtT+Ob0gitnShjwUwZmhrmy7Jco/5kJNF4PnLXgt9Hwq+geEMS+WrjU1g==}
+  recharts@3.5.0:
+    resolution: {integrity: sha512-jWqBtu8L3VICXWa3g/y+bKjL8DDHSRme7DHD/70LQ/Tk0di1h11Y0kKC0nPh6YJ2oaa0k6anIFNhg6SfzHWdEA==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -8114,8 +8120,8 @@ packages:
   tabbable@6.3.0:
     resolution: {integrity: sha512-EIHvdY5bPLuWForiR/AN2Bxngzpuwn1is4asboytXtpTgsArc+WmSJKVLlhdh71u7jFcryDqB2A8lQvj78MkyQ==}
 
-  tailwind-merge@2.6.0:
-    resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
+  tailwind-merge@3.4.0:
+    resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
 
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
@@ -8421,6 +8427,11 @@ packages:
 
   use-sync-external-store@1.5.0:
     resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  use-sync-external-store@1.6.0:
+    resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -9374,28 +9385,28 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@base-ui-components/react@1.0.0-beta.4(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@base-ui-components/react@1.0.0-beta.6(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.28.4
-      '@base-ui-components/utils': 0.1.2(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@base-ui-components/utils': 0.2.0(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@floating-ui/react-dom': 2.1.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@floating-ui/utils': 0.2.10
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       reselect: 5.1.1
       tabbable: 6.3.0
-      use-sync-external-store: 1.5.0(react@19.2.0)
+      use-sync-external-store: 1.6.0(react@19.2.0)
     optionalDependencies:
       '@types/react': 19.2.6
 
-  '@base-ui-components/utils@0.1.2(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@base-ui-components/utils@0.2.0(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@floating-ui/utils': 0.2.10
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       reselect: 5.1.1
-      use-sync-external-store: 1.5.0(react@19.2.0)
+      use-sync-external-store: 1.6.0(react@19.2.0)
     optionalDependencies:
       '@types/react': 19.2.6
 
@@ -10604,10 +10615,10 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/react@1.0.5(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)':
+  '@nerdfish/react@1.1.0(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(eslint@9.39.1(jiti@2.6.1))(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)':
     dependencies:
-      '@base-ui-components/react': 1.0.0-beta.4(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@nerdfish/utils': 2.0.1
+      '@base-ui-components/react': 1.0.0-beta.6(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@nerdfish/utils': 3.0.0
       '@radix-ui/react-label': 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.6)(react@19.2.0)
       cmdk: 1.1.1(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -10616,8 +10627,8 @@ snapshots:
       react: 19.2.0
       react-aria-components: 1.13.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react-dom: 19.2.0(react@19.2.0)
-      react-phone-number-input: 3.4.13(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      recharts: 3.4.1(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
+      react-phone-number-input: 3.4.14(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      recharts: 3.5.0(@types/react@19.2.6)(eslint@9.39.1(jiti@2.6.1))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1)
       shiki: 3.15.0
       sonner: 2.0.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       tw-animate-css: 1.4.0
@@ -10626,15 +10637,16 @@ snapshots:
       '@types/react': 19.2.6
     transitivePeerDependencies:
       - '@types/react-dom'
+      - eslint
       - next
       - react-is
       - redux
 
-  '@nerdfish/utils@2.0.1':
+  '@nerdfish/utils@3.0.0':
     dependencies:
       class-variance-authority: 0.7.1
       clsx: 2.1.1
-      tailwind-merge: 2.6.0
+      tailwind-merge: 3.4.0
 
   '@next/bundle-analyzer@15.5.6':
     dependencies:
@@ -14004,6 +14016,10 @@ snapshots:
     dependencies:
       eslint: 9.39.1(jiti@2.6.1)
 
+  eslint-plugin-react-perf@3.3.3(eslint@9.39.1(jiti@2.6.1)):
+    dependencies:
+      eslint: 9.39.1(jiti@2.6.1)
+
   eslint-plugin-react@7.37.5(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       array-includes: 3.1.9
@@ -15058,7 +15074,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libphonenumber-js@1.12.26: {}
+  libphonenumber-js@1.12.29: {}
 
   lightningcss-android-arm64@1.30.2:
     optional: true
@@ -16442,12 +16458,12 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-phone-number-input@3.4.13(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  react-phone-number-input@3.4.14(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       classnames: 2.5.1
       country-flag-icons: 1.5.19
       input-format: 0.3.14(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      libphonenumber-js: 1.12.26
+      libphonenumber-js: 1.12.29
       prop-types: 15.8.1
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -16551,12 +16567,13 @@ snapshots:
 
   reading-time@1.5.0: {}
 
-  recharts@3.4.1(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1):
+  recharts@3.5.0(@types/react@19.2.6)(eslint@9.39.1(jiti@2.6.1))(react-dom@19.2.0(react@19.2.0))(react-is@16.13.1)(react@19.2.0)(redux@5.0.1):
     dependencies:
       '@reduxjs/toolkit': 2.10.1(react-redux@9.2.0(@types/react@19.2.6)(react@19.2.0)(redux@5.0.1))(react@19.2.0)
       clsx: 2.1.1
       decimal.js-light: 2.5.1
       es-toolkit: 1.41.0
+      eslint-plugin-react-perf: 3.3.3(eslint@9.39.1(jiti@2.6.1))
       eventemitter3: 5.0.1
       immer: 10.2.0
       react: 19.2.0
@@ -16569,6 +16586,7 @@ snapshots:
       victory-vendor: 37.3.6
     transitivePeerDependencies:
       - '@types/react'
+      - eslint
       - redux
 
   recma-build-jsx@1.0.0:
@@ -17308,7 +17326,7 @@ snapshots:
 
   tabbable@6.3.0: {}
 
-  tailwind-merge@2.6.0: {}
+  tailwind-merge@3.4.0: {}
 
   tailwindcss-animate@1.0.7(tailwindcss@4.1.17):
     dependencies:
@@ -17633,6 +17651,10 @@ snapshots:
       '@types/react': 19.2.6
 
   use-sync-external-store@1.5.0(react@19.2.0):
+    dependencies:
+      react: 19.2.0
+
+  use-sync-external-store@1.6.0(react@19.2.0):
     dependencies:
       react: 19.2.0
 

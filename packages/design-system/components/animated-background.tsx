@@ -1,7 +1,7 @@
 'use client'
 
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { AnimatePresence, type Transition, motion } from 'motion/react'
 import { Children, cloneElement, useId, type ReactElement } from 'react'
 
@@ -28,11 +28,11 @@ export function AnimatedBackground({
 	transition,
 	enableHover = false,
 }: AnimatedBackgroundProps) {
-	const [activeId, setActiveId] = useControllableState<string | null>(
-		value,
-		defaultValue ?? null,
-		onValueChange,
-	)
+	const [activeId, setActiveId] = useControllableState<string | null>({
+		prop: value,
+		defaultProp: defaultValue ?? null,
+		onChange: onValueChange,
+	})
 
 	const uniqueId = useId()
 
@@ -60,7 +60,7 @@ export function AnimatedBackground({
 			{
 				key: index,
 				// @ts-expect-error - TODO: why is this erroring?
-				className: cx('relative inline-flex', (child as any).props.className),
+				className: cn('relative inline-flex', (child as any).props.className),
 				...interactionProps,
 			},
 			<>
@@ -69,7 +69,7 @@ export function AnimatedBackground({
 						<motion.div
 							style={{ originY: '0px' }}
 							layoutId={`background-${uniqueId}`}
-							className={cx('absolute inset-0 h-full', className)}
+							className={cn('absolute inset-0 h-full', className)}
 							transition={transition}
 							initial={{ opacity: defaultValue ? 1 : 0 }}
 							animate={{

@@ -4,7 +4,7 @@ import { Grid } from '@repo/design-system/components/grid'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { ArrowRight } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { type VariantProps, cva, cx } from '@repo/lib/utils/base'
+import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'
@@ -119,7 +119,7 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 	return (
 		<Grid
 			ref={ref}
-			className={cx('gap-acquaintances! auto-rows-auto', {
+			className={cn('gap-acquaintances! auto-rows-auto', {
 				'grid-cols-2': maxCols === '2',
 				'grid-cols-3': maxCols === '3',
 				'grid-cols-4': maxCols === '4',
@@ -132,7 +132,7 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 						<li
 							key={`${item.title} ${i}`}
 							style={{ animationDelay: `${i * 0.2}s` }}
-							className={cx('bg-none opacity-0', {
+							className={cn('bg-none opacity-0', {
 								'motion-preset-slide-left opacity-100 lg:col-span-1': inView,
 								'col-span-4': maxCols === '4',
 								'col-span-3': maxCols === '3',

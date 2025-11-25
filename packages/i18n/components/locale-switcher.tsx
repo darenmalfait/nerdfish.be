@@ -8,7 +8,7 @@ import {
 	DropdownMenuTrigger,
 } from '@nerdfish/react/dropdown-menu'
 import { GlobeIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { i18n, supportedLanguages } from '../config'
@@ -28,7 +28,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 					<Button
 						variant="secondary"
 						aria-label={t('switchLanguage')}
-						className={cx(
+						className={cn(
 							'gap-best-friends border-border! bg-background! hover:bg-background-muted!',
 							className,
 						)}

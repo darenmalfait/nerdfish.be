@@ -3,7 +3,7 @@
 import { Badge } from '@nerdfish/react/badge'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { motion } from 'motion/react'
 import { Cursor } from 'motion-cursor'
 import Image from 'next/image'
@@ -60,7 +60,7 @@ export function ArticleCardImage({
 		<motion.div
 			onHoverEnd={() => setIsHovering(false)}
 			onHoverStart={() => setIsHovering(true)}
-			className={cx(
+			className={cn(
 				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category && getCategoryColors(category),
 			)}
@@ -94,7 +94,7 @@ export function ArticleCardContent({
 	...props
 }: ArticleCardContentProps) {
 	return (
-		<div {...props} className={cx('mt-casual', className)}>
+		<div {...props} className={cn('mt-casual', className)}>
 			{children}
 		</div>
 	)
@@ -110,7 +110,7 @@ export function ArticleCardTitle({
 	return (
 		<h3
 			{...props}
-			className={cx(
+			className={cn(
 				'mb-best-friends typography-title mt-bff line-clamp-2',
 				className,
 			)}
@@ -132,7 +132,7 @@ export function ArticleCardDate({
 	return (
 		<div
 			{...props}
-			className={cx(
+			className={cn(
 				'mb-best-friends text-foreground-muted text-xl font-bold',
 				className,
 			)}
@@ -154,7 +154,7 @@ export function ArticleCardDescription({
 	return (
 		<div
 			{...props}
-			className={cx('text-foreground-muted mt-0 line-clamp-2', className)}
+			className={cn('text-foreground-muted mt-0 line-clamp-2', className)}
 		>
 			{children}
 		</div>
@@ -176,7 +176,7 @@ export function ArticleCardCategory({
 		<Badge
 			variant="default"
 			{...props}
-			className={cx(
+			className={cn(
 				'mb-best-friends bg-background-muted px-best-friends py-best-friends relative text-sm',
 				getCategoryColors(value),
 				className,
@@ -202,7 +202,7 @@ export function ArticleCard({
 }: ArticleCardProps) {
 	return (
 		<article
-			className={cx('group relative w-full outline-none', className)}
+			className={cn('group relative w-full outline-none', className)}
 			{...props}
 		>
 			{href ? (

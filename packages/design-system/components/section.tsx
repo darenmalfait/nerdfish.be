@@ -1,5 +1,5 @@
 import { Slot } from '@radix-ui/react-slot'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type ElementType, type ComponentProps } from 'react'
 import { ArrowLink } from './arrow-link'
 import { TextBalancer } from './text-balancer'
@@ -20,7 +20,7 @@ export function Section({
 
 	return (
 		<Component
-			className={cx(
+			className={cn(
 				'rounded-container container',
 				compact ? 'py-casual' : 'py-distant md:py-strangers',
 				className,
@@ -43,7 +43,7 @@ export function SectionHeaderTitle({
 
 	return (
 		<h2
-			className={cx(
+			className={cn(
 				'typography-heading-sm mb-friends font-title max-w-7xl leading-[1.1]',
 				className,
 			)}
@@ -67,7 +67,7 @@ export function SectionHeaderSubtitle({
 
 	return (
 		<div
-			className={cx('text-foreground-muted typography-title', className)}
+			className={cn('text-foreground-muted typography-title', className)}
 			{...props}
 		>
 			<TextBalancer>{children}</TextBalancer>
@@ -101,7 +101,7 @@ export function SectionHeader({
 
 	if (skipAnimation) {
 		return (
-			<Element className={cx('mb-acquaintances', className)} {...props}>
+			<Element className={cn('mb-acquaintances', className)} {...props}>
 				{children}
 				{cta?.url ? (
 					<div className="mt-casual flex justify-start">
@@ -114,7 +114,7 @@ export function SectionHeader({
 		)
 	}
 	return (
-		<Element className={cx('mb-acquaintances', className)} {...props}>
+		<Element className={cn('mb-acquaintances', className)} {...props}>
 			<TextSlideUp eager={eager}>
 				{children}
 				{cta?.url ? (

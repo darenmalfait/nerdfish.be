@@ -1,6 +1,6 @@
 'use client'
 
-import { cx } from '@nerdfish/utils'
+import { cn } from '@nerdfish/utils/class'
 import { Slot } from '@radix-ui/react-slot'
 import * as React from 'react'
 
@@ -15,7 +15,7 @@ export const Grid = React.forwardRef<
 	return (
 		<Comp
 			ref={ref}
-			className={cx(
+			className={cn(
 				'gap-friends grid w-full auto-rows-[22rem] grid-cols-3',
 				className,
 			)}
@@ -37,7 +37,7 @@ export const GridCard = React.forwardRef<
 	return (
 		<Comp
 			ref={ref}
-			className={cx(
+			className={cn(
 				'rounded-container group relative col-span-3 flex flex-col justify-between overflow-hidden',
 				// light styles
 				'bg-background shadow-outline [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',

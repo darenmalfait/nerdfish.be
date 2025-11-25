@@ -1,4 +1,4 @@
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
 
 function PortableImage({
@@ -16,7 +16,7 @@ function PortableImage({
 }) {
 	return (
 		<div
-			className={cx({
+			className={cn({
 				'mx-auto max-w-xl overflow-hidden': compact,
 			})}
 		>

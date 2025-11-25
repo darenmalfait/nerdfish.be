@@ -12,7 +12,7 @@ import { Section } from '@repo/design-system/components/section'
 import { GithubIcon, GlobeIcon } from '@repo/design-system/icons'
 import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
@@ -155,14 +155,14 @@ export default async function ProductDetailPage(props: PageProps) {
 								<div className="gap-friends rounded-base p-friends md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
 									<CarouselPrevious
 										variant="ghost"
-										className={cx(
+										className={cn(
 											'active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted! transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!',
 											'[&_svg]:size-8!',
 										)}
 									/>
 									<CarouselNext
 										variant="ghost"
-										className={cx(
+										className={cn(
 											'rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted! transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!',
 											'[&_svg]:size-8!',
 										)}

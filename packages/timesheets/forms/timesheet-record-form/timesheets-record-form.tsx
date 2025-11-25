@@ -13,7 +13,7 @@ import { Spinner } from '@nerdfish/react/spinner'
 import { Textarea } from '@nerdfish/react/textarea'
 import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
 import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import {
@@ -90,7 +90,7 @@ export function TimesheetsRecordForm({
 		<form
 			noValidate
 			onSubmit={form.handleSubmit(handleSubmit)}
-			className={cx('gap-casual flex flex-col', className)}
+			className={cn('gap-casual flex flex-col', className)}
 		>
 			<FieldGroup>
 				<Controller

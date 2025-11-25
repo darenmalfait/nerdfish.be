@@ -10,7 +10,7 @@ import {
 } from '@nerdfish/react/drawer'
 import { Toggle } from '@nerdfish/react/toggle'
 import { ToggleGroup } from '@nerdfish/react/toggle-group'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import {
 	type ComponentProps,
 	createContext,
@@ -58,7 +58,7 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 	return (
 		<ToggleGroup
 			multiple
-			className={cx(
+			className={cn(
 				'-mr-friends gap-best-friends -mb-friends col-span-full flex flex-wrap justify-start lg:col-span-10',
 				className,
 			)}

@@ -7,7 +7,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { Logo } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type ReactNode, type ComponentProps } from 'react'
 import { useResume } from '../resume-provider'
 import { type Resume as ResumeProps } from '../types'
@@ -19,7 +19,7 @@ function ResumePageHeaderInformationItem({
 }: ComponentProps<'li'>) {
 	return (
 		<li
-			className={cx(
+			className={cn(
 				'flex items-center',
 				'not-last:after:bg-foreground-muted not-last:after:mx-2 not-last:after:inline-flex not-last:after:h-1 not-last:after:w-1 not-last:after:items-center not-last:after:justify-center not-last:after:rounded-none not-last:after:content-[""]',
 				className,
@@ -102,7 +102,7 @@ function ResumePageLayout({
 		<Section className="print:pt-casual print:px-casual max-w-5xl break-before-page print:font-mono">
 			<SectionHeader
 				skipAnimation
-				className={cx('print:mb-casual', !showHeader && 'hidden print:block!')}
+				className={cn('print:mb-casual', !showHeader && 'hidden print:block!')}
 			>
 				{name ? (
 					<SectionHeaderTitle className="print:mb-best-friends">

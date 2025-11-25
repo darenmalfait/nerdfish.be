@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { motion, useMotionValue, useSpring } from 'motion/react'
 import {
 	type ComponentProps,
@@ -79,7 +79,7 @@ export function Magnet({ children, className, ref, ...props }: MagnetProps) {
 	return (
 		<motion.div
 			ref={itemRef}
-			className={cx('inline-flex', className)}
+			className={cn('inline-flex', className)}
 			onMouseEnter={(e) => {
 				setIsHovered(true)
 				props.onMouseEnter?.(e)

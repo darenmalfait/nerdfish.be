@@ -1,4 +1,4 @@
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 
 const foregroundMap: Record<string, string> = {
 	// Blog
@@ -36,13 +36,13 @@ export function CategoryIndicator({
 }: CategoryIndicatorProps) {
 	return (
 		<div
-			className={cx({
+			className={cn({
 				'absolute inset-0 flex h-full w-full items-start justify-start':
 					!inline,
 			})}
 		>
 			<span
-				className={cx(
+				className={cn(
 					getCategoryColors(category),
 					'py-best-friends px-best-friends rounded-base bg-background z-10 inline-block w-auto text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{

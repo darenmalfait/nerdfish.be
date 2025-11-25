@@ -6,7 +6,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { ArrowRightIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { capitalize } from '@repo/lib/utils/string'
 import Image from 'next/image'
 import { type ComponentProps, type ElementType, type ReactNode } from 'react'
@@ -49,7 +49,7 @@ export function HeroCTA({
 			size="xl"
 			className="mt-acquaintances group"
 			render={
-				<Link {...props} className={cx('flex items-center', className)}>
+				<Link {...props} className={cn('flex items-center', className)}>
 					{children}
 					<ArrowRightIcon className="text-accent ml-best-friends group-hover:translate-x-sm size-6 transition-all" />
 				</Link>
@@ -65,7 +65,7 @@ export function HeroImage({ src, className, ...props }: HeroImageProps) {
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'motion-preset-shrink motion-preset-focus mb-friends z-30 w-auto max-w-[50%] flex-none md:mb-0',
 				'rounded-base -bottom-2/3 mt-12 max-w-full md:absolute md:right-0 md:mt-0 md:max-w-[60%] lg:-bottom-1/2',
 			)}
@@ -76,7 +76,7 @@ export function HeroImage({ src, className, ...props }: HeroImageProps) {
 				loading="eager"
 				{...props}
 				// sticker effect
-				className={cx(
+				className={cn(
 					'filter-[drop-shadow(0px_0px_2px_#fff)] dark:filter-[drop-shadow(0px_0px_2px_#000)]',
 					className,
 				)}
@@ -104,7 +104,7 @@ export type HeroProps = ComponentProps<'div'>
 
 export function Hero({ children }: HeroProps) {
 	return (
-		<Section className={cx('group/section relative')}>
+		<Section className={cn('group/section relative')}>
 			<div className="relative container mx-auto px-0">{children}</div>
 		</Section>
 	)

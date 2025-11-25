@@ -3,7 +3,7 @@
 import { Badge } from '@nerdfish/react/badge'
 import { ClockIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { type Locale } from '@repo/i18n/types'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type ComponentProps } from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 
@@ -20,7 +20,7 @@ export function MeetingTypeList({
 	...props
 }: MeetingTypeListProps) {
 	return (
-		<ul className={cx('gap-best-friends flex flex-col', className)} {...props}>
+		<ul className={cn('gap-best-friends flex flex-col', className)} {...props}>
 			{calcomSettings.types.map(({ slug, title: bookingTitle, duration }) => {
 				const title = (bookingTitle as Record<Locale, string>)[locale]
 

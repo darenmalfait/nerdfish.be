@@ -11,7 +11,7 @@ import { Separator } from '@nerdfish/react/separator'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type Wiki } from 'content-collections'
 import Link from 'next/link'
 import { Body } from '~/app/components/body'
@@ -38,7 +38,7 @@ function WikiContent({ data }: { data: Wiki }) {
 					</BreadcrumbList>
 				</Breadcrumb>
 			</div>
-			<header className={cx('mx-auto flex max-w-4xl flex-col')}>
+			<header className={cn('mx-auto flex max-w-4xl flex-col')}>
 				{date ? (
 					<div className="mb-best-friends">
 						<Badge variant="muted">

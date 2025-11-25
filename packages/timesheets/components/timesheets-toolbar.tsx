@@ -6,14 +6,14 @@ import {
 	TooltipProvider,
 } from '@nerdfish/react/tooltip'
 import { PrinterIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 
 import { ImportTimeEntriesButton } from './timesheets-import'
 
 export function TimesheetsToolbar() {
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'print:hidden',
 				'rounded-container bg-popover p-bff fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
 				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',

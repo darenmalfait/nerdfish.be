@@ -3,7 +3,7 @@
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { inputVariants } from '@nerdfish/react/input'
 import { ArrowRightIcon, ClockIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useMemo } from 'react'
 import { differenceInMinutes, parse } from '../utils'
 
@@ -21,14 +21,14 @@ export function TimeRangeInput({
 	const [value = { start: '', end: '' }, setValue] = useControllableState<{
 		start: string
 		end: string
-	}>(
-		valueProp,
-		{
+	}>({
+		prop: valueProp,
+		defaultProp: {
 			start: '',
 			end: '',
 		},
 		onChange,
-	)
+	})
 
 	const duration = useMemo(() => {
 		if (!value.start || !value.end) {
@@ -45,7 +45,7 @@ export function TimeRangeInput({
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				inputVariants(),
 				'gap-best-friends flex items-center',
 				className,
@@ -57,7 +57,7 @@ export function TimeRangeInput({
 					type="time"
 					value={value.start}
 					onChange={(e) => setValue({ ...value, start: e.target.value })}
-					className={cx(
+					className={cn(
 						'bg-transparent text-sm focus:outline-none',
 						hideTimeIconClass,
 					)}
@@ -71,7 +71,7 @@ export function TimeRangeInput({
 					type="time"
 					value={value.end}
 					onChange={(e) => setValue({ ...value, end: e.target.value })}
-					className={cx(
+					className={cn(
 						'bg-transparent text-sm focus:outline-none',
 						hideTimeIconClass,
 					)}

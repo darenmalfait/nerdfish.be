@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type Testimonial } from 'content-collections'
 import { AnimatePresence, motion } from 'motion/react'
 import { type ReactNode, useCallback, useState } from 'react'
@@ -72,7 +72,7 @@ function TestimonialItem({
 	return (
 		<div className="gap-acquaintances relative flex flex-col justify-center">
 			<blockquote
-				className={cx(
+				className={cn(
 					layout?.variant === 'secondary'
 						? 'typography-title'
 						: 'typography-heading-sm',
@@ -136,7 +136,7 @@ export function TestimonialsContent({
 					initial="initial"
 					animate="animate"
 					exit="exit"
-					className={cx('flex w-full flex-col items-center justify-center', {
+					className={cn('flex w-full flex-col items-center justify-center', {
 						'min-h-[80vh]': layout?.variant !== 'secondary',
 					})}
 					variants={variants}

@@ -3,7 +3,7 @@ import { ButtonGroup } from '@nerdfish/react/button-group'
 import { TZDate, addDays, formatISO, subDays } from '@repo/calendar/utils'
 import { ChevronLeftIcon, ChevronRightIcon } from '@repo/design-system/icons'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { formatDateRange, getTimesheetsDates, TIMEZONE } from '../utils'
 
@@ -39,7 +39,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 	useHotkeys('arrowRight', selectNextDay)
 
 	return (
-		<ButtonGroup className={cx('w-full', className)}>
+		<ButtonGroup className={cn('w-full', className)}>
 			<Button variant="secondary" onClick={selectPrevDay}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>

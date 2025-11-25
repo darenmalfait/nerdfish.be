@@ -21,7 +21,7 @@ import {
 import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
-import { cva, cx } from '@repo/lib/utils/base'
+import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import {
 	type ComponentPropsWithoutRef,
@@ -67,7 +67,7 @@ const MainNavigationSubItem = forwardRef<
 MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 
 const getMainItemClassName = cva(
-	cx(
+	cn(
 		buttonVariants({ variant: 'secondary', size: 'sm', className: 'h-full' }),
 		'focus-outline hover:text-foreground relative flex h-full cursor-pointer items-center !rounded-full bg-transparent text-xs font-bold whitespace-nowrap capitalize transition outline-none focus:bg-transparent active:bg-transparent lg:text-sm',
 	),
@@ -96,7 +96,7 @@ const MainNavigationItem = forwardRef<
 				className="h-full"
 				render={
 					<NavigationMenuLink
-						className={cx(
+						className={cn(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
 							}),
@@ -123,7 +123,7 @@ const MainNavigationItem = forwardRef<
 			render={
 				<span>
 					<NavigationMenuTrigger
-						className={cx(
+						className={cn(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
 							}),
@@ -133,7 +133,7 @@ const MainNavigationItem = forwardRef<
 						{label}
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<ul className={cx('gap-best-friends p-bff flex flex-col lg:w-100')}>
+						<ul className={cn('gap-best-friends p-bff flex flex-col lg:w-100')}>
 							{sub.map((subNavItem) => {
 								return (
 									<MainNavigationSubItem
@@ -289,7 +289,7 @@ export function SiteNavigation() {
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'hidden lg:flex',
 				'relative',
 				'rounded-container bg-background-inverted/30 p-bff inset-x-0 mx-auto max-h-12 w-fit max-w-full',

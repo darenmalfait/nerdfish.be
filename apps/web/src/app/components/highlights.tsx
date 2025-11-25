@@ -11,7 +11,7 @@ import {
 	HighlightCardTitle,
 } from '@repo/design-system/components/highlight-card'
 import { useTranslations } from '@repo/i18n/client'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { useRef, type ComponentProps } from 'react'
 import { Link } from './link'
@@ -36,7 +36,7 @@ function CardWrapper({
 		<div className="top-friends md:top-distant sticky flex justify-center">
 			<motion.div
 				style={{ ...style, scale }}
-				className={cx(
+				className={cn(
 					'relative top-0 flex origin-top items-center justify-center',
 				)}
 				{...props}

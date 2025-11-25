@@ -15,7 +15,7 @@ import { Label } from '@nerdfish/react/label'
 import { Separator } from '@nerdfish/react/separator'
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { Logo } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useEffect, useRef, useMemo, useState } from 'react'
 import { type TimesheetsRecord } from '../schemas'
 
@@ -30,8 +30,8 @@ function Row({
 }) {
 	return (
 		<div className="group flex items-center">
-			<div className={cx('mr-lg', className)}>{day}</div>
-			<div className={cx('flex flex-1 justify-end', className)}>{hours}</div>
+			<div className={cn('mr-lg', className)}>{day}</div>
+			<div className={cn('flex flex-1 justify-end', className)}>{hours}</div>
 		</div>
 	)
 }
@@ -110,7 +110,7 @@ export function TimesheetsContent({
 				<Dialog>
 					<DialogTrigger>
 						<div
-							className={cx('text-sm', {
+							className={cn('text-sm', {
 								'rounded-base bg-background-danger p-best-friends text-foreground-danger-contrast print:hidden':
 									!invoiceRef,
 							})}

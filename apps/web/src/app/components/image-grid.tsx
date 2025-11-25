@@ -2,7 +2,7 @@
 
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { Grid, GridCard } from '@repo/design-system/components/grid'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useInView } from 'motion/react'
 import Image from 'next/image'
 import { type ComponentProps, useImperativeHandle, useRef } from 'react'
@@ -53,7 +53,7 @@ export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
 
 	return (
 		<Grid
-			className={cx(
+			className={cn(
 				'auto-rows-[40rem] grid-cols-2! md:grid-cols-4!',
 				className,
 			)}
@@ -67,7 +67,7 @@ export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
 					<GridCard
 						style={{ animationDelay: `${i * 0.2}s` }}
 						key={`${item.image.alt} ${i}`}
-						className={cx(
+						className={cn(
 							getGridItemClassName(i),
 							isInView && 'motion-preset-slide-left',
 						)}

@@ -10,7 +10,7 @@ import {
 } from '@repo/calendar/utils'
 import { useClickAway } from '@repo/lib/hooks/use-click-away'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useCallback, useState } from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
@@ -167,7 +167,7 @@ function TimesheetsCalendarDay({
 			onMouseDown={() => handleMouseDown(date)}
 			onMouseEnter={() => handleMouseEnter(date)}
 			onMouseUp={handleMouseUp}
-			className={cx(
+			className={cn(
 				'relative flex aspect-square space-x-2 px-3 pt-2 pb-10 text-left font-mono text-lg transition-all duration-100 select-none md:aspect-4/2',
 				'hover:bg-background-muted',
 				isCurrentMonth && isToday(date) ? 'bg-accent/10' : 'bg-background',

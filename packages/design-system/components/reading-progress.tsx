@@ -1,7 +1,7 @@
 'use client'
 
 import NumberFlow from '@number-flow/react'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useEffect, useState } from 'react'
 
 export interface ReadingProgressProps {
@@ -37,7 +37,7 @@ export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 	return (
 		<div aria-hidden className="fixed inset-x-0 bottom-8 z-40 container">
 			<div
-				className={cx(
+				className={cn(
 					'gap-best-friends rounded-container bg-popover p-best-friends mx-auto flex w-fit max-w-full items-center text-sm font-bold md:text-base',
 					'before:empty-content before:rounded-container before:absolute before:inset-0',
 				)}

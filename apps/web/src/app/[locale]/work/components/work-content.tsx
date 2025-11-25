@@ -6,7 +6,7 @@ import {
 } from '@repo/design-system/components/category-indicator'
 import { Section } from '@repo/design-system/components/section'
 import { ArrowRight } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type Project } from 'content-collections'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -33,7 +33,7 @@ function WorkContent({
 				<article>
 					<Section
 						compact
-						className={cx('px-0', {
+						className={cn('px-0', {
 							'xl:max-w-125': layout === 'default',
 							'container max-w-4xl': layout === 'full',
 						})}
@@ -46,7 +46,7 @@ function WorkContent({
 							/>
 
 							<header
-								className={cx('mb-casual mx-auto flex max-w-4xl flex-col')}
+								className={cn('mb-casual mx-auto flex max-w-4xl flex-col')}
 							>
 								<h4 className="typography-title m-0! w-auto text-4xl!">
 									{title}
@@ -65,7 +65,7 @@ function WorkContent({
 														Visit website
 														<span className={getCategoryColors(category)}>
 															<ArrowRight
-																className={cx(
+																className={cn(
 																	'ml-best-friends group-hover:translate-x-bff group-hover:text-foreground size-4 text-current transition-all',
 																)}
 															/>

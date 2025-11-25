@@ -25,7 +25,7 @@ import {
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type Wiki } from 'content-collections'
 import { env } from 'env'
 import {
@@ -74,7 +74,7 @@ export function ArticleCardTags({
 	return (
 		<div
 			{...props}
-			className={cx(
+			className={cn(
 				'gap-best-friends mb-best-friends flex flex-wrap',
 				className,
 			)}

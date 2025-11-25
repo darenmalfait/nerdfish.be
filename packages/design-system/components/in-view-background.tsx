@@ -1,6 +1,6 @@
 'use client'
 
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useInView } from 'motion/react'
 import {
 	useImperativeHandle,
@@ -28,7 +28,7 @@ export function InViewBackground({
 	return (
 		<div className="relative" ref={refObject}>
 			<div
-				className={cx(
+				className={cn(
 					className,
 					'fixed -inset-37.5 -z-1 overflow-hidden rounded-none opacity-0 duration-500',
 					isInView && 'opacity-100',

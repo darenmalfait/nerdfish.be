@@ -6,7 +6,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@nerdfish/react/accordion'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { useId, type ComponentProps, type ReactNode } from 'react'
 
 export interface FaqItemProps
@@ -34,13 +34,13 @@ export function FaqItem({
 			className="typography group/accordion-item mx-auto border-transparent! focus-within:ring-0"
 		>
 			<AccordionTrigger
-				className={cx(
+				className={cn(
 					'gap-x-friends py-best-friends flex w-full items-center justify-start no-underline! hover:bg-transparent',
 					'group/accordion-trigger',
 				)}
 			>
 				<div
-					className={cx(
+					className={cn(
 						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
 						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center transition-colors',
 						'hover:bg-background-inverted/30 group-data-panel-open/accordion-trigger:hover:bg-accent/80',
@@ -50,7 +50,7 @@ export function FaqItem({
 				>
 					{icon ? (
 						<span
-							className={cx(
+							className={cn(
 								'absolute bottom-6',
 								iconPosition === 'right' ? 'right-0' : 'left-0',
 							)}
@@ -68,7 +68,7 @@ export function FaqItem({
 			<AccordionContent className="typography text-foreground pb-friends! pt-friends max-w-none">
 				<div className="ml-7 md:ml-16">
 					<div
-						className={cx(
+						className={cn(
 							'bg-background-inverted text-foreground-inverted rounded-base p-friends typography-body relative max-w-none',
 						)}
 					>
@@ -85,7 +85,7 @@ export type FaqProps = ComponentProps<typeof Accordion>
 export function Faq({ className, children, ...props }: FaqProps) {
 	return (
 		<div className="relative">
-			<Accordion {...props} className={cx('space-y-bff', className)}>
+			<Accordion {...props} className={cn('space-y-bff', className)}>
 				{children}
 			</Accordion>
 		</div>

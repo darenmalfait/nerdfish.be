@@ -9,7 +9,7 @@ import {
 } from '@nerdfish/react/context-menu'
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import {
 	addMinutes,
 	differenceInSeconds,
@@ -39,7 +39,10 @@ export const CALENDARY_DAY_ROW_HEIGHT = 36
 export const CALENDARY_DAY_SLOT_HEIGHT = 9
 
 export interface CalendarDayProps
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
+	extends Omit<
+		HTMLAttributes<HTMLDivElement>,
+		'onChange' | 'defaultValue' | 'value'
+	> {
 	timeFormat?: 24 | 12
 
 	// values
@@ -76,16 +79,18 @@ export function CalendarDay({
 	const hours = Array.from({ length: 24 }, (_, i) => i)
 
 	// values
-	const [value = [], setValue] = useControllableState(
-		valueProp,
-		defaultValue,
+	const [value = [], setValue] = useControllableState({
+		prop: valueProp,
+		defaultProp: defaultValue,
 		onChange,
-	)
-	const [selectedEvent, setSelectedEvent] = useControllableState(
-		selectedEventProp,
-		null,
-		onEventSelect,
-	)
+	})
+
+	const [selectedEvent, setSelectedEvent] =
+		useControllableState<CalendarEvent | null>({
+			prop: selectedEventProp,
+			defaultProp: null,
+			onChange: onEventSelect,
+		})
 
 	// mouse events
 	const [isDragging, setIsDragging] = useState(false)
@@ -254,7 +259,7 @@ export function CalendarDay({
 	}
 
 	return (
-		<div {...props} className={cx('text-foreground flex text-xs', className)}>
+		<div {...props} className={cn('text-foreground flex text-xs', className)}>
 			<div className="w-20 shrink-0 select-none">
 				{hours.map((hour) => (
 					<div
@@ -308,7 +313,7 @@ export function CalendarDay({
 							<ContextMenuTrigger>
 								<div
 									onClick={() => handleEventClick(event)}
-									className={cx(
+									className={cn(
 										'border-border bg-background-muted/95 text-foreground absolute w-full border-t',
 										event.id !== NEW_EVENT_ID && 'cursor-move',
 										event.id === selectedEvent?.id &&

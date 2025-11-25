@@ -1,4 +1,4 @@
-import { cva, cx, type VariantProps } from '@repo/lib/utils/base'
+import { cva, cn, type VariantProps } from '@repo/lib/utils/class'
 import { ArrowRight } from 'lucide-react'
 import { type ComponentProps } from 'react'
 
@@ -34,7 +34,7 @@ export function ArrowIcon({
 		<ArrowRight
 			width={size}
 			height={size}
-			className={cx(arrowIconVariants({ direction }), className)}
+			className={cn(arrowIconVariants({ direction }), className)}
 			{...props}
 		/>
 	)

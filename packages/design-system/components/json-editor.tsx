@@ -1,7 +1,7 @@
 'use client'
 
 import { inputVariants } from '@nerdfish/react/input'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import {
 	githubDarkTheme,
 	githubLightTheme,
@@ -28,7 +28,7 @@ export function JsonEditor({
 	return (
 		<JsonEditorReact
 			theme={[theme]}
-			className={cx(inputVariants(), 'h-full w-full max-w-none!', className)}
+			className={cn(inputVariants(), 'h-full w-full max-w-none!', className)}
 			icons={{
 				add: <PlusIcon className="text-foreground h-4 w-4" />,
 				delete: <MinusIcon className="text-foreground-danger h-4 w-4" />,

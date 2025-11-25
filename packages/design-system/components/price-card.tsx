@@ -10,7 +10,7 @@ import {
 	CardTitle,
 } from '@nerdfish/react/card'
 import { Separator } from '@nerdfish/react/separator'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import Link from 'next/link'
 import {
 	type ComponentProps,
@@ -48,10 +48,10 @@ export function PriceCardHeader({
 }: PriceCardHeaderProps) {
 	const { isPopular } = usePriceCard()
 	return (
-		<CardHeader className={cx('bg-transparent', className)} {...props}>
+		<CardHeader className={cn('bg-transparent', className)} {...props}>
 			{children}
 			<Separator
-				className={cx('my-best-friends', {
+				className={cn('my-best-friends', {
 					'bg-background/20': isPopular,
 				})}
 			/>
@@ -77,7 +77,7 @@ export function PriceCardFeatures({
 	const { isPopular } = usePriceCard()
 	return (
 		<CardContent
-			className={cx(
+			className={cn(
 				{
 					'dark:light dark': isPopular,
 				},
@@ -99,7 +99,7 @@ export function PriceCardFeature({
 }: PriceCardFeatureProps) {
 	return (
 		<li
-			className={cx('gap-best-friends flex items-center', className)}
+			className={cn('gap-best-friends flex items-center', className)}
 			{...props}
 		>
 			<CheckIcon className="text-success-foreground size-3" />
@@ -120,7 +120,7 @@ export function PriceCardDescription({
 
 	return (
 		<CardDescription
-			className={cx(
+			className={cn(
 				'text-foreground-muted text-lg',
 				{
 					'text-foreground-inverted/80': isPopular,
@@ -146,7 +146,7 @@ export function PriceCardPrice({
 	if (!price) return null
 
 	return (
-		<p className={cx('p-friends', className)} {...props}>
+		<p className={cn('p-friends', className)} {...props}>
 			<span className="inline text-4xl leading-7 font-semibold">{price}</span>
 		</p>
 	)
@@ -199,7 +199,7 @@ export function PriceCard({
 			value={useMemo(() => ({ isPopular, price }), [isPopular, price])}
 		>
 			<Card
-				className={cx(
+				className={cn(
 					{
 						'bg-background-inverted text-foreground-inverted': isPopular,
 						'bg-background-muted': !isPopular,

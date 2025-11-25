@@ -11,7 +11,7 @@ import {
 } from '@nerdfish/react/drawer'
 import { ArrowLeftIcon, Logo, MenuIcon, XIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import { useState } from 'react'
 import { usePathname } from 'routing'
@@ -34,12 +34,12 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 		return (
 			<Link
 				onClick={onClick}
-				className={cx(
+				className={cn(
 					'group/navigation-item gap-best-friends flex w-fit items-center text-[1.15rem]',
 				)}
 				href={item.href}
 			>
-				<span className={cx(isActive && 'border-accent border-b-2')}>
+				<span className={cn(isActive && 'border-accent border-b-2')}>
 					{item.label}
 				</span>
 				<div>
@@ -52,7 +52,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 	return (
 		<div>
 			<div className="mb-friends text-xl font-medium">{item.label}</div>
-			<ul className={cx('gap-best-friends flex flex-col')}>
+			<ul className={cn('gap-best-friends flex flex-col')}>
 				{item.sub.map((subNavItem) => {
 					const isActive = stripPreSlash(pathname).startsWith(
 						stripPreSlash(subNavItem.href),
@@ -62,12 +62,12 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 						<li key={subNavItem.label}>
 							<Link
 								onClick={onClick}
-								className={cx(
+								className={cn(
 									'group/navigation-item gap-best-friends text-foreground-muted hover:text-foreground flex w-fit items-center text-[1.15rem]',
 								)}
 								href={subNavItem.href}
 							>
-								<span className={cx(isActive && 'border-accent border-b-2')}>
+								<span className={cn(isActive && 'border-accent border-b-2')}>
 									{subNavItem.label}
 								</span>
 								<div>

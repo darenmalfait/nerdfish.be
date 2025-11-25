@@ -1,6 +1,6 @@
 'use client'
 
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type HTMLMotionProps, motion } from 'motion/react'
 
 export const GRADIENT_ANGLES = {
@@ -28,7 +28,7 @@ export function ProgressiveBlur({
 	const segmentSize = 1 / (blurLayers + 1)
 
 	return (
-		<div className={cx('relative', className)}>
+		<div className={cn('relative', className)}>
 			{Array.from({ length: layers }).map((_, index) => {
 				const angle = GRADIENT_ANGLES[direction]
 				const gradientStops = [

@@ -11,7 +11,7 @@ import { Skeleton } from '@nerdfish/react/skeleton'
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
 import { type Locale } from '@repo/i18n/types'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
 import { type Post } from 'content-collections'
@@ -63,7 +63,7 @@ function BlogContent({
 			<JsonLd code={jsonLd} />
 			<article>
 				<Section>
-					<div className={cx('mb-casual', 'mx-auto max-w-4xl')}>
+					<div className={cn('mb-casual', 'mx-auto max-w-4xl')}>
 						<Breadcrumb>
 							<BreadcrumbList>
 								<BreadcrumbItem>
@@ -81,7 +81,7 @@ function BlogContent({
 						</Breadcrumb>
 					</div>
 					<header
-						className={cx(
+						className={cn(
 							'mb-acquaintances mx-auto flex flex-col',
 							'typography mx-auto max-w-4xl',
 						)}

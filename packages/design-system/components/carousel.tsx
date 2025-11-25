@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import emblaClassName from 'embla-carousel-class-names'
 import useEmblaCarousel, {
 	type UseEmblaCarouselType,
@@ -171,7 +171,7 @@ function Carousel({
 		>
 			<div
 				onKeyDownCapture={handleKeyDown}
-				className={cx(
+				className={cn(
 					'relative',
 					'[--slide-size:calc(100vw-96px)]',
 					'sm:[--slide-size:calc(min(100vw,1440px)/2)]',
@@ -200,7 +200,7 @@ function CarouselContent({ className, ...props }: ComponentProps<'div'>) {
 			data-slot="carousel-content"
 		>
 			<div
-				className={cx(
+				className={cn(
 					'group/carousel-content flex',
 					orientation === 'horizontal' ? '-ml-friends' : '-mt-friends flex-col',
 					className,
@@ -224,7 +224,7 @@ function CarouselItem({
 			role="group"
 			aria-roledescription="slide"
 			data-slot="carousel-item"
-			className={cx(
+			className={cn(
 				'min-w-0 shrink-0 grow-0 basis-(--slide-size)',
 				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
 				scaleActive && '[&.is-snapped>div]:scale-105',
@@ -234,7 +234,7 @@ function CarouselItem({
 		>
 			<div
 				data-slot="carousel-item-content"
-				className={cx('scale-95 transition-all duration-300')}
+				className={cn('scale-95 transition-all duration-300')}
 			>
 				{children}
 			</div>

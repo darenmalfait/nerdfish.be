@@ -2,7 +2,7 @@
 
 import { Badge } from '@nerdfish/react/badge'
 import { Button } from '@nerdfish/react/button'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
 import Link from 'next/link'
 import { type ElementType, type ReactNode, type ComponentProps } from 'react'
@@ -26,7 +26,7 @@ export function HighlightCardImage({
 	return (
 		<div
 			{...props}
-			className={cx(
+			className={cn(
 				'mt-casual pointer-events-none relative col-span-full aspect-3/4 w-full overflow-hidden rounded-[calc(var(--radius-container)-var(--spacing-friends))] lg:col-span-4 lg:col-start-9 lg:mt-0 lg:h-full lg:w-auto',
 				className,
 			)}
@@ -58,7 +58,7 @@ export function HighlightCardContent({
 	return (
 		<div
 			{...props}
-			className={cx(
+			className={cn(
 				'p-friends col-span-4 flex h-full flex-col md:col-span-6 lg:col-span-7 lg:justify-start',
 				className,
 			)}
@@ -78,7 +78,7 @@ export function HighlightCardTitle({
 	if (!children) return null
 
 	return (
-		<h2 className={cx('typography-heading-sm mt-0', className)} {...props}>
+		<h2 className={cn('typography-heading-sm mt-0', className)} {...props}>
 			<span className="leading-[1.1]">{children}</span>
 		</h2>
 	)
@@ -96,7 +96,7 @@ export function HighlightCardSubtitle({
 	return (
 		<div
 			{...props}
-			className={cx(
+			className={cn(
 				'typography-title mt-friends text-foreground line-clamp-2',
 				className,
 			)}
@@ -120,7 +120,7 @@ export function HighlightCardCategory({
 			<Badge
 				variant="default"
 				{...props}
-				className={cx(
+				className={cn(
 					'mb-friends bg-foreground/10 px-best-friends py-best-friends text-foreground w-auto text-base',
 					className,
 				)}
@@ -144,7 +144,7 @@ export function HighlightCardDescription({
 	return (
 		<p
 			{...props}
-			className={cx(
+			className={cn(
 				'mt-casual text-foreground/80 typography-subtitle line-clamp-3',
 				className,
 			)}
@@ -176,7 +176,7 @@ export function HighlightCardCTA({
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'mt-acquaintances flex flex-1 items-end justify-start',
 				className,
 			)}
@@ -189,7 +189,7 @@ export function HighlightCardCTA({
 						{children}{' '}
 						<span>
 							<ArrowRightIcon
-								className={cx(
+								className={cn(
 									'ml-best-friends group-hover:translate-x-bff size-4 transition-transform',
 								)}
 							/>
@@ -213,7 +213,7 @@ export function HighlightCard({
 }: HighlightCardProps) {
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'focus-outline rounded-container bg-background-muted relative w-full max-w-full overflow-hidden outline-none',
 				className,
 			)}

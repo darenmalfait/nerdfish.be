@@ -15,7 +15,7 @@ import {
 	InputGroupInput,
 } from '@nerdfish/react/input-group'
 import { nonNullable } from '@repo/lib/utils/array'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
 import {
 	type ComponentType,
@@ -65,7 +65,7 @@ export function ArticleOverviewSearch({
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'mb-distant gap-x-friends lg:pb-acquaintances relative mx-auto grid h-auto grid-cols-4 justify-center md:grid-cols-8 lg:mb-0 lg:grid-cols-12',
 				className,
 			)}
@@ -120,7 +120,7 @@ export function ArticleOverviewSearchContent({
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'col-span-5 lg:row-start-1 lg:flex lg:h-full lg:flex-col',
 				className,
 			)}
@@ -187,7 +187,7 @@ export function ArticleOverviewFilter({
 	)
 
 	return (
-		<div className={cx('mb-acquaintances', className)} {...props}>
+		<div className={cn('mb-acquaintances', className)} {...props}>
 			<TagFilter
 				tags={tags}
 				enabledTags={enabledTags}
@@ -224,7 +224,7 @@ export function ArticleOverviewLoadMoreButton({
 
 	return (
 		<div
-			className={cx('mt-distant flex w-full justify-center', className)}
+			className={cn('mt-distant flex w-full justify-center', className)}
 			{...props}
 		>
 			<Button size="lg" variant="secondary" onClick={loadMore}>
@@ -255,7 +255,7 @@ const FeaturedArticle = ({
 
 	return (
 		<HighlightCard
-			className={cx('mb-acquaintances', className)}
+			className={cn('mb-acquaintances', className)}
 			title={article.title}
 			{...props}
 		>
@@ -318,7 +318,7 @@ export function ArticleOverviewContentGrid({
 			/>
 
 			<ul
-				className={cx(
+				className={cn(
 					'gap-x-acquaintances gap-y-acquaintances grid grid-cols-1',
 					maxColumns > 1 && 'md:grid-cols-2',
 					maxColumns > 2 && 'lg:grid-cols-3',
@@ -383,7 +383,7 @@ export function ArticlesOverviewEmptyState({
 
 	return (
 		<div
-			className={cx('pt-acquaintances col-span-full!', className)}
+			className={cn('pt-acquaintances col-span-full!', className)}
 			{...props}
 		>
 			<Empty>

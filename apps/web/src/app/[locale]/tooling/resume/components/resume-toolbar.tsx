@@ -23,7 +23,7 @@ import {
 } from '@nerdfish/react/tooltip'
 import { JsonEditor } from '@repo/design-system/components/json-editor'
 import { PencilIcon, PrinterIcon } from '@repo/design-system/icons'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { parseError } from '@repo/observability/error'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -109,7 +109,7 @@ export function ResumeToolbar() {
 
 	return (
 		<div
-			className={cx(
+			className={cn(
 				'print:hidden',
 				'rounded-container bg-popover p-bff fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
 				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',

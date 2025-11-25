@@ -10,7 +10,7 @@ import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Section } from '@repo/design-system/components/section'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { cx } from 'class-variance-authority'
+import { cn } from '@repo/lib/utils/class'
 import { type Project } from 'content-collections'
 import { motion } from 'motion/react'
 import Image from 'next/image'
@@ -49,7 +49,7 @@ function CarouselImage({
 		<Image
 			src={src}
 			alt={alt}
-			className={cx('absolute inset-0 size-full object-cover', className)}
+			className={cn('absolute inset-0 size-full object-cover', className)}
 			placeholder={props.blurDataURL ? 'blur' : undefined}
 			loading="eager"
 			width={500}
@@ -72,7 +72,7 @@ export function HeroCTA({
 			render={
 				<Link
 					{...props}
-					className={cx('gap-best-friends flex items-center', className)}
+					className={cn('gap-best-friends flex items-center', className)}
 				>
 					{children}
 					<ArrowRightIcon className="ml-best-friends size-6" />
@@ -136,9 +136,9 @@ export function WelcomeHero() {
 				<div className="py-casual px-casual sm:py-casual sm:px-acquaintances rounded-container border-border bg-background-secondary inset-x-friends w-[calc(100vw-theme(spacing.friends) * 2)] -bottom-distant absolute mx-auto max-w-md border text-center shadow-md backdrop-blur-md backdrop-saturate-150 md:max-w-lg lg:max-w-xl">
 					<motion.header
 						ref={containerRef}
-						className={cx('group/hero relative bg-transparent')}
+						className={cn('group/hero relative bg-transparent')}
 					>
-						<div className={cx('gap-casual relative flex flex-col px-0')}>
+						<div className={cn('gap-casual relative flex flex-col px-0')}>
 							<h1 className="typography-heading-lg max-w-xl font-bold">
 								<span className="block">Hi, I&apos;m</span>
 								<span className="from-accent block bg-linear-to-br to-[hsl(24,93%,58%)] bg-clip-text text-transparent">

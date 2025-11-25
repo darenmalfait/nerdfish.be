@@ -9,7 +9,7 @@ import {
 } from '@nerdfish/react/tooltip'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { cx } from '@repo/lib/utils/base'
+import { cn } from '@repo/lib/utils/class'
 import { forwardRef, type HTMLAttributes, useEffect, useState } from 'react'
 import { useTheme } from '../theme-provider'
 
@@ -29,7 +29,7 @@ const ThemeToggleItem = forwardRef<
 			aria-checked={isActive}
 			variant={isActive ? 'secondary' : 'ghost'}
 			ref={ref}
-			className={cx(
+			className={cn(
 				'rounded-[calc(var(--radius-base)-theme(padding.bff))]!',
 				{
 					'opacity-60 hover:opacity-100': !isActive,
@@ -62,7 +62,7 @@ export const ThemeToggle = forwardRef<
 				role="radiogroup"
 				aria-label={t('changeTheme')}
 				{...props}
-				className={cx(
+				className={cn(
 					'border-border p-bff bg-background gap-bff rounded-base flex items-center border',
 					className,
 				)}
