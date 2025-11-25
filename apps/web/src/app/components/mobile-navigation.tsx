@@ -98,7 +98,7 @@ export function MobileNavigation() {
 					<MenuIcon className="size-4" />
 				</Button>
 			</DrawerTrigger>
-			<DrawerContent className="bg-background rounded-r-container! h-screen backdrop-blur-sm backdrop-saturate-150">
+			<DrawerContent className="bg-background rounded-r-container! z-50 h-screen backdrop-blur-sm backdrop-saturate-150">
 				<DrawerHeader>
 					<DrawerTitle className="p-best-friends flex items-center justify-between">
 						<Link href="/" onClick={() => setIsDrawerOpen(false)}>
