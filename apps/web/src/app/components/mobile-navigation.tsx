@@ -82,7 +82,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 	)
 }
 
-export function MobileNavigation() {
+export function MobileNavigation({ className }: { className?: string }) {
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const { main: navigation } = useNavigation()
 	const t = useTranslations('global')
@@ -91,9 +91,12 @@ export function MobileNavigation() {
 		<Drawer direction="left" open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
 			<DrawerTrigger className="lg:hidden" asChild>
 				<Button
-					variant="secondary"
+					variant="outline"
 					icon
-					className="text-foreground hover:bg-background-muted! p-0"
+					className={cn(
+						'text-foreground hover:bg-background-muted! p-0',
+						className,
+					)}
 				>
 					<MenuIcon className="size-4" />
 				</Button>

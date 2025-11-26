@@ -69,7 +69,7 @@ MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 const getMainItemClassName = cva(
 	cn(
 		buttonVariants({ variant: 'secondary', size: 'sm', className: 'h-full' }),
-		'focus-outline hover:text-foreground relative flex h-full cursor-pointer items-center !rounded-full bg-transparent text-xs font-bold whitespace-nowrap capitalize transition outline-none focus:bg-transparent active:bg-transparent lg:text-sm',
+		'focus-outline hover:text-foreground !rounded-[calc(var(--radius-base)-theme(padding.best-friends))] relative flex h-full cursor-pointer items-center bg-transparent text-xs font-bold whitespace-nowrap capitalize transition outline-none focus:bg-transparent active:bg-transparent lg:text-sm',
 	),
 	{
 		variants: {
@@ -288,14 +288,7 @@ export function SiteNavigation() {
 	}, [navigation, pathname])
 
 	return (
-		<div
-			className={cn(
-				'hidden lg:flex',
-				'relative',
-				'rounded-container bg-background-inverted/30 p-bff inset-x-0 mx-auto max-h-12 w-fit max-w-full',
-				'before:bg-background/80 before:rounded-container before:absolute before:inset-0 before:content-[""]',
-			)}
-		>
+		<div className="relative hidden lg:flex">
 			<NavigationMenu ref={ref} aria-label="main">
 				<NavigationMenuList
 					className="space-x-bff relative flex h-full flex-1"
@@ -303,7 +296,7 @@ export function SiteNavigation() {
 				>
 					<AnimatedBackground
 						value={activeId}
-						className="rounded-container bg-foreground h-full"
+						className="rounded-[calc(var(--radius-base)-theme(padding.best-friends))] bg-foreground h-full"
 						transition={{
 							type: 'spring',
 							bounce: 0.2,

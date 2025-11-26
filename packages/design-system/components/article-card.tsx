@@ -31,7 +31,7 @@ function ReadMoreCursor({
 					</div>
 				}
 				size="xl"
-				className="bg-blurred! before:bg-background-inverted/70 text-foregrond-inverted border-border border shadow-md before:absolute before:inset-0 before:-z-1 before:content-['']"
+				className="bg-blurred! before:bg-background-inverted/90 text-foregrond-inverted border-border border shadow-md before:absolute before:inset-0 before:-z-1 before:content-['']"
 			/>
 		</Cursor>
 	)

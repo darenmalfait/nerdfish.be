@@ -130,7 +130,7 @@ function Carousel({
 		if (!api) return true
 
 		if (isXLarge) {
-			return api.slideNodes().length > 8
+			return api.slideNodes().length > 7
 		}
 		if (isLarge) {
 			return api.slideNodes().length > 5

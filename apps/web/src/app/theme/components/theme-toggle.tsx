@@ -10,25 +10,32 @@ import {
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import { forwardRef, type HTMLAttributes, useEffect, useState } from 'react'
+import {
+	type ComponentProps,
+	type HTMLAttributes,
+	useEffect,
+	useState,
+} from 'react'
 import { useTheme } from '../theme-provider'
 
-const ThemeToggleItem = forwardRef<
-	HTMLButtonElement,
-	Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
-		isActive: boolean
-		value: string
-		onClick?: (value: string) => void
-	}
->(({ className, isActive, value, onClick, ...props }, ref) => {
+function ThemeToggleItem({
+	className,
+	isActive,
+	value,
+	onClick,
+	...props
+}: Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
+	isActive: boolean
+	value: string
+	onClick?: (value: string) => void
+}) {
 	return (
 		<Button
 			role="radio"
-			size="sm"
+			size="xs"
 			icon
 			aria-checked={isActive}
-			variant={isActive ? 'secondary' : 'ghost'}
-			ref={ref}
+			variant={isActive ? 'default' : 'ghost'}
 			className={cn(
 				'rounded-[calc(var(--radius-base)-theme(padding.bff))]!',
 				{
@@ -40,13 +47,9 @@ const ThemeToggleItem = forwardRef<
 			{...props}
 		/>
 	)
-})
-ThemeToggleItem.displayName = 'ThemeToggleItem'
+}
 
-export const ThemeToggle = forwardRef<
-	HTMLDivElement,
-	HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
 	const t = useTranslations('theme')
 	const { theme, setTheme } = useTheme()
 	const [mounted, setMounted] = useState<boolean>(false)
@@ -58,12 +61,11 @@ export const ThemeToggle = forwardRef<
 	return (
 		<TooltipProvider>
 			<div
-				ref={ref}
 				role="radiogroup"
 				aria-label={t('changeTheme')}
 				{...props}
 				className={cn(
-					'border-border p-bff bg-background gap-bff rounded-base flex items-center border',
+					'p-bff gap-bff rounded-base border-border z-10 flex items-center border',
 					className,
 				)}
 			>
@@ -121,5 +123,4 @@ export const ThemeToggle = forwardRef<
 			</div>
 		</TooltipProvider>
 	)
-})
-ThemeToggle.displayName = 'ThemeToggle'
+}

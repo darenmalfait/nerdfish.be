@@ -20,7 +20,7 @@ function PortableCode({ children, ...rest }: PortableCodeProps) {
 		<CodeBlock className="mt-casual mb-acquaintances">
 			<CodeBlockGroup className="border-border p-best-friends bg-popover border-b">
 				<div className="gap-bff flex items-center">
-					<div className="bg-foreground/10 text-primary px-sm py-xs rounded-[calc(var(--radius-base)-theme(padding.sm))] text-xs font-medium">
+					<div className="bg-foreground/10 text-primary px-sm py-xs rounded-[calc(var(--radius-base)-theme(padding.best-friends))] text-xs font-medium">
 						{language}
 					</div>
 				</div>
