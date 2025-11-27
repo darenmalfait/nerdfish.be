@@ -11,9 +11,14 @@ import { GlobeIcon } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
+import { type ComponentProps } from 'react'
 import { i18n, supportedLanguages } from '../config'
 
-export function LocaleSwitcher({ className }: { className?: string }) {
+export function LocaleSwitcher({
+	className,
+	variant = 'outline',
+	...props
+}: ComponentProps<typeof Button>) {
 	const t = useTranslations('global')
 	const currentLocale = useLocale()
 
@@ -26,9 +31,10 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 			<DropdownMenuTrigger
 				render={
 					<Button
-						variant="outline"
+						variant={variant}
 						aria-label={t('switchLanguage')}
 						className={cn('gap-best-friends', className)}
+						{...props}
 					>
 						<GlobeIcon className="size-4" />
 						<span aria-hidden className="hidden lg:flex">

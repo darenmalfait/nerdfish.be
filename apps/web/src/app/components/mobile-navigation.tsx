@@ -91,9 +91,10 @@ export function MobileNavigation({ className }: { className?: string }) {
 		<Drawer direction="left" open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
 			<DrawerTrigger className="lg:hidden" asChild>
 				<Button
-					variant="outline"
+					variant="ghost"
 					icon
 					className={cn(
+						'rounded-[calc(var(--radius-base)-theme(padding.best-friends))]!',
 						'text-foreground hover:bg-background-muted! p-0',
 						className,
 					)}

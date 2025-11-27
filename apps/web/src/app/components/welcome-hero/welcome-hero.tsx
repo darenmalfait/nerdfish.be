@@ -31,7 +31,7 @@ function CarouselItem({
 }: ComponentProps<'div'> & { index?: number; category?: Project['category'] }) {
 	return (
 		<BaseCarouselItem index={index} {...props}>
-			<div className="border-border/20 rounded-base relative aspect-3/4 w-full overflow-hidden border shadow-md">
+			<div className="border-border/20 rounded-container relative aspect-3/4 w-full overflow-hidden border shadow-md">
 				<CategoryIndicator className="mb-friends" category={category} />
 				{children}
 			</div>

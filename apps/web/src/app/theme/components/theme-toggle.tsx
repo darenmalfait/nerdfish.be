@@ -9,7 +9,7 @@ import {
 } from '@nerdfish/react/tooltip'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { cn } from '@repo/lib/utils/class'
+import { cn, cva, type VariantProps } from '@repo/lib/utils/class'
 import {
 	type ComponentProps,
 	type HTMLAttributes,
@@ -23,22 +23,26 @@ function ThemeToggleItem({
 	isActive,
 	value,
 	onClick,
+	border,
 	...props
 }: Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> & {
 	isActive: boolean
 	value: string
 	onClick?: (value: string) => void
+	border: VariantProps<typeof themeToggleVariants>['border']
 }) {
 	return (
 		<Button
 			role="radio"
-			size="xs"
+			size="sm"
 			icon
 			aria-checked={isActive}
 			variant={isActive ? 'default' : 'ghost'}
 			className={cn(
-				'rounded-[calc(var(--radius-base)-theme(padding.bff))]!',
 				{
+					'rounded-[calc(var(--radius-base)-theme(padding.bff))]!': !!border,
+					'rounded-[calc(var(--radius-base)-theme(padding.best-friends))]!':
+						!border,
 					'opacity-60 hover:opacity-100': !isActive,
 				},
 				className,
@@ -49,7 +53,26 @@ function ThemeToggleItem({
 	)
 }
 
-export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
+const themeToggleVariants = cva(
+	'gap-bff rounded-base border-border z-10 flex items-center border',
+	{
+		variants: {
+			border: {
+				true: 'border p-bff',
+				false: 'border-none',
+			},
+		},
+		defaultVariants: {
+			border: true,
+		},
+	},
+)
+
+export function ThemeToggle({
+	className,
+	border = true,
+	...props
+}: ComponentProps<'div'> & VariantProps<typeof themeToggleVariants>) {
 	const t = useTranslations('theme')
 	const { theme, setTheme } = useTheme()
 	const [mounted, setMounted] = useState<boolean>(false)
@@ -64,10 +87,7 @@ export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
 				role="radiogroup"
 				aria-label={t('changeTheme')}
 				{...props}
-				className={cn(
-					'p-bff gap-bff rounded-base border-border z-10 flex items-center border',
-					className,
-				)}
+				className={cn(themeToggleVariants({ border }), className)}
 			>
 				<Tooltip>
 					<TooltipTrigger
@@ -77,6 +97,7 @@ export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
 								aria-label={t('setTheme', { theme: t('system') })}
 								onClick={setTheme}
 								value="system"
+								border={border}
 							>
 								<LaptopIcon />
 							</ThemeToggleItem>
@@ -94,6 +115,7 @@ export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
 								onClick={setTheme}
 								aria-label={t('setTheme', { theme: t('light') })}
 								value="light"
+								border={border}
 							>
 								<SunIcon />
 							</ThemeToggleItem>
@@ -107,6 +129,7 @@ export function ThemeToggle({ className, ...props }: ComponentProps<'div'>) {
 					<TooltipTrigger
 						render={
 							<ThemeToggleItem
+								border={border}
 								isActive={mounted ? theme === 'dark' : false}
 								onClick={setTheme}
 								aria-label={t('setTheme', { theme: t('dark') })}

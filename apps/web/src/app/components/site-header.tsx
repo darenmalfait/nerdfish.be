@@ -29,7 +29,7 @@ function HeaderSection({ className, ...props }: ComponentProps<'div'>) {
 
 export function SiteHeader() {
 	return (
-		<div className="sticky top-0 z-40 w-full bg-transparent print:hidden">
+		<div className="sticky top-0 z-10 w-full bg-transparent print:hidden">
 			<ProgressiveBlur
 				className="pointer-events-none absolute inset-0 h-full w-full"
 				direction="top"
@@ -69,8 +69,14 @@ export function SiteHeader() {
 							<div className="mx-auto flex flex-1 items-center justify-start lg:justify-end">
 								<div className="flex w-fit flex-row-reverse justify-end lg:justify-start">
 									<HeaderSection className="flex-row-reverse lg:flex-row">
-										<ThemeToggle className="hidden sm:inline-flex" />
-										<LocaleSwitcher className="xsm:block hidden" />
+										<ThemeToggle
+											border={false}
+											className="hidden sm:inline-flex"
+										/>
+										<LocaleSwitcher
+											variant="ghost"
+											className="xsm:block rounded-[calc(var(--radius-base)-theme(padding.best-friends))]!"
+										/>
 										<MobileNavigation />
 									</HeaderSection>
 								</div>
