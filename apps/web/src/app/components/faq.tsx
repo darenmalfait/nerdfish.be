@@ -43,7 +43,7 @@ export function FaqItem({
 					className={cn(
 						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
 						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center transition-colors',
-						'hover:bg-background-inverted/30 group-data-panel-open/accordion-trigger:hover:bg-accent/80',
+						'hover:bg-background-inverted/10 text-foreground group-data-panel-open/accordion-trigger:hover:bg-accent/80',
 						'group-data-panel-open/accordion-trigger:bg-accent group-data-panel-open/accordion-trigger:text-accent-contrast',
 						'typography-body',
 					)}

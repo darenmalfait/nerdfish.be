@@ -13,7 +13,7 @@
 	--work-webdesign: var(--destructive);
 	--work-branding: var(--success);
 	--work-print: var(--info);
-	--work: var(--foreground-muted);
+	--work: var(--warning);
 }
 
 @theme inline {
