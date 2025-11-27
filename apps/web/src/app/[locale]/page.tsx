@@ -155,7 +155,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 				</SectionHeader>
 				<BlogOverview count={2} />
 			</Section>
-			<InViewBackground className="bg-blog/20">
+			<InViewBackground className="bg-info-background-muted">
 				<Section>
 					<Testimonials />
 				</Section>
