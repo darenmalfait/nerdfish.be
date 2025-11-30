@@ -15,9 +15,9 @@ export function TimesheetsToolbar() {
 		<div
 			className={cn(
 				'print:hidden',
-				'rounded-container bg-popover p-bff fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
+				'rounded-container bg-blurred p-bff fixed inset-x-0 z-50 mx-auto w-fit max-w-full',
 				'before:empty-content before:rounded-container before:bg-background-muted/50 before:absolute before:inset-0',
-				'bottom-lg',
+				'bottom-acquaintances border-border border',
 			)}
 		>
 			<TooltipProvider>
@@ -30,6 +30,7 @@ export function TimesheetsToolbar() {
 							<Button
 								type="button"
 								variant="ghost"
+								className="rounded-[calc(var(--radius-container)-theme(padding.bff))]"
 								icon
 								aria-label="Print"
 								onClick={() => window.print()}

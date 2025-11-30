@@ -105,7 +105,7 @@ export function ImportTimeEntriesButton() {
 				<Button
 					variant="default"
 					onClick={() => setImporting(true)}
-					className="group transition-all"
+					className="group rounded-[calc(var(--radius-container)-theme(padding.bff))]! transition-all"
 					aria-label="Import Time Entries"
 					type="button"
 					icon
