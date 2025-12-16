@@ -32,7 +32,9 @@ function CarouselItem({
 	return (
 		<BaseCarouselItem index={index} {...props}>
 			<div className="border-border/20 rounded-container relative aspect-3/4 w-full overflow-hidden border shadow-md">
-				<CategoryIndicator className="mb-friends" category={category} />
+				{category ? (
+					<CategoryIndicator className="mb-friends" category={category} />
+				) : null}
 				{children}
 			</div>
 		</BaseCarouselItem>
@@ -81,6 +83,24 @@ export function HeroCTA({
 		/>
 	)
 }
+
+// function CarouselCard({
+// 	children,
+// 	className,
+// 	...props
+// }: ComponentProps<'div'>) {
+// 	return (
+// 		<div
+// 			className={cn(
+// 				'p-friends gap-best-friends inline-flex size-full flex-col items-start justify-center',
+// 				className,
+// 			)}
+// 			{...props}
+// 		>
+// 			{children}
+// 		</div>
+// 	)
+// }
 
 export function WelcomeHero() {
 	const containerRef = useRef<HTMLDivElement>(null)

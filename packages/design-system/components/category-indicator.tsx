@@ -46,7 +46,7 @@ export function CategoryIndicator({
 					getCategoryColors(category),
 					'py-best-friends px-best-friends rounded-base bg-background z-10 inline-block w-auto text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
 					{
-						'top-casual right-casual lg:left-casual absolute lg:right-[unset]':
+						'top-friends right-friends lg:left-casual absolute lg:right-[unset]':
 							!inline,
 					},
 					className,
