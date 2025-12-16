@@ -77,16 +77,15 @@ export default async function UXUIDesignPage(props: {
 					</SectionHeaderSubtitle>
 				</SectionHeader>
 				<Features
+					layout={{
+						maxCols: '3',
+						variant: 'default',
+					}}
 					items={[
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
 							icon: 'Layout',
-						},
-						{
-							title: t('features.items.1.title'),
-							description: t('features.items.1.description'),
-							icon: 'Users',
 						},
 						{
 							title: t('features.items.2.title'),
@@ -115,7 +114,6 @@ export default async function UXUIDesignPage(props: {
 					<Keyword>UX</Keyword>
 					<Keyword>UI</Keyword>
 					<Keyword>Design</Keyword>
-					<Keyword>Research</Keyword>
 					<Keyword>Usability</Keyword>
 					<Keyword>Interface</Keyword>
 				</KeywordList>
@@ -141,7 +139,6 @@ export default async function UXUIDesignPage(props: {
 							description: t('pricing.items.0.description'),
 							price: 'TBD',
 							features: [
-								t('pricing.items.0.features.0'),
 								t('pricing.items.0.features.1'),
 								t('pricing.items.0.features.2'),
 								t('pricing.items.0.features.3'),
@@ -154,7 +151,6 @@ export default async function UXUIDesignPage(props: {
 							description: t('pricing.items.1.description'),
 							price: 'TBD',
 							features: [
-								t('pricing.items.1.features.0'),
 								t('pricing.items.1.features.1'),
 								t('pricing.items.1.features.2'),
 								t('pricing.items.1.features.3'),
