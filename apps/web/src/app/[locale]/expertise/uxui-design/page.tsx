@@ -83,6 +83,11 @@ export default async function UXUIDesignPage(props: {
 					}}
 					items={[
 						{
+							title: t('features.items.3.title'),
+							description: t('features.items.3.description'),
+							icon: 'Lightbulb',
+						},
+						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
 							icon: 'Layout',
@@ -91,11 +96,6 @@ export default async function UXUIDesignPage(props: {
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
 							icon: 'LineChart',
-						},
-						{
-							title: t('features.items.3.title'),
-							description: t('features.items.3.description'),
-							icon: 'Lightbulb',
 						},
 					]}
 				/>
