@@ -18,14 +18,13 @@ import { Spinner } from '@nerdfish/react/spinner'
 import { Textarea } from '@nerdfish/react/textarea'
 import { useNumberFormatter } from '@react-aria/i18n'
 import { ArrowRightIcon } from '@repo/design-system/icons'
-import { useTranslations } from '@repo/i18n/client'
-import { makeZodI18nMap } from '@repo/i18n/utils/zod-error-map'
+import { useLocale, useTranslations } from '@repo/i18n/client'
+import { useZodLocale } from '@repo/i18n/utils'
 import { parseError } from '@repo/observability/error'
 import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import { useAction } from 'next-safe-action/hooks'
 import { type ReactNode, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { submitContactFormAction } from './contact-form.actions'
 import {
 	type ContactFormData,
@@ -45,14 +44,13 @@ function Fieldset({ children, title }: { children: ReactNode; title: string }) {
 const BUDGET_RANGE = [500, 10000]
 
 export function ContactForm() {
+	const locale = useLocale()
+	useZodLocale(locale)
+
 	const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 	const [error, setError] = useState<string>()
 
-	const tZod = useTranslations('zod')
-	const tFormFields = useTranslations('contact.form.fields.names')
-	const tCustomErrors = useTranslations('contact.form.fields.errors')
 	const t = useTranslations('contact.form')
-	z.setErrorMap(makeZodI18nMap({ tZod, tFormFields, tCustomErrors }))
 
 	const form = useForm<ContactFormData>({
 		resolver: zodResolver(contactFormSchema),

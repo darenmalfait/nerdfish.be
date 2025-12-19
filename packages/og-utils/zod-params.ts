@@ -11,7 +11,7 @@ const jsonStr = z.string().transform((str, ctx) => {
 	}
 })
 
-export function zodParams<TType>(schema: z.ZodType<TType>) {
+export function zodParams<TType>(schema: z.ZodType<TType, any>) {
 	const querySchema = z.object({
 		input: jsonStr.pipe(schema),
 	})
