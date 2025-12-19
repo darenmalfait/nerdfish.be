@@ -59,8 +59,10 @@ function Tag({ tag }: { tag: string }) {
 	)
 }
 
-export interface ArticleCardTagsProps
-	extends Omit<ComponentProps<'div'>, 'children'> {
+export interface ArticleCardTagsProps extends Omit<
+	ComponentProps<'div'>,
+	'children'
+> {
 	tags?: string[]
 }
 

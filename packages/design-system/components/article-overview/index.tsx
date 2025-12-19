@@ -105,8 +105,7 @@ export function ArticleOverviewSearchImage({
 	)
 }
 
-export interface ArticleOverviewSearchContentProps
-	extends ComponentProps<'div'> {
+export interface ArticleOverviewSearchContentProps extends ComponentProps<'div'> {
 	inputLabel?: string
 }
 
@@ -200,8 +199,7 @@ export function ArticleOverviewFilter({
 	)
 }
 
-export interface ArticleOverviewLoadMoreButtonProps
-	extends ComponentProps<'div'> {
+export interface ArticleOverviewLoadMoreButtonProps extends ComponentProps<'div'> {
 	children: string
 }
 
@@ -234,8 +232,10 @@ export function ArticleOverviewLoadMoreButton({
 	)
 }
 
-export interface FeaturedArticleProps
-	extends Omit<ComponentProps<typeof HighlightCard>, 'title'> {
+export interface FeaturedArticleProps extends Omit<
+	ComponentProps<typeof HighlightCard>,
+	'title'
+> {
 	article?: Article
 	readMoreLabel?: string
 	ariaLabel?: string

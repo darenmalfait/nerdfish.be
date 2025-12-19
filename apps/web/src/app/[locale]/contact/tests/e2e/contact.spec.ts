@@ -17,14 +17,14 @@ test('shows validation errors for empty required fields', async ({
 }) => {
 	await contact.submit()
 	await expect(
-		contact.form.getByText('Name must contain at least 2 character(s)'),
+		contact.form.getByText('Too small: expected string to have >=2 characters'),
 	).toBeVisible()
 })
 
 test('validates email format', async ({ contact }) => {
 	await contact.form.getByLabel('Email address').fill('invalid-email')
 	await contact.form.getByRole('button', { name: 'Submit' }).click()
-	await expect(contact.form.getByText('Invalid email')).toBeVisible()
+	await expect(contact.form.getByText('Invalid email address')).toBeVisible()
 })
 
 test('Should submit form', async ({ contact }) => {

@@ -9,8 +9,10 @@ import {
 import { cn } from '@repo/lib/utils/class'
 import { useId, type ComponentProps, type ReactNode } from 'react'
 
-export interface FaqItemProps
-	extends Omit<ComponentProps<typeof AccordionItem>, 'value'> {
+export interface FaqItemProps extends Omit<
+	ComponentProps<typeof AccordionItem>,
+	'value'
+> {
 	question: string
 	answer: string
 	icon?: ReactNode
