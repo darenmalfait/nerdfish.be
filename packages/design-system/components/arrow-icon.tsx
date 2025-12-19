@@ -19,8 +19,7 @@ export const arrowIconVariants = cva('', {
 export type ArrowIconVariants = VariantProps<typeof arrowIconVariants>
 
 export interface ArrowIconProps
-	extends ArrowIconVariants,
-		Omit<ComponentProps<'svg'>, 'direction'> {
+	extends ArrowIconVariants, Omit<ComponentProps<'svg'>, 'direction'> {
 	size?: number
 }
 

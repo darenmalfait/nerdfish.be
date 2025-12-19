@@ -21,8 +21,10 @@ function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug
 }
 
-export interface WikiOverviewProps
-	extends Omit<WikiOverviewContentProps, 'items'> {
+export interface WikiOverviewProps extends Omit<
+	WikiOverviewContentProps,
+	'items'
+> {
 	relatedTo?: PartialDeep<Wiki>
 	count?: number
 	tags?: string[]

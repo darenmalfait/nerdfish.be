@@ -7,8 +7,10 @@ import { cn } from '@repo/lib/utils/class'
 import { type ComponentProps } from 'react'
 import { type CalComMeetingTypes, calcomSettings } from '../config'
 
-export interface MeetingTypeListProps
-	extends Omit<ComponentProps<'ul'>, 'onSelect'> {
+export interface MeetingTypeListProps extends Omit<
+	ComponentProps<'ul'>,
+	'onSelect'
+> {
 	onSelect: (slug: CalComMeetingTypes) => void
 	locale: Locale
 }

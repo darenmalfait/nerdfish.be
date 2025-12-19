@@ -8,8 +8,10 @@ import {
 	type TestimonialsContentProps,
 } from './testimonials-content'
 
-export interface TestimonialsProps
-	extends Omit<TestimonialsContentProps, 'testimonials'> {
+export interface TestimonialsProps extends Omit<
+	TestimonialsContentProps,
+	'testimonials'
+> {
 	filter?: {
 		type?: Testimonial['type'][]
 		tags?: Testimonial['tags']

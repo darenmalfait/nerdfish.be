@@ -154,8 +154,10 @@ export function HighlightCardDescription({
 	)
 }
 
-export interface HighlightCardCTAProps
-	extends Omit<ComponentProps<typeof Link>, 'as'> {
+export interface HighlightCardCTAProps extends Omit<
+	ComponentProps<typeof Link>,
+	'as'
+> {
 	href: string
 	children: ReactNode
 	category?: string | null

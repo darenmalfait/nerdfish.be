@@ -38,11 +38,10 @@ import {
 export const CALENDARY_DAY_ROW_HEIGHT = 36
 export const CALENDARY_DAY_SLOT_HEIGHT = 9
 
-export interface CalendarDayProps
-	extends Omit<
-		HTMLAttributes<HTMLDivElement>,
-		'onChange' | 'defaultValue' | 'value'
-	> {
+export interface CalendarDayProps extends Omit<
+	HTMLAttributes<HTMLDivElement>,
+	'onChange' | 'defaultValue' | 'value'
+> {
 	timeFormat?: 24 | 12
 
 	// values

@@ -27,8 +27,10 @@ function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 	return item.slug === relatedTo?.slug
 }
 
-export interface BlogOverviewProps
-	extends Omit<BlogOverviewContentProps, 'items'> {
+export interface BlogOverviewProps extends Omit<
+	BlogOverviewContentProps,
+	'items'
+> {
 	relatedTo?: PartialDeep<Post>
 	count?: number
 	tags?: string[]

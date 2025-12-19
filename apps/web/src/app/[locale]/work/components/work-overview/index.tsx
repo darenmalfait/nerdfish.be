@@ -25,8 +25,10 @@ function isSameItem(
 	return item.slug === relatedTo?.slug
 }
 
-export interface WorkOverviewProps
-	extends Omit<WorkOverviewContentProps, 'items'> {
+export interface WorkOverviewProps extends Omit<
+	WorkOverviewContentProps,
+	'items'
+> {
 	relatedTo?: PartialDeep<Project>
 	count?: number
 	tags?: string[]
