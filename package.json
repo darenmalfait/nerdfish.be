@@ -34,8 +34,8 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
     "@nerdfish/config": "^1.9.4",
     "@next/eslint-plugin-next": "^15.5.9",
     "@repo/typescript-config": "workspace:*",
@@ -45,8 +45,8 @@
     "husky": "^9.1.7",
     "minimatch": "^10.1.1",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.4",
     "turbo": "^2.6.3"
   },
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.25.0"
 }
