@@ -26,10 +26,10 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 					<Link
 						href={href}
 						className="inline-flex items-center"
-						aria-label={`${t('readMoreAbout', { subject: title })}`}
+						aria-label={`${t('readMoreAbout', { subject: title ?? '' })}`}
 					>
 						{t('viewMore', {
-							subject: title,
+							subject: title ?? '',
 						})}
 						<ArrowRight className="ml-best-friends group-hover:translate-x-bff size-4 transition-transform" />
 					</Link>
