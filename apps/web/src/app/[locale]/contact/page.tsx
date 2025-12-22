@@ -7,6 +7,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
+import { ContactCopyEmailButton } from './components/contact-copy-email-button'
 import { ContactFormViaButton } from './components/contact-form-drawer'
 import {
 	Hero,
@@ -57,14 +58,17 @@ export default async function ContactPage(props: PageProps) {
 				<HeroContent>
 					<HeroTitle title={t('contact.title')} />
 					<HeroSubtitle>{t('contact.subtitle')}</HeroSubtitle>
-					<ContactFormViaButton />
+					<div className="md:item-center gap-friends flex flex-col items-center justify-center md:flex-row md:items-start md:justify-start">
+						<ContactFormViaButton />
+						<ContactCopyEmailButton />
+					</div>
 				</HeroContent>
 			</Hero>
 			<Section>
 				<div className="typography mx-auto max-w-3xl">
 					<h2>{t('content.title')}</h2>
 					<p>{t('content.body')}</p>
-					<div className="gap-best-friends mt-friends flex flex-col">
+					<div className="gap-best-friends mt-casual flex flex-col">
 						<div className="font-bold">{companyInfo.companyName}</div>
 						<div>
 							<Link href={`mailto:${companyInfo.email}`}>
