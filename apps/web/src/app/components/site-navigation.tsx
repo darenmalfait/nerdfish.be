@@ -296,7 +296,7 @@ export function SiteNavigation() {
 				>
 					<AnimatedBackground
 						value={activeId}
-						className="rounded-[calc(var(--radius-base)-theme(padding.best-friends))] bg-foreground h-full"
+						className="rounded-base bg-foreground h-full"
 						transition={{
 							type: 'spring',
 							bounce: 0.2,
