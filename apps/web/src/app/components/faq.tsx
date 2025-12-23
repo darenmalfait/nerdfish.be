@@ -33,23 +33,12 @@ export function FaqItem({
 		<AccordionItem
 			{...props}
 			value={idProp ?? id}
-			className="typography group/accordion-item mx-auto border-transparent! focus-within:ring-0"
+			className={cn(
+				'group/accordion-item border-border bg-background-muted rounded-container mx-auto p-0!',
+			)}
 		>
-			<AccordionTrigger
-				className={cn(
-					'gap-x-friends py-best-friends flex w-full items-center justify-start no-underline! hover:bg-transparent',
-					'group/accordion-trigger',
-				)}
-			>
-				<div
-					className={cn(
-						'group-focus-within/accordion-item:ring-ring group-focus-within/accordion-item:ring-[3px]',
-						'bg-background-muted rounded-base space-x-sm p-friends relative flex items-center transition-colors',
-						'hover:bg-background-inverted/10 text-foreground group-data-panel-open/accordion-trigger:hover:bg-accent/80',
-						'group-data-panel-open/accordion-trigger:bg-accent group-data-panel-open/accordion-trigger:text-accent-contrast',
-						'typography-body',
-					)}
-				>
+			<AccordionTrigger className={cn('p-proximity-3!')}>
+				<div className={cn('typography-title relative')}>
 					{icon ? (
 						<span
 							className={cn(
@@ -67,15 +56,9 @@ export function FaqItem({
 					<span className="font-medium">{question}</span>
 				</div>
 			</AccordionTrigger>
-			<AccordionContent className="typography text-foreground pb-friends! pt-friends max-w-none">
-				<div className="ml-7 md:ml-16">
-					<div
-						className={cn(
-							'bg-background-inverted text-foreground-inverted rounded-base p-friends typography-body relative max-w-none',
-						)}
-					>
-						{answer}
-					</div>
+			<AccordionContent className="typography text-foreground px-proximity-2! pb-friends! max-w-none pt-0">
+				<div className={cn('typography-body-large relative max-w-none')}>
+					{answer}
 				</div>
 			</AccordionContent>
 		</AccordionItem>
