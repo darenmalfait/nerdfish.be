@@ -8,14 +8,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.5.9",
+    "@next/bundle-analyzer": "16.1.1",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@vercel/toolbar": "^0.1.41",
+    "next": "16.1.1",
     "next-secure-headers": "^2.2.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "zod": "^4.2.1"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
-    "next": "15.5.9"
+    "@repo/typescript-config": "workspace:*"
   }
 }
