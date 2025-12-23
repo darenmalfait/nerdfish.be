@@ -80,7 +80,7 @@ export default async function AboutPage(props: PageProps) {
 						<p>{t('professional.content.second')}</p>
 					</SplitContent>
 					<SplitImage
-						src="/uploads/about/daren-mountains.JPG"
+						src="/uploads/about/avatar.jpg"
 						alt={t('professional.image.alt')}
 					/>
 				</Split>
@@ -129,7 +129,7 @@ export default async function AboutPage(props: PageProps) {
 			<Section>
 				<Split>
 					<SplitImage
-						src="/uploads/about/daren-cycling.jpeg"
+						src="/uploads/about/daren-cycling.jpg"
 						alt={t('personal.image.alt')}
 					/>
 					<SplitContent>
