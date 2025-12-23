@@ -69,7 +69,7 @@ MainNavigationSubItem.displayName = 'MainNavigationSubItem'
 const getMainItemClassName = cva(
 	cn(
 		buttonVariants({ variant: 'secondary', size: 'sm', className: 'h-full' }),
-		'focus-outline hover:text-foreground !rounded-[calc(var(--radius-base)-theme(padding.best-friends))] relative flex h-full cursor-pointer items-center bg-transparent text-xs font-bold whitespace-nowrap capitalize transition outline-none focus:bg-transparent active:bg-transparent lg:text-sm',
+		'focus-outline hover:text-foreground relative flex h-full cursor-pointer items-center bg-transparent text-xs font-bold whitespace-nowrap capitalize transition outline-none focus:bg-transparent active:bg-transparent lg:text-sm',
 	),
 	{
 		variants: {

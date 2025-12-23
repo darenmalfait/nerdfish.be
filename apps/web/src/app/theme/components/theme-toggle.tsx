@@ -41,8 +41,6 @@ function ThemeToggleItem({
 			className={cn(
 				{
 					'rounded-[calc(var(--radius-base)-theme(padding.bff))]!': !!border,
-					'rounded-[calc(var(--radius-base)-theme(padding.best-friends))]!':
-						!border,
 					'opacity-60 hover:opacity-100': !isActive,
 				},
 				className,
