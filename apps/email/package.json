@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@react-email/components": "^1.0.1",
+    "@react-email/components": "^1.0.2",
     "@repo/email": "workspace:*",
     "@repo/next-config": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.13.8",
+    "@t3-oss/env-nextjs": "^0.13.10",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@react-email/preview-server": "5.1.0",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^24.10.3",
+    "@types/node": "^24.10.4",
     "@types/react": "19.2.7",
     "typescript": "^5.9.3"
   }
