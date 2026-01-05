@@ -8,10 +8,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@content-collections/cli": "^0.1.7",
+    "@content-collections/cli": "^0.1.8",
     "@content-collections/core": "^0.13.0",
     "@content-collections/mdx": "^0.2.2",
-    "@content-collections/next": "^0.2.9",
+    "@content-collections/next": "^0.2.10",
     "@repo/design-system": "workspace:*",
     "fumadocs-core": "^15.8.5",
     "lqip-modern": "^2.2.1",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "24.10.3",
+    "@types/node": "24.10.4",
     "@types/react": "19.2.7",
     "@types/react-dom": "^19.2.3"
   }
