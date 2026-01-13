@@ -152,9 +152,6 @@ importers:
       '@react-aria/i18n':
         specifier: ^3.12.14
         version: 3.12.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@repo/calcom':
-        specifier: workspace:*
-        version: link:../../packages/calcom
       '@repo/calendar':
         specifier: workspace:*
         version: link:../../packages/calendar
@@ -282,25 +279,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
-
-  packages/calcom:
-    dependencies:
-      '@calcom/embed-react':
-        specifier: ^1.5.3
-        version: 1.5.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@repo/design-system':
-        specifier: workspace:*
-        version: link:../design-system
-      '@repo/i18n':
-        specifier: workspace:*
-        version: link:../i18n
-      '@repo/lib':
-        specifier: workspace:*
-        version: link:../lib
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
 
   packages/calendar:
     dependencies:
@@ -1318,18 +1296,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  '@calcom/embed-core@1.5.3':
-    resolution: {integrity: sha512-GeId9gaByJ5EWiPmuvelZOvFWPOTWkcWZr5vGTCbIUTX125oE5yn0n8lDF1MJk5Xj1WO+/dk9jKIE08Ad9ytiQ==}
-
-  '@calcom/embed-react@1.5.3':
-    resolution: {integrity: sha512-JCgge04pc8fhdvUmPNVLhW8/lCWK+AAziKecKWWPfv1nn2s+qKP2BwsEAnxhxK9yPOBgE1EIEgmYkrrNB1iajA==}
-    peerDependencies:
-      react: ^18.2.0 || ^19.0.0
-      react-dom: ^18.2.0 || ^19.0.0
-
-  '@calcom/embed-snippet@1.3.3':
-    resolution: {integrity: sha512-pqqKaeLB8R6BvyegcpI9gAyY6Xyx1bKYfWvIGOvIbTpguWyM1BBBVcT9DCeGe8Zw7Ujp5K56ci7isRUrT2Uadg==}
 
   '@chakra-ui/alert@2.2.2':
     resolution: {integrity: sha512-jHg4LYMRNOJH830ViLuicjb3F+v6iriE/2G5T+Sd0Hna04nukNJ1MxUmBPE+vI22me2dIflfelu2v9wdB6Pojw==}
@@ -9493,19 +9459,6 @@ snapshots:
       use-sync-external-store: 1.6.0(react@19.2.3)
     optionalDependencies:
       '@types/react': 19.2.7
-
-  '@calcom/embed-core@1.5.3': {}
-
-  '@calcom/embed-react@1.5.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
-    dependencies:
-      '@calcom/embed-core': 1.5.3
-      '@calcom/embed-snippet': 1.3.3
-      react: 19.2.3
-      react-dom: 19.2.3(react@19.2.3)
-
-  '@calcom/embed-snippet@1.3.3':
-    dependencies:
-      '@calcom/embed-core': 1.5.3
 
   '@chakra-ui/alert@2.2.2(@chakra-ui/system@2.6.2(@emotion/react@11.14.0(@types/react@19.2.7)(react@19.2.3))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.7)(react@19.2.3))(@types/react@19.2.7)(react@19.2.3))(react@19.2.3))(react@19.2.3)':
     dependencies:
