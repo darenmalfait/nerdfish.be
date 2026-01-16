@@ -2,10 +2,10 @@ import { supportedLanguages } from '@repo/i18n/config'
 import { env } from 'env'
 import { type MetadataRoute } from 'next'
 import { basePathNames, getPathname, type Pathnames } from 'routing'
-import { blog } from './[locale]/blog/api'
-import { getBlogPath } from './[locale]/blog/utils'
-import { work } from './[locale]/work/api'
-import { getWorkPath } from './[locale]/work/utils'
+import { blog } from './[locale]/(website)/blog/api'
+import { getBlogPath } from './[locale]/(website)/blog/utils'
+import { work } from './[locale]/(website)/work/api'
+import { getWorkPath } from './[locale]/(website)/work/utils'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
