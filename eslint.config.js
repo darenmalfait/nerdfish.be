@@ -38,6 +38,7 @@ export default [
 			'**/.makemd/**',
 			'**/.space/**',
 			'**/.trash/**',
+			'**/.clerk/**',
 		],
 	},
 ]

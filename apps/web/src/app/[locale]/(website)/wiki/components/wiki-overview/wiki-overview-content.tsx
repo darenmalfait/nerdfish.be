@@ -34,8 +34,8 @@ import {
 	useCallback,
 	useMemo,
 } from 'react'
-import { Link } from '../../../components/link'
 import { filterWiki, mapWikiToArticle } from '../../utils'
+import { Link } from '~/app/[locale]/common/components/link'
 import { type ImageType } from '~/app/types'
 
 function Tag({ tag }: { tag: string }) {

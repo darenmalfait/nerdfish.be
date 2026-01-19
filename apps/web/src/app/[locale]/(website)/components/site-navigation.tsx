@@ -36,7 +36,7 @@ import {
 	type Navigation,
 	type SubNavItem,
 } from '../hooks/use-navigation'
-import { Link } from './link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 const MainNavigationSubItem = forwardRef<
 	ComponentRef<typeof Link>,

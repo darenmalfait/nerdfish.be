@@ -6,10 +6,10 @@ import { Logo } from '@repo/design-system/icons'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { cn } from '@repo/lib/utils/class'
 import { type ComponentProps } from 'react'
-import { Link } from '../components/link'
 import { MobileNavigation } from './mobile-navigation'
-import { ProgressiveBlur } from './progressive-blur'
 import { SiteNavigation } from './site-navigation'
+import { Link } from '~/app/[locale]/common/components/link'
+import { ProgressiveBlur } from '~/app/[locale]/common/components/progressive-blur'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 function HeaderSection({ className, ...props }: ComponentProps<'div'>) {

@@ -9,9 +9,9 @@ import {
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { type ReactNode, type ComponentProps } from 'react'
-import { Link } from '../../../components/link'
 import { useResume } from '../resume-provider'
 import { type Resume as ResumeProps } from '../types'
+import { Link } from '~/app/[locale]/common/components/link'
 
 function ResumePageHeaderInformationItem({
 	className,

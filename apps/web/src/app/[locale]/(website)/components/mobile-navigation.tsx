@@ -15,8 +15,8 @@ import { cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import { useState } from 'react'
 import { usePathname } from 'routing'
-import { type Navigation, useNavigation } from '../hooks/use-navigation'
-import { Link } from './link'
+import { useNavigation, type Navigation } from '../hooks/use-navigation'
+import { Link } from '~/app/[locale]/common/components/link'
 
 interface NavigationItemProps {
 	item: Navigation['main'][number]

@@ -152,6 +152,9 @@ importers:
       '@react-aria/i18n':
         specifier: ^3.12.14
         version: 3.12.14(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@repo/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
       '@repo/calendar':
         specifier: workspace:*
         version: link:../../packages/calendar

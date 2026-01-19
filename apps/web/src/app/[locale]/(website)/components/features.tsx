@@ -9,7 +9,7 @@ import { merge } from '@repo/lib/utils/object'
 import * as Icons from 'lucide-react'
 import { useInView } from 'motion/react'
 import { type ComponentProps, type ElementType, useRef } from 'react'
-import { Link } from './link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name] as ElementType
 

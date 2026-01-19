@@ -3,7 +3,7 @@
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { ArrowRightIcon } from '@repo/design-system/icons'
 import type * as React from 'react'
-import { Link } from './link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 export interface CtaProps {
 	title: string

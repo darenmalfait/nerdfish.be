@@ -21,7 +21,7 @@ import image3 from '../../../../../../public/uploads/projects/de-borgerij/deborg
 import image6 from '../../../../../../public/uploads/projects/equilibra/equilibra-content.png'
 import image2 from '../../../../../../public/uploads/projects/equilibra/equilibra-home.png'
 import image5 from '../../../../../../public/uploads/projects/kapsalon-lieve/kapsalon-lieve-home.png'
-import { Link } from '../../components/link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 function CarouselItem({
 	children,

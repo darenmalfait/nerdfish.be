@@ -8,9 +8,9 @@ import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
 import { cn } from '@repo/lib/utils/class'
 import { kebabCase } from '@repo/lib/utils/string'
 import { type ComponentProps, useCallback } from 'react'
-import { Link } from '../components/link'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
 import { SocialLinks } from './site-navigation'
+import { Link } from '~/app/[locale]/common/components/link'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 function Disclaimer() {

@@ -3,7 +3,7 @@
 import { Button } from '@nerdfish/react/button'
 import { ChevronLeftIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
-import { Link } from '../../components/link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 export function BackToWork() {
 	const t = useTranslations('work.overview')

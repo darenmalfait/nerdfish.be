@@ -23,10 +23,10 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '../components/hero'
-import { Link } from '../components/link'
 import { Split, SplitContent, SplitImage } from '../components/split'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Toolbox } from './components/toolbox'
+import { Link } from '~/app/[locale]/common/components/link'
 
 type PageProps = {
 	params: Promise<WithLocale>

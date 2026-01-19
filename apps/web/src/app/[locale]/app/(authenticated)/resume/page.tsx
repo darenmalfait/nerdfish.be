@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import { AppHeader } from '../../components/app-header'
 import { Resume } from './components/resume'
 import { ResumeToolbar } from './components/resume-toolbar'
 import { ResumeProvider } from './resume-provider'
@@ -13,9 +14,12 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
 	return (
-		<ResumeProvider>
-			<Resume />
-			<ResumeToolbar />
-		</ResumeProvider>
+		<>
+			<AppHeader pages={['App']} page="Resume" />
+			<ResumeProvider>
+				<Resume />
+				<ResumeToolbar />
+			</ResumeProvider>
+		</>
 	)
 }

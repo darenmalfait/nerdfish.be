@@ -1,6 +1,7 @@
 import { Timesheets } from '@repo/timesheets/components/timesheets'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
+import { AppHeader } from '../../components/app-header'
 
 export const metadata: Metadata = {
 	title: 'Timesheet Generator',
@@ -12,8 +13,11 @@ export const metadata: Metadata = {
 
 export default function TimesheetGeneratorPage() {
 	return (
-		<Suspense fallback={null}>
-			<Timesheets />
-		</Suspense>
+		<>
+			<AppHeader pages={['App']} page="Timesheets" />
+			<Suspense fallback={null}>
+				<Timesheets />
+			</Suspense>
+		</>
 	)
 }

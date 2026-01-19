@@ -3,7 +3,7 @@ import { Skeleton } from '@nerdfish/react/skeleton'
 import { cn } from '@repo/lib/utils/class'
 import { type Product } from 'content-collections'
 import { type ComponentProps } from 'react'
-import { Link } from '../../../components/link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 export function ProductCardImage({ icon }: Partial<Pick<Product, 'icon'>>) {
 	if (!icon?.src) return null

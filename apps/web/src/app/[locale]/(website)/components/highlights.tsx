@@ -14,7 +14,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { useRef, type ComponentProps } from 'react'
-import { Link } from './link'
+import { Link } from '~/app/[locale]/common/components/link'
 
 interface CardWrapperProps extends ComponentProps<typeof motion.div> {
 	progress: MotionValue<number>
