@@ -11,8 +11,8 @@ export const keys = () =>
 				.string()
 				.startsWith('pk_')
 				.optional(),
-			NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().startsWith('/'),
-			NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string().startsWith('/'),
+			NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.url(),
+			NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.url(),
 		},
 		runtimeEnv: {
 			CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
