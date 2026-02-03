@@ -18,8 +18,8 @@ import { type TimesheetsRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'
 
-export function sortDates(dates: string[]) {
-	return dates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+export function sortDatesByTime(a: string, b: string): number {
+	return new Date(a).getTime() - new Date(b).getTime()
 }
 
 export function getTimesheetsDates(
@@ -27,7 +27,9 @@ export function getTimesheetsDates(
 	selectedDate: string | null,
 ): Date[] {
 	if (range) {
-		return sortDates(range).map((dateString) => new Date(dateString))
+		return [...range]
+			.sort(sortDatesByTime)
+			.map((dateString) => new Date(dateString))
 	}
 
 	if (selectedDate) {
