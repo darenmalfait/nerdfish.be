@@ -49,8 +49,8 @@ export function getWorkPath(post: PartialDeep<Project>) {
 	return `${localePath}${blogPath}`
 }
 
-export function mapWorkToArticle(items: PartialDeep<Project>[]): Article[] {
-	return items.map((item) => ({
+export function mapWorkToArticle(item: PartialDeep<Project>): Article {
+	return {
 		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',
 		description: item.excerpt,
@@ -65,5 +65,5 @@ export function mapWorkToArticle(items: PartialDeep<Project>[]): Article[] {
 				}
 			: undefined,
 		base64Placeholder: item.imageBlur,
-	}))
+	}
 }

@@ -125,14 +125,14 @@ export function WikiOverviewContent({
 	children,
 }: WikiOverviewContentProps) {
 	const t = useTranslations('wiki.overview')
-	const articles = useMemo(() => mapWikiToArticle(items), [items])
+	const articles = useMemo(() => items.map(mapWikiToArticle), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const wikis = items.filter((wiki) => wiki.id && toFilterIds.has(wiki.id))
 
-			return mapWikiToArticle(filterWiki(wikis, searchString))
+			return filterWiki(wikis, searchString).map(mapWikiToArticle)
 		},
 		[items],
 	)

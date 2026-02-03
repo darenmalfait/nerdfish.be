@@ -45,14 +45,14 @@ export function BlogOverviewContent({
 	children,
 }: BlogOverviewContentProps) {
 	const t = useTranslations('blog.overview')
-	const articles = useMemo(() => mapBlogToArticle(items), [items])
+	const articles = useMemo(() => items.map(mapBlogToArticle), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapBlogToArticle(filterBlog(blogs, searchString))
+			return filterBlog(blogs, searchString).map(mapBlogToArticle)
 		},
 		[items],
 	)

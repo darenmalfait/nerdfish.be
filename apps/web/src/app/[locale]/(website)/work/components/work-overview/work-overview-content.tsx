@@ -45,14 +45,14 @@ export function WorkOverviewContent({
 	children,
 }: WorkOverviewContentProps) {
 	const t = useTranslations('work.overview')
-	const articles = useMemo(() => mapWorkToArticle(items), [items])
+	const articles = useMemo(() => items.map(mapWorkToArticle), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return mapWorkToArticle(filterWork(works, searchString))
+			return filterWork(works, searchString).map(mapWorkToArticle)
 		},
 		[items],
 	)
