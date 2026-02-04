@@ -13,7 +13,7 @@ export const keys = () =>
 			NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
 		},
 		client: {
-			NEXT_PUBLIC_URL: z.string().min(1).url(),
+			NEXT_PUBLIC_URL: z.url(),
 		},
 		runtimeEnv: {
 			ANALYZE: process.env.ANALYZE,
