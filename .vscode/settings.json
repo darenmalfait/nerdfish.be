@@ -32,5 +32,8 @@
 	"i18n-ally.sourceLanguage": "en",
 	"i18n-ally.keystyle": "nested",
 	"typescript.validate.enable": true,
-	"typescript.tsserver.experimental.enableProjectDiagnostics": true
+	"typescript.tsserver.experimental.enableProjectDiagnostics": true,
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
