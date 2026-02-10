@@ -15,15 +15,15 @@
     "@repo/design-system": "workspace:*",
     "fumadocs-core": "^15.8.5",
     "lqip-modern": "^2.2.1",
-    "next": "16.1.5",
-    "react": "^19.2.3",
+    "next": "16.1.6",
+    "react": "^19.2.4",
     "reading-time": "^1.5.0",
-    "zod": "^4.3.5"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "24.10.4",
-    "@types/react": "19.2.7",
+    "@types/node": "24.10.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "^19.2.3"
   }
 }
