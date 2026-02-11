@@ -11,9 +11,8 @@ env:
   RESEND_API_KEY: 're_test'
   EMAIL_FROM: 'test'
   NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
-  GROQ_API_KEY: 'test'
-  NEXT_PUBLIC_CLERK_SIGN_IN_URL: 'http://localhost:3000/app/sign-in'
-  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: 'http://localhost:3000/app'
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL: 'https://www.nerdfish.be/app/sign-in'
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: 'https://www.nerdfish.be/app'
 
 jobs:
   format:
