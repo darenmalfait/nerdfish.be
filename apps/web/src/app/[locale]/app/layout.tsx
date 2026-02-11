@@ -1,13 +1,11 @@
-import { Spinner } from '@nerdfish/react/spinner'
 import { Toaster } from '@nerdfish/react/toast'
 import { AuthProvider } from '@repo/auth/provider'
-import { Section } from '@repo/design-system/components/section'
 import { fonts } from '@repo/design-system/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
-import { type ReactNode, Suspense } from 'react'
+import { type ReactNode } from 'react'
 import { AppProviders } from '../../app-providers'
 
 import '~/app/theme/styles/global.css'
@@ -37,16 +35,7 @@ export default async function DashboardLayout(props: {
 						<AuthProvider>
 							<div className="isolate flex min-h-screen flex-col">
 								<main className="rounded-b-container relative w-full max-w-full flex-1">
-									<div className="rounded-container bg-background absolute inset-0 -z-1" />
-									<Suspense
-										fallback={
-											<Section className="motion-preset-fade motion-delay-1000 motion-duration-1000 flex min-h-screen justify-center">
-												<Spinner className="size-8" />
-											</Section>
-										}
-									>
-										{children}
-									</Suspense>
+									{children}
 								</main>
 
 								<Toaster />
