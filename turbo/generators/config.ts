@@ -12,7 +12,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 			},
 		],
 		actions: [
-			(answers) => {
+			(answers: { name: string }) => {
 				if (
 					'name' in answers &&
 					typeof answers.name === 'string' &&
