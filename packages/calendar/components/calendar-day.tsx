@@ -109,7 +109,7 @@ export function CalendarDay({
 	}
 
 	const handleEventClick = (event: CalendarEvent) => {
-		if (selectedEvent && selectedEvent.id === NEW_EVENT_ID) {
+		if (selectedEvent?.id === NEW_EVENT_ID) {
 			setValue(value.filter((e) => e.id !== selectedEvent.id))
 		}
 
@@ -128,7 +128,7 @@ export function CalendarDay({
 
 	// gestures mouse events
 	const handleMouseDown = (slot: number) => {
-		if (selectedEvent && selectedEvent.id === NEW_EVENT_ID) {
+		if (selectedEvent?.id === NEW_EVENT_ID) {
 			setValue(value.filter((event) => event.id !== selectedEvent.id))
 		}
 
