@@ -1,7 +1,7 @@
 'use client'
 
-import { type Ref, useCallback, useEffect, useRef, useState } from 'react'
-
+import { type Ref, useCallback, useRef, useState } from 'react'
+import { useMountEffect } from './use-mount-effect'
 export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 
 // This started as a work around for https://github.com/framer/motion/issues/1221,
@@ -20,7 +20,7 @@ function useElementState(): [Ref<HTMLElement | SVGElement>, ElementState] {
 		ref.current = element
 	}, [])
 
-	useEffect(() => {
+	useMountEffect(() => {
 		const el = ref.current
 		if (!el) return
 
@@ -74,7 +74,7 @@ function useElementState(): [Ref<HTMLElement | SVGElement>, ElementState] {
 			el.removeEventListener('pointerdown', pointerdown)
 			el.removeEventListener('keydown', keydown)
 		}
-	}, [])
+	})
 
 	const status: ElementState = state.active
 		? 'active'

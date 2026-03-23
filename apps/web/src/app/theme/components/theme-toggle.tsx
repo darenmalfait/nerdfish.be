@@ -9,13 +9,9 @@ import {
 } from '@nerdfish/react/tooltip'
 import { LaptopIcon, MoonIcon, SunIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn, cva, type VariantProps } from '@repo/lib/utils/class'
-import {
-	type ComponentProps,
-	type HTMLAttributes,
-	useEffect,
-	useState,
-} from 'react'
+import { type ComponentProps, type HTMLAttributes, useState } from 'react'
 import { useTheme } from '../theme-provider'
 
 function ThemeToggleItem({
@@ -75,9 +71,9 @@ export function ThemeToggle({
 	const { theme, setTheme } = useTheme()
 	const [mounted, setMounted] = useState<boolean>(false)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		setMounted(true)
-	}, [])
+	})
 
 	return (
 		<TooltipProvider>

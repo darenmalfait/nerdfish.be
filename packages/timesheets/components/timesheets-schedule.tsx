@@ -5,6 +5,7 @@ import {
 	CALENDARY_DAY_ROW_HEIGHT,
 } from '@repo/calendar/components/calendar-day'
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { type ActionResponse } from '@repo/lib/utils/form'
 import { useEffect, useRef, useState } from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
@@ -56,7 +57,7 @@ export function TimesheetsSchedule({
 	>(dataProp.length > 0 ? dataProp[dataProp.length - 1] : undefined)
 	const [data, setData] = useState<TimesheetsRecord[]>(dataProp)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		if (scrollRef.current) {
 			const currentHour = new Date().getHours()
 
@@ -70,7 +71,7 @@ export function TimesheetsSchedule({
 				})
 			}
 		}
-	}, [])
+	})
 
 	useEffect(() => {
 		// in case the url changes

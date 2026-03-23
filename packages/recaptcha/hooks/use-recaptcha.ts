@@ -1,6 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+import { useCallback, useState } from 'react'
 import { keys } from '../keys'
 
 /**
@@ -41,7 +42,7 @@ export function useRecaptcha(): RecaptchaProps {
 		execute: any
 	}>(null)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		const loadScriptByUrl = (id: string, url: string) => {
 			const isScriptExist = document.getElementById(id)
 
@@ -80,7 +81,7 @@ export function useRecaptcha(): RecaptchaProps {
 		return () => {
 			cleanGoogleRecaptcha(scriptId)
 		}
-	}, [])
+	})
 
 	const execute = useCallback(async () => {
 		if (!keys().NEXT_PUBLIC_RECAPTCHA_SITEKEY) {

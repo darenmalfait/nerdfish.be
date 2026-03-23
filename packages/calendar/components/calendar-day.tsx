@@ -9,6 +9,7 @@ import {
 } from '@nerdfish/react/context-menu'
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
 import {
 	addMinutes,
@@ -18,13 +19,7 @@ import {
 	setMinutes,
 	startOfDay,
 } from 'date-fns'
-import {
-	type MouseEvent,
-	useState,
-	type HTMLAttributes,
-	useEffect,
-	Fragment,
-} from 'react'
+import { type MouseEvent, useState, type HTMLAttributes, Fragment } from 'react'
 import { type CalendarEvent } from '../schemas'
 import {
 	createNewEvent,
@@ -218,7 +213,7 @@ export function CalendarDay({
 		}
 	}
 
-	useEffect(() => {
+	useMountEffect(() => {
 		function handleMouseUp() {
 			setIsDragging(false)
 			setDragStartSlot(null)
@@ -229,7 +224,7 @@ export function CalendarDay({
 
 		window.addEventListener('mouseup', handleMouseUp)
 		return () => window.removeEventListener('mouseup', handleMouseUp)
-	}, [])
+	})
 
 	const handleEventResizeStart = (
 		e: MouseEvent,

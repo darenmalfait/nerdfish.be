@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useMountEffect } from './use-mount-effect'
 
 let hydrating = true
 export function useHydrated() {
 	const [hydrated, setHydrated] = useState(() => !hydrating)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		hydrating = false
 		setHydrated(true)
-	}, [])
+	})
 
 	return hydrated
 }

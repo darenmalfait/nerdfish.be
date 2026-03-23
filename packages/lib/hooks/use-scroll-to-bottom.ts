@@ -1,4 +1,5 @@
-import { type RefObject, useEffect, useRef } from 'react'
+import { type RefObject, useRef } from 'react'
+import { useMountEffect } from './use-mount-effect'
 
 export function useScrollToBottom<T extends HTMLElement>(): [
 	RefObject<T | null>,
@@ -7,7 +8,7 @@ export function useScrollToBottom<T extends HTMLElement>(): [
 	const containerRef = useRef<T | null>(null)
 	const endRef = useRef<T | null>(null)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		const container = containerRef.current
 		const end = endRef.current
 
@@ -25,7 +26,7 @@ export function useScrollToBottom<T extends HTMLElement>(): [
 
 			return () => observer.disconnect()
 		}
-	}, [])
+	})
 
 	return [containerRef, endRef]
 }

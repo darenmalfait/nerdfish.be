@@ -97,6 +97,12 @@ importers:
 
   apps/og-image:
     dependencies:
+      '@repo/design-system':
+        specifier: workspace:*
+        version: link:../../packages/design-system
+      '@repo/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
@@ -334,9 +340,6 @@ importers:
       '@date-fns/tz':
         specifier: ^1.4.1
         version: 1.4.1
-      '@repo/design-system':
-        specifier: workspace:*
-        version: link:../design-system
       '@repo/lib':
         specifier: workspace:*
         version: link:../lib
@@ -554,6 +557,9 @@ importers:
 
   packages/lib:
     dependencies:
+      '@nerdfish/react':
+        specifier: ^1.2.0
+        version: 1.2.0(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(next@16.1.5(@playwright/test@1.58.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react-is@16.13.1)(react@19.2.3)(redux@5.0.1)
       '@nerdfish/utils':
         specifier: ^3.0.0
         version: 3.0.0
@@ -657,6 +663,9 @@ importers:
 
   packages/recaptcha:
     dependencies:
+      '@repo/lib':
+        specifier: workspace:*
+        version: link:../lib
       '@t3-oss/env-nextjs':
         specifier: ^0.13.10
         version: 0.13.11(typescript@5.9.3)(zod@4.3.6)

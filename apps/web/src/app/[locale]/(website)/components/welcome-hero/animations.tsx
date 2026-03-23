@@ -1,20 +1,21 @@
 'use client'
 
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 type AnimationState = 0 | 1 | 2 | 3
 
 export function AnimationDesign() {
 	const [state, setState] = useState<AnimationState>(0)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		const interval = setInterval(() => {
 			setState((prev) => ((prev + 1) % 4) as AnimationState)
 		}, 1000)
 
 		return () => clearInterval(interval)
-	}, [])
+	})
 
 	const row1Triggered = state === 1
 	const row2Triggered = state === 3

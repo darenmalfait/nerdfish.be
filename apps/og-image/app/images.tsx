@@ -1,21 +1,22 @@
 'use client'
 
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { blogParams, pageParams } from '@repo/og-utils/zod-params'
 import { env } from 'env'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const OG_IMAGE_URL = `${env.NEXT_PUBLIC_URL}/api/og`
 
 export function Images() {
 	const [nonce, setNonce] = useState(Math.random())
 
-	useEffect(() => {
+	useMountEffect(() => {
 		// randomize nonce on window focus
 		const handleFocus = () => setNonce(Math.random())
 		window.addEventListener('focus', handleFocus)
 		return () => window.removeEventListener('focus', handleFocus)
-	}, [])
+	})
 
 	return (
 		<div className="flex flex-col gap-12">
