@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
+    "@repo/design-system": "workspace:*",
     "@repo/lib": "workspace:*",
     "date-fns": "^4.1.0",
     "zod": "^4.3.5"
