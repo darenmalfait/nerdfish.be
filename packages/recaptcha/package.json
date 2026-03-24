@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@repo/lib": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.13.10",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "zod": "^4.3.5"
+    "@t3-oss/env-nextjs": "^0.13.11",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*"
