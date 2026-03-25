@@ -69,7 +69,3 @@ git checkout main
 git merge <branch-name> --ff-only
 git push
 ```
-
-## Tags
-
-See [Git Tags](./git-tags.md) for tag-related commands.
