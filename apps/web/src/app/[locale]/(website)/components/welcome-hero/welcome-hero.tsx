@@ -37,7 +37,10 @@ export function WelcomeHero() {
 		<Hero>
 			<HeroContent>
 				<SectionHeaderTitle as="h1">
-					{t('hero.title.line1')} <br />
+					<span className="bg-accent text-accent-contrast">
+						{t('hero.title.line1')}
+					</span>{' '}
+					<br />
 					<span className="from-foreground/80 via-foreground to-accent bg-linear-to-br bg-clip-text text-transparent">
 						{t('hero.title.line2')}
 					</span>
@@ -48,7 +51,6 @@ export function WelcomeHero() {
 				<div className="md:item-center gap-friends mt-acquaintances flex flex-col items-center justify-center md:flex-row md:items-start md:justify-start">
 					<MagnetButton
 						size="xl"
-						variant="accent"
 						className="hover:bg-background-inverted/80!"
 						render={<Link href="/contact">{t('cta.action')}</Link>}
 					/>
