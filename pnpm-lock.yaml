@@ -154,8 +154,8 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.72.0(react@19.2.4))
       '@nerdfish/react':
-        specifier: ^1.2.0
-        version: 1.2.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@babel/core@7.29.0)(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
+        specifier: ^1.2.1
+        version: 1.2.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@babel/core@7.29.0)(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
       '@next/env':
         specifier: 16.1.7
         version: 16.1.7
@@ -413,8 +413,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.2.0
-        version: 1.2.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
+        specifier: ^1.2.1
+        version: 1.2.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
       '@number-flow/react':
         specifier: ^0.5.14
         version: 0.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -565,11 +565,11 @@ importers:
   packages/lib:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.2.0
-        version: 1.2.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
+        specifier: ^1.2.1
+        version: 1.2.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)
       '@nerdfish/utils':
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.0.1
+        version: 3.0.1
       '@uidotdev/usehooks':
         specifier: ^2.4.1
         version: 2.4.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -2786,8 +2786,8 @@ packages:
   '@nerdfish/config@1.9.4':
     resolution: {integrity: sha512-YyX2v3Xs7syc+Wlwl3vB1TtbHOg/HTfUkDzhvcFrfcDJzv6MXsmib33dp9uLBsndrXugNzNKzDAzHdqtS1Zq0g==}
 
-  '@nerdfish/react@1.2.0':
-    resolution: {integrity: sha512-db+Ki9bjdMplHxmTuj8QA8SN14GacrCbIral5XiTkUnjq1aGl5cO3JNqP0CBidIU0wLNbk9NVv3PgF6hzPrccA==}
+  '@nerdfish/react@1.2.1':
+    resolution: {integrity: sha512-ThoG2B7By4GtfV1MEV0PNUmkZg3fH1vqSOx7vj6KnG1x7sd93++KcZQZyp773PpUumWJeK9Ejbju/dfDw2tURA==}
     engines: {node: '>=24.11.1'}
     peerDependencies:
       '@types/react': 19.2.14
@@ -2797,8 +2797,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@nerdfish/utils@3.0.0':
-    resolution: {integrity: sha512-KeMN6heoUMW+06+dTsWzVxgN1aqL56E7kD9FUJEP2qk60ycEqWwTtOqh0mO+tA55PmXG/83A1M2KncUYlDEJbQ==}
+  '@nerdfish/utils@3.0.1':
+    resolution: {integrity: sha512-P24qFM98G4ObjqFG0pYu0Q6JzZ3WUZwAWqOANBgzjMNBVTzvtaTN+YprfajFxoBgwlGx6iesSszU8V7GZlgbMA==}
 
   '@next/bundle-analyzer@16.1.7':
     resolution: {integrity: sha512-RlMe5kKnTBtn7l1svgz5BgMZZue+Bymvbvo7aTlzd2un4EMV94fSOvf26Z3NgzhZYv7xf3K2TV7SGPQ5NYHocA==}
@@ -11387,10 +11387,10 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/react@1.2.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@babel/core@7.29.0)(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)':
+  '@nerdfish/react@1.2.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@babel/core@7.29.0)(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)':
     dependencies:
       '@base-ui-components/react': 1.0.0-rc.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@nerdfish/utils': 3.0.0
+      '@nerdfish/utils': 3.0.1
       '@radix-ui/react-label': 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.14)(react@19.2.4)
       cmdk: 1.1.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -11413,10 +11413,10 @@ snapshots:
       - react-is
       - redux
 
-  '@nerdfish/react@1.2.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)':
+  '@nerdfish/react@1.2.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(next@16.1.7(@playwright/test@1.58.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react-is@16.13.1)(react@19.2.4)(redux@5.0.1)':
     dependencies:
       '@base-ui-components/react': 1.0.0-rc.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@nerdfish/utils': 3.0.0
+      '@nerdfish/utils': 3.0.1
       '@radix-ui/react-label': 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.14)(react@19.2.4)
       cmdk: 1.1.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -11439,7 +11439,7 @@ snapshots:
       - react-is
       - redux
 
-  '@nerdfish/utils@3.0.0':
+  '@nerdfish/utils@3.0.1':
     dependencies:
       class-variance-authority: 0.7.1
       clsx: 2.1.1

@@ -153,7 +153,7 @@ export function WelcomeHero() {
 						/>
 					</CarouselItem>
 				</CarouselContent>
-				<div className="py-casual px-casual sm:py-casual sm:px-acquaintances rounded-container border-border bg-background-secondary inset-x-friends w-[calc(100vw-theme(spacing.friends) * 2)] -bottom-distant absolute mx-auto max-w-md border text-center shadow-md backdrop-blur-md backdrop-saturate-150 md:max-w-lg lg:max-w-xl">
+				<div className="py-casual px-casual sm:py-casual sm:px-acquaintances rounded-container border-border bg-background inset-x-friends w-[calc(100vw-theme(spacing.friends) * 2)] -bottom-distant absolute mx-auto max-w-md border text-center shadow-md backdrop-blur-md backdrop-saturate-150 md:max-w-lg lg:max-w-xl">
 					<motion.header
 						ref={containerRef}
 						className={cn('group/hero relative bg-transparent')}

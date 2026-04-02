@@ -19,7 +19,7 @@ function HeaderSection({ className, ...props }: ComponentProps<'div'>) {
 				'rounded-base gap-friends relative flex items-center justify-center',
 
 				// desktop only styling
-				'lg:border-border lg:p-friends! lg:bg-background-secondary lg:border',
+				'lg:border-border lg:p-friends! lg:bg-background-muted lg:border',
 				className,
 			)}
 			{...props}
@@ -43,7 +43,7 @@ export function SiteHeader() {
 								'gap-best-friends relative flex w-full flex-row-reverse items-center justify-between lg:flex-row',
 
 								// mobile only styling
-								'border-border p-friends bg-background-secondary rounded-base gap-friends relative flex items-center justify-center border',
+								'border-border p-friends bg-background-muted rounded-base gap-friends relative flex items-center justify-center border',
 								'lg:border-none lg:bg-transparent lg:p-0',
 							)}
 						>
