@@ -37,7 +37,7 @@ export function FaqItem({
 				'group/accordion-item border-border bg-background-muted rounded-container mx-auto p-0!',
 			)}
 		>
-			<AccordionTrigger className={cn('p-proximity-3!')}>
+			<AccordionTrigger className={cn('p-acquaintances md:p-proximity-3!')}>
 				<div className={cn('typography-title relative')}>
 					{icon ? (
 						<span
@@ -56,7 +56,7 @@ export function FaqItem({
 					<span className="font-medium">{question}</span>
 				</div>
 			</AccordionTrigger>
-			<AccordionContent className="typography text-foreground px-proximity-2! pb-friends! max-w-none pt-0">
+			<AccordionContent className="typography text-foreground md:px-proximity-2! pb-friends! max-w-none p-0 pt-0">
 				<div className={cn('typography-body-large relative max-w-none')}>
 					{answer}
 				</div>
