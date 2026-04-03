@@ -37,7 +37,7 @@ export function WelcomeHero() {
 		<Hero>
 			<HeroContent>
 				<SectionHeaderTitle as="h1">
-					<span className="bg-accent text-accent-contrast">
+					<span className="bg-accent text-accent-contrast rounded-compact p-bff">
 						{t('hero.title.line1')}
 					</span>{' '}
 					<br />
