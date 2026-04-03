@@ -48,7 +48,7 @@ export function WelcomeHero() {
 					{t('hero.title.line3')}
 				</SectionHeaderTitle>
 				<HeroSubtitle>{t('contact.subtitle')}</HeroSubtitle>
-				<div className="md:item-center gap-friends mt-acquaintances flex flex-col items-center justify-center md:flex-row md:items-start md:justify-start">
+				<div className="mt-acquaintances">
 					<MagnetButton
 						size="xl"
 						className="hover:bg-background-inverted/80!"
