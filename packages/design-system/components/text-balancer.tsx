@@ -1,3 +1,5 @@
+'use client'
+
 import { type ReactNode } from 'react'
 import { Balancer } from 'react-wrap-balancer'
 
