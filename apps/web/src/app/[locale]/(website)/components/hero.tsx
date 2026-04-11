@@ -105,7 +105,7 @@ export type HeroProps = ComponentProps<'div'>
 export function Hero({ children }: HeroProps) {
 	return (
 		<Section className={cn('group/section relative')}>
-			<div className="relative container mx-auto px-0">{children}</div>
+			<div className="relative mx-auto px-0">{children}</div>
 		</Section>
 	)
 }
