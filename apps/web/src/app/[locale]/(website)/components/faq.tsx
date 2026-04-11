@@ -53,7 +53,7 @@ export function FaqItem({
 							{icon}
 						</span>
 					) : null}
-					<span className="font-medium">{question}</span>
+					<span>{question}</span>
 				</div>
 			</AccordionTrigger>
 			<AccordionContent className="typography text-foreground md:px-proximity-2! pb-friends! max-w-none p-0 pt-0">
