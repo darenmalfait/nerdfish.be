@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const keys = () =>
 	createEnv({
 		server: {
-			RESEND_API_KEY: z.string().min(1).startsWith('re_'),
+			RESEND_API_KEY: z.string().min(1).startsWith('re_').optional(),
 			EMAIL_FROM: z.string().min(1),
 			SKIP_EMAILS: z.preprocess((val) => {
 				if (typeof val === 'string') {
