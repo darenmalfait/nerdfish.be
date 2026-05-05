@@ -1,7 +1,13 @@
 'use client'
 
+import { Button } from '@nerdfish/react/button'
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from '@nerdfish/react/tooltip'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import { ArrowRight, Logo } from '@repo/design-system/icons'
+import { ArrowRight, LibrarySquareIcon, Logo } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
 import { LocaleSwitcher } from '@repo/i18n/components/locale-switcher'
@@ -179,6 +185,16 @@ function SiteFooterContent() {
 					</p>
 					<div className="gap-friends mb-casual flex justify-center md:justify-end">
 						<LocaleSwitcher />
+						<Tooltip>
+							<TooltipTrigger
+								render={
+									<Button variant="outline" icon className="h-11.5 w-auto!">
+										<LibrarySquareIcon />
+									</Button>
+								}
+							/>
+							<TooltipContent>Knowledge Base</TooltipContent>
+						</Tooltip>
 						<ThemeToggle />
 					</div>
 				</div>
