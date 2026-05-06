@@ -6,5 +6,5 @@ import { testimonials } from './collections/testimonial'
 import { wiki } from './collections/wiki'
 
 export default defineConfig({
-	collections: [posts, wiki, testimonials, projects, products],
+	content: [posts, wiki, testimonials, projects, products],
 })

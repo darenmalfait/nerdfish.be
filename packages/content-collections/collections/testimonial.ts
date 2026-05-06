@@ -18,6 +18,7 @@ export const testimonials = defineCollection({
 			})
 			.optional(),
 		tags: z.array(z.string()).optional(),
+		content: z.string(),
 	}),
 	transform: async ({ ...item }) => {
 		const { slug, locale } = getSlugAndLocale(item._meta.path)

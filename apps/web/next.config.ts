@@ -50,5 +50,5 @@ nextConfig = withTranslations('./request-config.ts', nextConfig)
 
 export default withContentCollections(
 	// unsure why this needs to be a promise, it's not
-	nextConfig as Promise<NextConfig>,
+	nextConfig,
 )

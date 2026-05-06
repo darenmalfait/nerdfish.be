@@ -16,6 +16,7 @@ export const wiki = defineCollection({
 		excerpt: z.string(),
 		date: z.string(),
 		tags: z.array(z.string()),
+		content: z.string(),
 	}),
 	transform: async (item, context) => {
 		const body = await context.cache(item.content, async () =>

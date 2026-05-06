@@ -20,6 +20,7 @@ export const projects = defineCollection({
 		heroImg: image,
 		summary: z.string().optional(),
 		tags: z.array(z.string()),
+		content: z.string(),
 	}),
 	transform: async ({ title, ...item }, context) => {
 		try {

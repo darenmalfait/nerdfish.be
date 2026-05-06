@@ -17,6 +17,7 @@ export const products = defineCollection({
 		sourceUrl: z.string().url().optional(),
 		icon: image,
 		images: z.array(image).optional(),
+		content: z.string(),
 	}),
 	transform: async ({ title, ...item }, context) => {
 		try {

@@ -18,6 +18,7 @@ export const posts = defineCollection({
 		date: z.string(),
 		heroImg: image,
 		tags: z.array(z.string()),
+		content: z.string(),
 	}),
 	transform: async ({ title, ...item }, context) => {
 		try {
