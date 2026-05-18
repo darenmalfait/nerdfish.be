@@ -93,12 +93,13 @@ export function MobileNavigation({ className }: { className?: string }) {
 				<Button
 					variant="ghost"
 					icon
+					aria-label={t('navigation.openMenu')}
 					className={cn(
 						'text-foreground hover:bg-background-muted! p-0',
 						className,
 					)}
 				>
-					<MenuIcon className="size-4" />
+					<MenuIcon className="size-4" aria-hidden />
 				</Button>
 			</DrawerTrigger>
 			<DrawerContent className="bg-background rounded-r-container! z-50 h-screen backdrop-blur-sm backdrop-saturate-150">

@@ -33,8 +33,39 @@ class ThemeSwitcherComponent {
 	}
 }
 
-class NavigationComponent {
+class MobileNavigationComponent {
 	constructor(private readonly root: Page) {}
+
+	getMenuTrigger = () =>
+		this.root.getByRole('button', { name: 'Open navigation menu' })
+
+	getDrawer = () => this.root.getByRole('dialog')
+
+	getNavLink = (name: string) =>
+		this.getDrawer().getByRole('link', { name, exact: true })
+
+	async openMenu() {
+		await this.getMenuTrigger().click()
+		await this.getDrawer().waitFor({ state: 'visible' })
+	}
+
+	async clickNavLink(name: string) {
+		await this.openMenu()
+		await this.getNavLink(name).click()
+	}
+
+	async clickExpertiseLink(name: string) {
+		await this.openMenu()
+		await this.getNavLink(name).click()
+	}
+}
+
+class NavigationComponent {
+	readonly mobile: MobileNavigationComponent
+
+	constructor(private readonly root: Page) {
+		this.mobile = new MobileNavigationComponent(root)
+	}
 
 	getMainNavigation = () => this.root.getByRole('navigation', { name: 'main' })
 

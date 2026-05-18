@@ -25,5 +25,9 @@ export default defineConfig({
 		command: 'pnpm build && pnpm start',
 		url: 'http://localhost:3000',
 		reuseExistingServer: false,
+		env: {
+			...process.env,
+			SKIP_EMAILS: 'true',
+		},
 	},
 })

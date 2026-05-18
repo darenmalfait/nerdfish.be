@@ -87,3 +87,98 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 		})
 	})
 })
+
+test.describe('User Story: As a user, I want to navigate the site using the mobile navigation', () => {
+	test.use({ viewport: { width: 390, height: 844 } })
+
+	test.describe('Given the user is on the homepage', () => {
+		test.beforeEach(async ({ homePage }) => {
+			await homePage.goto()
+		})
+
+		test('it should hide the desktop main navigation', async ({ homePage }) => {
+			await expect(homePage.navigation.getMainNavigation()).toBeHidden()
+		})
+
+		test.describe('When I open the navigation menu', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.openMenu()
+			})
+
+			test('it should show the navigation drawer', async ({ homePage }) => {
+				await expect(homePage.navigation.mobile.getDrawer()).toBeVisible()
+			})
+		})
+
+		test.describe('When I click About', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.clickNavLink('About')
+			})
+
+			test('it should navigate to the about page', async ({ page }) => {
+				await expect(page).toHaveURL(ABOUT_URL_PATTERN)
+				await expect(
+					page.getByRole('heading', { level: 1, name: 'About' }),
+				).toBeVisible()
+			})
+
+			test('it should close the navigation drawer', async ({ homePage }) => {
+				await expect(homePage.navigation.mobile.getDrawer()).toBeHidden()
+			})
+		})
+
+		test.describe('When I click Blog', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.clickNavLink('Blog')
+			})
+
+			test('it should navigate to the blog page', async ({ page }) => {
+				await expect(page).toHaveURL(BLOG_URL_PATTERN)
+				await expect(
+					page.getByRole('heading', { level: 1, name: 'Blog' }),
+				).toBeVisible()
+			})
+		})
+
+		test.describe('When I click Work', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.clickNavLink('Work')
+			})
+
+			test('it should navigate to the work page', async ({ page }) => {
+				await expect(page).toHaveURL(WORK_URL_PATTERN)
+				await expect(
+					page.getByRole('heading', { level: 1, name: 'Projects' }),
+				).toBeVisible()
+			})
+		})
+
+		test.describe('When I click Contact', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.clickNavLink('Contact')
+			})
+
+			test('it should navigate to the contact page', async ({ page }) => {
+				await expect(page).toHaveURL(CONTACT_URL_PATTERN)
+				await expect(
+					page.getByRole('button', { name: "Let's get started" }),
+				).toBeVisible()
+			})
+		})
+
+		test.describe('When I click Websites in the navigation menu', () => {
+			test.beforeEach(async ({ homePage }) => {
+				await homePage.navigation.mobile.clickExpertiseLink('Websites')
+			})
+
+			test('it should navigate to the webdesign expertise page', async ({
+				page,
+			}) => {
+				await expect(page).toHaveURL(EXPERTISE_WEBDESIGN_URL_PATTERN)
+				await expect(
+					page.getByRole('heading', { level: 1, name: 'Websites' }),
+				).toBeVisible()
+			})
+		})
+	})
+})
