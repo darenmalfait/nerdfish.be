@@ -71,6 +71,7 @@ function SiteFooterHeading() {
 
 function SiteFooterContent() {
 	const t = useTranslations('footer')
+	const wikiT = useTranslations('wiki.page')
 	const { main: navigation } = useNavigation()
 
 	const navItemsWithoutSubItems = useCallback((items: NavigationItem[]) => {
@@ -187,13 +188,20 @@ function SiteFooterContent() {
 						<LocaleSwitcher />
 						<Tooltip>
 							<TooltipTrigger
+								aria-label={wikiT('title')}
 								render={
-									<Button variant="outline" icon className="h-11.5 w-auto!">
+									<Button
+										variant="outline"
+										icon
+										className="h-11.5 w-auto!"
+										aria-label={wikiT('title')}
+										render={<Link href="/wiki" />}
+									>
 										<LibrarySquareIcon />
 									</Button>
 								}
 							/>
-							<TooltipContent>Knowledge Base</TooltipContent>
+							<TooltipContent>{wikiT('title')}</TooltipContent>
 						</Tooltip>
 						<ThemeToggle />
 					</div>

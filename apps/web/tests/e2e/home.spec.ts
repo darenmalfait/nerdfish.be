@@ -14,7 +14,10 @@ test.describe('homepage a11y', () => {
 		await page.getByLabel('Switch to Light theme').first().click()
 
 		await expect(
-			page.getByRole('heading', { level: 1, name: 'Nerdfish' }),
+			page.getByRole('heading', {
+				level: 1,
+				name: 'Crafting Digital Experiences That Matter',
+			}),
 		).toBeVisible()
 
 		const a11yScanResults = await new AxeBuilder({ page })
@@ -33,7 +36,10 @@ test.describe('homepage a11y', () => {
 		await page.getByLabel('Switch to Dark theme').first().click()
 
 		await expect(
-			page.getByRole('heading', { level: 1, name: 'Nerdfish' }),
+			page.getByRole('heading', {
+				level: 1,
+				name: 'Crafting Digital Experiences That Matter',
+			}),
 		).toBeVisible()
 
 		const a11yScanResults = await new AxeBuilder({ page })

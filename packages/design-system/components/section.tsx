@@ -37,12 +37,13 @@ export interface SectionHeaderTitleProps extends ComponentProps<'h2'> {
 export function SectionHeaderTitle({
 	children,
 	className,
+	as: Component = 'h2',
 	...props
 }: SectionHeaderTitleProps) {
 	if (!children || children === '') return null
 
 	return (
-		<h2
+		<Component
 			className={cn(
 				'typography-heading-sm mb-friends font-title max-w-7xl leading-[1.1]',
 				className,
@@ -50,7 +51,7 @@ export function SectionHeaderTitle({
 			{...props}
 		>
 			<TextBalancer>{children}</TextBalancer>
-		</h2>
+		</Component>
 	)
 }
 

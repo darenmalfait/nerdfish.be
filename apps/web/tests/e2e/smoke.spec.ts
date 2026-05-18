@@ -4,7 +4,10 @@ test('App loads and nav works', async ({ page }) => {
 	await page.goto('/')
 
 	await expect(
-		page.getByRole('heading', { level: 1, name: 'Nerdfish' }),
+		page.getByRole('heading', {
+			level: 1,
+			name: 'Crafting Digital Experiences That Matter',
+		}),
 	).toBeVisible()
 
 	const nav = page.getByRole('navigation')
