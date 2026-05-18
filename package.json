@@ -22,7 +22,7 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "prepare": "husky",
-    "test:e2e": "dotenv -- turbo test:e2e",
+    "test:e2e": "dotenv -- turbo test:e2e --force",
     "test:e2e:inspector": "dotenv -- turbo test:e2e:inspector",
     "test:e2e:install": "dotenv -- playwright install",
     "test:e2e:ui": "dotenv -- turbo test:e2e:ui",

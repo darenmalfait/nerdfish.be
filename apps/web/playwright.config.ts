@@ -8,7 +8,7 @@ export default defineConfig({
 	fullyParallel: false,
 	forbidOnly: Boolean(process.env.CI),
 	retries: process.env.CI ? 2 : 0,
-	workers: process.env.CI ? 1 : undefined,
+	workers: 1,
 	reporter: [['html', { open: 'never' }]],
 	use: {
 		baseURL: 'http://localhost:3000',
@@ -21,8 +21,9 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: 'pnpm start',
+		// Build picks @web/proxy-auth stub when NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is unset
+		command: 'pnpm build && pnpm start',
 		url: 'http://localhost:3000',
-		reuseExistingServer: !process.env.CI,
+		reuseExistingServer: false,
 	},
 })
