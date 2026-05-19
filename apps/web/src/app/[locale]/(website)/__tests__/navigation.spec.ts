@@ -15,12 +15,12 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 		})
 
 		test('it should show the main navigation', async ({ homePage }) => {
-			await expect(homePage.navigation.getMainNavigation()).toBeVisible()
+			await expect(homePage.navigation.main.root).toBeVisible()
 		})
 
 		test.describe('When I click About', () => {
 			test.beforeEach(async ({ homePage }) => {
-				await homePage.navigation.clickNavLink('About')
+				await homePage.navigation.main.clickNavLink('About')
 			})
 
 			test('it should navigate to the about page', async ({ page }) => {
@@ -33,7 +33,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 
 		test.describe('When I click Blog', () => {
 			test.beforeEach(async ({ homePage }) => {
-				await homePage.navigation.clickNavLink('Blog')
+				await homePage.navigation.main.clickNavLink('Blog')
 			})
 
 			test('it should navigate to the blog page', async ({ page }) => {
@@ -46,7 +46,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 
 		test.describe('When I click Work', () => {
 			test.beforeEach(async ({ homePage }) => {
-				await homePage.navigation.clickNavLink('Work')
+				await homePage.navigation.main.clickNavLink('Work')
 			})
 
 			test('it should navigate to the work page', async ({ page }) => {
@@ -59,7 +59,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 
 		test.describe('When I click Contact', () => {
 			test.beforeEach(async ({ homePage }) => {
-				await homePage.navigation.clickNavLink('Contact')
+				await homePage.navigation.main.clickNavLink('Contact')
 			})
 
 			test('it should navigate to the contact page', async ({ page }) => {
@@ -72,8 +72,8 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 
 		test.describe('When I open Websites within the Expertise menu', () => {
 			test.beforeEach(async ({ homePage }) => {
-				await homePage.navigation.openExpertiseMenu()
-				await homePage.navigation.clickExpertiseLink('Websites')
+				await homePage.navigation.main.openExpertiseMenu()
+				await homePage.navigation.main.clickExpertiseLink('Websites')
 			})
 
 			test('it should navigate to the webdesign expertise page', async ({
@@ -97,7 +97,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 		})
 
 		test('it should hide the desktop main navigation', async ({ homePage }) => {
-			await expect(homePage.navigation.getMainNavigation()).toBeHidden()
+			await expect(homePage.navigation.main.root).toBeHidden()
 		})
 
 		test.describe('When I open the navigation menu', () => {

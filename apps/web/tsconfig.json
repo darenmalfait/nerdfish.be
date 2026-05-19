@@ -4,6 +4,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"~/*": ["src/*"],
+			"playwright/*": ["playwright/*"],
 			"@repo/*": ["../../packages/*"],
 			"env": ["./env.ts"],
 

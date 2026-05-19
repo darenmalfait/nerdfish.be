@@ -1,12 +1,6 @@
-import { type Page } from '@playwright/test'
+import { BasePage } from 'playwright/utils/page-object'
 
-export class BlogPage {
-	readonly page: Page
-
-	constructor(page: Page) {
-		this.page = page
-	}
-
+export class BlogPage extends BasePage {
 	getPageHeading = () =>
 		this.page.getByRole('heading', {
 			level: 1,

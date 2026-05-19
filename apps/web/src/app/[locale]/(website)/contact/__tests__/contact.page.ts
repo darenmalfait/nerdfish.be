@@ -1,4 +1,5 @@
 import { type Page } from '@playwright/test'
+import { BasePage } from 'playwright/utils/page-object'
 import { type ContactFormTestData } from './contact-form.builders'
 
 class ContactFormComponent {
@@ -26,12 +27,11 @@ class ContactFormComponent {
 	}
 }
 
-export class ContactPage {
-	readonly page: Page
+export class ContactPage extends BasePage {
 	readonly form: ContactFormComponent
 
 	constructor(page: Page) {
-		this.page = page
+		super(page)
 		this.form = new ContactFormComponent(page)
 	}
 

@@ -1,18 +1,13 @@
 import AxeBuilder from '@axe-core/playwright'
 import { type Page } from '@playwright/test'
+import { BaseComponent, BasePage } from 'playwright/utils/page-object'
 import { A11Y_TAGS, AXE_DISABLED_RULES } from './home.builders'
 
-class ThemeSwitcherComponent {
-	constructor(private readonly root: Page) {}
-
-	getRadiogroup = () =>
-		this.root
-			.getByRole('radiogroup', { name: 'Change site color theme' })
-			.first()
+class ThemeSwitcherComponent extends BaseComponent {
 	getLightThemeOption = () =>
-		this.getRadiogroup().getByRole('radio', { name: 'Switch to Light theme' })
+		this.root.getByRole('radio', { name: 'Switch to Light theme' })
 	getDarkThemeOption = () =>
-		this.getRadiogroup().getByRole('radio', { name: 'Switch to Dark theme' })
+		this.root.getByRole('radio', { name: 'Switch to Dark theme' })
 
 	private async selectTheme(
 		option: ReturnType<ThemeSwitcherComponent['getLightThemeOption']>,
@@ -33,19 +28,14 @@ class ThemeSwitcherComponent {
 	}
 }
 
-class MobileNavigationComponent {
-	constructor(private readonly root: Page) {}
-
-	getMenuTrigger = () =>
-		this.root.getByRole('button', { name: 'Open navigation menu' })
-
-	getDrawer = () => this.root.getByRole('dialog')
+class MobileNavigationComponent extends BaseComponent {
+	getDrawer = () => this.root.page().getByRole('dialog')
 
 	getNavLink = (name: string) =>
 		this.getDrawer().getByRole('link', { name, exact: true })
 
 	async openMenu() {
-		await this.getMenuTrigger().click()
+		await this.root.click()
 		await this.getDrawer().waitFor({ state: 'visible' })
 	}
 
@@ -60,26 +50,22 @@ class MobileNavigationComponent {
 	}
 }
 
-class NavigationComponent {
-	readonly mobile: MobileNavigationComponent
-
-	constructor(private readonly root: Page) {
-		this.mobile = new MobileNavigationComponent(root)
-	}
-
-	getMainNavigation = () => this.root.getByRole('navigation', { name: 'main' })
-
+class MainNavigationComponent extends BaseComponent {
 	getNavLink = (name: string) =>
-		this.getMainNavigation().getByRole('link', { name, exact: true })
+		this.root.getByRole('link', { name, exact: true })
 
 	getExpertiseTrigger = () =>
-		this.getMainNavigation().getByRole('button', { name: 'Expertise' })
+		this.root.getByRole('button', { name: 'Expertise' })
+
+	getSubMenuPanel = () =>
+		this.root.page().locator('[data-slot="navigation-menu-content"]')
 
 	getExpertiseLink = (name: string) =>
-		this.root.getByRole('link', { name, exact: true })
+		this.getSubMenuPanel().getByRole('link', { name })
 
 	async openExpertiseMenu() {
 		await this.getExpertiseTrigger().click()
+		await this.getSubMenuPanel().waitFor({ state: 'visible' })
 	}
 
 	async clickNavLink(name: string) {
@@ -91,15 +77,26 @@ class NavigationComponent {
 	}
 }
 
-export class HomePage {
-	readonly page: Page
+export class HomePage extends BasePage {
 	readonly themeSwitcher: ThemeSwitcherComponent
-	readonly navigation: NavigationComponent
+	readonly navigation: {
+		main: MainNavigationComponent
+		mobile: MobileNavigationComponent
+	}
 
 	constructor(page: Page) {
-		this.page = page
-		this.themeSwitcher = new ThemeSwitcherComponent(page)
-		this.navigation = new NavigationComponent(page)
+		super(page)
+		this.themeSwitcher = new ThemeSwitcherComponent(
+			page.getByRole('radiogroup', { name: 'Change site color theme' }).first(),
+		)
+		this.navigation = {
+			main: new MainNavigationComponent(
+				page.getByRole('navigation', { name: 'main' }),
+			),
+			mobile: new MobileNavigationComponent(
+				page.getByRole('button', { name: 'Open navigation menu' }),
+			),
+		}
 	}
 
 	getHtml = () => this.page.locator('html')
