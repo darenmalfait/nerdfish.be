@@ -31,15 +31,15 @@
   },
   "prettier": "@nerdfish/config/prettier",
   "dependencies": {
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
     "@nerdfish/config": "^1.9.4",
-    "@next/eslint-plugin-next": "^15.5.15",
+    "@next/eslint-plugin-next": "^15.5.18",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.9.6",
+    "@turbo/gen": "^2.9.12",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
@@ -48,7 +48,7 @@
     "prettier": "^3.8.3",
     "turbo": "^2.9.6"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.4",
   "pnpm": {
     "overrides": {
       "@types/react": "19.2.14",
