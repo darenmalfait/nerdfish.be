@@ -13,8 +13,6 @@ env:
   NEXT_PUBLIC_URL: 'https://www.nerdfish.be'
   NEXT_PUBLIC_CLERK_SIGN_IN_URL: 'https://www.nerdfish.be/app/sign-in'
   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: 'https://www.nerdfish.be/app'
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
-    ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
 
 jobs:
   format:
