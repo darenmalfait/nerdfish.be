@@ -21,7 +21,6 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		// Build picks @web/proxy-auth stub when NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is unset
 		command: 'pnpm build && pnpm start',
 		url: 'http://localhost:3000',
 		reuseExistingServer: false,

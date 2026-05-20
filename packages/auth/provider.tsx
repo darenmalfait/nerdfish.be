@@ -1,28 +1,36 @@
 'use client'
 
-import { ClerkProvider } from '@clerk/nextjs'
-import { dark } from '@clerk/themes'
-import { type Theme } from '@clerk/types'
+import type * as Clerk from '@clerk/nextjs'
 import { useTheme } from 'next-themes'
-import { type ComponentProps } from 'react'
+import { type ReactNode } from 'react'
+import { isAuthEnabled } from './enabled'
 
-type AuthProviderProperties = ComponentProps<typeof ClerkProvider> & {
-	privacyUrl?: string
-	termsUrl?: string
-	helpUrl?: string
-}
+type AuthProviderProperties = {
+	readonly children: ReactNode
+	readonly privacyUrl?: string
+	readonly termsUrl?: string
+	readonly helpUrl?: string
+} & Record<string, unknown>
+
+const ClerkProvider = isAuthEnabled()
+	? // eslint-disable-next-line @typescript-eslint/no-var-requires -- optional at build time
+		(require('@clerk/nextjs') as typeof Clerk).ClerkProvider
+	: null
 
 export function AuthProvider({
 	privacyUrl,
 	termsUrl,
 	helpUrl,
+	children,
 	...properties
 }: AuthProviderProperties) {
 	const { resolvedTheme } = useTheme()
-	const isDark = resolvedTheme === 'dark'
-	const baseTheme = isDark ? dark : undefined
 
-	const variables: Theme['variables'] = {
+	if (!ClerkProvider) {
+		return children
+	}
+
+	const variables = {
 		fontFamily: 'var(--font-sans)',
 		fontFamilyButtons: 'var(--font-sans)',
 		fontWeight: {
@@ -32,7 +40,7 @@ export function AuthProvider({
 		},
 	}
 
-	const elements: Theme['elements'] = {
+	const elements = {
 		dividerLine: 'bg-border',
 		socialButtonsIconButton: 'bg-background-muted',
 		navbarButton: 'text-foreground',
@@ -43,16 +51,21 @@ export function AuthProvider({
 		organizationPreviewAvatarContainer: 'shrink-0',
 	}
 
-	const layout: Theme['layout'] = {
-		privacyPageUrl: privacyUrl,
-		termsPageUrl: termsUrl,
-		helpPageUrl: helpUrl,
-	}
-
 	return (
 		<ClerkProvider
 			{...properties}
-			appearance={{ layout, baseTheme, elements, variables }}
-		/>
+			appearance={{
+				layout: {
+					privacyPageUrl: privacyUrl,
+					termsPageUrl: termsUrl,
+					helpPageUrl: helpUrl,
+				},
+				variables,
+				elements,
+				colorScheme: resolvedTheme === 'dark' ? 'dark' : 'light',
+			}}
+		>
+			{children}
+		</ClerkProvider>
 	)
 }
