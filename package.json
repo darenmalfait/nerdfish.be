@@ -39,7 +39,7 @@
     "@nerdfish/config": "^1.9.4",
     "@next/eslint-plugin-next": "^16.2.6",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.9.12",
+    "@turbo/gen": "^2.9.14",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
@@ -51,7 +51,7 @@
   "packageManager": "pnpm@10.33.4",
   "pnpm": {
     "overrides": {
-      "@types/react": "19.2.14",
+      "@types/react": "19.2.15",
       "@types/react-dom": "19.2.3"
     }
   }
