@@ -640,12 +640,51 @@
 			}
 		}
 	},
+	"privacy": {
+		"page": {
+			"_meta": {
+				"description": "Privacybeleid voor nerdfish.be — welke persoonsgegevens via het contactformulier worden verzameld, waarom, en uw rechten onder de GDPR.",
+				"title": "Privacybeleid"
+			},
+			"intro": "Dit beleid legt uit hoe Daren Malfait BV persoonsgegevens verwerkt wanneer u nerdfish.be bezoekt of het contactformulier gebruikt.",
+			"sections": {
+				"controller": {
+					"body": "Daren Malfait BV (BE0794123756) is verwerkingsverantwoordelijke voor persoonsgegevens via deze website. Contact: daren@nerdfish.be.",
+					"title": "Wie is verantwoordelijk"
+				},
+				"data": {
+					"body": "Wanneer u het contactformulier indient, verzamelen we de velden die u invult (zoals naam, e-mail, telefoon, bedrijf, BTW-nummer en bericht). Bij een bezoek aan de site kunnen onze hostingprovider en spambeveiliging van het contactformulier technische gegevens verwerken, zoals IP-adres en browserinformatie. We plaatsen een taalvoorkeurcookie (NEXT_LOCALE) om uw taalkeuze te onthouden.",
+					"title": "Welke gegevens we verwerken"
+				},
+				"legalBasis": {
+					"body": "Gegevens uit het contactformulier worden verwerkt om uw vraag te beantwoorden (gerechtvaardigd belang / precontractuele stappen). Taalvoorkeur wordt opgeslagen op basis van uw interactie met de site. Spambeveiliging op het contactformulier maakt gebruik van Google reCAPTCHA om misbruik te voorkomen.",
+					"title": "Rechtsgrond"
+				},
+				"retention": {
+					"body": "Inzendingen via het contactformulier worden enkel bewaard zolang nodig om uw vraag en eventuele opvolging af te handelen, tenzij een langere bewaartermijn wettelijk vereist is.",
+					"title": "Hoelang we gegevens bewaren"
+				},
+				"rights": {
+					"body": "Onder de GDPR heeft u het recht op inzage, rectificatie, wissing, beperking of bezwaar tegen verwerking, en op gegevensoverdraagbaarheid waar van toepassing. U kunt ook een klacht indienen bij uw toezichthoudende autoriteit. Mail daren@nerdfish.be om uw rechten uit te oefenen.",
+					"title": "Uw rechten"
+				},
+				"contact": {
+					"body": "Vragen over dit beleid of uw gegevens:",
+					"title": "Contact",
+					"vat": "BTW"
+				}
+			},
+			"title": "Privacybeleid",
+			"updated": "Laatst bijgewerkt: juni 2026."
+		}
+	},
 	"features": {
 		"readMoreAbout": "Lees meer over {subject}",
 		"viewMore": "Bekijk {subject}"
 	},
 	"footer": {
-		"follow-us": "volg ons"
+		"follow-us": "volg ons",
+		"privacy": "Privacybeleid"
 	},
 	"global": {
 		"about": "over",

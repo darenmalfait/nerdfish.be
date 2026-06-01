@@ -14,6 +14,10 @@ export const basePathNames = {
 	},
 	'/blog': '/blog',
 	'/contact': '/contact',
+	'/privacy': {
+		en: '/privacy',
+		nl: '/privacybeleid',
+	},
 	'/expertise/3d-printing': '/expertise/3d-printing',
 	'/expertise/branding': '/expertise/branding',
 	'/expertise/freelance': '/expertise/freelance',

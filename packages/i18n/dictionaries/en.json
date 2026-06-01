@@ -640,12 +640,51 @@
 			}
 		}
 	},
+	"privacy": {
+		"page": {
+			"_meta": {
+				"description": "Privacy policy for nerdfish.be — what personal data is collected through the contact form, why, and your rights under GDPR.",
+				"title": "Privacy policy"
+			},
+			"intro": "This policy explains how Daren Malfait BV processes personal data when you visit nerdfish.be or use the contact form.",
+			"sections": {
+				"controller": {
+					"body": "Daren Malfait BV (BE0794123756) is the data controller for personal data processed through this website. Contact: daren@nerdfish.be.",
+					"title": "Who is responsible"
+				},
+				"data": {
+					"body": "When you submit the contact form, we collect the fields you provide (such as name, email, phone, company, VAT number, and message). When you visit the site, our hosting provider and contact-form spam protection may process technical data such as IP address and browser information. We set a locale preference cookie (NEXT_LOCALE) to remember your language choice.",
+					"title": "What data we process"
+				},
+				"legalBasis": {
+					"body": "Contact-form data is processed to respond to your enquiry (legitimate interest / pre-contractual steps). Locale preference is stored based on your interaction with the site. Spam protection on the contact form relies on Google reCAPTCHA to protect the form from abuse.",
+					"title": "Legal basis"
+				},
+				"retention": {
+					"body": "Contact-form submissions are kept only as long as needed to handle your request and any follow-up, unless a longer retention period is required by law.",
+					"title": "How long we keep data"
+				},
+				"rights": {
+					"body": "Under the GDPR you have the right to access, rectify, erase, restrict, or object to processing of your personal data, and to data portability where applicable. You may also lodge a complaint with your supervisory authority. To exercise your rights, email daren@nerdfish.be.",
+					"title": "Your rights"
+				},
+				"contact": {
+					"body": "Questions about this policy or your data:",
+					"title": "Contact",
+					"vat": "VAT"
+				}
+			},
+			"title": "Privacy policy",
+			"updated": "Last updated: June 2026."
+		}
+	},
 	"features": {
 		"readMoreAbout": "Read more about {subject}",
 		"viewMore": "View {subject}"
 	},
 	"footer": {
-		"follow-us": "follow us"
+		"follow-us": "follow us",
+		"privacy": "Privacy policy"
 	},
 	"global": {
 		"about": "about",

@@ -21,6 +21,6 @@ export const config = {
 	 * - robots.txt
 	 */
 	matcher: [
-		'/((?!api|_next/static|_next/image|uploads|images|admin|favicon.ico|sitemap.xml|robots.txt).*)',
+		'/((?!api|_next/static|_next/image|uploads|images|admin|favicon.ico|sitemap.xml|robots.txt|llms.txt).*)',
 	],
 }

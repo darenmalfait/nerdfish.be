@@ -22,12 +22,19 @@ import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 function Disclaimer() {
 	const { companyName, email, vat } = companyInfo
 	const currentYear = new Date().getFullYear()
+	const t = useTranslations('footer')
 
 	return (
 		<div className="text-muted/70 gap-bff mt-8 flex flex-col items-center justify-center text-xs sm:mt-0 sm:flex-row sm:gap-x-4 sm:gap-y-0 sm:text-sm md:justify-self-start">
 			<span>
 				© {currentYear} {companyName}
 			</span>
+			<span aria-hidden="true" className="hidden select-none sm:inline">
+				•
+			</span>
+			<Link href="/privacy" className="hover:text-foreground transition-colors">
+				{t('privacy')}
+			</Link>
 			<span aria-hidden="true" className="hidden select-none sm:inline">
 				•
 			</span>
