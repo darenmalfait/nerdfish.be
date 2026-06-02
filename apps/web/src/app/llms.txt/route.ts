@@ -1,4 +1,4 @@
-import { buildLlmsTxt } from '~/lib/llms-txt'
+import { buildLlmsTxt } from './build-llms-txt'
 
 export async function GET() {
 	const body = await buildLlmsTxt()
