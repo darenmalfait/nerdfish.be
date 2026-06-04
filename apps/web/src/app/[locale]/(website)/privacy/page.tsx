@@ -53,13 +53,13 @@ export default async function PrivacyPage(props: PageProps) {
 				<p>{t('intro')}</p>
 
 				{sections.map((section) => (
-					<section key={section}>
+					<section key={section} className="typography mt-acquaintances">
 						<h2>{t(`sections.${section}.title`)}</h2>
 						<p>{t(`sections.${section}.body`)}</p>
 					</section>
 				))}
 
-				<section>
+				<section className="typography mt-acquaintances">
 					<h2>{t('sections.contact.title')}</h2>
 					<p>{t('sections.contact.body')}</p>
 					<ul>
