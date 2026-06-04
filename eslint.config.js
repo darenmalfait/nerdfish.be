@@ -1,8 +1,14 @@
 import { config as defaultConfig } from '@nerdfish/config/eslint'
+import conventionsRules from '@nerdfish/config/eslint/conventions'
+import testingRules from '@nerdfish/config/eslint/testing'
+import bddRules from '@nerdfish/config/eslint/testing/bdd'
 
 /** @type {import("eslint").Linter.Config} */
 export default [
 	...defaultConfig,
+	...conventionsRules,
+	...bddRules,
+	...testingRules,
 	{
 		files: ['**/*.ts?(x)', '**/*.js?(x)'],
 		settings: {

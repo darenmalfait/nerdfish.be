@@ -28,7 +28,7 @@ export function getWikiPath(post: PartialDeep<Wiki>) {
 	return `/en/wiki/${post.slug}`
 }
 
-export function mapWikiToArticle(item: PartialDeep<Wiki>): Article {
+export function toArticleFromWiki(item: PartialDeep<Wiki>): Article {
 	return {
 		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',

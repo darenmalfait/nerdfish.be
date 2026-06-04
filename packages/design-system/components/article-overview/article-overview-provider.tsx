@@ -73,10 +73,10 @@ export function ArticleOverviewProvider({
 
 	async function toggleFilter(tag: string) {
 		const currentTags = params.search?.split(' ').filter(Boolean) ?? []
-		const tagExists = currentTags.includes(tag)
+		const hasTag = currentTags.includes(tag)
 
 		await setParams({
-			search: tagExists
+			search: hasTag
 				? currentTags.filter((t) => t !== tag).join(' ')
 				: [...currentTags, tag].join(' '),
 		})

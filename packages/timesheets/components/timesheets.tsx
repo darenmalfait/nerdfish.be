@@ -8,7 +8,7 @@ import {
 	useTimesheets,
 } from '../providers/timesheets-provider'
 import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
-import { TIMEZONE, useCalendarDates } from '../utils'
+import { TIMEZONE, calendarDates } from '../utils'
 import { TimesheetsCalendar } from './timesheets-calendar'
 import { TimesheetsEventsSheet } from './timesheets-events-sheet'
 import { TimesheetsMonthSelect } from './timesheets-month-select'
@@ -18,7 +18,7 @@ import { TimesheetsToolbar } from './timesheets-toolbar'
 function TimesheetsContent() {
 	const { timesheets } = useTimesheets()
 	const { date } = useTimesheetsParams()
-	const { calendarDays } = useCalendarDates(new TZDate(date, TIMEZONE))
+	const { calendarDays } = calendarDates(new TZDate(date, TIMEZONE))
 
 	const filteredTimesheets = useMemo<TimesheetsData>(() => {
 		// only this month

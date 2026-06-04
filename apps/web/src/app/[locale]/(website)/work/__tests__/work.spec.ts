@@ -2,7 +2,7 @@ import { expect } from '@playwright/test'
 import { WORK_PROJECT_URL_PATTERN } from './work.builders'
 import { test } from './work.fixture'
 
-test.describe('User Story: As a user, I want to browse work projects', () => {
+test.describe('User Story: The user wants to browse work projects', () => {
 	test.describe('Given the user is on the work page', () => {
 		test.beforeEach(async ({ workPage }) => {
 			await workPage.goto()
@@ -13,7 +13,7 @@ test.describe('User Story: As a user, I want to browse work projects', () => {
 			await expect(workPage.getProjectLinks().first()).toBeVisible()
 		})
 
-		test.describe('When I click on a project', () => {
+		test.describe('When the user clicks on a project', () => {
 			test.beforeEach(async ({ workPage }) => {
 				await workPage.openFirstProject()
 			})

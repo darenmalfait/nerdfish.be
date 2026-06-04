@@ -46,7 +46,7 @@ export function ImportTimeEntriesButton() {
 	const { onImportEvents } = useTimesheets()
 	const [importing, setImporting] = useState<boolean>(false)
 
-	const onComplete = useCallback(
+	const handleComplete = useCallback(
 		async (data: {
 			rows: {
 				values: {
@@ -121,7 +121,7 @@ export function ImportTimeEntriesButton() {
 				modalIsOpen={importing}
 				modalOnCloseTriggered={() => setImporting(false)}
 				className="w-full"
-				onComplete={onComplete}
+				onComplete={handleComplete}
 				template={template}
 			/>
 		</div>

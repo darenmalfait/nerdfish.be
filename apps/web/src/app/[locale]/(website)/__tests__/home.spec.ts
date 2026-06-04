@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test'
 import { test } from './home.fixture'
 
-test.describe('User Story: As a user, I want to use the homepage without accessibility barriers', () => {
+test.describe('User Story: The user wants to use the homepage without accessibility barriers', () => {
 	test.describe('Given the user is on the homepage', () => {
 		test.beforeEach(async ({ homePage }) => {
 			await homePage.goto()
@@ -11,13 +11,13 @@ test.describe('User Story: As a user, I want to use the homepage without accessi
 			await expect(homePage.getHeroHeading()).toBeVisible()
 		})
 
-		test.describe('When I view the page in light mode', () => {
+		test.describe('When the user views the page in light mode', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.themeSwitcher.selectLightTheme()
 			})
 
 			test('it should show the page in light mode', async ({ homePage }) => {
-				await expect(homePage.getHtml()).toHaveClass(/light/)
+				await expect(homePage.themeSwitcher.getLightThemeOption()).toBeChecked()
 			})
 
 			test('it should have no WCAG A or AA violations', async ({
@@ -27,13 +27,13 @@ test.describe('User Story: As a user, I want to use the homepage without accessi
 			})
 		})
 
-		test.describe('When I view the page in dark mode', () => {
+		test.describe('When the user views the page in dark mode', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.themeSwitcher.selectDarkTheme()
 			})
 
 			test('it should show the page in dark mode', async ({ homePage }) => {
-				await expect(homePage.getHtml()).toHaveClass(/dark/)
+				await expect(homePage.themeSwitcher.getDarkThemeOption()).toBeChecked()
 			})
 
 			test('it should have no WCAG A or AA violations', async ({

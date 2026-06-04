@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import { useMountEffect } from './use-mount-effect'
+import { useSyncExternalStore } from 'react'
 
-let hydrating = true
+function subscribe() {
+	return () => {}
+}
+
 export function useHydrated() {
-	const [hydrated, setHydrated] = useState(() => !hydrating)
-
-	useMountEffect(() => {
-		hydrating = false
-		setHydrated(true)
-	})
-
-	return hydrated
+	return useSyncExternalStore(
+		subscribe,
+		() => true,
+		() => false,
+	)
 }

@@ -99,7 +99,6 @@ export class HomePage extends BasePage {
 		}
 	}
 
-	getHtml = () => this.page.locator('html')
 	getHeroHeading = () =>
 		this.page.getByRole('heading', {
 			level: 1,

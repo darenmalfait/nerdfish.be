@@ -14,7 +14,7 @@ import { cn } from '@repo/lib/utils/class'
 import { useCallback, useState } from 'react'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
-import { TIMEZONE, useCalendarDates } from '../utils'
+import { TIMEZONE, calendarDates } from '../utils'
 import { TimesheetsCalendarEvents } from './timesheets-calendar-events'
 
 function checkIsInRange(
@@ -200,7 +200,7 @@ export function TimesheetsCalendar({
 		range,
 	} = useTimesheetsParams()
 
-	const { calendarDays, firstWeek } = useCalendarDates(
+	const { calendarDays, firstWeek } = calendarDates(
 		new TZDate(currentDate, TIMEZONE),
 	)
 

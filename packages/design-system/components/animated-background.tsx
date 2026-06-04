@@ -43,6 +43,7 @@ export function AnimatedBackground({
 
 	if (!children) return null
 
+	// eslint-disable-next-line @nerdfish/conventions/map-transformer-name
 	return Children.map(children, (child: ReactElement, index) => {
 		const id = (child as any).props['data-id']
 

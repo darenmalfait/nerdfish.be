@@ -8,7 +8,7 @@ import {
 } from './home.builders'
 import { test } from './home.fixture'
 
-test.describe('User Story: As a user, I want to navigate the site using the main navigation', () => {
+test.describe('User Story: The user wants to navigate the site using the main navigation', () => {
 	test.describe('Given the user is on the homepage', () => {
 		test.beforeEach(async ({ homePage }) => {
 			await homePage.goto()
@@ -18,7 +18,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 			await expect(homePage.navigation.main.root).toBeVisible()
 		})
 
-		test.describe('When I click About', () => {
+		test.describe('When the user clicks About', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.main.clickNavLink('About')
 			})
@@ -31,7 +31,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 			})
 		})
 
-		test.describe('When I click Blog', () => {
+		test.describe('When the user clicks Blog', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.main.clickNavLink('Blog')
 			})
@@ -44,7 +44,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 			})
 		})
 
-		test.describe('When I click Work', () => {
+		test.describe('When the user clicks Work', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.main.clickNavLink('Work')
 			})
@@ -57,7 +57,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 			})
 		})
 
-		test.describe('When I click Contact', () => {
+		test.describe('When the user clicks Contact', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.main.clickNavLink('Contact')
 			})
@@ -70,7 +70,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 			})
 		})
 
-		test.describe('When I open Websites within the Expertise menu', () => {
+		test.describe('When the user opens Websites within the Expertise menu', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.main.openExpertiseMenu()
 				await homePage.navigation.main.clickExpertiseLink('Websites')
@@ -88,7 +88,7 @@ test.describe('User Story: As a user, I want to navigate the site using the main
 	})
 })
 
-test.describe('User Story: As a user, I want to navigate the site using the mobile navigation', () => {
+test.describe('User Story: The user wants to navigate the site using the mobile navigation', () => {
 	test.use({ viewport: { width: 390, height: 844 } })
 
 	test.describe('Given the user is on the homepage', () => {
@@ -100,7 +100,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			await expect(homePage.navigation.main.root).toBeHidden()
 		})
 
-		test.describe('When I open the navigation menu', () => {
+		test.describe('When the user opens the navigation menu', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.openMenu()
 			})
@@ -110,7 +110,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			})
 		})
 
-		test.describe('When I click About', () => {
+		test.describe('When the user clicks About', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.clickNavLink('About')
 			})
@@ -127,7 +127,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			})
 		})
 
-		test.describe('When I click Blog', () => {
+		test.describe('When the user clicks Blog', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.clickNavLink('Blog')
 			})
@@ -140,7 +140,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			})
 		})
 
-		test.describe('When I click Work', () => {
+		test.describe('When the user clicks Work', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.clickNavLink('Work')
 			})
@@ -153,7 +153,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			})
 		})
 
-		test.describe('When I click Contact', () => {
+		test.describe('When the user clicks Contact', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.clickNavLink('Contact')
 			})
@@ -166,7 +166,7 @@ test.describe('User Story: As a user, I want to navigate the site using the mobi
 			})
 		})
 
-		test.describe('When I click Websites in the navigation menu', () => {
+		test.describe('When the user clicks Websites in the navigation menu', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.clickExpertiseLink('Websites')
 			})

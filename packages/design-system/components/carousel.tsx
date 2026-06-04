@@ -247,7 +247,7 @@ function CarouselPrevious({
 	icon = true,
 	...props
 }: ComponentProps<typeof Button>) {
-	const { scrollPrev, canScrollPrev } = useCarousel()
+	const { scrollPrev: handleScrollPrev, canScrollPrev } = useCarousel()
 
 	return (
 		<Button
@@ -255,7 +255,7 @@ function CarouselPrevious({
 			variant={variant}
 			icon={icon}
 			disabled={!canScrollPrev}
-			onClick={scrollPrev}
+			onClick={handleScrollPrev}
 			{...props}
 		>
 			<ArrowLeft />
@@ -269,7 +269,7 @@ function CarouselNext({
 	icon = true,
 	...props
 }: ComponentProps<typeof Button>) {
-	const { scrollNext, canScrollNext } = useCarousel()
+	const { scrollNext: handleScrollNext, canScrollNext } = useCarousel()
 
 	return (
 		<Button
@@ -277,7 +277,7 @@ function CarouselNext({
 			variant={variant}
 			icon={icon}
 			disabled={!canScrollNext}
-			onClick={scrollNext}
+			onClick={handleScrollNext}
 			{...props}
 		>
 			<ArrowRight />

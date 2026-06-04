@@ -2,7 +2,7 @@ import { expect } from '@playwright/test'
 import { BLOG_POST_URL_PATTERN } from './blog.builders'
 import { test } from './blog.fixture'
 
-test.describe('User Story: As a user, I want to browse the blog', () => {
+test.describe('User Story: The user wants to browse the blog', () => {
 	test.describe('Given the user is on the blog page', () => {
 		test.beforeEach(async ({ blogPage }) => {
 			await blogPage.goto()
@@ -12,7 +12,7 @@ test.describe('User Story: As a user, I want to browse the blog', () => {
 			await expect(blogPage.getPostLinks().first()).toBeVisible()
 		})
 
-		test.describe('When I search for a term with no matches', () => {
+		test.describe('When the user searches for a term with no matches', () => {
 			test.beforeEach(async ({ blogPage }) => {
 				await blogPage.search('zzznomatchzzz')
 			})
@@ -22,7 +22,7 @@ test.describe('User Story: As a user, I want to browse the blog', () => {
 			})
 		})
 
-		test.describe('When I click on a post', () => {
+		test.describe('When the user clicks on a post', () => {
 			test.beforeEach(async ({ blogPage }) => {
 				await blogPage.openFirstPost()
 			})

@@ -391,7 +391,9 @@ export function ArticlesOverviewEmptyState({
 					<EmptyMedia variant="icon">
 						{Icon ? <Icon /> : <NewspaperIcon />}
 					</EmptyMedia>
-					<EmptyTitle>{title ?? 'No articles found'}</EmptyTitle>
+					<EmptyTitle role="heading" aria-level={2}>
+						{title ?? 'No articles found'}
+					</EmptyTitle>
 					<EmptyDescription>
 						{description ?? 'Try searching for something else.'}
 					</EmptyDescription>

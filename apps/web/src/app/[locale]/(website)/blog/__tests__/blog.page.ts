@@ -8,7 +8,8 @@ export class BlogPage extends BasePage {
 		})
 	getSearchInput = () => this.page.getByRole('searchbox')
 	getPostLinks = () => this.page.locator('a[href^="/blog/"]')
-	getEmptyState = () => this.page.getByText('No articles found')
+	getEmptyState = () =>
+		this.page.getByRole('heading', { name: 'No articles found' })
 
 	async goto() {
 		await this.page.goto('/blog')

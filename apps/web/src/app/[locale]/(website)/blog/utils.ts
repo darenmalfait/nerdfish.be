@@ -46,7 +46,7 @@ export function getBlogPath(post: PartialDeep<Post>) {
 	return `${localePath}${blogPath}`
 }
 
-export function mapBlogToArticle(item: PartialDeep<Post>): Article {
+export function toArticleFromBlog(item: PartialDeep<Post>): Article {
 	return {
 		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',

@@ -64,6 +64,7 @@ export function TextSlideUp({
 
 	return (
 		<Component ref={componentRef} className={className} {...props}>
+			{/* eslint-disable-next-line @nerdfish/conventions/map-transformer-name */}
 			{Children.map(children, (child, index) => {
 				const stagger = staggerDelay ? index * staggerDelay : 0
 				const itemDelay = delay + stagger

@@ -252,7 +252,7 @@ export function ContactForm() {
 												control={form.control}
 												name="projectType"
 												render={({ field, fieldState }) => {
-													const checked = field.value.includes(type)
+													const isChecked = field.value.includes(type)
 
 													return (
 														<Field
@@ -268,7 +268,7 @@ export function ContactForm() {
 																	render={<span>{type}</span>}
 																	aria-label={type}
 																	size="sm"
-																	variant={checked ? 'accent' : 'outline'}
+																	variant={isChecked ? 'accent' : 'outline'}
 																	className="inline cursor-pointer"
 																/>
 															</FieldLabel>
@@ -277,7 +277,7 @@ export function ContactForm() {
 																{...field}
 																type="checkbox"
 																aria-label={type}
-																checked={checked}
+																checked={isChecked}
 																aria-invalid={fieldState.invalid}
 																className="peer sr-only"
 																onChange={(e) => {

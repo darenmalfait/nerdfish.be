@@ -15,7 +15,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 	const { setParams, range, selectedDate } = useTimesheetsParams()
 	const currentDate = getTimesheetsDates(range, selectedDate)
 
-	const selectPrevDay = () => {
+	const handleSelectPrevDay = () => {
 		if (currentDate[0]) {
 			const prevDay = new TZDate(subDays(currentDate[0], 1), TIMEZONE)
 			return setParams({
@@ -25,7 +25,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 		}
 	}
 
-	const selectNextDay = () => {
+	const handleSelectNextDay = () => {
 		if (currentDate[0]) {
 			const nextDay = new TZDate(addDays(currentDate[0], 1), TIMEZONE)
 			return setParams({
@@ -35,12 +35,12 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 		}
 	}
 
-	useHotkeys('arrowLeft', selectPrevDay)
-	useHotkeys('arrowRight', selectNextDay)
+	useHotkeys('arrowLeft', handleSelectPrevDay)
+	useHotkeys('arrowRight', handleSelectNextDay)
 
 	return (
 		<ButtonGroup className={cn('w-full', className)}>
-			<Button variant="secondary" onClick={selectPrevDay}>
+			<Button variant="secondary" onClick={handleSelectPrevDay}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>
 			<Button
@@ -64,7 +64,7 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 					</span>
 				}
 			/>
-			<Button variant="secondary" onClick={selectNextDay}>
+			<Button variant="secondary" onClick={handleSelectNextDay}>
 				<ChevronRightIcon className="size-4" />
 			</Button>
 		</ButtonGroup>

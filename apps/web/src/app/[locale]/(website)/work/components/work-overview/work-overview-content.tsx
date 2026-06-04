@@ -21,7 +21,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
 import { type ReactNode, useCallback, useMemo } from 'react'
-import { filterWork, mapWorkToArticle } from '../../utils'
+import { filterWork, toArticleFromWork } from '../../utils'
 import { type ImageType } from '~/app/types'
 
 export interface WorkOverviewContentProps {
@@ -45,14 +45,14 @@ export function WorkOverviewContent({
 	children,
 }: WorkOverviewContentProps) {
 	const t = useTranslations('work.overview')
-	const articles = useMemo(() => items.map(mapWorkToArticle), [items])
+	const articles = useMemo(() => items.map(toArticleFromWork), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
 			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
 
-			return filterWork(works, searchString).map(mapWorkToArticle)
+			return filterWork(works, searchString).map(toArticleFromWork)
 		},
 		[items],
 	)

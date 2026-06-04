@@ -25,7 +25,7 @@ export function TimesheetsMonthSelect({
 		? new TZDate(date, TIMEZONE)
 		: new TZDate(new Date(), TIMEZONE)
 
-	const selectPrevMonth = () => {
+	const handleSelectPrevMonth = () => {
 		return setParams(
 			{
 				date: formatISO(startOfMonth(addMonths(currentDate, -1)), {
@@ -36,7 +36,7 @@ export function TimesheetsMonthSelect({
 		)
 	}
 
-	const selectNextMonth = () => {
+	const handleSelectNextMonth = () => {
 		return setParams(
 			{
 				date: formatISO(startOfMonth(addMonths(currentDate, 1)), {
@@ -49,7 +49,7 @@ export function TimesheetsMonthSelect({
 
 	return (
 		<ButtonGroup className={className}>
-			<Button variant="secondary" onClick={selectPrevMonth}>
+			<Button variant="secondary" onClick={handleSelectPrevMonth}>
 				<ChevronLeftIcon className="size-4" />
 			</Button>
 			<Button variant="secondary" className="pointer-events-none">
@@ -57,7 +57,7 @@ export function TimesheetsMonthSelect({
 					{format(currentDate, dateFormat)}
 				</span>
 			</Button>
-			<Button variant="secondary" onClick={selectNextMonth}>
+			<Button variant="secondary" onClick={handleSelectNextMonth}>
 				<ChevronRightIcon className="size-4" />
 			</Button>
 		</ButtonGroup>

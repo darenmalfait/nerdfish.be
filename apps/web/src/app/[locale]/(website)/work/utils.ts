@@ -49,7 +49,7 @@ export function getWorkPath(post: PartialDeep<Project>) {
 	return `${localePath}${blogPath}`
 }
 
-export function mapWorkToArticle(item: PartialDeep<Project>): Article {
+export function toArticleFromWork(item: PartialDeep<Project>): Article {
 	return {
 		id: item.id ?? getCrypto().randomUUID(),
 		title: item.title ?? 'untitled',

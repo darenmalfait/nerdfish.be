@@ -2,13 +2,13 @@ import { expect } from '@playwright/test'
 import { mockContactFormData } from './contact-form.builders'
 import { test } from './contact.fixture'
 
-test.describe('User Story: As a user, I want to submit the contact form', () => {
+test.describe('User Story: The user wants to submit the contact form', () => {
 	test.describe('Given the user is on the contact page', () => {
 		test.beforeEach(async ({ contactPage }) => {
 			await contactPage.goto()
 		})
 
-		test.describe('When I open the contact form', () => {
+		test.describe('When the user opens the contact form', () => {
 			test.beforeEach(async ({ contactPage }) => {
 				await contactPage.openForm()
 			})
@@ -17,7 +17,7 @@ test.describe('User Story: As a user, I want to submit the contact form', () => 
 				await expect(contactPage.form.getForm()).toBeVisible()
 			})
 
-			test.describe('When I submit without filling required fields', () => {
+			test.describe('When the user submits without filling required fields', () => {
 				test.beforeEach(async ({ contactPage }) => {
 					await contactPage.form.submit()
 				})
@@ -32,7 +32,7 @@ test.describe('User Story: As a user, I want to submit the contact form', () => 
 				})
 			})
 
-			test.describe('When I submit with an invalid email', () => {
+			test.describe('When the user submits with an invalid email', () => {
 				test.beforeEach(async ({ contactPage }) => {
 					await contactPage.form.getEmailInput().fill('invalid-email')
 					await contactPage.form.submit()
@@ -48,7 +48,7 @@ test.describe('User Story: As a user, I want to submit the contact form', () => 
 				})
 			})
 
-			test.describe('When I select the webdesign option', () => {
+			test.describe('When the user selects the webdesign option', () => {
 				test.beforeEach(async ({ contactPage }) => {
 					await contactPage.form.getWebdesignOption().click()
 				})
@@ -58,12 +58,12 @@ test.describe('User Story: As a user, I want to submit the contact form', () => 
 				})
 			})
 
-			test.describe('When I complete the form with valid data', () => {
+			test.describe('When the user completes the form with valid data', () => {
 				test.beforeEach(async ({ contactPage }) => {
 					await contactPage.form.fill(mockContactFormData())
 				})
 
-				test.describe('When I submit the form', () => {
+				test.describe('When the user submits the form', () => {
 					test.beforeEach(async ({ contactPage }) => {
 						await contactPage.form.submit()
 					})

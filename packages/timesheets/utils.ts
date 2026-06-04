@@ -18,7 +18,7 @@ import { type TimesheetsRecord } from './schemas'
 
 export const TIMEZONE = 'Europe/Brussels'
 
-export function sortDatesByTime(a: string, b: string): number {
+export function byTime(a: string, b: string): number {
 	return new Date(a).getTime() - new Date(b).getTime()
 }
 
@@ -27,9 +27,7 @@ export function getTimesheetsDates(
 	selectedDate: string | null,
 ): Date[] {
 	if (range) {
-		return [...range]
-			.sort(sortDatesByTime)
-			.map((dateString) => new Date(dateString))
+		return [...range].sort(byTime).map((dateString) => new Date(dateString))
 	}
 
 	if (selectedDate) {
@@ -98,7 +96,7 @@ export function transformTimesheetsRecordToCalendarEvent(
 	}
 }
 
-export function transformCalendarEventToTimesheetsRecord(
+export function toTimesheetsRecordFromCalendarEvent(
 	event: CalendarEvent,
 ): TimesheetsRecord {
 	return {
@@ -112,7 +110,7 @@ export function transformCalendarEventToTimesheetsRecord(
 	}
 }
 
-export function useCalendarDates(currentDate: TZDate) {
+export function calendarDates(currentDate: TZDate) {
 	const weekStartsOn = 1
 
 	const monthStart = startOfMonth(currentDate)

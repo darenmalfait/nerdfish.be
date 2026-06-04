@@ -23,7 +23,7 @@ export default defineConfig({
 	webServer: {
 		command: 'pnpm build && pnpm start',
 		url: 'http://localhost:3000',
-		reuseExistingServer: false,
+		reuseExistingServer: true,
 		env: {
 			...process.env,
 			SKIP_EMAILS: 'true',

@@ -14,7 +14,7 @@ import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
 import { type TimesheetsRecord } from '../schemas'
 import {
-	transformCalendarEventToTimesheetsRecord,
+	toTimesheetsRecordFromCalendarEvent,
 	transformTimesheetsRecordToCalendarEvent,
 	transformTimesheetsRecordToFormData,
 } from '../utils'
@@ -137,12 +137,11 @@ export function TimesheetsSchedule({
 					)}
 					onDeleteEvent={handleDeleteEvent}
 					onChange={(values) => {
-						setData(values.map(transformCalendarEventToTimesheetsRecord))
+						setData(values.map(toTimesheetsRecordFromCalendarEvent))
 					}}
 					onEventSelect={(event) => {
 						if (!event) setSelectedEvent(undefined)
-						else
-							setSelectedEvent(transformCalendarEventToTimesheetsRecord(event))
+						else setSelectedEvent(toTimesheetsRecordFromCalendarEvent(event))
 					}}
 				/>
 			</ScrollArea>

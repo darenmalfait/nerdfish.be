@@ -64,15 +64,15 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 			)}
 		>
 			{tags.map((tag) => {
-				const selected = selectedTags?.includes(tag)
-				const disabled = enabledTags?.includes(tag) ? false : !selected
+				const isSelected = selectedTags?.includes(tag)
+				const isDisabled = enabledTags?.includes(tag) ? false : !isSelected
 
 				return (
 					<Toggle
 						variant="outline"
-						disabled={disabled}
+						disabled={isDisabled}
 						key={tag}
-						pressed={selected}
+						pressed={isSelected}
 						onPressedChange={() => onToggleTag(tag)}
 					>
 						{tag}
