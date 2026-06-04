@@ -9,13 +9,10 @@ import {
 import { test } from './home.fixture'
 
 test.describe('User Story: The user wants to navigate the site using the main navigation', () => {
-	test.describe('Given the user is on the homepage', () => {
+	test.describe('Given the navigation is visible', () => {
 		test.beforeEach(async ({ homePage }) => {
 			await homePage.goto()
-		})
-
-		test('it should show the main navigation', async ({ homePage }) => {
-			await expect(homePage.navigation.main.root).toBeVisible()
+			await homePage.navigation.main.root.waitFor({ state: 'visible' })
 		})
 
 		test.describe('When the user clicks About', () => {
@@ -91,16 +88,19 @@ test.describe('User Story: The user wants to navigate the site using the main na
 test.describe('User Story: The user wants to navigate the site using the mobile navigation', () => {
 	test.use({ viewport: { width: 390, height: 844 } })
 
-	test.describe('Given the user is on the homepage', () => {
+	test.describe('Given the mobile navigation is visible', () => {
 		test.beforeEach(async ({ homePage }) => {
 			await homePage.goto()
+			await homePage.navigation.mobile
+				.getHamburgerMenuButton()
+				.waitFor({ state: 'visible' })
 		})
 
 		test('it should hide the desktop main navigation', async ({ homePage }) => {
 			await expect(homePage.navigation.main.root).toBeHidden()
 		})
 
-		test.describe('When the user opens the navigation menu', () => {
+		test.describe('When the user opens the mobile navigation menu', () => {
 			test.beforeEach(async ({ homePage }) => {
 				await homePage.navigation.mobile.openMenu()
 			})

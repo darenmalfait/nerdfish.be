@@ -29,13 +29,15 @@ class ThemeSwitcherComponent extends BaseComponent {
 }
 
 class MobileNavigationComponent extends BaseComponent {
+	getHamburgerMenuButton = () => this.root
+
 	getDrawer = () => this.root.page().getByRole('dialog')
 
 	getNavLink = (name: string) =>
 		this.getDrawer().getByRole('link', { name, exact: true })
 
 	async openMenu() {
-		await this.root.click()
+		await this.getHamburgerMenuButton().click()
 		await this.getDrawer().waitFor({ state: 'visible' })
 	}
 
