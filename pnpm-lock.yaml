@@ -32,8 +32,8 @@ importers:
         specifier: workspace:*
         version: link:packages/typescript-config
       '@turbo/gen':
-        specifier: ^2.9.14
-        version: 2.9.14(@types/node@24.12.4)
+        specifier: ^2.9.16
+        version: 2.9.16(@types/node@24.12.4)
       dotenv-cli:
         specifier: ^11.0.0
         version: 11.0.0
@@ -53,8 +53,8 @@ importers:
         specifier: ^3.8.3
         version: 3.8.3
       turbo:
-        specifier: ^2.9.6
-        version: 2.9.14
+        specifier: ^2.9.16
+        version: 2.9.16
 
   apps/email:
     dependencies:
@@ -148,11 +148,11 @@ importers:
         specifier: ^4.11.3
         version: 4.11.3(playwright-core@1.60.0)
       '@content-collections/core':
-        specifier: ^0.15.0
-        version: 0.15.0(typescript@5.9.3)
+        specifier: ^0.15.1
+        version: 0.15.1(typescript@5.9.3)
       '@hookform/resolvers':
-        specifier: ^5.2.2
-        version: 5.2.2(react-hook-form@7.76.1(react@19.2.6))
+        specifier: ^5.4.0
+        version: 5.4.0(react-hook-form@7.76.1(react@19.2.6))
       '@nerdfish/react':
         specifier: ^1.2.1
         version: 1.2.1(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react-is@16.13.1)(react@19.2.6)(redux@5.0.1)
@@ -220,7 +220,7 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
       motion:
-        specifier: ^12.39.0
+        specifier: ^12.40.0
         version: 12.40.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       negotiator:
         specifier: ^1.0.0
@@ -229,8 +229,8 @@ importers:
         specifier: 16.2.6
         version: 16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next-safe-action:
-        specifier: ^8.5.2
-        version: 8.5.2(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^8.5.3
+        version: 8.5.3(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       nuqs:
         specifier: ^2.8.9
         version: 2.8.9(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)
@@ -241,7 +241,7 @@ importers:
         specifier: 19.2.6
         version: 19.2.6(react@19.2.6)
       react-hook-form:
-        specifier: ^7.76.0
+        specifier: ^7.76.1
         version: 7.76.1(react@19.2.6)
       tailwindcss-animate:
         specifier: ^1.0.7
@@ -299,8 +299,8 @@ importers:
   packages/auth:
     dependencies:
       '@clerk/nextjs':
-        specifier: ^7.3.7
-        version: 7.3.7(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^7.4.2
+        version: 7.4.3(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.4.3)
@@ -336,8 +336,8 @@ importers:
   packages/calendar:
     dependencies:
       '@date-fns/tz':
-        specifier: ^1.4.1
-        version: 1.4.1
+        specifier: ^1.5.0
+        version: 1.5.0
       '@repo/design-system':
         specifier: workspace:*
         version: link:../design-system
@@ -345,7 +345,7 @@ importers:
         specifier: workspace:*
         version: link:../lib
       date-fns:
-        specifier: ^4.2.1
+        specifier: ^4.3.0
         version: 4.3.0
       zod:
         specifier: ^4.4.3
@@ -359,22 +359,22 @@ importers:
     dependencies:
       '@content-collections/cli':
         specifier: ^0.1.9
-        version: 0.1.9(@content-collections/core@0.15.0(typescript@5.9.3))
+        version: 0.1.9(@content-collections/core@0.15.1(typescript@5.9.3))
       '@content-collections/core':
-        specifier: ^0.15.0
-        version: 0.15.0(typescript@5.9.3)
+        specifier: ^0.15.1
+        version: 0.15.1(typescript@5.9.3)
       '@content-collections/mdx':
         specifier: ^0.2.2
-        version: 0.2.2(@content-collections/core@0.15.0(typescript@5.9.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        version: 0.2.2(@content-collections/core@0.15.1(typescript@5.9.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@content-collections/next':
         specifier: ^0.2.11
-        version: 0.2.11(@content-collections/core@0.15.0(typescript@5.9.3))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
+        version: 0.2.11(@content-collections/core@0.15.1(typescript@5.9.3))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
       '@repo/design-system':
         specifier: workspace:*
         version: link:../design-system
       fumadocs-core:
         specifier: ^15.8.5
-        version: 15.8.5(@types/react@19.2.15)(lucide-react@1.16.0(react@19.2.6))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        version: 15.8.5(@types/react@19.2.15)(lucide-react@1.17.0(react@19.2.6))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       lqip-modern:
         specifier: ^2.2.1
         version: 2.2.1
@@ -446,10 +446,10 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       lucide-react:
-        specifier: ^1.16.0
-        version: 1.16.0(react@19.2.6)
+        specifier: ^1.17.0
+        version: 1.17.0(react@19.2.6)
       motion:
-        specifier: ^12.39.0
+        specifier: ^12.40.0
         version: 12.40.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       motion-cursor:
         specifier: ^1.0.5
@@ -504,8 +504,8 @@ importers:
         specifier: 19.2.6
         version: 19.2.6(react@19.2.6)
       resend:
-        specifier: ^6.12.3
-        version: 6.12.3(@react-email/render@2.0.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
+        specifier: ^6.12.4
+        version: 6.12.4(@react-email/render@2.0.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -724,8 +724,8 @@ importers:
   packages/timesheets:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^5.2.2
-        version: 5.2.2(react-hook-form@7.76.1(react@19.2.6))
+        specifier: ^5.4.0
+        version: 5.4.0(react-hook-form@7.76.1(react@19.2.6))
       '@repo/calendar':
         specifier: workspace:*
         version: link:../calendar
@@ -742,7 +742,7 @@ importers:
         specifier: ^2.8.9
         version: 2.8.9(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)
       react-hook-form:
-        specifier: ^7.76.0
+        specifier: ^7.76.1
         version: 7.76.1(react@19.2.6)
     devDependencies:
       '@repo/typescript-config':
@@ -1510,27 +1510,27 @@ packages:
   '@clerc/utils@1.3.1':
     resolution: {integrity: sha512-wkK6daYkmTQKnhSADMkunfDhNJI6rRCn2R++7cI2EoEBmOZWYqn7frkk5ac7zsxBi0Mc3UnMVaJiNFU+t6PPWQ==}
 
-  '@clerk/backend@3.4.11':
-    resolution: {integrity: sha512-WT+4FrcMMofxe+irQYUkawoRWaHHXT9/wiRYhRbSb30cOPjN95ViydqPhAyp8ZWAHInHg4mILynQQRJH14SKZQ==}
+  '@clerk/backend@3.5.0':
+    resolution: {integrity: sha512-g1bjzqj7/mb6rnrQ5zr+ybjpilTIWADaCoHE1HnEAjQfbcdfn3gb9PPX0wJ1KWw8OOQEQYSjzXPzvofEB1j+ww==}
     engines: {node: '>=20.9.0'}
 
-  '@clerk/nextjs@7.3.7':
-    resolution: {integrity: sha512-CLG63zKPHditk52Z/+c6BJ47V1Q68ACjeps0xHDRW3X/Yv/FZdM+IUKu9Egb5PJ/TkRFxsI1nU5SOY2B8o/WxA==}
+  '@clerk/nextjs@7.4.3':
+    resolution: {integrity: sha512-mKzR98LuadqoiREawdnQkE6jcmwEMgS4BHBwvhPbel3SpmmCXv7ed5c/yJ1PJeehx6QMsAWmWaAC+gnsZVg2Jw==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
       next: ^15.2.8 || ^15.3.8 || ^15.4.10 || ^15.5.9 || ^15.6.0-0 || ^16.0.10 || ^16.1.0-0
       react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
       react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
 
-  '@clerk/react@6.6.6':
-    resolution: {integrity: sha512-MVHLDZeGobSbGSZgAdb4G1BbB8ZU5XAmBBdIVLXiPOLEst2TYM5bP137WRA76y9GlmVmKYdKzph/TUi87P/JOA==}
+  '@clerk/react@6.7.3':
+    resolution: {integrity: sha512-xdml8bFXbOQ/Egyp7iI1f0ksLjw5nYu2Db+mttHpJzet7PRXQ3jBEEc2c0AYhOJvIYxJifHGBsf75NM8SwlOag==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
       react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
       react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
 
-  '@clerk/shared@4.12.2':
-    resolution: {integrity: sha512-jDkip8tKTzYz/cPKMCsjOoACH3Xh37zcbCrssMRTYOq3GZypIpZ6WAs4m4G82URL0WY+yz5frrHVjRrHyAb6LA==}
+  '@clerk/shared@4.15.0':
+    resolution: {integrity: sha512-uX8nfLb69m8mA6KWKWfuPSwoVNDRyUdufeCeTEZsdZxbRUsEYT/c0KWFN28IOQCtK09tpVtzrUHvW44v5Dc5OA==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
       react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
@@ -1616,8 +1616,8 @@ packages:
     peerDependencies:
       '@content-collections/core': 0.x
 
-  '@content-collections/core@0.15.0':
-    resolution: {integrity: sha512-GCbG7p+7cGnPUAyoOPoT8ABsd9D6VWF17YJUl+IHJWr+VYTYNKyDaQtJ+6Pfg55GvtuW3gCfqJkOx6Pu2SB6YA==}
+  '@content-collections/core@0.15.1':
+    resolution: {integrity: sha512-uQmhvvsSgNJs7QOi4+IgvDhv7v1yueCr6n7WgMahUDFeVchML/WFl9D2vrklxUnXY+YaBGTkc2+q8PcEVM19WA==}
     peerDependencies:
       typescript: ^5.0.2 || ^6.0.0
 
@@ -1663,8 +1663,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.1.1
 
-  '@date-fns/tz@1.4.1':
-    resolution: {integrity: sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA==}
+  '@date-fns/tz@1.5.0':
+    resolution: {integrity: sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==}
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -2156,8 +2156,8 @@ packages:
   '@formatjs/intl-localematcher@0.8.6':
     resolution: {integrity: sha512-AZRgUxj0q93lyF7Z5lFS85bLINXuBLX4R3tCKicO6fSWo6cvh9GQfoR3B1WlsqQwefZ1QORTivhInx7gM6HUzQ==}
 
-  '@hookform/resolvers@5.2.2':
-    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
+  '@hookform/resolvers@5.4.0':
+    resolution: {integrity: sha512-EIsqr/t/qbinPIhGjMdtvutIN1Kk4uwbROE9/UQ93CAVGR7GkA7Y92+fX80OzXi/OB67jVFYwKGO1WzkxmkFZw==}
     peerDependencies:
       react-hook-form: ^7.55.0
 
@@ -4122,37 +4122,37 @@ packages:
   '@total-typescript/ts-reset@0.6.1':
     resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
-  '@turbo/darwin-64@2.9.14':
-    resolution: {integrity: sha512-t7QiPflaEyBE4oayeZtSmu4mEfjgIrcNlNNl1z1dmIVPqEdtA7+CfTf8d7KXsOGPh6aNgWjKxyvQg9uGfDQF+A==}
+  '@turbo/darwin-64@2.9.16':
+    resolution: {integrity: sha512-jLjApWTSNd7JZ5JaLYfelW1ytnGQOvB7ivl+2RD1xQvJTbi8I9gBjzcga7tDZVPyaxpl10YTfJt3BrYXR18KDw==}
     cpu: [x64]
     os: [darwin]
 
-  '@turbo/darwin-arm64@2.9.14':
-    resolution: {integrity: sha512-d23147mC9BsCPA9mJ0h/ubcpbRgcJBXbcG3+Vq7YLhjz3IXuvQsJ1UXH8f4MD76ZjJ4m/E4aRdJV+MW88CDfbw==}
+  '@turbo/darwin-arm64@2.9.16':
+    resolution: {integrity: sha512-YPgrn+5HIGzrx0O2a631SV4MBQUe4W/DafMFUuBVgaU32PW9/OTT0ehviF0QSxTXuRJlHvW2eUTemddF5/spmw==}
     cpu: [arm64]
     os: [darwin]
 
-  '@turbo/gen@2.9.14':
-    resolution: {integrity: sha512-TkvUzfbJj2zB0WaybYd/hzADLqq97ru0OQCiQ1DDnul5spSTq5I8If21K3vUAjKIWAQbCjDqZIPrS1IPG5bLyA==}
+  '@turbo/gen@2.9.16':
+    resolution: {integrity: sha512-nvEBt1FUqA7zO821Yw/GuggAG8JeT0J2en+vwvuSNqHa0df+a2zhzHF2vx/oguWQm1HCjgx87VIJWzMOr2grYA==}
     hasBin: true
 
-  '@turbo/linux-64@2.9.14':
-    resolution: {integrity: sha512-P3ZKB5tuUDdDQWuAsACGUR1qv9W7BNWxdxqVJ0kZNuNNPRaVYTPPikLcp79+GiEcW3npsR+KyP38lnQiBc5aSA==}
+  '@turbo/linux-64@2.9.16':
+    resolution: {integrity: sha512-vAEf1H6l26lTpl9FJ/peQo1NUB8RC0sbEJJz5mPcUhHA2bPDup2x3CZPgo/bH8S4cUcBLm4FN3UHd5iUO2RAew==}
     cpu: [x64]
     os: [linux]
 
-  '@turbo/linux-arm64@2.9.14':
-    resolution: {integrity: sha512-ZRTlzcUMrrPv9ZuDzRF9n60Ym13bKeG9jDB8WjxyLhWNzV+AJQN+zdpIk3NJYf2zQsGUm1mNar2P0elRzLw25g==}
+  '@turbo/linux-arm64@2.9.16':
+    resolution: {integrity: sha512-xDBLR2PZg4BrQOchfG6svgpv5FCNJ2TOtT2psLdEJcdKo1BH+pnPs9Xj6pvUjgfkHbuvBOfeE4R6tvxMoQKDHQ==}
     cpu: [arm64]
     os: [linux]
 
-  '@turbo/windows-64@2.9.14':
-    resolution: {integrity: sha512-exanwN6sIduZwykYeiTQj8kCmOhazP5WOz3bvXMcYtjhL6Z3iRWLewKrXCBq0bqwSP3iBMb/AerRCnHI4lx46A==}
+  '@turbo/windows-64@2.9.16':
+    resolution: {integrity: sha512-NBAJnaUiGdgkSzQwUIdOvkCkcpTSu58G/sBGa0mvBtzfvFOOgrQwepKOOQ8cp6sWM6OcKDNFj2p1dsZA1OWjPg==}
     cpu: [x64]
     os: [win32]
 
-  '@turbo/windows-arm64@2.9.14':
-    resolution: {integrity: sha512-fVdCsnmYoKICsycbWuuGp6Jvi51/3G/UluFWuAUCvR8PIW5IJkAk5BM9UF8PSm0Q2IphWHFZjYEgjHsh3B9y/g==}
+  '@turbo/windows-arm64@2.9.16':
+    resolution: {integrity: sha512-Y7SJppD0Z8wjO3Ec0ZGd9KQ4Yv0BMnA8CIowj5Vp+OEVsosXDG2weK6/t1RRLfJmc2Ozrnd6y4DOgQys+mn3WQ==}
     cpu: [arm64]
     os: [win32]
 
@@ -5266,10 +5266,6 @@ packages:
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
-
-  deepmerge-ts@7.1.5:
-    resolution: {integrity: sha512-HOJkrhaYsweh+W+e74Yn7YStZOilkoPb6fycpwNLKzSPtruFs48nYis0zy5yJz1+ktUhHxoRDJ27RQAWLIJVJw==}
-    engines: {node: '>=16.0.0'}
 
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
@@ -6398,9 +6394,9 @@ packages:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
 
-  js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
+  js-cookie@3.0.7:
+    resolution: {integrity: sha512-z/wZZgDrkNV1eA0ULjM/F9/50Ya8fbzgKneSpoPsXSGd0KnpdtHfOZWK+GcwLk+EZbS4F9RBhU+K2RgzuDaItw==}
+    engines: {node: '>=20'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -6624,8 +6620,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@1.16.0:
-    resolution: {integrity: sha512-dYwyPzb4MEKpGUmNYk3WKWPnMrHs3FKM+q94kAnJrcDIqqn1hq2xY8scaS2ovsOCM5D51ey2gaRG3PBb1vgoYQ==}
+  lucide-react@1.17.0:
+    resolution: {integrity: sha512-9FA9evdox/JQL5PT57fdA1x/yg8T7knJ98+zjTL3UfKza6pflQUUh3XtaQIHKvnsJw1lmsEyHVlt5jchYxOQ5w==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -6971,8 +6967,8 @@ packages:
       typescript:
         optional: true
 
-  next-safe-action@8.5.2:
-    resolution: {integrity: sha512-M127lWo8FwbeIz8dO7h/hjCxIDe1hFZIo1Dw0tTqtR3xlRnxCA0Df1DojxFLB94/jPn/0AtdOp6wpckjvyyA3g==}
+  next-safe-action@8.5.3:
+    resolution: {integrity: sha512-wTz77X3dxij4B0n8JhxgQXqvIV4a0BiE03mA3GRyPofurMO5ePPJMSWhr3Owl1XMxQzfj20+FvjwscH6URd3QA==}
     engines: {node: '>=18.17'}
     peerDependencies:
       next: '>= 14.0.0'
@@ -7757,8 +7753,8 @@ packages:
   reselect@5.1.1:
     resolution: {integrity: sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==}
 
-  resend@6.12.3:
-    resolution: {integrity: sha512-FkEi6YPnVL96/LvH8+QP7NaeaBy5brYXwlRqUCqZZeNL0/iyKij18IPmyPXYauT/2ODn1JG04qKz+qlJfzqzTw==}
+  resend@6.12.4:
+    resolution: {integrity: sha512-lRpJ2Hxd+ht+JPDm97juRcUp9HOMuZyxaRFRFmc9Tx8iNWiei94Dx9v6SWufgKk2667C/uCeKKspMotOHSpCSg==}
     engines: {node: '>=20'}
     peerDependencies:
       '@react-email/render': '*'
@@ -8028,9 +8024,6 @@ packages:
   standardwebhooks@1.0.0:
     resolution: {integrity: sha512-BbHGOQK9olHPMvQNHWul6MYlrRTAOKn03rOe4A8O3CLWhNf4YHBqq2HJKKC+sfqpxiBY52pNeesD6jIiLDz8jg==}
 
-  std-env@3.10.0:
-    resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
-
   stdin-discarder@0.2.2:
     resolution: {integrity: sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==}
     engines: {node: '>=18'}
@@ -8149,9 +8142,6 @@ packages:
     resolution: {integrity: sha512-+wn7I4p7YgJhHs38k2TNjy1vCfPIfLIJWR5MnCStsN8WuuTcBnRKcMHQLMM2ijxGZmDoZwNv8ipl5aTTen62ng==}
     engines: {node: '>=14.0.0'}
     hasBin: true
-
-  svix@1.92.2:
-    resolution: {integrity: sha512-ZmuA3UVvlnF9EgxlzmPtF7CKjQb64Z6OFlyfdDfU0sdcC7dJa+3aOYX5B9mA+RS6ch1AxBa4UP/l6KmqfGtWBQ==}
 
   tabbable@6.4.0:
     resolution: {integrity: sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg==}
@@ -8275,8 +8265,8 @@ packages:
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
 
-  turbo@2.9.14:
-    resolution: {integrity: sha512-BQqXRr4UoWI3UPFrtznCLykYHxwxWh53iCB57x092jPMjIlW1wnm3N895g5irpiXmnxUhREBB0n6+y8BHhs4nw==}
+  turbo@2.9.16:
+    resolution: {integrity: sha512-NqgRQy6j6dPYcdSdv0q1g9QsZg7SWg87RERM8otw/1AtKU2yTFVClOM7cbwKzOonZr/Ek1blTBucw64L9H0Bwg==}
     hasBin: true
 
   tw-animate-css@1.4.0:
@@ -9639,40 +9629,39 @@ snapshots:
 
   '@clerc/utils@1.3.1': {}
 
-  '@clerk/backend@3.4.11(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@clerk/backend@3.5.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@clerk/shared': 4.12.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@clerk/shared': 4.15.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       standardwebhooks: 1.0.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@clerk/nextjs@7.3.7(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@clerk/nextjs@7.4.3(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@clerk/backend': 3.4.11(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@clerk/react': 6.6.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@clerk/shared': 4.12.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@clerk/backend': 3.5.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@clerk/react': 6.7.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@clerk/shared': 4.15.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next: 16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       server-only: 0.0.1
       tslib: 2.8.1
 
-  '@clerk/react@6.6.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@clerk/react@6.7.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@clerk/shared': 4.12.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@clerk/shared': 4.15.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       tslib: 2.8.1
 
-  '@clerk/shared@4.12.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@clerk/shared@4.15.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@tanstack/query-core': 5.100.9
       dequal: 2.0.3
       glob-to-regexp: 0.4.1
-      js-cookie: 3.0.5
-      std-env: 3.10.0
+      js-cookie: 3.0.7
     optionalDependencies:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
@@ -9785,16 +9774,16 @@ snapshots:
       conventional-commits-parser: 6.4.0
       picocolors: 1.1.1
 
-  '@content-collections/cli@0.1.9(@content-collections/core@0.15.0(typescript@5.9.3))':
+  '@content-collections/cli@0.1.9(@content-collections/core@0.15.1(typescript@5.9.3))':
     dependencies:
       '@clerc/core': 1.3.1
       '@clerc/plugin-completions': 1.3.1(@clerc/core@1.3.1)
       '@clerc/plugin-help': 1.3.1(@clerc/core@1.3.1)
       '@clerc/plugin-version': 1.3.1(@clerc/core@1.3.1)
-      '@content-collections/core': 0.15.0(typescript@5.9.3)
-      '@content-collections/integrations': 0.5.0(@content-collections/core@0.15.0(typescript@5.9.3))
+      '@content-collections/core': 0.15.1(typescript@5.9.3)
+      '@content-collections/integrations': 0.5.0(@content-collections/core@0.15.1(typescript@5.9.3))
 
-  '@content-collections/core@0.15.0(typescript@5.9.3)':
+  '@content-collections/core@0.15.1(typescript@5.9.3)':
     dependencies:
       '@standard-schema/spec': 1.1.0
       camelcase: 8.0.0
@@ -9809,13 +9798,13 @@ snapshots:
       typescript: 5.9.3
       yaml: 2.8.4
 
-  '@content-collections/integrations@0.5.0(@content-collections/core@0.15.0(typescript@5.9.3))':
+  '@content-collections/integrations@0.5.0(@content-collections/core@0.15.1(typescript@5.9.3))':
     dependencies:
-      '@content-collections/core': 0.15.0(typescript@5.9.3)
+      '@content-collections/core': 0.15.1(typescript@5.9.3)
 
-  '@content-collections/mdx@0.2.2(@content-collections/core@0.15.0(typescript@5.9.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@content-collections/mdx@0.2.2(@content-collections/core@0.15.1(typescript@5.9.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@content-collections/core': 0.15.0(typescript@5.9.3)
+      '@content-collections/core': 0.15.1(typescript@5.9.3)
       esbuild: 0.25.12
       mdx-bundler: 10.1.1(esbuild@0.25.12)
       react: 19.2.6
@@ -9824,10 +9813,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@content-collections/next@0.2.11(@content-collections/core@0.15.0(typescript@5.9.3))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))':
+  '@content-collections/next@0.2.11(@content-collections/core@0.15.1(typescript@5.9.3))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))':
     dependencies:
-      '@content-collections/core': 0.15.0(typescript@5.9.3)
-      '@content-collections/integrations': 0.5.0(@content-collections/core@0.15.0(typescript@5.9.3))
+      '@content-collections/core': 0.15.1(typescript@5.9.3)
+      '@content-collections/integrations': 0.5.0(@content-collections/core@0.15.1(typescript@5.9.3))
       next: 16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
 
   '@conventional-changelog/git-client@2.7.0(conventional-commits-parser@6.4.0)':
@@ -9846,7 +9835,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.1
 
-  '@date-fns/tz@1.4.1': {}
+  '@date-fns/tz@1.5.0': {}
 
   '@discoveryjs/json-ext@0.5.7': {}
 
@@ -10247,7 +10236,7 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 3.1.4
 
-  '@hookform/resolvers@5.2.2(react-hook-form@7.76.1(react@19.2.6))':
+  '@hookform/resolvers@5.4.0(react-hook-form@7.76.1(react@19.2.6))':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.76.1(react@19.2.6)
@@ -12150,29 +12139,29 @@ snapshots:
 
   '@total-typescript/ts-reset@0.6.1': {}
 
-  '@turbo/darwin-64@2.9.14':
+  '@turbo/darwin-64@2.9.16':
     optional: true
 
-  '@turbo/darwin-arm64@2.9.14':
+  '@turbo/darwin-arm64@2.9.16':
     optional: true
 
-  '@turbo/gen@2.9.14(@types/node@24.12.4)':
+  '@turbo/gen@2.9.16(@types/node@24.12.4)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.12.4)
       esbuild: 0.25.12
     transitivePeerDependencies:
       - '@types/node'
 
-  '@turbo/linux-64@2.9.14':
+  '@turbo/linux-64@2.9.16':
     optional: true
 
-  '@turbo/linux-arm64@2.9.14':
+  '@turbo/linux-arm64@2.9.16':
     optional: true
 
-  '@turbo/windows-64@2.9.14':
+  '@turbo/windows-64@2.9.16':
     optional: true
 
-  '@turbo/windows-arm64@2.9.14':
+  '@turbo/windows-arm64@2.9.16':
     optional: true
 
   '@tybys/wasm-util@0.10.2':
@@ -13344,8 +13333,6 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  deepmerge-ts@7.1.5: {}
-
   deepmerge@4.3.1: {}
 
   defaults@1.0.4:
@@ -14072,7 +14059,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fumadocs-core@15.8.5(@types/react@19.2.15)(lucide-react@1.16.0(react@19.2.6))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  fumadocs-core@15.8.5(@types/react@19.2.15)(lucide-react@1.17.0(react@19.2.6))(next@16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       '@formatjs/intl-localematcher': 0.6.2
       '@orama/orama': 3.1.18
@@ -14094,7 +14081,7 @@ snapshots:
       unist-util-visit: 5.1.0
     optionalDependencies:
       '@types/react': 19.2.15
-      lucide-react: 1.16.0(react@19.2.6)
+      lucide-react: 1.17.0(react@19.2.6)
       next: 16.2.6(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
@@ -14629,7 +14616,7 @@ snapshots:
 
   jiti@2.7.0: {}
 
-  js-cookie@3.0.5: {}
+  js-cookie@3.0.7: {}
 
   js-tokens@4.0.0: {}
 
@@ -14802,7 +14789,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@1.16.0(react@19.2.6):
+  lucide-react@1.17.0(react@19.2.6):
     dependencies:
       react: 19.2.6
 
@@ -15341,7 +15328,7 @@ snapshots:
 
   motion-dom@12.38.0:
     dependencies:
-      motion-utils: 12.36.0
+      motion-utils: 12.39.0
 
   motion-dom@12.40.0:
     dependencies:
@@ -15405,9 +15392,8 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  next-safe-action@8.5.2(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  next-safe-action@8.5.3(next@16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
-      deepmerge-ts: 7.1.5
       next: 16.2.6(@babel/core@7.29.0)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
@@ -16318,10 +16304,10 @@ snapshots:
 
   reselect@5.1.1: {}
 
-  resend@6.12.3(@react-email/render@2.0.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)):
+  resend@6.12.4(@react-email/render@2.0.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)):
     dependencies:
       postal-mime: 2.7.4
-      svix: 1.92.2
+      standardwebhooks: 1.0.0
     optionalDependencies:
       '@react-email/render': 2.0.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
 
@@ -16714,8 +16700,6 @@ snapshots:
       '@stablelib/base64': 1.0.1
       fast-sha256: 1.3.0
 
-  std-env@3.10.0: {}
-
   stdin-discarder@0.2.2: {}
 
   stop-iteration-iterator@1.1.0:
@@ -16871,10 +16855,6 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.6.0
 
-  svix@1.92.2:
-    dependencies:
-      standardwebhooks: 1.0.0
-
   tabbable@6.4.0: {}
 
   tailwind-merge@3.2.0: {}
@@ -16993,14 +16973,14 @@ snapshots:
       tslib: 1.14.1
       typescript: 5.9.3
 
-  turbo@2.9.14:
+  turbo@2.9.16:
     optionalDependencies:
-      '@turbo/darwin-64': 2.9.14
-      '@turbo/darwin-arm64': 2.9.14
-      '@turbo/linux-64': 2.9.14
-      '@turbo/linux-arm64': 2.9.14
-      '@turbo/windows-64': 2.9.14
-      '@turbo/windows-arm64': 2.9.14
+      '@turbo/darwin-64': 2.9.16
+      '@turbo/darwin-arm64': 2.9.16
+      '@turbo/linux-64': 2.9.16
+      '@turbo/linux-arm64': 2.9.16
+      '@turbo/windows-64': 2.9.16
+      '@turbo/windows-arm64': 2.9.16
 
   tw-animate-css@1.4.0: {}
 
