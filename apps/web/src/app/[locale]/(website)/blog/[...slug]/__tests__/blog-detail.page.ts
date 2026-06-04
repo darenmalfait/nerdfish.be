@@ -1,8 +1,5 @@
 import { BasePage } from 'playwright/utils/page-object'
-import {
-	INVALID_BLOG_POST_PATH,
-	SAMPLE_BLOG_POST,
-} from './blog-detail.builders'
+import { INVALID_BLOG_POST_PATH } from './blog-detail.builders'
 
 export class BlogDetailPage extends BasePage {
 	getArticleHeading = () => this.page.getByRole('heading', { level: 1 })
@@ -14,14 +11,11 @@ export class BlogDetailPage extends BasePage {
 		this.page
 			.locator('article')
 			.getByRole('list')
+			.filter({ has: this.page.locator('a[href^="/blog/"]') })
 			.last()
 			.locator('a[href^="/blog/"]')
 
-	async scrollToRelatedPosts() {
-		await this.getRelatedPostLinks().first().scrollIntoViewIfNeeded()
-	}
-
-	async goto(path = SAMPLE_BLOG_POST.path) {
+	async goto(path: string) {
 		await this.page.goto(path)
 	}
 
