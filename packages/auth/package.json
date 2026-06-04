@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.3.7",
+    "@clerk/nextjs": "^7.4.2",
     "@t3-oss/env-nextjs": "^0.13.11",
     "next-themes": "^0.4.6",
     "react": "19.2.6",
