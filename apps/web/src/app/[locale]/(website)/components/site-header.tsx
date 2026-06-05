@@ -9,7 +9,6 @@ import { type ComponentProps } from 'react'
 import { MobileNavigation } from './mobile-navigation'
 import { SiteNavigation } from './site-navigation'
 import { Link } from '~/app/[locale]/common/components/link'
-import { ProgressiveBlur } from '~/app/[locale]/common/components/progressive-blur'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 function HeaderSection({ className, ...props }: ComponentProps<'div'>) {
@@ -29,11 +28,10 @@ function HeaderSection({ className, ...props }: ComponentProps<'div'>) {
 
 export function SiteHeader() {
 	return (
-		<div className="sticky top-0 z-10 w-full bg-transparent print:hidden">
-			<ProgressiveBlur
-				className="pointer-events-none absolute inset-0 h-full w-full"
-				direction="top"
-				blurIntensity={1}
+		<div className="sticky top-0 z-10 w-full print:hidden">
+			<div
+				aria-hidden
+				className="from-background via-background/90 pointer-events-none absolute inset-0 bg-linear-to-b to-transparent"
 			/>
 			<header className="relative w-full flex-none">
 				<div className="container max-w-none">
