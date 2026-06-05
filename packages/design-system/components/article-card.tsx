@@ -10,7 +10,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { type ComponentProps, type ReactNode, useState } from 'react'
 import { ArrowRightIcon } from '../icons'
-import { getCategoryColors } from './category-indicator'
+import {
+	getCategoryBackground,
+	getCategoryForeground,
+	getCategoryRing,
+} from './category-indicator'
 
 function ReadMoreCursor({
 	active,
@@ -62,7 +66,8 @@ export function ArticleCardImage({
 			onHoverStart={() => setIsHovering(true)}
 			className={cn(
 				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
-				category && getCategoryColors(category),
+				category &&
+					cn(getCategoryForeground(category), getCategoryRing(category)),
 			)}
 		>
 			<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
@@ -177,8 +182,9 @@ export function ArticleCardCategory({
 			variant="default"
 			{...props}
 			className={cn(
-				'mb-best-friends bg-background-muted px-best-friends py-best-friends relative text-sm',
-				getCategoryColors(value),
+				'mb-best-friends px-best-friends py-best-friends relative text-sm',
+				getCategoryBackground(value),
+				getCategoryForeground(value),
 				className,
 			)}
 		>

@@ -2,7 +2,7 @@ import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	CategoryIndicator,
-	getCategoryColors,
+	getCategoryForeground,
 } from '@repo/design-system/components/category-indicator'
 import { Section } from '@repo/design-system/components/section'
 import { ArrowRight } from '@repo/design-system/icons'
@@ -63,7 +63,7 @@ function WorkContent({
 														target="_blank"
 													>
 														Visit website
-														<span className={getCategoryColors(category)}>
+														<span className={getCategoryForeground(category)}>
 															<ArrowRight
 																className={cn(
 																	'ml-best-friends group-hover:translate-x-bff group-hover:text-foreground size-4 text-current transition-all',

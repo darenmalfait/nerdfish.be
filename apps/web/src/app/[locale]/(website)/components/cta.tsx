@@ -30,6 +30,7 @@ export function Cta(props: CtaProps) {
 				<div>
 					<MagnetButton
 						size="xl"
+						variant="accent"
 						render={
 							<Link href={link.href}>
 								{link.label}

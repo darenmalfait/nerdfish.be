@@ -1,26 +1,91 @@
+import { Badge } from '@nerdfish/react/badge'
 import { cn } from '@repo/lib/utils/class'
 
-const foregroundMap: Record<string, string> = {
-	// Blog
-	unknown: 'text-blog-unknown group-hover:ring-current',
-	wiki: 'text-blog-wiki group-hover:ring-current',
-	technical: 'text-blog-technical group-hover:ring-current',
-	coaching: 'text-blog-coaching group-hover:ring-current',
-	project: 'text-blog-project group-hover:ring-current',
-	blog: 'text-blog group-hover:ring-current',
-
-	// Work
-	webdesign: 'text-work-webdesign group-hover:ring-current',
-	branding: 'text-work-branding group-hover:ring-current',
-	print: 'text-work-print group-hover:ring-current',
-	product: 'text-work group-hover:ring-current',
-
-	// other
-	expertise: 'text-foreground-info',
+type CategoryColors = {
+	background: string
+	foreground: string
+	ring?: string
 }
 
-export function getCategoryColors(category = 'unkown'): string {
-	return foregroundMap[category.toLowerCase()] ?? ''
+const categoryColorMap: Record<string, CategoryColors> = {
+	// Blog
+	unknown: {
+		background: 'bg-background-muted',
+		foreground: 'text-blog-unknown',
+		ring: 'group-hover:ring-current',
+	},
+	wiki: {
+		background: 'bg-warning-background',
+		foreground: 'text-blog-wiki',
+		ring: 'group-hover:ring-current',
+	},
+	technical: {
+		background: 'bg-success-background',
+		foreground: 'text-blog-technical',
+		ring: 'group-hover:ring-current',
+	},
+	coaching: {
+		background: 'bg-destructive-background',
+		foreground: 'text-blog-coaching',
+		ring: 'group-hover:ring-current',
+	},
+	project: {
+		background: 'bg-background-muted',
+		foreground: 'text-blog-project',
+		ring: 'group-hover:ring-current',
+	},
+	blog: {
+		background: 'bg-info-background',
+		foreground: 'text-blog',
+		ring: 'group-hover:ring-current',
+	},
+
+	// Work
+	webdesign: {
+		background: 'bg-destructive-background',
+		foreground: 'text-work-webdesign',
+		ring: 'group-hover:ring-current',
+	},
+	branding: {
+		background: 'bg-success-background',
+		foreground: 'text-work-branding',
+		ring: 'group-hover:ring-current',
+	},
+	print: {
+		background: 'bg-info-background',
+		foreground: 'text-work-print',
+		ring: 'group-hover:ring-current',
+	},
+	product: {
+		background: 'bg-warning-background',
+		foreground: 'text-work',
+		ring: 'group-hover:ring-current',
+	},
+
+	// other
+	expertise: {
+		background: 'bg-background-muted',
+		foreground: 'text-foreground-info',
+	},
+}
+
+function getCategoryStyle(
+	category = 'unknown',
+	part: keyof CategoryColors,
+): string {
+	return categoryColorMap[category.toLowerCase()]?.[part] ?? ''
+}
+
+export function getCategoryBackground(category = 'unknown'): string {
+	return getCategoryStyle(category, 'background')
+}
+
+export function getCategoryForeground(category = 'unknown'): string {
+	return getCategoryStyle(category, 'foreground')
+}
+
+export function getCategoryRing(category = 'unknown'): string {
+	return getCategoryStyle(category, 'ring')
 }
 
 export interface CategoryIndicatorProps {
@@ -41,10 +106,12 @@ export function CategoryIndicator({
 					!inline,
 			})}
 		>
-			<span
+			<Badge
+				variant="default"
 				className={cn(
-					getCategoryColors(category),
-					'py-best-friends px-best-friends rounded-base bg-background z-10 inline-block w-auto text-sm font-bold shadow-sm ring-2 ring-current transition-colors',
+					'px-best-friends py-best-friends relative z-10 text-sm',
+					getCategoryBackground(category),
+					getCategoryForeground(category),
 					{
 						'top-friends right-friends lg:left-casual absolute lg:right-[unset]':
 							!inline,
@@ -54,7 +121,7 @@ export function CategoryIndicator({
 			>
 				<span className="sr-only">Category:</span>
 				{category}
-			</span>
+			</Badge>
 		</div>
 	)
 }

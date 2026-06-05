@@ -31,7 +31,7 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 						{t('viewMore', {
 							subject: title ?? '',
 						})}
-						<ArrowRight className="ml-best-friends group-hover:translate-x-bff size-4 transition-transform" />
+						<ArrowRight className="ml-best-friends text-accent group-hover:translate-x-bff size-4 transition-transform" />
 					</Link>
 				}
 			/>
@@ -76,7 +76,7 @@ function Feature({
 		<div className={featureCardVariants({ variant })} {...rest}>
 			{Icon ? (
 				<div
-					className="mb-casual aspect-1 text-foreground flex items-center justify-center"
+					className="mb-casual aspect-1 text-accent flex items-center justify-center"
 					aria-hidden
 				>
 					<Icon className="flex h-5 shrink-0" />
