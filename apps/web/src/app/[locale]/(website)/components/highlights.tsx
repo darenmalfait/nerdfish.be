@@ -28,7 +28,11 @@ export function Highlights(props: HighlightsProps) {
 				const { title, category, description, image, href } = item
 
 				return (
-					<HighlightCard key={title} title={title}>
+					<HighlightCard
+						key={title}
+						title={title}
+						className="bg-info-background"
+					>
 						<HighlightCardContent>
 							<HighlightCardCategory value={category} />
 							<HighlightCardTitle>{title}</HighlightCardTitle>
