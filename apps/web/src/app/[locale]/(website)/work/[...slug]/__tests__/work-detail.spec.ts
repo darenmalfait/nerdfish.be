@@ -49,7 +49,7 @@ test.describe('User Story: The user wants to view a work project', () => {
 		test('it should show related projects', async ({ workDetailPage }) => {
 			const relatedLinks = workDetailPage.getRelatedProjectLinks()
 			await expect(relatedLinks).toHaveCount(RELATED_PROJECT_COUNT)
-			await relatedLinks.first().scrollIntoViewIfNeeded()
+			await expect(relatedLinks.first()).toBeVisible()
 		})
 	})
 

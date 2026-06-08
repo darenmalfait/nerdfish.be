@@ -45,7 +45,7 @@ test.describe('User Story: The user wants to read a blog post', () => {
 		test('it should show related posts', async ({ blogDetailPage }) => {
 			const relatedLinks = blogDetailPage.getRelatedPostLinks()
 			await expect(relatedLinks).toHaveCount(RELATED_POST_COUNT)
-			await relatedLinks.first().scrollIntoViewIfNeeded()
+			await expect(relatedLinks.first()).toBeVisible()
 		})
 	})
 
