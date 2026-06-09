@@ -8,13 +8,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "16.2.6",
+    "@next/bundle-analyzer": "16.2.7",
     "@t3-oss/env-nextjs": "^0.13.11",
     "@vercel/toolbar": "^0.2.6",
-    "next": "16.2.6",
+    "next": "16.2.7",
     "next-secure-headers": "^2.2.0",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "zod": "^4.4.3"
   },
   "devDependencies": {
