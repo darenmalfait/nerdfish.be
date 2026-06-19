@@ -1,3 +1,5 @@
+'use client'
+
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { SectionHeaderTitle } from '@repo/design-system/components/section'
 import { ArrowRightIcon } from '@repo/design-system/icons'
@@ -5,6 +7,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { type ComponentProps } from 'react'
 import { Hero, HeroContent, HeroSubtitle } from '../hero'
+import { DiaTextReveal } from './dia-text'
 import { Link } from '~/app/[locale]/common/components/link'
 
 export function HeroCTA({
@@ -32,6 +35,12 @@ export function HeroCTA({
 
 export function WelcomeHero() {
 	const t = useTranslations('home.page')
+	const heroWords = [
+		t('hero.title.line4.0'),
+		t('hero.title.line4.1'),
+		t('hero.title.line4.2'),
+		t('hero.title.line4.3'),
+	]
 
 	return (
 		<Hero>
@@ -45,9 +54,10 @@ export function WelcomeHero() {
 						{t('hero.title.line2')}
 					</span>
 					<br />
-					{t('hero.title.line3')}
+					{t('hero.title.line3')}{' '}
+					<DiaTextReveal fixedWidth repeat repeatDelay={3} text={heroWords} />
 				</SectionHeaderTitle>
-				<HeroSubtitle>{t('contact.subtitle')}</HeroSubtitle>
+				<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
 				<div className="mt-acquaintances">
 					<MagnetButton
 						size="xl"
