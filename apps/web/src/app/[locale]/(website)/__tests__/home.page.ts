@@ -104,7 +104,7 @@ export class HomePage extends BasePage {
 	getHeroHeading = () =>
 		this.page.getByRole('heading', {
 			level: 1,
-			name: 'Crafting Digital Experiences That Matter',
+			name: /^Building design & development that/,
 		})
 
 	async goto() {

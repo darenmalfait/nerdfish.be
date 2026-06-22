@@ -2,14 +2,13 @@
 
 import { cn } from '@nerdfish/utils/class'
 import { Slot } from '@radix-ui/react-slot'
-import * as React from 'react'
+import { type ComponentProps } from 'react'
 
-export const Grid = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		asChild?: boolean
-	}
->(({ asChild, className, ...props }, ref) => {
+export type GridProps = ComponentProps<'div'> & {
+	asChild?: boolean
+}
+
+export function Grid({ asChild, className, ref, ...props }: GridProps) {
 	const Comp = asChild ? Slot : 'div'
 
 	return (
@@ -22,16 +21,19 @@ export const Grid = React.forwardRef<
 			{...props}
 		/>
 	)
-})
+}
 
-Grid.displayName = 'Grid'
+export type GridCardProps = ComponentProps<'div'> & {
+	asChild?: boolean
+}
 
-export const GridCard = React.forwardRef<
-	HTMLDivElement,
-	React.ComponentPropsWithoutRef<'div'> & {
-		asChild?: boolean
-	}
->(({ asChild, className, children, ...props }, ref) => {
+export function GridCard({
+	asChild,
+	className,
+	children,
+	ref,
+	...props
+}: GridCardProps) {
 	const Comp = asChild ? Slot : 'div'
 
 	return (
@@ -50,8 +52,4 @@ export const GridCard = React.forwardRef<
 			{children}
 		</Comp>
 	)
-})
-GridCard.displayName = 'GridCard'
-
-export type GridProps = React.ComponentPropsWithoutRef<typeof Grid>
-export type GridCardProps = React.ComponentPropsWithoutRef<typeof GridCard>
+}

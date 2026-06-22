@@ -23,13 +23,7 @@ import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import {
-	type ComponentPropsWithoutRef,
-	type ComponentRef,
-	forwardRef,
-	useMemo,
-	useRef,
-} from 'react'
+import { type ComponentPropsWithoutRef, useMemo, useRef } from 'react'
 import { usePathname } from 'routing'
 import {
 	useNavigation,
@@ -38,20 +32,18 @@ import {
 } from '../hooks/use-navigation'
 import { Link } from '~/app/[locale]/common/components/link'
 
-const MainNavigationSubItem = forwardRef<
-	ComponentRef<typeof Link>,
-	ComponentPropsWithoutRef<typeof Link> & SubNavItem
->(({ href, label, description, className, ...props }, ref) => {
+function MainNavigationSubItem({
+	href,
+	label,
+	description,
+	className,
+	...props
+}: ComponentPropsWithoutRef<typeof Link> & SubNavItem) {
 	return (
 		<NavigationMenuItem className="w-full">
 			<NavigationMenuLink
 				render={
-					<Link
-						className="p-0!"
-						ref={ref}
-						href={`/${stripPreSlash(href)}`}
-						{...props}
-					>
+					<Link className="p-0!" href={`/${stripPreSlash(href)}`} {...props}>
 						<Item className="p-best-friends!">
 							<ItemContent>
 								<ItemTitle>{label}</ItemTitle>
@@ -63,8 +55,7 @@ const MainNavigationSubItem = forwardRef<
 			/>
 		</NavigationMenuItem>
 	)
-})
-MainNavigationSubItem.displayName = 'MainNavigationSubItem'
+}
 
 const getMainItemClassName = cva(
 	cn(
@@ -81,10 +72,12 @@ const getMainItemClassName = cva(
 	},
 )
 
-const MainNavigationItem = forwardRef<
-	ComponentRef<'a'>,
-	Omit<ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]
->(({ href, label, sub, ...props }, ref) => {
+function MainNavigationItem({
+	href,
+	label,
+	sub,
+	...props
+}: Omit<ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]) {
 	const pathname = usePathname()
 	if (!sub?.length && !href) return null
 
@@ -103,7 +96,7 @@ const MainNavigationItem = forwardRef<
 							{ 'hover:bg-background-muted': !isActive },
 						)}
 						render={
-							<Link {...props} ref={ref} href={`/${stripPreSlash(href)}`}>
+							<Link {...props} href={`/${stripPreSlash(href)}`}>
 								{label}
 							</Link>
 						}
@@ -148,9 +141,7 @@ const MainNavigationItem = forwardRef<
 			}
 		/>
 	)
-})
-
-MainNavigationItem.displayName = 'MainNavigationItem'
+}
 
 const socialLinkClassName = 'text-xs'
 

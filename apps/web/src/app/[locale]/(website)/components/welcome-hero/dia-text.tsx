@@ -20,7 +20,6 @@ import {
 	useState,
 } from 'react'
 
-
 const DEFAULT_COLORS = [
 	'var(--destructive)',
 	'var(--success)',
