@@ -23,8 +23,8 @@ importers:
         specifier: ^21.0.2
         version: 21.0.2
       '@nerdfish/config':
-        specifier: ^1.10.5
-        version: 1.10.5(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)
+        specifier: ^1.10.6
+        version: 1.10.6(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)
       '@next/eslint-plugin-next':
         specifier: ^16.2.7
         version: 16.2.7
@@ -752,8 +752,8 @@ importers:
   packages/typescript-config:
     dependencies:
       '@nerdfish/config':
-        specifier: ^1.10.5
-        version: 1.10.5(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)
+        specifier: ^1.10.6
+        version: 1.10.6(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)
 
 packages:
 
@@ -2775,8 +2775,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@nerdfish/config@1.10.5':
-    resolution: {integrity: sha512-ZNmtlI+GdMIvh2KveK6n78uxAQ5hgOfFj9Az+LIsLn7ENQ3V/0AvCYRbpgA6DHssHh9oWP78ELKgvaUYvaMkvQ==}
+  '@nerdfish/config@1.10.6':
+    resolution: {integrity: sha512-r9RY6HR9CkbObb9wvhxxAviPz0SbVt8GRTKztD3bmvSsmFVNn6ft1rDn9G5gOM79CywEsV2cNvOrLKfiBvEAxg==}
 
   '@nerdfish/react@1.2.1':
     resolution: {integrity: sha512-ThoG2B7By4GtfV1MEV0PNUmkZg3fH1vqSOx7vj6KnG1x7sd93++KcZQZyp773PpUumWJeK9Ejbju/dfDw2tURA==}
@@ -5955,6 +5955,7 @@ packages:
   git-raw-commits@5.0.1:
     resolution: {integrity: sha512-Y+csSm2GD/PCSh6Isd/WiMjNAydu0VBiG9J7EdQsNA5P9uXvLayqjmTsNlK5Gs9IhblFZqOU0yid5Il5JPoLiQ==}
     engines: {node: '>=18'}
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   github-slugger@2.0.0:
@@ -10747,7 +10748,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
-  '@nerdfish/config@1.10.5(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)':
+  '@nerdfish/config@1.10.6(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)(typescript@5.9.3)':
     dependencies:
       '@eslint/compat': 1.4.1(eslint@9.39.4(jiti@2.7.0))
       '@total-typescript/ts-reset': 0.6.1
