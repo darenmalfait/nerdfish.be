@@ -62,7 +62,7 @@ jobs:
 
       - name: Cache TypeScript TSBuild Info Files
         id: cache-typescript-tsbuildinfo
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
         with:
           path: node_modules/.cache/*-tsbuildinfo.json
           # We use the commit hash as the key to always update the cache as a
