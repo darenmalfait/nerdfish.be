@@ -31,7 +31,7 @@ export function SiteHeader() {
 		<div className="sticky top-0 z-10 w-full print:hidden">
 			<div
 				aria-hidden
-				className="from-background via-background/90 pointer-events-none absolute inset-0 bg-linear-to-b to-transparent"
+				className="from-background-muted/80 via-background-muted/30 pointer-events-none absolute inset-0 bg-linear-to-b to-transparent"
 			/>
 			<header className="relative w-full flex-none">
 				<div className="container max-w-none">

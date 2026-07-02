@@ -12,11 +12,19 @@ import Image from 'next/image'
 import { type ComponentProps, type ElementType, type ReactNode } from 'react'
 import { Link } from '~/app/[locale]/common/components/link'
 
-export function HeroSubtitle({ children }: { children?: ReactNode }) {
+export function HeroSubtitle({
+	children,
+	className,
+}: {
+	children?: ReactNode
+	className?: string
+}) {
 	if (!children) return null
 
 	return (
-		<SectionHeaderSubtitle className="typography mt-friends [&_strong]:font-black">
+		<SectionHeaderSubtitle
+			className={cn('typography mt-friends [&_strong]:font-black', className)}
+		>
 			{children}
 		</SectionHeaderSubtitle>
 	)
@@ -102,9 +110,9 @@ export function HeroContent({ children, ...props }: HeroContentProps) {
 
 export type HeroProps = ComponentProps<'div'>
 
-export function Hero({ children }: HeroProps) {
+export function Hero({ children, className, ...props }: HeroProps) {
 	return (
-		<Section className={cn('group/section relative')}>
+		<Section className={cn('group/section relative', className)} {...props}>
 			<div className="relative mx-auto px-0">{children}</div>
 		</Section>
 	)

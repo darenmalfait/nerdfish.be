@@ -43,24 +43,26 @@ export function WelcomeHero() {
 	]
 
 	return (
-		<Hero>
-			<HeroContent>
-				<SectionHeaderTitle as="h1" className="leading-tight">
-					<span className="bg-accent text-accent-contrast rounded-compact p-bff">
+		<Hero className="py-casual md:py-casual w-full">
+			<HeroContent className="text-center">
+				<SectionHeaderTitle as="h1" className="mx-auto leading-snug">
+					<span className="from-foreground/80 via-foreground to-background-secondary bg-linear-to-br bg-clip-text text-transparent">
 						{t('hero.title.line1')}
 					</span>{' '}
 					<br />
-					<span className="from-foreground/80 via-foreground to-accent bg-linear-to-br bg-clip-text text-transparent">
+					<span className="bg-accent text-accent-contrast rounded-compact p-bff">
 						{t('hero.title.line2')}
 					</span>
 					<br />
 					{t('hero.title.line3')}{' '}
 					<DiaTextReveal fixedWidth repeat repeatDelay={3} text={heroWords} />
 				</SectionHeaderTitle>
-				<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-				<div className="mt-acquaintances">
+				<HeroSubtitle className="text-foreground mx-auto">
+					{t('hero.subtitle')}
+				</HeroSubtitle>
+				<div className="mt-acquaintances flex justify-center">
 					<MagnetButton
-						size="xl"
+						size="lg"
 						className="hover:bg-background-inverted/80!"
 						render={<Link href="/contact">{t('cta.action')}</Link>}
 					/>

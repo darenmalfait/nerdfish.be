@@ -54,7 +54,13 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			<WelcomeHero />
+			<div className="-mt-site-header pt-site-header relative flex min-h-190 flex-col justify-center">
+				<div
+					aria-hidden
+					className="bg-background-muted -top-site-header pointer-events-none absolute inset-x-0 bottom-0"
+				/>
+				<WelcomeHero />
+			</div>
 
 			<Section>
 				<SectionHeader>

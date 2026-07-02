@@ -1,6 +1,12 @@
 @import '@repo/design-system/styles.css';
 @source "../**/*.{ts,tsx}";
 
+@theme inline {
+	--spacing-site-header: calc(
+		var(--spacing-friends) * 6 + var(--spacing-best-friends)
+	);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
