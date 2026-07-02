@@ -21,11 +21,11 @@ import {
 } from 'react'
 
 const DEFAULT_COLORS = [
-	'var(--destructive)',
-	'var(--success)',
-	'var(--warning)',
-	'var(--info)',
-	'var(--accent)',
+	'var(--color-destructive)',
+	'var(--color-success)',
+	'var(--color-warning)',
+	'var(--color-info)',
+	'var(--color-accent)',
 ]
 const BAND_HALF = 17
 const SWEEP_START = -BAND_HALF
@@ -109,7 +109,7 @@ function measureWidths(element: HTMLElement, texts: string[]) {
 export function DiaTextReveal({
 	text,
 	colors = DEFAULT_COLORS,
-	textColor = 'var(--foreground)',
+	textColor = 'var(--color-foreground)',
 	duration = 1.5,
 	delay = 0,
 	repeat = false,

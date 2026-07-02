@@ -57,7 +57,7 @@ interface ThemeProviderProps {
 }
 
 const ThemeScript = memo(
-	function ThemeScript({
+	function getThemeScript({
 		forcedTheme,
 		defaultTheme,
 		themes,

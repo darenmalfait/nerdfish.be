@@ -1,7 +1,6 @@
 'use client'
 
 import type * as Clerk from '@clerk/nextjs'
-import { useTheme } from 'next-themes'
 import { type ReactNode } from 'react'
 import { isAuthEnabled } from './enabled'
 
@@ -24,8 +23,6 @@ export function AuthProvider({
 	children,
 	...properties
 }: AuthProviderProperties) {
-	const { resolvedTheme } = useTheme()
-
 	if (!ClerkProvider) {
 		return children
 	}
@@ -55,14 +52,13 @@ export function AuthProvider({
 		<ClerkProvider
 			{...properties}
 			appearance={{
-				layout: {
+				options: {
 					privacyPageUrl: privacyUrl,
 					termsPageUrl: termsUrl,
 					helpPageUrl: helpUrl,
 				},
 				variables,
 				elements,
-				colorScheme: resolvedTheme === 'dark' ? 'dark' : 'light',
 			}}
 		>
 			{children}

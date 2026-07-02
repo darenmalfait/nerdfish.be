@@ -28,7 +28,7 @@ type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }
 
-const getPageData = cache(async function getPageData(
+const getPageData = cache(async function fetchPageData(
 	slug: string,
 	locale?: Locale,
 ) {
