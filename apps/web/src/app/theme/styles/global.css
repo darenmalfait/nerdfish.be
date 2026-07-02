@@ -5,6 +5,23 @@
 	--spacing-site-header: calc(
 		var(--spacing-friends) * 6 + var(--spacing-best-friends)
 	);
+
+	/* Welcome hero aurora blobs — tweak these to recolor the glow. */
+	--welcome-aurora-left: color-mix(
+		in oklab,
+		var(--color-accent) 50%,
+		transparent
+	);
+	--welcome-aurora-center: color-mix(
+		in oklab,
+		var(--color-info) 44%,
+		transparent
+	);
+	--welcome-aurora-right: color-mix(
+		in oklab,
+		var(--color-success) 44%,
+		transparent
+	);
 }
 
 @media (prefers-reduced-motion: reduce) {

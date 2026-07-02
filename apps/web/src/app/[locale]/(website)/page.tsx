@@ -16,6 +16,7 @@ import { Cta } from './components/cta'
 import { Features } from './components/features'
 import { Highlights } from './components/highlights'
 import { WelcomeHero } from './components/welcome-hero/welcome-hero'
+import { WelcomeHeroAurora } from './components/welcome-hero/welcome-hero-aurora'
 import { Testimonials } from './testimonials/components/testimonials'
 import { WorkOverview } from './work/components/work-overview'
 
@@ -54,11 +55,12 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			<div className="-mt-site-header pt-site-header relative flex min-h-190 flex-col justify-center">
+			<div className="-mt-site-header pt-site-header relative flex min-h-190 flex-col justify-center overflow-hidden">
 				<div
 					aria-hidden
-					className="bg-background-muted -top-site-header pointer-events-none absolute inset-x-0 bottom-0"
+					className="bg-background-muted -top-site-header pointer-events-none absolute inset-x-0 bottom-0 z-0"
 				/>
+				<WelcomeHeroAurora />
 				<WelcomeHero />
 			</div>
 

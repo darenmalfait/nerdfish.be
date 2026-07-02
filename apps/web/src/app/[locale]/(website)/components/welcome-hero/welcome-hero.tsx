@@ -43,7 +43,7 @@ export function WelcomeHero() {
 	]
 
 	return (
-		<Hero className="py-casual md:py-casual w-full">
+		<Hero className="py-casual md:py-casual relative z-1 w-full">
 			<HeroContent className="text-center">
 				<SectionHeaderTitle as="h1" className="mx-auto leading-snug">
 					<span className="from-foreground/80 via-foreground to-background-secondary bg-linear-to-br bg-clip-text text-transparent">
