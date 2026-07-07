@@ -13,7 +13,7 @@ import {
 
 const SPRING_CONFIG = { damping: 30, stiffness: 150, mass: 0.2 }
 const MAX_DISTANCE = 0.1
-const MAX_SCALE = 1
+const MAX_SCALE = 1.05
 const MAX_ROTATE = 15
 
 export type MagnetProps = ComponentProps<typeof motion.div>

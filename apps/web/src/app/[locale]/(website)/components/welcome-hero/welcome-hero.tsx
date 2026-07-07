@@ -62,7 +62,7 @@ export function WelcomeHero() {
 				</HeroSubtitle>
 				<div className="mt-acquaintances flex justify-center">
 					<MagnetButton
-						size="lg"
+						size="xl"
 						className="hover:bg-background-inverted/80!"
 						render={<Link href="/contact">{t('cta.action')}</Link>}
 					/>
