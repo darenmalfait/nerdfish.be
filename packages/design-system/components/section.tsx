@@ -1,7 +1,7 @@
-import { Slot } from '@radix-ui/react-slot'
 import { cn } from '@repo/lib/utils/class'
 import { type ElementType, type ComponentProps } from 'react'
 import { ArrowLink } from './arrow-link'
+import { Slot } from './slot'
 import { TextBalancer } from './text-balancer'
 import { TextSlideUp } from './text-slide-up'
 
