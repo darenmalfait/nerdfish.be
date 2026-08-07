@@ -121,36 +121,33 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 							id: 'webdesign',
 							image: {
 								src: '/uploads/blog/remix-impressions.jpg',
-								alt: 'Laptop with code on a wooden desk',
+								alt: t('highlights.webdesign.image.alt'),
 							},
-							category: 'Expertise',
-							title: 'Professional Website Development',
-							description:
-								'Transform your ideas into visually stunning, user-friendly websites that perfectly reflect your brand and engage your target audience.',
+							category: t('highlights.category'),
+							title: t('highlights.webdesign.title'),
+							description: t('highlights.webdesign.description'),
 							href: '/expertise/webdesign',
 						},
 						{
 							id: 'freelance',
 							image: {
 								src: '/uploads/blog/clean-desk-freelance.jpg',
-								alt: 'Person working on a laptop at a clean desk',
+								alt: t('highlights.freelance.image.alt'),
 							},
-							category: 'Expertise',
-							title: 'Freelance Services',
-							description:
-								'Offering expert React and TypeScript consulting to build high-quality, scalable web applications tailored to your needs.',
+							category: t('highlights.category'),
+							title: t('highlights.freelance.title'),
+							description: t('highlights.freelance.description'),
 							href: '/about',
 						},
 						{
 							id: 'branding',
 							image: {
 								src: '/uploads/blog/branding-highlight.jpg',
-								alt: 'Color swatches and branding design materials',
+								alt: t('highlights.branding.image.alt'),
 							},
-							category: 'Expertise',
-							title: 'Branding',
-							description:
-								'From designing logos to creating digital graphics, I deliver creative, detail-oriented branding solutions that elevate your business.',
+							category: t('highlights.category'),
+							title: t('highlights.branding.title'),
+							description: t('highlights.branding.description'),
 							href: '/expertise/branding',
 						},
 					]}

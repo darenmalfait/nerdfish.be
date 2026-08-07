@@ -758,8 +758,30 @@
 				}
 			},
 			"highlights": {
+				"branding": {
+					"description": "From designing logos to creating digital graphics, I deliver creative, detail-oriented branding solutions that elevate your business.",
+					"image": {
+						"alt": "Color swatches and branding design materials"
+					},
+					"title": "Branding"
+				},
+				"category": "Expertise",
+				"freelance": {
+					"description": "Offering expert React and TypeScript consulting to build high-quality, scalable web applications tailored to your needs.",
+					"image": {
+						"alt": "Person working on a laptop at a clean desk"
+					},
+					"title": "Freelance Services"
+				},
 				"subtitle": "Explore a range of services designed to bring your ideas to life with creativity, precision, and innovation.",
-				"title": "Crafting Excellence in Every Dimension"
+				"title": "Crafting Excellence in Every Dimension",
+				"webdesign": {
+					"description": "Transform your ideas into visually stunning, user-friendly websites that perfectly reflect your brand and engage your target audience.",
+					"image": {
+						"alt": "Laptop with code on a wooden desk"
+					},
+					"title": "Professional Website Development"
+				}
 			}
 		}
 	},
