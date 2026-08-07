@@ -1,5 +1,5 @@
 import createMiddleware from 'next-intl/middleware'
-import { i18n } from './config'
+import { i18n, localeCookie } from './config'
 import { type BasePathNames } from './routing'
 
 export const i18nMiddleware = (
@@ -11,8 +11,5 @@ export const i18nMiddleware = (
 		defaultLocale: i18n.defaultLocale,
 		localePrefix: 'as-needed',
 		localeDetection: true,
-		localeCookie: {
-			secure: true,
-			sameSite: 'strict',
-		},
+		localeCookie,
 	})

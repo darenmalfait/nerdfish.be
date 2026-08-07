@@ -8,11 +8,26 @@ import {
 	DropdownMenuTrigger,
 } from '@nerdfish/react/dropdown-menu'
 import { GlobeIcon } from '@repo/design-system/icons'
+import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { cn } from '@repo/lib/utils/class'
-import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { type ComponentProps } from 'react'
-import { i18n, supportedLanguages } from '../config'
+import { basePathNames, usePathname, useRouter } from 'routing'
+
+type SharedPathname = keyof typeof basePathNames
+
+function getLocaleSwitchHref(pathname: string): SharedPathname {
+	if (pathname in basePathNames) {
+		return pathname as SharedPathname
+	}
+
+	// Content like /blog/:slug isn't 1:1 across locales — drop to the section root
+	const section = Object.keys(basePathNames)
+		.filter((route) => route !== '/' && pathname.startsWith(`${route}/`))
+		.sort((a, b) => b.length - a.length)[0]
+
+	return (section as SharedPathname | undefined) ?? '/'
+}
 
 export function LocaleSwitcher({
 	className,
@@ -21,10 +36,16 @@ export function LocaleSwitcher({
 }: ComponentProps<typeof Button>) {
 	const t = useTranslations('global')
 	const currentLocale = useLocale()
+	const pathname = usePathname()
+	const router = useRouter()
 
 	const selectedLanguage = supportedLanguages.find(
 		(l) => l.code === currentLocale,
 	)
+
+	function switchLocale(locale: string) {
+		router.replace(getLocaleSwitchHref(pathname), { locale })
+	}
 
 	return (
 		<DropdownMenu>
@@ -51,15 +72,12 @@ export function LocaleSwitcher({
 					{i18n.locales.map((locale) => {
 						return (
 							<li key={locale}>
-								<DropdownMenuItem>
-									<Link
-										href={`/${locale}`}
-										lang={locale}
-										locale={locale}
-										hrefLang={locale}
-									>
-										{supportedLanguages.find((l) => l.code === locale)?.label}
-									</Link>
+								<DropdownMenuItem
+									className="cursor-pointer"
+									disabled={locale === currentLocale}
+									onClick={() => switchLocale(locale)}
+								>
+									{supportedLanguages.find((l) => l.code === locale)?.label}
 								</DropdownMenuItem>
 							</li>
 						)

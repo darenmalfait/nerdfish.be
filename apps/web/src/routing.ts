@@ -1,4 +1,4 @@
-import { i18n } from '@repo/i18n/config'
+import { i18n, localeCookie } from '@repo/i18n/config'
 import {
 	type BasePathNames,
 	createNavigation,
@@ -42,6 +42,7 @@ export const routing = defineRouting({
 	defaultLocale: i18n.defaultLocale,
 	localePrefix: 'as-needed',
 	pathnames,
+	localeCookie,
 
 	// template for when it differs per locale
 	// '/pathname': {
