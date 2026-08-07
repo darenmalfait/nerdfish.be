@@ -4,6 +4,7 @@ import {
 	NEW_EVENT_ID,
 	TZDate,
 	format,
+	formatISO,
 	parseISO,
 	addSeconds,
 	differenceInSeconds,
@@ -61,13 +62,12 @@ export function formatDateRange(dates: TZDate[]): string {
 	return `${formatFullDate(startDate)} - ${formatFullDate(endDate)}`
 }
 
-export function transformTimesheetsRecordToFormData(
+export function toTimesheetsRecordFormDataFromTimesheetsRecord(
 	event: TimesheetsRecord,
-	selectedDate: string | null,
 ): TimesheetsRecordFormData {
 	const start = event.start
 		? parseISO(event.start)
-		: parseISO(`${event.date || selectedDate}T09:00:00`)
+		: parseISO(`${event.date}T09:00:00`)
 	const end = event.end
 		? parseISO(event.end)
 		: addSeconds(start, event.duration || 0)
@@ -82,16 +82,41 @@ export function transformTimesheetsRecordToFormData(
 	}
 }
 
-export function transformTimesheetsRecordToCalendarEvent(
+export function toTimesheetsRecordFromTimesheetsRecordFormData({
+	date,
+	start,
+	end,
+	id,
+	project,
+	description,
+}: TimesheetsRecordFormData &
+	Pick<TimesheetsRecord, 'date'>): TimesheetsRecord {
+	const baseDate = formatISO(parseISO(date), {
+		representation: 'date',
+	})
+	const startDate = parseISO(`${baseDate}T${start}`)
+	const endDate = parseISO(`${baseDate}T${end}`)
+
+	return {
+		id,
+		date,
+		project,
+		description,
+		start: startDate.toISOString(),
+		end: endDate.toISOString(),
+		duration: Math.max(0, differenceInSeconds(endDate, startDate)),
+	}
+}
+
+export function toCalendarEventFromTimesheetsRecord(
 	event: TimesheetsRecord,
-	project?: string | undefined,
 ): CalendarEvent {
 	return {
 		...event,
 		id: event.id ?? NEW_EVENT_ID,
 		start: parseISO(event.start),
 		end: parseISO(event.end),
-		project,
+		project: event.project,
 		description: event.description,
 	}
 }

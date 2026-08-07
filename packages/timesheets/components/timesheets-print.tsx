@@ -15,8 +15,9 @@ import { Label } from '@nerdfish/react/label'
 import { Separator } from '@nerdfish/react/separator'
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { Logo } from '@repo/design-system/icons'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { useEffect, useRef, useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { type TimesheetsRecord } from '../schemas'
 
 function Row({
@@ -185,16 +186,29 @@ export function TimesheetsPrint({
 }) {
 	const ref = useRef<HTMLDivElement>(null)
 
-	useEffect(() => {
-		if (ref.current) {
-			// get height in mm
+	useMountEffect(() => {
+		const element = ref.current
+		if (!element) return
+
+		const root: HTMLDivElement = element
+		const style = document.createElement('style')
+		document.head.appendChild(style)
+
+		function updatePageSize() {
 			// 1 pixel (X) = 0.2645833333 mm
-			const height = ref.current.clientHeight * 0.2645833333
-			const style = document.createElement('style')
+			const height = root.clientHeight * 0.2645833333
 			style.innerHTML = `@page {size: 80mm ${height}mm}`
-			document.head.appendChild(style)
 		}
-	}, [timeEntries, ref])
+
+		updatePageSize()
+		const resizeObserver = new ResizeObserver(updatePageSize)
+		resizeObserver.observe(root)
+
+		return () => {
+			resizeObserver.disconnect()
+			style.remove()
+		}
+	})
 
 	return (
 		<div className="p-friends pb-distant print:p-0">

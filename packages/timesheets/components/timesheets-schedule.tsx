@@ -7,7 +7,7 @@ import {
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { type ActionResponse } from '@repo/lib/utils/form'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
 import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
@@ -15,8 +15,9 @@ import { useTimesheets } from '../providers/timesheets-provider'
 import { type TimesheetsRecord } from '../schemas'
 import {
 	toTimesheetsRecordFromCalendarEvent,
-	transformTimesheetsRecordToCalendarEvent,
-	transformTimesheetsRecordToFormData,
+	toCalendarEventFromTimesheetsRecord,
+	toTimesheetsRecordFormDataFromTimesheetsRecord,
+	toTimesheetsRecordFromTimesheetsRecordFormData,
 } from '../utils'
 import { TimesheetsDaySelect } from './timesheets-day-select'
 
@@ -55,7 +56,14 @@ export function TimesheetsSchedule({
 	const [selectedEvent, setSelectedEvent] = useState<
 		TimesheetsRecord | undefined
 	>(dataProp.length > 0 ? dataProp[dataProp.length - 1] : undefined)
-	const [data, setData] = useState<TimesheetsRecord[]>(dataProp)
+	const [data, setData] = useState(dataProp)
+	const [prevDataProp, setPrevDataProp] = useState(dataProp)
+
+	// Reset local schedule data when the URL-driven prop changes
+	if (dataProp !== prevDataProp) {
+		setPrevDataProp(dataProp)
+		setData(dataProp)
+	}
 
 	useMountEffect(() => {
 		if (scrollRef.current) {
@@ -72,11 +80,6 @@ export function TimesheetsSchedule({
 			}
 		}
 	})
-
-	useEffect(() => {
-		// in case the url changes
-		setData(dataProp)
-	}, [dataProp])
 
 	async function handleSubmit(values: TimesheetsRecordFormData) {
 		const isCreate = !values.id || values.id === NEW_EVENT_ID
@@ -115,6 +118,22 @@ export function TimesheetsSchedule({
 		return toast.success('Event deleted')
 	}
 
+	function handleFormTimeChange(start: string, end: string) {
+		if (!selectedEvent || !start || !end) return
+
+		const updated = toTimesheetsRecordFromTimesheetsRecordFormData({
+			...toTimesheetsRecordFormDataFromTimesheetsRecord(selectedEvent),
+			date: selectedEvent.date,
+			start,
+			end,
+		})
+
+		setSelectedEvent(updated)
+		setData((current) =>
+			current.map((event) => (event.id === updated.id ? updated : event)),
+		)
+	}
+
 	return (
 		<div>
 			<TimesheetsDaySelect />
@@ -126,15 +145,10 @@ export function TimesheetsSchedule({
 				<CalendarDay
 					selectedEvent={
 						selectedEvent
-							? transformTimesheetsRecordToCalendarEvent(
-									selectedEvent,
-									selectedEvent.project,
-								)
+							? toCalendarEventFromTimesheetsRecord(selectedEvent)
 							: undefined
 					}
-					value={data.map((event) =>
-						transformTimesheetsRecordToCalendarEvent(event, event.project),
-					)}
+					value={data.map(toCalendarEventFromTimesheetsRecord)}
 					onDeleteEvent={handleDeleteEvent}
 					onChange={(values) => {
 						setData(values.map(toTimesheetsRecordFromCalendarEvent))
@@ -150,9 +164,10 @@ export function TimesheetsSchedule({
 				key={selectedEvent?.id}
 				defaultValues={
 					selectedEvent
-						? transformTimesheetsRecordToFormData(selectedEvent, selectedDate)
+						? toTimesheetsRecordFormDataFromTimesheetsRecord(selectedEvent)
 						: undefined
 				}
+				onTimeChange={handleFormTimeChange}
 				onSubmit={handleSubmit}
 			/>
 		</div>

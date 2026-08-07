@@ -1,13 +1,14 @@
 'use client'
 
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import {
 	createContext,
 	memo,
 	type ReactNode,
 	useCallback,
 	useContext,
-	useEffect,
 	useMemo,
+	useRef,
 	useState,
 } from 'react'
 
@@ -141,73 +142,77 @@ function ThemeProvider({
 		getTheme(storageKey, defaultTheme),
 	)
 	const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey))
-	const applyTheme = useCallback(
-		(themeToApply?: string) => {
-			if (!themeToApply) return
-			const name = themeToApply === 'system' ? getSystemTheme() : themeToApply
 
-			const d = document.documentElement
-			d.classList.remove(...themes)
+	const themeRef = useRef(theme)
+	const forcedThemeRef = useRef(forcedTheme)
+	const defaultThemeRef = useRef(defaultTheme)
+	const themesRef = useRef(themes)
+	themeRef.current = theme
+	forcedThemeRef.current = forcedTheme
+	defaultThemeRef.current = defaultTheme
+	themesRef.current = themes
 
-			if (name) d.classList.add(name)
-		},
-		[themes],
-	)
+	function applyTheme(themeToApply?: string) {
+		if (!themeToApply) return
+		const name = themeToApply === 'system' ? getSystemTheme() : themeToApply
+
+		const d = document.documentElement
+		d.classList.remove(...themesRef.current)
+
+		if (name) d.classList.add(name)
+	}
 
 	const setTheme = useCallback((newTheme: string) => {
 		setThemeState(newTheme)
 
-		// Save to storage
 		try {
 			localStorage.setItem(storageKey, newTheme)
 		} catch (e) {
 			if (e instanceof Error) console.error(e.message)
 		}
+
+		if (!forcedThemeRef.current) {
+			applyTheme(newTheme)
+		}
 	}, [])
 
-	const handleMediaQuery = useCallback(
-		(e: MediaQueryListEvent | MediaQueryList) => {
+	// Subscribe once: system preference + cross-tab storage. Theme DOM updates
+	// happen in setTheme (user/storage-driven) and on mount below.
+	useMountEffect(() => {
+		applyTheme(forcedThemeRef.current ?? themeRef.current)
+
+		const media = window.matchMedia(MEDIA)
+
+		function handleMediaQuery(e: MediaQueryListEvent | MediaQueryList) {
 			const resolved = getSystemTheme(e)
 			setResolvedTheme(resolved)
 
-			if (theme === 'system' && !forcedTheme) {
+			if (themeRef.current === 'system' && !forcedThemeRef.current) {
 				applyTheme('system')
 			}
-		},
-		[theme, forcedTheme, applyTheme],
-	)
-
-	// Always listen to System preference
-	useEffect(() => {
-		const media = window.matchMedia(MEDIA)
+		}
 
 		// Intentionally use deprecated listener methods to support iOS & old browsers
 		media.addListener(handleMediaQuery)
 		handleMediaQuery(media)
 
-		return () => media.removeListener(handleMediaQuery)
-	}, [handleMediaQuery])
-
-	// localStorage event handling
-	useEffect(() => {
-		const handleStorage = (e: StorageEvent) => {
+		function handleStorage(e: StorageEvent) {
 			if (e.key !== storageKey) {
 				return
 			}
 
 			// If default theme set, use it if localstorage === null (happens on local storage manual deletion)
-			const selectedTheme = e.newValue ?? defaultTheme
+			const selectedTheme = e.newValue ?? defaultThemeRef.current
 			setTheme(selectedTheme)
 		}
 
 		window.addEventListener('storage', handleStorage)
-		return () => window.removeEventListener('storage', handleStorage)
-	}, [defaultTheme, setTheme])
 
-	// Whenever theme or forcedTheme changes, apply it
-	useEffect(() => {
-		applyTheme(forcedTheme ?? theme)
-	}, [applyTheme, forcedTheme, theme])
+		return () => {
+			media.removeListener(handleMediaQuery)
+			window.removeEventListener('storage', handleStorage)
+		}
+	})
 
 	const providerValue = useMemo<ThemeContextProps>(
 		() => ({

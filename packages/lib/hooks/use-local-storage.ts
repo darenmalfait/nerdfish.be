@@ -44,6 +44,7 @@ export function useLocalStorage<T>(
 		[key, localState],
 	)
 
+	// eslint-disable-next-line @nerdfish/conventions/no-use-effect
 	useEffect(() => {
 		// Handle storage changes in other tabs/windows
 		function handleStorageChange(event: StorageEvent) {

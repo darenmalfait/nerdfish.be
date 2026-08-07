@@ -13,8 +13,8 @@ import {
 	type KeyboardEvent,
 	useCallback,
 	useContext,
-	useEffect,
 	useMemo,
+	useRef,
 	useState,
 } from 'react'
 import { useMediaQuery } from '../hooks/use-media-query'
@@ -66,6 +66,40 @@ function Carousel({
 	const isLarge = useMediaQuery('(min-width: 64rem)')
 	const isXLarge = useMediaQuery('(min-width: 80rem)')
 
+	const [canScrollPrev, setCanScrollPrev] = useState(false)
+	const [canScrollNext, setCanScrollNext] = useState(false)
+
+	const setApiRef = useRef(setApi)
+	setApiRef.current = setApi
+
+	// Bind scroll state + setApi in an Embla plugin so we don't need useEffect
+	// waiting on `api` (undefined until the viewport ref mounts).
+	const scrollStatePlugin = useMemo(() => {
+		let emblaApi: NonNullable<CarouselApi> | undefined
+
+		function onSelect() {
+			if (!emblaApi) return
+			setCanScrollPrev(emblaApi.canScrollPrev())
+			setCanScrollNext(emblaApi.canScrollNext())
+		}
+
+		return {
+			name: 'nerdfish-scroll-state',
+			options: {},
+			init(apiInstance: NonNullable<CarouselApi>) {
+				emblaApi = apiInstance
+				setApiRef.current?.(apiInstance)
+				onSelect()
+				apiInstance.on('select', onSelect)
+				apiInstance.on('reInit', onSelect)
+			},
+			destroy() {
+				emblaApi?.off('select', onSelect)
+				emblaApi?.off('reInit', onSelect)
+			},
+		}
+	}, [])
+
 	const [carouselRef, api] = useEmblaCarousel(
 		{
 			...opts,
@@ -74,19 +108,12 @@ function Carousel({
 		},
 		[
 			...(plugins ?? []),
+			scrollStatePlugin,
 			emblaClassName({
 				snapped: 'is-snapped',
 			}),
 		],
 	)
-	const [canScrollPrev, setCanScrollPrev] = useState(false)
-	const [canScrollNext, setCanScrollNext] = useState(false)
-
-	const onSelect = useCallback((carouselApi: CarouselApi) => {
-		if (!carouselApi) return
-		setCanScrollPrev(carouselApi.canScrollPrev())
-		setCanScrollNext(carouselApi.canScrollNext())
-	}, [])
 
 	const scrollPrev = useCallback(() => {
 		api?.scrollPrev()
@@ -108,23 +135,6 @@ function Carousel({
 		},
 		[scrollPrev, scrollNext],
 	)
-
-	useEffect(() => {
-		if (!api || !setApi) return
-		setApi(api)
-	}, [api, setApi])
-
-	useEffect(() => {
-		if (!api) return
-		onSelect(api)
-		api.on('reInit', onSelect)
-		api.on('select', onSelect)
-
-		return () => {
-			api.off('reInit', onSelect)
-			api.off('select', onSelect)
-		}
-	}, [api, onSelect])
 
 	const scaleActive = useMemo(() => {
 		if (!api) return true

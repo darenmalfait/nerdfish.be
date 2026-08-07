@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+import { useState } from 'react'
 
 export function useMediaQuery(query: string) {
 	const [value, setValue] = useState(false)
 
-	useEffect(() => {
+	useMountEffect(() => {
 		function onChange(event: MediaQueryListEvent) {
 			setValue(event.matches)
 		}
@@ -13,7 +14,7 @@ export function useMediaQuery(query: string) {
 		setValue(result.matches)
 
 		return () => result.removeEventListener('change', onChange)
-	}, [query])
+	})
 
 	return value
 }

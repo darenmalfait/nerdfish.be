@@ -1,11 +1,12 @@
 'use client'
 
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
 import {
 	type AnimationPlaybackControls,
 	animate,
+	inView,
 	motion,
-	useInView,
 	useMotionValue,
 	useTransform,
 } from 'motion/react'
@@ -13,8 +14,6 @@ import {
 	type ComponentPropsWithoutRef,
 	type CSSProperties,
 	type Ref,
-	useCallback,
-	useEffect,
 	useMemo,
 	useRef,
 	useState,
@@ -106,8 +105,8 @@ function measureWidths(element: HTMLElement, texts: string[]) {
 	return widths
 }
 
-export function DiaTextReveal({
-	text,
+function DiaTextRevealInner({
+	texts,
 	colors = DEFAULT_COLORS,
 	textColor = 'var(--color-foreground)',
 	duration = 1.5,
@@ -120,28 +119,26 @@ export function DiaTextReveal({
 	fixedWidth = false,
 	ref,
 	...props
-}: DiaTextRevealProps) {
+}: Omit<DiaTextRevealProps, 'text'> & { texts: string[] }) {
 	const spanRef = useRef<HTMLSpanElement | null>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
 	const [measuredWidths, setMeasuredWidths] = useState<number[]>([])
 
 	const indexRef = useRef(0)
 	const hasPlayedRef = useRef(false)
+	const onceRef = useRef(once)
 	const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 	const controlsRef = useRef<AnimationPlaybackControls | undefined>(undefined)
-	const previousTextKeyRef = useRef('')
+	const swapControlsRef = useRef<AnimationPlaybackControls[]>([])
 
 	const sweepPos = useMotionValue(SWEEP_START)
 	const textOpacity = useMotionValue(1)
 	const textBlur = useMotionValue(0)
 	const textShift = useMotionValue(0)
-	const inView = useInView(spanRef, { once, amount: 0.1 })
-	const previousActiveIndexRef = useRef(0)
 
-	const texts = useMemo(() => (Array.isArray(text) ? text : [text]), [text])
-	const textKey = useMemo(() => texts.join('\0'), [texts])
+	onceRef.current = once
+
 	const isMulti = texts.length > 1
-	const isVisible = triggerOnView ? inView : true
 
 	const backgroundImage = useTransform(sweepPos, (pos) =>
 		buildGradient(pos, colors, textColor),
@@ -200,7 +197,7 @@ export function DiaTextReveal({
 		[backgroundImage, contentFilter, contentTransform, textOpacity],
 	)
 
-	const clearCycle = useCallback(() => {
+	function clearCycle() {
 		controlsRef.current?.stop()
 		controlsRef.current = undefined
 
@@ -209,7 +206,37 @@ export function DiaTextReveal({
 		}
 
 		timerRef.current = undefined
-	}, [])
+	}
+
+	function clearSwap() {
+		for (const control of swapControlsRef.current) {
+			control.stop()
+		}
+		swapControlsRef.current = []
+	}
+
+	function runSwapAnimation() {
+		clearSwap()
+
+		textOpacity.set(0.58)
+		textBlur.set(8)
+		textShift.set(5.5)
+
+		swapControlsRef.current = [
+			animate(textOpacity, 1, {
+				duration: 0.26,
+				ease: TEXT_SWAP_EASE,
+			}),
+			animate(textBlur, 0, {
+				duration: 0.34,
+				ease: TEXT_SWAP_EASE,
+			}),
+			animate(textShift, 0, {
+				duration: 0.34,
+				ease: TEXT_SWAP_EASE,
+			}),
+		]
+	}
 
 	const playRef = useRef<() => void>(() => undefined)
 
@@ -231,99 +258,65 @@ export function DiaTextReveal({
 
 					indexRef.current = next
 					setActiveIndex(next)
+
+					if (texts.length > 1) {
+						runSwapAnimation()
+					}
+
 					playRef.current()
 				}, repeatDelay * 1000)
 			},
 		})
 	}
 
-	useEffect(() => {
-		if (textKey === previousTextKeyRef.current) {
-			return
+	// Mount-only: measure, subscribe to in-view, clean up timers/animations
+	useMountEffect(() => {
+		function cleanup() {
+			clearCycle()
+			clearSwap()
 		}
 
-		previousTextKeyRef.current = textKey
-		indexRef.current = 0
-		setActiveIndex(0)
-		hasPlayedRef.current = false
-		clearCycle()
+		const element = spanRef.current
+		if (!element) {
+			return cleanup
+		}
 
-		sweepPos.set(SWEEP_START)
+		if (texts.length > 1) {
+			setMeasuredWidths(measureWidths(element, texts))
+		}
 
-		if (isVisible) {
+		function start() {
+			if (onceRef.current && hasPlayedRef.current) {
+				return
+			}
+
 			hasPlayedRef.current = true
 			playRef.current()
 		}
-	}, [clearCycle, isVisible, sweepPos, textKey])
 
-	useEffect(() => {
-		const element = spanRef.current
-
-		if (!(element && isMulti)) {
-			setMeasuredWidths([])
-			return
+		if (!triggerOnView) {
+			start()
+			return cleanup
 		}
 
-		setMeasuredWidths(measureWidths(element, texts))
-	}, [isMulti, texts])
-
-	useEffect(() => {
-		if (!isVisible) {
-			if (!once) {
-				hasPlayedRef.current = false
-			}
-			return
-		}
-
-		if (once && hasPlayedRef.current) {
-			return
-		}
-
-		hasPlayedRef.current = true
-		playRef.current()
-
-		return clearCycle
-	}, [clearCycle, isVisible, once])
-
-	useEffect(() => {
-		if (!isMulti) {
-			textOpacity.set(1)
-			textBlur.set(0)
-			textShift.set(0)
-			previousActiveIndexRef.current = activeIndex
-			return
-		}
-
-		if (previousActiveIndexRef.current === activeIndex) {
-			return
-		}
-
-		previousActiveIndexRef.current = activeIndex
-		textOpacity.set(0.58)
-		textBlur.set(8)
-		textShift.set(5.5)
-
-		const opacityControls = animate(textOpacity, 1, {
-			duration: 0.26,
-			ease: TEXT_SWAP_EASE,
-		})
-		const blurControls = animate(textBlur, 0, {
-			duration: 0.34,
-			ease: TEXT_SWAP_EASE,
-		})
-		const shiftControls = animate(textShift, 0, {
-			duration: 0.34,
-			ease: TEXT_SWAP_EASE,
-		})
+		const stopInView = inView(
+			element,
+			() => {
+				start()
+				return () => {
+					if (!onceRef.current) {
+						hasPlayedRef.current = false
+					}
+				}
+			},
+			{ amount: 0.1 },
+		)
 
 		return () => {
-			opacityControls.stop()
-			blurControls.stop()
-			shiftControls.stop()
+			stopInView()
+			cleanup()
 		}
-	}, [activeIndex, isMulti, textBlur, textOpacity, textShift])
-
-	useEffect(() => clearCycle, [clearCycle])
+	})
 
 	const setRefs = (node: HTMLSpanElement | null) => {
 		spanRef.current = node
@@ -354,4 +347,12 @@ export function DiaTextReveal({
 			<span className="sr-only">{texts[activeIndex]}</span>
 		</motion.span>
 	)
+}
+
+export function DiaTextReveal({ text, ...props }: DiaTextRevealProps) {
+	const texts = useMemo(() => (Array.isArray(text) ? text : [text]), [text])
+	const textKey = useMemo(() => texts.join('\0'), [texts])
+
+	// Remount on text identity change so cycle/measure restart without useEffect
+	return <DiaTextRevealInner key={textKey} texts={texts} {...props} />
 }
