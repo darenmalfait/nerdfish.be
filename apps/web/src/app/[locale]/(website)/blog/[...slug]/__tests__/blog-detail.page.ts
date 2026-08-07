@@ -14,6 +14,8 @@ export class BlogDetailPage extends BasePage {
 			.filter({ has: this.page.locator('a[href^="/blog/"]') })
 			.last()
 			.locator('a[href^="/blog/"]')
+	getHeroPhotographerCreditLink = (name: string) =>
+		this.page.locator('article').getByRole('link', { name })
 
 	async goto(path: string) {
 		await this.page.goto(path)

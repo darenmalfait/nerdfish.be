@@ -1,5 +1,7 @@
 import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
+import { ImageCredit } from '../image-credit'
+import { type ImageCredit as ImageCreditType } from '~/app/types'
 
 function PortableImage({
 	alt = '',
@@ -7,13 +9,19 @@ function PortableImage({
 	url = src,
 	compact = true,
 	caption = '',
+	title = '',
+	credit,
 }: {
 	alt?: string
 	src?: string
 	url?: string
 	compact?: boolean
 	caption?: string
+	title?: string
+	credit?: ImageCreditType
 }) {
+	const resolvedCaption = caption || title
+
 	return (
 		<div
 			className={cn({
@@ -27,8 +35,11 @@ function PortableImage({
 				height={800}
 				alt={alt}
 			/>
-			{caption ? (
-				<p className="text-foreground-muted text-center text-sm">{caption}</p>
+			{credit ? <ImageCredit credit={credit} /> : null}
+			{!credit && resolvedCaption ? (
+				<p className="text-foreground-muted text-center text-sm">
+					{resolvedCaption}
+				</p>
 			) : null}
 		</div>
 	)

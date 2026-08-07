@@ -120,8 +120,8 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'webdesign',
 							image: {
-								src: '/uploads/blog/web-developer-fox.png',
-								alt: 'Someone painting on a canvas',
+								src: '/uploads/blog/remix-impressions.jpg',
+								alt: 'Laptop with code on a wooden desk',
 							},
 							category: 'Expertise',
 							title: 'Professional Website Development',
@@ -132,8 +132,8 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'freelance',
 							image: {
-								src: '/uploads/blog/clean-desk-freelance.png',
-								alt: 'Man working at a laptop, freelance style',
+								src: '/uploads/blog/clean-desk-freelance.jpg',
+								alt: 'Person working on a laptop at a clean desk',
 							},
 							category: 'Expertise',
 							title: 'Freelance Services',
@@ -144,8 +144,8 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'branding',
 							image: {
-								src: '/uploads/blog/desk-with-branding.png',
-								alt: 'Stylized branding materials like logos and business cards',
+								src: '/uploads/blog/branding-highlight.jpg',
+								alt: 'Color swatches and branding design materials',
 							},
 							category: 'Expertise',
 							title: 'Branding',

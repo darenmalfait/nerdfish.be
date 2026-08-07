@@ -58,4 +58,29 @@ test.describe('User Story: The user wants to read a blog post', () => {
 			await expect(blogDetailPage.getNotFoundHeading()).toBeVisible()
 		})
 	})
+
+	test.describe('Given the user opens a post with a credited hero image', () => {
+		test.beforeEach(async ({ blogDetailPage }) => {
+			const post = allPosts.find(
+				(p) =>
+					p.locale === i18n.defaultLocale &&
+					p.slug.includes('conquering-the-legacy-code'),
+			)
+			if (!post) throw new Error('Expected conquering legacy post')
+			await blogDetailPage.goto(getBlogPath(post))
+		})
+
+		test('it should show image credit under the hero when present', async ({
+			blogDetailPage,
+		}) => {
+			const creditLink =
+				blogDetailPage.getHeroPhotographerCreditLink('Mohammad Rahmani')
+
+			await expect(creditLink).toBeVisible()
+			await expect(creditLink).toHaveAttribute(
+				'href',
+				'https://unsplash.com/@mohammad_rahmani',
+			)
+		})
+	})
 })
