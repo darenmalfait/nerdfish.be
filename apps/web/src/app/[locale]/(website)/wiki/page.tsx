@@ -51,7 +51,7 @@ export default async function BlogPage(props: PageProps) {
 					title: t('title'),
 					subtitle: t('subtitle'),
 					image: {
-						src: '/uploads/pages/wiki.png',
+						src: '/images/pages/wiki.png',
 						alt: t('image.alt'),
 					},
 				}}

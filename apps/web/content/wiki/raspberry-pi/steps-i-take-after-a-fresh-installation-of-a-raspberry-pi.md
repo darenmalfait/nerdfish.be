@@ -74,12 +74,12 @@ configured.
 
 - Select Preferences > Raspberry Pi Configuration.
 
-![raspberry pi configuration preferences](/uploads/wiki/steps-i-take-after-a-fresh-installation-of-a-raspberry-pi/raspberry-pi-configuration-preferences-gui_lbc8qe.png)
+![raspberry pi configuration preferences](/images/wiki/steps-i-take-after-a-fresh-installation-of-a-raspberry-pi/raspberry-pi-configuration-preferences-gui_lbc8qe.png)
 
 - Navigate to the Interfaces tab in the configuration window.
 - Enable SSH in the second line.
 
-![raspberry pi configuration interface](/uploads/wiki/steps-i-take-after-a-fresh-installation-of-a-raspberry-pi/raspberry-pi-configuration-interaface-gui_lmnpxx.png)
+![raspberry pi configuration interface](/images/wiki/steps-i-take-after-a-fresh-installation-of-a-raspberry-pi/raspberry-pi-configuration-interaface-gui_lmnpxx.png)
 
 - Click ok to save the changes.
 

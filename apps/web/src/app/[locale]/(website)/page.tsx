@@ -36,7 +36,7 @@ export async function generateMetadata(
 	return createMetadata({
 		title,
 		description,
-		image: '/uploads/og.png',
+		image: '/images/og.png',
 		alternates: {
 			canonical: getPathname({ locale, href: '/' }),
 			languages: getPathnames(
@@ -120,7 +120,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'webdesign',
 							image: {
-								src: '/uploads/blog/remix-impressions.jpg',
+								src: '/images/blog/remix-impressions.jpg',
 								alt: t('highlights.webdesign.image.alt'),
 							},
 							category: t('highlights.category'),
@@ -131,7 +131,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'freelance',
 							image: {
-								src: '/uploads/blog/clean-desk-freelance.jpg',
+								src: '/images/blog/clean-desk-freelance.jpg',
 								alt: t('highlights.freelance.image.alt'),
 							},
 							category: t('highlights.category'),
@@ -142,7 +142,7 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 						{
 							id: 'branding',
 							image: {
-								src: '/uploads/blog/branding-highlight.jpg',
+								src: '/images/blog/branding-highlight.jpg',
 								alt: t('highlights.branding.image.alt'),
 							},
 							category: t('highlights.category'),

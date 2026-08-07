@@ -26,7 +26,7 @@ all my paths have) and opens them in Visual Studio Code.
 npx eslint --ext .js,.jsx,.ts,.tsx . | grep darenmalfait | xargs code
 ```
 
-![a computer with linting errors](/uploads/wiki/a-oneliner-to-open-all-files-with-linting-issues-in-vs-code/Daren_a_scared_computer_with_a_ribbons_around_it_plastic_3d_ren_f2ba46b1-7d12-4144-99b2-8c19461c2b6a_dm7mif.png 'a computer with linting errors')
+![a computer with linting errors](/images/wiki/a-oneliner-to-open-all-files-with-linting-issues-in-vs-code/Daren_a_scared_computer_with_a_ribbons_around_it_plastic_3d_ren_f2ba46b1-7d12-4144-99b2-8c19461c2b6a_dm7mif.png 'a computer with linting errors')
 
 ## Explaining the command in more detail:
 

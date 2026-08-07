@@ -68,7 +68,7 @@ while `git reset --hard` will undo the commit and discard all the changes.
 
 ## Oops, I didn't mean to
 
-![computer panicking](/uploads/wiki/undo-last-commit/hero.png 'computer panicking')
+![computer panicking](/images/wiki/undo-last-commit/hero.png 'computer panicking')
 
 If you reset a bit too much, you can redo the last step using the following:
 

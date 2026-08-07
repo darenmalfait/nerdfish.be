@@ -163,19 +163,19 @@ export default async function ThreeDPrintingPage(props: {
 						{
 							image: {
 								alt: t('desk-storage.items.0.description'),
-								src: '/uploads/prints/IMG_2867.jpeg',
+								src: '/images/prints/IMG_2867.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('desk-storage.items.1.description'),
-								src: '/uploads/prints/IMG_2864.jpeg',
+								src: '/images/prints/IMG_2864.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('desk-storage.items.2.description'),
-								src: '/uploads/prints/IMG_2863.jpeg',
+								src: '/images/prints/IMG_2863.jpeg',
 							},
 						},
 					]}
@@ -192,25 +192,25 @@ export default async function ThreeDPrintingPage(props: {
 						{
 							image: {
 								alt: t('toys.items.0.description'),
-								src: '/uploads/prints/IMG_2835.jpeg',
+								src: '/images/prints/IMG_2835.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('toys.items.1.description'),
-								src: '/uploads/prints/IMG_2828.jpeg',
+								src: '/images/prints/IMG_2828.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('toys.items.2.description'),
-								src: '/uploads/prints/IMG_2833.jpeg',
+								src: '/images/prints/IMG_2833.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('toys.items.3.description'),
-								src: '/uploads/prints/IMG_2836.jpeg',
+								src: '/images/prints/IMG_2836.jpeg',
 							},
 						},
 					]}
@@ -227,19 +227,19 @@ export default async function ThreeDPrintingPage(props: {
 						{
 							image: {
 								alt: t('misc.items.0.description'),
-								src: '/uploads/prints/IMG_2815.jpeg',
+								src: '/images/prints/IMG_2815.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('misc.items.1.description'),
-								src: '/uploads/prints/IMG_2830.jpeg',
+								src: '/images/prints/IMG_2830.jpeg',
 							},
 						},
 						{
 							image: {
 								alt: t('misc.items.2.description'),
-								src: '/uploads/prints/IMG_2852.jpeg',
+								src: '/images/prints/IMG_2852.jpeg',
 							},
 						},
 					]}

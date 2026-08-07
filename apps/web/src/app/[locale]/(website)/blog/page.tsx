@@ -52,7 +52,7 @@ export default async function BlogOverviewPage(props: PageProps) {
 					title: t('title'),
 					subtitle: t('subtitle'),
 					image: {
-						src: '/uploads/pages/blog.png',
+						src: '/images/pages/blog.png',
 						alt: t('image.alt'),
 					},
 				}}
