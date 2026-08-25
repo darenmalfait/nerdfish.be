@@ -19,6 +19,10 @@
 - [quality-thorough-code-review](rules/quality-thorough-code-review.md) - Code
   review standards
 - [quality-code-comments](rules/quality-code-comments.md) - Comment guidelines
+- [quality-naming-conventions](rules/quality-naming-conventions.md) - `is*` /
+  `handle*` / `to*` / `by*` / `use*` (`@nerdfish/config` conventions)
+- [quality-no-use-effect](rules/quality-no-use-effect.md) - No bare `useEffect`;
+  use `useMountEffect` for mount-only side effects
 
 ### Data Layer
 
@@ -27,6 +31,11 @@
 ### Performance
 
 ### Testing
+
+- [testing-bdd-structure](rules/testing-bdd-structure.md) - User Story / Given /
+  When Playwright BDD structure
+- [testing-accessible-queries](rules/testing-accessible-queries.md) - Prefer
+  role/label queries; no `testId` / CSS selectors
 
 ### Design Patterns
 
