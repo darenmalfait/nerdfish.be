@@ -35,6 +35,14 @@ The following environment variables are required to run the website:
 
 ## Install
 
+This repo uses git symlinks for shared agent rules and skills (`.claude` /
+`.cursor` → `agents/`). If you are on Windows, clone with symlinks enabled in
+Git Bash with admin privileges:
+
+```bash
+git clone -c core.symlinks=true https://github.com/darenmalfait/nerdfish.be.git
+```
+
 The package manager used in this project is pnpm. To install the required
 packages, run the following command:
 
