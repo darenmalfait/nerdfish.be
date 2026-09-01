@@ -43,6 +43,8 @@
 
 ### CI/CD
 
+- [git-pr-discipline](rules/git-pr-discipline.mdc) - Never push, open PRs, or
+  commit unless the user explicitly asks
 - [ci-check-failure](rules/ci-check-failure.md) - Handling Quality Gate failures
   (format, lint, typecheck, e2e)
 

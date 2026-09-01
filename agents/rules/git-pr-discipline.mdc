@@ -1,0 +1,41 @@
+---
+description: Do not push branches or open PRs unless the user explicitly asks
+alwaysApply: true
+---
+
+# Git & PR discipline
+
+**Impact: HIGH**
+
+## Rules
+
+1. **Never push** (`git push`, `gh stack push`, etc.) unless the user explicitly asks.
+2. **Never open or submit PRs** (`gh pr create`, `gh stack submit`, `gh stack link`, etc.) unless the user explicitly asks.
+3. **Never commit** unless the user explicitly asks (existing user rule — do not weaken it).
+
+## What "stack on top" means
+
+When the user asks to put work on a gh stack or new branch:
+
+- Create/checkout the branch
+- Implement and commit locally
+- Stop there
+
+Do **not** push or open a PR as a follow-up unless they ask.
+
+## Allowed without asking
+
+- Local git: `status`, `diff`, `log`, `branch`, local commits only when explicitly requested
+- Explain what branch/PR commands *would* be run, and wait for approval
+
+## Examples
+
+**User:** "implement X and put it on a new stack on top of Y"
+
+- Create branch, implement, commit locally
+- Tell the user the branch name and that they can ask you to push or open a PR
+- Do **not** run `gh stack submit`
+
+**User:** "push and open a PR"
+
+- Then push and create the PR
