@@ -39,6 +39,10 @@
 
 ### Design Patterns
 
+- [patterns-component-composition](rules/patterns-component-composition.md) -
+  Composition + early returns for loading/empty/data, optional sections, and
+  required params
+
 ### Team Culture
 
 ### CI/CD
