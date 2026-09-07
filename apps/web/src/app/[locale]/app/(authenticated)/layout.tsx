@@ -2,6 +2,7 @@ import { SidebarProvider } from '@nerdfish/react/sidebar'
 import { auth, currentUser } from '@repo/auth/server'
 import { type ReactNode } from 'react'
 import { AppSidebar } from '../components/app-sidebar'
+import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 export default async function AppLayout({
 	children,
@@ -16,8 +17,10 @@ export default async function AppLayout({
 	}
 
 	return (
-		<SidebarProvider>
-			<AppSidebar>{children}</AppSidebar>
-		</SidebarProvider>
+		<NuqsProvider>
+			<SidebarProvider>
+				<AppSidebar>{children}</AppSidebar>
+			</SidebarProvider>
+		</NuqsProvider>
 	)
 }

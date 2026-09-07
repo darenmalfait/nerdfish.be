@@ -2,7 +2,14 @@
 
 import { nonNullable } from '@repo/lib/utils/array'
 import { parseAsString, useQueryStates } from 'nuqs'
-import { createContext, type ReactNode, useContext, useState } from 'react'
+import {
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useMemo,
+	useState,
+} from 'react'
 import { type Article } from './types'
 import { filterArticles } from './utils'
 
@@ -23,9 +30,6 @@ const ArticleOverviewContext =
 	createContext<ArticleOverviewContextProps | null>(null)
 ArticleOverviewContext.displayName = 'ArticleOverviewContext'
 
-// import { useArticleOverview } fron "path-to-context/ArticleOverviewContext"
-// within functional component
-// const { sessionToken, ...ArticleOverviewContext } = useArticleOverview()
 export function useArticleOverview(): ArticleOverviewContextProps {
 	const context = useContext(ArticleOverviewContext)
 
@@ -48,31 +52,101 @@ export interface ArticleOverviewProviderProps {
 	customFilterFunction?: (articles: Article[], filter: string) => Article[]
 }
 
-export function ArticleOverviewProvider({
+function useFilteredArticles(
+	allArticles: Article[],
+	filter: string,
+	customFilterFunction?: (articles: Article[], filter: string) => Article[],
+) {
+	return useMemo(
+		() =>
+			customFilterFunction
+				? customFilterFunction(allArticles, filter)
+				: filterArticles(allArticles, filter),
+		[allArticles, customFilterFunction, filter],
+	)
+}
+
+function ArticleOverviewProviderLocal({
 	children,
 	allArticles,
-	searchEnabled = false,
 	featuredArticleEnabled = false,
 	customFilterFunction,
-}: ArticleOverviewProviderProps) {
+}: Omit<ArticleOverviewProviderProps, 'searchEnabled'>) {
+	const [filter, setFilterState] = useState('')
+	const [itemsToShow, setItemsToShow] = useState(PAGE_SIZE)
+
+	const filteredArticles = useFilteredArticles(
+		allArticles,
+		filter,
+		customFilterFunction,
+	)
+
+	const setFilter = useCallback(async (next: string) => {
+		setFilterState(next)
+	}, [])
+
+	const toggleFilter = useCallback(async (tag: string) => {
+		setFilterState((current) => {
+			const currentTags = current.split(' ').filter(Boolean)
+			const hasTag = currentTags.includes(tag)
+			return hasTag
+				? currentTags.filter((t) => t !== tag).join(' ')
+				: [...currentTags, tag].join(' ')
+		})
+	}, [])
+
+	const resetFilter = useCallback(async () => {
+		setFilterState('')
+	}, [])
+
+	const tags = nonNullable([
+		...new Set(allArticles.flatMap((article) => article.tags)),
+	])
+
+	return (
+		<ArticleOverviewContext
+			value={{
+				articles: filteredArticles,
+				toggleFilter,
+				filter,
+				resetFilter,
+				setFilter,
+				tags,
+				searchEnabled: false,
+				featuredArticleEnabled,
+				itemsToShow,
+				loadMore: () => setItemsToShow((i) => i + PAGE_SIZE),
+			}}
+		>
+			{children}
+		</ArticleOverviewContext>
+	)
+}
+
+function ArticleOverviewProviderWithSearch({
+	children,
+	allArticles,
+	featuredArticleEnabled = false,
+	customFilterFunction,
+}: Omit<ArticleOverviewProviderProps, 'searchEnabled'>) {
 	const [params, setParams] = useQueryStates({
 		search: parseAsString,
 	})
-
 	const [itemsToShow, setItemsToShow] = useState(PAGE_SIZE)
+	const filter = params.search ?? ''
 
-	const filteredArticles = customFilterFunction
-		? customFilterFunction(allArticles, params.search ?? '')
-		: filterArticles(allArticles, params.search ?? '')
+	const filteredArticles = useFilteredArticles(
+		allArticles,
+		filter,
+		customFilterFunction,
+	)
 
-	async function setFilter(filter: string) {
-		await setParams({
-			search: filter,
-		})
+	async function setFilter(next: string) {
+		await setParams({ search: next })
 	}
 
 	async function toggleFilter(tag: string) {
-		const currentTags = params.search?.split(' ').filter(Boolean) ?? []
+		const currentTags = filter.split(' ').filter(Boolean)
 		const hasTag = currentTags.includes(tag)
 
 		await setParams({
@@ -83,35 +157,59 @@ export function ArticleOverviewProvider({
 	}
 
 	async function resetFilter() {
-		await setParams({
-			search: '',
-		})
+		await setParams({ search: '' })
 	}
 
 	const tags = nonNullable([
 		...new Set(allArticles.flatMap((article) => article.tags)),
 	])
 
-	function loadMore() {
-		setItemsToShow((i) => i + PAGE_SIZE)
-	}
-
 	return (
 		<ArticleOverviewContext
 			value={{
 				articles: filteredArticles,
 				toggleFilter,
-				filter: params.search ?? '',
+				filter,
 				resetFilter,
 				setFilter,
 				tags,
-				searchEnabled,
+				searchEnabled: true,
 				featuredArticleEnabled,
 				itemsToShow,
-				loadMore,
+				loadMore: () => setItemsToShow((i) => i + PAGE_SIZE),
 			}}
 		>
 			{children}
 		</ArticleOverviewContext>
+	)
+}
+
+export function ArticleOverviewProvider({
+	children,
+	allArticles,
+	searchEnabled = false,
+	featuredArticleEnabled = false,
+	customFilterFunction,
+}: ArticleOverviewProviderProps) {
+	if (searchEnabled) {
+		return (
+			<ArticleOverviewProviderWithSearch
+				allArticles={allArticles}
+				featuredArticleEnabled={featuredArticleEnabled}
+				customFilterFunction={customFilterFunction}
+			>
+				{children}
+			</ArticleOverviewProviderWithSearch>
+		)
+	}
+
+	return (
+		<ArticleOverviewProviderLocal
+			allArticles={allArticles}
+			featuredArticleEnabled={featuredArticleEnabled}
+			customFilterFunction={customFilterFunction}
+		>
+			{children}
+		</ArticleOverviewProviderLocal>
 	)
 }

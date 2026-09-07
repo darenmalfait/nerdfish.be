@@ -22,6 +22,7 @@ import {
 	BlogOverviewContent,
 	type BlogOverviewContentProps,
 } from './blog-overview-content'
+import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 	return item.slug === relatedTo?.slug
@@ -101,33 +102,35 @@ export async function BlogOverviewData({
 
 export async function BlogOverview(props: BlogOverviewProps) {
 	return (
-		<Suspense
-			fallback={
-				<BlogOverviewContent {...props} items={[]}>
-					{props.featuredEnabled ? (
-						<Skeleton className="mb-acquaintances rounded-container aspect-video h-full" />
-					) : null}
-					<ArticleOverviewContentGrid>
-						{Array.from({ length: 2 }).map((_, i) => (
-							<li key={i} className="col-span-4">
-								<ArticleCard>
-									<ArticleCardImage alt="" />
-									<ArticleCardContent>
-										<ArticleCardCategory className="w-16">
-											<Skeleton className="bg-transparent" />
-										</ArticleCardCategory>
-										<ArticleCardTitle>
-											<Skeleton count={2} />
-										</ArticleCardTitle>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						))}
-					</ArticleOverviewContentGrid>
-				</BlogOverviewContent>
-			}
-		>
-			<BlogOverviewData {...props} />
-		</Suspense>
+		<NuqsProvider enabled={!!props.searchEnabled}>
+			<Suspense
+				fallback={
+					<BlogOverviewContent {...props} items={[]}>
+						{props.featuredEnabled ? (
+							<Skeleton className="mb-acquaintances rounded-container aspect-video h-full" />
+						) : null}
+						<ArticleOverviewContentGrid>
+							{Array.from({ length: 2 }).map((_, i) => (
+								<li key={i} className="col-span-4">
+									<ArticleCard>
+										<ArticleCardImage alt="" />
+										<ArticleCardContent>
+											<ArticleCardCategory className="w-16">
+												<Skeleton className="bg-transparent" />
+											</ArticleCardCategory>
+											<ArticleCardTitle>
+												<Skeleton count={2} />
+											</ArticleCardTitle>
+										</ArticleCardContent>
+									</ArticleCard>
+								</li>
+							))}
+						</ArticleOverviewContentGrid>
+					</BlogOverviewContent>
+				}
+			>
+				<BlogOverviewData {...props} />
+			</Suspense>
+		</NuqsProvider>
 	)
 }

@@ -16,6 +16,7 @@ import {
 	WikiOverviewContent,
 	type WikiOverviewContentProps,
 } from './wiki-overview-content'
+import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug
@@ -85,32 +86,34 @@ export async function WikiOverviewData({
 
 export async function WikiOverview(props: WikiOverviewProps) {
 	return (
-		<Suspense
-			fallback={
-				<WikiOverviewContent {...props} items={[]}>
-					<ArticleOverviewContentGrid>
-						{Array.from({ length: 2 }).map((_, i) => (
-							<li key={i} className="col-span-4">
-								<ArticleCard>
-									<ArticleCardContent>
-										<ArticleCardCategory className="w-16">
-											<Skeleton className="bg-transparent" />
-										</ArticleCardCategory>
-										<ArticleCardTitle>
-											<Skeleton count={2} />
-										</ArticleCardTitle>
-										<ArticleCardDescription>
-											<Skeleton count={2} />
-										</ArticleCardDescription>
-									</ArticleCardContent>
-								</ArticleCard>
-							</li>
-						))}
-					</ArticleOverviewContentGrid>
-				</WikiOverviewContent>
-			}
-		>
-			<WikiOverviewData {...props} />
-		</Suspense>
+		<NuqsProvider enabled={!!props.searchEnabled}>
+			<Suspense
+				fallback={
+					<WikiOverviewContent {...props} items={[]}>
+						<ArticleOverviewContentGrid>
+							{Array.from({ length: 2 }).map((_, i) => (
+								<li key={i} className="col-span-4">
+									<ArticleCard>
+										<ArticleCardContent>
+											<ArticleCardCategory className="w-16">
+												<Skeleton className="bg-transparent" />
+											</ArticleCardCategory>
+											<ArticleCardTitle>
+												<Skeleton count={2} />
+											</ArticleCardTitle>
+											<ArticleCardDescription>
+												<Skeleton count={2} />
+											</ArticleCardDescription>
+										</ArticleCardContent>
+									</ArticleCard>
+								</li>
+							))}
+						</ArticleOverviewContentGrid>
+					</WikiOverviewContent>
+				}
+			>
+				<WikiOverviewData {...props} />
+			</Suspense>
+		</NuqsProvider>
 	)
 }
