@@ -50,11 +50,11 @@ test.describe('User Story: The user wants to read a blog post', () => {
 	})
 
 	test.describe('Given the user opens a non-existent blog post', () => {
-		test.beforeEach(async ({ blogDetailPage }) => {
-			await blogDetailPage.gotoInvalid()
-		})
-
-		test('it should show the not found page', async ({ blogDetailPage }) => {
+		test('it should show the not found page with HTTP 404', async ({
+			blogDetailPage,
+		}) => {
+			const response = await blogDetailPage.gotoInvalid()
+			expect(response?.status()).toBe(404)
 			await expect(blogDetailPage.getNotFoundHeading()).toBeVisible()
 		})
 	})

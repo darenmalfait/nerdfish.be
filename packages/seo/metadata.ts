@@ -67,5 +67,14 @@ export const createMetadata = ({
 		]
 	}
 
+	const canonical = metadata.alternates?.canonical
+	if (
+		(typeof canonical === 'string' || canonical instanceof URL) &&
+		metadata.openGraph &&
+		!metadata.openGraph.url
+	) {
+		metadata.openGraph.url = canonical
+	}
+
 	return metadata
 }

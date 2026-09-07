@@ -17,14 +17,30 @@ export const config: NextConfig = {
 		return [
 			{
 				source: '/(.*)',
-				headers: createSecureHeaders({
-					frameGuard: 'sameorigin',
-					// HSTS Preload: https://hstspreload.org/
-					forceHTTPSRedirect: [
-						true,
-						{ maxAge: 63_072_000, includeSubDomains: true, preload: true },
-					],
-				}),
+				headers: [
+					...createSecureHeaders({
+						frameGuard: 'sameorigin',
+						// Spec: max-age + includeSubDomains; skip preload
+						// (https://specification.website/spec/security/hsts/)
+						forceHTTPSRedirect: [
+							true,
+							{ maxAge: 63_072_000, includeSubDomains: true },
+						],
+						// Spec: stop sending X-XSS-Protection
+						xssProtection: false,
+						referrerPolicy: 'strict-origin-when-cross-origin',
+						contentSecurityPolicy: {
+							directives: {
+								frameAncestors: ["'self'"],
+							},
+						},
+					}),
+					{
+						key: 'Permissions-Policy',
+						value:
+							'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+					},
+				],
 			},
 		]
 	},

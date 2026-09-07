@@ -15,6 +15,6 @@ export class WorkDetailPage extends BasePage {
 	}
 
 	async gotoInvalid(path = INVALID_WORK_PROJECT_PATH) {
-		await this.page.goto(path)
+		return this.page.goto(path)
 	}
 }

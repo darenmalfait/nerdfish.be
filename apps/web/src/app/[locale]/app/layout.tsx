@@ -11,7 +11,7 @@ import { AppProviders } from '../../app-providers'
 import '~/app/theme/styles/global.css'
 
 export async function generateStaticParams() {
-	return i18n.locales.map((locale) => ({ lang: locale }))
+	return i18n.locales.map((locale) => ({ locale }))
 }
 
 export default async function DashboardLayout(props: {

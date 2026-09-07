@@ -1,40 +1,11 @@
-'use client'
-
-import { MagnetButton } from '@repo/design-system/components/magnet'
 import { SectionHeaderTitle } from '@repo/design-system/components/section'
-import { ArrowRightIcon } from '@repo/design-system/icons'
-import { useTranslations } from '@repo/i18n/client'
-import { cn } from '@repo/lib/utils/class'
-import { type ComponentProps } from 'react'
+import { getTranslations } from '@repo/i18n/server'
 import { Hero, HeroContent, HeroSubtitle } from '../hero'
 import { DiaTextReveal } from './dia-text'
-import { Link } from '~/app/[locale]/common/components/link'
+import { WelcomeHeroContactButton } from './welcome-hero-cta'
 
-export function HeroCTA({
-	children,
-	className,
-	...props
-}: ComponentProps<typeof Link>) {
-	return (
-		<MagnetButton
-			size="xl"
-			variant="default"
-			className="hover:bg-background-inverted/80!"
-			render={
-				<Link
-					{...props}
-					className={cn('gap-best-friends flex items-center', className)}
-				>
-					{children}
-					<ArrowRightIcon className="ml-best-friends size-6" />
-				</Link>
-			}
-		/>
-	)
-}
-
-export function WelcomeHero() {
-	const t = useTranslations('home.page')
+export async function WelcomeHero() {
+	const t = await getTranslations('home.page')
 	const heroWords = [
 		t('hero.title.line4.0'),
 		t('hero.title.line4.1'),
@@ -61,11 +32,7 @@ export function WelcomeHero() {
 					{t('hero.subtitle')}
 				</HeroSubtitle>
 				<div className="mt-acquaintances flex justify-center">
-					<MagnetButton
-						size="xl"
-						className="hover:bg-background-inverted/80!"
-						render={<Link href="/contact">{t('cta.action')}</Link>}
-					/>
+					<WelcomeHeroContactButton label={t('cta.action')} />
 				</div>
 			</HeroContent>
 		</Hero>

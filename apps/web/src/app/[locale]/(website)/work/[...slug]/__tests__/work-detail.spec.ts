@@ -54,11 +54,11 @@ test.describe('User Story: The user wants to view a work project', () => {
 	})
 
 	test.describe('Given the user opens a non-existent work project', () => {
-		test.beforeEach(async ({ workDetailPage }) => {
-			await workDetailPage.gotoInvalid()
-		})
-
-		test('it should show the not found page', async ({ workDetailPage }) => {
+		test('it should show the not found page with HTTP 404', async ({
+			workDetailPage,
+		}) => {
+			const response = await workDetailPage.gotoInvalid()
+			expect(response?.status()).toBe(404)
 			await expect(workDetailPage.getNotFoundHeading()).toBeVisible()
 		})
 	})

@@ -22,6 +22,6 @@ export class BlogDetailPage extends BasePage {
 	}
 
 	async gotoInvalid(path = INVALID_BLOG_POST_PATH) {
-		await this.page.goto(path)
+		return this.page.goto(path)
 	}
 }
