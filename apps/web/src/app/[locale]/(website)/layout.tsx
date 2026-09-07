@@ -8,9 +8,9 @@ import { type ReactNode } from 'react'
 import { AppProviders } from '../../app-providers'
 
 import '~/app/theme/styles/global.css'
-import { SiteFooter } from './components/site-footer'
-import { SiteHeader } from './components/site-header'
-import { SkipLink } from './components/skip-link'
+import { SiteFooter } from './_common/components/site-footer'
+import { SiteHeader } from './_common/components/site-header'
+import { SkipLink } from './_common/components/skip-link'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

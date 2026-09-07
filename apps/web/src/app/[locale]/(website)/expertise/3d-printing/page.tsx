@@ -11,17 +11,17 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../../components/cta'
-import { Faq, FaqItem } from '../../components/faq'
-import { Features } from '../../components/features'
+import { Cta } from '../../_common/components/cta'
+import { Faq, FaqItem } from '../../_common/components/faq'
+import { Features } from '../../_common/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
-import { ImageGrid } from '../../components/image-grid'
-import { Pricing } from '../../components/pricing'
+} from '../../_common/components/hero'
+import { ImageGrid } from '../../_common/components/image-grid'
+import { Pricing } from '../../_common/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>

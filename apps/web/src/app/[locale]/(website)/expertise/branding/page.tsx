@@ -11,13 +11,13 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Features } from '../../components/features'
+import { Features } from '../../_common/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../components/hero'
+} from '../../_common/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>

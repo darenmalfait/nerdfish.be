@@ -20,7 +20,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
-import { Body } from '../../components/body'
+import { Body } from '../../_common/components/body'
 import { product as productApi } from '../api'
 import { getProductPath } from '../utils'
 

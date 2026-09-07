@@ -11,8 +11,13 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../components/cta'
-import { Hero, HeroContent, HeroSubtitle, HeroTitle } from '../components/hero'
+import { Cta } from '../_common/components/cta'
+import {
+	Hero,
+	HeroContent,
+	HeroSubtitle,
+	HeroTitle,
+} from '../_common/components/hero'
 import { ProductOverview } from '../product/components/product-overview/product-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { WorkOverview } from './components/work-overview'

@@ -12,7 +12,7 @@ import {
 } from '@repo/design-system/components/highlight-card'
 import { useTranslations } from '@repo/i18n/client'
 import { type ComponentProps } from 'react'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 
 export interface HighlightsProps extends ComponentProps<'div'> {
 	items: Article[]

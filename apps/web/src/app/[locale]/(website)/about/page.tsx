@@ -12,21 +12,21 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from '../blog/components/blog-overview'
-import { Cta } from '../components/cta'
-import { FaqItem, Faq } from '../components/faq'
-import { Features } from '../components/features'
+import { Cta } from '../_common/components/cta'
+import { FaqItem, Faq } from '../_common/components/faq'
+import { Features } from '../_common/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroCTA,
 	HeroSubtitle,
 	HeroTitle,
-} from '../components/hero'
-import { Split, SplitContent, SplitImage } from '../components/split'
+} from '../_common/components/hero'
+import { Split, SplitContent, SplitImage } from '../_common/components/split'
+import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Toolbox } from './components/toolbox'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 
 type PageProps = {
 	params: Promise<WithLocale>

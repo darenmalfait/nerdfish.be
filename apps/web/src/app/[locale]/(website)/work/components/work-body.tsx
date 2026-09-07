@@ -5,9 +5,13 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { type ComponentProps } from 'react'
-import { Body as BaseBody } from '../../components/body'
-import { ImageGrid } from '../../components/image-grid'
-import { SkillItem, Skills, type SkillItemProps } from '../../components/skills'
+import { Body as BaseBody } from '../../_common/components/body'
+import { ImageGrid } from '../../_common/components/image-grid'
+import {
+	SkillItem,
+	Skills,
+	type SkillItemProps,
+} from '../../_common/components/skills'
 import { Testimonials } from '../../testimonials/components/testimonials'
 
 interface SkillsBlockProps extends ComponentProps<typeof Skills> {

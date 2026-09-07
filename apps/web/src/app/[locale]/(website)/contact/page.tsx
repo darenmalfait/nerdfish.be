@@ -7,10 +7,15 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
-import { Hero, HeroContent, HeroSubtitle, HeroTitle } from '../components/hero'
+import {
+	Hero,
+	HeroContent,
+	HeroSubtitle,
+	HeroTitle,
+} from '../_common/components/hero'
 import { ContactCopyEmailButton } from './components/contact-copy-email-button'
 import { ContactFormViaButton } from './components/contact-form-drawer'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 
 type PageProps = {
 	params: Promise<WithLocale>

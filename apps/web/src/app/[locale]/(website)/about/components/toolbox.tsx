@@ -9,7 +9,7 @@ import {
 	skills,
 	SkillItem,
 	Skills,
-} from '../../components/skills'
+} from '../../_common/components/skills'
 
 export function Toolbox() {
 	const t = useTranslations('about.page.my-toolbox')

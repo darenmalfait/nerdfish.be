@@ -1,7 +1,7 @@
 'use client'
 
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 
 export function WelcomeHeroContactButton({ label }: { label: string }) {
 	return (

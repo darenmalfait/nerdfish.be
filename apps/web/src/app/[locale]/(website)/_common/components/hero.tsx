@@ -10,7 +10,7 @@ import { cn } from '@repo/lib/utils/class'
 import { capitalize } from '@repo/lib/utils/string'
 import Image from 'next/image'
 import { type ComponentProps, type ElementType, type ReactNode } from 'react'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 
 export function HeroSubtitle({
 	children,

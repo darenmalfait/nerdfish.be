@@ -35,7 +35,7 @@ import {
 	useMemo,
 } from 'react'
 import { filterWiki, toArticleFromWiki } from '../../utils'
-import { Link } from '~/app/[locale]/common/components/link'
+import { Link } from '~/app/[locale]/_common/components/link'
 import { type ImageType } from '~/app/types'
 
 function Tag({ tag }: { tag: string }) {
