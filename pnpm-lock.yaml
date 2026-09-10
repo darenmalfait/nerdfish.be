@@ -154,8 +154,8 @@ importers:
         specifier: ^5.4.0
         version: 5.4.0(react-hook-form@7.82.0(react@19.2.8))
       '@nerdfish/react':
-        specifier: ^1.4.0
-        version: 1.4.0(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@babel/core@7.29.7)(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
+        specifier: ^1.4.1
+        version: 1.4.1(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@babel/core@7.29.7)(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
       '@next/env':
         specifier: 16.2.11
         version: 16.2.11
@@ -407,8 +407,8 @@ importers:
   packages/design-system:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.4.0
-        version: 1.4.0(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
+        specifier: ^1.4.1
+        version: 1.4.1(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
       '@number-flow/react':
         specifier: ^0.6.2
         version: 0.6.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -559,8 +559,8 @@ importers:
   packages/lib:
     dependencies:
       '@nerdfish/react':
-        specifier: ^1.4.0
-        version: 1.4.0(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
+        specifier: ^1.4.1
+        version: 1.4.1(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
       '@nerdfish/utils':
         specifier: ^3.0.1
         version: 3.0.1
@@ -2953,8 +2953,8 @@ packages:
   '@nerdfish/config@1.11.0':
     resolution: {integrity: sha512-+zyy+AAuNyMRstGdJpM+DdyLs6Hsk8HuWgIffwN6mXowv/+gexC2ECHdkXyihVCNJQqVH0XckkulQt5XDAzrCQ==}
 
-  '@nerdfish/react@1.4.0':
-    resolution: {integrity: sha512-FIGcDPbFfnygGqBq/Tq2t9LsCDhm+CXxk5NK4zFOdVyQlDbu7jh2VUkoXO1xQy/tCqqyj22fLpMHBarlqyNrsQ==}
+  '@nerdfish/react@1.4.1':
+    resolution: {integrity: sha512-RjOZVnQ8yIEaFYpZl4Ckizfvg8iNTRHylZzwZnObmaS69g9UdsqSXGpMSqCKyKFnD/5g1rF9ICqGQ9QmRfB7Jg==}
     engines: {node: '>=24.18.0'}
     peerDependencies:
       '@types/react': 19.2.16
@@ -11191,7 +11191,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/react@1.4.0(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@babel/core@7.29.7)(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)':
+  '@nerdfish/react@1.4.1(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@babel/core@7.29.7)(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.6.0(@date-fns/tz@1.5.0)(@types/react@19.2.16)(date-fns@4.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@nerdfish/utils': 3.0.1
@@ -11219,7 +11219,7 @@ snapshots:
       - react-is
       - redux
 
-  '@nerdfish/react@1.4.0(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)':
+  '@nerdfish/react@1.4.1(@date-fns/tz@1.5.0)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(date-fns@4.4.0)(next@16.2.11(@playwright/test@1.61.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.6.0(@date-fns/tz@1.5.0)(@types/react@19.2.16)(date-fns@4.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@nerdfish/utils': 3.0.1
