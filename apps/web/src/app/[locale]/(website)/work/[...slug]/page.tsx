@@ -40,8 +40,10 @@ export default async function WorkPage(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }) {
 	const params = await props.params
-	const t = await getTranslations('work.content')
-	const { work } = await getRouteData(params.slug.join('/'), params.locale)
+	const [{ work }, t] = await Promise.all([
+		getRouteData(params.slug.join('/'), params.locale),
+		getTranslations('work.content'),
+	])
 
 	return (
 		<WorkContent
