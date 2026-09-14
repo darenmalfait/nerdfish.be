@@ -47,127 +47,163 @@ export async function generateMetadata(
 	})
 }
 
-export default async function HomePage(props: { params: Promise<WithLocale> }) {
-	// need to await this before using getTranslations
-	await props.params
+async function HomeFeaturesSection() {
 	const t = await getTranslations('home.page')
 
 	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('features.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<Features
+				items={[
+					{
+						title: 'Web Design',
+						description: t('features.webdesign.description'),
+						href: '/expertise/webdesign',
+						icon: 'MonitorSmartphone',
+					},
+					{
+						title: 'UX/UI Design',
+						description: t('features.uxui-design.description'),
+						href: '/expertise/uxui-design',
+						icon: 'LayoutDashboard',
+					},
+					{
+						title: 'Branding',
+						description: t('features.branding.description'),
+						href: '/expertise/branding',
+						icon: 'Paintbrush2Icon',
+					},
+					{
+						title: 'Javascript Consulting',
+						description: t('features.freelance.description'),
+						href: '/about',
+						icon: 'HandPlatterIcon',
+					},
+				]}
+			/>
+		</Section>
+	)
+}
+
+async function HomeCtaSection() {
+	const t = await getTranslations('home.page')
+
+	return (
+		<Section>
+			<Cta
+				title={t('cta.title')}
+				subtitle={t('cta.subtitle')}
+				link={{ href: '/contact', label: t('cta.action') }}
+			/>
+		</Section>
+	)
+}
+
+async function HomeHighlightsSection() {
+	const t = await getTranslations('home.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('highlights.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>
+					{t('highlights.subtitle')}
+				</SectionHeaderSubtitle>
+			</SectionHeader>
+
+			<Highlights
+				items={[
+					{
+						id: 'webdesign',
+						image: {
+							src: '/images/blog/remix-impressions.jpg',
+							alt: t('highlights.webdesign.image.alt'),
+						},
+						category: t('highlights.category'),
+						title: t('highlights.webdesign.title'),
+						description: t('highlights.webdesign.description'),
+						href: '/expertise/webdesign',
+					},
+					{
+						id: 'freelance',
+						image: {
+							src: '/images/blog/clean-desk-freelance.jpg',
+							alt: t('highlights.freelance.image.alt'),
+						},
+						category: t('highlights.category'),
+						title: t('highlights.freelance.title'),
+						description: t('highlights.freelance.description'),
+						href: '/about',
+					},
+					{
+						id: 'branding',
+						image: {
+							src: '/images/blog/branding-highlight.jpg',
+							alt: t('highlights.branding.image.alt'),
+						},
+						category: t('highlights.category'),
+						title: t('highlights.branding.title'),
+						description: t('highlights.branding.description'),
+						href: '/expertise/branding',
+					},
+				]}
+			/>
+		</Section>
+	)
+}
+
+async function HomeBlogSection() {
+	const t = await getTranslations('home.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<BlogOverview count={2} />
+		</Section>
+	)
+}
+
+async function HomeCaseStudySection() {
+	const t = await getTranslations('home.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('caseStudy.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('caseStudy.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<WorkOverview count={1} featuredEnabled tags={['equilibra website']} />
+		</Section>
+	)
+}
+
+export default async function HomePage(props: { params: Promise<WithLocale> }) {
+	// need to await this before using getTranslations
+	await props.params
+
+	return (
 		<>
+			{/* Hero fetches its own copy — don't block it on section translations */}
 			<div className="-mt-site-header pt-site-header bg-background-muted relative flex min-h-dvh flex-col justify-center">
 				<WelcomeHero />
 			</div>
 
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('features.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Features
-					items={[
-						{
-							title: 'Web Design',
-							description: t('features.webdesign.description'),
-							href: '/expertise/webdesign',
-							icon: 'MonitorSmartphone',
-						},
-						{
-							title: 'UX/UI Design',
-							description: t('features.uxui-design.description'),
-							href: '/expertise/uxui-design',
-							icon: 'LayoutDashboard',
-						},
-						{
-							title: 'Branding',
-							description: t('features.branding.description'),
-							href: '/expertise/branding',
-							icon: 'Paintbrush2Icon',
-						},
-						{
-							title: 'Javascript Consulting',
-							description: t('features.freelance.description'),
-							href: '/about',
-							icon: 'HandPlatterIcon',
-						},
-					]}
-				/>
-			</Section>
-			<Section>
-				<Cta
-					title={t('cta.title')}
-					subtitle={t('cta.subtitle')}
-					link={{ href: '/contact', label: t('cta.action') }}
-				/>
-			</Section>
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('highlights.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('highlights.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-
-				<Highlights
-					items={[
-						{
-							id: 'webdesign',
-							image: {
-								src: '/images/blog/remix-impressions.jpg',
-								alt: t('highlights.webdesign.image.alt'),
-							},
-							category: t('highlights.category'),
-							title: t('highlights.webdesign.title'),
-							description: t('highlights.webdesign.description'),
-							href: '/expertise/webdesign',
-						},
-						{
-							id: 'freelance',
-							image: {
-								src: '/images/blog/clean-desk-freelance.jpg',
-								alt: t('highlights.freelance.image.alt'),
-							},
-							category: t('highlights.category'),
-							title: t('highlights.freelance.title'),
-							description: t('highlights.freelance.description'),
-							href: '/about',
-						},
-						{
-							id: 'branding',
-							image: {
-								src: '/images/blog/branding-highlight.jpg',
-								alt: t('highlights.branding.image.alt'),
-							},
-							category: t('highlights.category'),
-							title: t('highlights.branding.title'),
-							description: t('highlights.branding.description'),
-							href: '/expertise/branding',
-						},
-					]}
-				/>
-			</Section>
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<BlogOverview count={2} />
-			</Section>
+			<HomeFeaturesSection />
+			<HomeCtaSection />
+			<HomeHighlightsSection />
+			<HomeBlogSection />
 			<InViewBackground className="bg-info-background-muted">
 				<Section>
 					<Testimonials />
 				</Section>
 			</InViewBackground>
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('caseStudy.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('caseStudy.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-				<WorkOverview count={1} featuredEnabled tags={['equilibra website']} />
-			</Section>
+			<HomeCaseStudySection />
 		</>
 	)
 }

@@ -1,5 +1,3 @@
-'use client'
-
 import { cn } from '@nerdfish/utils/class'
 import { Slot } from '@radix-ui/react-slot'
 import { type ComponentProps } from 'react'
