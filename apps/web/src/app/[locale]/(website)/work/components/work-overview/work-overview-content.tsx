@@ -18,17 +18,15 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type PartialDeep } from '@repo/lib/types'
-import { type Project } from 'content-collections'
-import { type ReactNode, useCallback, useMemo } from 'react'
-import { filterWork, toArticleFromWork } from '../../utils'
+import { type ReactNode, useCallback } from 'react'
+import { filterWork } from '../../utils'
 import { type ImageType } from '~/app/types'
 
 export interface WorkOverviewContentProps {
 	children?: ReactNode
 	searchEnabled?: boolean
 	featuredEnabled?: boolean
-	items: PartialDeep<Project>[]
+	items: Article[]
 	header?: {
 		title?: string
 		subtitle?: string
@@ -45,21 +43,20 @@ export function WorkOverviewContent({
 	children,
 }: WorkOverviewContentProps) {
 	const t = useTranslations('work.overview')
-	const articles = useMemo(() => items.map(toArticleFromWork), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const works = items.filter((post) => post.id && toFilterIds.has(post.id))
+			const articles = items.filter((article) => toFilterIds.has(article.id))
 
-			return filterWork(works, searchString).map(toArticleFromWork)
+			return filterWork(articles, searchString)
 		},
 		[items],
 	)
 
 	return (
 		<ArticleOverview
-			allArticles={articles}
+			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
 			customFilterFunction={filterArticles}

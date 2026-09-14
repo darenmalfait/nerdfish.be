@@ -1,12 +1,19 @@
 'use client'
 
 import { cn } from '@repo/lib/utils/class'
-import { type Testimonial } from 'content-collections'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { type ReactNode, useCallback, useState } from 'react'
 
-function Author({ author }: { author: Testimonial['author'] }) {
+export type TestimonialCard = {
+	quote: string
+	author?: {
+		name: string
+		company: string
+	}
+}
+
+function Author({ author }: { author: TestimonialCard['author'] }) {
 	if (!author?.name) return null
 
 	return (
@@ -63,7 +70,7 @@ function TestimonialItem({
 	layout?: {
 		variant?: 'primary' | 'secondary'
 	}
-	testimonial?: Testimonial
+	testimonial?: TestimonialCard
 	onNext?: () => void
 	onPrevious?: () => void
 }) {
@@ -93,7 +100,7 @@ function TestimonialItem({
 }
 
 export interface TestimonialsContentProps {
-	testimonials: Testimonial[]
+	testimonials: TestimonialCard[]
 	layout?: {
 		variant?: 'primary' | 'secondary'
 	}

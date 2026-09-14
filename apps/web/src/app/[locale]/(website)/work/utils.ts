@@ -6,14 +6,22 @@ import { getCrypto } from '@repo/lib/utils/misc'
 import { type Project } from 'content-collections'
 import Fuse from 'fuse.js'
 
-export function filterWork(
-	posts: PartialDeep<Project>[],
+type WorkSearchable = {
+	title?: string | null
+	tags?: string[] | null
+	category?: string | null
+	excerpt?: string | null
+	description?: string | null
+}
+
+export function filterWork<T extends WorkSearchable>(
+	posts: T[],
 	searchString: string,
-) {
+): T[] {
 	if (!searchString) return posts
 
 	const fuse = new Fuse(posts, {
-		keys: ['title', 'tags', 'category', 'excerpt'],
+		keys: ['title', 'tags', 'category', 'excerpt', 'description'],
 		minMatchCharLength: 1,
 		threshold: 0.3,
 	})
@@ -27,7 +35,7 @@ export function filterWork(
 
 	// if there are multiple words, we'll conduct an individual search for each word
 	// and then combine the results
-	const individualWordResults = new Set<PartialDeep<Project>>()
+	const individualWordResults = new Set<T>()
 
 	for (const word of words) {
 		const items = fuse.search(word).map((result) => result.item)

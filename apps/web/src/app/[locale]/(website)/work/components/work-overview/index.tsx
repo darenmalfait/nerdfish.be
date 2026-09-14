@@ -12,7 +12,7 @@ import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
 import { Suspense } from 'react'
 import { work } from '../../api'
-import { filterWork } from '../../utils'
+import { filterWork, toArticleFromWork } from '../../utils'
 import {
 	WorkOverviewContent,
 	type WorkOverviewContentProps,
@@ -81,7 +81,12 @@ export async function WorkOverviewData({
 
 	const limitedItems = count ? items.slice(0, count) : items
 
-	return <WorkOverviewContent {...props} items={limitedItems} />
+	return (
+		<WorkOverviewContent
+			{...props}
+			items={limitedItems.map(toArticleFromWork)}
+		/>
+	)
 }
 
 export async function WorkOverview(props: WorkOverviewProps) {

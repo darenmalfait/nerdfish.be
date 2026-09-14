@@ -36,6 +36,8 @@ async function TestimonialsData({
 			if (!filter?.tags) return true
 			return item.tags && filter.tags.every((tag) => item.tags?.includes(tag))
 		})
+		// only fields the client carousel needs (drop MDX content / meta)
+		.map(({ quote, author }) => ({ quote, author }))
 
 	return (
 		<TestimonialsContent {...testimonialsProps} testimonials={testimonials} />

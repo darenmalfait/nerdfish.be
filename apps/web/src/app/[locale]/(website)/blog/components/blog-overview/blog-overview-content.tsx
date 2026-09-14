@@ -18,16 +18,14 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type PartialDeep } from '@repo/lib/types'
-import { type Post } from 'content-collections'
-import { type ReactNode, useCallback, useMemo } from 'react'
-import { filterBlog, toArticleFromBlog } from '../../utils'
+import { type ReactNode, useCallback } from 'react'
+import { filterBlog } from '../../utils'
 import { type ImageType } from '~/app/types'
 
 export interface BlogOverviewContentProps {
 	searchEnabled?: boolean
 	featuredEnabled?: boolean
-	items: PartialDeep<Post>[]
+	items: Article[]
 	header?: {
 		title?: string
 		subtitle?: string
@@ -45,21 +43,20 @@ export function BlogOverviewContent({
 	children,
 }: BlogOverviewContentProps) {
 	const t = useTranslations('blog.overview')
-	const articles = useMemo(() => items.map(toArticleFromBlog), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const blogs = items.filter((post) => post.id && toFilterIds.has(post.id))
+			const articles = items.filter((article) => toFilterIds.has(article.id))
 
-			return filterBlog(blogs, searchString).map(toArticleFromBlog)
+			return filterBlog(articles, searchString)
 		},
 		[items],
 	)
 
 	return (
 		<ArticleOverview
-			allArticles={articles}
+			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
 			customFilterFunction={filterArticles}

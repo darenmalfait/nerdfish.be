@@ -17,7 +17,7 @@ import {
 import { type Post } from 'content-collections'
 import { Suspense } from 'react'
 import { blog } from '../../api'
-import { filterBlog } from '../../utils'
+import { filterBlog, toArticleFromBlog } from '../../utils'
 import {
 	BlogOverviewContent,
 	type BlogOverviewContentProps,
@@ -94,7 +94,7 @@ export async function BlogOverviewData({
 			<BlogOverviewContent
 				{...props}
 				searchEnabled={searchEnabled}
-				items={limitedBlogs}
+				items={limitedBlogs.map(toArticleFromBlog)}
 			/>
 		</>
 	)

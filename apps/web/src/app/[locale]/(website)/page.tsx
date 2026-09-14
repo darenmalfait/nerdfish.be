@@ -190,9 +190,15 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			{/* Hero streams first — Suspense lets below-fold sections resolve in parallel */}
+			{/* Hero chrome paints first; Suspense lets hero i18n + below-fold sections resolve in parallel */}
 			<div className="-mt-site-header pt-site-header bg-background-muted relative flex min-h-dvh flex-col justify-center">
-				<WelcomeHero />
+				<Suspense
+					fallback={
+						<div className="bg-background-muted min-h-dvh" aria-hidden />
+					}
+				>
+					<WelcomeHero />
+				</Suspense>
 			</div>
 
 			<Suspense fallback={null}>
