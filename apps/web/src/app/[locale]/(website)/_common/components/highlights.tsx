@@ -1,5 +1,3 @@
-'use client'
-
 import { type Article } from '@repo/design-system/components/article-overview'
 import {
 	HighlightCard,
@@ -10,7 +8,7 @@ import {
 	HighlightCardImage,
 	HighlightCardTitle,
 } from '@repo/design-system/components/highlight-card'
-import { useTranslations } from '@repo/i18n/client'
+import { getTranslations } from '@repo/i18n/server'
 import { type ComponentProps } from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
@@ -18,9 +16,9 @@ export interface HighlightsProps extends ComponentProps<'div'> {
 	items: Article[]
 }
 
-export function Highlights(props: HighlightsProps) {
+export async function Highlights(props: HighlightsProps) {
 	const { items } = props
-	const t = useTranslations('global')
+	const t = await getTranslations('global')
 
 	return (
 		<div className="gap-acquaintances flex flex-col">
