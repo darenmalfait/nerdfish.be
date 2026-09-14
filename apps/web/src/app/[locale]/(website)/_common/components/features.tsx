@@ -1,8 +1,6 @@
-'use client'
-
 import { Grid } from '@repo/design-system/components/grid'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { useTranslations } from '@repo/i18n/client'
+import { getTranslations } from '@repo/i18n/server'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
 import {
@@ -27,8 +25,7 @@ import {
 	Users,
 	Zap,
 } from 'lucide-react'
-import { useInView } from 'motion/react'
-import { type ComponentProps, useRef } from 'react'
+import { type ComponentProps } from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
 // Explicit map — avoid `import * as Icons from 'lucide-react'` (bundle-barrel-imports)
@@ -57,8 +54,15 @@ const featureIcons = {
 
 export type FeatureIconName = keyof typeof featureIcons
 
-function DetailLink({ href, title }: { href?: string; title?: string }) {
-	const t = useTranslations('features')
+function DetailLink({
+	href,
+	label,
+	ariaLabel,
+}: {
+	href?: string
+	label: string
+	ariaLabel: string
+}) {
 	if (!href) return null
 
 	return (
@@ -70,11 +74,9 @@ function DetailLink({ href, title }: { href?: string; title?: string }) {
 					<Link
 						href={href}
 						className="inline-flex items-center"
-						aria-label={`${t('readMoreAbout', { subject: title ?? '' })}`}
+						aria-label={ariaLabel}
 					>
-						{t('viewMore', {
-							subject: title ?? '',
-						})}
+						{label}
 						<ArrowRight className="ml-best-friends text-accent group-hover:translate-x-bff size-4 transition-transform" />
 					</Link>
 				}
@@ -112,8 +114,13 @@ function Feature({
 	title,
 	description,
 	href,
+	viewMoreLabel,
+	readMoreAriaLabel,
 	...rest
-}: FeatureProps) {
+}: FeatureProps & {
+	viewMoreLabel: string
+	readMoreAriaLabel: string
+}) {
 	const Icon = icon ? featureIcons[icon] : null
 
 	return (
@@ -135,7 +142,11 @@ function Feature({
 						{description}
 					</p>
 				</div>
-				<DetailLink href={href} title={title ?? ''} />
+				<DetailLink
+					href={href}
+					label={viewMoreLabel}
+					ariaLabel={readMoreAriaLabel}
+				/>
 			</div>
 		</div>
 	)
@@ -149,11 +160,8 @@ export interface FeaturesProps extends ComponentProps<typeof Grid> {
 	}
 }
 
-export function Features({ items, layout: layoutProp }: FeaturesProps) {
-	const ref = useRef<HTMLDivElement>(null)
-	const inView = useInView(ref, {
-		once: true,
-	})
+export async function Features({ items, layout: layoutProp }: FeaturesProps) {
+	const t = await getTranslations('features')
 
 	const { maxCols, variant } = merge(layoutProp, {
 		maxCols: '4',
@@ -162,7 +170,6 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 
 	return (
 		<Grid
-			ref={ref}
 			className={cn('gap-acquaintances! auto-rows-auto', {
 				'grid-cols-2': maxCols === '2',
 				'grid-cols-3': maxCols === '3',
@@ -172,18 +179,27 @@ export function Features({ items, layout: layoutProp }: FeaturesProps) {
 		>
 			<ul>
 				{items.map((item, i) => {
+					const title = item.title ?? ''
+
 					return (
 						<li
 							key={`${item.title} ${i}`}
 							style={{ animationDelay: `${i * 0.2}s` }}
-							className={cn('bg-none opacity-0', {
-								'motion-preset-slide-left opacity-100 lg:col-span-1': inView,
-								'col-span-4': maxCols === '4',
-								'col-span-3': maxCols === '3',
-								'col-span-2': maxCols === '2',
-							})}
+							className={cn(
+								'animate-feature-slide-left bg-none lg:col-span-1',
+								{
+									'col-span-4': maxCols === '4',
+									'col-span-3': maxCols === '3',
+									'col-span-2': maxCols === '2',
+								},
+							)}
 						>
-							<Feature variant={variant} {...item} />
+							<Feature
+								variant={variant}
+								viewMoreLabel={t('viewMore', { subject: title })}
+								readMoreAriaLabel={t('readMoreAbout', { subject: title })}
+								{...item}
+							/>
 						</li>
 					)
 				})}
