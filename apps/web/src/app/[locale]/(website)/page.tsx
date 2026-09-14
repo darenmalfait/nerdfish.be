@@ -9,6 +9,12 @@ import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
+import {
+	HandPlatterIcon,
+	LayoutDashboard,
+	MonitorSmartphone,
+	Paintbrush2Icon,
+} from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
@@ -63,25 +69,25 @@ async function HomeFeaturesSection() {
 						title: 'Web Design',
 						description: t('features.webdesign.description'),
 						href: '/expertise/webdesign',
-						icon: 'MonitorSmartphone',
+						icon: <MonitorSmartphone />,
 					},
 					{
 						title: 'UX/UI Design',
 						description: t('features.uxui-design.description'),
 						href: '/expertise/uxui-design',
-						icon: 'LayoutDashboard',
+						icon: <LayoutDashboard />,
 					},
 					{
 						title: 'Branding',
 						description: t('features.branding.description'),
 						href: '/expertise/branding',
-						icon: 'Paintbrush2Icon',
+						icon: <Paintbrush2Icon />,
 					},
 					{
 						title: 'Javascript Consulting',
 						description: t('features.freelance.description'),
 						href: '/about',
-						icon: 'HandPlatterIcon',
+						icon: <HandPlatterIcon />,
 					},
 				]}
 			/>

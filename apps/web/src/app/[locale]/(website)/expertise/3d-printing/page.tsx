@@ -9,6 +9,7 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { Layers, Leaf, Palette, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../../_common/components/cta'
@@ -80,22 +81,22 @@ export default async function ThreeDPrintingPage(props: {
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
-							icon: 'Zap',
+							icon: <Zap />,
 						},
 						{
 							title: t('features.items.1.title'),
 							description: t('features.items.1.description'),
-							icon: 'Layers',
+							icon: <Layers />,
 						},
 						{
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
-							icon: 'Palette',
+							icon: <Palette />,
 						},
 						{
 							title: t('features.items.3.title'),
 							description: t('features.items.3.description'),
-							icon: 'Leaf',
+							icon: <Leaf />,
 						},
 					]}
 				/>

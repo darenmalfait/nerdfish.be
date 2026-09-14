@@ -9,6 +9,7 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { Layout, Lightbulb, LineChart } from 'lucide-react'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../../_common/components/cta'
@@ -85,17 +86,17 @@ export default async function UXUIDesignPage(props: {
 						{
 							title: t('features.items.3.title'),
 							description: t('features.items.3.description'),
-							icon: 'Lightbulb',
+							icon: <Lightbulb />,
 						},
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
-							icon: 'Layout',
+							icon: <Layout />,
 						},
 						{
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
-							icon: 'LineChart',
+							icon: <LineChart />,
 						},
 					]}
 				/>

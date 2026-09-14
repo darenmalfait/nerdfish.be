@@ -10,6 +10,7 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { Code, Handshake, Monitor, Rocket } from 'lucide-react'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../_common/components/cta'
@@ -97,22 +98,22 @@ export default async function AboutPage(props: PageProps) {
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
-							icon: 'LucideCode',
+							icon: <Code />,
 						},
 						{
 							title: t('features.items.1.title'),
 							description: t('features.items.1.description'),
-							icon: 'LucideMonitor',
+							icon: <Monitor />,
 						},
 						{
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
-							icon: 'LucideHandshake',
+							icon: <Handshake />,
 						},
 						{
 							title: t('features.items.3.title'),
 							description: t('features.items.3.description'),
-							icon: 'LucideRocket',
+							icon: <Rocket />,
 						},
 					]}
 				/>

@@ -10,6 +10,7 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../../_common/components/cta'
@@ -84,22 +85,22 @@ export default async function WebDesignPage(props: {
 						{
 							title: t('features.items.0.title'),
 							description: t('features.items.0.description'),
-							icon: 'EyeIcon',
+							icon: <EyeIcon />,
 						},
 						{
 							title: t('features.items.1.title'),
 							description: t('features.items.1.description'),
-							icon: 'Smartphone',
+							icon: <Smartphone />,
 						},
 						{
 							title: t('features.items.2.title'),
 							description: t('features.items.2.description'),
-							icon: 'MessageSquare',
+							icon: <MessageSquare />,
 						},
 						{
 							title: t('features.items.3.title'),
 							description: t('features.items.3.description'),
-							icon: 'Zap',
+							icon: <Zap />,
 						},
 					]}
 				/>

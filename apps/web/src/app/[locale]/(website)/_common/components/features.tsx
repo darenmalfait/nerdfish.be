@@ -3,56 +3,9 @@ import { MagnetButton } from '@repo/design-system/components/magnet'
 import { getTranslations } from '@repo/i18n/server'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
-import {
-	ArrowRight,
-	Code,
-	EyeIcon,
-	HandPlatterIcon,
-	Handshake,
-	Layers,
-	Layout,
-	LayoutDashboard,
-	Leaf,
-	Lightbulb,
-	LineChart,
-	MessageSquare,
-	Monitor,
-	MonitorSmartphone,
-	Paintbrush2Icon,
-	Palette,
-	Rocket,
-	Smartphone,
-	Users,
-	Zap,
-} from 'lucide-react'
-import { type ComponentProps } from 'react'
+import { ArrowRight } from 'lucide-react'
+import { type ComponentProps, type ReactNode } from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
-
-// Explicit map — avoid `import * as Icons from 'lucide-react'` (bundle-barrel-imports)
-const featureIcons = {
-	MonitorSmartphone,
-	LayoutDashboard,
-	Paintbrush2Icon,
-	HandPlatterIcon,
-	// about page historically used Lucide* aliases
-	LucideCode: Code,
-	LucideMonitor: Monitor,
-	LucideHandshake: Handshake,
-	LucideRocket: Rocket,
-	Lightbulb,
-	Layout,
-	LineChart,
-	Zap,
-	Layers,
-	Palette,
-	Leaf,
-	EyeIcon,
-	Smartphone,
-	MessageSquare,
-	Users,
-} as const
-
-export type FeatureIconName = keyof typeof featureIcons
 
 function DetailLink({
 	href,
@@ -104,7 +57,8 @@ export interface FeatureProps extends ComponentProps<'div'> {
 	variant?: VariantProps<typeof featureCardVariants>['variant']
 	title?: string
 	description?: string
-	icon?: FeatureIconName
+	/** Caller-supplied icon — keeps Lucide out of this module's graph */
+	icon?: ReactNode
 	href?: string
 }
 
@@ -121,16 +75,14 @@ function Feature({
 	viewMoreLabel: string
 	readMoreAriaLabel: string
 }) {
-	const Icon = icon ? featureIcons[icon] : null
-
 	return (
 		<div className={featureCardVariants({ variant })} {...rest}>
-			{Icon ? (
+			{icon ? (
 				<div
-					className="mb-casual aspect-1 text-accent flex items-center justify-center"
+					className="mb-casual aspect-1 text-accent flex items-center justify-center [&>svg]:h-5 [&>svg]:shrink-0"
 					aria-hidden
 				>
-					<Icon className="flex h-5 shrink-0" />
+					{icon}
 				</div>
 			) : null}
 			<div className="flex h-full flex-col justify-between">
