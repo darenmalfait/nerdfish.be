@@ -1,9 +1,6 @@
-'use client'
-
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import { motion } from 'motion/react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
 export function WelcomeHeroContactButton({ label }: { label: string }) {
@@ -22,51 +19,31 @@ export type WelcomeHeroContentProps = {
 	className?: string
 }
 
-const SLICE_EASE = 'easeInOut' as const
-
 const bars = [
 	{
-		className: 'top-0 h-[35%] bg-accent',
-		initial: { x: '-100%' as const },
-		animate: { x: '100%' as const },
-		delay: 0,
+		className: 'top-0 h-[35%] bg-accent animate-welcome-hero-slice-right',
 	},
 	{
-		className: 'top-[35%] h-[30%] bg-foreground',
-		initial: { x: '100%' as const },
-		animate: { x: '-100%' as const },
-		delay: 0.1,
+		className:
+			'top-[35%] h-[30%] bg-foreground animate-welcome-hero-slice-left animation-delay-100',
 	},
 	{
-		className: 'top-[65%] h-[35%] bg-accent',
-		initial: { x: '-100%' as const },
-		animate: { x: '100%' as const },
-		delay: 0.2,
+		className:
+			'top-[65%] h-[35%] bg-accent animate-welcome-hero-slice-right animation-delay-200',
 	},
 ] as const
 
 function LogoWithBars() {
 	return (
 		<div className="relative w-full max-w-7xl overflow-hidden">
-			<motion.div
-				initial={{ opacity: 0, filter: 'blur(10px)' }}
-				animate={{ opacity: 1, filter: 'blur(0px)' }}
-				transition={{ delay: 0.3, duration: 0.8 }}
-			>
+			<div className="animate-welcome-hero-logo">
 				<Logo className="text-foreground h-auto w-full" aria-hidden />
-			</motion.div>
+			</div>
 
 			{bars.map((bar, i) => (
-				<motion.div
+				<div
 					key={i}
 					aria-hidden
-					initial={{ ...bar.initial, opacity: 0 }}
-					animate={{ ...bar.animate, opacity: [0, 1, 1, 0] }}
-					transition={{
-						duration: 0.7,
-						delay: bar.delay,
-						ease: SLICE_EASE,
-					}}
 					className={cn(
 						'pointer-events-none absolute inset-x-0 z-10 w-full',
 						bar.className,

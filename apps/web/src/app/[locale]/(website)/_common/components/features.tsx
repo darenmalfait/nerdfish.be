@@ -6,12 +6,56 @@ import { ArrowRight } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
-import * as Icons from 'lucide-react'
+import {
+	Code,
+	EyeIcon,
+	HandPlatterIcon,
+	Handshake,
+	Layers,
+	Layout,
+	LayoutDashboard,
+	Leaf,
+	Lightbulb,
+	LineChart,
+	MessageSquare,
+	Monitor,
+	MonitorSmartphone,
+	Paintbrush2Icon,
+	Palette,
+	Rocket,
+	Smartphone,
+	Users,
+	Zap,
+} from 'lucide-react'
 import { useInView } from 'motion/react'
-import { type ComponentProps, type ElementType, useRef } from 'react'
+import { type ComponentProps, useRef } from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
-const dynamicHeroIcon = (name: keyof typeof Icons) => Icons[name] as ElementType
+// Explicit map — avoid `import * as Icons from 'lucide-react'` (bundle-barrel-imports)
+const featureIcons = {
+	MonitorSmartphone,
+	LayoutDashboard,
+	Paintbrush2Icon,
+	HandPlatterIcon,
+	// about page historically used Lucide* aliases
+	LucideCode: Code,
+	LucideMonitor: Monitor,
+	LucideHandshake: Handshake,
+	LucideRocket: Rocket,
+	Lightbulb,
+	Layout,
+	LineChart,
+	Zap,
+	Layers,
+	Palette,
+	Leaf,
+	EyeIcon,
+	Smartphone,
+	MessageSquare,
+	Users,
+} as const
+
+export type FeatureIconName = keyof typeof featureIcons
 
 function DetailLink({ href, title }: { href?: string; title?: string }) {
 	const t = useTranslations('features')
@@ -58,7 +102,7 @@ export interface FeatureProps extends ComponentProps<'div'> {
 	variant?: VariantProps<typeof featureCardVariants>['variant']
 	title?: string
 	description?: string
-	icon?: keyof typeof Icons
+	icon?: FeatureIconName
 	href?: string
 }
 
@@ -70,7 +114,7 @@ function Feature({
 	href,
 	...rest
 }: FeatureProps) {
-	const Icon = icon ? dynamicHeroIcon(icon) : null
+	const Icon = icon ? featureIcons[icon] : null
 
 	return (
 		<div className={featureCardVariants({ variant })} {...rest}>
