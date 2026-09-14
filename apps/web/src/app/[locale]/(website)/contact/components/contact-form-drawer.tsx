@@ -1,6 +1,7 @@
 'use client'
 
 import { Drawer, DrawerContent, DrawerTitle } from '@nerdfish/react/drawer'
+import { Skeleton } from '@nerdfish/react/skeleton'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	SectionHeader,
@@ -9,8 +10,16 @@ import {
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
 import { ArrowRightIcon } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { ContactForm } from '../forms/contact-form'
+
+const ContactForm = dynamic(
+	() => import('../forms/contact-form').then((mod) => mod.ContactForm),
+	{
+		ssr: false,
+		loading: () => <Skeleton className="min-h-80 w-full" />,
+	},
+)
 
 export function ContactFormViaButton() {
 	const [contactFormOpen, setContactFormOpen] = useState<boolean>(false)
@@ -39,7 +48,7 @@ export function ContactFormViaButton() {
 							<SectionHeaderTitle>{t('title')}</SectionHeaderTitle>
 							<SectionHeaderSubtitle>{t('subtitle')}</SectionHeaderSubtitle>
 						</SectionHeader>
-						<ContactForm />
+						{contactFormOpen ? <ContactForm /> : null}
 					</div>
 				</DrawerContent>
 			</Drawer>

@@ -1,102 +1,78 @@
 'use client'
 
-import {
-	type SpringOptions,
-	motion,
-	useMotionTemplate,
-	useMotionValue,
-	useSpring,
-	useTransform,
-} from 'motion/react'
-import {
-	useImperativeHandle,
-	useRef,
-	type ComponentProps,
-	type ElementType,
-	type MouseEvent,
-} from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+import { type ComponentType, type ElementType, useState } from 'react'
+import { type TiltProps } from './tilt-impl'
 
-export interface TiltProps extends ComponentProps<typeof motion.div> {
-	rotationFactor?: number
-	isReverse?: boolean
-	springOptions?: SpringOptions
-	as?: ElementType
+export type { TiltProps } from './tilt-impl'
+
+type TiltImpl = ComponentType<TiltProps>
+
+function prefersReducedMotion() {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export function Tilt({
-	children,
-	className,
-	style,
-	rotationFactor = 15,
-	isReverse = true,
-	springOptions,
-	ref,
-	as,
-	...props
-}: TiltProps) {
-	const itemRef = useRef<HTMLDivElement>(null)
-	useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
-
-	const x = useMotionValue(0)
-	const y = useMotionValue(0)
-
-	const xSpring = useSpring(x, springOptions)
-	const ySpring = useSpring(y, springOptions)
-
-	const rotateX = useTransform(
-		ySpring,
-		[-0.5, 0.5],
-		isReverse
-			? [rotationFactor, -rotationFactor]
-			: [-rotationFactor, rotationFactor],
-	)
-	const rotateY = useTransform(
-		xSpring,
-		[-0.5, 0.5],
-		isReverse
-			? [-rotationFactor, rotationFactor]
-			: [rotationFactor, -rotationFactor],
-	)
-
-	const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-
-	function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
-		if (!itemRef.current) return
-
-		const rect = itemRef.current.getBoundingClientRect()
-		const width = rect.width
-		const height = rect.height
-		const mouseX = e.clientX - rect.left
-		const mouseY = e.clientY - rect.top
-
-		const xPos = mouseX / width - 0.5
-		const yPos = mouseY / height - 0.5
-
-		x.set(xPos)
-		y.set(yPos)
+function scheduleIdle(callback: () => void) {
+	if (typeof window.requestIdleCallback === 'function') {
+		const id = window.requestIdleCallback(callback, { timeout: 2000 })
+		return () => window.cancelIdleCallback(id)
 	}
 
-	function handleMouseLeave() {
-		x.set(0)
-		y.set(0)
+	const id = window.setTimeout(callback, 200)
+	return () => window.clearTimeout(id)
+}
+
+function preloadTilt() {
+	return import('./tilt-impl')
+}
+
+/** Progressive tilt — motion loads after idle / hover intent. */
+export function Tilt(props: TiltProps) {
+	const [Impl, setImpl] = useState<TiltImpl | null>(null)
+
+	useMountEffect(() => {
+		if (prefersReducedMotion()) return
+
+		return scheduleIdle(() => {
+			void preloadTilt().then((mod) => {
+				setImpl(() => mod.Tilt)
+			})
+		})
+	})
+
+	function handleIntent() {
+		if (Impl || prefersReducedMotion()) return
+		void preloadTilt().then((mod) => {
+			setImpl(() => mod.Tilt)
+		})
 	}
 
-	const Component = as ? motion(as) : motion.div
+	if (!Impl) {
+		const {
+			as,
+			children,
+			className,
+			style,
+			rotationFactor: _rotationFactor,
+			isReverse: _isReverse,
+			springOptions: _springOptions,
+			onMouseEnter: _onMouseEnter,
+			...rest
+		} = props
 
-	return (
-		<Component
-			{...props}
-			ref={itemRef}
-			className={className}
-			style={{
-				transformStyle: 'preserve-3d',
-				...style,
-				transform,
-			}}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={handleMouseLeave}
-		>
-			{children}
-		</Component>
-	)
+		const Component: ElementType = as ?? 'div'
+
+		return (
+			<Component
+				{...rest}
+				className={className}
+				style={{ transformStyle: 'preserve-3d', ...style }}
+				onMouseEnter={handleIntent}
+			>
+				{children}
+			</Component>
+		)
+	}
+
+	return <Impl {...props} />
 }
