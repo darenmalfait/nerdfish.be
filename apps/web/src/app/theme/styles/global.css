@@ -11,9 +11,9 @@
 		both;
 	--animate-welcome-hero-slice-left: welcome-hero-slice-left 0.7s ease-in-out
 		both;
-	--animate-feature-slide-left: feature-slide-left 0.6s ease-out both;
+	--animate-slide-left-in: slide-left-in 0.6s ease-out both;
 
-	@keyframes feature-slide-left {
+	@keyframes slide-left-in {
 		from {
 			opacity: 0;
 			transform: translateX(-1rem);
@@ -80,7 +80,7 @@
 
 /* Scroll-driven when supported; otherwise plays on load (fill-mode: both) */
 @supports (animation-timeline: view()) {
-	.animate-feature-slide-left {
+	.animate-slide-left-in {
 		animation-timeline: view();
 		animation-range: entry 0% cover 40%;
 	}

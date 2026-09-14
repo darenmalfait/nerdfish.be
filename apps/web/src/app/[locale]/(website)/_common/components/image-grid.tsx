@@ -1,11 +1,8 @@
-'use client'
-
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { Grid, GridCard } from '@repo/design-system/components/grid'
 import { cn } from '@repo/lib/utils/class'
-import { useInView } from 'motion/react'
 import Image from 'next/image'
-import { type ComponentProps, useImperativeHandle, useRef } from 'react'
+import { type ComponentProps } from 'react'
 import { type ImageType } from '~/app/types'
 
 export interface ImageGridContentProps {
@@ -44,20 +41,13 @@ export interface ImageGridProps extends ComponentProps<typeof Grid> {
 }
 
 export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
-	const containerRef = useRef<HTMLDivElement>(null)
-	useImperativeHandle(ref, () => containerRef.current as HTMLDivElement)
-
-	const isInView = useInView(containerRef, {
-		once: true,
-	})
-
 	return (
 		<Grid
 			className={cn(
 				'auto-rows-[40rem] grid-cols-2! md:grid-cols-4!',
 				className,
 			)}
-			ref={containerRef}
+			ref={ref}
 			{...props}
 		>
 			{items.map((item, i) => {
@@ -67,10 +57,7 @@ export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
 					<GridCard
 						style={{ animationDelay: `${i * 0.2}s` }}
 						key={`${item.image.alt} ${i}`}
-						className={cn(
-							getGridItemClassName(i),
-							isInView && 'motion-preset-slide-left',
-						)}
+						className={cn(getGridItemClassName(i), 'animate-slide-left-in')}
 					>
 						<ImageGridContent {...item} />
 					</GridCard>

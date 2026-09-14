@@ -185,14 +185,11 @@ export async function Features({ items, layout: layoutProp }: FeaturesProps) {
 						<li
 							key={`${item.title} ${i}`}
 							style={{ animationDelay: `${i * 0.2}s` }}
-							className={cn(
-								'animate-feature-slide-left bg-none lg:col-span-1',
-								{
-									'col-span-4': maxCols === '4',
-									'col-span-3': maxCols === '3',
-									'col-span-2': maxCols === '2',
-								},
-							)}
+							className={cn('animate-slide-left-in bg-none lg:col-span-1', {
+								'col-span-4': maxCols === '4',
+								'col-span-3': maxCols === '3',
+								'col-span-2': maxCols === '2',
+							})}
 						>
 							<Feature
 								variant={variant}
