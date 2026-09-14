@@ -62,7 +62,7 @@ test.describe('User Story: The user wants to navigate the site using the main na
 			test('it should navigate to the contact page', async ({ page }) => {
 				await expect(page).toHaveURL(CONTACT_URL_PATTERN)
 				await expect(
-					page.getByRole('button', { name: "Let's get started" }),
+					page.getByRole('button', { name: 'Write to me' }),
 				).toBeVisible()
 			})
 		})
@@ -161,7 +161,7 @@ test.describe('User Story: The user wants to navigate the site using the mobile 
 			test('it should navigate to the contact page', async ({ page }) => {
 				await expect(page).toHaveURL(CONTACT_URL_PATTERN)
 				await expect(
-					page.getByRole('button', { name: "Let's get started" }),
+					page.getByRole('button', { name: 'Write to me' }),
 				).toBeVisible()
 			})
 		})

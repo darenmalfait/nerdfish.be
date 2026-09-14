@@ -36,7 +36,7 @@ export class ContactPage extends BasePage {
 	}
 
 	getOpenFormButton = () =>
-		this.page.getByRole('button', { name: "Let's get started" })
+		this.page.getByRole('button', { name: 'Write to me' })
 	getSuccessAlert = () =>
 		this.page.getByRole('alert').filter({ hasText: 'Success' })
 
