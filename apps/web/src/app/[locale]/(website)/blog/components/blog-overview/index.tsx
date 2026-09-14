@@ -17,11 +17,13 @@ import {
 import { type Post } from 'content-collections'
 import { Suspense } from 'react'
 import { blog } from '../../api'
-import { filterBlog, toArticleFromBlog } from '../../utils'
+import { filterBlog } from '../../filter'
+import { toArticleFromBlog } from '../../utils'
 import {
 	BlogOverviewContent,
 	type BlogOverviewContentProps,
 } from './blog-overview-content'
+import { BlogOverviewContentSearchable } from './blog-overview-content-searchable'
 import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
@@ -30,7 +32,7 @@ function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 
 export interface BlogOverviewProps extends Omit<
 	BlogOverviewContentProps,
-	'items'
+	'items' | 'customFilterFunction'
 > {
 	relatedTo?: PartialDeep<Post>
 	count?: number
@@ -86,16 +88,17 @@ export async function BlogOverviewData({
 	const items = relatedTo ? blogs : filterBlog(blogs, tags?.join(' ') ?? '')
 
 	const limitedBlogs = count ? items.slice(0, count) : items
+	const overviewItems = limitedBlogs.map(toArticleFromBlog)
 
 	return (
 		<>
 			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
 
-			<BlogOverviewContent
-				{...props}
-				searchEnabled={searchEnabled}
-				items={limitedBlogs.map(toArticleFromBlog)}
-			/>
+			{searchEnabled ? (
+				<BlogOverviewContentSearchable {...props} items={overviewItems} />
+			) : (
+				<BlogOverviewContent {...props} items={overviewItems} />
+			)}
 		</>
 	)
 }

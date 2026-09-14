@@ -12,11 +12,13 @@ import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
 import { Suspense } from 'react'
 import { work } from '../../api'
-import { filterWork, toArticleFromWork } from '../../utils'
+import { filterWork } from '../../filter'
+import { toArticleFromWork } from '../../utils'
 import {
 	WorkOverviewContent,
 	type WorkOverviewContentProps,
 } from './work-overview-content'
+import { WorkOverviewContentSearchable } from './work-overview-content-searchable'
 import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 function isSameItem(
@@ -28,7 +30,7 @@ function isSameItem(
 
 export interface WorkOverviewProps extends Omit<
 	WorkOverviewContentProps,
-	'items'
+	'items' | 'customFilterFunction'
 > {
 	relatedTo?: PartialDeep<Project>
 	count?: number
@@ -80,12 +82,12 @@ export async function WorkOverviewData({
 	const items = relatedTo ? works : filterWork(works, tags?.join(' ') ?? '')
 
 	const limitedItems = count ? items.slice(0, count) : items
+	const overviewItems = limitedItems.map(toArticleFromWork)
 
-	return (
-		<WorkOverviewContent
-			{...props}
-			items={limitedItems.map(toArticleFromWork)}
-		/>
+	return props.searchEnabled ? (
+		<WorkOverviewContentSearchable {...props} items={overviewItems} />
+	) : (
+		<WorkOverviewContent {...props} items={overviewItems} />
 	)
 }
 

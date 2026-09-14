@@ -26,8 +26,7 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { env } from 'env'
-import { type ComponentProps, type ReactNode, useCallback } from 'react'
-import { filterWiki } from '../../utils'
+import { type ComponentProps, type ReactNode } from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 import { type ImageType } from '~/app/types'
 
@@ -108,6 +107,7 @@ export interface WikiOverviewContentProps {
 		link?: string
 	} | null
 	children?: ReactNode
+	customFilterFunction?: (articles: Article[], searchString: string) => Article[]
 }
 
 export function WikiOverviewContent({
@@ -116,25 +116,16 @@ export function WikiOverviewContent({
 	items,
 	header,
 	children,
+	customFilterFunction,
 }: WikiOverviewContentProps) {
 	const t = useTranslations('wiki.overview')
-
-	const filterArticles = useCallback(
-		(toFilter: Article[], searchString: string) => {
-			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const articles = items.filter((article) => toFilterIds.has(article.id))
-
-			return filterWiki(articles, searchString)
-		},
-		[items],
-	)
 
 	return (
 		<ArticleOverview
 			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
-			customFilterFunction={filterArticles}
+			customFilterFunction={customFilterFunction}
 		>
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage

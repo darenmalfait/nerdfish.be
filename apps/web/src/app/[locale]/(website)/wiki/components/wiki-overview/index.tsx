@@ -11,11 +11,13 @@ import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
 import { Suspense } from 'react'
 import { wiki } from '../../api'
-import { filterWiki, toArticleFromWiki } from '../../utils'
+import { filterWiki } from '../../filter'
+import { toArticleFromWiki } from '../../utils'
 import {
 	WikiOverviewContent,
 	type WikiOverviewContentProps,
 } from './wiki-overview-content'
+import { WikiOverviewContentSearchable } from './wiki-overview-content-searchable'
 import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
@@ -24,7 +26,7 @@ function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 
 export interface WikiOverviewProps extends Omit<
 	WikiOverviewContentProps,
-	'items'
+	'items' | 'customFilterFunction'
 > {
 	relatedTo?: PartialDeep<Wiki>
 	count?: number
@@ -74,13 +76,12 @@ export async function WikiOverviewData({
 	const items = relatedTo ? wikis : filterWiki(wikis, tags?.join(' ') ?? '')
 
 	const limitedItems = count ? items.slice(0, count) : items
+	const overviewItems = limitedItems.map(toArticleFromWiki)
 
-	return (
-		<WikiOverviewContent
-			{...props}
-			searchEnabled={searchEnabled}
-			items={limitedItems.map(toArticleFromWiki)}
-		/>
+	return searchEnabled ? (
+		<WikiOverviewContentSearchable {...props} items={overviewItems} />
+	) : (
+		<WikiOverviewContent {...props} items={overviewItems} />
 	)
 }
 

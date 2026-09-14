@@ -18,8 +18,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type ReactNode, useCallback } from 'react'
-import { filterBlog } from '../../utils'
+import { type ReactNode } from 'react'
 import { type ImageType } from '~/app/types'
 
 export interface BlogOverviewContentProps {
@@ -33,6 +32,7 @@ export interface BlogOverviewContentProps {
 		link?: string
 	} | null
 	children?: ReactNode
+	customFilterFunction?: (articles: Article[], searchString: string) => Article[]
 }
 
 export function BlogOverviewContent({
@@ -41,25 +41,16 @@ export function BlogOverviewContent({
 	items,
 	header,
 	children,
+	customFilterFunction,
 }: BlogOverviewContentProps) {
 	const t = useTranslations('blog.overview')
-
-	const filterArticles = useCallback(
-		(toFilter: Article[], searchString: string) => {
-			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const articles = items.filter((article) => toFilterIds.has(article.id))
-
-			return filterBlog(articles, searchString)
-		},
-		[items],
-	)
 
 	return (
 		<ArticleOverview
 			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
-			customFilterFunction={filterArticles}
+			customFilterFunction={customFilterFunction}
 		>
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage

@@ -18,8 +18,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type ReactNode, useCallback } from 'react'
-import { filterWork } from '../../utils'
+import { type ReactNode } from 'react'
 import { type ImageType } from '~/app/types'
 
 export interface WorkOverviewContentProps {
@@ -33,6 +32,7 @@ export interface WorkOverviewContentProps {
 		image?: ImageType
 		link?: string
 	} | null
+	customFilterFunction?: (articles: Article[], searchString: string) => Article[]
 }
 
 export function WorkOverviewContent({
@@ -41,25 +41,16 @@ export function WorkOverviewContent({
 	items,
 	header,
 	children,
+	customFilterFunction,
 }: WorkOverviewContentProps) {
 	const t = useTranslations('work.overview')
-
-	const filterArticles = useCallback(
-		(toFilter: Article[], searchString: string) => {
-			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const articles = items.filter((article) => toFilterIds.has(article.id))
-
-			return filterWork(articles, searchString)
-		},
-		[items],
-	)
 
 	return (
 		<ArticleOverview
 			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
-			customFilterFunction={filterArticles}
+			customFilterFunction={customFilterFunction}
 		>
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage
