@@ -5,7 +5,17 @@ import { getCrypto } from '@repo/lib/utils/misc'
 import { type Wiki } from 'content-collections'
 import Fuse from 'fuse.js'
 
-export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
+type WikiSearchable = {
+	title?: string | null
+	tags?: string[] | null
+	excerpt?: string | null
+	description?: string | null
+}
+
+export function filterWiki<T extends WikiSearchable>(
+	posts: T[],
+	searchString: string,
+): T[] {
 	if (!searchString) return posts
 
 	const words = searchString.split(' ')
@@ -13,7 +23,7 @@ export function filterWiki(posts: PartialDeep<Wiki>[], searchString: string) {
 
 	for (const word of words) {
 		const fuse = new Fuse(results, {
-			keys: ['title', 'tags', 'excerpt'],
+			keys: ['title', 'tags', 'excerpt', 'description'],
 			isCaseSensitive: false,
 			minMatchCharLength: 1,
 			threshold: 0.3,

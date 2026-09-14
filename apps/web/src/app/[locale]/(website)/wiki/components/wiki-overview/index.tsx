@@ -11,7 +11,7 @@ import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
 import { Suspense } from 'react'
 import { wiki } from '../../api'
-import { filterWiki } from '../../utils'
+import { filterWiki, toArticleFromWiki } from '../../utils'
 import {
 	WikiOverviewContent,
 	type WikiOverviewContentProps,
@@ -79,7 +79,7 @@ export async function WikiOverviewData({
 		<WikiOverviewContent
 			{...props}
 			searchEnabled={searchEnabled}
-			items={limitedItems}
+			items={limitedItems.map(toArticleFromWiki)}
 		/>
 	)
 }

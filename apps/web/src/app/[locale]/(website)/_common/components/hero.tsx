@@ -1,4 +1,4 @@
-import { MagnetButton } from '@repo/design-system/components/magnet'
+import { Button } from '@nerdfish/react/button'
 import {
 	Section,
 	SectionHeader,
@@ -53,7 +53,7 @@ export function HeroCTA({
 	...props
 }: ComponentProps<typeof Link>) {
 	return (
-		<MagnetButton
+		<Button
 			size="xl"
 			className="mt-acquaintances group"
 			render={

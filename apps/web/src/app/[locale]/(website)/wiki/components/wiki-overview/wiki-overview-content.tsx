@@ -24,17 +24,10 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type PartialDeep } from '@repo/lib/types'
 import { cn } from '@repo/lib/utils/class'
-import { type Wiki } from 'content-collections'
 import { env } from 'env'
-import {
-	type ComponentProps,
-	type ReactNode,
-	useCallback,
-	useMemo,
-} from 'react'
-import { filterWiki, toArticleFromWiki } from '../../utils'
+import { type ComponentProps, type ReactNode, useCallback } from 'react'
+import { filterWiki } from '../../utils'
 import { Link } from '~/app/[locale]/_common/components/link'
 import { type ImageType } from '~/app/types'
 
@@ -107,7 +100,7 @@ function WikiOverviewArticleCard({ article }: { article: Article }) {
 export interface WikiOverviewContentProps {
 	searchEnabled?: boolean
 	featuredEnabled?: boolean
-	items: PartialDeep<Wiki>[]
+	items: Article[]
 	header?: {
 		title?: string
 		subtitle?: string
@@ -125,21 +118,20 @@ export function WikiOverviewContent({
 	children,
 }: WikiOverviewContentProps) {
 	const t = useTranslations('wiki.overview')
-	const articles = useMemo(() => items.map(toArticleFromWiki), [items])
 
 	const filterArticles = useCallback(
 		(toFilter: Article[], searchString: string) => {
 			const toFilterIds = new Set(toFilter.map((article) => article.id))
-			const wikis = items.filter((wiki) => wiki.id && toFilterIds.has(wiki.id))
+			const articles = items.filter((article) => toFilterIds.has(article.id))
 
-			return filterWiki(wikis, searchString).map(toArticleFromWiki)
+			return filterWiki(articles, searchString)
 		},
 		[items],
 	)
 
 	return (
 		<ArticleOverview
-			allArticles={articles}
+			allArticles={items}
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
 			customFilterFunction={filterArticles}
