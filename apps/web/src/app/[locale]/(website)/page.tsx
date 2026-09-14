@@ -10,6 +10,7 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from './_common/components/cta'
 import { Features } from './_common/components/features'
@@ -189,21 +190,33 @@ export default async function HomePage(props: { params: Promise<WithLocale> }) {
 
 	return (
 		<>
-			{/* Hero fetches its own copy — don't block it on section translations */}
+			{/* Hero streams first — Suspense lets below-fold sections resolve in parallel */}
 			<div className="-mt-site-header pt-site-header bg-background-muted relative flex min-h-dvh flex-col justify-center">
 				<WelcomeHero />
 			</div>
 
-			<HomeFeaturesSection />
-			<HomeCtaSection />
-			<HomeHighlightsSection />
-			<HomeBlogSection />
-			<InViewBackground className="bg-info-background-muted">
-				<Section>
-					<Testimonials />
-				</Section>
-			</InViewBackground>
-			<HomeCaseStudySection />
+			<Suspense fallback={null}>
+				<HomeFeaturesSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<HomeCtaSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<HomeHighlightsSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<HomeBlogSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<InViewBackground className="bg-info-background-muted">
+					<Section>
+						<Testimonials />
+					</Section>
+				</InViewBackground>
+			</Suspense>
+			<Suspense fallback={null}>
+				<HomeCaseStudySection />
+			</Suspense>
 		</>
 	)
 }
