@@ -12,6 +12,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../../_common/components/cta'
 import { Faq, FaqItem } from '../../_common/components/faq'
@@ -58,177 +59,244 @@ export async function generateMetadata(
 	})
 }
 
-export default async function WebDesignPage(props: {
-	params: Promise<WithLocale>
-}) {
-	await props.params
+async function WebDesignHero() {
 	const t = await getTranslations('expertise.webdesign.page')
 
 	return (
+		<Hero>
+			<HeroContent>
+				<HeroTitle title={t('hero.title')} />
+				<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
+			</HeroContent>
+		</Hero>
+	)
+}
+
+async function WebDesignFeaturesSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('features.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<Features
+				items={[
+					{
+						title: t('features.items.0.title'),
+						description: t('features.items.0.description'),
+						icon: <EyeIcon />,
+					},
+					{
+						title: t('features.items.1.title'),
+						description: t('features.items.1.description'),
+						icon: <Smartphone />,
+					},
+					{
+						title: t('features.items.2.title'),
+						description: t('features.items.2.description'),
+						icon: <MessageSquare />,
+					},
+					{
+						title: t('features.items.3.title'),
+						description: t('features.items.3.description'),
+						icon: <Zap />,
+					},
+				]}
+			/>
+		</Section>
+	)
+}
+
+async function WebDesignBlogSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<BlogOverview count={2} tags={['webdesign']} />
+		</Section>
+	)
+}
+
+function WebDesignKeywordsSection() {
+	return (
+		<Section>
+			<KeywordList>
+				<Keyword>Strategy</Keyword>
+				<Keyword>Web</Keyword>
+				<Keyword>Design</Keyword>
+				<Keyword>UX/UI</Keyword>
+				<Keyword>Accessibility</Keyword>
+				<Keyword>Performance</Keyword>
+			</KeywordList>
+		</Section>
+	)
+}
+
+async function WebDesignCtaSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<Cta
+				title={t('cta.title')}
+				subtitle={t('cta.subtitle')}
+				link={{ href: '/contact', label: t('cta.label') }}
+			/>
+		</Section>
+	)
+}
+
+async function WebDesignPricingSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('pricing.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('pricing.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<Pricing
+				plans={[
+					{
+						title: t('pricing.items.0.title'),
+						description: t('pricing.items.0.description'),
+						price: 'TBD',
+						features: [
+							t('pricing.items.0.features.0'),
+							t('pricing.items.0.features.1'),
+							t('pricing.items.0.features.2'),
+							t('pricing.items.0.features.3'),
+						],
+						href: '/contact',
+						buttonText: t('pricing.items.0.cta'),
+					},
+					{
+						title: t('pricing.items.1.title'),
+						description: t('pricing.items.1.description'),
+						price: 'TBD',
+						features: [
+							t('pricing.items.1.features.0'),
+							t('pricing.items.1.features.1'),
+							t('pricing.items.1.features.2'),
+							t('pricing.items.1.features.3'),
+							t('pricing.items.1.features.4'),
+						],
+						href: '/contact',
+						buttonText: t('pricing.items.1.cta'),
+					},
+					{
+						title: t('pricing.items.2.title'),
+						description: t('pricing.items.2.description'),
+						price: 'TBD',
+						features: [
+							t('pricing.items.2.features.0'),
+							t('pricing.items.2.features.1'),
+							t('pricing.items.2.features.2'),
+						],
+						href: '/contact',
+						buttonText: t('pricing.items.2.cta'),
+					},
+				]}
+			/>
+		</Section>
+	)
+}
+
+async function WebDesignFaqSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<Faq>
+				<FaqItem
+					question={t('faq.items.0.question')}
+					answer={t('faq.items.0.answer')}
+				/>
+				<FaqItem
+					question={t('faq.items.1.question')}
+					answer={t('faq.items.1.answer')}
+				/>
+				<FaqItem
+					question={t('faq.items.2.question')}
+					answer={t('faq.items.2.answer')}
+				/>
+				<FaqItem
+					question={t('faq.items.3.question')}
+					answer={t('faq.items.3.answer')}
+				/>
+				<FaqItem
+					question={t('faq.items.4.question')}
+					answer={t('faq.items.4.answer')}
+				/>
+			</Faq>
+		</Section>
+	)
+}
+
+async function WebDesignWorkSection() {
+	const t = await getTranslations('expertise.webdesign.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('work.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('work.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<WorkOverview count={2} tags={['webdesign']} />
+		</Section>
+	)
+}
+
+export default async function WebDesignPage(props: PageProps) {
+	await props.params
+
+	return (
 		<>
-			<Hero>
-				<HeroContent>
-					<HeroTitle title={t('hero.title')} />
-					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-				</HeroContent>
-			</Hero>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('features.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Features
-					items={[
-						{
-							title: t('features.items.0.title'),
-							description: t('features.items.0.description'),
-							icon: <EyeIcon />,
-						},
-						{
-							title: t('features.items.1.title'),
-							description: t('features.items.1.description'),
-							icon: <Smartphone />,
-						},
-						{
-							title: t('features.items.2.title'),
-							description: t('features.items.2.description'),
-							icon: <MessageSquare />,
-						},
-						{
-							title: t('features.items.3.title'),
-							description: t('features.items.3.description'),
-							icon: <Zap />,
-						},
-					]}
-				/>
-			</Section>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('blog.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('blog.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<BlogOverview count={2} tags={['webdesign']} />
-			</Section>
-
-			<Section>
-				<KeywordList>
-					<Keyword>Strategy</Keyword>
-					<Keyword>Web</Keyword>
-					<Keyword>Design</Keyword>
-					<Keyword>UX/UI</Keyword>
-					<Keyword>Accessibility</Keyword>
-					<Keyword>Performance</Keyword>
-				</KeywordList>
-			</Section>
-
-			<Section>
-				<Cta
-					title={t('cta.title')}
-					subtitle={t('cta.subtitle')}
-					link={{ href: '/contact', label: t('cta.label') }}
-				/>
-			</Section>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('pricing.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('pricing.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Pricing
-					plans={[
-						{
-							title: t('pricing.items.0.title'),
-							description: t('pricing.items.0.description'),
-							price: 'TBD',
-							features: [
-								t('pricing.items.0.features.0'),
-								t('pricing.items.0.features.1'),
-								t('pricing.items.0.features.2'),
-								t('pricing.items.0.features.3'),
-							],
-							href: '/contact',
-							buttonText: t('pricing.items.0.cta'),
-						},
-						{
-							title: t('pricing.items.1.title'),
-							description: t('pricing.items.1.description'),
-							price: 'TBD',
-							features: [
-								t('pricing.items.1.features.0'),
-								t('pricing.items.1.features.1'),
-								t('pricing.items.1.features.2'),
-								t('pricing.items.1.features.3'),
-								t('pricing.items.1.features.4'),
-							],
-							href: '/contact',
-							buttonText: t('pricing.items.1.cta'),
-						},
-						{
-							title: t('pricing.items.2.title'),
-							description: t('pricing.items.2.description'),
-							price: 'TBD',
-							features: [
-								t('pricing.items.2.features.0'),
-								t('pricing.items.2.features.1'),
-								t('pricing.items.2.features.2'),
-							],
-							href: '/contact',
-							buttonText: t('pricing.items.2.cta'),
-						},
-					]}
-				/>
-			</Section>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('faq.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Faq>
-					<FaqItem
-						question={t('faq.items.0.question')}
-						answer={t('faq.items.0.answer')}
-					/>
-					<FaqItem
-						question={t('faq.items.1.question')}
-						answer={t('faq.items.1.answer')}
-					/>
-					<FaqItem
-						question={t('faq.items.2.question')}
-						answer={t('faq.items.2.answer')}
-					/>
-					<FaqItem
-						question={t('faq.items.3.question')}
-						answer={t('faq.items.3.answer')}
-					/>
-					<FaqItem
-						question={t('faq.items.4.question')}
-						answer={t('faq.items.4.answer')}
-					/>
-				</Faq>
-			</Section>
-
-			<InViewBackground className="bg-blog/20">
-				<Section>
-					<Testimonials
-						filter={{
-							type: ['project', 'client'],
-						}}
-					/>
-				</Section>
-			</InViewBackground>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('work.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>{t('work.subtitle')}</SectionHeaderSubtitle>
-				</SectionHeader>
-				<WorkOverview count={2} tags={['webdesign']} />
-			</Section>
+			<Suspense fallback={null}>
+				<WebDesignHero />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignFeaturesSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignBlogSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignKeywordsSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignCtaSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignPricingSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignFaqSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<InViewBackground className="bg-blog/20">
+					<Section>
+						<Testimonials
+							filter={{
+								type: ['project', 'client'],
+							}}
+						/>
+					</Section>
+				</InViewBackground>
+			</Suspense>
+			<Suspense fallback={null}>
+				<WebDesignWorkSection />
+			</Suspense>
 		</>
 	)
 }

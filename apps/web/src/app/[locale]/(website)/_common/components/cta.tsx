@@ -1,8 +1,5 @@
-'use client'
-import { MagnetButton } from '@repo/design-system/components/magnet'
+import { Button } from '@nerdfish/react/button'
 import { ArrowRightIcon } from 'lucide-react'
-
-import type * as React from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
 export interface CtaProps {
@@ -28,7 +25,7 @@ export function Cta(props: CtaProps) {
 
 			{link?.href ? (
 				<div>
-					<MagnetButton
+					<Button
 						size="xl"
 						variant="accent"
 						render={

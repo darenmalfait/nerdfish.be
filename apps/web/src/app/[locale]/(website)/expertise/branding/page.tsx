@@ -11,6 +11,7 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { Layers, Palette, Users } from 'lucide-react'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { Features } from '../../_common/components/features'
 import {
@@ -50,48 +51,64 @@ export async function generateMetadata(
 	})
 }
 
+async function BrandingHero() {
+	const t = await getTranslations('expertise.branding.page')
+
+	return (
+		<Hero>
+			<HeroContent>
+				<HeroTitle title={t('hero.title')} />
+				<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
+			</HeroContent>
+		</Hero>
+	)
+}
+
+async function BrandingFeaturesSection() {
+	const t = await getTranslations('expertise.branding.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('features.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<Features
+				items={[
+					{
+						title: t('features.items.0.title'),
+						description: t('features.items.0.description'),
+						icon: <Palette />,
+					},
+					{
+						title: t('features.items.1.title'),
+						description: t('features.items.1.description'),
+						icon: <Layers />,
+					},
+					{
+						title: t('features.items.2.title'),
+						description: t('features.items.2.description'),
+						icon: <Users />,
+					},
+				]}
+			/>
+		</Section>
+	)
+}
+
 export default async function BrandingPage(props: {
 	params: Promise<WithLocale>
 }) {
 	await props.params
-	const t = await getTranslations('expertise.branding.page')
 
 	return (
 		<>
-			<Hero>
-				<HeroContent>
-					<HeroTitle title={t('hero.title')} />
-					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-				</HeroContent>
-			</Hero>
-
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('features.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('features.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-				<Features
-					items={[
-						{
-							title: t('features.items.0.title'),
-							description: t('features.items.0.description'),
-							icon: <Palette />,
-						},
-						{
-							title: t('features.items.1.title'),
-							description: t('features.items.1.description'),
-							icon: <Layers />,
-						},
-						{
-							title: t('features.items.2.title'),
-							description: t('features.items.2.description'),
-							icon: <Users />,
-						},
-					]}
-				/>
-			</Section>
+			<Suspense fallback={null}>
+				<BrandingHero />
+			</Suspense>
+			<Suspense fallback={null}>
+				<BrandingFeaturesSection />
+			</Suspense>
 		</>
 	)
 }
