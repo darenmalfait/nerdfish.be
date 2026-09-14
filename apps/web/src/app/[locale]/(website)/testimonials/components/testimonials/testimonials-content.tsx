@@ -1,9 +1,9 @@
 'use client'
 
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
-import { AnimatePresence, motion } from 'motion/react'
-import { type ReactNode, useCallback, useState } from 'react'
+import { type ComponentType, type ReactNode, useState } from 'react'
 
 export type TestimonialCard = {
 	quote: string
@@ -55,12 +55,6 @@ function TestimonialActions({
 	)
 }
 
-const variants = {
-	initial: { opacity: 0, y: '10%', scale: 0.1 },
-	animate: { opacity: 1, y: 0, scale: 1 },
-	exit: { opacity: 0, y: '10%', scale: 0.1 },
-}
-
 function TestimonialItem({
 	layout,
 	testimonial,
@@ -99,6 +93,30 @@ function TestimonialItem({
 	)
 }
 
+type MotionFrame = ComponentType<{
+	itemKey: number
+	variant?: 'primary' | 'secondary'
+	children: ReactNode
+}>
+
+function prefersReducedMotion() {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function scheduleIdle(callback: () => void) {
+	if (typeof window.requestIdleCallback === 'function') {
+		const id = window.requestIdleCallback(callback, { timeout: 2000 })
+		return () => window.cancelIdleCallback(id)
+	}
+
+	const id = window.setTimeout(callback, 200)
+	return () => window.clearTimeout(id)
+}
+
+function preloadMotionFrame() {
+	return import('./testimonials-motion-frame')
+}
+
 export interface TestimonialsContentProps {
 	testimonials: TestimonialCard[]
 	layout?: {
@@ -115,56 +133,69 @@ export function TestimonialsContent({
 	const [currentTestimonial, setCurrentTestimonial] = useState(
 		testimonials.length ? testimonials.length - 1 : 0,
 	)
+	const [MotionFrame, setMotionFrame] = useState<MotionFrame | null>(null)
 
-	const onNext = useCallback(() => {
-		const nextTestimonialIndex =
-			currentTestimonial + 1 >= testimonials.length ? 0 : currentTestimonial + 1
+	useMountEffect(() => {
+		if (prefersReducedMotion()) return
 
-		setCurrentTestimonial(nextTestimonialIndex)
-	}, [currentTestimonial, testimonials.length])
+		return scheduleIdle(() => {
+			void preloadMotionFrame().then((mod) => {
+				setMotionFrame(() => mod.TestimonialsMotionFrame)
+			})
+		})
+	})
 
-	const onPrevious = useCallback(() => {
-		const previousTestimonialIndex =
-			currentTestimonial - 1 < 0
-				? testimonials.length - 1
-				: currentTestimonial - 1
+	function loadMotion() {
+		if (MotionFrame || prefersReducedMotion()) return
+		void preloadMotionFrame().then((mod) => {
+			setMotionFrame(() => mod.TestimonialsMotionFrame)
+		})
+	}
 
-		setCurrentTestimonial(previousTestimonialIndex)
-	}, [currentTestimonial, testimonials.length])
+	function onNext() {
+		loadMotion()
+		setCurrentTestimonial((current) =>
+			current + 1 >= testimonials.length ? 0 : current + 1,
+		)
+	}
+
+	function onPrevious() {
+		loadMotion()
+		setCurrentTestimonial((current) =>
+			current - 1 < 0 ? testimonials.length - 1 : current - 1,
+		)
+	}
 
 	const testimonial = testimonials[currentTestimonial]
 	if (!testimonial && !children) return null
 
+	const body = (
+		<>
+			<TestimonialItem
+				layout={layout ?? undefined}
+				testimonial={testimonial}
+				onNext={testimonials.length > 1 ? onNext : undefined}
+				onPrevious={testimonials.length > 1 ? onPrevious : undefined}
+			/>
+			{children}
+		</>
+	)
+
 	return (
 		<div className="relative">
-			<AnimatePresence mode="popLayout">
-				<motion.div
-					key={currentTestimonial}
-					initial="initial"
-					animate="animate"
-					exit="exit"
+			{MotionFrame ? (
+				<MotionFrame itemKey={currentTestimonial} variant={layout?.variant}>
+					{body}
+				</MotionFrame>
+			) : (
+				<div
 					className={cn('flex w-full flex-col items-center justify-center', {
 						'min-h-[80vh]': layout?.variant !== 'secondary',
 					})}
-					variants={variants}
-					transition={{
-						type: 'spring',
-						stiffness: 200,
-						damping: 20,
-						duration: 0.5,
-					}}
 				>
-					<TestimonialItem
-						layout={layout ?? undefined}
-						testimonial={testimonial}
-						onNext={testimonials.length > 1 ? onNext : undefined}
-						onPrevious={testimonials.length > 1 ? onPrevious : undefined}
-					/>
-
-					{/* can be used for skeleton */}
-					{children}
-				</motion.div>
-			</AnimatePresence>
+					{body}
+				</div>
+			)}
 		</div>
 	)
 }
