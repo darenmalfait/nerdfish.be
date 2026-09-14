@@ -8,7 +8,9 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { WorkContent } from '../components/work-content'
 import { WorkOverview } from '../components/work-overview'
 import { getWorkPath } from '../utils'
@@ -36,27 +38,32 @@ export async function generateMetadata(props: {
 	})
 }
 
+async function RelatedWork({ work }: { work: Project }) {
+	const t = await getTranslations('work.content')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('related.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<WorkOverview featuredEnabled count={1} relatedTo={work} />
+		</Section>
+	)
+}
+
 export default async function WorkPage(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }) {
 	const params = await props.params
-	const [{ work }, t] = await Promise.all([
-		getRouteData(params.slug.join('/'), params.locale),
-		getTranslations('work.content'),
-	])
+	const { work } = await getRouteData(params.slug.join('/'), params.locale)
 
 	return (
 		<WorkContent
 			relatedContent={
-				<Section>
-					<SectionHeader>
-						<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
-						<SectionHeaderSubtitle>
-							{t('related.subtitle')}
-						</SectionHeaderSubtitle>
-					</SectionHeader>
-					<WorkOverview featuredEnabled count={1} relatedTo={work} />
-				</Section>
+				<Suspense fallback={null}>
+					<RelatedWork work={work} />
+				</Suspense>
 			}
 			data={work}
 		/>

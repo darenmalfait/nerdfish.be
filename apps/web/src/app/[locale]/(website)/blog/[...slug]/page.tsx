@@ -8,9 +8,10 @@ import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { type Post } from 'content-collections'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { cache } from 'react'
+import { cache, Suspense } from 'react'
 import { blog } from '../api'
 import { BlogContent } from '../components/blog-content'
 import { BlogOverview } from '../components/blog-overview'
@@ -56,26 +57,31 @@ export async function generateMetadata(
 	})
 }
 
+async function RelatedPosts({ post }: { post: Post }) {
+	const t = await getTranslations('blog.content')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('related.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+
+			<BlogOverview count={2} relatedTo={post} />
+		</Section>
+	)
+}
+
 export default async function BlogDetailPage(props: PageProps) {
 	const { slug, locale } = await props.params
-	const [{ post }, t] = await Promise.all([
-		getPageData(slug.join('/'), locale),
-		getTranslations('blog.content'),
-	])
+	const { post } = await getPageData(slug.join('/'), locale)
 
 	return (
 		<BlogContent
 			relatedContent={
-				<Section>
-					<SectionHeader>
-						<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
-						<SectionHeaderSubtitle>
-							{t('related.subtitle')}
-						</SectionHeaderSubtitle>
-					</SectionHeader>
-
-					<BlogOverview count={2} relatedTo={post} />
-				</Section>
+				<Suspense fallback={null}>
+					<RelatedPosts post={post} />
+				</Suspense>
 			}
 			data={post}
 			locale={locale}
