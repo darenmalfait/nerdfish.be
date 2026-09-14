@@ -2,125 +2,68 @@
 
 import { Button } from '@nerdfish/react/button'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
-import { cn } from '@repo/lib/utils/class'
-import { motion, useMotionValue, useSpring } from 'motion/react'
-import { type ComponentProps, useImperativeHandle, useRef } from 'react'
-
-const SPRING_CONFIG = { damping: 30, stiffness: 150, mass: 0.2 }
-const MAX_DISTANCE = 0.1
-const MAX_SCALE = 1.05
-const MAX_ROTATE = 15
-
-export type MagnetProps = ComponentProps<typeof motion.div>
-
-export function Magnet({
-	children,
-	className,
-	ref,
-	onMouseEnter,
-	onMouseLeave,
-	style,
-	...props
-}: MagnetProps) {
-	const itemRef = useRef<HTMLDivElement>(null)
-	useImperativeHandle(ref, () => itemRef.current as HTMLDivElement)
-
-	const isHoveredRef = useRef(false)
-
-	const x = useMotionValue(0)
-	const y = useMotionValue(0)
-	const scale = useMotionValue(1)
-	const rotate = useMotionValue(0)
-	const springX = useSpring(x, SPRING_CONFIG)
-	const springY = useSpring(y, SPRING_CONFIG)
-	const springScale = useSpring(scale, { damping: 20, stiffness: 300 })
-	const springRotate = useSpring(rotate, { damping: 20, stiffness: 300 })
-
-	function resetMagnet() {
-		x.set(0)
-		y.set(0)
-		scale.set(1)
-		rotate.set(0)
-	}
-
-	useMountEffect(() => {
-		function calculateDistance(e: MouseEvent) {
-			if (!itemRef.current) {
-				return
-			}
-
-			if (!isHoveredRef.current) {
-				resetMagnet()
-				return
-			}
-
-			const rect = itemRef.current.getBoundingClientRect()
-			const centerX = rect.left + rect.width / 2
-			const centerY = rect.top + rect.height / 2
-			const distanceX = (e.clientX - centerX) * MAX_DISTANCE
-			const distanceY = (e.clientY - centerY) * MAX_DISTANCE
-			const normalizedX = Math.abs(distanceX) / (rect.width / 2)
-			const normalizedY = Math.abs(distanceY) / (rect.height / 2)
-			const cornerProximity = Math.min(1, (normalizedX + normalizedY) / 2)
-			const rotateValue =
-				distanceX > 0
-					? distanceY > 0
-						? MAX_ROTATE * cornerProximity // bottom right
-						: -MAX_ROTATE * cornerProximity // top right
-					: distanceY > 0
-						? -MAX_ROTATE * cornerProximity // bottom left
-						: MAX_ROTATE * cornerProximity // top left
-
-			x.set(distanceX)
-			y.set(distanceY)
-			scale.set(MAX_SCALE)
-			rotate.set(rotateValue)
-		}
-
-		function handleMouseMove(e: MouseEvent) {
-			requestAnimationFrame(() => calculateDistance(e))
-		}
-
-		document.addEventListener('mousemove', handleMouseMove)
-		return () => {
-			document.removeEventListener('mousemove', handleMouseMove)
-		}
-	})
-
-	return (
-		<motion.div
-			ref={itemRef}
-			className={cn('inline-flex', className)}
-			onMouseEnter={(e) => {
-				isHoveredRef.current = true
-				onMouseEnter?.(e)
-			}}
-			onMouseLeave={(e) => {
-				isHoveredRef.current = false
-				resetMagnet()
-				onMouseLeave?.(e)
-			}}
-			style={{
-				position: 'relative',
-				x: springX,
-				y: springY,
-				scale: springScale,
-				rotate: springRotate,
-				...style,
-			}}
-			{...props}
-		>
-			{children}
-		</motion.div>
-	)
-}
+import { type ComponentProps, type ComponentType, useState } from 'react'
 
 export type MagnetButtonProps = ComponentProps<typeof Button>
 
-export function MagnetButton({ children, ...props }: MagnetButtonProps) {
-	return (
-		<Magnet>
-			<Button {...props}>{children}</Button>
-		</Magnet>
-	)
+type MagnetButtonImpl = ComponentType<MagnetButtonProps>
+
+function prefersReducedMotion() {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function scheduleIdle(callback: () => void) {
+	if (typeof window.requestIdleCallback === 'function') {
+		const id = window.requestIdleCallback(callback, { timeout: 2000 })
+		return () => window.cancelIdleCallback(id)
+	}
+
+	const id = window.setTimeout(callback, 200)
+	return () => window.clearTimeout(id)
+}
+
+function preloadMagnet() {
+	return import('./magnet-impl')
+}
+
+/** Progressive magnet: plain Button until idle, then upgrades. motion stays off the critical path. */
+export function MagnetButton(props: MagnetButtonProps) {
+	const [Impl, setImpl] = useState<MagnetButtonImpl | null>(null)
+
+	useMountEffect(() => {
+		if (prefersReducedMotion()) return
+
+		return scheduleIdle(() => {
+			void preloadMagnet().then((mod) => {
+				setImpl(() => mod.MagnetButton)
+			})
+		})
+	})
+
+	function onIntent() {
+		if (Impl || prefersReducedMotion()) return
+		void preloadMagnet().then((mod) => {
+			setImpl(() => mod.MagnetButton)
+		})
+	}
+
+	if (!Impl) {
+		const { onMouseEnter, onFocus, ...rest } = props
+
+		return (
+			<Button
+				{...rest}
+				onMouseEnter={(event) => {
+					onIntent()
+					onMouseEnter?.(event)
+				}}
+				onFocus={(event) => {
+					onIntent()
+					onFocus?.(event)
+				}}
+			/>
+		)
+	}
+
+	return <Impl {...props} />
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@nerdfish/react/button'
 import { useCopyToClipboard } from '@nerdfish/react/hooks/use-copy-to-clipboard'
 import {
 	Tooltip,
@@ -8,6 +7,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
@@ -22,7 +22,7 @@ export function ContactCopyEmailButton() {
 			<Tooltip>
 				<TooltipTrigger
 					render={
-						<Button
+						<MagnetButton
 							size="xl"
 							variant="ghost"
 							className={cn(
@@ -43,7 +43,7 @@ export function ContactCopyEmailButton() {
 									<span>{companyInfo.email}</span>
 								</>
 							)}
-						</Button>
+						</MagnetButton>
 					}
 				/>
 				<TooltipContent>{copiedText ? t('copied') : t('copy')}</TooltipContent>

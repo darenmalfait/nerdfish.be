@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@nerdfish/react/button'
 import { Drawer, DrawerContent, DrawerTitle } from '@nerdfish/react/drawer'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	SectionHeader,
 	SectionHeaderSubtitle,
@@ -18,14 +18,14 @@ export function ContactFormViaButton() {
 
 	return (
 		<>
-			<Button
+			<MagnetButton
 				size="xl"
 				className="mt-acquaintances group flex items-center"
 				onClick={() => setContactFormOpen(true)}
 			>
 				{t('openFormLabel')}
 				<ArrowRightIcon className="text-inverted ml-best-friends group-hover:translate-x-sm size-6 transition-all" />
-			</Button>
+			</MagnetButton>
 
 			<Drawer
 				repositionInputs={false}

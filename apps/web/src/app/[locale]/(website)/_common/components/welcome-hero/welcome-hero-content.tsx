@@ -1,11 +1,11 @@
-import { Button } from '@nerdfish/react/button'
+import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { Link } from '~/app/[locale]/_common/components/link'
 
 export function WelcomeHeroContactButton({ label }: { label: string }) {
 	return (
-		<Button
+		<MagnetButton
 			variant="accent"
 			size="xl"
 			render={<Link href="/contact">{label}</Link>}
