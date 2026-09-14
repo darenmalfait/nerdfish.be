@@ -1,5 +1,5 @@
+import { Button } from '@nerdfish/react/button'
 import { Grid } from '@repo/design-system/components/grid'
-import { MagnetButton } from '@repo/design-system/components/magnet'
 import { getTranslations } from '@repo/i18n/server'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
@@ -20,7 +20,7 @@ function DetailLink({
 
 	return (
 		<div className="mt-friends">
-			<MagnetButton
+			<Button
 				className="group -mx-4"
 				variant="link"
 				render={
