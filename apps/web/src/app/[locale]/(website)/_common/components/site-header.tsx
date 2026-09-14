@@ -1,15 +1,21 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { Particles } from '@repo/design-system/components/particles'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
+import dynamic from 'next/dynamic'
 import { type ComponentProps } from 'react'
 import { LocaleSwitcher } from './locale-switcher'
 import { MobileNavigation } from './mobile-navigation'
 import { SiteNavigation } from './site-navigation'
 import { Link } from '~/app/[locale]/_common/components/link'
 import { ThemeToggle } from '~/app/theme/components/theme-toggle'
+
+const Particles = dynamic(
+	() =>
+		import('@repo/design-system/components/particles').then((m) => m.Particles),
+	{ ssr: false },
+)
 
 function HeaderSection({ className, ...props }: ComponentProps<'div'>) {
 	return (

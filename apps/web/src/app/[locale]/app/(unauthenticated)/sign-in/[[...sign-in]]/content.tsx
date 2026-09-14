@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { Particles } from '@repo/design-system/components/particles'
 import { Logo } from '@repo/design-system/icons'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -9,6 +8,12 @@ import { ThemeToggle } from '~/app/theme/components/theme-toggle'
 
 const SignIn = dynamic(() =>
 	import('@repo/auth/components/sign-in').then((mod) => mod.SignIn),
+)
+
+const Particles = dynamic(
+	() =>
+		import('@repo/design-system/components/particles').then((m) => m.Particles),
+	{ ssr: false },
 )
 
 export function SignInPageContent() {

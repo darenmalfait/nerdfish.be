@@ -10,6 +10,7 @@ import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { Cta } from '../_common/components/cta'
 import {
@@ -53,18 +54,24 @@ export async function generateMetadata(
 	})
 }
 
-export default async function WorkPage(props: PageProps) {
-	await props.params
+async function WorkHero() {
+	const t = await getTranslations('work.page')
+
+	return (
+		<Hero>
+			<HeroContent>
+				<HeroTitle title={t('hero.title')} />
+				<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
+			</HeroContent>
+		</Hero>
+	)
+}
+
+async function WorkWebdesignSection() {
 	const t = await getTranslations('work.page')
 
 	return (
 		<>
-			<Hero>
-				<HeroContent>
-					<HeroTitle title={t('hero.title')} />
-					<HeroSubtitle>{t('hero.subtitle')}</HeroSubtitle>
-				</HeroContent>
-			</Hero>
 			<Section>
 				<WorkOverview
 					tags={['webdesign']}
@@ -84,15 +91,29 @@ export default async function WorkPage(props: PageProps) {
 					}}
 				/>
 			</Section>
-			<Section>
-				<SectionHeader>
-					<SectionHeaderTitle>{t('products.title')}</SectionHeaderTitle>
-					<SectionHeaderSubtitle>
-						{t('products.subtitle')}
-					</SectionHeaderSubtitle>
-				</SectionHeader>
-				<ProductOverview />
-			</Section>
+		</>
+	)
+}
+
+async function WorkProductsSection() {
+	const t = await getTranslations('work.page')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('products.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('products.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+			<ProductOverview />
+		</Section>
+	)
+}
+
+async function WorkBrandingSection() {
+	const t = await getTranslations('work.page')
+
+	return (
+		<>
 			<Section>
 				<WorkOverview
 					tags={['branding']}
@@ -112,9 +133,32 @@ export default async function WorkPage(props: PageProps) {
 					}}
 				/>
 			</Section>
-			<Section>
-				<Testimonials filter={{ type: ['client', 'project'] }} />
-			</Section>
+		</>
+	)
+}
+
+export default async function WorkPage(props: PageProps) {
+	await props.params
+
+	return (
+		<>
+			<Suspense fallback={null}>
+				<WorkHero />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WorkWebdesignSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WorkProductsSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<WorkBrandingSection />
+			</Suspense>
+			<Suspense fallback={null}>
+				<Section>
+					<Testimonials filter={{ type: ['client', 'project'] }} />
+				</Section>
+			</Suspense>
 		</>
 	)
 }
