@@ -5,25 +5,36 @@ import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { cn } from '@repo/lib/utils/class'
 import { ArrowRightIcon } from 'lucide-react'
-import { motion } from 'motion/react'
-import { Cursor } from 'motion-cursor'
 import Image from 'next/image'
 import Link from 'next/link'
-import { type ComponentProps, type ReactNode, useState } from 'react'
+import {
+	type ComponentProps,
+	type ComponentType,
+	type ReactNode,
+	useState,
+} from 'react'
 import {
 	getCategoryBackground,
 	getCategoryForeground,
 	getCategoryRing,
 } from './category-indicator'
 
+type CursorComponent = ComponentType<{
+	className?: string
+	children?: ReactNode
+}>
+
 function ReadMoreCursor({
 	active,
 	readMoreLabel,
+	Cursor,
 }: {
 	active: boolean
 	readMoreLabel: string
+	Cursor: CursorComponent | null
 }) {
-	if (!active) return null
+	if (!active || !Cursor) return null
+
 	return (
 		<Cursor className="group fixed z-50 bg-transparent!">
 			<Button
@@ -57,13 +68,22 @@ export function ArticleCardImage({
 	base64Placeholder,
 }: ArticleCardImageProps) {
 	const [isHovering, setIsHovering] = useState(false)
+	const [Cursor, setCursor] = useState<CursorComponent | null>(null)
+
+	function handleHoverStart() {
+		setIsHovering(true)
+		if (Cursor) return
+		void import('motion-cursor').then((mod) => {
+			setCursor(() => mod.Cursor)
+		})
+	}
 
 	if (!src) return null
 
 	return (
-		<motion.div
-			onHoverEnd={() => setIsHovering(false)}
-			onHoverStart={() => setIsHovering(true)}
+		<div
+			onMouseLeave={() => setIsHovering(false)}
+			onMouseEnter={handleHoverStart}
 			className={cn(
 				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
 				category &&
@@ -84,8 +104,12 @@ export function ArticleCardImage({
 				/>
 			) : null}
 
-			<ReadMoreCursor active={isHovering} readMoreLabel={readMoreLabel} />
-		</motion.div>
+			<ReadMoreCursor
+				active={isHovering}
+				readMoreLabel={readMoreLabel}
+				Cursor={Cursor}
+			/>
+		</div>
 	)
 }
 

@@ -1,8 +1,8 @@
 'use client'
 
 import { Slot } from '@radix-ui/react-slot'
+import { useInView } from '@repo/lib/hooks/use-in-view'
 import { cn } from '@repo/lib/utils/class'
-import { useInView } from 'motion/react'
 import {
 	Children,
 	useImperativeHandle,

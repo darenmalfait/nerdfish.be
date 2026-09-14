@@ -1,89 +1,81 @@
 'use client'
 
-import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { AnimatePresence, type Transition, motion } from 'motion/react'
-import { Children, cloneElement, useId, type ReactElement } from 'react'
+import {
+	Children,
+	cloneElement,
+	type ComponentType,
+	type ReactElement,
+	useState,
+} from 'react'
+import { type AnimatedBackgroundProps } from './animated-background-impl'
 
-export interface AnimatedBackgroundProps {
-	children?:
-		| ReactElement<{ 'data-id': string }>[]
-		| ReactElement<{ 'data-id': string }>
-		| any
+export type { AnimatedBackgroundProps } from './animated-background-impl'
 
-	defaultValue?: string
-	value?: string
-	onValueChange?: (newActiveId: string | null) => void
-	className?: string
-	transition?: Transition
-	enableHover?: boolean
+type AnimatedBackgroundImpl = ComponentType<AnimatedBackgroundProps>
+
+function prefersReducedMotion() {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export function AnimatedBackground({
-	children,
-	value,
-	defaultValue,
-	onValueChange,
-	className,
-	transition,
-	enableHover = false,
-}: AnimatedBackgroundProps) {
-	const [activeId, setActiveId] = useControllableState<string | null>({
-		prop: value,
-		defaultProp: defaultValue ?? null,
-		onChange: onValueChange,
-	})
-
-	const uniqueId = useId()
-
-	function handleSetActiveId(id: string | null) {
-		setActiveId(id)
-		onValueChange?.(id)
+function scheduleIdle(callback: () => void) {
+	if (typeof window.requestIdleCallback === 'function') {
+		const id = window.requestIdleCallback(callback, { timeout: 2000 })
+		return () => window.cancelIdleCallback(id)
 	}
 
+	const id = window.setTimeout(callback, 200)
+	return () => window.clearTimeout(id)
+}
+
+function preloadAnimatedBackground() {
+	return import('./animated-background-impl')
+}
+
+function StaticBackground({
+	children,
+}: Pick<AnimatedBackgroundProps, 'children'>) {
 	if (!children) return null
 
 	// eslint-disable-next-line @nerdfish/conventions/map-transformer-name
-	return Children.map(children, (child: ReactElement, index) => {
-		const id = (child as any).props['data-id']
+	return Children.map(children, (child: ReactElement, index) =>
+		cloneElement(child, {
+			key: index,
+			// @ts-expect-error - cloneElement className merge
+			className: cn('relative inline-flex', (child as any).props.className),
+		}),
+	)
+}
 
-		const interactionProps = enableHover
-			? {
-					onMouseEnter: () => handleSetActiveId(id),
-					onMouseLeave: () => handleSetActiveId(null),
-				}
-			: {
-					onClick: () => handleSetActiveId(id),
-				}
+/** Progressive animated nav pill — motion loads after idle / intent. */
+export function AnimatedBackground(props: AnimatedBackgroundProps) {
+	const [Impl, setImpl] = useState<AnimatedBackgroundImpl | null>(null)
 
-		return cloneElement(
-			child,
-			{
-				key: index,
-				// @ts-expect-error - TODO: why is this erroring?
-				className: cn('relative inline-flex', (child as any).props.className),
-				...interactionProps,
-			},
-			<>
-				<AnimatePresence initial={false}>
-					{activeId && activeId === id ? (
-						<motion.div
-							style={{ originY: '0px' }}
-							layoutId={`background-${uniqueId}`}
-							className={cn('absolute inset-0 h-full', className)}
-							transition={transition}
-							initial={{ opacity: defaultValue ? 1 : 0 }}
-							animate={{
-								opacity: 1,
-							}}
-							exit={{
-								opacity: 0,
-							}}
-						/>
-					) : null}
-				</AnimatePresence>
-				<span className="z-10 h-full">{(child as any).props.children}</span>
-			</>,
-		)
+	useMountEffect(() => {
+		if (prefersReducedMotion()) return
+
+		return scheduleIdle(() => {
+			void preloadAnimatedBackground().then((mod) => {
+				setImpl(() => mod.AnimatedBackground)
+			})
+		})
 	})
+
+	function handleIntent() {
+		if (Impl || prefersReducedMotion()) return
+		void preloadAnimatedBackground().then((mod) => {
+			setImpl(() => mod.AnimatedBackground)
+		})
+	}
+
+	if (!Impl) {
+		return (
+			<span onMouseEnter={handleIntent} onFocusCapture={handleIntent}>
+				<StaticBackground>{props.children}</StaticBackground>
+			</span>
+		)
+	}
+
+	return <Impl {...props} />
 }
