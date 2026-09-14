@@ -1,8 +1,8 @@
 'use client'
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { type Testimonial } from 'content-collections'
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { type ReactNode, useCallback, useState } from 'react'
 

@@ -1,6 +1,6 @@
 import { Button } from '@nerdfish/react/button'
 import { Section } from '@repo/design-system/components/section'
-import { ChevronLeftIcon } from '@repo/design-system/icons'
+import { ChevronLeftIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 

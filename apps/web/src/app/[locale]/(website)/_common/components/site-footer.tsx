@@ -7,11 +7,12 @@ import {
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
 import { TextSlideUp } from '@repo/design-system/components/text-slide-up'
-import { ArrowRight, LibrarySquareIcon, Logo } from '@repo/design-system/icons'
+import { Logo } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { kebabCase } from '@repo/lib/utils/string'
+import { ArrowRight, LibrarySquareIcon } from 'lucide-react'
 import { type ComponentProps, useCallback } from 'react'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
 import { LocaleSwitcher } from './locale-switcher'

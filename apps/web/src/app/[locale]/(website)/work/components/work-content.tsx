@@ -5,9 +5,9 @@ import {
 	getCategoryForeground,
 } from '@repo/design-system/components/category-indicator'
 import { Section } from '@repo/design-system/components/section'
-import { ArrowRight } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { type Project } from 'content-collections'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'

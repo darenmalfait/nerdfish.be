@@ -7,8 +7,8 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { ArrowRightIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
+import { ArrowRightIcon } from 'lucide-react'
 import { useState } from 'react'
 import { ContactForm } from '../forms/contact-form'
 

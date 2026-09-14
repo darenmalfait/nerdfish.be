@@ -9,8 +9,7 @@ import {
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
 import { cn } from '@repo/lib/utils/class'
-import { CheckIcon, CopyIcon } from '../icons'
-
+import { CheckIcon, CopyIcon } from 'lucide-react'
 const COPY_TIMOUT = 3000
 
 export interface CopyButtonProps extends ButtonProps {

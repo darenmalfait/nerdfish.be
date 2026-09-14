@@ -22,9 +22,9 @@ import {
 	TooltipProvider,
 } from '@nerdfish/react/tooltip'
 import { JsonEditor } from '@repo/design-system/components/json-editor'
-import { PencilIcon, PrinterIcon } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { parseError } from '@repo/observability/error'
+import { PencilIcon, PrinterIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'

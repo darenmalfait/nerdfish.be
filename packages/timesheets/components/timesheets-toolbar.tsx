@@ -5,8 +5,8 @@ import {
 	TooltipTrigger,
 	TooltipProvider,
 } from '@nerdfish/react/tooltip'
-import { PrinterIcon } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
+import { PrinterIcon } from 'lucide-react'
 
 import { ImportTimeEntriesButton } from './timesheets-import'
 

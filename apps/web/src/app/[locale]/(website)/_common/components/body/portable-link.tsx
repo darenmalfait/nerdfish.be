@@ -1,5 +1,5 @@
-import { ExternalLinkIcon } from '@repo/design-system/icons'
 import { stripPreSlash } from '@repo/lib/utils/string'
+import { ExternalLinkIcon } from 'lucide-react'
 import Link from 'next/link'
 
 const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']

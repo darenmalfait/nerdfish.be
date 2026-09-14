@@ -8,10 +8,10 @@ import {
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { ClipboardIcon, MailIcon } from '@repo/design-system/icons'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
+import { ClipboardIcon, MailIcon } from 'lucide-react'
 
 export function ContactCopyEmailButton() {
 	const { handleCopy, copiedText } = useCopyToClipboard()

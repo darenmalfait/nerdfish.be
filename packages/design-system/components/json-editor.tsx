@@ -16,8 +16,7 @@ import {
 	PencilIcon,
 	PlusIcon,
 	XIcon,
-} from '../icons'
-
+} from 'lucide-react'
 export function JsonEditor({
 	className,
 	theme: themeProp = 'light',

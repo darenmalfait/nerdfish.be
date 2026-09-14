@@ -7,9 +7,9 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@nerdfish/react/dropdown-menu'
-import { GlobeIcon } from '@repo/design-system/icons'
 import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { cn } from '@repo/lib/utils/class'
+import { GlobeIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { type ComponentProps } from 'react'
 import { basePathNames, usePathname, useRouter } from 'routing'

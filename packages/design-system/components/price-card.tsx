@@ -11,6 +11,7 @@ import {
 } from '@nerdfish/react/card'
 import { Separator } from '@nerdfish/react/separator'
 import { cn } from '@repo/lib/utils/class'
+import { CheckIcon } from 'lucide-react'
 import Link from 'next/link'
 import {
 	type ComponentProps,
@@ -19,8 +20,6 @@ import {
 	useContext,
 	useMemo,
 } from 'react'
-import { CheckIcon } from '../icons'
-
 interface PriceCardContextProps {
 	isPopular?: boolean
 	price?: string

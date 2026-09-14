@@ -16,6 +16,7 @@ import {
 } from '@nerdfish/react/input-group'
 import { nonNullable } from '@repo/lib/utils/array'
 import { cn } from '@repo/lib/utils/class'
+import { NewspaperIcon, SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 import {
 	type ComponentType,
@@ -23,7 +24,6 @@ import {
 	type ReactNode,
 	type ElementType,
 } from 'react'
-import { NewspaperIcon, SearchIcon } from '../../icons'
 import {
 	ArticleCard,
 	ArticleCardCategory,

@@ -1,7 +1,7 @@
 'use client'
-
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { ArrowRightIcon } from '@repo/design-system/icons'
+import { ArrowRightIcon } from 'lucide-react'
+
 import type * as React from 'react'
 import { Link } from '~/app/[locale]/_common/components/link'
 

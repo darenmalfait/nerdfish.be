@@ -11,6 +11,7 @@ import {
 import { Toggle } from '@nerdfish/react/toggle'
 import { ToggleGroup } from '@nerdfish/react/toggle-group'
 import { cn } from '@repo/lib/utils/class'
+import { FilterIcon } from 'lucide-react'
 import {
 	type ComponentProps,
 	createContext,
@@ -19,8 +20,6 @@ import {
 	useContext,
 	useMemo,
 } from 'react'
-import { FilterIcon } from '../icons'
-
 type TagFilterContextProps = {
 	tags: string[]
 	enabledTags?: string[]

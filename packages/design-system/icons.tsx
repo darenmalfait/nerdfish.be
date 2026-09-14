@@ -1,6 +1,5 @@
 import { type ComponentProps, type CSSProperties } from 'react'
 
-export * from 'lucide-react'
 export * from './components/arrow-icon'
 
 /**

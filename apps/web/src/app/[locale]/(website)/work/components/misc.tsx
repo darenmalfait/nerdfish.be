@@ -1,8 +1,8 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { ChevronLeftIcon } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
+import { ChevronLeftIcon } from 'lucide-react'
 import { Link } from '~/app/[locale]/_common/components/link'
 
 export function BackToWork() {

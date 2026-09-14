@@ -2,11 +2,11 @@
 
 import { Grid } from '@repo/design-system/components/grid'
 import { MagnetButton } from '@repo/design-system/components/magnet'
-import { ArrowRight } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
 import {
+	ArrowRight,
 	Code,
 	EyeIcon,
 	HandPlatterIcon,
