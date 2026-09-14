@@ -1,5 +1,4 @@
-import { type ButtonProps } from '@nerdfish/react/button'
-import { MagnetButton } from '@repo/design-system/components/magnet'
+import { type ButtonProps, Button } from '@nerdfish/react/button'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import Link from 'next/link'
 
@@ -16,7 +15,7 @@ function PortableButton({
 
 	return (
 		<div className="inline-block w-auto">
-			<MagnetButton
+			<Button
 				variant={variant}
 				className="cursor-pointer no-underline"
 				size="lg"

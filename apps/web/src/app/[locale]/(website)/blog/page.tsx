@@ -5,6 +5,7 @@ import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from './components/blog-overview'
 
@@ -39,8 +40,7 @@ export async function generateMetadata(
 	})
 }
 
-export default async function BlogOverviewPage(props: PageProps) {
-	await props.params
+async function BlogPageContent() {
 	const t = await getTranslations('blog.page')
 
 	return (
@@ -58,5 +58,15 @@ export default async function BlogOverviewPage(props: PageProps) {
 				}}
 			/>
 		</Section>
+	)
+}
+
+export default async function BlogOverviewPage(props: PageProps) {
+	await props.params
+
+	return (
+		<Suspense fallback={null}>
+			<BlogPageContent />
+		</Suspense>
 	)
 }

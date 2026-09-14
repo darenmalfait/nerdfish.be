@@ -5,6 +5,7 @@ import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { WikiOverview } from './components/wiki-overview'
 
@@ -39,8 +40,7 @@ export async function generateMetadata(
 	})
 }
 
-export default async function BlogPage(props: PageProps) {
-	await props.params
+async function WikiPageContent() {
 	const t = await getTranslations('wiki.page')
 
 	return (
@@ -57,5 +57,15 @@ export default async function BlogPage(props: PageProps) {
 				}}
 			/>
 		</Section>
+	)
+}
+
+export default async function WikiPage(props: PageProps) {
+	await props.params
+
+	return (
+		<Suspense fallback={null}>
+			<WikiPageContent />
+		</Suspense>
 	)
 }
