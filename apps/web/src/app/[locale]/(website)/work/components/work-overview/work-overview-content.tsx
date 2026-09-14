@@ -32,7 +32,10 @@ export interface WorkOverviewContentProps {
 		image?: ImageType
 		link?: string
 	} | null
-	customFilterFunction?: (articles: Article[], searchString: string) => Article[]
+	customFilterFunction?: (
+		articles: Article[],
+		searchString: string,
+	) => Article[]
 }
 
 export function WorkOverviewContent({

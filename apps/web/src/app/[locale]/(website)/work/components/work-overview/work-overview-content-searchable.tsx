@@ -10,7 +10,10 @@ import {
 
 /** Searchable variant — isolate fuse.js to this client chunk only */
 export function WorkOverviewContentSearchable(
-	props: Omit<WorkOverviewContentProps, 'customFilterFunction' | 'searchEnabled'>,
+	props: Omit<
+		WorkOverviewContentProps,
+		'customFilterFunction' | 'searchEnabled'
+	>,
 ) {
 	const { items } = props
 

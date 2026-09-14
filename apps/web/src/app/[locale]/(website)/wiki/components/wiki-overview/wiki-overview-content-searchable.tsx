@@ -10,7 +10,10 @@ import {
 
 /** Searchable variant — isolate fuse.js to this client chunk only */
 export function WikiOverviewContentSearchable(
-	props: Omit<WikiOverviewContentProps, 'customFilterFunction' | 'searchEnabled'>,
+	props: Omit<
+		WikiOverviewContentProps,
+		'customFilterFunction' | 'searchEnabled'
+	>,
 ) {
 	const { items } = props
 

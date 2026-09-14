@@ -107,7 +107,10 @@ export interface WikiOverviewContentProps {
 		link?: string
 	} | null
 	children?: ReactNode
-	customFilterFunction?: (articles: Article[], searchString: string) => Article[]
+	customFilterFunction?: (
+		articles: Article[],
+		searchString: string,
+	) => Article[]
 }
 
 export function WikiOverviewContent({
