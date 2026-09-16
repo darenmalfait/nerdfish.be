@@ -63,7 +63,7 @@ fixtures, and builders. No unit-test runner.
 **Impact:** MEDIUM
 
 **Description:** Engineering culture, accountability, and collaboration
-standards — draft PRs, conventional commits, small diffs.
+standards — conventional commits, small diffs.
 
 ## 9. CI/CD (ci)
 

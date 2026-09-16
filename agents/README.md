@@ -23,6 +23,8 @@
   `handle*` / `to*` / `by*` / `use*` (`@nerdfish/config` conventions)
 - [quality-no-use-effect](rules/quality-no-use-effect.md) - No bare `useEffect`;
   use `useMountEffect` for mount-only side effects
+- [quality-pr-creation](rules/quality-pr-creation.md) - Draft, stacked, small
+  PRs; never push/open unless asked
 
 ### Data Layer
 
@@ -47,7 +49,7 @@
 
 ### CI/CD
 
-- [git-pr-discipline](rules/git-pr-discipline.mdc) - Never push, open PRs, or
+- [git-pr-discipline](rules/git-pr-discipline.md) - Never push, open PRs, or
   commit unless the user explicitly asks
 - [ci-check-failure](rules/ci-check-failure.md) - Handling Quality Gate failures
   (format, lint, typecheck, e2e)

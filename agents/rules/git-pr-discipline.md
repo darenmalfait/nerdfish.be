@@ -9,9 +9,12 @@ alwaysApply: true
 
 ## Rules
 
-1. **Never push** (`git push`, `gh stack push`, etc.) unless the user explicitly asks.
-2. **Never open or submit PRs** (`gh pr create`, `gh stack submit`, `gh stack link`, etc.) unless the user explicitly asks.
-3. **Never commit** unless the user explicitly asks (existing user rule — do not weaken it).
+1. **Never push** (`git push`, `gh stack push`, etc.) unless the user explicitly
+   asks.
+2. **Never open or submit PRs** (`gh pr create`, `gh stack submit`,
+   `gh stack link`, etc.) unless the user explicitly asks.
+3. **Never commit** unless the user explicitly asks (existing user rule — do not
+   weaken it).
 
 ## What "stack on top" means
 
@@ -25,8 +28,9 @@ Do **not** push or open a PR as a follow-up unless they ask.
 
 ## Allowed without asking
 
-- Local git: `status`, `diff`, `log`, `branch`, local commits only when explicitly requested
-- Explain what branch/PR commands *would* be run, and wait for approval
+- Local git: `status`, `diff`, `log`, `branch`, local commits only when
+  explicitly requested
+- Explain what branch/PR commands _would_ be run, and wait for approval
 
 ## Examples
 
