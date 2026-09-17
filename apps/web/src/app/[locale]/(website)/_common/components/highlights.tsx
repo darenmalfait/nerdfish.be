@@ -29,7 +29,7 @@ export async function Highlights(props: HighlightsProps) {
 					<HighlightCard
 						key={title}
 						title={title}
-						className="bg-info-background"
+						className="bg-background-muted"
 					>
 						<HighlightCardContent>
 							<HighlightCardCategory value={category} />
