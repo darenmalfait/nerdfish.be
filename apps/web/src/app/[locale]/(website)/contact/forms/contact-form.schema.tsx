@@ -1,6 +1,6 @@
 import { optionalField } from '@repo/lib/utils/validation'
 import { withRecaptcha } from '@repo/recaptcha/utils'
-import * as z from 'zod'
+import { z } from 'zod'
 
 export const projectTypes = [
 	'webdesign',
@@ -9,9 +9,7 @@ export const projectTypes = [
 	'other',
 ] as const
 
-const phoneRegex = new RegExp(
-	/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
-)
+const phoneRegex = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 
 export const contactFormSchema = withRecaptcha(
 	z.object({
@@ -25,15 +23,15 @@ export const contactFormSchema = withRecaptcha(
 			})
 			.partial()
 			.superRefine((data, ctx) => {
-				if (!data.email?.length && !data.phone?.length) {
-					ctx.addIssue({
-						path: ['email'],
-						code: z.ZodIssueCode.custom,
-						params: {
-							i18n: 'phoneOrEmailRequired',
-						},
-					})
-				}
+				if (data.email?.length || data.phone?.length) return
+
+				ctx.addIssue({
+					path: ['email'],
+					code: z.ZodIssueCode.custom,
+					params: {
+						i18n: 'phoneOrEmailRequired',
+					},
+				})
 			}),
 		textMessage: z.string().min(10).max(512),
 		projectType: z.array(z.enum(projectTypes)),

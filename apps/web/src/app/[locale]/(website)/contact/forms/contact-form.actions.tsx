@@ -13,12 +13,17 @@ export const submitContactFormAction = createSafeActionClient()
 	.inputSchema(contactFormSchema)
 	.outputSchema(actionResponseSchema)
 	.action(async ({ parsedInput }): Promise<ActionResponse<void>> => {
+		if (env.SKIP_EMAILS || !env.EMAIL_FROM) {
+			return { success: true }
+		}
+
 		const { success, error: recaptchaError } = await verifyRecaptcha(
 			parsedInput.recaptchaResponse,
 		)
 
-		if (!success)
+		if (!success) {
 			return { success: false, error: recaptchaError ?? 'Recaptcha failed' }
+		}
 
 		const {
 			name,
@@ -31,13 +36,11 @@ export const submitContactFormAction = createSafeActionClient()
 		} = parsedInput
 
 		try {
-			if (env.SKIP_EMAILS || !env.EMAIL_FROM) return { success: true }
-
-			await resend.emails.send({
+			const { error: sendError } = await resend.emails.send({
 				from: env.EMAIL_FROM,
 				to: env.EMAIL_FROM,
 				subject: 'Contact form submission',
-				replyTo: `${name} <${contact.email}>`,
+				replyTo: contact.email ? `${name} <${contact.email}>` : undefined,
 				react: (
 					<ContactEmail
 						name={name}
@@ -52,12 +55,12 @@ export const submitContactFormAction = createSafeActionClient()
 				),
 			})
 
-			return {
-				success: true,
+			if (sendError) {
+				return { success: false, error: parseError(sendError) }
 			}
-		} catch (error) {
-			const errorMessage = parseError(error)
 
-			return { success: false, error: errorMessage }
+			return { success: true }
+		} catch (error) {
+			return { success: false, error: parseError(error) }
 		}
 	})

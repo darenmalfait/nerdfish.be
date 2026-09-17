@@ -24,7 +24,13 @@ import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import { ArrowRightIcon } from 'lucide-react'
 import { useAction } from 'next-safe-action/hooks'
 import { type ReactNode, useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import {
+	Controller,
+	type Control,
+	type FieldError as RHFFieldError,
+	useForm,
+	useWatch,
+} from 'react-hook-form'
 import { submitContactFormAction } from './contact-form.actions'
 import {
 	type ContactFormData,
@@ -41,7 +47,185 @@ function Fieldset({ children, title }: { children: ReactNode; title: string }) {
 	)
 }
 
-const BUDGET_RANGE = [500, 10000]
+function InvalidFieldError({
+	invalid,
+	error,
+}: {
+	invalid: boolean
+	error?: RHFFieldError
+}) {
+	if (!invalid) return null
+
+	return <FieldError errors={[error]} />
+}
+
+function VatNumberField({ control }: { control: Control<ContactFormData> }) {
+	const t = useTranslations('contact.form')
+	const company = useWatch({ control, name: 'company' })
+	const hasCompany = Boolean(company)
+
+	if (!hasCompany) return null
+
+	return (
+		<Controller
+			control={control}
+			name="vatNumber"
+			render={({ field, fieldState }) => (
+				<Field data-invalid={fieldState.invalid}>
+					<FieldLabel htmlFor={field.name}>
+						{t('fields.labels.vatNumber')}
+					</FieldLabel>
+					<Input
+						id={field.name}
+						size="lg"
+						{...field}
+						aria-invalid={fieldState.invalid}
+					/>
+					<InvalidFieldError
+						invalid={fieldState.invalid}
+						error={fieldState.error}
+					/>
+				</Field>
+			)}
+		/>
+	)
+}
+
+const BUDGET_RANGE = [500, 10000] as const
+
+function BudgetRangeField({ control }: { control: Control<ContactFormData> }) {
+	const t = useTranslations('contact.form')
+	const numberFormatter = useNumberFormatter({
+		notation: 'compact',
+	})
+	const selectedProjectTypes = useWatch({ control, name: 'projectType' })
+	const hasWebdesign = selectedProjectTypes.includes('webdesign')
+
+	if (!hasWebdesign) return null
+
+	const [min, max] = BUDGET_RANGE
+
+	return (
+		<Controller
+			control={control}
+			name="budgetRange"
+			render={({ field, fieldState }) => (
+				<Field data-invalid={fieldState.invalid}>
+					<FieldLabel>{t('fields.labels.budgetRange')}</FieldLabel>
+					<FieldDescription>
+						{t('fields.labels.budgetRangeDescription')}
+					</FieldDescription>
+					<div className="mt-friends text-foreground-muted flex items-center justify-center font-semibold">
+						€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
+						{numberFormatter.format(field.value?.[1] ?? 0)}
+						{field.value?.[1] === max ? '+' : ''}
+					</div>
+
+					<div className="gap-best-friends flex items-center">
+						<span className="mr-friends text-foreground-muted text-base font-semibold text-nowrap">
+							€ {numberFormatter.format(min)}
+						</span>
+						<Slider
+							min={min}
+							max={max}
+							showTooltip={true}
+							tooltipContent={(value) => `€ ${numberFormatter.format(value)}`}
+							step={100}
+							aria-invalid={fieldState.invalid}
+							defaultValue={[1500, 3000]}
+							value={field.value}
+							onValueChange={(value) => {
+								field.onChange(value)
+							}}
+						>
+							<SliderThumb />
+							<SliderThumb />
+						</Slider>
+						<span className="ml-friends pr-friends text-foreground-muted text-base font-semibold text-nowrap">
+							€ {numberFormatter.format(max)}+
+						</span>
+					</div>
+
+					<InvalidFieldError
+						invalid={fieldState.invalid}
+						error={fieldState.error}
+					/>
+				</Field>
+			)}
+		/>
+	)
+}
+
+function RecaptchaErrorAlert({ message }: { message?: string }) {
+	const t = useTranslations('contact.form')
+
+	if (!message) return null
+
+	return (
+		<Alert variant="destructive" className="mt-casual">
+			<AlertTitle>reCAPTCHA error</AlertTitle>
+			<AlertDescription>{t('fields.errors.recaptcha')}</AlertDescription>
+		</Alert>
+	)
+}
+
+function FormErrorAlert({ error }: { error?: string }) {
+	if (!error) return null
+
+	return (
+		<Alert variant="destructive" className="mt-casual">
+			<AlertTitle>Error</AlertTitle>
+			<AlertDescription>{error}</AlertDescription>
+		</Alert>
+	)
+}
+
+function SubmitSpinner({ isSubmitting }: { isSubmitting: boolean }) {
+	if (!isSubmitting) return null
+
+	return <Spinner className="mr-best-friends size-4" />
+}
+
+function FormSubmitSection({
+	isSubmitted,
+	isSubmitting,
+	isDisabled,
+}: {
+	isSubmitted: boolean
+	isSubmitting: boolean
+	isDisabled: boolean
+}) {
+	const t = useTranslations('contact.form')
+
+	if (isSubmitted) {
+		return (
+			<Alert variant="success" className="mt-casual">
+				<AlertTitle>Success</AlertTitle>
+				<AlertDescription>
+					{t('success')}
+					<span role="img" aria-label="party popper">
+						🎉
+					</span>
+				</AlertDescription>
+			</Alert>
+		)
+	}
+
+	return (
+		<Button
+			className="mt-friends group w-full"
+			size="lg"
+			disabled={isDisabled}
+			type="submit"
+		>
+			<SubmitSpinner isSubmitting={isSubmitting} />
+			{t('send')}
+			<span className="ml-best-friends group-hover:translate-x-bff transition-transform">
+				<ArrowRightIcon className="size-4" />
+			</span>
+		</Button>
+	)
+}
 
 export function ContactForm() {
 	const locale = useLocale()
@@ -82,9 +266,6 @@ export function ContactForm() {
 			setError('Something went wrong')
 		},
 	})
-	const numberFormatter = useNumberFormatter({
-		notation: 'compact',
-	})
 	const recaptcha = useRecaptcha()
 
 	async function onSubmit(data: ContactFormData) {
@@ -101,8 +282,6 @@ export function ContactForm() {
 			setError(errorMessage)
 		}
 	}
-
-	const selectedProjectTypes = form.watch('projectType')
 
 	return (
 		<form noValidate onSubmit={form.handleSubmit(onSubmit)}>
@@ -124,9 +303,10 @@ export function ContactForm() {
 											{...field}
 											aria-invalid={fieldState.invalid}
 										/>
-										{fieldState.invalid ? (
-											<FieldError errors={[fieldState.error]} />
-										) : null}
+										<InvalidFieldError
+											invalid={fieldState.invalid}
+											error={fieldState.error}
+										/>
 									</Field>
 								)}
 							/>
@@ -144,35 +324,15 @@ export function ContactForm() {
 											{...field}
 											aria-invalid={fieldState.invalid}
 										/>
-										{fieldState.invalid ? (
-											<FieldError errors={[fieldState.error]} />
-										) : null}
+										<InvalidFieldError
+											invalid={fieldState.invalid}
+											error={fieldState.error}
+										/>
 									</Field>
 								)}
 							/>
 						</div>
-						{form.watch('company') ? (
-							<Controller
-								control={form.control}
-								name="vatNumber"
-								render={({ field, fieldState }) => (
-									<Field data-invalid={fieldState.invalid}>
-										<FieldLabel htmlFor={field.name}>
-											{t('fields.labels.vatNumber')}
-										</FieldLabel>
-										<Input
-											id={field.name}
-											size="lg"
-											{...field}
-											aria-invalid={fieldState.invalid}
-										/>
-										{fieldState.invalid ? (
-											<FieldError errors={[fieldState.error]} />
-										) : null}
-									</Field>
-								)}
-							/>
-						) : null}
+						<VatNumberField control={form.control} />
 						<Controller
 							control={form.control}
 							name="contact"
@@ -198,9 +358,10 @@ export function ContactForm() {
 														{...field}
 														aria-invalid={fieldState.invalid}
 													/>
-													{fieldState.invalid ? (
-														<FieldError errors={[fieldState.error]} />
-													) : null}
+													<InvalidFieldError
+														invalid={fieldState.invalid}
+														error={fieldState.error}
+													/>
 												</Field>
 											)}
 										/>
@@ -221,9 +382,10 @@ export function ContactForm() {
 														value={field.value as CountryCode}
 														aria-invalid={fieldState.invalid}
 													/>
-													{fieldState.invalid ? (
-														<FieldError errors={[fieldState.error]} />
-													) : null}
+													<InvalidFieldError
+														invalid={fieldState.invalid}
+														error={fieldState.error}
+													/>
 												</Field>
 											)}
 										/>
@@ -290,9 +452,10 @@ export function ContactForm() {
 																			)
 																}}
 															/>
-															{fieldState.invalid ? (
-																<FieldError errors={[fieldState.error]} />
-															) : null}
+															<InvalidFieldError
+																invalid={fieldState.invalid}
+																error={fieldState.error}
+															/>
 														</Field>
 													)
 												}}
@@ -302,66 +465,7 @@ export function ContactForm() {
 								</Field>
 							)}
 						/>
-						{selectedProjectTypes.includes('webdesign') ? (
-							<Controller
-								control={form.control}
-								name="budgetRange"
-								render={({ field, fieldState }) => {
-									const [min = 0, max = 0] = BUDGET_RANGE
-
-									return (
-										<Field data-invalid={fieldState.invalid}>
-											<FieldLabel>{t('fields.labels.budgetRange')}</FieldLabel>
-											<FieldDescription>
-												{t('fields.labels.budgetRangeDescription')}
-											</FieldDescription>
-											<div className="mt-friends text-foreground-muted flex items-center justify-center font-semibold">
-												€ {numberFormatter.format(field.value?.[0] ?? 0)} - €
-												{numberFormatter.format(field.value?.[1] ?? 0)}
-												{field.value?.[1] === max ? '+' : ''}
-											</div>
-
-											<div className="gap-best-friends flex items-center">
-												<span className="mr-friends text-foreground-muted text-base font-semibold text-nowrap">
-													€ {numberFormatter.format(min)}
-												</span>
-												<Controller
-													control={form.control}
-													name="budgetRange"
-													render={({ field: f }) => (
-														<Slider
-															min={500}
-															max={10000}
-															showTooltip={true}
-															tooltipContent={(value) =>
-																`€ ${numberFormatter.format(value)}`
-															}
-															step={100}
-															aria-invalid={fieldState.invalid}
-															defaultValue={[1500, 3000]}
-															value={f.value}
-															onValueChange={(value) => {
-																f.onChange(value)
-															}}
-														>
-															<SliderThumb />
-															<SliderThumb />
-														</Slider>
-													)}
-												/>
-												<span className="ml-friends pr-friends text-foreground-muted text-base font-semibold text-nowrap">
-													€ {numberFormatter.format(max)}+
-												</span>
-											</div>
-
-											{fieldState.invalid ? (
-												<FieldError errors={[fieldState.error]} />
-											) : null}
-										</Field>
-									)
-								}}
-							/>
-						) : null}
+						<BudgetRangeField control={form.control} />
 					</FieldGroup>
 				</Fieldset>
 
@@ -382,9 +486,10 @@ export function ContactForm() {
 										{...field}
 										aria-invalid={fieldState.invalid}
 									/>
-									{fieldState.invalid ? (
-										<FieldError errors={[fieldState.error]} />
-									) : null}
+									<InvalidFieldError
+										invalid={fieldState.invalid}
+										error={fieldState.error}
+									/>
 								</Field>
 							)}
 						/>
@@ -395,47 +500,18 @@ export function ContactForm() {
 					{t('dataUsage')}
 				</p>
 
-				{form.formState.errors.recaptchaResponse?.message ? (
-					<Alert variant="destructive" className="mt-casual">
-						<AlertTitle>reCAPTCHA error</AlertTitle>
-						<AlertDescription>{t('fields.errors.recaptcha')}</AlertDescription>
-					</Alert>
-				) : null}
-
-				{error ? (
-					<Alert variant="destructive" className="mt-casual">
-						<AlertTitle>Error</AlertTitle>
-						<AlertDescription>{error}</AlertDescription>
-					</Alert>
-				) : null}
-
-				{isSubmitted ? (
-					<Alert variant="success" className="mt-casual">
-						<AlertTitle>Success</AlertTitle>
-						<AlertDescription>
-							{t('success')}
-							<span role="img" aria-label="party popper">
-								🎉
-							</span>
-						</AlertDescription>
-					</Alert>
-				) : (
-					<Button
-						className="mt-friends group w-full"
-						size="lg"
-						disabled={
-							form.formState.isSubmitting ||
-							(form.formState.isSubmitSuccessful && !error)
-						}
-						type="submit"
-					>
-						{form.formState.isSubmitting ? (
-							<Spinner className="mr-best-friends size-4" />
-						) : null}
-						{t('send')}
-						<ArrowRightIcon className="ml-best-friends group-hover:translate-x-bff size-4 transition-all" />
-					</Button>
-				)}
+				<RecaptchaErrorAlert
+					message={form.formState.errors.recaptchaResponse?.message}
+				/>
+				<FormErrorAlert error={error} />
+				<FormSubmitSection
+					isSubmitted={isSubmitted}
+					isSubmitting={form.formState.isSubmitting}
+					isDisabled={
+						form.formState.isSubmitting ||
+						(form.formState.isSubmitSuccessful && !error)
+					}
+				/>
 			</div>
 		</form>
 	)
