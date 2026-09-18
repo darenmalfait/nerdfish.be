@@ -18,6 +18,13 @@ import { BlogOverview } from '../../blog/components/blog-overview'
 import { Testimonials } from '../../testimonials/components/testimonials'
 import { WorkOverview } from '../../work/components/work-overview'
 import {
+	Faq,
+	FaqItem,
+	Keyword,
+	KeywordList,
+	Pricing,
+} from '~/features/site/client'
+import {
 	Cta,
 	Features,
 	Hero,
@@ -25,13 +32,6 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '~/features/site/server'
-import {
-	Faq,
-	FaqItem,
-	Keyword,
-	KeywordList,
-	Pricing,
-} from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>

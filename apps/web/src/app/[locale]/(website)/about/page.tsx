@@ -18,6 +18,7 @@ import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Toolbox } from './components/toolbox'
 import { Link } from '~/features/shared'
+import { FaqItem, Faq } from '~/features/site/client'
 import {
 	Cta,
 	Features,
@@ -30,7 +31,6 @@ import {
 	SplitContent,
 	SplitImage,
 } from '~/features/site/server'
-import { FaqItem, Faq } from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>

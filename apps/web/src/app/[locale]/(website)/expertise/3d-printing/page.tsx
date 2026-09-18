@@ -13,6 +13,7 @@ import { Layers, Leaf, Palette, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
+import { Faq, FaqItem, Pricing } from '~/features/site/client'
 import {
 	Cta,
 	Features,
@@ -22,7 +23,6 @@ import {
 	HeroTitle,
 	ImageGrid,
 } from '~/features/site/server'
-import { Faq, FaqItem, Pricing } from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>
