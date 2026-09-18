@@ -5,6 +5,20 @@ import { nonNullable } from '@repo/lib/utils/array'
 import { getCrypto } from '@repo/lib/utils/misc'
 import { type Project } from 'content-collections'
 
+export const workLayoutByCategory = {
+	webdesign: 'sidebar',
+	branding: 'full',
+	print: 'full',
+	product: 'full',
+} as const satisfies Record<Project['category'], 'sidebar' | 'full'>
+
+export type WorkLayout =
+	(typeof workLayoutByCategory)[keyof typeof workLayoutByCategory]
+
+export function getWorkLayout(category: Project['category']): WorkLayout {
+	return workLayoutByCategory[category]
+}
+
 export function getWorkPath(post: PartialDeep<Project>) {
 	const locale = post.locale
 

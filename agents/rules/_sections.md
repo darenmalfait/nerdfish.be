@@ -56,7 +56,8 @@ objects, fixtures, and builders. No unit-test runner.
 **Impact:** MEDIUM
 
 **Description:** Colocated form `*.schema.tsx` / `*.actions.tsx`,
-`createMetadata`, and composition over new abstractions.
+`createMetadata`, composition over new abstractions, and factories that push
+variant conditionals to entry points.
 
 ## 8. Team Culture (culture)
 

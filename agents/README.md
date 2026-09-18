@@ -53,6 +53,9 @@
 
 ### Design Patterns
 
+- [patterns-factory-entry-points](rules/patterns-factory-entry-points.md) - Push
+  variant conditionals to routes/factories; keep feature modules branch-free
+
 ### Team Culture
 
 ### CI/CD

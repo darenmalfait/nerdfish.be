@@ -9,6 +9,26 @@ export const projectTypes = [
 	'other',
 ] as const
 
+export type ProjectType = (typeof projectTypes)[number]
+
+export const extrasByProjectType: Partial<
+	Record<ProjectType, readonly ContactFormExtra[]>
+> = {
+	webdesign: ['budgetRange'],
+}
+
+export type ContactFormExtra = 'budgetRange'
+
+export function hasContactExtra(
+	selected: readonly ProjectType[],
+	extra: ContactFormExtra,
+) {
+	return selected.some((type) => {
+		const extras = extrasByProjectType[type]
+		return extras?.includes(extra) ?? false
+	})
+}
+
 const phoneRegex = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 
 export const contactFormSchema = withRecaptcha(

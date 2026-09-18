@@ -7,7 +7,7 @@ import { parseError } from '@repo/observability/error'
 import { verifyRecaptcha } from '@repo/recaptcha/server'
 import { env } from 'env'
 import { createSafeActionClient } from 'next-safe-action'
-import { contactFormSchema } from './contact-form.schema'
+import { contactFormSchema, hasContactExtra } from './contact-form.schema'
 
 export const submitContactFormAction = createSafeActionClient()
 	.inputSchema(contactFormSchema)
@@ -35,6 +35,10 @@ export const submitContactFormAction = createSafeActionClient()
 			vatNumber,
 		} = parsedInput
 
+		const relevantBudgetRange = hasContactExtra(projectType, 'budgetRange')
+			? budgetRange
+			: undefined
+
 		try {
 			const { error: sendError } = await resend.emails.send({
 				from: env.EMAIL_FROM,
@@ -47,7 +51,7 @@ export const submitContactFormAction = createSafeActionClient()
 						email={contact.email}
 						message={message}
 						company={company}
-						budgetRange={budgetRange}
+						budgetRange={relevantBudgetRange}
 						projectType={projectType}
 						vatNumber={vatNumber}
 						phone={contact.phone}

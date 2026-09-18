@@ -83,7 +83,7 @@ export const ContactEmail = ({
 								Interested in: {projectType.join(', ')}
 							</Text>
 						) : null}
-						{budgetRange && projectType?.includes('webdesign') ? (
+						{budgetRange?.length ? (
 							<Text className="my-1 text-[15px] leading-normal text-[#3f3f46]">
 								Budget range: EUR {budgetRange[0]} - EUR {budgetRange[1]}
 							</Text>

@@ -1,15 +1,10 @@
-import { allWikis } from 'content-collections'
+import { allWikis, type Wiki } from 'content-collections'
+import { SingleLocaleContentService } from '~/features/shared/content/content-service'
 
-export const wiki = {
-	getAll: async () => {
-		return allWikis.sort((a, b) => {
-			return new Date(b.date).getTime() - new Date(a.date).getTime()
-		})
-	},
-	getLatest: async () => {
-		return allWikis[0]
-	},
-	get: async (slug: string) => {
-		return allWikis.find((item) => item.slug === slug)
-	},
+export class WikiContentService extends SingleLocaleContentService<Wiki> {
+	constructor() {
+		super(allWikis)
+	}
 }
+
+export const wiki = new WikiContentService()

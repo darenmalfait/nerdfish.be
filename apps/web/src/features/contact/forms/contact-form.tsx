@@ -35,6 +35,7 @@ import { submitContactFormAction } from './contact-form.actions'
 import {
 	type ContactFormData,
 	contactFormSchema,
+	hasContactExtra,
 	projectTypes,
 } from './contact-form.schema'
 
@@ -99,9 +100,8 @@ function BudgetRangeField({ control }: { control: Control<ContactFormData> }) {
 		notation: 'compact',
 	})
 	const selectedProjectTypes = useWatch({ control, name: 'projectType' })
-	const hasWebdesign = selectedProjectTypes.includes('webdesign')
 
-	if (!hasWebdesign) return null
+	if (!hasContactExtra(selectedProjectTypes, 'budgetRange')) return null
 
 	const [min, max] = BUDGET_RANGE
 

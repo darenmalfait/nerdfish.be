@@ -1,18 +1,10 @@
-import { type Locale } from '@repo/i18n/types'
-import { allPosts } from 'content-collections'
+import { allPosts, type Post } from 'content-collections'
+import { LocalizedContentService } from '~/features/shared/content/content-service'
 
-export const blog = {
-	getAll: async ({ locale }: { locale?: Locale } = {}) => {
-		return allPosts
-			.filter((item) => (locale ? item.locale === locale : true))
-			.sort((a, b) => {
-				return new Date(b.date).getTime() - new Date(a.date).getTime()
-			})
-	},
-	getLatest: async ({ locale }: { locale?: Locale } = {}) => {
-		return allPosts.find((item) => item.locale === locale)?.slug
-	},
-	get: async ({ slug, locale }: { slug: string; locale?: Locale }) => {
-		return allPosts.find((item) => item.slug === slug && item.locale === locale)
-	},
+export class BlogContentService extends LocalizedContentService<Post> {
+	constructor() {
+		super(allPosts)
+	}
 }
+
+export const blog = new BlogContentService()
