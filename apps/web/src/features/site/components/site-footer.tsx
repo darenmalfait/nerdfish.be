@@ -17,8 +17,8 @@ import { type ComponentProps, useCallback } from 'react'
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
 import { LocaleSwitcher } from './locale-switcher'
 import { SocialLinks } from './site-navigation'
-import { Link } from '~/app/[locale]/_common/components/link'
-import { ThemeToggle } from '~/app/theme/components/theme-toggle'
+import { Link } from '~/features/shared/components/link'
+import { ThemeToggle } from '~/features/theme/components/theme-toggle'
 
 function Disclaimer() {
 	const { companyName, email, vat } = companyInfo

@@ -12,16 +12,16 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../_common/components/cta'
+import { ProductOverview } from '../product/components/product-overview/product-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
+import { WorkOverview } from './components/work-overview'
+import { Cta } from '~/features/site/components/cta'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../_common/components/hero'
-import { ProductOverview } from '../product/components/product-overview/product-overview'
-import { Testimonials } from '../testimonials/components/testimonials'
-import { WorkOverview } from './components/work-overview'
+} from '~/features/site/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>

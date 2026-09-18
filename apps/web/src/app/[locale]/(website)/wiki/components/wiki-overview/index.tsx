@@ -18,7 +18,7 @@ import {
 	type WikiOverviewContentProps,
 } from './wiki-overview-content'
 import { WikiOverviewContentSearchable } from './wiki-overview-content-searchable'
-import { NuqsProvider } from '~/app/[locale]/_common/components/nuqs-provider'
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug

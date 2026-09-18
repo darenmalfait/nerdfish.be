@@ -13,18 +13,18 @@ import { Layout, Lightbulb, LineChart } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../../_common/components/cta'
-import { Faq, FaqItem } from '../../_common/components/faq'
-import { Features } from '../../_common/components/features'
+import { BlogOverview } from '../../blog/components/blog-overview'
+import { Cta } from '~/features/site/components/cta'
+import { Faq, FaqItem } from '~/features/site/components/faq'
+import { Features } from '~/features/site/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../_common/components/hero'
-import { Keyword, KeywordList } from '../../_common/components/keyword-list'
-import { Pricing } from '../../_common/components/pricing'
-import { BlogOverview } from '../../blog/components/blog-overview'
+} from '~/features/site/components/hero'
+import { Keyword, KeywordList } from '~/features/site/components/keyword-list'
+import { Pricing } from '~/features/site/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>

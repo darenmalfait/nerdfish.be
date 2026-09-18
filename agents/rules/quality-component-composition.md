@@ -3,7 +3,7 @@ title: Component Composition
 impact: HIGH
 impactDescription:
   Readable components, predictable Hooks, stronger TypeScript narrowing
-tags: patterns, react, composition, early-returns
+tags: quality, react, composition, early-returns
 ---
 
 ## Component Composition

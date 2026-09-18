@@ -30,7 +30,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useResume } from '../resume-provider'
 import { resumeSchema } from '../types'
-import { useTheme } from '~/app/theme/theme-provider'
+import { useTheme } from '~/features/theme/theme-provider'
 
 const resumeFormSchema = z.object({
 	schema: z.string(),

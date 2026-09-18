@@ -13,7 +13,7 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import type * as React from 'react'
-import { Link } from '~/app/[locale]/_common/components/link'
+import { Link } from '~/features/shared/components/link'
 
 interface Price extends PriceCardProps {
 	description: string

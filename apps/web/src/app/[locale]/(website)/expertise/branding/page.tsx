@@ -13,13 +13,13 @@ import { Layers, Palette, Users } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { Features } from '../../_common/components/features'
+import { Features } from '~/features/site/components/features'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../_common/components/hero'
+} from '~/features/site/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>
