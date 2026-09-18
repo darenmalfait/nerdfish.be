@@ -12,7 +12,7 @@ import {
 	Skills,
 	type SkillItemProps,
 } from '~/features/site/components/skills'
-import { Testimonials } from '~/features/testimonials'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
 
 interface SkillsBlockProps extends ComponentProps<typeof Skills> {
 	title: string

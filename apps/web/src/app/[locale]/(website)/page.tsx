@@ -24,7 +24,7 @@ import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'
 import { Highlights } from '~/features/site/components/highlights'
 import { WelcomeHero } from '~/features/site/components/welcome-hero/welcome-hero'
-import { Testimonials } from '~/features/testimonials'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>

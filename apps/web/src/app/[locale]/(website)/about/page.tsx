@@ -32,7 +32,7 @@ import {
 	SplitContent,
 	SplitImage,
 } from '~/features/site/components/split'
-import { Testimonials } from '~/features/testimonials'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>

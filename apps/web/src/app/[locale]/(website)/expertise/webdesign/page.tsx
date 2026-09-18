@@ -27,7 +27,7 @@ import {
 } from '~/features/site/components/hero'
 import { Keyword, KeywordList } from '~/features/site/components/keyword-list'
 import { Pricing } from '~/features/site/components/pricing'
-import { Testimonials } from '~/features/testimonials'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>
