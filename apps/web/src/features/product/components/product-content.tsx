@@ -51,9 +51,7 @@ export function ProductContent({
 				</div>
 				<div className="gap-casual flex flex-col justify-between md:flex-row">
 					<div className="shrink grow-2 basis-0">
-						<h2 className="typography-heading-sm mb-casual">
-							{labels.about}
-						</h2>
+						<h2 className="typography-heading-sm mb-casual">{labels.about}</h2>
 						<div className="typography mx-auto max-w-4xl">
 							<Body content={product.body} />
 						</div>
