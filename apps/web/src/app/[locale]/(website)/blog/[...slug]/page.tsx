@@ -12,7 +12,10 @@ import { type Post } from 'content-collections'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { cache, Suspense } from 'react'
-import { BlogContent, BlogOverview, blog, getBlogPath } from '~/features/blog'
+import { BlogContent } from '~/features/blog/components/blog-content'
+import { BlogOverview } from '~/features/blog/components/blog-overview'
+import { blog } from '~/features/blog/api'
+import { getBlogPath } from '~/features/blog/utils'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>

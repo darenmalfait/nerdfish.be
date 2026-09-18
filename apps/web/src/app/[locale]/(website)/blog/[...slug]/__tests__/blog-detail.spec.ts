@@ -4,7 +4,7 @@ import { allPosts } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
 import { RELATED_POST_COUNT } from './blog-detail.builders'
 import { test } from './blog-detail.fixture'
-import { getBlogPath } from '~/features/blog'
+import { getBlogPath } from '~/features/blog/utils'
 
 const [TEST_BLOG_POST] = allPosts
 	.filter((post) => post.locale === i18n.defaultLocale)
