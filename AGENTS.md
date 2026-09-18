@@ -12,9 +12,8 @@ diffs, and matching existing patterns.
 - Create PRs in draft mode by default
 - Import from subpaths, not package roots (e.g.
   `@repo/design-system/components/section`, `@nerdfish/react/button`)
-- Import features via leaf modules (e.g.
-  `~/features/blog/api`, `~/features/blog/components/blog-overview`) — never
-  feature-root barrels
+- Import features via leaf modules (e.g. `~/features/blog/api`,
+  `~/features/blog/components/blog-overview`) — never feature-root barrels
 - Add UI strings to **both** `packages/i18n/dictionaries/en.json` and `nl.json`
 - When adding a public route, update `apps/web/src/routing.ts` pathnames
 - Use `date-fns` or native `Date` for dates
@@ -35,8 +34,8 @@ diffs, and matching existing patterns.
 - Never commit secrets, API keys, or `.env` files
 - Never hardcode user-facing strings — use next-intl
 - Never import from package barrels (`@repo/design-system`, `@nerdfish/react`)
-- Never add feature-root barrels (`features/<name>/index.ts` /
-  `server.ts` / `client.ts`) — use leaf imports
+- Never add feature-root barrels (`features/<name>/index.ts` / `server.ts` /
+  `client.ts`) — use leaf imports
 - Never skip typecheck / lint / format before pushing
 - Never create large PRs (>500 lines or >10 files) — split them instead
 - Never add comments that restate what the code does
@@ -204,8 +203,8 @@ import { Section } from '@repo/design-system'
 import { BlogOverview, blog } from '~/features/blog'
 ```
 
-Exceptions with a real package entry: `@repo/email`, `@repo/next-config`.
-No exception for `apps/web/src/features/*/index.ts` — use leaf paths.
+Exceptions with a real package entry: `@repo/email`, `@repo/next-config`. No
+exception for `apps/web/src/features/*/index.ts` — use leaf paths.
 
 ### i18n
 

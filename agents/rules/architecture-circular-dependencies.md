@@ -131,7 +131,8 @@ import { getPathname } from 'routing'
 **Rules:**
 
 10. Dependency direction is app → features only (features never depend on app)
-11. App routes compose feature leaf modules; keep `generateMetadata` in the route
+11. App routes compose feature leaf modules; keep `generateMetadata` in the
+    route
 
 **Incorrect:**
 
@@ -156,4 +157,5 @@ These rules should be enforced through:
 - CI checks that fail on circular dependencies
 - Code review guidelines that flag violations
 
-Reference: `architecture-feature-boundaries.md`, `quality-avoid-barrel-imports.md`
+Reference: `architecture-feature-boundaries.md`,
+`quality-avoid-barrel-imports.md`

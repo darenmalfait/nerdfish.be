@@ -36,12 +36,12 @@ import { Link } from '~/features/shared/components/link'
 
 **Public leaf convention** (`apps/web/src/features/<name>/`):
 
-| Path | Role |
-| --- | --- |
-| `api.ts` | Content readers / data access used outside the feature |
-| `utils.ts` | Path helpers and pure utils used outside the feature |
-| `components/<thing>` | UI meant for composition by `app/` or other features |
-| `*.schema.tsx` / `*.actions.tsx` | Forms (when web-only) |
+| Path                             | Role                                                   |
+| -------------------------------- | ------------------------------------------------------ |
+| `api.ts`                         | Content readers / data access used outside the feature |
+| `utils.ts`                       | Path helpers and pure utils used outside the feature   |
+| `components/<thing>`             | UI meant for composition by `app/` or other features   |
+| `*.schema.tsx` / `*.actions.tsx` | Forms (when web-only)                                  |
 
 Do **not** add `features/<name>/index.ts`, `server.ts`, or `client.ts` barrels.
 
