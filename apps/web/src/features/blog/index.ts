@@ -2,8 +2,5 @@ export { BlogOverview } from './components/blog-overview'
 export { BlogContent } from './components/blog-content'
 export { blog } from './api'
 export { getBlogPath } from './utils'
-export { default as BlogPage, generateBlogMetadata } from './blog-page'
-export {
-	default as BlogDetailPage,
-	generateBlogDetailMetadata,
-} from './blog-detail-page'
+export { default as BlogPage } from './blog-page'
+export { default as BlogDetailPage } from './blog-detail-page'
