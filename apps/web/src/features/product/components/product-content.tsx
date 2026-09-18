@@ -10,45 +10,26 @@ import {
 } from '@repo/design-system/components/carousel'
 import { Section } from '@repo/design-system/components/section'
 import { GithubIcon } from '@repo/design-system/icons'
-import { getTranslations } from '@repo/i18n/server'
-import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { cn } from '@repo/lib/utils/class'
+import { type Product } from 'content-collections'
 import { GlobeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { cache } from 'react'
-import { product as productApi } from './api'
 import { Body } from '~/features/site/components/body'
 
-type PageProps = {
-	params: Promise<WithLocale<{ slug: string[] }>>
+type ProductContentLabels = {
+	about: string
+	open: string
+	source: string
 }
 
-const getPageData = cache(async function fetchPageData(
-	slug: string,
-	locale?: Locale,
-) {
-	const product = await productApi.get({
-		slug: decodeURIComponent(slug),
-		locale,
-	})
-
-	if (!product) return notFound()
-
-	return {
-		product,
-	}
-})
-
-export default async function ProductDetailPage(props: PageProps) {
-	const { slug, locale } = await props.params
-
-	const [{ product }, t] = await Promise.all([
-		getPageData(slug.join('/'), locale),
-		getTranslations('product.content'),
-	])
-
+export function ProductContent({
+	product,
+	labels,
+}: {
+	product: Product
+	labels: ProductContentLabels
+}) {
 	return (
 		<>
 			<Section className="mx-auto max-w-4xl">
@@ -70,7 +51,9 @@ export default async function ProductDetailPage(props: PageProps) {
 				</div>
 				<div className="gap-casual flex flex-col justify-between md:flex-row">
 					<div className="shrink grow-2 basis-0">
-						<h2 className="typography-heading-sm mb-casual">{t('about')}</h2>
+						<h2 className="typography-heading-sm mb-casual">
+							{labels.about}
+						</h2>
 						<div className="typography mx-auto max-w-4xl">
 							<Body content={product.body} />
 						</div>
@@ -83,7 +66,7 @@ export default async function ProductDetailPage(props: PageProps) {
 									render={
 										<Link target="_blank" href={product.url}>
 											<GlobeIcon className="size-4" />
-											{t('open')}
+											{labels.open}
 										</Link>
 									}
 									className="gap-best-friends flex w-full"
@@ -96,7 +79,7 @@ export default async function ProductDetailPage(props: PageProps) {
 									render={
 										<Link target="_blank" href={product.sourceUrl}>
 											<GithubIcon className="size-4" />
-											{t('source')}
+											{labels.source}
 										</Link>
 									}
 									className="gap-best-friends flex w-full"
