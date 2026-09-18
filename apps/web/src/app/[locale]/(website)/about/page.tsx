@@ -18,11 +18,8 @@ import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Toolbox } from './components/toolbox'
 import { Link } from '~/features/shared/components/link'
-import {
-	FaqItem,
-	Faq,
-} from '~/features/site/components/faq'
 import { Cta } from '~/features/site/components/cta'
+import { FaqItem, Faq } from '~/features/site/components/faq'
 import { Features } from '~/features/site/components/features'
 import {
 	Hero,

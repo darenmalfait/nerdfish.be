@@ -14,16 +14,8 @@ import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../../blog/components/blog-overview'
-import {
-	Faq,
-	FaqItem,
-} from '~/features/site/components/faq'
-import {
-	Keyword,
-	KeywordList,
-} from '~/features/site/components/keyword-list'
-import { Pricing } from '~/features/site/components/pricing'
 import { Cta } from '~/features/site/components/cta'
+import { Faq, FaqItem } from '~/features/site/components/faq'
 import { Features } from '~/features/site/components/features'
 import {
 	Hero,
@@ -31,6 +23,8 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '~/features/site/components/hero'
+import { Keyword, KeywordList } from '~/features/site/components/keyword-list'
+import { Pricing } from '~/features/site/components/pricing'
 
 type PageProps = {
 	params: Promise<WithLocale>

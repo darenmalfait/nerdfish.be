@@ -15,13 +15,13 @@ import { getPathname, getPathnames } from 'routing'
 import { ProductOverview } from '../product/components/product-overview/product-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { WorkOverview } from './components/work-overview'
+import { Cta } from '~/features/site/components/cta'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
 } from '~/features/site/components/hero'
-import { Cta } from '~/features/site/components/cta'
 
 type PageProps = {
 	params: Promise<WithLocale>

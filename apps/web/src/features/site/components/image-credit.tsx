@@ -1,8 +1,6 @@
 import { getTranslations } from '@repo/i18n/server'
 import { cn } from '@repo/lib/utils/class'
-import {
-	type ImageCredit as ImageCreditType,
-} from '~/features/shared/types'
+import { type ImageCredit as ImageCreditType } from '~/features/shared/types'
 
 const SOURCE_LABEL: Record<NonNullable<ImageCreditType['source']>, string> = {
 	unsplash: 'Unsplash',

@@ -3,9 +3,7 @@ import { Grid, GridCard } from '@repo/design-system/components/grid'
 import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
 import { type ComponentProps } from 'react'
-import {
-	type ImageType,
-} from '~/features/shared/types'
+import { type ImageType } from '~/features/shared/types'
 
 export interface ImageGridContentProps {
 	image: ImageType
