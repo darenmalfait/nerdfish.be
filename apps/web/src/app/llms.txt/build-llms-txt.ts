@@ -1,6 +1,5 @@
 import { env } from 'env'
-import { blog } from '~/app/[locale]/(website)/blog/api'
-import { getBlogPath } from '~/app/[locale]/(website)/blog/utils'
+import { blog, getBlogPath } from '~/features/blog'
 import { work } from '~/app/[locale]/(website)/work/api'
 import { getWorkPath } from '~/app/[locale]/(website)/work/utils'
 
