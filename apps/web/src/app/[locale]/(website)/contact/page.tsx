@@ -8,15 +8,10 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import {
-	Hero,
-	HeroContent,
-	HeroSubtitle,
-	HeroTitle,
-} from '../_common/components/hero'
 import { ContactCopyEmailButton } from './components/contact-copy-email-button'
 import { ContactFormViaButton } from './components/contact-form-drawer'
-import { Link } from '~/app/[locale]/_common/components/link'
+import { Link } from '~/features/shared'
+import { Hero, HeroContent, HeroSubtitle, HeroTitle } from '~/features/site'
 
 type PageProps = {
 	params: Promise<WithLocale>

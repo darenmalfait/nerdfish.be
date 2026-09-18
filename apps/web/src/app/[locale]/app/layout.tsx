@@ -6,9 +6,9 @@ import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { type ReactNode } from 'react'
-import { AppProviders } from '../../app-providers'
+import { AppProviders } from '~/features/theme'
 
-import '~/app/theme/styles/global.css'
+import '~/features/theme/styles/global.css'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

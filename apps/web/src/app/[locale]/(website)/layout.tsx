@@ -5,12 +5,10 @@ import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { type ReactNode } from 'react'
-import { AppProviders } from '../../app-providers'
+import { SiteFooter, SiteHeader, SkipLink } from '~/features/site'
+import { AppProviders } from '~/features/theme'
 
-import '~/app/theme/styles/global.css'
-import { SiteFooter } from './_common/components/site-footer'
-import { SiteHeader } from './_common/components/site-header'
-import { SkipLink } from './_common/components/skip-link'
+import '~/features/theme/styles/global.css'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

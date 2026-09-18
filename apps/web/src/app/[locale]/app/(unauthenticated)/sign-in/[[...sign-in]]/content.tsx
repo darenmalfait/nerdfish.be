@@ -4,7 +4,7 @@ import { Button } from '@nerdfish/react/button'
 import { Logo } from '@repo/design-system/icons'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { ThemeToggle } from '~/app/theme/components/theme-toggle'
+import { ThemeToggle } from '~/features/theme'
 
 const SignIn = dynamic(() =>
 	import('@repo/auth/components/sign-in').then((mod) => mod.SignIn),

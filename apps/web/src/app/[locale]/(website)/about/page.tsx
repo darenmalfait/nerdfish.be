@@ -14,21 +14,24 @@ import { Code, Handshake, Monitor, Rocket } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../_common/components/cta'
-import { FaqItem, Faq } from '../_common/components/faq'
-import { Features } from '../_common/components/features'
+import { BlogOverview } from '../blog/components/blog-overview'
+import { Testimonials } from '../testimonials/components/testimonials'
+import { Toolbox } from './components/toolbox'
+import { Link } from '~/features/shared'
 import {
+	Cta,
+	FaqItem,
+	Faq,
+	Features,
 	Hero,
 	HeroContent,
 	HeroCTA,
 	HeroSubtitle,
 	HeroTitle,
-} from '../_common/components/hero'
-import { Split, SplitContent, SplitImage } from '../_common/components/split'
-import { BlogOverview } from '../blog/components/blog-overview'
-import { Testimonials } from '../testimonials/components/testimonials'
-import { Toolbox } from './components/toolbox'
-import { Link } from '~/app/[locale]/_common/components/link'
+	Split,
+	SplitContent,
+	SplitImage,
+} from '~/features/site'
 
 type PageProps = {
 	params: Promise<WithLocale>

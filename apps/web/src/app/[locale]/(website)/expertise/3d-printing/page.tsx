@@ -13,17 +13,18 @@ import { Layers, Leaf, Palette, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { Cta } from '../../_common/components/cta'
-import { Faq, FaqItem } from '../../_common/components/faq'
-import { Features } from '../../_common/components/features'
 import {
+	Cta,
+	Faq,
+	FaqItem,
+	Features,
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '../../_common/components/hero'
-import { ImageGrid } from '../../_common/components/image-grid'
-import { Pricing } from '../../_common/components/pricing'
+	ImageGrid,
+	Pricing,
+} from '~/features/site'
 
 type PageProps = {
 	params: Promise<WithLocale>

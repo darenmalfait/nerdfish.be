@@ -19,9 +19,8 @@ import { env } from 'env'
 import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'
-import { Body } from '../../_common/components/body'
-import { ImageCredit } from '../../_common/components/image-credit'
 import { getBlogPath } from '../utils'
+import { Body, ImageCredit } from '~/features/site'
 
 function BlogContent({
 	data,

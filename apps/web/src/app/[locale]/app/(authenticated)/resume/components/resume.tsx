@@ -11,7 +11,7 @@ import { cn } from '@repo/lib/utils/class'
 import { type ReactNode, type ComponentProps } from 'react'
 import { useResume } from '../resume-provider'
 import { type Resume as ResumeProps } from '../types'
-import { Link } from '~/app/[locale]/_common/components/link'
+import { Link } from '~/features/shared'
 
 function ResumePageHeaderInformationItem({
 	className,

@@ -27,8 +27,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { env } from 'env'
 import { type ComponentProps, type ReactNode } from 'react'
-import { Link } from '~/app/[locale]/_common/components/link'
-import { type ImageType } from '~/app/types'
+import { Link, type ImageType } from '~/features/shared'
 
 function Tag({ tag }: { tag: string }) {
 	const isClient = typeof window !== 'undefined'

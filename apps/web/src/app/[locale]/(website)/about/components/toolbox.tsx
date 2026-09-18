@@ -4,12 +4,7 @@ import { Button } from '@nerdfish/react/button'
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
 import { useTranslations } from '@repo/i18n/client'
 import { useState } from 'react'
-import {
-	SkillsFilter,
-	skills,
-	SkillItem,
-	Skills,
-} from '../../_common/components/skills'
+import { SkillsFilter, skills, SkillItem, Skills } from '~/features/site'
 
 export function Toolbox() {
 	const t = useTranslations('about.page.my-toolbox')

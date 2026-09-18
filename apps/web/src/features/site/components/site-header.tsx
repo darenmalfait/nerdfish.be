@@ -8,8 +8,8 @@ import { type ComponentProps } from 'react'
 import { LocaleSwitcher } from './locale-switcher'
 import { MobileNavigation } from './mobile-navigation'
 import { SiteNavigation } from './site-navigation'
-import { Link } from '~/app/[locale]/_common/components/link'
-import { ThemeToggle } from '~/app/theme/components/theme-toggle'
+import { Link } from '~/features/shared'
+import { ThemeToggle } from '~/features/theme'
 
 const Particles = dynamic(
 	() =>

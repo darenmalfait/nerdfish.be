@@ -3,7 +3,7 @@
 import { Button } from '@nerdfish/react/button'
 import { useTranslations } from '@repo/i18n/client'
 import { ChevronLeftIcon } from 'lucide-react'
-import { Link } from '~/app/[locale]/_common/components/link'
+import { Link } from '~/features/shared'
 
 export function BackToWork() {
 	const t = useTranslations('work.overview')
