@@ -11,6 +11,8 @@
 
 ### Architecture
 
+- [architecture-vertical-slices](rules/architecture-vertical-slices.md) -
+  Organize web code by domain under `apps/web/src/features`
 - [architecture-circular-dependencies](rules/architecture-circular-dependencies.md) -
   Acyclic dependency graph (`@repo/lib` → `@repo/*` → `features` → `app`)
 - [architecture-feature-boundaries](rules/architecture-feature-boundaries.md) -
