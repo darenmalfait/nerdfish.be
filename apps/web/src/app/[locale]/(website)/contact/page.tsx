@@ -8,8 +8,8 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { ContactCopyEmailButton } from './components/contact-copy-email-button'
-import { ContactFormViaButton } from './components/contact-form-drawer'
+import { ContactCopyEmailButton } from '~/features/contact/components/contact-copy-email-button'
+import { ContactFormViaButton } from '~/features/contact/components/contact-form-drawer'
 import { Link } from '~/features/shared/components/link'
 import {
 	Hero,
