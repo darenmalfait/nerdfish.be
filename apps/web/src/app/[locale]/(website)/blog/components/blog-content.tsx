@@ -20,7 +20,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type * as React from 'react'
 import { getBlogPath } from '../utils'
-import { Body, ImageCredit } from '~/features/site/server'
+import { Body } from '~/features/site/components/body'
+import { ImageCredit } from '~/features/site/components/image-credit'
 
 function BlogContent({
 	data,

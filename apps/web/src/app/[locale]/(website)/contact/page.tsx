@@ -10,13 +10,13 @@ import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { ContactCopyEmailButton } from './components/contact-copy-email-button'
 import { ContactFormViaButton } from './components/contact-form-drawer'
-import { Link } from '~/features/shared'
+import { Link } from '~/features/shared/components/link'
 import {
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '~/features/site/server'
+} from '~/features/site/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>

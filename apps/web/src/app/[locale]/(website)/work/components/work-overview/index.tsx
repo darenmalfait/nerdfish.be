@@ -19,7 +19,7 @@ import {
 	type WorkOverviewContentProps,
 } from './work-overview-content'
 import { WorkOverviewContentSearchable } from './work-overview-content-searchable'
-import { NuqsProvider } from '~/features/shared'
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 function isSameItem(
 	item: PartialDeep<Project>,

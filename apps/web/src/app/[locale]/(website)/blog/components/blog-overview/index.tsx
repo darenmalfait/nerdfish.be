@@ -24,7 +24,7 @@ import {
 	type BlogOverviewContentProps,
 } from './blog-overview-content'
 import { BlogOverviewContentSearchable } from './blog-overview-content-searchable'
-import { NuqsProvider } from '~/features/shared'
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 function isSameItem(item: PartialDeep<Post>, relatedTo?: PartialDeep<Post>) {
 	return item.slug === relatedTo?.slug

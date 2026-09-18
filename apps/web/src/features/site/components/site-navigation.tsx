@@ -30,7 +30,7 @@ import {
 	type Navigation,
 	type SubNavItem,
 } from '../hooks/use-navigation'
-import { Link } from '~/features/shared'
+import { Link } from '~/features/shared/components/link'
 
 function MainNavigationSubItem({
 	href,

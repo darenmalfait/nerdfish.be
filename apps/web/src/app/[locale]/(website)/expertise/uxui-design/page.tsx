@@ -17,18 +17,20 @@ import { BlogOverview } from '../../blog/components/blog-overview'
 import {
 	Faq,
 	FaqItem,
+} from '~/features/site/components/faq'
+import {
 	Keyword,
 	KeywordList,
-	Pricing,
-} from '~/features/site/client'
+} from '~/features/site/components/keyword-list'
+import { Pricing } from '~/features/site/components/pricing'
+import { Cta } from '~/features/site/components/cta'
+import { Features } from '~/features/site/components/features'
 import {
-	Cta,
-	Features,
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '~/features/site/server'
+} from '~/features/site/components/hero'
 
 type PageProps = {
 	params: Promise<WithLocale>

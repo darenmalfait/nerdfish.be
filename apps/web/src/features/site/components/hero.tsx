@@ -10,7 +10,7 @@ import { capitalize } from '@repo/lib/utils/string'
 import { ArrowRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import { type ComponentProps, type ElementType, type ReactNode } from 'react'
-import { Link } from '~/features/shared'
+import { Link } from '~/features/shared/components/link'
 
 export function HeroSubtitle({
 	children,

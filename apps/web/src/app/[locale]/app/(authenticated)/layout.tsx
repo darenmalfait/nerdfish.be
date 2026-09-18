@@ -2,7 +2,7 @@ import { SidebarProvider } from '@nerdfish/react/sidebar'
 import { auth, currentUser } from '@repo/auth/server'
 import { type ReactNode } from 'react'
 import { AppSidebar } from '../components/app-sidebar'
-import { NuqsProvider } from '~/features/shared'
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 export default async function AppLayout({
 	children,

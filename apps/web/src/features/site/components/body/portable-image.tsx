@@ -1,7 +1,9 @@
 import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
 import { ImageCredit } from '../image-credit'
-import { type ImageCredit as ImageCreditType } from '~/features/shared'
+import {
+	type ImageCredit as ImageCreditType,
+} from '~/features/shared/types'
 
 function PortableImage({
 	alt = '',

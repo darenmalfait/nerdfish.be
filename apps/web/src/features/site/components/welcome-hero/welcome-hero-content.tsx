@@ -1,7 +1,7 @@
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import { Link } from '~/features/shared'
+import { Link } from '~/features/shared/components/link'
 
 export function WelcomeHeroContactButton({ label }: { label: string }) {
 	return (

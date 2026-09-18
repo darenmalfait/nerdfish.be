@@ -6,7 +6,7 @@ import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { type ReactNode } from 'react'
-import { AppProviders } from '~/features/theme'
+import { AppProviders } from '~/features/theme/app-providers'
 
 import '~/features/theme/styles/global.css'
 

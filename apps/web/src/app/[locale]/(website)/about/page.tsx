@@ -17,20 +17,25 @@ import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../blog/components/blog-overview'
 import { Testimonials } from '../testimonials/components/testimonials'
 import { Toolbox } from './components/toolbox'
-import { Link } from '~/features/shared'
-import { FaqItem, Faq } from '~/features/site/client'
+import { Link } from '~/features/shared/components/link'
 import {
-	Cta,
-	Features,
+	FaqItem,
+	Faq,
+} from '~/features/site/components/faq'
+import { Cta } from '~/features/site/components/cta'
+import { Features } from '~/features/site/components/features'
+import {
 	Hero,
 	HeroContent,
 	HeroCTA,
 	HeroSubtitle,
 	HeroTitle,
+} from '~/features/site/components/hero'
+import {
 	Split,
 	SplitContent,
 	SplitImage,
-} from '~/features/site/server'
+} from '~/features/site/components/split'
 
 type PageProps = {
 	params: Promise<WithLocale>

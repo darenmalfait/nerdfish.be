@@ -17,7 +17,7 @@ import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
 import { useState } from 'react'
 import { usePathname } from 'routing'
 import { useNavigation, type Navigation } from '../hooks/use-navigation'
-import { Link } from '~/features/shared'
+import { Link } from '~/features/shared/components/link'
 
 interface NavigationItemProps {
 	item: Navigation['main'][number]

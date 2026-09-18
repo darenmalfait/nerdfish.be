@@ -20,8 +20,8 @@ import {
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-	Cta,
-} from '~/features/site/server'
+} from '~/features/site/components/hero'
+import { Cta } from '~/features/site/components/cta'
 
 type PageProps = {
 	params: Promise<WithLocale>
