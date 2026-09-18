@@ -55,7 +55,7 @@ fixtures, and builders. No unit-test runner.
 
 **Impact:** MEDIUM
 
-**Description:** Early returns, colocated form `*.schema.tsx` / `*.actions.tsx`,
+**Description:** Colocated form `*.schema.tsx` / `*.actions.tsx`,
 `createMetadata`, and composition over new abstractions.
 
 ## 8. Team Culture (culture)

@@ -11,6 +11,13 @@
 
 ### Architecture
 
+- [architecture-circular-dependencies](rules/architecture-circular-dependencies.md) -
+  Acyclic dependency graph (`@repo/lib` → `@repo/*` → `features` → `app`)
+- [architecture-feature-boundaries](rules/architecture-feature-boundaries.md) -
+  Cross-feature imports only through each feature's public API
+- [architecture-features-modules](rules/architecture-features-modules.md) -
+  `@repo/*` vs `apps/web/src/features` placement
+
 ### Code Quality
 
 - [quality-avoid-barrel-imports](rules/quality-avoid-barrel-imports.md) - Avoid
@@ -25,6 +32,9 @@
   use `useMountEffect` for mount-only side effects
 - [quality-pr-creation](rules/quality-pr-creation.md) - Draft, stacked, small
   PRs; never push/open unless asked
+- [quality-component-composition](rules/quality-component-composition.md) -
+  Composition + early returns for loading/empty/data, optional sections, and
+  required params
 
 ### Data Layer
 
@@ -40,10 +50,6 @@
   role/label queries; no `testId` / CSS selectors
 
 ### Design Patterns
-
-- [patterns-component-composition](rules/patterns-component-composition.md) -
-  Composition + early returns for loading/empty/data, optional sections, and
-  required params
 
 ### Team Culture
 
