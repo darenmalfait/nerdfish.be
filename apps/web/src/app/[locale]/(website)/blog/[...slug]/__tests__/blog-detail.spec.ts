@@ -2,7 +2,7 @@ import { expect } from '@playwright/test'
 import { i18n } from '@repo/i18n/config'
 import { allPosts } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
-import { getBlogPath } from '../../utils'
+import { getBlogPath } from '~/features/blog'
 import { RELATED_POST_COUNT } from './blog-detail.builders'
 import { test } from './blog-detail.fixture'
 
