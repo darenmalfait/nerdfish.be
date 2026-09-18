@@ -114,10 +114,9 @@ Lint and typecheck need `pnpm build:content-collections` first.
 apps/web/                         # Next.js 16 App Router site
   src/app/[locale]/(website)/     # Routes + metadata + page __tests__/
   src/app/[locale]/app/           # Authenticated app routes (thin)
-  src/features/                   # Feature UI, api.ts, utils (leaf imports)
-    shared/  site/  theme/  blog/  work/  wiki/  contact/ …
-    home/  about/  privacy/  expertise/  product/  testimonials/
-    app-shell/  resume/  sign-in/
+  src/features/                   # Domain blocks (UI, api.ts, utils) — leaf imports
+    shared/  site/  theme/  blog/  work/  wiki/  contact/
+    about/  product/  testimonials/  app-shell/  resume/
   src/routing.ts                  # Localized pathnames (next-intl)
   content/                        # MDX/MD CMS source
     blog/  wiki/  projects/  products/  testimonials/
@@ -145,8 +144,8 @@ packages/
 
 ### Key files
 
-- Routes: `apps/web/src/app/[locale]/` (compose feature leaves; own metadata)
-- Features: `apps/web/src/features/` (no feature-root barrels)
+- Routes: `apps/web/src/app/[locale]/` (compose blocks + own metadata)
+- Features: `apps/web/src/features/` (reusable domain blocks; no `*-page` composers)
 - Page e2e: `apps/web/src/app/.../__tests__/` next to the page under test
 - Proxy/middleware: `apps/web/src/proxy.ts`
 - Localized routes: `apps/web/src/routing.ts`
