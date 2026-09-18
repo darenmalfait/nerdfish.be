@@ -7,7 +7,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { BlogOverview } from './components/blog-overview'
+import { BlogOverview } from '~/features/blog/components/blog-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>
