@@ -1,11 +1,13 @@
+import { Section } from '@repo/design-system/components/section'
 import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { BlogPage } from '~/features/blog'
+import { BlogOverview } from '~/features/blog'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -38,4 +40,33 @@ export async function generateMetadata(
 	})
 }
 
-export default BlogPage
+async function BlogPageContent() {
+	const t = await getTranslations('blog.page')
+
+	return (
+		<Section>
+			<BlogOverview
+				searchEnabled
+				featuredEnabled
+				header={{
+					title: t('title'),
+					subtitle: t('subtitle'),
+					image: {
+						src: '/images/pages/blog.png',
+						alt: t('image.alt'),
+					},
+				}}
+			/>
+		</Section>
+	)
+}
+
+export default async function BlogOverviewPage(props: PageProps) {
+	await props.params
+
+	return (
+		<Suspense fallback={null}>
+			<BlogPageContent />
+		</Suspense>
+	)
+}

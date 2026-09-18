@@ -1,25 +1,41 @@
-import { type WithLocale } from '@repo/i18n/types'
+import {
+	Section,
+	SectionHeader,
+	SectionHeaderSubtitle,
+	SectionHeaderTitle,
+} from '@repo/design-system/components/section'
+import { getTranslations } from '@repo/i18n/server'
+import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
+import { type Post } from 'content-collections'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { BlogDetailPage, blog, getBlogPath } from '~/features/blog'
+import { cache, Suspense } from 'react'
+import { BlogContent, BlogOverview, blog, getBlogPath } from '~/features/blog'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }
 
+const getPageData = cache(async function fetchPageData(
+	slug: string,
+	locale?: Locale,
+) {
+	const post = await blog.get({ slug: decodeURIComponent(slug), locale })
+
+	if (!post) return notFound()
+
+	return {
+		post,
+	}
+})
+
 export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { slug, locale } = await props.params
-	const post = await blog.get({
-		slug: decodeURIComponent(slug.join('/')),
-		locale,
-	})
-
-	if (!post) return notFound()
-
+	const { post } = await getPageData(slug.join('/'), locale)
 	const title = post.seo.title
 
 	return createMetadata({
@@ -38,4 +54,34 @@ export async function generateMetadata(
 	})
 }
 
-export default BlogDetailPage
+async function RelatedPosts({ post }: { post: Post }) {
+	const t = await getTranslations('blog.content')
+
+	return (
+		<Section>
+			<SectionHeader>
+				<SectionHeaderTitle>{t('related.title')}</SectionHeaderTitle>
+				<SectionHeaderSubtitle>{t('related.subtitle')}</SectionHeaderSubtitle>
+			</SectionHeader>
+
+			<BlogOverview count={2} relatedTo={post} />
+		</Section>
+	)
+}
+
+export default async function BlogDetailPage(props: PageProps) {
+	const { slug, locale } = await props.params
+	const { post } = await getPageData(slug.join('/'), locale)
+
+	return (
+		<BlogContent
+			relatedContent={
+				<Suspense fallback={null}>
+					<RelatedPosts post={post} />
+				</Suspense>
+			}
+			data={post}
+			locale={locale}
+		/>
+	)
+}
