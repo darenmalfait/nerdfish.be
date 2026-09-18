@@ -12,9 +12,8 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { ProductOverview } from '../product/components/product-overview/product-overview'
-import { Testimonials } from '../testimonials/components/testimonials'
 import { WorkOverview } from './components/work-overview'
+import { ProductOverview } from '~/features/product/components/product-overview/product-overview'
 import { Cta } from '~/features/site/components/cta'
 import {
 	Hero,
@@ -22,6 +21,7 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '~/features/site/components/hero'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>
