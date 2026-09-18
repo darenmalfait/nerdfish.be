@@ -1,7 +1,4 @@
-import {
-	generateProductMetadata,
-	ProductDetailPage,
-} from '~/features/product'
+import { generateProductMetadata, ProductDetailPage } from '~/features/product'
 
 export const generateMetadata = generateProductMetadata
 export default ProductDetailPage

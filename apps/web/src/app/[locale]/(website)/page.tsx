@@ -19,12 +19,12 @@ import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from './blog/components/blog-overview'
-import { Testimonials } from '~/features/testimonials'
 import { WorkOverview } from './work/components/work-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'
 import { Highlights } from '~/features/site/components/highlights'
 import { WelcomeHero } from '~/features/site/components/welcome-hero/welcome-hero'
+import { Testimonials } from '~/features/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>

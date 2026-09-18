@@ -15,7 +15,6 @@ import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../../blog/components/blog-overview'
-import { Testimonials } from '~/features/testimonials'
 import { WorkOverview } from '../../work/components/work-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Faq, FaqItem } from '~/features/site/components/faq'
@@ -28,6 +27,7 @@ import {
 } from '~/features/site/components/hero'
 import { Keyword, KeywordList } from '~/features/site/components/keyword-list'
 import { Pricing } from '~/features/site/components/pricing'
+import { Testimonials } from '~/features/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>

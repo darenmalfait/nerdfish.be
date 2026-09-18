@@ -15,7 +15,6 @@ import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../blog/components/blog-overview'
-import { Testimonials } from '~/features/testimonials'
 import { Toolbox } from './components/toolbox'
 import { Link } from '~/features/shared/components/link'
 import { Cta } from '~/features/site/components/cta'
@@ -33,6 +32,7 @@ import {
 	SplitContent,
 	SplitImage,
 } from '~/features/site/components/split'
+import { Testimonials } from '~/features/testimonials'
 
 type PageProps = {
 	params: Promise<WithLocale>
