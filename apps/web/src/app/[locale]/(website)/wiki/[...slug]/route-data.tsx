@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
-import { wiki } from '../api'
+import { wiki } from '~/features/wiki/api'
 
 export const getRouteData = cache(async function fetchRouteData(slug: string) {
 	const result = await wiki.get(decodeURIComponent(slug))
