@@ -4,7 +4,8 @@ import { type MetadataRoute } from 'next'
 import { basePathNames, getPathname, type Pathnames } from 'routing'
 import { work } from './[locale]/(website)/work/api'
 import { getWorkPath } from './[locale]/(website)/work/utils'
-import { blog, getBlogPath } from '~/features/blog'
+import { blog } from '~/features/blog/api'
+import { getBlogPath } from '~/features/blog/utils'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
