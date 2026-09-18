@@ -13,16 +13,12 @@ import { GithubIcon } from '@repo/design-system/icons'
 import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { cn } from '@repo/lib/utils/class'
-import { pageParams } from '@repo/og-utils/zod-params'
-import { createMetadata } from '@repo/seo/metadata'
 import { GlobeIcon } from 'lucide-react'
-import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { product as productApi } from './api'
-import { getProductPath } from './utils'
 import { Body } from '~/features/site/components/body'
 
 type PageProps = {
@@ -44,29 +40,6 @@ const getPageData = cache(async function fetchPageData(
 		product,
 	}
 })
-
-export async function generateMetadata(
-	props: PageProps,
-): Promise<Metadata | undefined> {
-	const { slug, locale } = await props.params
-	const { product } = await getPageData(slug.join('/'), locale)
-	const title = product.seo.title
-
-	return createMetadata({
-		title,
-		description: product.seo.description,
-
-		image:
-			product.seo.image ??
-			`/api/og?${pageParams.toSearchString({
-				heading: title,
-			})}`,
-		alternates: {
-			canonical: product.seo.canonical ?? getProductPath(product),
-		},
-		locale,
-	})
-}
 
 export default async function ProductDetailPage(props: PageProps) {
 	const { slug, locale } = await props.params
