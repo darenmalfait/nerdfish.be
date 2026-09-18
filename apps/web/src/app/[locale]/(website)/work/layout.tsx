@@ -1,6 +1,6 @@
 import type * as React from 'react'
-import { work } from './api'
-import { getWorkPath } from './utils'
+import { work } from '~/features/work/api'
+import { getWorkPath } from '~/features/work/utils'
 
 export async function generateStaticParams() {
 	const works = await work.getAll()

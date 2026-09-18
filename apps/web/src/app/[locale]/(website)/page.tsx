@@ -18,7 +18,7 @@ import {
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { WorkOverview } from './work/components/work-overview'
+import { WorkOverview } from '~/features/work/components/work-overview'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'
