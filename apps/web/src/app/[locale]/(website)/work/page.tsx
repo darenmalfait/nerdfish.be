@@ -21,7 +21,7 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 	Cta,
-} from '~/features/site'
+} from '~/features/site/server'
 
 type PageProps = {
 	params: Promise<WithLocale>

@@ -23,7 +23,7 @@ import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { product as productApi } from '../api'
 import { getProductPath } from '../utils'
-import { Body } from '~/features/site'
+import { Body } from '~/features/site/server'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>

@@ -15,16 +15,14 @@ import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
 import {
 	Cta,
-	Faq,
-	FaqItem,
 	Features,
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
 	ImageGrid,
-	Pricing,
-} from '~/features/site'
+} from '~/features/site/server'
+import { Faq, FaqItem, Pricing } from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>

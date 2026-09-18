@@ -11,7 +11,12 @@ import { getPathname, getPathnames } from 'routing'
 import { ContactCopyEmailButton } from './components/contact-copy-email-button'
 import { ContactFormViaButton } from './components/contact-form-drawer'
 import { Link } from '~/features/shared'
-import { Hero, HeroContent, HeroSubtitle, HeroTitle } from '~/features/site'
+import {
+	Hero,
+	HeroContent,
+	HeroSubtitle,
+	HeroTitle,
+} from '~/features/site/server'
 
 type PageProps = {
 	params: Promise<WithLocale>

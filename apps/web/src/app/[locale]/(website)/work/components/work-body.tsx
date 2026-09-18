@@ -6,13 +6,8 @@ import {
 } from '@repo/design-system/components/section'
 import { type ComponentProps } from 'react'
 import { Testimonials } from '../../testimonials/components/testimonials'
-import {
-	Body as BaseBody,
-	ImageGrid,
-	SkillItem,
-	Skills,
-	type SkillItemProps,
-} from '~/features/site'
+import { Body as BaseBody, ImageGrid } from '~/features/site/server'
+import { SkillItem, Skills, type SkillItemProps } from '~/features/site/client'
 
 interface SkillsBlockProps extends ComponentProps<typeof Skills> {
 	title: string

@@ -21,7 +21,7 @@ import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from './blog/components/blog-overview'
 import { Testimonials } from './testimonials/components/testimonials'
 import { WorkOverview } from './work/components/work-overview'
-import { Cta, Features, Highlights, WelcomeHero } from '~/features/site'
+import { Cta, Features, Highlights, WelcomeHero } from '~/features/site/server'
 
 type PageProps = {
 	params: Promise<WithLocale>

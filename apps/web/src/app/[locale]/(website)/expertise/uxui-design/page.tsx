@@ -16,17 +16,19 @@ import { getPathname, getPathnames } from 'routing'
 import { BlogOverview } from '../../blog/components/blog-overview'
 import {
 	Cta,
-	Faq,
-	FaqItem,
 	Features,
 	Hero,
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
+} from '~/features/site/server'
+import {
+	Faq,
+	FaqItem,
 	Keyword,
 	KeywordList,
 	Pricing,
-} from '~/features/site'
+} from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>

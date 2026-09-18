@@ -20,8 +20,6 @@ import { Toolbox } from './components/toolbox'
 import { Link } from '~/features/shared'
 import {
 	Cta,
-	FaqItem,
-	Faq,
 	Features,
 	Hero,
 	HeroContent,
@@ -31,7 +29,8 @@ import {
 	Split,
 	SplitContent,
 	SplitImage,
-} from '~/features/site'
+} from '~/features/site/server'
+import { FaqItem, Faq } from '~/features/site/client'
 
 type PageProps = {
 	params: Promise<WithLocale>

@@ -14,7 +14,7 @@ import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { cn } from '@repo/lib/utils/class'
 import { type Wiki } from 'content-collections'
 import Link from 'next/link'
-import { Body } from '~/features/site'
+import { Body } from '~/features/site/server'
 
 function WikiContent({ data }: { data: Wiki }) {
 	const { title, date, body } = data

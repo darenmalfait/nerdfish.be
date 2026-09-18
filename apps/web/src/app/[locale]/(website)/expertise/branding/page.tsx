@@ -19,7 +19,7 @@ import {
 	HeroContent,
 	HeroSubtitle,
 	HeroTitle,
-} from '~/features/site'
+} from '~/features/site/server'
 
 type PageProps = {
 	params: Promise<WithLocale>
