@@ -20,44 +20,53 @@ tags: architecture, features, packages
 
 ## apps/web/src/features
 
-Web-specific code, particularly anything that is route-adjacent UI or
-Next.js-only, should live in `apps/web/src/features/...`:
+Web-specific **domain blocks** live in `apps/web/src/features/...`:
 
-- React page composers and feature UI
-- `next-safe-action` forms (`*.schema.tsx`, `*.actions.tsx`)
-- Content readers (`api.ts`) used by the marketing/app UI
-- Colocated Playwright `__tests__/`
+- Feature UI embeds (`BlogOverview`, form drawers, …)
+- Content readers (`api.ts`) and path helpers (`utils.ts`)
+- Form schemas/actions when web-only
+
+**Page composition** (wiring blocks + `Suspense` + route data) stays in
+`apps/web/src/app/.../page.tsx`. Do not put `*-page.tsx` composers in features.
+See `architecture-vertical-slices.md`.
+
+Playwright specs for a **route** stay under `apps/web/src/app/.../__tests__/`
+next to that page (not in `features/`).
 
 ## Example Structure
 
 ```
 packages/email/
 ├── templates/
-│   └── …                         # Shared email templates - OK here (used by apps/email + web)
-└── keys.ts                       # Package-owned env - OK here
+│   └── …                         # Shared email templates - OK here
+└── keys.ts
 
 apps/web/src/features/blog/
-├── api.ts                        # Content reader - OK here
-├── components/
-│   └── blog-overview/            # Web UI - OK here
+├── api.ts                        # Content reader leaf
+├── utils.ts                      # Path helpers leaf
+└── components/
+    └── blog-overview/            # Reusable block — OK here
+
+apps/web/src/app/[locale]/(website)/blog/
+├── page.tsx                      # Metadata + compose feature blocks
 └── __tests__/
-    └── blog.spec.ts              # Playwright - MUST be here (or under this feature)
+    └── blog.spec.ts              # Page e2e — next to the page
 ```
 
 ## Why This Matters
 
 ```typescript
-// ❌ Bad - web-only Next.js page composer in a @repo package
-// packages/blog/blog-page.tsx
+// ❌ Bad - web-only route composition in a @repo package
 import { setRequestLocale } from '@repo/i18n/server'
 import { getPathname } from 'routing'
 
-// ✅ Good - web-only composer in apps/web/src/features
-// apps/web/src/features/blog/blog-page.tsx
-import { setRequestLocale } from '@repo/i18n/server'
-import { getPathname } from 'routing'
+// ❌ Bad - full page composer in a feature (belongs in app/.../page.tsx)
+// apps/web/src/features/blog/components/blog-page.tsx
+
+// ✅ Good - reusable block in the feature; page composes it in app/
+// apps/web/src/features/blog/components/blog-overview/index.tsx
+// apps/web/src/app/[locale]/(website)/blog/page.tsx
 ```
 
-This separation ensures that `@repo/*` remains portable and can be used by other
-apps (like `apps/email` or `apps/og-image`) without pulling in web-specific
-dependencies.
+This separation keeps `@repo/*` portable and keeps routes as the place to read
+page structure.
