@@ -3,9 +3,9 @@ import { expect } from '@playwright/test'
 import { i18n } from '@repo/i18n/config'
 import { allProjects } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
-import { getWorkPath } from '../../utils'
 import { RELATED_PROJECT_COUNT } from './work-detail.builders'
 import { test } from './work-detail.fixture'
+import { getWorkPath } from '~/features/work/utils'
 
 const [TEST_WORK_PROJECT] = allProjects
 	.filter((project) => project.locale === i18n.defaultLocale)

@@ -18,13 +18,13 @@ import {
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { WorkOverview } from './work/components/work-overview'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'
 import { Highlights } from '~/features/site/components/highlights'
 import { WelcomeHero } from '~/features/site/components/welcome-hero/welcome-hero'
 import { Testimonials } from '~/features/testimonials/components/testimonials'
+import { WorkOverview } from '~/features/work/components/work-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>

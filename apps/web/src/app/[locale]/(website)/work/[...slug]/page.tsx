@@ -11,10 +11,10 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { WorkContent } from '../components/work-content'
-import { WorkOverview } from '../components/work-overview'
-import { getWorkPath } from '../utils'
 import { getRouteData } from './route-data'
+import { WorkContent } from '~/features/work/components/work-content'
+import { WorkOverview } from '~/features/work/components/work-overview'
+import { getWorkPath } from '~/features/work/utils'
 
 export async function generateMetadata(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>

@@ -1,8 +1,8 @@
 import { env } from 'env'
-import { work } from '~/app/[locale]/(website)/work/api'
-import { getWorkPath } from '~/app/[locale]/(website)/work/utils'
 import { blog } from '~/features/blog/api'
 import { getBlogPath } from '~/features/blog/utils'
+import { work } from '~/features/work/api'
+import { getWorkPath } from '~/features/work/utils'
 
 type LlmsEntry = {
 	title: string

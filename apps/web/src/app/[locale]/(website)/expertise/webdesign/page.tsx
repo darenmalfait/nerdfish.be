@@ -14,7 +14,6 @@ import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getPathname, getPathnames } from 'routing'
-import { WorkOverview } from '../../work/components/work-overview'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Faq, FaqItem } from '~/features/site/components/faq'
@@ -28,6 +27,7 @@ import {
 import { Keyword, KeywordList } from '~/features/site/components/keyword-list'
 import { Pricing } from '~/features/site/components/pricing'
 import { Testimonials } from '~/features/testimonials/components/testimonials'
+import { WorkOverview } from '~/features/work/components/work-overview'
 
 type PageProps = {
 	params: Promise<WithLocale>
