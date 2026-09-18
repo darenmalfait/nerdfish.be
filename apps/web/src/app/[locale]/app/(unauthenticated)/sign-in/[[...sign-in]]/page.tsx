@@ -1,7 +1,7 @@
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { SignInPageContent } from './content'
+import { SignInPageContent } from '~/features/sign-in/components/sign-in-page-content'
 
 const title = 'Welcome back'
 const description = 'Enter your details to sign in.'
