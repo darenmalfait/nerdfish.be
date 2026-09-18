@@ -96,9 +96,7 @@ async function BrandingFeaturesSection() {
 	)
 }
 
-export default async function BrandingPage(props: {
-	params: Promise<WithLocale>
-}) {
+export default async function BrandingPage(props: PageProps) {
 	await props.params
 
 	return (

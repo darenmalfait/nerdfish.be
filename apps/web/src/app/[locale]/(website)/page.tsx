@@ -190,8 +190,7 @@ async function HomeCaseStudySection() {
 	)
 }
 
-export default async function HomePage(props: { params: Promise<WithLocale> }) {
-	// need to await this before using getTranslations
+export default async function HomePage(props: PageProps) {
 	await props.params
 
 	return (

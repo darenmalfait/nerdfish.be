@@ -35,6 +35,7 @@ export async function generateMetadata(
 
 export default async function PrivacyPage(props: PageProps) {
 	await props.params
+
 	const t = await getTranslations('privacy.page')
 
 	const sections = [
