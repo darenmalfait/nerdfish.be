@@ -11,13 +11,8 @@
 
 ### Architecture
 
-<<<<<<< HEAD
 - [architecture-vertical-slices](rules/architecture-vertical-slices.md) -
   Organize web code by domain under `apps/web/src/features`
-- [architecture-circular-dependencies](rules/architecture-circular-dependencies.md) -
-  Acyclic dependency graph (`@repo/lib` → `@repo/*` → `features` → `app`)
-=======
->>>>>>> 30167095 (docs: align architecture rules with feature leaf imports)
 - [architecture-feature-boundaries](rules/architecture-feature-boundaries.md) -
   Cross-feature / app imports via feature leaf modules (no feature barrels)
 - [architecture-features-modules](rules/architecture-features-modules.md) -
