@@ -145,7 +145,8 @@ packages/
 ### Key files
 
 - Routes: `apps/web/src/app/[locale]/` (compose blocks + own metadata)
-- Features: `apps/web/src/features/` (reusable domain blocks; no `*-page` composers)
+- Features: `apps/web/src/features/` (reusable domain blocks; no `*-page`
+  composers)
 - Page e2e: `apps/web/src/app/.../__tests__/` next to the page under test
 - Proxy/middleware: `apps/web/src/proxy.ts`
 - Localized routes: `apps/web/src/routing.ts`
