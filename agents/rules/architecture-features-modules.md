@@ -53,6 +53,9 @@ apps/web/src/app/[locale]/(website)/blog/
     └── blog.spec.ts              # Page e2e — next to the page
 ```
 
+Import leaves as `~/features/blog/api`, `~/features/blog/utils`,
+`~/features/blog/components/blog-overview` — never `~/features/blog`.
+
 ## Why This Matters
 
 ```typescript
