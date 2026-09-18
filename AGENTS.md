@@ -12,6 +12,8 @@ diffs, and matching existing patterns.
 - Create PRs in draft mode by default
 - Import from subpaths, not package roots (e.g.
   `@repo/design-system/components/section`, `@nerdfish/react/button`)
+- Import features via leaf modules (e.g. `~/features/blog/api`,
+  `~/features/blog/components/blog-overview`) — never feature-root barrels
 - Add UI strings to **both** `packages/i18n/dictionaries/en.json` and `nl.json`
 - When adding a public route, update `apps/web/src/routing.ts` pathnames
 - Use `date-fns` or native `Date` for dates
@@ -32,6 +34,8 @@ diffs, and matching existing patterns.
 - Never commit secrets, API keys, or `.env` files
 - Never hardcode user-facing strings — use next-intl
 - Never import from package barrels (`@repo/design-system`, `@nerdfish/react`)
+- Never add feature-root barrels (`features/<name>/index.ts` / `server.ts` /
+  `client.ts`) — use leaf imports
 - Never skip typecheck / lint / format before pushing
 - Never create large PRs (>500 lines or >10 files) — split them instead
 - Never add comments that restate what the code does
@@ -108,8 +112,11 @@ Lint and typecheck need `pnpm build:content-collections` first.
 
 ```
 apps/web/                         # Next.js 16 App Router site
-  src/app/[locale]/(website)/     # Public marketing site
-  src/app/[locale]/app/           # Authenticated app (timesheets, resume)
+  src/app/[locale]/(website)/     # Routes + metadata + page __tests__/
+  src/app/[locale]/app/           # Authenticated app routes (thin)
+  src/features/                   # Domain blocks (UI, api.ts, utils) — leaf imports
+    shared/  site/  theme/  blog/  work/  wiki/  contact/
+    about/  product/  testimonials/  app-shell/  resume/
   src/routing.ts                  # Localized pathnames (next-intl)
   content/                        # MDX/MD CMS source
     blog/  wiki/  projects/  products/  testimonials/
@@ -137,7 +144,10 @@ packages/
 
 ### Key files
 
-- Routes: `apps/web/src/app/[locale]/`
+- Routes: `apps/web/src/app/[locale]/` (compose blocks + own metadata)
+- Features: `apps/web/src/features/` (reusable domain blocks; no `*-page`
+  composers)
+- Page e2e: `apps/web/src/app/.../__tests__/` next to the page under test
 - Proxy/middleware: `apps/web/src/proxy.ts`
 - Localized routes: `apps/web/src/routing.ts`
 - Env composition: `apps/web/env.ts`
@@ -145,6 +155,7 @@ packages/
 - Collection config: `packages/content-collections/config.ts`
 - Collection schemas: `packages/content-collections/collections/`
 - Playwright config: `apps/web/playwright.config.ts`
+- Architecture rules: `agents/rules/architecture-*.md`
 
 ### Path aliases (`apps/web`)
 
@@ -167,7 +178,7 @@ packages/
   `@repo/design-system`
 - **Email**: Resend + react-email
 - **Env**: `@t3-oss/env-nextjs` + Zod
-- **Testing**: Playwright only (BDD, colocated `__tests__/`)
+- **Testing**: Playwright only (BDD, colocated under `app/.../__tests__/`)
 - **Lint/format**: ESLint 9 + Prettier via `@nerdfish/config`
 - **Commits**: commitlint conventional + husky
 
@@ -176,19 +187,24 @@ packages/
 ### Imports
 
 ```typescript
-// Good - type imports and subpaths
+// Good - type imports, package subpaths, feature leaf modules
 import type { WithLocale } from '@repo/i18n/types'
 import { Button } from '@nerdfish/react/button'
 import { Section } from '@repo/design-system/components/section'
 import { cn } from '@repo/lib/utils/class'
+import { BlogOverview } from '~/features/blog/components/blog-overview'
+import { blog } from '~/features/blog/api'
+import { Link } from '~/features/shared/components/link'
 
-// Bad - value import for types, package-root barrels
+// Bad - value import for types, package-root / feature-root barrels
 import { WithLocale } from '@repo/i18n/types'
 import { Button } from '@nerdfish/react'
 import { Section } from '@repo/design-system'
+import { BlogOverview, blog } from '~/features/blog'
 ```
 
-Exceptions with a real package entry: `@repo/email`, `@repo/next-config`.
+Exceptions with a real package entry: `@repo/email`, `@repo/next-config`. No
+exception for `apps/web/src/features/*/index.ts` — use leaf paths.
 
 ### i18n
 
@@ -206,7 +222,8 @@ const t = useTranslations('contact.page')
 
 ### Content collections
 
-Read generated data through a colocated `api.ts`, not ad-hoc filters in pages:
+Read generated data through a feature `api.ts` leaf, not ad-hoc filters in
+pages. Import it as `~/features/<name>/api`.
 
 ```typescript
 import { type Locale } from '@repo/i18n/types'
@@ -279,7 +296,8 @@ inside `authMiddleware` in `apps/web/src/proxy.ts`.
 
 ### Playwright (BDD)
 
-Colocate under `__tests__/` next to the route:
+Colocate under `app/.../__tests__/` next to the page under test (not under
+`features/`):
 
 | File            | Role                                 |
 | --------------- | ------------------------------------ |
@@ -335,5 +353,6 @@ test.describe('User Story: The user wants to browse the blog', () => {
 - Fix type errors before test failures — they're often the root cause
 - Run `pnpm build:content-collections` if `content-collections` types are
   missing
-- Match the nearest existing feature (contact form, blog `api.ts`, Playwright
-  `__tests__/`) instead of inventing a new pattern
+- Match the nearest existing feature (`~/features/contact`, blog `api.ts`,
+  Playwright `app/.../__tests__/`) instead of inventing a new pattern
+- Prefer leaf imports; see `agents/rules/architecture-feature-boundaries.md`

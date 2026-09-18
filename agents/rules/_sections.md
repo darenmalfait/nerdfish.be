@@ -41,15 +41,15 @@ no tRPC and no REST controllers.
 
 **Impact:** HIGH
 
-**Description:** Bundle size, tree-shaking (no package barrels), Next.js
-`<Image>` instead of `<img>`, and avoiding unnecessary client JS.
+**Description:** Bundle size, tree-shaking (no package or feature barrels),
+Next.js `<Image>` instead of `<img>`, and avoiding unnecessary client JS.
 
 ## 6. Testing (testing)
 
 **Impact:** MEDIUM-HIGH
 
-**Description:** Playwright BDD coverage, colocated `__tests__/`, page objects,
-fixtures, and builders. No unit-test runner.
+**Description:** Playwright BDD coverage, colocated `app/.../__tests__/`, page
+objects, fixtures, and builders. No unit-test runner.
 
 ## 7. Design Patterns (patterns)
 

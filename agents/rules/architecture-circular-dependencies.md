@@ -56,7 +56,7 @@ apps/web/src/app (highest - can depend on all packages and features)
 
 ```typescript
 // Bad - lib importing from features
-import { blog } from '~/features/blog'
+import { blog } from '~/features/blog/api'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 
 // Bad - lib importing from the web app
@@ -73,15 +73,17 @@ import { parseError } from '@repo/observability/error'
 
 ### `@repo/*` shared packages
 
-**Rules:** 5. No files in `@repo/*` shared packages import from `~/features/**`
-or `apps/web/src/features/**` 6. No files in `@repo/*` shared packages import
-from `apps/web` or `~/app/**`
+**Rules:**
+
+5. No files in `@repo/*` shared packages import from `~/features/**` or
+   `apps/web/src/features/**`
+6. No files in `@repo/*` shared packages import from `apps/web` or `~/app/**`
 
 **Incorrect:**
 
 ```typescript
 // Bad - shared package importing from features
-import { BlogOverview } from '~/features/blog'
+import { BlogOverview } from '~/features/blog/components/blog-overview'
 
 // Bad - shared package importing from the web app
 import HomePage from '~/app/[locale]/(website)/page'
@@ -97,9 +99,12 @@ import { parseError } from '@repo/observability/error'
 
 ### `apps/web/src/features`
 
-**Rules:** 7. No files in `apps/web/src/features` import from
-`apps/web/src/app/**` or `~/app/**` 8. No files in `apps/web/src/features`
-import from `apps/web` route modules
+**Rules:**
+
+7. No files in `apps/web/src/features` import from `apps/web/src/app/**` or
+   `~/app/**`
+8. No files in `apps/web/src/features` import from `apps/web` route modules
+9. Cross-feature imports use **leaf modules** only (no feature-root barrels)
 
 **Incorrect:**
 
@@ -107,20 +112,27 @@ import from `apps/web` route modules
 // Bad - features importing from the web app
 import type { PageProps } from '~/app/[locale]/(website)/blog/page'
 import { RootLayout } from '~/app/[locale]/(website)/layout'
+
+// Bad - feature-root barrel
+import { blog } from '~/features/blog'
 ```
 
 **Correct:**
 
 ```typescript
-// Good - features import from @repo packages and other features' public APIs
+// Good - features import from @repo packages and other features' leaf modules
 import { Section } from '@repo/design-system/components/section'
+import { Link } from '~/features/shared/components/link'
 import { getPathname } from 'routing'
 ```
 
 ### `apps/web/src/app`
 
-**Rules:** 9. No files in `apps/web/src/features` should depend on
-`apps/web/src/app` (dependency direction is app → features only)
+**Rules:**
+
+10. Dependency direction is app → features only (features never depend on app)
+11. App routes compose feature leaf modules; keep `generateMetadata` in the
+    route
 
 **Incorrect:**
 
@@ -132,8 +144,8 @@ import { generateMetadata } from '~/app/[locale]/(website)/blog/page'
 **Correct:**
 
 ```typescript
-// Good - app imports from features and @repo packages
-import { BlogPage } from '~/features/blog'
+// Good - app imports from feature leaves and @repo packages
+import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { createMetadata } from '@repo/seo/metadata'
 ```
 
@@ -141,6 +153,9 @@ import { createMetadata } from '@repo/seo/metadata'
 
 These rules should be enforced through:
 
-- ESLint rules that detect forbidden import paths
+- ESLint rules that detect forbidden import paths (when added)
 - CI checks that fail on circular dependencies
 - Code review guidelines that flag violations
+
+Reference: `architecture-feature-boundaries.md`,
+`quality-avoid-barrel-imports.md`

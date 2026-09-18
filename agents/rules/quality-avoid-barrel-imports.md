@@ -16,10 +16,11 @@ instead.
 **Incorrect (importing from barrel files):**
 
 ```typescript
-// Importing from a local index.ts barrel
-import { blog, work } from './api'
+// Feature-root barrels — do not create these
+import { BlogOverview, blog } from '~/features/blog'
+import { Body } from '~/features/site'
 
-// Importing from package-root barrels
+// Package-root barrels
 import { Button } from '@nerdfish/react'
 import { Section } from '@repo/design-system'
 ```
@@ -27,18 +28,23 @@ import { Section } from '@repo/design-system'
 **Correct (importing directly from source):**
 
 ```typescript
-// Import directly from source files
-import { blog } from './blog/api'
-import { work } from './work/api'
+// Feature leaf modules
+import { BlogOverview } from '~/features/blog/components/blog-overview'
+import { blog } from '~/features/blog/api'
+import { Body } from '~/features/site/components/body'
 
-// Import directly from the component path
+// Package subpaths
 import { Button } from '@nerdfish/react/button'
 import { Section } from '@repo/design-system/components/section'
 ```
+
+**Do not add** `apps/web/src/features/<name>/index.ts`, `server.ts`, or
+`client.ts` re-export barrels. Prefer stable leaf files (`api.ts`, `utils.ts`,
+`components/...`).
 
 **Exceptions** — packages that actually ship a root entry:
 
 - `@repo/email`
 - `@repo/next-config`
 
-Reference: `AGENTS.md` (Imports)
+Reference: `AGENTS.md` (Imports), `architecture-feature-boundaries.md`
