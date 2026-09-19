@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "test:e2e:inspector": "playwright test $1 --debug",
     "test:e2e:ui": "playwright test --ui --ui-port=8080",
+    "translate-locales": "node --experimental-strip-types scripts/check-missing-translations.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
