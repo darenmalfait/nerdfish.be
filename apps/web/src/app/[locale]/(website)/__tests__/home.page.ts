@@ -66,8 +66,16 @@ class MainNavigationComponent extends BaseComponent {
 		this.getSubMenuPanel().getByRole('link', { name })
 
 	async openExpertiseMenu() {
-		await this.getExpertiseTrigger().click()
-		await this.getSubMenuPanel().waitFor({ state: 'visible' })
+		const trigger = this.getExpertiseTrigger()
+		const panel = this.getSubMenuPanel()
+
+		await trigger.click()
+		if (await panel.isVisible().catch(() => false)) return
+
+		// Retry once — progressive enhancements must not remount this tree, but
+		// a second click is cheap insurance if the first raced hydration.
+		await trigger.click()
+		await panel.waitFor({ state: 'visible' })
 	}
 
 	async clickNavLink(name: string) {
