@@ -21,6 +21,16 @@ type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }
 
+export async function generateStaticParams({
+	params,
+}: {
+	params: { locale: Locale }
+}) {
+	return (await blog.getAll({ locale: params.locale })).map((post) => ({
+		slug: post.slug.split('/'),
+	}))
+}
+
 const getPageData = cache(async function fetchPageData(
 	slug: string,
 	locale?: Locale,

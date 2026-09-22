@@ -5,16 +5,27 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { getTranslations } from '@repo/i18n/server'
-import { type WithLocale } from '@repo/i18n/types'
+import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getRouteData } from './route-data'
+import { work as workApi } from '~/features/work/api'
 import { WorkContent } from '~/features/work/components/work-content'
 import { WorkOverview } from '~/features/work/components/work-overview'
 import { getWorkPath } from '~/features/work/utils'
+
+export async function generateStaticParams({
+	params,
+}: {
+	params: { locale: Locale }
+}) {
+	return (await workApi.getAll({ locale: params.locale })).map((item) => ({
+		slug: item.slug.split('/'),
+	}))
+}
 
 export async function generateMetadata(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
