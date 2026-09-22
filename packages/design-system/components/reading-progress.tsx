@@ -1,9 +1,10 @@
 'use client'
 
 import NumberFlow from '@number-flow/react'
+import { useLatest } from '@repo/lib/hooks/use-latest'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 export interface ReadingProgressProps {
 	offset?: number
@@ -12,11 +13,7 @@ export interface ReadingProgressProps {
 
 export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 	const [completion, setCompletion] = useState(0)
-	const offsetRef = useRef(offset)
-
-	useLayoutEffect(() => {
-		offsetRef.current = offset
-	})
+	const offsetRef = useLatest(offset)
 
 	useMountEffect(() => {
 		function updateScrollCompletion() {

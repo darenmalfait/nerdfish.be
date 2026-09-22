@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
+import { useLatest } from '@repo/lib/hooks/use-latest'
 import { cn } from '@repo/lib/utils/class'
 import emblaClassName from 'embla-carousel-class-names'
 import useEmblaCarousel, {
@@ -13,9 +14,7 @@ import {
 	type KeyboardEvent,
 	useCallback,
 	useContext,
-	useLayoutEffect,
 	useMemo,
-	useRef,
 	useState,
 } from 'react'
 import { useMediaQuery } from '../hooks/use-media-query'
@@ -70,11 +69,7 @@ function Carousel({
 	const [canScrollPrev, setCanScrollPrev] = useState(false)
 	const [canScrollNext, setCanScrollNext] = useState(false)
 
-	const setApiRef = useRef(setApi)
-
-	useLayoutEffect(() => {
-		setApiRef.current = setApi
-	})
+	const setApiRef = useLatest(setApi)
 
 	// Bind scroll state + setApi in an Embla plugin so we don't need useEffect
 	// waiting on `api` (undefined until the viewport ref mounts).
@@ -103,7 +98,7 @@ function Carousel({
 				emblaApiRef.current?.off('reInit', onSelect)
 			},
 		}
-	}, [])
+	}, [setApiRef])
 
 	const [carouselRef, api] = useEmblaCarousel(
 		{
