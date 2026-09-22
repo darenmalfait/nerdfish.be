@@ -7,7 +7,12 @@ import {
 import { cn } from '@repo/lib/utils/class'
 import { type Variant, motion } from 'motion/react'
 import Link from 'next/link'
-import type * as React from 'react'
+import {
+	type ElementType,
+	type HTMLAttributes,
+	type ReactNode,
+	type Ref,
+} from 'react'
 import { ArrowIcon, type ArrowIconVariants } from '../icons'
 import { type ArrowLinkProps } from './arrow-link'
 
@@ -53,6 +58,21 @@ const arrowVariants: Record<
 	},
 }
 
+function PolymorphicRoot({
+	as: Component = 'span',
+	ref,
+	...props
+}: {
+	as?: ElementType
+	ref?: Ref<HTMLElement | null>
+	children?: ReactNode
+	href?: string
+} & HTMLAttributes<HTMLElement>) {
+	return <Component ref={ref} {...props} />
+}
+
+const MotionRoot = motion.create(PolymorphicRoot)
+
 export function ArrowLink({
 	children,
 	direction = 'right',
@@ -61,13 +81,12 @@ export function ArrowLink({
 	as,
 	...props
 }: ArrowLinkProps) {
-	/* eslint-disable react-hooks/static-components -- polymorphic motion(as|Link) */
-	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
 	const [ref, state] = useElementState()
 
 	return (
-		<Tag
+		<MotionRoot
 			{...props}
+			as={as ?? (href ? Link : 'span')}
 			href={href ?? '#'}
 			className={cn(
 				'space-x-friends text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold no-underline! transition focus:outline-none',
@@ -89,9 +108,8 @@ export function ArrowLink({
 			{children && (direction === 'left' || direction === 'down') ? (
 				<span className="ml-casual text-xl font-bold">{children}</span>
 			) : null}
-		</Tag>
+		</MotionRoot>
 	)
-	/* eslint-enable react-hooks/static-components */
 }
 
 export function BackLink({
@@ -102,11 +120,9 @@ export function BackLink({
 }: { href: string } & Pick<ArrowLinkProps, 'className' | 'children' | 'as'>) {
 	const [ref, state] = useElementState()
 
-	/* eslint-disable react-hooks/static-components -- polymorphic motion(as|Link) */
-	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
-
 	return (
-		<Tag
+		<MotionRoot
+			as={as ?? (href ? Link : 'span')}
 			href={href}
 			className={cn(
 				'text-foreground space-x-friends flex focus:outline-none',
@@ -119,7 +135,6 @@ export function BackLink({
 				<ArrowIcon size={20} direction="left" />
 			</motion.span>
 			<span>{children}</span>
-		</Tag>
+		</MotionRoot>
 	)
-	/* eslint-enable react-hooks/static-components */
 }

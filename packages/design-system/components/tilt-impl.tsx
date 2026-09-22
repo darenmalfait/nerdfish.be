@@ -13,7 +13,9 @@ import {
 	useRef,
 	type ComponentProps,
 	type ElementType,
+	type HTMLAttributes,
 	type MouseEvent,
+	type Ref,
 } from 'react'
 
 export interface TiltProps extends ComponentProps<typeof motion.div> {
@@ -22,6 +24,19 @@ export interface TiltProps extends ComponentProps<typeof motion.div> {
 	springOptions?: SpringOptions
 	as?: ElementType
 }
+
+function PolymorphicRoot({
+	as: Component = 'div',
+	ref,
+	...props
+}: {
+	as?: ElementType
+	ref?: Ref<HTMLElement | null>
+} & HTMLAttributes<HTMLElement>) {
+	return <Component ref={ref} {...props} />
+}
+
+const MotionRoot = motion.create(PolymorphicRoot)
 
 export function Tilt({
 	children,
@@ -81,12 +96,10 @@ export function Tilt({
 		y.set(0)
 	}
 
-	/* eslint-disable react-hooks/static-components -- polymorphic motion(as) */
-	const Component = as ? motion(as) : motion.div
-
 	return (
-		<Component
+		<MotionRoot
 			{...props}
+			as={as ?? 'div'}
 			ref={itemRef}
 			className={className}
 			style={{
@@ -98,7 +111,6 @@ export function Tilt({
 			onMouseLeave={handleMouseLeave}
 		>
 			{children}
-		</Component>
+		</MotionRoot>
 	)
-	/* eslint-enable react-hooks/static-components */
 }
