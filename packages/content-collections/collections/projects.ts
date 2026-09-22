@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import { defineCollection } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import { remarkGfm } from 'fumadocs-core/mdx-plugins'
-import lqip, { type LqipModernOutput } from 'lqip-modern'
+import lqip from 'lqip-modern'
 import { z } from 'zod'
 import { getSlugAndLocale, image, seo } from '../utils'
 
@@ -48,8 +48,6 @@ export const projects = defineCollection({
 				),
 			])
 
-			const result: LqipModernOutput = blur
-
 			return {
 				id: crypto.randomUUID(),
 				...item,
@@ -57,7 +55,7 @@ export const projects = defineCollection({
 				body,
 				summary,
 				...getSlugAndLocale(item._meta.path),
-				imageBlur: result.metadata.dataURIBase64,
+				imageBlur: blur.metadata.dataURIBase64,
 			}
 		} catch (error) {
 			if (error instanceof Error) {

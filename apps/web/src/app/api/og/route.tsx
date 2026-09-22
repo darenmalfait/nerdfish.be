@@ -8,17 +8,17 @@ import { env } from 'env'
 export const runtime = 'edge'
 
 export async function GET(req: Request) {
-	const [geist900, geist700, geist400] = await Promise.all([
-		fetchFont('Geist', 900),
-		fetchFont('Geist', 700),
-		fetchFont('Geist', 400),
-	])
-
 	const parsed = pageParams.decodeRequest(req)
 
 	if (!parsed.success) {
 		return new Response(parsed.error.message.toString(), { status: 400 })
 	}
+
+	const [geist900, geist700, geist400] = await Promise.all([
+		fetchFont('Geist', 900),
+		fetchFont('Geist', 700),
+		fetchFont('Geist', 400),
+	])
 
 	const props = parsed.data.input
 
@@ -66,7 +66,7 @@ export async function GET(req: Request) {
 			<div tw="flex items-center w-full justify-between">
 				<div
 					tw="flex items-center text-xl"
-					style={{ fontFamily: 'Geist	', fontWeight: 'normal' }}
+					style={{ fontFamily: 'Geist', fontWeight: 'normal' }}
 				>
 					<div>https://www.nerdfish.be</div>
 				</div>

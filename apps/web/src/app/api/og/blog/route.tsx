@@ -8,17 +8,17 @@ import { env } from 'env'
 export const runtime = 'edge'
 
 export async function GET(req: Request) {
-	const [geist900, geist700, geist400] = await Promise.all([
-		fetchFont('Geist', 900),
-		fetchFont('Geist', 700),
-		fetchFont('Geist', 400),
-	])
-
 	const parsed = blogParams.decodeRequest(req)
 
 	if (!parsed.success) {
 		return new Response(parsed.error.message.toString(), { status: 400 })
 	}
+
+	const [geist900, geist700, geist400] = await Promise.all([
+		fetchFont('Geist', 900),
+		fetchFont('Geist', 700),
+		fetchFont('Geist', 400),
+	])
 
 	const props = parsed.data.input
 	const imageUrl = props.image
