@@ -1,20 +1,20 @@
 {
-	"name": "@repo/og-utils",
-	"version": "0.0.0",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"clean": "rm -rf .next dist node_modules .turbo",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@repo/next-config": "workspace:*",
-		"zod": "^4.6.5"
-	},
-	"devDependencies": {
-		"@repo/typescript-config": "workspace:*",
-		"@types/node": "^24.13.6",
-		"eslint": "^10.11.0",
-		"typescript": "^5.9.3"
-	}
+  "name": "@repo/og-utils",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/next-config": "workspace:*",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^24.13.6",
+    "eslint": "^10.11.0",
+    "typescript": "^5.9.3"
+  }
 }
