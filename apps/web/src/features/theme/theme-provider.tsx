@@ -1,5 +1,6 @@
 'use client'
 
+import { useLatest } from '@repo/lib/hooks/use-latest'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import {
 	createContext,
@@ -7,9 +8,7 @@ import {
 	type ReactNode,
 	useCallback,
 	useContext,
-	useLayoutEffect,
 	useMemo,
-	useRef,
 	useState,
 } from 'react'
 
@@ -144,42 +143,40 @@ function ThemeProvider({
 	)
 	const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey))
 
-	const themeRef = useRef(theme)
-	const forcedThemeRef = useRef(forcedTheme)
-	const defaultThemeRef = useRef(defaultTheme)
-	const themesRef = useRef(themes)
+	const themeRef = useLatest(theme)
+	const forcedThemeRef = useLatest(forcedTheme)
+	const defaultThemeRef = useLatest(defaultTheme)
+	const themesRef = useLatest(themes)
 
-	// Keep latest values for mount/storage listeners without re-subscribing.
-	useLayoutEffect(() => {
-		themeRef.current = theme
-		forcedThemeRef.current = forcedTheme
-		defaultThemeRef.current = defaultTheme
-		themesRef.current = themes
-	})
+	const applyTheme = useCallback(
+		(themeToApply?: string) => {
+			if (!themeToApply) return
+			const name = themeToApply === 'system' ? getSystemTheme() : themeToApply
 
-	function applyTheme(themeToApply?: string) {
-		if (!themeToApply) return
-		const name = themeToApply === 'system' ? getSystemTheme() : themeToApply
+			const d = document.documentElement
+			d.classList.remove(...themesRef.current)
 
-		const d = document.documentElement
-		d.classList.remove(...themesRef.current)
+			if (name) d.classList.add(name)
+		},
+		[themesRef],
+	)
 
-		if (name) d.classList.add(name)
-	}
+	const setTheme = useCallback(
+		(newTheme: string) => {
+			setThemeState(newTheme)
 
-	const setTheme = useCallback((newTheme: string) => {
-		setThemeState(newTheme)
+			try {
+				localStorage.setItem(storageKey, newTheme)
+			} catch (e) {
+				if (e instanceof Error) console.error(e.message)
+			}
 
-		try {
-			localStorage.setItem(storageKey, newTheme)
-		} catch (e) {
-			if (e instanceof Error) console.error(e.message)
-		}
-
-		if (!forcedThemeRef.current) {
-			applyTheme(newTheme)
-		}
-	}, [])
+			if (!forcedThemeRef.current) {
+				applyTheme(newTheme)
+			}
+		},
+		[applyTheme, forcedThemeRef],
+	)
 
 	// Subscribe once: system preference + cross-tab storage. Theme DOM updates
 	// happen in setTheme (user/storage-driven) and on mount below.

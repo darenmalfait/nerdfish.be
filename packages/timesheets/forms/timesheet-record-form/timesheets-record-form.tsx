@@ -15,7 +15,7 @@ import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
 import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
 import { useMemo } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, useForm, useWatch } from 'react-hook-form'
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,
@@ -88,6 +88,9 @@ export function TimesheetsRecordForm({
 		values: formValues,
 	})
 
+	const start = useWatch({ control: form.control, name: 'start' })
+	const end = useWatch({ control: form.control, name: 'end' })
+
 	function handleSubmit(data: TimesheetsRecordFormData) {
 		onSubmit?.(data)
 	}
@@ -109,11 +112,7 @@ export function TimesheetsRecordForm({
 						<Field>
 							<FieldLabel>Duration</FieldLabel>
 							<TimeRangeInput
-								value={{
-									// eslint-disable-next-line react-hooks/incompatible-library -- RHF watch
-									start: form.watch('start'),
-									end: form.watch('end'),
-								}}
+								value={{ start, end }}
 								onChange={(value) => {
 									form.setValue('start', value.start)
 									form.setValue('end', value.end)
