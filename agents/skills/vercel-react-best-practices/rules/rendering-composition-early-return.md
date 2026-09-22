@@ -1,7 +1,8 @@
 ---
 title: Compose Conditional UI with Early Returns
 impact: HIGH
-impactDescription: flatter trees, safer Hooks, stronger narrowing than nested JSX
+impactDescription:
+  flatter trees, safer Hooks, stronger narrowing than nested JSX
 tags: rendering, composition, early-returns, conditional, quality
 ---
 
@@ -107,5 +108,5 @@ function VisibleContent({ isVisible }: { isVisible: boolean }) {
 Run all Hooks at the top level, then early-return. Never call Hooks inside
 conditions or after a guard that skips them.
 
-Full local rule: `agents/rules/quality-component-composition.md`.
-Also see: `rendering-conditional-render` (ternary vs `&&` only).
+Full local rule: `agents/rules/quality-component-composition.md`. Also see:
+`rendering-conditional-render` (ternary vs `&&` only).
