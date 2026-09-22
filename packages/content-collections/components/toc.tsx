@@ -1,4 +1,4 @@
-import { getTableOfContents } from 'fumadocs-core/server'
+import { getTableOfContents } from 'fumadocs-core/content/toc'
 
 type TableOfContentsProperties = {
 	data: string
