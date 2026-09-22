@@ -109,7 +109,11 @@ export function TimesheetsRecordForm({
 						<Field>
 							<FieldLabel>Duration</FieldLabel>
 							<TimeRangeInput
-								value={{ start: form.watch('start'), end: form.watch('end') }}
+								value={{
+									// eslint-disable-next-line react-hooks/incompatible-library -- RHF watch
+									start: form.watch('start'),
+									end: form.watch('end'),
+								}}
 								onChange={(value) => {
 									form.setValue('start', value.start)
 									form.setValue('end', value.end)

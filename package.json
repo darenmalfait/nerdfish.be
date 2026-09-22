@@ -34,19 +34,19 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
-    "@nerdfish/config": "^1.11.0",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@nerdfish/config": "^1.11.3",
     "@next/eslint-plugin-next": "^16.3.5",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.10.13",
+    "@turbo/gen": "^2.11.2",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.5",
     "husky": "^9.1.7",
     "minimatch": "^10.2.6",
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.8",
-    "turbo": "^2.10.13"
+    "turbo": "^2.11.2"
   },
   "packageManager": "pnpm@10.34.5",
   "pnpm": {

@@ -7,6 +7,7 @@ import {
 	type ReactNode,
 	useCallback,
 	useContext,
+	useLayoutEffect,
 	useMemo,
 	useRef,
 	useState,
@@ -147,10 +148,14 @@ function ThemeProvider({
 	const forcedThemeRef = useRef(forcedTheme)
 	const defaultThemeRef = useRef(defaultTheme)
 	const themesRef = useRef(themes)
-	themeRef.current = theme
-	forcedThemeRef.current = forcedTheme
-	defaultThemeRef.current = defaultTheme
-	themesRef.current = themes
+
+	// Keep latest values for mount/storage listeners without re-subscribing.
+	useLayoutEffect(() => {
+		themeRef.current = theme
+		forcedThemeRef.current = forcedTheme
+		defaultThemeRef.current = defaultTheme
+		themesRef.current = themes
+	})
 
 	function applyTheme(themeToApply?: string) {
 		if (!themeToApply) return
