@@ -13,6 +13,7 @@ import {
 	type KeyboardEvent,
 	useCallback,
 	useContext,
+	useLayoutEffect,
 	useMemo,
 	useRef,
 	useState,
@@ -70,14 +71,18 @@ function Carousel({
 	const [canScrollNext, setCanScrollNext] = useState(false)
 
 	const setApiRef = useRef(setApi)
-	setApiRef.current = setApi
+
+	useLayoutEffect(() => {
+		setApiRef.current = setApi
+	})
 
 	// Bind scroll state + setApi in an Embla plugin so we don't need useEffect
 	// waiting on `api` (undefined until the viewport ref mounts).
 	const scrollStatePlugin = useMemo(() => {
-		let emblaApi: NonNullable<CarouselApi> | undefined
+		const emblaApiRef: { current?: NonNullable<CarouselApi> } = {}
 
 		function onSelect() {
+			const emblaApi = emblaApiRef.current
 			if (!emblaApi) return
 			setCanScrollPrev(emblaApi.canScrollPrev())
 			setCanScrollNext(emblaApi.canScrollNext())
@@ -87,15 +92,15 @@ function Carousel({
 			name: 'nerdfish-scroll-state',
 			options: {},
 			init(apiInstance: NonNullable<CarouselApi>) {
-				emblaApi = apiInstance
+				emblaApiRef.current = apiInstance
 				setApiRef.current?.(apiInstance)
 				onSelect()
 				apiInstance.on('select', onSelect)
 				apiInstance.on('reInit', onSelect)
 			},
 			destroy() {
-				emblaApi?.off('select', onSelect)
-				emblaApi?.off('reInit', onSelect)
+				emblaApiRef.current?.off('select', onSelect)
+				emblaApiRef.current?.off('reInit', onSelect)
 			},
 		}
 	}, [])

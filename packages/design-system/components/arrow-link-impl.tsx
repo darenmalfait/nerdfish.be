@@ -61,6 +61,7 @@ export function ArrowLink({
 	as,
 	...props
 }: ArrowLinkProps) {
+	/* eslint-disable react-hooks/static-components -- polymorphic motion(as|Link) */
 	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
 	const [ref, state] = useElementState()
 
@@ -90,6 +91,7 @@ export function ArrowLink({
 			) : null}
 		</Tag>
 	)
+	/* eslint-enable react-hooks/static-components */
 }
 
 export function BackLink({
@@ -100,6 +102,7 @@ export function BackLink({
 }: { href: string } & Pick<ArrowLinkProps, 'className' | 'children' | 'as'>) {
 	const [ref, state] = useElementState()
 
+	/* eslint-disable react-hooks/static-components -- polymorphic motion(as|Link) */
 	const Tag = as ? motion(as) : href ? motion(Link) : motion.span
 
 	return (
@@ -118,4 +121,5 @@ export function BackLink({
 			<span>{children}</span>
 		</Tag>
 	)
+	/* eslint-enable react-hooks/static-components */
 }

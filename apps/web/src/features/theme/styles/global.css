@@ -1,5 +1,5 @@
 @import '@repo/design-system/styles.css';
-@source "../**/*.{ts,tsx}";
+@source '../**/*.{ts,tsx}';
 
 @theme inline {
 	--spacing-site-header: calc(

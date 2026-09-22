@@ -12,7 +12,7 @@ import {
 } from '@nerdfish/react/field'
 import { Input } from '@nerdfish/react/input'
 import { LabelAsterisk } from '@nerdfish/react/label'
-import { type CountryCode, PhoneInput } from '@nerdfish/react/phone-input'
+import { PhoneInput } from '@nerdfish/react/phone-input'
 import { Slider, SliderThumb } from '@nerdfish/react/slider'
 import { Spinner } from '@nerdfish/react/spinner'
 import { Textarea } from '@nerdfish/react/textarea'
@@ -379,7 +379,7 @@ export function ContactForm() {
 														size="lg"
 														className="w-full"
 														{...field}
-														value={field.value as CountryCode}
+														value={field.value}
 														aria-invalid={fieldState.invalid}
 													/>
 													<InvalidFieldError

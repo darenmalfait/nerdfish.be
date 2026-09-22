@@ -81,6 +81,7 @@ export function Tilt({
 		y.set(0)
 	}
 
+	/* eslint-disable react-hooks/static-components -- polymorphic motion(as) */
 	const Component = as ? motion(as) : motion.div
 
 	return (
@@ -99,4 +100,5 @@ export function Tilt({
 			{children}
 		</Component>
 	)
+	/* eslint-enable react-hooks/static-components */
 }

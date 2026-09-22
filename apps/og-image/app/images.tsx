@@ -9,9 +9,10 @@ import { useState } from 'react'
 const OG_IMAGE_URL = `${env.NEXT_PUBLIC_URL}/api/og`
 
 export function Images() {
-	const [nonce, setNonce] = useState(Math.random())
+	const [nonce, setNonce] = useState(0)
 
 	useMountEffect(() => {
+		setNonce(Math.random())
 		// randomize nonce on window focus
 		const handleFocus = () => setNonce(Math.random())
 		window.addEventListener('focus', handleFocus)

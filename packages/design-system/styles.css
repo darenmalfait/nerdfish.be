@@ -1,6 +1,6 @@
 @import '@nerdfish/react/styles/global.css';
-@source "../../node_modules/@nerdfish/react";
-@source "../**/*.{ts,tsx}";
+@source '../../node_modules/@nerdfish/react';
+@source '../**/*.{ts,tsx}';
 
 :root {
 	--blog-unknown: var(--foreground-muted);
