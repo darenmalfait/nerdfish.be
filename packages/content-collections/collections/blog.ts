@@ -34,7 +34,7 @@ export const posts = defineCollection({
 				),
 			])
 
-			const result: LqipModernOutput = Array.isArray(blur) ? blur[0] : blur
+			const result: LqipModernOutput = blur
 
 			return {
 				id: crypto.randomUUID(),
