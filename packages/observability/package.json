@@ -1,21 +1,21 @@
 {
-	"name": "@repo/observability",
-	"version": "0.0.0",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"clean": "rm -rf .next dist node_modules .turbo",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"react": "19.3.0"
-	},
-	"devDependencies": {
-		"@repo/typescript-config": "workspace:*",
-		"@types/node": "^24.13.6",
-		"@types/react": "19.3.0",
-		"@types/react-dom": "19.3.0",
-		"eslint": "^10.11.0",
-		"typescript": "^5.9.3"
-	}
+  "name": "@repo/observability",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .next dist node_modules .turbo",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "19.3.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^24.13.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "^10.11.0",
+    "typescript": "^5.9.3"
+  }
 }
