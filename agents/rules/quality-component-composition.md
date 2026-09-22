@@ -162,4 +162,5 @@ conditions, ternaries, or after a guard that skips them.
 
 Reference: [AGENTS.md](../../AGENTS.md) (early returns),
 `agents/rules/_sections.md` (Design Patterns — composition over new
-abstractions)
+abstractions). Surfaced in `/vercel-react-best-practices` as
+`rendering-composition-early-return`.

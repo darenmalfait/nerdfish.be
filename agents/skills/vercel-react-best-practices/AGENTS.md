@@ -81,6 +81,8 @@ code generation.
      [Use Activity Component for Show/Hide](#66-use-activity-component-for-showhide)
    - 6.7
      [Use Explicit Conditional Rendering](#67-use-explicit-conditional-rendering)
+   - 6.8
+     [Compose Conditional UI with Early Returns](#68-compose-conditional-ui-with-early-returns)
 7. [JavaScript Performance](#7-javascript-performance) — **LOW-MEDIUM**
    - 7.1 [Batch DOM CSS Changes](#71-batch-dom-css-changes)
    - 7.2
@@ -1607,6 +1609,9 @@ Avoids expensive re-renders and state loss.
 Use explicit ternary operators (`? :`) instead of `&&` for conditional rendering
 when the condition can be `0`, `NaN`, or other falsy values that render.
 
+**This is the floor, not the ceiling.** Prefer composition + early returns when
+possible — see 6.8.
+
 **Incorrect: renders "0" when count is 0**
 
 ```tsx
@@ -1628,6 +1633,83 @@ function Badge({ count }: { count: number }) {
 // When count = 0, renders: <div></div>
 // When count = 5, renders: <div><span class="badge">5</span></div>
 ```
+
+### 6.8 Compose Conditional UI with Early Returns
+
+**Impact: HIGH (flatter trees, safer Hooks, stronger narrowing)**
+
+**Repo extension (nerdfish).** Preference order: composition + early returns >
+ternary > `&&`. Do not stop at ternary when a child with an early return (or
+layout + mutually exclusive returns) keeps the parent flat.
+
+**Incorrect: nested conditional JSX**
+
+```tsx
+export function ShoppingList() {
+	const { data, isPending } = useQuery(/* ... */)
+
+	return (
+		<Card>
+			{isPending ? (
+				<Skeleton />
+			) : !data ? (
+				<EmptyScreen />
+			) : (
+				<>
+					{data.assignee ? <UserInfo {...data.assignee} /> : null}
+					{data.content.map((item) => (
+						<ShoppingItem key={item.id} {...item} />
+					))}
+				</>
+			)}
+		</Card>
+	)
+}
+```
+
+**Correct: layout + early returns**
+
+```tsx
+function Layout({ children, title }: { children: ReactNode; title?: string }) {
+	return (
+		<Card>
+			<CardHeading>{title ?? 'Welcome'}</CardHeading>
+			<CardContent>{children}</CardContent>
+		</Card>
+	)
+}
+
+export function ShoppingList() {
+	const { data, isPending } = useQuery(/* ... */)
+
+	if (isPending) {
+		return (
+			<Layout>
+				<Skeleton />
+			</Layout>
+		)
+	}
+
+	if (!data) {
+		return (
+			<Layout>
+				<EmptyScreen />
+			</Layout>
+		)
+	}
+
+	return (
+		<Layout title={data.title}>
+			<AssigneeInfo assignee={data.assignee} />
+			{data.content.map((item) => (
+				<ShoppingItem key={item.id} {...item} />
+			))}
+		</Layout>
+	)
+}
+```
+
+Full local rule: `agents/rules/quality-component-composition.md`.
 
 ---
 
