@@ -15,7 +15,7 @@ metadata:
 # Vercel React Best Practices
 
 Comprehensive performance optimization guide for React and Next.js applications,
-maintained by Vercel. Contains 45 rules across 8 categories, prioritized by
+maintained by Vercel. Contains 46 rules across 8 categories, prioritized by
 impact to guide automated refactoring and code generation.
 
 ## When to Apply
@@ -84,13 +84,16 @@ Reference these guidelines when:
 
 ### 6. Rendering Performance (MEDIUM)
 
+- `rendering-composition-early-return` - Composition + early returns over nested
+  conditional JSX (prefer over ternary when possible; nerdfish extension)
 - `rendering-animate-svg-wrapper` - Animate div wrapper, not SVG element
 - `rendering-content-visibility` - Use content-visibility for long lists
 - `rendering-hoist-jsx` - Extract static JSX outside components
 - `rendering-svg-precision` - Reduce SVG coordinate precision
 - `rendering-hydration-no-flicker` - Use inline script for client-only data
 - `rendering-activity` - Use Activity component for show/hide
-- `rendering-conditional-render` - Use ternary, not && for conditionals
+- `rendering-conditional-render` - Use ternary, not && for conditionals (floor;
+  see composition rule above)
 
 ### 7. JavaScript Performance (LOW-MEDIUM)
 

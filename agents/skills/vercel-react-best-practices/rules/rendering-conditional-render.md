@@ -10,6 +10,10 @@ tags: rendering, conditional, jsx, falsy-values
 Use explicit ternary operators (`? :`) instead of `&&` for conditional rendering
 when the condition can be `0`, `NaN`, or other falsy values that render.
 
+**This is the floor, not the ceiling.** Prefer composition + early returns when
+the branch is a loading/empty/data fork or an optional section — see
+`rendering-composition-early-return`.
+
 **Incorrect (renders "0" when count is 0):**
 
 ```tsx
