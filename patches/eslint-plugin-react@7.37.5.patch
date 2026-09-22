@@ -1,0 +1,83 @@
+diff --git a/lib/rules/forward-ref-uses-ref.js b/lib/rules/forward-ref-uses-ref.js
+index 3a0b7de4c951e7ea92a9de7bac924ba95d643342..6889ea3c436fcac473752dd1382033b7a6796477 100644
+--- a/lib/rules/forward-ref-uses-ref.js
++++ b/lib/rules/forward-ref-uses-ref.js
+@@ -1,3 +1,4 @@
++const getSourceCode = require('../util/eslint').getSourceCode;
+ /**
+  * @fileoverview Require all forwardRef components include a ref parameter
+  */
+@@ -57,7 +58,7 @@ module.exports = {
+   },
+ 
+   create(context) {
+-    const sourceCode = context.getSourceCode();
++    const sourceCode = getSourceCode(context);
+ 
+     return {
+       'FunctionExpression, ArrowFunctionExpression'(node) {
+diff --git a/lib/rules/jsx-filename-extension.js b/lib/rules/jsx-filename-extension.js
+index 4a2cfeede66b68255ca48bc38c0eb2f1537a785a..b3fbe47c2e0372ff1ed5dc5b4e58bf3cffb59199 100644
+--- a/lib/rules/jsx-filename-extension.js
++++ b/lib/rules/jsx-filename-extension.js
+@@ -8,6 +8,7 @@
+ const path = require('path');
+ const docsUrl = require('../util/docsUrl');
+ const report = require('../util/report');
++const getFilename = require('../util/eslint').getFilename;
+ 
+ // ------------------------------------------------------------------------------
+ // Constants
+@@ -61,7 +62,7 @@ module.exports = {
+   },
+ 
+   create(context) {
+-    const filename = context.getFilename();
++    const filename = getFilename(context);
+ 
+     let jsxNode;
+ 
+diff --git a/lib/util/eslint.js b/lib/util/eslint.js
+index 79a0537f3b4f52b04b29d46e89ce00f6da8fe579..bcf9186abf87ed636ffb30578bcda94a792249cf 100644
+--- a/lib/util/eslint.js
++++ b/lib/util/eslint.js
+@@ -4,6 +4,10 @@ function getSourceCode(context) {
+   return context.getSourceCode ? context.getSourceCode() : context.sourceCode;
+ }
+ 
++function getFilename(context) {
++  return context.getFilename ? context.getFilename() : context.filename;
++}
++
+ function getAncestors(context, node) {
+   const sourceCode = getSourceCode(context);
+   return sourceCode.getAncestors ? sourceCode.getAncestors(node) : context.getAncestors();
+@@ -38,6 +42,7 @@ function getText(context) {
+ 
+ module.exports = {
+   getAncestors,
++  getFilename,
+   getFirstTokens,
+   getScope,
+   getSourceCode,
+diff --git a/lib/util/version.js b/lib/util/version.js
+index c9dc683b7d149c5a3a941bdcbd32f657facdfbf6..2bfbf2ecd751c2ef83df7738d70026321d777d8a 100644
+--- a/lib/util/version.js
++++ b/lib/util/version.js
+@@ -11,6 +11,7 @@ const path = require('path');
+ const resolve = require('resolve');
+ const semver = require('semver');
+ const error = require('./error');
++const getFilename = require('./eslint').getFilename;
+ 
+ const ULTIMATE_LATEST_SEMVER = '999.999.999';
+ 
+@@ -28,7 +29,7 @@ function resetDetectedVersion() {
+ 
+ function resolveBasedir(contextOrFilename) {
+   if (contextOrFilename) {
+-    const filename = typeof contextOrFilename === 'string' ? contextOrFilename : contextOrFilename.getFilename();
++    const filename = typeof contextOrFilename === 'string' ? contextOrFilename : getFilename(contextOrFilename);
+     const dirname = path.dirname(filename);
+     try {
+       if (fs.statSync(filename).isFile()) {
