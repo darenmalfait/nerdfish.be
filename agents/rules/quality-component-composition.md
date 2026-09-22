@@ -10,9 +10,19 @@ tags: quality, react, composition, early-returns
 
 **Impact: HIGH**
 
+Preference order for conditional UI:
+
+1. **Composition + early returns** (best when possible)
+2. Explicit ternary (`cond ? <A /> : null`) — never `&&` for render guards
+3. `&&` — avoid; falsy values (`0`, `NaN`) can render
+
 Use **composition + early returns** instead of layering conditional JSX in one
 return. Applies to mutually exclusive states (loading, empty, data), required
 params, and optional sections that would otherwise be inline ternaries.
+
+Do not stop at “ternary instead of `&&`” when a child with an early return (or a
+layout + mutually exclusive returns) keeps the parent flat — that is the
+preferred shape.
 
 ### Mutually exclusive states
 

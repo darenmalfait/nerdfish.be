@@ -7,6 +7,8 @@ diffs, and matching existing patterns.
 ## Do
 
 - Use `import type { X }` for TypeScript type imports
+- Prefer composition + early returns over nested conditional JSX; ternary over
+  `&&` for render guards (`agents/rules/quality-component-composition.md`)
 - Use early returns to reduce nesting: `if (!post) return notFound()`
 - Use conventional commits: `feat:`, `fix:`, `refactor:`
 - Create PRs in draft mode by default
