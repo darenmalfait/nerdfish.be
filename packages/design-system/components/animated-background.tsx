@@ -7,6 +7,7 @@ import { type Transition } from 'motion/react'
 import {
 	Children,
 	cloneElement,
+	memo,
 	useId,
 	useState,
 	type ComponentType,
@@ -57,6 +58,45 @@ function loadMotionBits(): Promise<MotionBits> {
 	}))
 }
 
+const MOTION_ORIGIN = { originY: '0px' } as const
+
+const ItemBackground = memo(function AnimatedItemBackground({
+	isActive,
+	motionBits,
+	uniqueId,
+	className,
+	transition,
+	initialOpacity,
+}: {
+	isActive: boolean
+	motionBits: MotionBits | null
+	uniqueId: string
+	className?: string
+	transition?: Transition
+	initialOpacity: number
+}) {
+	if (!motionBits) return null
+
+	const { AnimatePresence, MotionDiv } = motionBits
+
+	// Keep AnimatePresence mounted while inactive so exit can run.
+	return (
+		<AnimatePresence initial={false}>
+			{isActive ? (
+				<MotionDiv
+					style={MOTION_ORIGIN}
+					layoutId={`background-${uniqueId}`}
+					className={cn('absolute inset-0 h-full', className)}
+					transition={transition}
+					initial={{ opacity: initialOpacity }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+				/>
+			) : null}
+		</AnimatePresence>
+	)
+})
+
 /**
  * Progressive motion pill for nav (and similar) lists.
  *
@@ -96,72 +136,54 @@ export function AnimatedBackground({
 
 	function handleSetActiveId(id: string | null) {
 		setActiveId(id)
-		onValueChange?.(id)
 	}
 
 	if (!children) return null
 
-	const AnimatePresence = motionBits?.AnimatePresence
-	const MotionDiv = motionBits?.MotionDiv
+	// No DOM wrapper — must stay a transparent parent of <li> (ul > span breaks axe list rules).
+	// eslint-disable-next-line @nerdfish/conventions/map-transformer-name
+	return Children.map(children, (child: ReactElement, index) => {
+		const id = (child as ReactElement<{ 'data-id': string }>).props['data-id']
 
-	return (
-		<span
-			className="contents"
-			onMouseEnter={handleIntent}
-			onFocusCapture={handleIntent}
-		>
-			{/* eslint-disable-next-line @nerdfish/conventions/map-transformer-name */}
-			{Children.map(children, (child: ReactElement, index) => {
-				const id = (child as ReactElement<{ 'data-id': string }>).props[
-					'data-id'
-				]
-
-				const interactionProps = enableHover
-					? {
-							onMouseEnter: () => handleSetActiveId(id),
-							onMouseLeave: () => handleSetActiveId(null),
-						}
-					: {
-							onClick: () => handleSetActiveId(id),
-						}
-
-				return cloneElement(
-					child,
-					{
-						key: index,
-						// @ts-expect-error - cloneElement className merge
-						className: cn(
-							'relative inline-flex',
-							(child as ReactElement<{ className?: string }>).props.className,
-						),
-						...interactionProps,
+		const interactionProps = enableHover
+			? {
+					onMouseEnter: () => {
+						handleIntent()
+						handleSetActiveId(id)
 					},
-					<>
-						{AnimatePresence && MotionDiv ? (
-							<AnimatePresence initial={false}>
-								{activeId && activeId === id ? (
-									<MotionDiv
-										style={{ originY: '0px' }}
-										layoutId={`background-${uniqueId}`}
-										className={cn('absolute inset-0 h-full', className)}
-										transition={transition}
-										initial={{ opacity: defaultValue ? 1 : 0 }}
-										animate={{
-											opacity: 1,
-										}}
-										exit={{
-											opacity: 0,
-										}}
-									/>
-								) : null}
-							</AnimatePresence>
-						) : null}
-						<span className="z-10 h-full">
-							{(child as ReactElement<{ children?: ReactNode }>).props.children}
-						</span>
-					</>,
-				)
-			})}
-		</span>
-	)
+					onMouseLeave: () => handleSetActiveId(null),
+					onFocusCapture: handleIntent,
+				}
+			: {
+					onClick: () => handleSetActiveId(id),
+					onMouseEnter: handleIntent,
+					onFocusCapture: handleIntent,
+				}
+
+		return cloneElement(
+			child,
+			{
+				key: index,
+				// @ts-expect-error - cloneElement className merge
+				className: cn(
+					'relative inline-flex',
+					(child as ReactElement<{ className?: string }>).props.className,
+				),
+				...interactionProps,
+			},
+			<>
+				<ItemBackground
+					isActive={activeId === id}
+					motionBits={motionBits}
+					uniqueId={uniqueId}
+					className={className}
+					transition={transition}
+					initialOpacity={defaultValue ? 1 : 0}
+				/>
+				<span className="z-10 h-full">
+					{(child as ReactElement<{ children?: ReactNode }>).props.children}
+				</span>
+			</>,
+		)
+	})
 }
