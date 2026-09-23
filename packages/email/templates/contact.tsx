@@ -11,7 +11,7 @@ import {
 	Section,
 	Tailwind,
 	Text,
-} from '@react-email/components'
+} from 'react-email'
 
 export const ContactEmail = ({
 	name,

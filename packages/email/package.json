@@ -9,10 +9,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@react-email/components": "^1.0.12",
     "@t3-oss/env-nextjs": "^0.13.11",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-email": "^6.9.5",
     "resend": "^6.28.1",
     "zod": "^4.6.5"
   },
