@@ -1,0 +1,95 @@
+{
+	"version": 1,
+	"skills": {
+		"deploy-to-vercel": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/deploy-to-vercel/SKILL.md",
+			"computedHash": "aed8d06beb94e24a8b98a7ba395964a390b514dcf6803f8f8cf80c7d80360646"
+		},
+		"nerdfish-bdd-testing": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/bdd-testing/SKILL.md",
+			"computedHash": "635e81cc635e14c26d3898cdc93cab23914cd059cdfa56d11781028958937cfe"
+		},
+		"nerdfish-code-quality": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/code-quality/SKILL.md",
+			"computedHash": "4ea1f5c45117e8a3a60ea0aff76029917e2efe5255cfed55d833ad5557690af5"
+		},
+		"nerdfish-composition-patterns": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/composition-patterns/SKILL.md",
+			"computedHash": "d8f3469b9e0bcd72acf5531286fc89fead0cc2217d4100043e4b65ec04653297"
+		},
+		"nerdfish-monorepo-architecture": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/monorepo-architecture/SKILL.md",
+			"computedHash": "870c0dc175b8e763c1c9944b47abeaa74309d7e00fa1938b7df0bea303e39ee7"
+		},
+		"nerdfish-pr-discipline": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/pr-discipline/SKILL.md",
+			"computedHash": "292448cefb7dd1222c505af52f82f70840546f457582ba30104ad44e35e2fcd0"
+		},
+		"nerdfish-react-best-practices": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-best-practices/SKILL.md",
+			"computedHash": "8234f36261637887b9dbc03dff4fc74387d091314d21fb3b9b46832c71ea12d7"
+		},
+		"nerdfish-react-native-skills": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-native-skills/SKILL.md",
+			"computedHash": "dfedf05d242d65607300ef1a5c7b77a2ab12b371431d066ca4812d4fe31cc6d9"
+		},
+		"nerdfish-react-view-transitions": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/react-view-transitions/SKILL.md",
+			"computedHash": "bfd2d8369e61257a2f63c1c9810c7a0281a25067430e339fd6c80f0f12a7006f"
+		},
+		"nerdfish-review": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/nerdfish-review/SKILL.md",
+			"computedHash": "170cc4641286b146bcc3264ed4e8bf523213a9301e95973f4a34c6408ec92639"
+		},
+		"specification-website": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/specification-website/SKILL.md",
+			"computedHash": "0ab7c8dc72ae2ebe7aa8548fdf1070ee1073727d022efbe28e106c6f3b54399c"
+		},
+		"vercel-cli-with-tokens": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/vercel-cli-with-tokens/SKILL.md",
+			"computedHash": "a2f596ac516fe8986386f9562f4c94604af9fb6a0fc417d263cbe6dc05117b72"
+		},
+		"vercel-optimize": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/vercel-optimize/SKILL.md",
+			"computedHash": "12b2414d8bf2a6efb4c9f3908f1c48d8eaccee446584770fd07cbcde5ff811cc"
+		},
+		"web-design-guidelines": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/web-design-guidelines/SKILL.md",
+			"computedHash": "c71eaadc3b4db7a2e2d7b3a06520d4d31e0c86e5d8af425a692712706c6d9d6d"
+		},
+		"writing-guidelines": {
+			"source": "darenmalfait/nerdfish-agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/writing-guidelines/SKILL.md",
+			"computedHash": "971f3423164f0b4af8464ed891a67efdaba87e427780b68b103ca3c69fb2f483"
+		}
+	}
+}

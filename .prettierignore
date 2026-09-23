@@ -19,3 +19,5 @@ pnpm-lock.yaml
 **/.trash/**
 **/.makemd/**
 **/.clerk/**
+# vendored via `npx skills` — keep lock hashes / upstream formatting intact
+.agents/skills/**

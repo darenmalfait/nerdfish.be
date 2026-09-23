@@ -36,7 +36,7 @@ The following environment variables are required to run the website:
 ## Install
 
 This repo uses git symlinks for shared agent rules and skills (`.claude` /
-`.cursor` → `agents/`). If you are on Windows, clone with symlinks enabled in
+`.cursor` → `.agents/`). If you are on Windows, clone with symlinks enabled in
 Git Bash with admin privileges:
 
 ```bash

@@ -8,7 +8,8 @@ diffs, and matching existing patterns.
 
 - Use `import type { X }` for TypeScript type imports
 - Prefer composition + early returns over nested conditional JSX; ternary over
-  `&&` for render guards (`agents/rules/quality-component-composition.md`)
+  `&&` for render guards (`nerdfish-composition-patterns` /
+  `nerdfish-react-best-practices` skills)
 - Use early returns to reduce nesting: `if (!post) return notFound()`
 - Use conventional commits: `feat:`, `fix:`, `refactor:`
 - Create PRs in draft mode by default
@@ -157,7 +158,9 @@ packages/
 - Collection config: `packages/content-collections/config.ts`
 - Collection schemas: `packages/content-collections/collections/`
 - Playwright config: `apps/web/playwright.config.ts`
-- Architecture rules: `agents/rules/architecture-*.md`
+- Architecture rules: `.agents/rules/architecture-*.md` (repo-specific);
+  portable guidelines via `npx skills` → `.agents/skills/` (`nerdfish-review`,
+  etc.)
 
 ### Path aliases (`apps/web`)
 
@@ -357,4 +360,4 @@ test.describe('User Story: The user wants to browse the blog', () => {
   missing
 - Match the nearest existing feature (`~/features/contact`, blog `api.ts`,
   Playwright `app/.../__tests__/`) instead of inventing a new pattern
-- Prefer leaf imports; see `agents/rules/architecture-feature-boundaries.md`
+- Prefer leaf imports; see `.agents/rules/architecture-feature-boundaries.md`

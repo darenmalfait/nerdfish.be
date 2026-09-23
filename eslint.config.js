@@ -45,6 +45,8 @@ export default [
 			'**/.space/**',
 			'**/.trash/**',
 			'**/.clerk/**',
+			// vendored via `npx skills` — do not lint upstream skill sources
+			'.agents/skills/**',
 		],
 	},
 ]
