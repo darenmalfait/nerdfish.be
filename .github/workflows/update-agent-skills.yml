@@ -29,8 +29,10 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Update project skills
+        # Do not use secrets.GITHUB_TOKEN here — it cannot read the private skills repo.
         env:
           DISABLE_TELEMETRY: '1'
+          GH_TOKEN: ${{ secrets.NERDFISH_SKILLS_TOKEN }}
         run: npx --yes skills@latest update -p -y
 
       - name: Create pull request
