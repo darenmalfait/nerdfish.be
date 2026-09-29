@@ -1,7 +1,8 @@
 # BDD Testing
 
-Structured rules for user-story BDD specs and accessible selectors. Runner-
-agnostic (Playwright, Testing Library, Cypress, …).
+Runner-agnostic rules for user-story BDD specs, accessible selectors, mock-data
+builders, and network mock builders. Applies to Playwright, Testing Library,
+Cypress, and any other user-based UI test. Not for pure unit tests.
 
 ## Structure
 
@@ -16,8 +17,12 @@ agnostic (Playwright, Testing Library, Cypress, …).
 
 ### Testing (HIGH)
 
-- `testing-bdd-structure.md` - User Story → Given → When
-- `testing-accessible-queries.md` - Role/label over testId/CSS
+- `testing-bdd-structure.md` - User Story → Given → When; nesting and scope
+- `testing-accessible-queries.md` - Role/label; page/screen objects
+- `testing-mock-data-builders.md` - `MOCK_<ENTITY>` builders
+- `testing-api-handler-builders.md` - Network mock builders + payload
+  observation
+- `testing-file-organization.md` - Related stories together until ~2000 lines
 
 ## Creating a New Rule
 
