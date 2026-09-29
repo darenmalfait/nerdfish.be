@@ -29,6 +29,8 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Update project skills
+        env:
+          DISABLE_TELEMETRY: '1'
         run: npx --yes skills@latest update -p -y
 
       - name: Create pull request
