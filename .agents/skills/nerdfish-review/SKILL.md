@@ -67,7 +67,6 @@ as needed):
 | ----- | --------- |
 | `web-design-guidelines` | UI / a11y / UX surfaces |
 | `specification-website` | Site-wide capability / compliance questions |
-| `writing-guidelines` | Docs / prose |
 
 Paths (same repo after install):
 
