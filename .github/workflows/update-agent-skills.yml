@@ -1,0 +1,48 @@
+name: Update agent skills
+
+on:
+  schedule:
+    # Daily 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Update skills
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Update project skills
+        run: npx --yes skills@latest update -p -y
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          branch: chore/update-agent-skills
+          delete-branch: true
+          draft: true
+          title: 'chore: update agent skills'
+          commit-message: 'chore(agents): update skill dependencies'
+          body: |
+            Automated update via `npx skills update -p -y`.
+
+            Reviews `.agents/skills/` and `skills-lock.json` only.
+          add-paths: |
+            skills-lock.json
+            .agents/skills
