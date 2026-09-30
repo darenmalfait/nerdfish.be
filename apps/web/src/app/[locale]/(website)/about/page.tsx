@@ -5,7 +5,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
@@ -13,7 +12,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import { Code, Handshake, Monitor, Rocket } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { Toolbox } from '~/features/about/components/toolbox'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Link } from '~/features/shared/components/link'
@@ -56,10 +55,7 @@ export async function generateMetadata(
 		})}`,
 		alternates: {
 			canonical: getPathname({ locale, href: '/about' }),
-			languages: getPathnames(
-				'/about',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/about'),
 		},
 		locale,
 	})

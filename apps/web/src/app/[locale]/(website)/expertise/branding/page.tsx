@@ -4,7 +4,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
@@ -12,7 +11,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import { Layers, Palette, Users } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { Features } from '~/features/site/components/features'
 import {
 	Hero,
@@ -42,10 +41,7 @@ export async function generateMetadata(
 		})}`,
 		alternates: {
 			canonical: getPathname({ locale, href: '/expertise/branding' }),
-			languages: getPathnames(
-				'/expertise/branding',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/expertise/branding'),
 		},
 		locale,
 	})

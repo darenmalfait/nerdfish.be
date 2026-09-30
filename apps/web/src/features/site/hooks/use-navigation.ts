@@ -34,7 +34,7 @@ export function useNavigation(): Navigation {
 				{
 					label: t('main.expertise.freelance.title'),
 					description: t('main.expertise.freelance.description'),
-					href: '/expertise/freelance',
+					href: '/about',
 				},
 				{
 					label: t('main.expertise.branding.title'),

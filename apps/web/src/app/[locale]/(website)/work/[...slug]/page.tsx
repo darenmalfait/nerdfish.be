@@ -12,6 +12,7 @@ import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
 import { getRouteData } from './route-data'
+import { getContentLanguageAlternates } from '~/features/shared/content/locale-alternates'
 import { work as workApi } from '~/features/work/api'
 import { WorkContent } from '~/features/work/components/work-content'
 import { WorkOverview } from '~/features/work/components/work-overview'
@@ -31,8 +32,12 @@ export async function generateMetadata(props: {
 	params: Promise<WithLocale<{ slug: string[] }>>
 }): Promise<Metadata | undefined> {
 	const params = await props.params
-	const { work } = await getRouteData(params.slug.join('/'), params.locale)
+	const [{ work }, works] = await Promise.all([
+		getRouteData(params.slug.join('/'), params.locale),
+		workApi.getAll(),
+	])
 	const title = work.seo.title
+	const languages = getContentLanguageAlternates(works, work, getWorkPath)
 
 	return createMetadata({
 		title,
@@ -44,6 +49,7 @@ export async function generateMetadata(props: {
 			})}`,
 		alternates: {
 			canonical: work.seo.canonical ?? getWorkPath(work),
+			languages,
 		},
 		locale: params.locale,
 	})

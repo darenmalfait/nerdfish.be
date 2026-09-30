@@ -3,7 +3,7 @@
 		"page": {
 			"_meta": {
 				"description": "Daren Malfait — zelfstandige webdeveloper en designer in Harelbeke. React, TypeScript, maatwerk websites en UX/UI voor bedrijven en lokale ondernemingen. 15+ jaar ervaring.",
-				"title": "Freelance webdeveloper Harelbeke | React, TypeScript & webdesign"
+				"title": "Freelance webdeveloper in Harelbeke"
 			},
 			"blog": {
 				"cta": "Meer artikelen",
@@ -137,7 +137,7 @@
 		"page": {
 			"_meta": {
 				"description": "Artikelen over webdesign en development: React, TypeScript, UX/UI en projecten. Tips van een freelance developer uit België.",
-				"title": "Webdesign & development blog | Tips & projectverhalen"
+				"title": "Webdesign & development blog"
 			},
 			"image": {
 				"alt": "Typmachine"
@@ -215,7 +215,7 @@
 		"page": {
 			"_meta": {
 				"description": "Neem contact op met Daren Malfait, zelfstandige webdeveloper en designer in Harelbeke. Websites, UX/UI en vernieuwing voor bedrijven in West-Vlaanderen. Meestal antwoord binnen een dag.",
-				"title": "Contact | Freelance webdeveloper & webdesign, Harelbeke"
+				"title": "Contacteer een freelance webdeveloper"
 			},
 			"contact": {
 				"subtitle": "Een website op maat, een digitaal project, of freelance hulp. Ik antwoord meestal binnen een dag.",
@@ -244,7 +244,7 @@
 			"page": {
 				"_meta": {
 					"description": "3D-printen in Harelbeke met Bambu X1C. Prototypes, functionele onderdelen en maatwerk in PLA/PETG. Stuur je STL voor een offerte.",
-					"title": "3D-printservice Harelbeke | Prototypes & maatwerk"
+					"title": "3D-printservice in Harelbeke"
 				},
 				"cta": {
 					"label": "Neem contact op",
@@ -393,7 +393,7 @@
 			"page": {
 				"_meta": {
 					"description": "Branding en visuele identiteit op maat in Harelbeke. Logo, huisstijl en digitale assets voor lokale bedrijven — van concept tot consistente uitstraling.",
-					"title": "Branding & merkidentiteit | Freelance designer, Harelbeke"
+					"title": "Branding & merkidentiteit"
 				},
 				"features": {
 					"items": {
@@ -423,7 +423,7 @@
 			"page": {
 				"_meta": {
 					"description": "Freelance UX/UI-designer in Harelbeke (en remote). Gebruiksvriendelijke interfaces voor web en apps — wireframes, prototypes en UI die resultaat opleveren.",
-					"title": "UX/UI design | Freelance designer, Harelbeke"
+					"title": "UX/UI design in Harelbeke"
 				},
 				"blog": {
 					"subtitle": "Artikelen over UX/UI.",
@@ -531,7 +531,7 @@
 			"page": {
 				"_meta": {
 					"description": "Zelfstandige webdesigner en developer in Harelbeke. Snelle, responsieve websites met React en TypeScript — SEO-bewust en conversiegericht voor kmo's en lokale bedrijven.",
-					"title": "Website laten maken | Freelance webdesign & development, Harelbeke"
+					"title": "Website laten maken | Harelbeke"
 				},
 				"blog": {
 					"subtitle": "Artikelen over webdesign.",
@@ -701,7 +701,7 @@
 		"page": {
 			"_meta": {
 				"description": "Zelfstandige webdeveloper en designer uit Harelbeke. Websites, UX/UI en webdesign op maat voor lokale bedrijven en KMO's in West-Vlaanderen. Neem vrijblijvend contact op.",
-				"title": "Webdeveloper & webdesign voor lokale bedrijven | Harelbeke"
+				"title": "Webdeveloper & webdesign | Harelbeke"
 			},
 			"blog": {
 				"subtitle": "Lees mijn laatste blog posts",
@@ -741,7 +741,15 @@
 			},
 			"hero": {
 				"cta": "Contacteer me",
-				"subtitle": "Freelance software & design vanuit Harelbeke, België."
+				"subtitle": "Freelance webdeveloper & designer in Harelbeke, België."
+			},
+			"jsonLd": {
+				"areaServed": {
+					"city": "Harelbeke",
+					"country": "België",
+					"region": "West-Vlaanderen"
+				},
+				"jobTitle": "Freelance webdeveloper & designer"
 			},
 			"highlights": {
 				"branding": {
@@ -841,7 +849,7 @@
 		"page": {
 			"_meta": {
 				"description": "Wiki over webdevelopment: React, TypeScript, UX/UI en performance. Praktische artikelen van een freelance developer uit Harelbeke.",
-				"title": "Kennisbank webdevelopment | Nerdfish"
+				"title": "Kennisbank webdevelopment"
 			},
 			"image": {
 				"alt": "Boekenkast"
@@ -869,7 +877,7 @@
 		"page": {
 			"_meta": {
 				"description": "Portfolio: webdesign, branding en front-end projecten van Daren Malfait. React, TypeScript en moderne stacks — voor bedrijven en productteams.",
-				"title": "Webdesign portfolio | Nerdfish, Harelbeke"
+				"title": "Webdesign portfolio | Harelbeke"
 			},
 			"branding": {
 				"subtitle": "Logo's en visuele systemen.",

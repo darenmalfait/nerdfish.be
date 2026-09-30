@@ -26,12 +26,12 @@ let nextConfig: NextConfig = {
 				{
 					source: href,
 					destination: `/about`,
-					permanent: false,
+					permanent: true,
 				},
 				{
 					source: `/nl${href}`,
 					destination: `/nl/over-mij`,
-					permanent: false,
+					permanent: true,
 				},
 			]),
 		]

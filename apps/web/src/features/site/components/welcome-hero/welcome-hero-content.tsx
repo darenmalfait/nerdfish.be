@@ -77,13 +77,12 @@ export function WelcomeHeroContent({
 			/>
 
 			<div className="gap-acquaintances px-friends relative z-10 flex w-full translate-y-[-8vh] flex-col items-center">
-				<h1 className="sr-only">nerdfish</h1>
 				<div className="flex w-full items-center justify-center">
 					<LogoWithBars />
 				</div>
-				<p className="text-foreground-muted px-friends typography-body-small max-w-lg text-center uppercase">
+				<h1 className="text-foreground-muted px-friends typography-body-small max-w-lg text-center uppercase">
 					{subtitle}
-				</p>
+				</h1>
 			</div>
 
 			<div className="bottom-acquaintances absolute z-20 flex justify-center">

@@ -1,12 +1,11 @@
 import { Section } from '@repo/design-system/components/section'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 
 type PageProps = {
@@ -31,10 +30,7 @@ export async function generateMetadata(
 		})}`,
 		alternates: {
 			canonical: getPathname({ locale, href: '/blog' }),
-			languages: getPathnames(
-				'/blog',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/blog'),
 		},
 		locale,
 	})

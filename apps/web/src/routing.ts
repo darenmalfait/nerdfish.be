@@ -20,7 +20,6 @@ export const basePathNames = {
 	},
 	'/expertise/3d-printing': '/expertise/3d-printing',
 	'/expertise/branding': '/expertise/branding',
-	'/expertise/freelance': '/expertise/freelance',
 	'/expertise/uxui-design': '/expertise/uxui-design',
 	'/expertise/webdesign': '/expertise/webdesign',
 	'/wiki': '/wiki',
@@ -56,8 +55,30 @@ export type Pathnames = keyof typeof routing.pathnames
 export const { Link, getPathname, redirect, usePathname, useRouter } =
 	createNavigation(routing)
 
-export function getPathnames(pathname: Pathnames, locales: Locale[]) {
-	return Object.fromEntries(
-		locales.map((locale) => [locale, getPathname({ locale, href: pathname })]),
+/** Absolute or relative language map including self-ref + x-default for hreflang. */
+export function getAlternateLanguages(
+	pathname: Pathnames,
+	options?: {
+		locales?: readonly Locale[]
+		toAbsolute?: (pathname: string) => string
+	},
+): Record<string, string> {
+	const locales = options?.locales ?? i18n.locales
+	const toAbsolute = options?.toAbsolute ?? ((value: string) => value)
+
+	const languages: Record<string, string> = Object.fromEntries(
+		locales.map((locale) => [
+			locale,
+			toAbsolute(getPathname({ locale, href: pathname })),
+		]),
 	)
+
+	const defaultPath = languages[i18n.defaultLocale]
+	if (!defaultPath) {
+		throw new Error(`Missing default locale path for ${pathname}`)
+	}
+
+	languages['x-default'] = defaultPath
+
+	return languages
 }

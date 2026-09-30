@@ -1,11 +1,10 @@
 import { Section } from '@repo/design-system/components/section'
 import { companyInfo } from '@repo/global-settings/company-info'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { Link } from '~/features/shared/components/link'
 
 type PageProps = {
@@ -23,10 +22,7 @@ export async function generateMetadata(
 		description: t('_meta.description'),
 		alternates: {
 			canonical: getPathname({ locale, href: '/privacy' }),
-			languages: getPathnames(
-				'/privacy',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/privacy'),
 		},
 		locale,
 		robots: { index: true, follow: true },

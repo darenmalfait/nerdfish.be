@@ -8,6 +8,7 @@ import { cache } from 'react'
 import { product as productApi } from '~/features/product/api'
 import { ProductContent } from '~/features/product/components/product-content'
 import { getProductPath } from '~/features/product/utils'
+import { getSlugLanguageAlternates } from '~/features/shared/content/locale-alternates'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
@@ -35,6 +36,9 @@ export async function generateMetadata(
 	const { slug, locale } = await props.params
 	const { product } = await getPageData(slug.join('/'), locale)
 	const title = product.seo.title
+	const languages = getSlugLanguageAlternates(product.slug, (code) =>
+		getProductPath({ slug: product.slug, locale: code }),
+	)
 
 	return createMetadata({
 		title,
@@ -46,6 +50,7 @@ export async function generateMetadata(
 			})}`,
 		alternates: {
 			canonical: product.seo.canonical ?? getProductPath(product),
+			languages,
 		},
 		locale,
 	})

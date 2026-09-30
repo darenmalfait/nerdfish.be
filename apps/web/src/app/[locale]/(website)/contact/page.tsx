@@ -1,13 +1,12 @@
 import { Section } from '@repo/design-system/components/section'
 import { companyInfo } from '@repo/global-settings/company-info'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { ContactCopyEmailButton } from '~/features/contact/components/contact-copy-email-button'
 import { ContactFormViaButton } from '~/features/contact/components/contact-form-drawer'
 import { Link } from '~/features/shared/components/link'
@@ -39,10 +38,7 @@ export async function generateMetadata(
 		})}`,
 		alternates: {
 			canonical: getPathname({ locale, href: '/contact' }),
-			languages: getPathnames(
-				'/contact',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/contact'),
 		},
 		locale,
 	})

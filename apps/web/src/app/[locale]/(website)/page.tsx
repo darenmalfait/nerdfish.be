@@ -5,7 +5,6 @@ import {
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { i18n } from '@repo/i18n/config'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
@@ -17,11 +16,12 @@ import {
 } from 'lucide-react'
 import { type Metadata } from 'next'
 import { Suspense } from 'react'
-import { getPathname, getPathnames } from 'routing'
+import { getAlternateLanguages, getPathname } from 'routing'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'
 import { Highlights } from '~/features/site/components/highlights'
+import { HomeJsonLd } from '~/features/site/components/home-json-ld'
 import { WelcomeHero } from '~/features/site/components/welcome-hero/welcome-hero'
 import { Testimonials } from '~/features/testimonials/components/testimonials'
 import { WorkOverview } from '~/features/work/components/work-overview'
@@ -45,10 +45,7 @@ export async function generateMetadata(
 		image: '/images/og.png',
 		alternates: {
 			canonical: getPathname({ locale, href: '/' }),
-			languages: getPathnames(
-				'/',
-				i18n.locales.filter((l) => l !== locale),
-			),
+			languages: getAlternateLanguages('/'),
 		},
 		locale,
 	})
@@ -66,25 +63,25 @@ async function HomeFeaturesSection() {
 			<Features
 				items={[
 					{
-						title: 'Web Design',
+						title: t('features.webdesign.title'),
 						description: t('features.webdesign.description'),
 						href: '/expertise/webdesign',
 						icon: <MonitorSmartphone />,
 					},
 					{
-						title: 'UX/UI Design',
+						title: t('features.uxui-design.title'),
 						description: t('features.uxui-design.description'),
 						href: '/expertise/uxui-design',
 						icon: <LayoutDashboard />,
 					},
 					{
-						title: 'Branding',
+						title: t('features.branding.title'),
 						description: t('features.branding.description'),
 						href: '/expertise/branding',
 						icon: <Paintbrush2Icon />,
 					},
 					{
-						title: 'Javascript Consulting',
+						title: t('features.freelance.title'),
 						description: t('features.freelance.description'),
 						href: '/about',
 						icon: <HandPlatterIcon />,
@@ -195,6 +192,7 @@ export default async function HomePage(props: PageProps) {
 
 	return (
 		<>
+			<HomeJsonLd />
 			{/* Hero chrome paints first; Suspense lets hero i18n + below-fold sections resolve in parallel */}
 			<div className="-mt-site-header pt-site-header bg-background-muted relative flex min-h-dvh flex-col justify-center">
 				<Suspense

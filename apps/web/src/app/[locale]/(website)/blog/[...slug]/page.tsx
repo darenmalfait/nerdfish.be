@@ -16,6 +16,7 @@ import { blog } from '~/features/blog/api'
 import { BlogContent } from '~/features/blog/components/blog-content'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { getBlogPath } from '~/features/blog/utils'
+import { getContentLanguageAlternates } from '~/features/shared/content/locale-alternates'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
@@ -48,8 +49,12 @@ export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
 	const { slug, locale } = await props.params
-	const { post } = await getPageData(slug.join('/'), locale)
+	const [{ post }, posts] = await Promise.all([
+		getPageData(slug.join('/'), locale),
+		blog.getAll(),
+	])
 	const title = post.seo.title
+	const languages = getContentLanguageAlternates(posts, post, getBlogPath)
 
 	return createMetadata({
 		title,
@@ -62,6 +67,7 @@ export async function generateMetadata(
 			})}`,
 		alternates: {
 			canonical: post.seo.canonical ?? getBlogPath(post),
+			languages,
 		},
 		locale,
 	})

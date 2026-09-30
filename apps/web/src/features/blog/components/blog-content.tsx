@@ -54,7 +54,9 @@ function BlogContent({
 		inLanguage: locale,
 		author: {
 			'@type': 'Person',
+			'@id': `${env.NEXT_PUBLIC_URL}/#person`,
 			name: author.name,
+			url: author.url?.toString(),
 		},
 		isAccessibleForFree: true,
 	}
