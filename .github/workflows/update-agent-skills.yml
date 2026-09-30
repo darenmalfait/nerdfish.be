@@ -28,12 +28,16 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Update project skills
+      - name: Sync project skills
         # Do not use secrets.GITHUB_TOKEN here — it cannot read the private skills repo.
+        # --all installs new upstream skills; update refreshes locked ones.
+        # Upstream deletions are detected but not pruned in non-interactive (-y) mode.
         env:
           DISABLE_TELEMETRY: '1'
           GH_TOKEN: ${{ secrets.NERDFISH_SKILLS_TOKEN }}
-        run: npx --yes skills@latest update -p -y
+        run: |
+          npx --yes skills@latest add darenmalfait/nerdfish-agent-skills --all -y
+          npx --yes skills@latest update -p -y
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
@@ -44,9 +48,12 @@ jobs:
           title: 'chore: update agent skills'
           commit-message: 'chore(agents): update skill dependencies'
           body: |
-            Automated update via `npx skills update -p -y`.
+            Automated sync via:
+            - `npx skills add darenmalfait/nerdfish-agent-skills --all -y` (grow + refresh)
+            - `npx skills update -p -y` (refresh locked skills)
 
             Reviews `.agents/skills/` and `skills-lock.json` only.
+            Upstream deletions are not auto-pruned in CI.
           add-paths: |
             skills-lock.json
             .agents/skills
