@@ -6,7 +6,6 @@ description: >
   accessible queries, mock-data builders, and API mock builders. Use when
   writing or reviewing e2e, component, or integration tests that exercise the
   product as a user. Not for pure unit tests.
-license: MIT
 metadata:
   author: nerdfish
   version: '1.2.0'

@@ -5,7 +5,6 @@ description: >
   not what, thorough code review, and avoiding bare useEffect. Use when
   reviewing PRs, writing comments, simplifying clever code, or cleaning up
   effects.
-license: MIT
 metadata:
   author: nerdfish
   version: '1.0.0'

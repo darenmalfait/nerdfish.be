@@ -9,7 +9,6 @@ Cypress, and any other user-based UI test. Not for pure unit tests.
 - `rules/` - Individual rule files
   - `_sections.md` - Section metadata
   - `_template.md` - Template for creating new rules
-- `metadata.json` - Document metadata
 - **`AGENTS.md`** - Compiled output
 - **`SKILL.md`** - Agent skill entry point
 

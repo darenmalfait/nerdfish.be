@@ -5,7 +5,6 @@ description: >
   keep an acyclic package dependency graph, and push kind/type conditionals to
   entry-point factories. Use when structuring features, reviewing imports,
   fixing circular dependencies, or refactoring services littered with switches.
-license: MIT
 metadata:
   author: nerdfish
   version: '1.0.0'

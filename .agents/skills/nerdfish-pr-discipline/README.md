@@ -7,7 +7,6 @@ Structured rules for agent git/PR workflow.
 - `rules/` - Individual rule files
   - `_sections.md` - Section metadata
   - `_template.md` - Template for creating new rules
-- `metadata.json` - Document metadata
 - **`AGENTS.md`** - Compiled output
 - **`SKILL.md`** - Agent skill entry point
 

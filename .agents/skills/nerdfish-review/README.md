@@ -4,7 +4,7 @@ Meta-skill: orchestrate a prioritized review against all `nerdfish-*` skills.
 
 ## Structure
 
-Thin skill — `SKILL.md` only (workflow + skill index). Rule content lives in the
+Thin skill — `SKILL.md` (workflow + skill index). Rule content lives in the
 skills this one loads.
 
 ## Usage

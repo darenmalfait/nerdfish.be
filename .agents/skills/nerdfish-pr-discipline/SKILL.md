@@ -4,7 +4,6 @@ description: >
   Git and PR discipline for agents: never push, open PRs, or commit unless the
   user explicitly asks. Prefer small draft stacked PRs with conventional commit
   titles. Use when branching, committing, stacking, or opening pull requests.
-license: MIT
 metadata:
   author: nerdfish
   version: '1.0.0'

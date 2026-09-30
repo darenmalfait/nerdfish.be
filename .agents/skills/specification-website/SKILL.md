@@ -9,7 +9,6 @@ description:
   practice. Backs answers with primary sources (WHATWG, W3C, IETF RFCs, IANA,
   WCAG). Available as Markdown over HTTP and as an MCP server with search, list,
   fetch, checklist, and audit tools.
-license: MIT
 metadata:
   author: nerdfish
   version: '1.0.0'
