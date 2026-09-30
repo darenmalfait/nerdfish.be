@@ -23,7 +23,7 @@ import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import { type ComponentPropsWithoutRef, useMemo, useRef } from 'react'
+import { type ComponentPropsWithoutRef, useRef } from 'react'
 import { usePathname } from 'routing'
 import {
 	useNavigation,
@@ -31,6 +31,7 @@ import {
 	type SubNavItem,
 } from '../hooks/use-navigation'
 import { Link } from '~/features/shared/components/link'
+import { getActiveMainNavLabel } from '~/features/site/utils/navigation-active'
 
 function MainNavigationSubItem({
 	href,
@@ -73,17 +74,16 @@ const getMainItemClassName = cva(
 )
 
 function MainNavigationItem({
+	isActive,
 	href,
 	label,
 	sub,
 	...props
-}: Omit<ComponentPropsWithoutRef<'a'>, 'href'> & Navigation['main'][number]) {
-	const pathname = usePathname()
+}: Omit<ComponentPropsWithoutRef<'a'>, 'href'> &
+	Navigation['main'][number] & { isActive: boolean }) {
 	if (!sub?.length && !href) return null
 
 	if (!sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(stripPreSlash(href))
-
 		return (
 			<NavigationMenuItem
 				className="h-full"
@@ -96,7 +96,11 @@ function MainNavigationItem({
 							{ 'hover:bg-background-muted': !isActive },
 						)}
 						render={
-							<Link {...props} href={`/${stripPreSlash(href)}`}>
+							<Link
+								{...props}
+								href={`/${stripPreSlash(href)}`}
+								aria-current={isActive ? 'page' : undefined}
+							>
 								{label}
 							</Link>
 						}
@@ -106,16 +110,13 @@ function MainNavigationItem({
 		)
 	}
 
-	const isActive = sub.some((subNavItem) => {
-		return stripPreSlash(pathname).startsWith(stripPreSlash(subNavItem.href))
-	})
-
 	return (
 		<NavigationMenuItem
 			className="h-full"
 			render={
 				<span>
 					<NavigationMenuTrigger
+						aria-current={isActive ? 'page' : undefined}
 						className={cn(
 							getMainItemClassName({
 								variant: isActive ? 'active' : 'default',
@@ -262,21 +263,7 @@ export function SiteNavigation() {
 	const t = useTranslations('global')
 	const ref = useRef<HTMLUListElement>(null)
 
-	const activeId = useMemo(() => {
-		const isActive = navigation.find((item) => {
-			return (
-				item.sub?.some(
-					(subItem) =>
-						subItem.href &&
-						stripPreSlash(pathname).startsWith(stripPreSlash(subItem.href)),
-				) ??
-				(item.href &&
-					stripPreSlash(pathname).startsWith(stripPreSlash(item.href)))
-			)
-		})
-
-		return isActive?.label ?? 'home'
-	}, [navigation, pathname])
+	const activeId = getActiveMainNavLabel(navigation, pathname)
 
 	return (
 		<div className="relative hidden lg:flex">
@@ -301,7 +288,10 @@ export function SiteNavigation() {
 									data-id={mainNavItem.label}
 									className="h-full"
 								>
-									<MainNavigationItem {...mainNavItem} />
+									<MainNavigationItem
+										isActive={activeId === mainNavItem.label}
+										{...mainNavItem}
+									/>
 								</li>
 							)
 						})}

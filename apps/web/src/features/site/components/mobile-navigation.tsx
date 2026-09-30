@@ -12,25 +12,28 @@ import {
 import { Logo } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import { stripPreSlash } from '@repo/lib/utils/string'
 import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
 import { useState } from 'react'
 import { usePathname } from 'routing'
 import { useNavigation, type Navigation } from '../hooks/use-navigation'
 import { Link } from '~/features/shared/components/link'
+import {
+	getTopLevelNavHrefs,
+	isSubNavItemActive,
+	isTopLevelNavItemActive,
+} from '~/features/site/utils/navigation-active'
 
 interface NavigationItemProps {
 	item: Navigation['main'][number]
+	topLevelHrefs: Set<string>
 	onClick: () => void
 }
-function NavigationItem({ item, onClick }: NavigationItemProps) {
+function NavigationItem({ item, topLevelHrefs, onClick }: NavigationItemProps) {
 	const pathname = usePathname()
 	if (!item.sub?.length && !item.href) return null
 
 	if (!item.sub?.length) {
-		const isActive = stripPreSlash(pathname).startsWith(
-			stripPreSlash(item.href),
-		)
+		const isActive = isTopLevelNavItemActive(pathname, item.href)
 
 		return (
 			<Link
@@ -39,6 +42,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 					'group/navigation-item gap-best-friends flex w-fit items-center text-[1.15rem]',
 				)}
 				href={item.href}
+				aria-current={isActive ? 'page' : undefined}
 			>
 				<span className={cn(isActive && 'border-accent border-b-2')}>
 					{item.label}
@@ -55,8 +59,10 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 			<div className="mb-friends text-xl font-medium">{item.label}</div>
 			<ul className={cn('gap-best-friends flex flex-col')}>
 				{item.sub.map((subNavItem) => {
-					const isActive = stripPreSlash(pathname).startsWith(
-						stripPreSlash(subNavItem.href),
+					const isActive = isSubNavItemActive(
+						pathname,
+						subNavItem.href,
+						topLevelHrefs,
 					)
 
 					return (
@@ -67,6 +73,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 									'group/navigation-item gap-best-friends text-foreground-muted hover:text-foreground flex w-fit items-center text-[1.15rem]',
 								)}
 								href={subNavItem.href}
+								aria-current={isActive ? 'page' : undefined}
 							>
 								<span className={cn(isActive && 'border-accent border-b-2')}>
 									{subNavItem.label}
@@ -86,6 +93,7 @@ function NavigationItem({ item, onClick }: NavigationItemProps) {
 export function MobileNavigation({ className }: { className?: string }) {
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const { main: navigation } = useNavigation()
+	const topLevelHrefs = getTopLevelNavHrefs(navigation)
 	const t = useTranslations('global')
 
 	return (
@@ -130,6 +138,7 @@ export function MobileNavigation({ className }: { className?: string }) {
 								<li key={mainNavItem.label}>
 									<NavigationItem
 										item={mainNavItem}
+										topLevelHrefs={topLevelHrefs}
 										onClick={() => setIsDrawerOpen(false)}
 									/>
 								</li>

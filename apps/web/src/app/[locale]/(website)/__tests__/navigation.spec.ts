@@ -26,6 +26,17 @@ test.describe('User Story: The user wants to navigate the site using the main na
 					page.getByRole('heading', { level: 1, name: 'About' }),
 				).toBeVisible()
 			})
+
+			test('it should mark About as active, not Expertise', async ({
+				homePage,
+			}) => {
+				await expect(
+					homePage.navigation.main.getNavLink('About'),
+				).toHaveAttribute('aria-current', 'page')
+				await expect(
+					homePage.navigation.main.getExpertiseTrigger(),
+				).not.toHaveAttribute('aria-current', 'page')
+			})
 		})
 
 		test.describe('When the user clicks Blog', () => {
@@ -80,6 +91,15 @@ test.describe('User Story: The user wants to navigate the site using the main na
 				await expect(
 					page.getByRole('heading', { level: 1, name: 'Websites' }),
 				).toBeVisible()
+			})
+
+			test('it should mark Expertise as active', async ({ homePage }) => {
+				await expect(
+					homePage.navigation.main.getExpertiseTrigger(),
+				).toHaveAttribute('aria-current', 'page')
+				await expect(
+					homePage.navigation.main.getNavLink('About'),
+				).not.toHaveAttribute('aria-current', 'page')
 			})
 		})
 	})
