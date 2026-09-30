@@ -5,7 +5,7 @@ status: active
 candidateKinds: ["slow_route"]
 frameworks: ["*"]
 priority: 90
-citations: ["nerdfish-react-best-practices:async-parallel", "nerdfish-react-best-practices:server-parallel-fetching"]
+citations: ["vercel-react-best-practices:async-parallel", "vercel-react-best-practices:server-parallel-fetching"]
 maxBriefChars: 900
 ---
 

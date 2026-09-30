@@ -27,4 +27,4 @@ Edge Requests dominate (every page view is an edge request; static assets even m
 - `https://vercel.com/docs/incremental-static-regeneration` — for the ISR fix
 - `https://nextjs.org/docs/app/api-reference/components/image` — image optimization
 - `https://nextjs.org/docs/app/api-reference/components/font` — self-hosted fonts
-- `nerdfish-react-best-practices:bundle-defer-third-party` — defer analytics/cookie banners
+- `vercel-react-best-practices:bundle-defer-third-party` — defer analytics/cookie banners

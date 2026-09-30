@@ -9,7 +9,7 @@ Edge Requests dominate (catalog browsing, image asset traffic) → Image Optimiz
 ## Priority patterns
 
 1. **Catalog pages: aggressive ISR + image optimization.** Product list and product detail pages should be ISR with a sensible `revalidate` (60s-3600s). Every image should go through `next/image` (or the framework equivalent). For Vercel-hosted storefronts, image cost can dominate everything else.
-2. **Checkout: keep dynamic, but parallelize external calls.** Cart/checkout/payment routes are correctly dynamic. The win is in reducing their function duration — `Promise.all` for independent calls to Stripe + inventory + tax services. Cite `nerdfish-react-best-practices:async-parallel`.
+2. **Checkout: keep dynamic, but parallelize external calls.** Cart/checkout/payment routes are correctly dynamic. The win is in reducing their function duration — `Promise.all` for independent calls to Stripe + inventory + tax services. Cite `vercel-react-best-practices:async-parallel`.
 3. **Cart drawer hydration: lift `'use client'` to the leaf.** Cart components are interactive, but the page wrapping them shouldn't be. Hoist server-rendered parts upward; only the buttons/forms are client.
 4. **Webhooks: separate, not on the user path.** Stripe/Shopify webhook handlers should live as their own routes with short duration limits. They don't share traffic patterns with the storefront.
 5. **Edge middleware for A/B + region routing only.** Catalog locale routing is a fine fit. Auth/cart state belongs in the dynamic page, not middleware.
@@ -23,8 +23,8 @@ Edge Requests dominate (catalog browsing, image asset traffic) → Image Optimiz
 
 ## Cross-references
 
-- `nerdfish-react-best-practices:async-parallel` — parallelize Stripe/inventory/tax calls in checkout
-- `nerdfish-react-best-practices:async-suspense-boundaries` — stream the checkout shell, fill cart drawer later
-- `nerdfish-react-best-practices:bundle-defer-third-party` — defer analytics (GA, Mixpanel) post-hydration
+- `vercel-react-best-practices:async-parallel` — parallelize Stripe/inventory/tax calls in checkout
+- `vercel-react-best-practices:async-suspense-boundaries` — stream the checkout shell, fill cart drawer later
+- `vercel-react-best-practices:bundle-defer-third-party` — defer analytics (GA, Mixpanel) post-hydration
 - `https://nextjs.org/docs/app/api-reference/components/image` — for the catalog image fix
 - `https://vercel.com/docs/bot-management` — for bot traffic on search/product routes

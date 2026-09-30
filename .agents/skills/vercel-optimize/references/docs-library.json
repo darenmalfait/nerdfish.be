@@ -602,79 +602,79 @@
   ],
   "ruleSkillRefs": [
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "async-parallel",
       "topic": "Promise.all for independent awaits",
       "applicableFrameworks": ["next@*", "react@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "async-suspense-boundaries",
       "topic": "Suspense for streaming content",
       "applicableFrameworks": ["next@>=13.0.0", "react@>=18.0.0"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "bundle-barrel-imports",
       "topic": "Avoid barrel files, prefer direct imports",
       "applicableFrameworks": ["next@*", "react@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "bundle-dynamic-imports",
       "topic": "next/dynamic for heavy components",
       "applicableFrameworks": ["next@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "bundle-defer-third-party",
       "topic": "Defer analytics/logging scripts post-hydration",
       "applicableFrameworks": ["next@*", "react@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "server-cache-react",
       "topic": "React.cache() for request deduplication",
       "applicableFrameworks": ["next@>=13.0.0"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "server-cache-lru",
       "topic": "LRU for cross-request caching",
       "applicableFrameworks": ["next@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "server-after-nonblocking",
       "topic": "after() for non-blocking work post-response",
       "applicableFrameworks": ["next@>=15.0.0"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "server-parallel-fetching",
       "topic": "Restructure server components for parallel fetches",
       "applicableFrameworks": ["next@>=13.0.0"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "server-hoist-static-io",
       "topic": "Hoist static I/O (fonts, logos) to module level",
       "applicableFrameworks": ["next@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "client-swr-dedup",
       "topic": "SWR for client-side request deduplication",
       "applicableFrameworks": ["next@*", "react@*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "rendering-content-visibility",
       "topic": "content-visibility for long lists",
       "applicableFrameworks": ["*"]
     },
     {
-      "skill": "nerdfish-react-best-practices",
+      "skill": "vercel-react-best-practices",
       "rule": "rendering-resource-hints",
       "topic": "React DOM resource hints for preloading",
       "applicableFrameworks": ["next@*", "react@*"]

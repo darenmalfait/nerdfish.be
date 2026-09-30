@@ -47,8 +47,8 @@ as needed):
 
 | Priority | Skill | Why |
 | -------- | ----- | --- |
-| 1 | `nerdfish-react-best-practices` | Waterfalls, bundle, server/client perf |
-| 2 | `nerdfish-composition-patterns` | Boolean props, compound components |
+| 1 | `vercel-react-best-practices` | Waterfalls, bundle, server/client perf |
+| 2 | `vercel-composition-patterns` | Boolean props, compound components |
 | 3 | `nerdfish-monorepo-architecture` | Vertical slices, cycles, factories |
 | 4 | `nerdfish-code-quality` | Clarity, comments, review rigor, effects |
 
@@ -58,8 +58,8 @@ as needed):
 | ----- | --------- |
 | `nerdfish-bdd-testing` | Specs, page/screen objects, fixtures, e2e/component tests |
 | `nerdfish-pr-discipline` | User is about to push/PR/commit, or reviewing PR workflow |
-| `nerdfish-react-view-transitions` | View transitions, route animations, `transitionTypes` |
-| `nerdfish-react-native-skills` | React Native / Expo files |
+| `vercel-react-view-transitions` | View transitions, route animations, `transitionTypes` |
+| `vercel-react-native-skills` | React Native / Expo files |
 
 **Optional (not `nerdfish-*` but useful alongside):**
 
@@ -71,14 +71,14 @@ as needed):
 Paths (same repo after install):
 
 ```
-skills/react-best-practices/SKILL.md
-skills/composition-patterns/SKILL.md
+skills/vercel-react-best-practices/SKILL.md
+skills/vercel-composition-patterns/SKILL.md
 skills/monorepo-architecture/SKILL.md
 skills/code-quality/SKILL.md
 skills/bdd-testing/SKILL.md
 skills/pr-discipline/SKILL.md
-skills/react-view-transitions/SKILL.md
-skills/react-native-skills/SKILL.md
+skills/vercel-react-view-transitions/SKILL.md
+skills/vercel-react-native-skills/SKILL.md
 ```
 
 ### 3. Review against the selected skills
@@ -116,7 +116,7 @@ Use this structure:
 ```
 
 Severity order: Critical → High → Medium. Group by severity, not by skill.
-Cite the skill + rule id (e.g. `nerdfish-react-best-practices` /
+Cite the skill + rule id (e.g. `vercel-react-best-practices` /
 `async-parallel`).
 
 ### 5. Stop conditions

@@ -5,7 +5,7 @@ status: active
 candidateKinds: ["slow_route"]
 frameworks: ["next@>=15.0.0"]
 priority: 75
-citations: ["https://nextjs.org/docs/app/api-reference/functions/after", "nerdfish-react-best-practices:async-parallel", "nerdfish-react-best-practices:server-after-nonblocking"]
+citations: ["https://nextjs.org/docs/app/api-reference/functions/after", "vercel-react-best-practices:async-parallel", "vercel-react-best-practices:server-after-nonblocking"]
 maxBriefChars: 850
 ---
 

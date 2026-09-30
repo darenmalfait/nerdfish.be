@@ -11,7 +11,7 @@ This skill uses Vercel metrics to find high-impact improvements in your app. Eve
 Install just this skill:
 
 ```bash
-npx skills add darenmalfait/nerdfish-agent-skills --skill vercel-optimize
+npx skills add vercel-labs/agent-skills --skill vercel-optimize
 ```
 
 Manual install: copy `skills/vercel-optimize` into `.agents/skills/vercel-optimize` and reference `SKILL.md` from your project `AGENTS.md`.

@@ -149,7 +149,7 @@ Total scanners: 15.
 **Fix.** Replace with explicit .findMany() calls or scoped .include() of only what the consumer reads. Consider Prisma.select() to project specific fields. For lists, batch with DataLoader patterns.
 
 **Citations:**
-- `nerdfish-react-best-practices:server-parallel-fetching`
+- `vercel-react-best-practices:server-parallel-fetching`
 
 ---
 

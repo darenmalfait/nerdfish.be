@@ -24,7 +24,7 @@ Function Duration dominates (every request is a function invocation). Edge Reque
 ## Cross-references
 
 - `https://vercel.com/docs/caching/cdn-cache` — the GET-handler Cache-Control fix
-- `nerdfish-react-best-practices:async-parallel` — parallelize external API calls
-- `nerdfish-react-best-practices:server-after-nonblocking` — `after()` for post-response work
+- `vercel-react-best-practices:async-parallel` — parallelize external API calls
+- `vercel-react-best-practices:server-after-nonblocking` — `after()` for post-response work
 - `https://vercel.com/docs/fluid-compute` — when cold starts on infrequently-called endpoints hurt
 - `https://nextjs.org/docs/app/building-your-application/routing/middleware` — for rate-limit middleware

@@ -51,7 +51,7 @@ Every recommendation must carry at least one citation from `references/docs-libr
 
 The library has two parts:
 - **URLs** — Vercel docs, Next.js docs, SvelteKit docs, etc. Each declares `applicableFrameworks` (e.g., `["next@>=15.0.0"]`).
-- **Cross-skill rule references** — by name only (`nerdfish-react-best-practices:async-parallel`). The agent's host resolves these.
+- **Cross-skill rule references** — by name only (`vercel-react-best-practices:async-parallel`). The agent's host resolves these.
 
 Three sanitizers enforce this:
 - `missing-citation` — drops recs with empty `citations[]`.

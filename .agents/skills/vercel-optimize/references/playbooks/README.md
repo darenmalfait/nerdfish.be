@@ -41,7 +41,7 @@ Each playbook is a Markdown file with a fixed shape so the recommender can parse
 (Anti-patterns specific to this profile)
 
 ## Cross-references
-(Rec IDs from recommendations.md or rule names from nerdfish-react-best-practices)
+(Rec IDs from recommendations.md or rule names from vercel-react-best-practices)
 ```
 
 ## Contributing a new playbook

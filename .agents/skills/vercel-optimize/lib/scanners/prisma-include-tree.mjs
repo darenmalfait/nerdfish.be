@@ -11,7 +11,7 @@ export const metadata = {
   fix:
     'Replace with explicit .findMany() calls or scoped .include() of only what the consumer reads. Consider Prisma.select() to project specific fields. For lists, batch with DataLoader patterns.',
   citations: [
-    'nerdfish-react-best-practices:server-parallel-fetching',
+    'vercel-react-best-practices:server-parallel-fetching',
   ],
   excludeGlobs: ['node_modules/**', '.next/**', 'dist/**', '__tests__/**'],
   includeGlobs: ['**/*.{ts,tsx,js,jsx}'],

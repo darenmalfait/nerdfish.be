@@ -5,7 +5,7 @@ status: active
 candidateKinds: ["external_api_slow"]
 frameworks: ["next@>=13.0.0"]
 priority: 90
-citations: ["nerdfish-react-best-practices:async-parallel", "nerdfish-react-best-practices:server-parallel-fetching", "nerdfish-react-best-practices:server-cache-react"]
+citations: ["vercel-react-best-practices:async-parallel", "vercel-react-best-practices:server-parallel-fetching", "vercel-react-best-practices:server-cache-react"]
 maxBriefChars: 850
 ---
 
