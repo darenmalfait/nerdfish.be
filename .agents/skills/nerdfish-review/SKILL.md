@@ -49,7 +49,7 @@ as needed):
 | 1 | `vercel-react-best-practices` | Waterfalls, bundle, server/client perf |
 | 2 | `vercel-composition-patterns` | Boolean props, compound components |
 | 3 | `nerdfish-monorepo-architecture` | Vertical slices, cycles, factories |
-| 4 | `nerdfish-code-quality` | Clarity, comments, review rigor, effects |
+| 4 | `nerdfish-code-quality` | Clarity, comments, review rigor, effects, flag shape |
 
 **Load if the diff touches that domain:**
 
