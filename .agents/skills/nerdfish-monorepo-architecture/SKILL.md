@@ -27,35 +27,35 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category             | Impact   | Prefix           |
-| -------- | -------------------- | -------- | ---------------- |
-| 1        | Vertical slices      | CRITICAL | `architecture-`  |
-| 2        | Acyclic dependencies | CRITICAL | `architecture-`  |
-| 3        | Entry-point factories| HIGH     | `patterns-`      |
+| Priority | Category              | Impact   |
+| -------- | --------------------- | -------- |
+| 1        | Vertical slices       | CRITICAL |
+| 2        | Acyclic dependencies  | CRITICAL |
+| 3        | Entry-point factories | HIGH     |
 
 ## Quick Reference
 
 ### 1. Vertical slices (CRITICAL)
 
-- `architecture-vertical-slices` - Domain folders under `features/`; routes
+- `vertical-slices` - Domain folders under `features/`; routes
   compose blocks; no `*-page` composers in features
 
 ### 2. Acyclic dependencies (CRITICAL)
 
-- `architecture-circular-dependencies` - lib → packages → features → app; never
+- `circular-dependencies` - lib → packages → features → app; never
   import upward
 
 ### 3. Entry-point factories (HIGH)
 
-- `patterns-factory-entry-points` - Push conditionals to routes/factories; keep
+- `factory-entry-points` - Push conditionals to routes/factories; keep
   domain modules branch-free
 
 ## How to Use
 
 ```
-rules/architecture-vertical-slices.md
-rules/architecture-circular-dependencies.md
-rules/patterns-factory-entry-points.md
+rules/vertical-slices.md
+rules/circular-dependencies.md
+rules/factory-entry-points.md
 ```
 
 ## Full Compiled Document

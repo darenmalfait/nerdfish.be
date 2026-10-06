@@ -14,14 +14,14 @@ Structured rules for agent git/PR workflow.
 
 ### Git discipline (HIGH)
 
-- `git-pr-discipline.md` - Never push/PR/commit unless asked
+- `git-discipline.md` - Never push/PR/commit unless asked
 
 ### PR creation (HIGH)
 
-- `quality-pr-creation.md` - Small draft stacked PRs
+- `pr-creation.md` - Small draft stacked PRs
 
 ## Creating a New Rule
 
-1. Copy `rules/_template.md` to `rules/{prefix}-description.md`
+1. Copy `rules/_template.md` to `rules/{name}.md`
 2. Fill in frontmatter and content
 3. Update `_sections.md`, `SKILL.md`, and `AGENTS.md`

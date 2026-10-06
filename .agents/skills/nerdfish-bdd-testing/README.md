@@ -16,15 +16,15 @@ Cypress, and any other user-based UI test. Not for pure unit tests.
 
 ### Testing (HIGH)
 
-- `testing-bdd-structure.md` - User Story → Given → When; nesting and scope
-- `testing-accessible-queries.md` - Role/label; page/screen objects
-- `testing-mock-data-builders.md` - `MOCK_<ENTITY>` builders
-- `testing-api-handler-builders.md` - Network mock builders + payload
+- `bdd-structure.md` - User Story → Given → When; nesting and scope
+- `accessible-queries.md` - Role/label; page/screen objects
+- `mock-data-builders.md` - `MOCK_<ENTITY>` builders
+- `api-handler-builders.md` - Network mock builders + payload
   observation
-- `testing-file-organization.md` - Related stories together until ~2000 lines
+- `file-organization.md` - Related stories together until ~2000 lines
 
 ## Creating a New Rule
 
-1. Copy `rules/_template.md` to `rules/testing-description.md`
+1. Copy `rules/_template.md` to `rules/{name}.md`
 2. Fill in frontmatter and content
 3. Update `_sections.md`, `SKILL.md`, and `AGENTS.md`

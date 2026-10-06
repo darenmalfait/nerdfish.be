@@ -15,18 +15,18 @@ points.
 
 ### Vertical slices (CRITICAL)
 
-- `architecture-vertical-slices.md` - Domain folders; routes compose blocks
+- `vertical-slices.md` - Domain folders; routes compose blocks
 
 ### Acyclic dependencies (CRITICAL)
 
-- `architecture-circular-dependencies.md` - Never import upward
+- `circular-dependencies.md` - Never import upward
 
 ### Entry-point factories (HIGH)
 
-- `patterns-factory-entry-points.md` - Push conditionals to routes/factories
+- `factory-entry-points.md` - Push conditionals to routes/factories
 
 ## Creating a New Rule
 
-1. Copy `rules/_template.md` to `rules/{prefix}-description.md`
+1. Copy `rules/_template.md` to `rules/{name}.md`
 2. Fill in frontmatter and content
 3. Update `_sections.md`, `SKILL.md`, and `AGENTS.md`
