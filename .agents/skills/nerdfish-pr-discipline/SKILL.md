@@ -24,26 +24,26 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category      | Impact | Prefix     |
-| -------- | ------------- | ------ | ---------- |
-| 1        | Git discipline| HIGH   | `git-`     |
-| 2        | PR creation   | HIGH   | `quality-` |
+| Priority | Category       | Impact |
+| -------- | -------------- | ------ |
+| 1        | Git discipline | HIGH   |
+| 2        | PR creation    | HIGH   |
 
 ## Quick Reference
 
 ### 1. Git discipline (HIGH)
 
-- `git-pr-discipline` - Never push, open PRs, or commit unless asked
+- `git-discipline` - Never push, open PRs, or commit unless asked
 
 ### 2. PR creation (HIGH)
 
-- `quality-pr-creation` - Small draft stacked PRs; conventional titles
+- `pr-creation` - Small draft stacked PRs; conventional titles
 
 ## How to Use
 
 ```
-rules/git-pr-discipline.md
-rules/quality-pr-creation.md
+rules/git-discipline.md
+rules/pr-creation.md
 ```
 
 ## Full Compiled Document

@@ -10,7 +10,7 @@ tags: pull-request, code-review, workflow, gh-stack
 **Impact: HIGH**
 
 Prefer small, draft, stackable PRs. Do **not** push branches or open/submit PRs
-unless the user explicitly asks — see `git-pr-discipline.md`.
+unless the user explicitly asks — see `git-discipline.md`.
 
 ## Do Not Push or Open PRs Automatically
 

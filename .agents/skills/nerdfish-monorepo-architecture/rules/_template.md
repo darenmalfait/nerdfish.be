@@ -1,22 +1,27 @@
 ---
 title: Rule Title Here
 impact: MEDIUM
-impactDescription: brief description of impact
-tags: architecture
+impactDescription: Optional description of impact (e.g., "prevents cycles")
+tags: tag1, tag2
 ---
 
 ## Rule Title Here
 
-Brief explanation of the rule and why it matters.
+**Impact: MEDIUM (optional impact description)**
 
-**Incorrect:**
+Brief explanation of the rule and why it matters. This should be clear and
+concise.
+
+**Incorrect (description of what's wrong):**
 
 ```
 // Bad structure or import
 ```
 
-**Correct:**
+**Correct (description of what's right):**
 
 ```
 // Good structure or import
 ```
+
+Reference: [Link to documentation or resource](https://example.com)

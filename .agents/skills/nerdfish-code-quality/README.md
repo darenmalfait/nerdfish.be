@@ -15,14 +15,14 @@ feature-flag shape.
 
 ### Code Quality (HIGH)
 
-- `quality-simplicity.md` - Clarity over cleverness
-- `quality-code-comments.md` - Comments explain why, not what
-- `quality-thorough-code-review.md` - Address all nits before merge
-- `quality-no-use-effect.md` - No bare `useEffect`
-- `quality-feature-flag-shape.md` - Shape flags for easy removal
+- `simplicity.md` - Clarity over cleverness
+- `code-comments.md` - Comments explain why, not what
+- `thorough-code-review.md` - Address all nits before merge
+- `no-use-effect.md` - No bare `useEffect`
+- `feature-flag-shape.md` - Shape flags for easy removal
 
 ## Creating a New Rule
 
-1. Copy `rules/_template.md` to `rules/quality-description.md`
+1. Copy `rules/_template.md` to `rules/{name}.md`
 2. Fill in frontmatter and content
 3. Update `_sections.md`, `SKILL.md`, and `AGENTS.md`

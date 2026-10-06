@@ -33,28 +33,28 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category | Impact | Prefix     |
-| -------- | -------- | ------ | ---------- |
-| 1        | Testing  | HIGH   | `testing-` |
+| Priority | Category | Impact |
+| -------- | -------- | ------ |
+| 1        | Testing  | HIGH   |
 
 ## Quick Reference
 
 ### 1. Testing (HIGH)
 
-- `testing-bdd-structure` - User Story → Given → When; scope and nesting rules
-- `testing-accessible-queries` - Role/label over testId/CSS; page objects
-- `testing-mock-data-builders` - `MOCK_<ENTITY>` builders over inline fixtures
-- `testing-api-handler-builders` - Reusable network mocks; observe payloads
-- `testing-file-organization` - Keep related stories together until ~2000 lines
+- `bdd-structure` - User Story → Given → When; scope and nesting rules
+- `accessible-queries` - Role/label over testId/CSS; page objects
+- `mock-data-builders` - `MOCK_<ENTITY>` builders over inline fixtures
+- `api-handler-builders` - Reusable network mocks; observe payloads
+- `file-organization` - Keep related stories together until ~2000 lines
 
 ## How to Use
 
 ```
-rules/testing-bdd-structure.md
-rules/testing-accessible-queries.md
-rules/testing-mock-data-builders.md
-rules/testing-api-handler-builders.md
-rules/testing-file-organization.md
+rules/bdd-structure.md
+rules/accessible-queries.md
+rules/mock-data-builders.md
+rules/api-handler-builders.md
+rules/file-organization.md
 ```
 
 ## Full Compiled Document

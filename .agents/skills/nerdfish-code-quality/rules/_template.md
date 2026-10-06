@@ -1,22 +1,29 @@
 ---
 title: Rule Title Here
 impact: MEDIUM
-impactDescription: brief description of impact
-tags: quality
+impactDescription: Optional description of impact (e.g., "reduces review cycles")
+tags: tag1, tag2
 ---
 
 ## Rule Title Here
 
-Brief explanation of the rule and why it matters.
+**Impact: MEDIUM (optional impact description)**
 
-**Incorrect:**
+Brief explanation of the rule and why it matters. This should be clear and
+concise.
 
-```typescript
-// Bad code example
-```
-
-**Correct:**
+**Incorrect (description of what's wrong):**
 
 ```typescript
-// Good code example
+// Bad code example here
+const bad = example()
 ```
+
+**Correct (description of what's right):**
+
+```typescript
+// Good code example here
+const good = example()
+```
+
+Reference: [Link to documentation or resource](https://example.com)

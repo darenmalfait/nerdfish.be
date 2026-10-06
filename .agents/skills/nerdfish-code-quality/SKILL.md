@@ -27,30 +27,30 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category     | Impact | Prefix     |
-| -------- | ------------ | ------ | ---------- |
-| 1        | Code Quality | HIGH   | `quality-` |
+| Priority | Category     | Impact |
+| -------- | ------------ | ------ |
+| 1        | Code Quality | HIGH   |
 
 ## Quick Reference
 
 ### 1. Code Quality (HIGH)
 
-- `quality-simplicity` - Clarity over cleverness
-- `quality-code-comments` - Comments explain why, not what
-- `quality-thorough-code-review` - Address all nits before merge
-- `quality-no-use-effect` - No effect for sync/derive; prefer derived/handlers/keys
-- `quality-feature-flag-shape` - Structure flags so removal is a small delete
+- `simplicity` - Clarity over cleverness
+- `code-comments` - Comments explain why, not what
+- `thorough-code-review` - Address all nits before merge
+- `no-use-effect` - No effect for sync/derive; prefer derived/handlers/keys
+- `feature-flag-shape` - Structure flags so removal is a small delete
 
 ## How to Use
 
 Read individual rule files for detailed explanations and code examples:
 
 ```
-rules/quality-simplicity.md
-rules/quality-code-comments.md
-rules/quality-thorough-code-review.md
-rules/quality-no-use-effect.md
-rules/quality-feature-flag-shape.md
+rules/simplicity.md
+rules/code-comments.md
+rules/thorough-code-review.md
+rules/no-use-effect.md
+rules/feature-flag-shape.md
 ```
 
 ## Full Compiled Document
