@@ -11,6 +11,7 @@ Cypress, and any other user-based UI test. Not for pure unit tests.
   - `_template.md` - Template for creating new rules
 - **`AGENTS.md`** - Compiled output
 - **`SKILL.md`** - Agent skill entry point
+- **`evals/evals.json`** - Skill quality evals (with/without skill)
 
 ## Rules
 

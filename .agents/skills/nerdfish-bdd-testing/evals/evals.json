@@ -1,0 +1,85 @@
+{
+  "skill_name": "nerdfish-bdd-testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Playwright e2e for our contact form. User opens /contact, fills name + email + message, submits, and should see a success alert. Prefer a page object.",
+      "expected_output": "Uses User Story → Given → When → it nesting. Given does goto/setup only; When holds the fill/submit gesture(s) in beforeEach; assertions only in it. Uses getByRole/label (or page-object wrappers), not data-testid as primary. Page object for goto/form actions. No flat 'opens and submits' it. No 'and'/'then' in describe titles.",
+      "assertions": [
+        "Top-level describe starts with 'User Story:'",
+        "Uses Given → When → it nesting (not a flat single it)",
+        "Given only arrives at /contact (goto); does not perform the form fill under test",
+        "When action(s) live in beforeEach",
+        "Assertions only appear inside it/test",
+        "Queries use role/label or page-object methods, not data-testid as primary",
+        "Uses a page/screen object for goto and form interactions",
+        "No 'and' or 'then' in describe titles"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "hey can you sketch a jest/rtl test for the login screen? user lands on it, types email/password, hits sign in, ends up on the dashboard",
+      "expected_output": "Triggers on casual phrasing. Same BDD nesting with Testing Library APIs: render in Given, userEvent gestures in When beforeEach, expects in it. Accessible queries (getByRole/getByLabelText). Still User Story shaped — runner change only.",
+      "assertions": [
+        "Triggers on casual phrasing without requiring 'BDD' or 'Playwright'",
+        "Uses User Story → Given → When → it",
+        "Given uses render(...) for the login screen",
+        "When uses userEvent (or equivalent) in beforeEach",
+        "Uses getByRole / getByLabelText over getByTestId",
+        "Assertions only in it/test"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add unit tests for formatCurrency(amount, locale) — covers en-US, nl-BE, and negative amounts.",
+      "expected_output": "Recognizes pure unit tests. Keeps flat describe/it. Does NOT invent User Story / Given / When nesting. May briefly note BDD nesting is for user-based UI tests only.",
+      "assertions": [
+        "Treats this as a unit test of a pure helper",
+        "Uses flat describe + it only",
+        "Does not add User Story / Given / When nesting",
+        "Does not invent a fake UI flow around formatCurrency"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Review this Playwright spec and fix it to match our testing guidelines:\n\ndescribe('Checkout', () => {\n  it('checks out successfully', async () => {\n    await page.goto('/cart')\n    await page.getByTestId('checkout-btn').click()\n    await page.route('**/api/payment', route => route.fulfill({ status: 500 }))\n    await page.getByTestId('pay-btn').click()\n    await expect(page.getByTestId('error')).toBeVisible()\n  })\n})",
+      "expected_output": "Rewrites into User Story nesting. Splits setup vs gesture vs assert. Moves payment failure mock into Given (scenario setup), not mid-flow after a When. Replaces getByTestId with role/label or page-object wrappers. Avoids nested Given under When. May use MOCK_/handler builders if introducing reusable mocks. One outcome per it.",
+      "assertions": [
+        "Rewrites into User Story → Given → When → it (or Given → it where appropriate)",
+        "Payment failure mock is registered in Given, not after a user gesture mid-test",
+        "Replaces getByTestId as primary query with role/label or page-object methods",
+        "Does not nest Given under When",
+        "Assertions stay in it only",
+        "Does not keep the flat single-it structure"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "We're adding MSW handlers for GET /api/orders and POST /api/orders in our checkout RTL tests. Keep fixtures and handlers consistent with how we do mocks elsewhere.",
+      "expected_output": "Introduces MOCK_ORDER (or similar) builder with realistic defaults and overrides. Handler builders per endpoint; register mocks inside Given only. Payload verification via observation callbacks, not ad-hoc request parsing in the test body. Same builders usable beyond MSW if mentioned.",
+      "assertions": [
+        "Uses a MOCK_<ENTITY> builder with defaults + overrides",
+        "Provides reusable handler builders for the order endpoints",
+        "Registers mocks inside Given, not in When/it",
+        "Verifies request payloads via observation callback (or equivalent), not inline ad-hoc parsing",
+        "Does not dump fat inline fixture objects in the spec"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Should I put the billing-address and payment-method checkout stories in separate test files? Each is ~200 lines today.",
+      "expected_output": "Applies file-organization guidance: keep related stories for the same page/feature together until ~2000 lines or a clear domain/role split. Advises against early fragmentation for two related checkout flows totaling ~400 lines.",
+      "assertions": [
+        "Recommends keeping related checkout stories together for now",
+        "References the ~2000 line (or clear domain/role split) threshold",
+        "Does not push premature file splits for ~400 lines of related coverage"
+      ],
+      "files": []
+    }
+  ]
+}
