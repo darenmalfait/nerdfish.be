@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# husky owns core.hooksPath — delegate to the committed hook.
+exec "$(dirname "$0")/../.githooks/post-merge" "$@"

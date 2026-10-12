@@ -1,0 +1,10 @@
+---
+description: Apply nerdfish standards while coding; audit changes when asked
+alwaysApply: true
+---
+
+# Nerdfish React guidelines
+
+Read and follow `.agents/skills/nerdfish-react-guidelines/SKILL.md` (development mode
+by default). Load sibling skills it points to for the work at hand. Use audit
+mode only when the user requests a review or pre-ship pass.
