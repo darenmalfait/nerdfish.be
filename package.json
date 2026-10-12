@@ -22,6 +22,8 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "prepare": "husky",
+    "skills:install": "DISABLE_TELEMETRY=1 npx --yes skills experimental_install",
+    "skills:update": "DISABLE_TELEMETRY=1 npx --yes skills update -p -y",
     "test:e2e": "dotenv -- turbo test:e2e --force",
     "test:e2e:inspector": "dotenv -- turbo test:e2e:inspector",
     "test:e2e:install": "dotenv -- playwright install",

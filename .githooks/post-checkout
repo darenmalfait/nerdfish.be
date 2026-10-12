@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Restore project skills from skills-lock.json after checkout / merge.
+# post-checkout args: prev_head new_head is_branch_checkout
+# post-merge args: (unused) — always attempt when lock is present
+prev_head="${1:-}"
+new_head="${2:-}"
+is_branch_checkout="${3:-}"
+
+[[ -f skills-lock.json ]] || exit 0
+
+# post-checkout: only branch checkouts; skip if lock unchanged (except clone)
+if [[ -n "${is_branch_checkout}" ]]; then
+	[[ "$is_branch_checkout" == "1" ]] || exit 0
+	zero=0000000000000000000000000000000000000000
+	if [[ -n "$prev_head" && "$prev_head" != "$zero" && -n "$new_head" ]]; then
+		if ! git diff --name-only "$prev_head" "$new_head" | grep -qx 'skills-lock.json'; then
+			exit 0
+		fi
+	fi
+fi
+
+export DISABLE_TELEMETRY=1
+if ! npx --yes skills experimental_install; then
+	printf '%s\n' "warning: skills experimental_install failed (offline or auth?). Run: npm run skills:install" >&2
+fi
