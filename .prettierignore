@@ -20,5 +20,8 @@ pnpm-lock.yaml
 **/.makemd/**
 **/.clerk/**
 # vendored via `npx skills` — keep lock hashes / upstream formatting intact
+.claude/skills/**
+.cursor/skills/**
+.codex/skills/**
 .agents/skills/**
 skills-lock.json
