@@ -76,4 +76,5 @@ test-results
 agent/
 
 # local skills restored from skills-lock.json
-.agents/skills/
+.agents/skills/*
+!.agents/skills/.gitkeep
