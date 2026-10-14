@@ -73,8 +73,8 @@ importers:
         specifier: ^0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.6.5)
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -119,8 +119,8 @@ importers:
         specifier: ^0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.6.5)
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -157,7 +157,7 @@ importers:
         version: 5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.88.0(react@19.3.0))(zod@4.6.5)
       '@nerdfish/react':
         specifier: ^1.4.2
-        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
+        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
       '@next/env':
         specifier: 16.3.5
         version: 16.3.5
@@ -231,14 +231,14 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-safe-action:
         specifier: ^8.7.3
-        version: 8.7.3(next@16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 8.7.3(next@16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       nuqs:
         specifier: ^2.10.1
-        version: 2.10.1(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 2.10.1(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -278,7 +278,7 @@ importers:
         version: 19.3.0(@types/react@19.3.0)
       '@vercel/toolbar':
         specifier: ^0.2.7
-        version: 0.2.7(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 0.2.7(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       autoprefixer:
         specifier: ^10.6.1
         version: 10.6.1(postcss@8.5.28)
@@ -305,7 +305,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^7.9.4
-        version: 7.9.4(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 7.9.4(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.6.5)
@@ -376,19 +376,19 @@ importers:
         version: 0.2.2(@content-collections/core@0.15.3(typescript@5.9.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@content-collections/next':
         specifier: ^0.2.11
-        version: 0.2.11(@content-collections/core@0.15.3(typescript@5.9.3))(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: 0.2.11(@content-collections/core@0.15.3(typescript@5.9.3))(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       '@repo/design-system':
         specifier: workspace:*
         version: link:../design-system
       fumadocs-core:
         specifier: ^16.15.13
-        version: 16.15.13(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.47.0(react@19.3.0))(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(zod@4.6.5)
+        version: 16.15.13(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.47.0(react@19.3.0))(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(zod@4.6.5)
       lqip-modern:
         specifier: ^3.0.0
         version: 3.0.0(sharp@0.35.4(@types/node@24.13.6))
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: ^19.3.0
         version: 19.3.0
@@ -416,7 +416,7 @@ importers:
     dependencies:
       '@nerdfish/react':
         specifier: ^1.4.2
-        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
+        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
       '@number-flow/react':
         specifier: ^0.6.2
         version: 0.6.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -446,7 +446,7 @@ importers:
         version: 7.5.0
       geist:
         specifier: ^1.7.2
-        version: 1.7.2(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: 1.7.2(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       json-edit-react:
         specifier: ^1.30.2
         version: 1.30.2(react@19.3.0)
@@ -463,8 +463,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(@emotion/is-prop-valid@1.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -542,11 +542,11 @@ importers:
         specifier: workspace:*
         version: link:../lib
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-intl:
         specifier: ^4.14.6
-        version: 4.14.6(@swc/helpers@0.5.23)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 4.14.6(@swc/helpers@0.5.23)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -568,7 +568,7 @@ importers:
     dependencies:
       '@nerdfish/react':
         specifier: ^1.4.2
-        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
+        version: 1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)
       '@nerdfish/utils':
         specifier: ^3.0.1
         version: 3.0.1
@@ -602,10 +602,10 @@ importers:
         version: 0.13.11(typescript@5.9.3)(zod@4.6.5)
       '@vercel/toolbar':
         specifier: ^0.2.7
-        version: 0.2.7(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 0.2.7(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-secure-headers:
         specifier: ^2.2.0
         version: 2.2.0
@@ -704,8 +704,8 @@ importers:
         specifier: workspace:*
         version: link:../next-config
       next:
-        specifier: 16.3.6
-        version: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: 16.3.8
+        version: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -751,7 +751,7 @@ importers:
         version: 1.47.0(react@19.3.0)
       nuqs:
         specifier: ^2.10.1
-        version: 2.10.1(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 2.10.1(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       react-hook-form:
         specifier: ^7.88.0
         version: 7.88.0(react@19.3.0)
@@ -2660,8 +2660,8 @@ packages:
   '@next/env@16.3.5':
     resolution: {integrity: sha512-NWEXVDMqoEo0ktmU6u0sE2Vg0LOcsD7NnOTJNo3/fEaTfsg+F1bMIxuDmQbda4e3yTIQwVdUREF2yIuMOusKtg==}
 
-  '@next/env@16.3.6':
-    resolution: {integrity: sha512-x9Vblze1EbtltQYnNH38xCPWU3TVfBd1eXqA3+w9+BTpedkkdNpAaltXlGQ/nsc1+E0mVTNrtcbX3GoO09zeLQ==}
+  '@next/env@16.3.8':
+    resolution: {integrity: sha512-Al9zqHVV7TJv0eFuOU4U7Lvv74PTih4Ch63sk2xCIpSTkE3udFnaOcnzP2lQVymiL7yS9Cj2iClUXlR3EQ5sEw==}
 
   '@next/eslint-plugin-next@16.3.5':
     resolution: {integrity: sha512-PGfSeItHJ12DH8t+6sEbuMe59NE5rAhCfgk06QKTH2ne9VUL1JlaXdYXY3B8RaiF2SO50rDYvd39TulP6A6xZQ==}
@@ -2672,8 +2672,8 @@ packages:
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-arm64@16.3.6':
-    resolution: {integrity: sha512-E/7GEqaUkt8mk/T8v9lAnrhzR06kdq1ZBkC12F8tAMkdIadwNp3H1KqHynDHrpcTlGCUdq/qu6vUL2aYVyYBdw==}
+  '@next/swc-darwin-arm64@16.3.8':
+    resolution: {integrity: sha512-2JPRMh2nmQG5CiL7cXGL9AGwnPWJQ//cTtAUCT+w511QHk79SYz3LGv/pc5X643B/WEO0rvu3Yww0hqwt3kgeA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -2684,8 +2684,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@16.3.6':
-    resolution: {integrity: sha512-yBE893/nDWTlaiBD1p+qgt7NUen4U5R6FXyH0s67Npq1S3E0cVSef1WIXC2xBRgQvwAvJq6DnS6Y6PrY0cy4Ew==}
+  '@next/swc-darwin-x64@16.3.8':
+    resolution: {integrity: sha512-GZtCCOBKJ4leVIT/Th0llWKhD1ca92lzbQiS5R5ON9QkoiFnilFsebDae1JU2a3HWoKMEmEZWGs1AGLavVM72Q==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -2697,8 +2697,8 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@next/swc-linux-arm64-gnu@16.3.6':
-    resolution: {integrity: sha512-KJDpjBqBPYlvkivmyrp+Qys6k/7ksbqGQvRVc6ZEGfR+cjQxx+nUkJaWmNZJsmoOrqYNbaXByF8wa0lBwDhB3Q==}
+  '@next/swc-linux-arm64-gnu@16.3.8':
+    resolution: {integrity: sha512-O659ygeQYqneJ1fBKMpFxIFqYkYswu8IAS1OCKK/4f3ZgJJm1dRz4fVJZRi/kLLWjnBKnebOePA4WNv+sV1pVA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2711,8 +2711,8 @@ packages:
     os: [linux]
     libc: [musl]
 
-  '@next/swc-linux-arm64-musl@16.3.6':
-    resolution: {integrity: sha512-mqNg2K+hvWskSRb/QM+Ix412DvBsuSF0XV+frTSw5vmoucNnIlynFwKYew8D01bfATErMOM7Bujrf0BA5DRKFA==}
+  '@next/swc-linux-arm64-musl@16.3.8':
+    resolution: {integrity: sha512-dSjKSyWpzxoO1d3DIZZcP4XJcNaKeLmxQMFOiYl5vuBRMmweIqnAhty8tAmRsvTss779cK1FtYnDMj40e4TQlg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2725,8 +2725,8 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@next/swc-linux-x64-gnu@16.3.6':
-    resolution: {integrity: sha512-nFncBNGAYouRHjRVaITs9beZRfhX4ssVwpnvPIAbkZVH6LtGoAVlH4bJ8Cnf9SOo9bsXgPFer/GdHtEE3JNOkw==}
+  '@next/swc-linux-x64-gnu@16.3.8':
+    resolution: {integrity: sha512-lbqOuz3RPRcv+o9msNsJw5x4+Y1ZwPTs6vmL6DCf7i0fZfvng/F59wyeDwqHIvV0mK//RBy/jJkZ+nCKsSMXjQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2739,8 +2739,8 @@ packages:
     os: [linux]
     libc: [musl]
 
-  '@next/swc-linux-x64-musl@16.3.6':
-    resolution: {integrity: sha512-5Mf3cHDGR/Iz0ng2Bj3zUR3p5QS9YK3Hn2QiAfavFmyF48zwThAjpFoiTKNIcOHLYS4zEk+gzyJ/9deQ2ZB8yQ==}
+  '@next/swc-linux-x64-musl@16.3.8':
+    resolution: {integrity: sha512-+316WswI8ScVgZeUd+1KGaXkHhaYQzCjvH/05TZSpJ8zBizb1a4G7DtO7F12jcBIqMOtsz9ji1t48fmKtzqsGA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2752,8 +2752,8 @@ packages:
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-arm64-msvc@16.3.6':
-    resolution: {integrity: sha512-0jkJy0C2kbrJWTk4YLa3xk80pVBpx8FCHJym7CnUfDAXe/FWv5qT7SQJbR0KuemyxaEDlEx5WT4VQJoTW+/9Qw==}
+  '@next/swc-win32-arm64-msvc@16.3.8':
+    resolution: {integrity: sha512-ji0gd4kMYUxO+1fJBIbiBVRCjzG/lloiyCccnlebvb1ZJ5qXCPZqYg4Jl1DrrixnWNMKylzgpmMWx0yNDYXlzw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -2764,8 +2764,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@16.3.6':
-    resolution: {integrity: sha512-/YXjI1e5OXcZ7YpxRwgP/1jAV/SBKTzeVKqN2mk7mLpcICsyn3Gl5+dIfDTJp70M0ccMhyMMRso4v6mPDCGepg==}
+  '@next/swc-win32-x64-msvc@16.3.8':
+    resolution: {integrity: sha512-WcTlaKt/TWkh5kUjdJcUmB1XgZ+1c6fz4Y9fDHL73YNSdGaUWjceeWrrlwF0nv19iABYWC4iAq1oX1w4Bn0vfg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -6304,8 +6304,8 @@ packages:
       sass:
         optional: true
 
-  next@16.3.6:
-    resolution: {integrity: sha512-L+otWM/aQbYTx98aZhgEoMb4bZAXx1YVW4UMA/vuCyCoWG5HJyZUili8QAkqzrcC+5///tsz3s0M+SlyB5bLMw==}
+  next@16.3.8:
+    resolution: {integrity: sha512-U7QEZaTini6wKrb8A8hqLLqYQyCetegKjCpJOyxk642vWoMoU1x5PyZCJFvgYgiptA8xc5j/9xYlZFO7w9Sjmw==}
     engines: {node: '>=20.9.0'}
     hasBin: true
     peerDependencies:
@@ -8723,12 +8723,12 @@ snapshots:
       - react
       - react-dom
 
-  '@clerk/nextjs@7.9.4(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@clerk/nextjs@7.9.4(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@clerk/backend': 3.18.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@clerk/react': 6.16.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@clerk/shared': 4.33.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       server-only: 0.0.1
@@ -8899,11 +8899,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@content-collections/next@0.2.11(@content-collections/core@0.15.3(typescript@5.9.3))(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))':
+  '@content-collections/next@0.2.11(@content-collections/core@0.15.3(typescript@5.9.3))(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))':
     dependencies:
       '@content-collections/core': 0.15.3(typescript@5.9.3)
       '@content-collections/integrations': 0.5.0(@content-collections/core@0.15.3(typescript@5.9.3))
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   '@conventional-changelog/git-client@3.1.0':
     dependencies:
@@ -9711,14 +9711,14 @@ snapshots:
       - typescript
       - vitest
 
-  '@nerdfish/react@1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)':
+  '@nerdfish/react@1.4.2(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(date-fns@4.4.0)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react-is@16.13.1)(react@19.3.0)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.6.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@nerdfish/utils': 3.0.1
       '@radix-ui/react-label': 2.1.11(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@radix-ui/react-slot': 1.3.3(@types/react@19.3.0)(react@19.3.0)
       cmdk: 1.1.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      geist: 1.7.2(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+      geist: 1.7.2(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       input-otp: 1.4.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-aria-components: 1.19.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -9758,7 +9758,7 @@ snapshots:
 
   '@next/env@16.3.5': {}
 
-  '@next/env@16.3.6': {}
+  '@next/env@16.3.8': {}
 
   '@next/eslint-plugin-next@16.3.5(eslint@10.11.0(jiti@2.7.0))':
     dependencies:
@@ -9770,49 +9770,49 @@ snapshots:
   '@next/swc-darwin-arm64@16.3.3':
     optional: true
 
-  '@next/swc-darwin-arm64@16.3.6':
+  '@next/swc-darwin-arm64@16.3.8':
     optional: true
 
   '@next/swc-darwin-x64@16.3.3':
     optional: true
 
-  '@next/swc-darwin-x64@16.3.6':
+  '@next/swc-darwin-x64@16.3.8':
     optional: true
 
   '@next/swc-linux-arm64-gnu@16.3.3':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@16.3.6':
+  '@next/swc-linux-arm64-gnu@16.3.8':
     optional: true
 
   '@next/swc-linux-arm64-musl@16.3.3':
     optional: true
 
-  '@next/swc-linux-arm64-musl@16.3.6':
+  '@next/swc-linux-arm64-musl@16.3.8':
     optional: true
 
   '@next/swc-linux-x64-gnu@16.3.3':
     optional: true
 
-  '@next/swc-linux-x64-gnu@16.3.6':
+  '@next/swc-linux-x64-gnu@16.3.8':
     optional: true
 
   '@next/swc-linux-x64-musl@16.3.3':
     optional: true
 
-  '@next/swc-linux-x64-musl@16.3.6':
+  '@next/swc-linux-x64-musl@16.3.8':
     optional: true
 
   '@next/swc-win32-arm64-msvc@16.3.3':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@16.3.6':
+  '@next/swc-win32-arm64-msvc@16.3.8':
     optional: true
 
   '@next/swc-win32-x64-msvc@16.3.3':
     optional: true
 
-  '@next/swc-win32-x64-msvc@16.3.6':
+  '@next/swc-win32-x64-msvc@16.3.8':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -10897,7 +10897,7 @@ snapshots:
 
   '@uttr/tint@0.1.3': {}
 
-  '@vercel/microfrontends@2.3.6(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@vercel/microfrontends@2.3.6(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@next/env': 16.0.10
       '@types/md5': 2.3.6
@@ -10912,7 +10912,7 @@ snapshots:
       path-to-regexp: 6.3.0
       semver: 7.8.5
     optionalDependencies:
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
     transitivePeerDependencies:
@@ -10927,17 +10927,17 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@vercel/toolbar@0.2.7(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@vercel/toolbar@0.2.7(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@tinyhttp/app': 1.3.0
-      '@vercel/microfrontends': 2.3.6(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@vercel/microfrontends': 2.3.6(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       chokidar: 3.6.0
       execa: 5.1.1
       find-up: 5.0.0
       get-port: 5.1.1
       strip-ansi: 6.0.1
     optionalDependencies:
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
     transitivePeerDependencies:
       - '@sveltejs/kit'
@@ -12283,7 +12283,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fumadocs-core@16.15.13(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.47.0(react@19.3.0))(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(zod@4.6.5):
+  fumadocs-core@16.15.13(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.47.0(react@19.3.0))(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(zod@4.6.5):
     dependencies:
       '@fumari/image-size': 0.1.1
       estree-util-value-to-estree: 3.5.0
@@ -12311,7 +12311,7 @@ snapshots:
       '@types/mdast': 4.0.4
       '@types/react': 19.3.0
       lucide-react: 1.47.0(react@19.3.0)
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       zod: 4.6.5
@@ -12336,9 +12336,9 @@ snapshots:
 
   fuse.js@7.5.0: {}
 
-  geist@1.7.2(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  geist@1.7.2(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
     dependencies:
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   generator-function@2.0.1: {}
 
@@ -13550,7 +13550,7 @@ snapshots:
 
   next-intl-swc-plugin-extractor@4.14.6: {}
 
-  next-intl@4.14.6(@swc/helpers@0.5.23)(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
+  next-intl@4.14.6(@swc/helpers@0.5.23)(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
     dependencies:
       '@eloqnt/config': 0.1.0
       '@eloqnt/format-json': 0.1.0
@@ -13560,16 +13560,16 @@ snapshots:
       '@swc/core': 1.16.2(@swc/helpers@0.5.23)
       icu-minify: 4.14.6
       negotiator: 1.1.0
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-intl-swc-plugin-extractor: 4.14.6
       react: 19.3.0
       use-intl: 4.14.6(react@19.3.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  next-safe-action@8.7.3(next@16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  next-safe-action@8.7.3(next@16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
 
@@ -13606,9 +13606,9 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  next@16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  next@16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
-      '@next/env': 16.3.6
+      '@next/env': 16.3.8
       '@swc/helpers': 0.5.23
       baseline-browser-mapping: 2.11.25
       caniuse-lite: 1.0.30001810
@@ -13617,14 +13617,14 @@ snapshots:
       react-dom: 19.3.0(react@19.3.0)
       styled-jsx: 5.1.6(@babel/core@7.29.7)(react@19.3.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 16.3.6
-      '@next/swc-darwin-x64': 16.3.6
-      '@next/swc-linux-arm64-gnu': 16.3.6
-      '@next/swc-linux-arm64-musl': 16.3.6
-      '@next/swc-linux-x64-gnu': 16.3.6
-      '@next/swc-linux-x64-musl': 16.3.6
-      '@next/swc-win32-arm64-msvc': 16.3.6
-      '@next/swc-win32-x64-msvc': 16.3.6
+      '@next/swc-darwin-arm64': 16.3.8
+      '@next/swc-darwin-x64': 16.3.8
+      '@next/swc-linux-arm64-gnu': 16.3.8
+      '@next/swc-linux-arm64-musl': 16.3.8
+      '@next/swc-linux-x64-gnu': 16.3.8
+      '@next/swc-linux-x64-musl': 16.3.8
+      '@next/swc-win32-arm64-msvc': 16.3.8
+      '@next/swc-win32-x64-msvc': 16.3.8
       '@playwright/test': 1.63.0
       sharp: 0.35.4(@types/node@24.13.6)
     transitivePeerDependencies:
@@ -13679,12 +13679,12 @@ snapshots:
     dependencies:
       esm-env: 1.2.2
 
-  nuqs@2.10.1(next@16.3.6(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
+  nuqs@2.10.1(next@16.3.8(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
     dependencies:
       '@standard-schema/spec': 1.1.0
       react: 19.3.0
     optionalDependencies:
-      next: 16.3.6(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   nypm@0.6.6:
     dependencies:
