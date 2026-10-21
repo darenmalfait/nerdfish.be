@@ -7,12 +7,12 @@ import {
 	memo,
 	type ReactNode,
 	useCallback,
-	useContext,
+	use,
 	useMemo,
 	useState,
 } from 'react'
 
-const colorSchemes = ['light', 'dark']
+const colorSchemes = new Set(['light', 'dark'])
 const defaultThemes = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
 const isServer = typeof window === 'undefined'
@@ -78,7 +78,7 @@ const ThemeScript = memo(
 		})()
 
 		const fallbackColorScheme = (() => {
-			const fallback = colorSchemes.includes(defaultTheme) ? defaultTheme : null
+			const fallback = colorSchemes.has(defaultTheme) ? defaultTheme : null
 
 			if (fallback) {
 				return `if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'${defaultTheme}'`
@@ -99,7 +99,7 @@ const ThemeScript = memo(
 			// MUCH faster to set colorScheme alongside HTML attribute/class
 			// as it only incurs 1 style recalculation rather than 2
 			// This can save over 250ms of work for pages with big DOM
-			if (setColorScheme && !literal && colorSchemes.includes(name)) {
+			if (setColorScheme && !literal && colorSchemes.has(name)) {
 				text += `d.style.colorScheme = '${name}';`
 			}
 
@@ -228,7 +228,7 @@ function ThemeProvider({
 	)
 
 	return (
-		<ThemeContext.Provider value={providerValue}>
+		<ThemeContext value={providerValue}>
 			<ThemeScript
 				{...{
 					forcedTheme,
@@ -238,7 +238,7 @@ function ThemeProvider({
 				}}
 			/>
 			{children}
-		</ThemeContext.Provider>
+		</ThemeContext>
 	)
 }
 
@@ -246,7 +246,7 @@ function ThemeProvider({
 // within functional component
 // const { sessionToken, ...ThemeContext } = useTheme()
 function useTheme(): ThemeContextProps {
-	const context = useContext(ThemeContext)
+	const context = use(ThemeContext)
 
 	if (!context) {
 		throw new Error('You should use useTheme within an ThemeContext')

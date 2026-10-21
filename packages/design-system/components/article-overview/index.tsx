@@ -332,10 +332,7 @@ export function ArticleOverviewContentGrid({
 					}
 
 					return (
-						<li
-							key={article.id}
-							className="col-span-1 transition-all duration-300"
-						>
+						<li key={article.id} className="col-span-1">
 							<ArticleCard href={article.href} title={article.title}>
 								<ArticleCardImage
 									alt={article.title}

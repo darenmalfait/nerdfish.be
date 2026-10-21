@@ -15,7 +15,6 @@ export async function loadZodLocale(locale_: string) {
 }
 
 export function useZodLocale(locale_: string) {
-	// eslint-disable-next-line @nerdfish/conventions/no-use-effect
 	useEffect(() => {
 		void loadZodLocale(locale_)
 	}, [locale_])

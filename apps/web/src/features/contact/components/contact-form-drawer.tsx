@@ -33,7 +33,7 @@ export function ContactFormViaButton() {
 				onClick={() => setContactFormOpen(true)}
 			>
 				{t('openFormLabel')}
-				<ArrowRightIcon className="text-inverted ml-best-friends group-hover:translate-x-sm size-6 transition-all" />
+				<ArrowRightIcon className="text-inverted ml-best-friends group-hover:translate-x-sm size-6 transition-transform" />
 			</MagnetButton>
 
 			<Drawer

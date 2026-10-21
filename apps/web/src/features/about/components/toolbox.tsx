@@ -30,20 +30,17 @@ export function Toolbox() {
 					selectedTags={selectedSkills}
 					onToggleTag={(category) => setSelectedSkills([category])}
 					enabledTags={skills.map((skill) => skill.category).flat()}
-					renderAdditionalItems={() => {
-						if (selectedSkills.length) {
-							return (
-								<Button
-									size="sm"
-									variant="link"
-									onClick={() => setSelectedSkills([])}
-								>
-									{t('clear-filter')}
-								</Button>
-							)
-						}
-						return null
-					}}
+					additionalItems={
+						selectedSkills.length ? (
+							<Button
+								size="sm"
+								variant="link"
+								onClick={() => setSelectedSkills([])}
+							>
+								{t('clear-filter')}
+							</Button>
+						) : null
+					}
 				>
 					<TagFilterTitle>Filter skills by category</TagFilterTitle>
 				</SkillsFilter>

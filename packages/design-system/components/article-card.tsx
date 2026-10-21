@@ -85,7 +85,7 @@ export function ArticleCardImage({
 			onMouseLeave={() => setIsHovering(false)}
 			onMouseEnter={handleHoverStart}
 			className={cn(
-				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus:ring-current',
+				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus-visible:ring-current',
 				category &&
 					cn(getCategoryForeground(category), getCategoryRing(category)),
 			)}
@@ -231,18 +231,19 @@ export function ArticleCard({
 	...props
 }: ArticleCardProps) {
 	return (
-		<article
-			className={cn('group relative w-full outline-none', className)}
-			{...props}
-		>
+		<article className={cn('group relative w-full', className)} {...props}>
 			{href ? (
-				<Link href={href} className="group outline-none" aria-label={title}>
-					<div aria-hidden className="peer relative block w-full outline-none">
+				<Link
+					href={href}
+					className="group focus-visible:outline-none"
+					aria-label={title}
+				>
+					<div aria-hidden className="peer relative block w-full">
 						{children}
 					</div>
 				</Link>
 			) : (
-				<div aria-hidden className="peer relative block w-full outline-none">
+				<div aria-hidden className="peer relative block w-full">
 					{children}
 				</div>
 			)}

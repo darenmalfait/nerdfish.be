@@ -111,7 +111,7 @@ export function TimesheetsSchedule({
 	}
 
 	async function handleDeleteEvent(id: string) {
-		setData(data.filter((e) => e.id !== id))
+		setData((prevData) => prevData.filter((e) => e.id !== id))
 		await onDeleteEvent(id, selectedDate)
 		await setParams({ selectedDate: null, range: null })
 

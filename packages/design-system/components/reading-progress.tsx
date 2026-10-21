@@ -28,7 +28,7 @@ export function ReadingProgress({ offset = 0, title }: ReadingProgressProps) {
 		}
 
 		updateScrollCompletion()
-		window.addEventListener('scroll', updateScrollCompletion)
+		window.addEventListener('scroll', updateScrollCompletion, { passive: true })
 
 		return () => {
 			window.removeEventListener('scroll', updateScrollCompletion)

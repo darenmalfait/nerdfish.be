@@ -17,7 +17,7 @@ import {
 	createContext,
 	type ElementType,
 	type ReactNode,
-	useContext,
+	use,
 	useMemo,
 } from 'react'
 type TagFilterContextProps = {
@@ -25,14 +25,16 @@ type TagFilterContextProps = {
 	enabledTags?: string[]
 	selectedTags?: string[]
 	onToggleTag: (tag: string) => void
-	renderAdditionalItems?: () => ReactNode
+	additionalItems?: ReactNode
 }
+
+const noTags: string[] = []
 
 const TagFilterContext = createContext<TagFilterContextProps | null>(null)
 TagFilterContext.displayName = 'TagFilterContext'
 
 function useTagFilter(): TagFilterContextProps {
-	const context = useContext(TagFilterContext)
+	const context = use(TagFilterContext)
 
 	if (!context) {
 		throw new Error('You should use useTagFilter within an TagFilterContext')
@@ -46,13 +48,8 @@ export type TagFilterTagsProps = {
 }
 
 export function TagFilterTags({ className }: TagFilterTagsProps) {
-	const {
-		selectedTags,
-		tags,
-		enabledTags,
-		onToggleTag,
-		renderAdditionalItems,
-	} = useTagFilter()
+	const { selectedTags, tags, enabledTags, onToggleTag, additionalItems } =
+		useTagFilter()
 
 	return (
 		<ToggleGroup
@@ -78,14 +75,14 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 					</Toggle>
 				)
 			})}
-			{renderAdditionalItems?.()}
+			{additionalItems}
 		</ToggleGroup>
 	)
 }
 
 export interface TagFilterTitleProps extends ComponentProps<'h5'> {
 	as?: ElementType
-	renderAdditionalItems?: () => ReactNode
+	additionalItems?: ReactNode
 }
 
 export function TagFilterTitle({
@@ -122,13 +119,13 @@ export function TagFilterTitle({
 
 export interface TagFilterProps extends TagFilterContextProps {
 	children: ReactNode
-	renderAdditionalItems?: () => ReactNode
+	additionalItems?: ReactNode
 }
 
 export function TagFilter({
-	selectedTags = [],
+	selectedTags = noTags,
 	children,
-	renderAdditionalItems,
+	additionalItems,
 	...tagsProps
 }: TagFilterProps) {
 	return (
@@ -136,10 +133,10 @@ export function TagFilter({
 			value={useMemo(() => {
 				return {
 					selectedTags,
-					renderAdditionalItems,
+					additionalItems,
 					...tagsProps,
 				}
-			}, [renderAdditionalItems, selectedTags, tagsProps])}
+			}, [additionalItems, selectedTags, tagsProps])}
 		>
 			{children}
 			<TagFilterTags className="hidden lg:flex" />

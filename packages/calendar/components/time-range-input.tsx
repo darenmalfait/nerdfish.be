@@ -47,7 +47,7 @@ export function TimeRangeInput({
 		<div
 			className={cn(
 				inputVariants(),
-				'gap-best-friends flex items-center',
+				'gap-best-friends focus-within:ring-ring flex items-center focus-within:ring-[3px]',
 				className,
 			)}
 		>
@@ -58,7 +58,7 @@ export function TimeRangeInput({
 					value={value.start}
 					onChange={(e) => setValue({ ...value, start: e.target.value })}
 					className={cn(
-						'bg-transparent text-sm focus:outline-none',
+						'bg-transparent text-sm focus-visible:outline-none',
 						hideTimeIconClass,
 					)}
 				/>
@@ -72,7 +72,7 @@ export function TimeRangeInput({
 					value={value.end}
 					onChange={(e) => setValue({ ...value, end: e.target.value })}
 					className={cn(
-						'bg-transparent text-sm focus:outline-none',
+						'bg-transparent text-sm focus-visible:outline-none',
 						hideTimeIconClass,
 					)}
 				/>

@@ -134,7 +134,7 @@ export function AppSidebar({ children }: AppSidebarProperties) {
 						<SidebarMenuItem>
 							<div
 								className={cn(
-									'h-9 overflow-hidden transition-all [&>div]:w-full',
+									'h-9 overflow-hidden transition-[margin] [&>div]:w-full',
 									sidebar.open ? '' : '-mx-1',
 								)}
 							>

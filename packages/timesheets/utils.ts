@@ -28,7 +28,7 @@ export function getTimesheetsDates(
 	selectedDate: string | null,
 ): Date[] {
 	if (range) {
-		return [...range].sort(byTime).map((dateString) => new Date(dateString))
+		return range.toSorted(byTime).map((dateString) => new Date(dateString))
 	}
 
 	if (selectedDate) {

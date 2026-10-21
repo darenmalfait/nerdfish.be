@@ -168,7 +168,7 @@ function TimesheetsCalendarDay({
 			onMouseEnter={() => handleMouseEnter(date)}
 			onMouseUp={handleMouseUp}
 			className={cn(
-				'relative flex aspect-square space-x-2 px-3 pt-2 pb-10 text-left font-mono text-lg transition-all duration-100 select-none md:aspect-4/2',
+				'relative flex aspect-square space-x-2 px-3 pt-2 pb-10 text-left font-mono text-lg transition-[background-color,box-shadow] duration-100 select-none md:aspect-4/2',
 				'hover:bg-background-muted',
 				isCurrentMonth && isToday(date) ? 'bg-accent/10' : 'bg-background',
 				!isCurrentMonth &&

@@ -30,7 +30,7 @@ export function ProductCardTitle({ className, ...props }: ComponentProps<'p'>) {
 		<p
 			className={cn(
 				'text-foreground text-md group-hover:text-accent font-semibold',
-				'flex items-center text-base font-semibold transition-all duration-300',
+				'flex items-center text-base font-semibold transition-colors duration-300',
 				className,
 			)}
 			{...props}
@@ -62,7 +62,7 @@ export function ProductCard({
 			<Link
 				className={cn(
 					'gap-x-friends p-friends rounded-base mx-auto flex w-full max-w-4xl',
-					'hover:bg-background-muted focus-within:outline-accent group transition-all',
+					'hover:bg-background-muted focus-within:outline-accent group transition-colors',
 					className,
 				)}
 				{...props}

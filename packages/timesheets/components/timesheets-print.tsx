@@ -41,7 +41,7 @@ function TimeEntries({ timeEntries }: { timeEntries?: TimesheetsRecord[] }) {
 	const groupedEntries = useMemo(() => {
 		if (!timeEntries) return {}
 		return timeEntries
-			.sort((a, b) => {
+			.toSorted((a, b) => {
 				const aDay = new Date(a.start)
 				const bDay = new Date(b.start)
 				return aDay.getTime() - bDay.getTime()

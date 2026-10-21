@@ -23,7 +23,7 @@ The section ID (in parentheses) is the filename prefix used to group rules.
 
 **Description:** Local ESLint / import conventions (`@nerdfish/config`). Clarity
 / comments / review / no bare `useEffect` are in `nerdfish-code-quality` (this
-repo: `@nerdfish/conventions/no-use-effect`, `useMountEffect` from
+repo: `eslint-plugin-react-you-might-not-need-an-effect`, `useMountEffect` from
 `@repo/lib/hooks/use-mount-effect`).
 
 ## 3. Data Layer (data)

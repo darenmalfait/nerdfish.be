@@ -17,7 +17,7 @@ import {
 	type ComponentProps,
 	createContext,
 	type ElementType,
-	useContext,
+	use,
 	useMemo,
 } from 'react'
 interface PriceCardContextProps {
@@ -29,7 +29,7 @@ const PriceCardContext = createContext<PriceCardContextProps | null>(null)
 PriceCardContext.displayName = 'PriceCardContext'
 
 function usePriceCard(): PriceCardContextProps {
-	const context = useContext(PriceCardContext)
+	const context = use(PriceCardContext)
 
 	if (!context) {
 		throw new Error('You should use usePriceCard within an PriceCardContext')

@@ -18,7 +18,7 @@ export function DrawerDialog({
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={onOpenChange}>
-				<DialogContent className="rounded-container bg-background relative overflow-hidden p-0! transition-all">
+				<DialogContent className="rounded-container bg-background relative overflow-hidden p-0!">
 					{children}
 				</DialogContent>
 			</Dialog>
@@ -27,9 +27,7 @@ export function DrawerDialog({
 
 	return (
 		<Drawer repositionInputs={false} open={open} onOpenChange={onOpenChange}>
-			<DrawerContent className="bg-background transition-all">
-				{children}
-			</DrawerContent>
+			<DrawerContent className="bg-background">{children}</DrawerContent>
 		</Drawer>
 	)
 }

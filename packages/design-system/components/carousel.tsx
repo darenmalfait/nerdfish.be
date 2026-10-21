@@ -13,7 +13,7 @@ import {
 	createContext,
 	type KeyboardEvent,
 	useCallback,
-	useContext,
+	use,
 	useMemo,
 	useState,
 } from 'react'
@@ -44,7 +44,7 @@ type CarouselContextProps = {
 const CarouselContext = createContext<CarouselContextProps | null>(null)
 
 function useCarousel() {
-	const context = useContext(CarouselContext)
+	const context = use(CarouselContext)
 
 	if (!context) {
 		throw new Error('useCarousel must be used within a <Carousel />')
@@ -244,7 +244,7 @@ function CarouselItem({
 		>
 			<div
 				data-slot="carousel-item-content"
-				className={cn('scale-95 transition-all duration-300')}
+				className={cn('scale-95 transition-transform duration-300')}
 			>
 				{children}
 			</div>

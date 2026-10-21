@@ -43,7 +43,7 @@ function WorkHeader({ data }: { data: Project }) {
 										<span className={getCategoryForeground(category)}>
 											<ArrowRight
 												className={cn(
-													'ml-best-friends group-hover:translate-x-bff group-hover:text-foreground size-4 text-current transition-all',
+													'ml-best-friends group-hover:translate-x-bff group-hover:text-foreground size-4 text-current transition-[color,translate]',
 												)}
 											/>
 										</span>

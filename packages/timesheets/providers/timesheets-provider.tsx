@@ -12,13 +12,7 @@ import {
 import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
 import { type ActionResponse } from '@repo/lib/utils/form'
 import { getCrypto } from '@repo/lib/utils/misc'
-import {
-	createContext,
-	type ReactNode,
-	useCallback,
-	useContext,
-	useMemo,
-} from 'react'
+import { createContext, type ReactNode, useCallback, use, useMemo } from 'react'
 import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
 import { type TimesheetsRecord, type TimesheetsData } from '../schemas'
 import { TIMEZONE } from '../utils'
@@ -82,7 +76,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 
 			for (const entry of entries) {
 				const { values, selectedDate, range } = entry
-				const sortedRange = range?.sort((a, b) => a.localeCompare(b))
+				const sortedRange = range?.toSorted((a, b) => a.localeCompare(b))
 				const dates = getDates(selectedDate, sortedRange)
 				const baseDate =
 					dates[0] ?? selectedDate ?? format(new Date(), 'yyyy-MM-dd')
@@ -142,7 +136,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 
 	const onCreateEvent: TimesheetsScheduleCreateEvent = useCallback(
 		async ({ values, selectedDate, range }) => {
-			const sortedRange = range?.sort((a, b) => a.localeCompare(b))
+			const sortedRange = range?.toSorted((a, b) => a.localeCompare(b))
 			const dates = getDates(selectedDate, sortedRange)
 			const baseDate =
 				dates[0] ?? selectedDate ?? format(new Date(), 'yyyy-MM-dd')
@@ -273,7 +267,7 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 // within functional component
 // const { sessionToken, ...TimesheetsContext } = useTimesheets()
 export function useTimesheets(): TimesheetsContextProps {
-	const context = useContext(TimesheetsContext)
+	const context = use(TimesheetsContext)
 
 	if (!context) {
 		throw new Error('You should use useTimesheets within an TimesheetsContext')

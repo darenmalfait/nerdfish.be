@@ -57,7 +57,7 @@ export async function BlogOverviewData({
 	const relatedItems =
 		relatedTo &&
 		localizedItems
-			.sort((a, b) => {
+			.toSorted((a, b) => {
 				// I want to get the index of the previous item, to be the first item in the array
 				const relatedToIndex =
 					localizedItems.findIndex((post) => post.slug === relatedTo.slug) - 2

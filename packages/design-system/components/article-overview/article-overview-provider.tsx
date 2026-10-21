@@ -6,7 +6,7 @@ import {
 	createContext,
 	type ReactNode,
 	useCallback,
-	useContext,
+	use,
 	useMemo,
 	useState,
 } from 'react'
@@ -31,7 +31,7 @@ const ArticleOverviewContext =
 ArticleOverviewContext.displayName = 'ArticleOverviewContext'
 
 export function useArticleOverview(): ArticleOverviewContextProps {
-	const context = useContext(ArticleOverviewContext)
+	const context = use(ArticleOverviewContext)
 
 	if (!context) {
 		throw new Error(

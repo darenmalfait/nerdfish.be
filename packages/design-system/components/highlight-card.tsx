@@ -215,12 +215,12 @@ export function HighlightCard({
 	return (
 		<div
 			className={cn(
-				'focus-outline rounded-container bg-background-muted relative w-full max-w-full overflow-hidden outline-none',
+				'rounded-container bg-background-muted relative w-full max-w-full overflow-hidden',
 				className,
 			)}
 			{...props}
 		>
-			<div className="rounded-container block no-underline outline-none lg:bg-transparent">
+			<div className="rounded-container block no-underline lg:bg-transparent">
 				<div className="rounded-container p-friends relative grid w-full grid-cols-4 items-center md:grid-cols-8 lg:grid-cols-12">
 					{children}
 				</div>

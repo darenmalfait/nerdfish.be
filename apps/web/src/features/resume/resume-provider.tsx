@@ -1,12 +1,6 @@
 'use client'
 
-import {
-	createContext,
-	useContext,
-	type ReactNode,
-	useMemo,
-	useState,
-} from 'react'
+import { createContext, use, type ReactNode, useMemo, useState } from 'react'
 import { type Resume } from './types'
 
 interface ResumeContextProps {
@@ -80,7 +74,7 @@ function ResumeProvider({ children }: ResumeProviderProps) {
 	const [resume, setResume] = useState<Partial<Resume>>(initialResume)
 
 	return (
-		<ResumeContext.Provider
+		<ResumeContext
 			value={useMemo(
 				() => ({
 					resume,
@@ -90,7 +84,7 @@ function ResumeProvider({ children }: ResumeProviderProps) {
 			)}
 		>
 			{children}
-		</ResumeContext.Provider>
+		</ResumeContext>
 	)
 }
 
@@ -98,7 +92,7 @@ function ResumeProvider({ children }: ResumeProviderProps) {
 // within functional component
 // const { sessionToken, ...ResumeContext } = useResume()
 function useResume(): ResumeContextProps {
-	const context = useContext(ResumeContext)
+	const context = use(ResumeContext)
 
 	if (!context) {
 		throw new Error('You should use useResume within an ResumeContext')

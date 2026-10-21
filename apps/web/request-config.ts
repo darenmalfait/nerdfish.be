@@ -4,6 +4,11 @@ import { getRequestConfig } from '@repo/i18n/server'
 import { type Locale } from '@repo/i18n/types'
 import { notFound } from 'next/navigation'
 
+const dictionaries = {
+	en: () => import('@repo/i18n/dictionaries/en.json'),
+	nl: () => import('@repo/i18n/dictionaries/nl.json'),
+} satisfies Record<Locale, () => Promise<unknown>>
+
 // Using internationalization in Server Components
 export default getRequestConfig(async ({ requestLocale }) => {
 	const locale = (await requestLocale) as Locale | undefined
@@ -33,7 +38,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
 			}
 		},
 		messages: {
-			...(await import(`@repo/i18n/dictionaries/${locale}.json`)).default,
+			...(await dictionaries[locale]()).default,
 		},
 		locale,
 	}

@@ -24,7 +24,7 @@ function getLocaleSwitchHref(pathname: string): SharedPathname {
 	// Content like /blog/:slug isn't 1:1 across locales — drop to the section root
 	const section = Object.keys(basePathNames)
 		.filter((route) => route !== '/' && pathname.startsWith(`${route}/`))
-		.sort((a, b) => b.length - a.length)[0]
+		.toSorted((a, b) => b.length - a.length)[0]
 
 	return (section as SharedPathname | undefined) ?? '/'
 }

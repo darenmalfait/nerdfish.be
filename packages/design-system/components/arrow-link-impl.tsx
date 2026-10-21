@@ -89,7 +89,7 @@ export function ArrowLink({
 			as={as ?? (href ? Link : 'span')}
 			href={href ?? '#'}
 			className={cn(
-				'space-x-friends text-foreground inline-flex cursor-pointer items-center text-left text-lg font-bold no-underline! transition focus:outline-none',
+				'space-x-friends text-foreground focus-visible:ring-ring inline-flex cursor-pointer items-center text-left text-lg font-bold no-underline! transition outline-none focus-visible:ring-2',
 				className,
 			)}
 			ref={ref as never}
@@ -125,7 +125,7 @@ export function BackLink({
 			as={as ?? (href ? Link : 'span')}
 			href={href}
 			className={cn(
-				'text-foreground space-x-friends flex focus:outline-none',
+				'text-foreground space-x-friends focus-visible:ring-ring flex outline-none focus-visible:ring-2',
 				className,
 			)}
 			ref={ref as never}

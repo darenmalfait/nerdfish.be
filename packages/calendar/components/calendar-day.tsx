@@ -51,13 +51,15 @@ export interface CalendarDayProps extends Omit<
 	onDeleteEvent?: (eventId: string) => void
 }
 
+const noEvents: CalendarEvent[] = []
+
 export function CalendarDay({
 	timeFormat = 24,
 	className,
 
 	// values,
 	value: valueProp,
-	defaultValue = [],
+	defaultValue = noEvents,
 	selectedEvent: selectedEventProp,
 	defaultProject,
 
