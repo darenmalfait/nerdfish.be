@@ -135,75 +135,84 @@ function ResumePageLayout({
 	)
 }
 
+function ResumeAbout({ about }: Pick<ResumeProps, 'about'>) {
+	if (!about?.title) return null
+
+	return (
+		<div className="p-friends rounded-container border-foreground-muted bg-background-muted -mx-friends border">
+			<h3 className="typography-title mb-best-friends print:text-xl">
+				{about.title}
+			</h3>
+			<p className="typography-body text-foreground-muted print:text-sm">
+				{about.description}
+			</p>
+		</div>
+	)
+}
+
+function ResumeExperienceSection({
+	section,
+	className,
+	listClassName,
+}: {
+	section: ResumeProps['experience'] | ResumeProps['education']
+	className?: string
+	listClassName?: string
+}) {
+	if (!section) return null
+
+	return (
+		<div className={className}>
+			<h3 className="typography-title mb-friends">{section.title}</h3>
+			<div className={cn('flex flex-col', listClassName)}>
+				{section.items.map((item, index) => (
+					<ExperienceBlock
+						key={index}
+						when={item.when}
+						where={item.where}
+						what={item.what}
+						role={item.role}
+					/>
+				))}
+			</div>
+		</div>
+	)
+}
+
+function ResumeSkills({ skills }: Pick<ResumeProps, 'skills'>) {
+	if (!skills) return null
+
+	return (
+		<div>
+			<h3 className="typography-title mb-friends">{skills.title}</h3>
+			<div className="gap-best-friends flex flex-col">
+				{skills.items.map((item, index) => (
+					<SkillsBlock key={index} type={item.type} skills={item.skills} />
+				))}
+			</div>
+		</div>
+	)
+}
+
 export function Resume() {
 	const { resume } = useResume()
 
 	return (
 		<>
 			<ResumePageLayout {...resume} showHeader={true}>
-				{resume.about?.title ? (
-					<div className="p-friends rounded-container border-foreground-muted bg-background-muted -mx-friends border">
-						<h3 className="typography-title mb-best-friends print:text-xl">
-							{resume.about.title}
-						</h3>
-						<p className="typography-body text-foreground-muted print:text-sm">
-							{resume.about.description}
-						</p>
-					</div>
-				) : null}
+				<ResumeAbout about={resume.about} />
 				<div className="gap-friends mt-acquaintances print:mt-casual md:gap-casual flex flex-col md:flex-row print:flex-row">
-					{resume.experience ? (
-						<div className="w-full min-w-[55%] flex-1 grow">
-							<h3 className="typography-title mb-friends">
-								{resume.experience.title}
-							</h3>
-							<div className="gap-casual print:gap-friends flex flex-col">
-								{resume.experience.items.map((item, index) => (
-									<ExperienceBlock
-										key={index}
-										when={item.when}
-										where={item.where}
-										what={item.what}
-										role={item.role}
-									/>
-								))}
-							</div>
-						</div>
-					) : null}
+					<ResumeExperienceSection
+						section={resume.experience}
+						className="w-full min-w-[55%] flex-1 grow"
+						listClassName="gap-casual print:gap-friends"
+					/>
 					<div className="gap-acquaintances flex w-full min-w-[45%] flex-col">
-						{resume.skills ? (
-							<div>
-								<h3 className="typography-title mb-friends">
-									{resume.skills.title}
-								</h3>
-								<div className="gap-best-friends flex flex-col">
-									{resume.skills.items.map((item, index) => (
-										<SkillsBlock
-											key={index}
-											type={item.type}
-											skills={item.skills}
-										/>
-									))}
-								</div>
-							</div>
-						) : null}
-						{resume.education ? (
-							<div>
-								<h3 className="typography-title mb-friends">
-									{resume.education.title}
-								</h3>
-								<div className="gap-best-friends pr-casual flex flex-col">
-									{resume.education.items.map((item, index) => (
-										<ExperienceBlock
-											key={index}
-											when={item.when}
-											where={item.where}
-											what={item.what}
-										/>
-									))}
-								</div>
-							</div>
-						) : null}
+						<ResumeSkills skills={resume.skills} />
+						<ResumeExperienceSection
+							section={resume.education}
+							listClassName="gap-best-friends pr-casual"
+						/>
 					</div>
 				</div>
 				<div className="print:bottom-friends print:right-friends hidden print:fixed print:block">

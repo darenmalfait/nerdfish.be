@@ -30,6 +30,12 @@ import {
 	updateEventTime,
 } from '../utils'
 
+function CalendarEventLine({ children }: { children?: string }) {
+	if (!children) return null
+
+	return <span>{children}</span>
+}
+
 export const CALENDARY_DAY_ROW_HEIGHT = 36
 export const CALENDARY_DAY_SLOT_HEIGHT = 9
 
@@ -331,10 +337,8 @@ export function CalendarDay({
 											)}
 											)
 										</span>
-										{event.subtitle ? <span>{event.subtitle}</span> : null}
-										{event.description ? (
-											<span>{event.description}</span>
-										) : null}
+										<CalendarEventLine>{event.subtitle}</CalendarEventLine>
+										<CalendarEventLine>{event.description}</CalendarEventLine>
 									</div>
 									{event.id !== NEW_EVENT_ID ? (
 										<>

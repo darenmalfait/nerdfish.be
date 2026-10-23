@@ -20,20 +20,27 @@ import {
 	use,
 	useMemo,
 } from 'react'
-type TagFilterContextProps = {
-	tags: string[]
-	enabledTags?: string[]
-	selectedTags?: string[]
-	onToggleTag: (tag: string) => void
-	additionalItems?: ReactNode
+type TagFilterContextValue = {
+	state: {
+		tags: string[]
+		enabledTags?: string[]
+		selectedTags: string[]
+	}
+	actions: {
+		toggleTag: (tag: string) => void
+		clear?: () => void
+	}
+	meta: {
+		clearLabel: string
+	}
 }
 
 const noTags: string[] = []
 
-const TagFilterContext = createContext<TagFilterContextProps | null>(null)
+const TagFilterContext = createContext<TagFilterContextValue | null>(null)
 TagFilterContext.displayName = 'TagFilterContext'
 
-function useTagFilter(): TagFilterContextProps {
+function useTagFilter(): TagFilterContextValue {
 	const context = use(TagFilterContext)
 
 	if (!context) {
@@ -47,9 +54,27 @@ export type TagFilterTagsProps = {
 	className?: string
 }
 
+function TagFilterClear() {
+	const {
+		state: { selectedTags },
+		actions: { clear },
+		meta: { clearLabel },
+	} = useTagFilter()
+
+	if (!clear || !selectedTags.length) return null
+
+	return (
+		<Button size="sm" variant="link" onClick={clear}>
+			{clearLabel}
+		</Button>
+	)
+}
+
 export function TagFilterTags({ className }: TagFilterTagsProps) {
-	const { selectedTags, tags, enabledTags, onToggleTag, additionalItems } =
-		useTagFilter()
+	const {
+		state: { selectedTags, tags, enabledTags },
+		actions: { toggleTag },
+	} = useTagFilter()
 
 	return (
 		<ToggleGroup
@@ -60,7 +85,7 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 			)}
 		>
 			{tags.map((tag) => {
-				const isSelected = selectedTags?.includes(tag)
+				const isSelected = selectedTags.includes(tag)
 				const isDisabled = enabledTags?.includes(tag) ? false : !isSelected
 
 				return (
@@ -69,20 +94,19 @@ export function TagFilterTags({ className }: TagFilterTagsProps) {
 						disabled={isDisabled}
 						key={tag}
 						pressed={isSelected}
-						onPressedChange={() => onToggleTag(tag)}
+						onPressedChange={() => toggleTag(tag)}
 					>
 						{tag}
 					</Toggle>
 				)
 			})}
-			{additionalItems}
+			<TagFilterClear />
 		</ToggleGroup>
 	)
 }
 
 export interface TagFilterTitleProps extends ComponentProps<'h5'> {
 	as?: ElementType
-	additionalItems?: ReactNode
 }
 
 export function TagFilterTitle({
@@ -117,26 +141,35 @@ export function TagFilterTitle({
 	)
 }
 
-export interface TagFilterProps extends TagFilterContextProps {
+export interface TagFilterProps {
 	children: ReactNode
-	additionalItems?: ReactNode
+	tags: string[]
+	enabledTags?: string[]
+	selectedTags?: string[]
+	onToggleTag: (tag: string) => void
+	onClear?: () => void
+	clearLabel?: string
 }
 
 export function TagFilter({
-	selectedTags = noTags,
 	children,
-	additionalItems,
-	...tagsProps
+	tags,
+	enabledTags,
+	selectedTags = noTags,
+	onToggleTag,
+	onClear,
+	clearLabel = 'Clear filter',
 }: TagFilterProps) {
 	return (
 		<TagFilterContext
-			value={useMemo(() => {
-				return {
-					selectedTags,
-					additionalItems,
-					...tagsProps,
-				}
-			}, [additionalItems, selectedTags, tagsProps])}
+			value={useMemo(
+				() => ({
+					state: { tags, enabledTags, selectedTags },
+					actions: { toggleTag: onToggleTag, clear: onClear },
+					meta: { clearLabel },
+				}),
+				[tags, enabledTags, selectedTags, onToggleTag, onClear, clearLabel],
+			)}
 		>
 			{children}
 			<TagFilterTags className="hidden lg:flex" />

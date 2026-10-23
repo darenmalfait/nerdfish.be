@@ -9,8 +9,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {
 	type ComponentProps,
-	type ComponentType,
+	lazy,
 	type ReactNode,
+	Suspense,
 	useState,
 } from 'react'
 import {
@@ -19,36 +20,35 @@ import {
 	getCategoryRing,
 } from './category-indicator'
 
-type CursorComponent = ComponentType<{
-	className?: string
-	children?: ReactNode
-}>
+const Cursor = lazy(() =>
+	import('motion-cursor').then((mod) => ({ default: mod.Cursor })),
+)
 
 function ReadMoreCursor({
 	active,
 	readMoreLabel,
-	Cursor,
 }: {
 	active: boolean
 	readMoreLabel: string
-	Cursor: CursorComponent | null
 }) {
-	if (!active || !Cursor) return null
+	if (!active) return null
 
 	return (
-		<Cursor className="group fixed z-50 bg-transparent!">
-			<Button
-				variant="default"
-				render={
-					<div className="flex items-center justify-center">
-						<span className="mr-friends">{readMoreLabel}</span>
-						<ArrowRightIcon className="size-6" />
-					</div>
-				}
-				size="xl"
-				className="bg-blurred! before:bg-background-inverted/90 text-foregrond-inverted border-border border shadow-md before:absolute before:inset-0 before:-z-1 before:content-['']"
-			/>
-		</Cursor>
+		<Suspense fallback={null}>
+			<Cursor className="group fixed z-50 bg-transparent!">
+				<Button
+					variant="default"
+					render={
+						<div className="flex items-center justify-center">
+							<span className="mr-friends">{readMoreLabel}</span>
+							<ArrowRightIcon className="size-6" />
+						</div>
+					}
+					size="xl"
+					className="bg-blurred! before:bg-background-inverted/90 text-foregrond-inverted border-border border shadow-md before:absolute before:inset-0 before:-z-1 before:content-['']"
+				/>
+			</Cursor>
+		</Suspense>
 	)
 }
 
@@ -68,22 +68,13 @@ export function ArticleCardImage({
 	base64Placeholder,
 }: ArticleCardImageProps) {
 	const [isHovering, setIsHovering] = useState(false)
-	const [Cursor, setCursor] = useState<CursorComponent | null>(null)
-
-	function handleHoverStart() {
-		setIsHovering(true)
-		if (Cursor) return
-		void import('motion-cursor').then((mod) => {
-			setCursor(() => mod.Cursor)
-		})
-	}
 
 	if (!src) return null
 
 	return (
 		<div
 			onMouseLeave={() => setIsHovering(false)}
-			onMouseEnter={handleHoverStart}
+			onMouseEnter={() => setIsHovering(true)}
 			className={cn(
 				'rounded-container border-border ring-offset-inverted relative aspect-3/4 w-full overflow-hidden ring-2 ring-transparent ring-offset-2 group-hover:ring-2 group-hover:ring-current group-focus-visible:ring-current',
 				category &&
@@ -104,11 +95,7 @@ export function ArticleCardImage({
 				/>
 			) : null}
 
-			<ReadMoreCursor
-				active={isHovering}
-				readMoreLabel={readMoreLabel}
-				Cursor={Cursor}
-			/>
+			<ReadMoreCursor active={isHovering} readMoreLabel={readMoreLabel} />
 		</div>
 	)
 }

@@ -16,7 +16,7 @@ import { Body } from './work-body'
 
 type WorkContentProps = {
 	data: Project
-	relatedContent?: React.ReactNode
+	children?: React.ReactNode
 }
 
 function WorkHeader({ data }: { data: Project }) {
@@ -95,7 +95,7 @@ function WorkHero({ heroImg }: { heroImg: Project['heroImg'] }) {
 	)
 }
 
-function SidebarWorkContent({ data, relatedContent }: WorkContentProps) {
+function SidebarWorkContent({ data, children }: WorkContentProps) {
 	const { body, summary } = data
 
 	return (
@@ -122,12 +122,12 @@ function SidebarWorkContent({ data, relatedContent }: WorkContentProps) {
 				</article>
 			</Section>
 
-			{relatedContent}
+			{children}
 		</div>
 	)
 }
 
-function FullWorkContent({ data, relatedContent }: WorkContentProps) {
+function FullWorkContent({ data, children }: WorkContentProps) {
 	const { summary, heroImg } = data
 
 	return (
@@ -147,7 +147,7 @@ function FullWorkContent({ data, relatedContent }: WorkContentProps) {
 				</article>
 			</Section>
 
-			{relatedContent}
+			{children}
 		</div>
 	)
 }
@@ -160,9 +160,9 @@ const workContentByLayout: Record<
 	full: FullWorkContent,
 }
 
-function WorkContent({ data, relatedContent }: WorkContentProps) {
+function WorkContent({ data, children }: WorkContentProps) {
 	const Content = workContentByLayout[getWorkLayout(data.category)]
-	return <Content data={data} relatedContent={relatedContent} />
+	return <Content data={data}>{children}</Content>
 }
 
 export { WorkContent }

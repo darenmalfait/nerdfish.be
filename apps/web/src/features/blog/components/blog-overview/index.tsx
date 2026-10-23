@@ -90,15 +90,14 @@ export async function BlogOverviewData({
 	const limitedBlogs = count ? items.slice(0, count) : items
 	const overviewItems = limitedBlogs.map(toArticleFromBlog)
 
+	if (!searchEnabled) {
+		return <BlogOverviewContent {...props} items={overviewItems} />
+	}
+
 	return (
 		<>
-			{searchEnabled ? <JsonLd code={jsonLd} /> : null}
-
-			{searchEnabled ? (
-				<BlogOverviewContentSearchable {...props} items={overviewItems} />
-			) : (
-				<BlogOverviewContent {...props} items={overviewItems} />
-			)}
+			<JsonLd code={jsonLd} />
+			<BlogOverviewContentSearchable {...props} items={overviewItems} />
 		</>
 	)
 }

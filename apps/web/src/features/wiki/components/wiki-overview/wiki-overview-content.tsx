@@ -17,6 +17,7 @@ import {
 	ArticleOverviewSearchContent,
 	ArticleOverviewSearchImage,
 	ArticlesOverviewEmptyState,
+	useArticleOverview,
 } from '@repo/design-system/components/article-overview'
 import {
 	SectionHeader,
@@ -80,9 +81,19 @@ export function ArticleCardTags({
 	)
 }
 
+function WikiOverviewArticleCards() {
+	const {
+		state: { visibleArticles },
+	} = useArticleOverview()
+
+	return visibleArticles.map((article) => (
+		<WikiOverviewArticleCard key={article.id} article={article} />
+	))
+}
+
 function WikiOverviewArticleCard({ article }: { article: Article }) {
 	return (
-		<div className="gap-best-friends mb-casual flex flex-col">
+		<li className="gap-best-friends mb-casual flex flex-col">
 			<ArticleCardTags tags={article.tags} />
 			<ArticleCard href={article.href} className="group/article-card">
 				<ArticleCardTitle className="group-hover/article-card:text-accent line-clamp-2 max-w-3xl transition-colors">
@@ -92,7 +103,7 @@ function WikiOverviewArticleCard({ article }: { article: Article }) {
 					{article.description}
 				</ArticleCardDescription>
 			</ArticleCard>
-		</div>
+		</li>
 	)
 }
 
@@ -129,6 +140,10 @@ export function WikiOverviewContent({
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
 			customFilterFunction={customFilterFunction}
+			readMoreLabel={t('readMore')}
+			readMoreAriaLabel={t('readMoreAbout', {
+				title: header?.title ?? '',
+			})}
 		>
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage
@@ -164,15 +179,9 @@ export function WikiOverviewContent({
 			)}
 
 			{children ?? (
-				<ArticleOverviewContentGrid
-					maxColumns={1}
-					readMoreLabel={t('readMore')}
-					ariaLabel={t('readMoreAbout', {
-						title: header?.title ?? '',
-					})}
-					custumArticleCard={WikiOverviewArticleCard}
-				>
+				<ArticleOverviewContentGrid maxColumns={1}>
 					<ArticlesOverviewEmptyState />
+					<WikiOverviewArticleCards />
 				</ArticleOverviewContentGrid>
 			)}
 

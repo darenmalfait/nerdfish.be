@@ -15,12 +15,38 @@ import { type Product } from 'content-collections'
 import { GlobeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { type ComponentProps, type ReactNode } from 'react'
 import { Body } from '~/features/site/components/body'
 
 type ProductContentLabels = {
 	about: string
 	open: string
 	source: string
+}
+
+function ProductLinkButton({
+	href,
+	variant,
+	children,
+}: {
+	href?: string
+	variant?: ComponentProps<typeof Button>['variant']
+	children: ReactNode
+}) {
+	if (!href) return null
+
+	return (
+		<Button
+			variant={variant}
+			size="lg"
+			render={
+				<Link target="_blank" href={href}>
+					{children}
+				</Link>
+			}
+			className="gap-best-friends flex w-full"
+		/>
+	)
 }
 
 export function ProductContent({
@@ -58,31 +84,14 @@ export function ProductContent({
 					</div>
 					<div className="flex-1 items-stretch">
 						<div className="gap-best-friends flex flex-col">
-							{product.url ? (
-								<Button
-									size="lg"
-									render={
-										<Link target="_blank" href={product.url}>
-											<GlobeIcon className="size-4" />
-											{labels.open}
-										</Link>
-									}
-									className="gap-best-friends flex w-full"
-								/>
-							) : null}
-							{product.sourceUrl ? (
-								<Button
-									variant="secondary"
-									size="lg"
-									render={
-										<Link target="_blank" href={product.sourceUrl}>
-											<GithubIcon className="size-4" />
-											{labels.source}
-										</Link>
-									}
-									className="gap-best-friends flex w-full"
-								/>
-							) : null}
+							<ProductLinkButton href={product.url}>
+								<GlobeIcon className="size-4" />
+								{labels.open}
+							</ProductLinkButton>
+							<ProductLinkButton href={product.sourceUrl} variant="secondary">
+								<GithubIcon className="size-4" />
+								{labels.source}
+							</ProductLinkButton>
 						</div>
 					</div>
 				</div>

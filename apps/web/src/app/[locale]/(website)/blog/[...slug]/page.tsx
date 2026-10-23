@@ -93,14 +93,10 @@ export default async function BlogDetailPage(props: PageProps) {
 	const { post } = await getPageData(slug.join('/'), locale)
 
 	return (
-		<BlogContent
-			relatedContent={
-				<Suspense fallback={null}>
-					<RelatedPosts post={post} />
-				</Suspense>
-			}
-			data={post}
-			locale={locale}
-		/>
+		<BlogContent data={post} locale={locale}>
+			<Suspense fallback={null}>
+				<RelatedPosts post={post} />
+			</Suspense>
+		</BlogContent>
 	)
 }

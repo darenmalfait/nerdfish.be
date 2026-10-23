@@ -76,13 +76,10 @@ export default async function WorkPage(props: {
 	const { work } = await getRouteData(params.slug.join('/'), params.locale)
 
 	return (
-		<WorkContent
-			relatedContent={
-				<Suspense fallback={null}>
-					<RelatedWork work={work} />
-				</Suspense>
-			}
-			data={work}
-		/>
+		<WorkContent data={work}>
+			<Suspense fallback={null}>
+				<RelatedWork work={work} />
+			</Suspense>
+		</WorkContent>
 	)
 }

@@ -19,6 +19,30 @@ export interface ArrowLinkProps {
 	as?: ElementType
 }
 
+type ArrowLinkLabelProps = Pick<ArrowLinkProps, 'children' | 'direction'>
+
+function isLeadingDirection(direction: ArrowLinkProps['direction'] = 'right') {
+	return direction === 'right' || direction === 'up'
+}
+
+export function ArrowLinkLeadingLabel({
+	children,
+	direction,
+}: ArrowLinkLabelProps) {
+	if (!children || !isLeadingDirection(direction)) return null
+
+	return <span className="mr-lg font-bold">{children}</span>
+}
+
+export function ArrowLinkTrailingLabel({
+	children,
+	direction,
+}: ArrowLinkLabelProps) {
+	if (!children || isLeadingDirection(direction)) return null
+
+	return <span className="ml-casual text-xl font-bold">{children}</span>
+}
+
 type ArrowLinkImpl = ComponentType<ArrowLinkProps>
 type BackLinkImpl = ComponentType<
 	{ href: string } & Pick<ArrowLinkProps, 'className' | 'children' | 'as'>
@@ -62,9 +86,9 @@ function StaticArrowLink({
 			onMouseEnter={onIntent}
 			onFocus={onIntent}
 		>
-			{children && (direction === 'right' || direction === 'up') ? (
-				<span className="mr-lg font-bold">{children}</span>
-			) : null}
+			<ArrowLinkLeadingLabel direction={direction}>
+				{children}
+			</ArrowLinkLeadingLabel>
 
 			<div className="p-best-friends relative inline-flex size-14 flex-none items-center justify-center">
 				<span>
@@ -72,9 +96,9 @@ function StaticArrowLink({
 				</span>
 			</div>
 
-			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-casual text-xl font-bold">{children}</span>
-			) : null}
+			<ArrowLinkTrailingLabel direction={direction}>
+				{children}
+			</ArrowLinkTrailingLabel>
 		</Tag>
 	)
 }

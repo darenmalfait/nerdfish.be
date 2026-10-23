@@ -4,6 +4,7 @@
 import {
 	type Article,
 	ArticleOverview,
+	ArticleOverviewArticleCards,
 	ArticleOverviewContentGrid,
 	ArticleOverviewFilter,
 	ArticleOverviewLoadMoreButton,
@@ -54,6 +55,10 @@ export function WorkOverviewContent({
 			searchEnabled={searchEnabled}
 			featuredArticleEnabled={featuredEnabled}
 			customFilterFunction={customFilterFunction}
+			readMoreLabel={t('readMore')}
+			readMoreAriaLabel={t('readMoreAbout', {
+				title: header?.title ?? '',
+			})}
 		>
 			<ArticleOverviewSearch>
 				<ArticleOverviewSearchImage
@@ -89,13 +94,9 @@ export function WorkOverviewContent({
 			)}
 
 			{children ?? (
-				<ArticleOverviewContentGrid
-					readMoreLabel={t('readMore')}
-					ariaLabel={t('readMoreAbout', {
-						title: header?.title ?? '',
-					})}
-				>
+				<ArticleOverviewContentGrid>
 					<ArticlesOverviewEmptyState />
+					<ArticleOverviewArticleCards />
 				</ArticleOverviewContentGrid>
 			)}
 

@@ -3,6 +3,19 @@ import Image from 'next/image'
 import { ImageCredit } from '../image-credit'
 import { type ImageCredit as ImageCreditType } from '~/features/shared/types'
 
+function PortableImageCaption({
+	credit,
+	caption,
+}: {
+	credit?: ImageCreditType
+	caption?: string
+}) {
+	if (credit) return <ImageCredit credit={credit} />
+	if (!caption) return null
+
+	return <p className="text-foreground-muted text-center text-sm">{caption}</p>
+}
+
 function PortableImage({
 	alt = '',
 	src = '',
@@ -20,8 +33,6 @@ function PortableImage({
 	title?: string
 	credit?: ImageCreditType
 }) {
-	const resolvedCaption = caption || title
-
 	return (
 		<div
 			className={cn({
@@ -35,12 +46,7 @@ function PortableImage({
 				height={800}
 				alt={alt}
 			/>
-			{credit ? <ImageCredit credit={credit} /> : null}
-			{!credit && resolvedCaption ? (
-				<p className="text-foreground-muted text-center text-sm">
-					{resolvedCaption}
-				</p>
-			) : null}
+			<PortableImageCaption credit={credit} caption={caption || title} />
 		</div>
 	)
 }

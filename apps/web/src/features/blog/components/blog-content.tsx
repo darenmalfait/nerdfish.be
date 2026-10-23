@@ -23,13 +23,40 @@ import { getBlogPath } from '../utils'
 import { Body } from '~/features/site/components/body'
 import { ImageCredit } from '~/features/site/components/image-credit'
 
+function BlogHeroImage({
+	heroImg,
+	imageBlur,
+}: Pick<Post, 'heroImg' | 'imageBlur'>) {
+	if (!heroImg.src) return null
+
+	return (
+		<div className="mb-acquaintances mx-auto">
+			<div className="rounded-container relative mx-auto aspect-4/3 max-w-7xl overflow-hidden shadow-md">
+				<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
+				{/* TODO: add aria description */}
+				<Image
+					aria-hidden
+					src={heroImg.src}
+					alt={heroImg.alt}
+					placeholder={imageBlur ? 'blur' : undefined}
+					blurDataURL={imageBlur}
+					className="rounded-container absolute inset-0 size-full object-cover"
+					width={900}
+					height={900}
+				/>
+			</div>
+			{heroImg.credit ? <ImageCredit credit={heroImg.credit} /> : null}
+		</div>
+	)
+}
+
 function BlogContent({
 	data,
-	relatedContent,
+	children,
 	locale,
 }: {
 	data: Post
-	relatedContent?: React.ReactNode
+	children?: React.ReactNode
 	locale: Locale
 }) {
 	const { title, date, excerpt, heroImg, body, imageBlur } = data
@@ -99,25 +126,7 @@ function BlogContent({
 						<h1 className="typography-heading mt-0! w-auto">{title}</h1>
 					</header>
 
-					{heroImg.src ? (
-						<div className="mb-acquaintances mx-auto">
-							<div className="rounded-container relative mx-auto aspect-4/3 max-w-7xl overflow-hidden shadow-md">
-								<Skeleton className="rounded-container absolute inset-0 size-full object-cover" />
-								{/* TODO: add aria description */}
-								<Image
-									aria-hidden
-									src={heroImg.src}
-									alt={heroImg.alt}
-									placeholder={imageBlur ? 'blur' : undefined}
-									blurDataURL={imageBlur}
-									className="rounded-container absolute inset-0 size-full object-cover"
-									width={900}
-									height={900}
-								/>
-							</div>
-							{heroImg.credit ? <ImageCredit credit={heroImg.credit} /> : null}
-						</div>
-					) : null}
+					<BlogHeroImage heroImg={heroImg} imageBlur={imageBlur} />
 
 					{body ? (
 						<div className="typography mx-auto max-w-4xl">
@@ -125,7 +134,7 @@ function BlogContent({
 						</div>
 					) : null}
 				</Section>
-				{relatedContent}
+				{children}
 			</article>
 		</>
 	)

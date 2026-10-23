@@ -14,7 +14,11 @@ import {
 	type Ref,
 } from 'react'
 import { ArrowIcon, type ArrowIconVariants } from '../icons'
-import { type ArrowLinkProps } from './arrow-link'
+import {
+	ArrowLinkLeadingLabel,
+	ArrowLinkTrailingLabel,
+	type ArrowLinkProps,
+} from './arrow-link'
 
 const arrowVariants: Record<
 	NonNullable<ArrowIconVariants['direction']>,
@@ -95,9 +99,9 @@ export function ArrowLink({
 			ref={ref as never}
 			animate={state}
 		>
-			{children && (direction === 'right' || direction === 'up') ? (
-				<span className="mr-lg font-bold">{children}</span>
-			) : null}
+			<ArrowLinkLeadingLabel direction={direction}>
+				{children}
+			</ArrowLinkLeadingLabel>
 
 			<div className="p-best-friends relative inline-flex size-14 flex-none items-center justify-center">
 				<motion.span variants={arrowVariants[direction ?? 'right']}>
@@ -105,9 +109,9 @@ export function ArrowLink({
 				</motion.span>
 			</div>
 
-			{children && (direction === 'left' || direction === 'down') ? (
-				<span className="ml-casual text-xl font-bold">{children}</span>
-			) : null}
+			<ArrowLinkTrailingLabel direction={direction}>
+				{children}
+			</ArrowLinkTrailingLabel>
 		</MotionRoot>
 	)
 }

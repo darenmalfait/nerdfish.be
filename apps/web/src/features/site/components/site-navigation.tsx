@@ -23,7 +23,7 @@ import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import { type ComponentPropsWithoutRef, useRef } from 'react'
+import { type ComponentPropsWithoutRef, type ReactNode, useRef } from 'react'
 import { usePathname } from 'routing'
 import {
 	useNavigation,
@@ -144,114 +144,56 @@ function MainNavigationItem({
 	)
 }
 
-const socialLinkClassName = 'text-xs'
+function SocialLink({
+	href,
+	label,
+	children,
+}: {
+	href?: string
+	label: string
+	children: ReactNode
+}) {
+	if (!href) return null
+
+	return (
+		<li>
+			<Button
+				variant="secondary"
+				className="text-xs"
+				render={
+					<Link aria-label={label} href={href} target="_blank">
+						{children}
+					</Link>
+				}
+			/>
+		</li>
+	)
+}
 
 export function SocialLinks() {
+	const t = useTranslations('global.socials')
+
 	return (
-		<nav aria-label="Social Media">
+		<nav aria-label={t('label')}>
 			<ul className="gap-best-friends flex flex-row items-center">
-				{socials.twitter ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="Twitter feed"
-									href={socials.twitter}
-									target="_blank"
-								>
-									Twitter
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
-				{socials.bluesky ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="Bluesky feed"
-									href={socials.bluesky}
-									target="_blank"
-								>
-									Bluesky
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
-				{socials.facebook ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="Facebook page"
-									href={socials.facebook}
-									target="_blank"
-								>
-									Facebook
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
-				{socials.instagram ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="Instagram"
-									href={socials.instagram}
-									target="_blank"
-								>
-									Instagram
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
-				{socials.linkedIn ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="LinkedIn profile"
-									href={socials.linkedIn}
-									target="_blank"
-								>
-									LinkedIn
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
-				{socials.github ? (
-					<li>
-						<Button
-							variant="secondary"
-							className={socialLinkClassName}
-							render={
-								<Link
-									aria-label="Github Repository"
-									href={socials.github}
-									target="_blank"
-								>
-									Github
-								</Link>
-							}
-						/>
-					</li>
-				) : null}
+				<SocialLink href={socials.twitter} label={t('twitter')}>
+					Twitter
+				</SocialLink>
+				<SocialLink href={socials.bluesky} label={t('bluesky')}>
+					Bluesky
+				</SocialLink>
+				<SocialLink href={socials.facebook} label={t('facebook')}>
+					Facebook
+				</SocialLink>
+				<SocialLink href={socials.instagram} label={t('instagram')}>
+					Instagram
+				</SocialLink>
+				<SocialLink href={socials.linkedIn} label={t('linkedIn')}>
+					LinkedIn
+				</SocialLink>
+				<SocialLink href={socials.github} label={t('github')}>
+					Github
+				</SocialLink>
 			</ul>
 		</nav>
 	)

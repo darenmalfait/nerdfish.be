@@ -18,12 +18,7 @@ import { nonNullable } from '@repo/lib/utils/array'
 import { cn } from '@repo/lib/utils/class'
 import { NewspaperIcon, SearchIcon } from 'lucide-react'
 import Image from 'next/image'
-import {
-	type ComponentType,
-	type ComponentProps,
-	type ReactNode,
-	type ElementType,
-} from 'react'
+import { type ComponentProps, type ReactNode, type ElementType } from 'react'
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -46,6 +41,8 @@ import {
 	ArticleOverviewProvider,
 	useArticleOverview,
 } from './article-overview-provider'
+
+export { useArticleOverview }
 import { type Article } from './types'
 
 export type * from './types'
@@ -59,7 +56,9 @@ export function ArticleOverviewSearch({
 	className,
 	...props
 }: ArticleOverviewSearchProps) {
-	const { searchEnabled } = useArticleOverview()
+	const {
+		meta: { searchEnabled },
+	} = useArticleOverview()
 
 	if (!searchEnabled) return null
 
@@ -115,7 +114,10 @@ export function ArticleOverviewSearchContent({
 	className,
 	...props
 }: ArticleOverviewSearchContentProps) {
-	const { filter, setFilter } = useArticleOverview()
+	const {
+		state: { filter },
+		actions: { setFilter },
+	} = useArticleOverview()
 
 	return (
 		<div
@@ -164,12 +166,9 @@ export function ArticleOverviewFilter({
 	...props
 }: ArticleOverviewFilterProps) {
 	const {
-		searchEnabled,
-		articles,
-		filter,
-		tags,
-		toggleFilter,
-		featuredArticleEnabled,
+		state: { articles, filter, tags },
+		actions: { toggleFilter },
+		meta: { searchEnabled, featuredArticleEnabled },
 	} = useArticleOverview()
 
 	if (!searchEnabled) return null
@@ -208,17 +207,12 @@ export function ArticleOverviewLoadMoreButton({
 	className,
 	...props
 }: ArticleOverviewLoadMoreButtonProps) {
-	const { filter, featuredArticleEnabled, articles, loadMore, itemsToShow } =
-		useArticleOverview()
+	const {
+		state: { hasMore },
+		actions: { loadMore },
+	} = useArticleOverview()
 
-	const isSearching = filter.length > 0
-
-	const hasMorePosts =
-		isSearching || !featuredArticleEnabled
-			? itemsToShow < articles.length
-			: itemsToShow < articles.length - 1
-
-	if (!hasMorePosts) return null
+	if (!hasMore) return null
 
 	return (
 		<div
@@ -232,33 +226,16 @@ export function ArticleOverviewLoadMoreButton({
 	)
 }
 
-export interface FeaturedArticleProps extends Omit<
-	ComponentProps<typeof HighlightCard>,
-	'title'
-> {
-	article?: Article
-	readMoreLabel?: string
-	ariaLabel?: string
-}
+function FeaturedArticle() {
+	const {
+		state: { featuredArticle: article },
+		meta: { readMoreLabel, readMoreAriaLabel },
+	} = useArticleOverview()
 
-const FeaturedArticle = ({
-	article,
-	readMoreLabel,
-	ariaLabel,
-	className,
-	...props
-}: FeaturedArticleProps) => {
-	const { featuredArticleEnabled, filter } = useArticleOverview()
-
-	if (!featuredArticleEnabled || !article) return null
-	if (filter.length > 0) return null
+	if (!article) return null
 
 	return (
-		<HighlightCard
-			className={cn('mb-acquaintances', className)}
-			title={article.title}
-			{...props}
-		>
+		<HighlightCard className="mb-acquaintances" title={article.title}>
 			<HighlightCardContent>
 				<HighlightCardCategory value={article.category} />
 				<HighlightCardTitle>{article.title}</HighlightCardTitle>
@@ -268,9 +245,9 @@ const FeaturedArticle = ({
 				<HighlightCardCTA
 					category={article.category}
 					href={article.href}
-					aria-label={ariaLabel}
+					aria-label={readMoreAriaLabel}
 				>
-					{readMoreLabel ?? 'Read more'}
+					{readMoreLabel}
 				</HighlightCardCTA>
 			</HighlightCardContent>
 			<HighlightCardImage
@@ -282,40 +259,17 @@ const FeaturedArticle = ({
 }
 
 export interface ArticleOverviewContentGridProps extends ComponentProps<'div'> {
-	readMoreLabel?: string
-	ariaLabel?: string
 	maxColumns?: number
-	custumArticleCard?: ComponentType<{ article: Article }>
 }
 
 export function ArticleOverviewContentGrid({
 	children,
-	readMoreLabel = 'Read more',
-	ariaLabel = 'Read more about',
 	maxColumns = 2,
-	custumArticleCard: CustomArticleCard,
 	...props
 }: ArticleOverviewContentGridProps) {
-	const { articles, featuredArticleEnabled, filter, itemsToShow } =
-		useArticleOverview()
-
-	const isSearching = filter.length > 0
-	const featured = articles.length > 0 ? articles[0] : undefined
-
-	const filteredArticles =
-		isSearching || !featuredArticleEnabled
-			? articles
-			: articles.filter((p) => p.id !== featured?.id)
-
-	const articlesToShow = filteredArticles.slice(0, itemsToShow)
-
 	return (
 		<div {...props}>
-			<FeaturedArticle
-				ariaLabel={ariaLabel}
-				readMoreLabel={readMoreLabel}
-				article={featured}
-			/>
+			<FeaturedArticle />
 
 			<ul
 				className={cn(
@@ -326,36 +280,36 @@ export function ArticleOverviewContentGrid({
 				)}
 			>
 				{children}
-				{articlesToShow.map((article) => {
-					if (CustomArticleCard) {
-						return <CustomArticleCard key={article.id} article={article} />
-					}
-
-					return (
-						<li key={article.id} className="col-span-1">
-							<ArticleCard href={article.href} title={article.title}>
-								<ArticleCardImage
-									alt={article.title}
-									src={article.image?.src}
-									category={article.category}
-									readMoreLabel={readMoreLabel}
-									base64Placeholder={article.base64Placeholder}
-								/>
-								<ArticleCardContent>
-									<ArticleCardCategory>{article.category}</ArticleCardCategory>
-									<ArticleCardTitle>{article.title}</ArticleCardTitle>
-
-									<ArticleCardDescription>
-										{article.description}
-									</ArticleCardDescription>
-								</ArticleCardContent>
-							</ArticleCard>
-						</li>
-					)
-				})}
 			</ul>
 		</div>
 	)
+}
+
+export function ArticleOverviewArticleCards() {
+	const {
+		state: { visibleArticles },
+		meta: { readMoreLabel },
+	} = useArticleOverview()
+
+	return visibleArticles.map((article) => (
+		<li key={article.id} className="col-span-1">
+			<ArticleCard href={article.href} title={article.title}>
+				<ArticleCardImage
+					alt={article.title}
+					src={article.image?.src}
+					category={article.category}
+					readMoreLabel={readMoreLabel}
+					base64Placeholder={article.base64Placeholder}
+				/>
+				<ArticleCardContent>
+					<ArticleCardCategory>{article.category}</ArticleCardCategory>
+					<ArticleCardTitle>{article.title}</ArticleCardTitle>
+
+					<ArticleCardDescription>{article.description}</ArticleCardDescription>
+				</ArticleCardContent>
+			</ArticleCard>
+		</li>
+	))
 }
 
 export interface ArticlesOverviewEmptyStateProps extends ComponentProps<'div'> {
@@ -373,7 +327,11 @@ export function ArticlesOverviewEmptyState({
 	className,
 	...props
 }: ArticlesOverviewEmptyStateProps) {
-	const { resetFilter, articles, searchEnabled } = useArticleOverview()
+	const {
+		state: { articles },
+		actions: { resetFilter },
+		meta: { searchEnabled },
+	} = useArticleOverview()
 
 	if (!searchEnabled) return null
 	if (articles.length > 0) return null

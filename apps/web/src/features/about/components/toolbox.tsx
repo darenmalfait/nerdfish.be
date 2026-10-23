@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@nerdfish/react/button'
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
 import { useTranslations } from '@repo/i18n/client'
 import { useState } from 'react'
@@ -30,17 +29,8 @@ export function Toolbox() {
 					selectedTags={selectedSkills}
 					onToggleTag={(category) => setSelectedSkills([category])}
 					enabledTags={skills.map((skill) => skill.category).flat()}
-					additionalItems={
-						selectedSkills.length ? (
-							<Button
-								size="sm"
-								variant="link"
-								onClick={() => setSelectedSkills([])}
-							>
-								{t('clear-filter')}
-							</Button>
-						) : null
-					}
+					onClear={() => setSelectedSkills([])}
+					clearLabel={t('clear-filter')}
 				>
 					<TagFilterTitle>Filter skills by category</TagFilterTitle>
 				</SkillsFilter>
