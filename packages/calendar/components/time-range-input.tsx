@@ -7,7 +7,8 @@ import { ArrowRightIcon, ClockIcon } from 'lucide-react'
 import { useMemo } from 'react'
 import { differenceInMinutes, parse } from '../utils'
 
-const hideTimeIconClass = '[&::-webkit-calendar-picker-indicator]:hidden'
+const HIDE_TIME_ICON_CLASS = '[&::-webkit-calendar-picker-indicator]:hidden'
+const EMPTY_RANGE = { start: '', end: '' }
 
 export function TimeRangeInput({
 	value: valueProp,
@@ -18,7 +19,7 @@ export function TimeRangeInput({
 	onChange: (value: { start: string; end: string }) => void
 	className?: string
 }) {
-	const [value = { start: '', end: '' }, setValue] = useControllableState<{
+	const [value = EMPTY_RANGE, setValue] = useControllableState<{
 		start: string
 		end: string
 	}>({
@@ -59,7 +60,7 @@ export function TimeRangeInput({
 					onChange={(e) => setValue({ ...value, start: e.target.value })}
 					className={cn(
 						'bg-transparent text-sm focus-visible:outline-none',
-						hideTimeIconClass,
+						HIDE_TIME_ICON_CLASS,
 					)}
 				/>
 			</div>
@@ -73,7 +74,7 @@ export function TimeRangeInput({
 					onChange={(e) => setValue({ ...value, end: e.target.value })}
 					className={cn(
 						'bg-transparent text-sm focus-visible:outline-none',
-						hideTimeIconClass,
+						HIDE_TIME_ICON_CLASS,
 					)}
 				/>
 				<span className="text-muted text-xs font-normal">{duration}</span>

@@ -9,10 +9,12 @@ type UseInViewOptions = {
 	amount?: number
 }
 
+const DEFAULT_OPTIONS: UseInViewOptions = {}
+
 /** Native IntersectionObserver stand-in for motion/react useInView */
 export function useInView(
 	ref: RefObject<Element | null>,
-	{ once = false, amount = 0 }: UseInViewOptions = {},
+	{ once = false, amount = 0 }: UseInViewOptions = DEFAULT_OPTIONS,
 ) {
 	const [inView, setInView] = useState(false)
 

@@ -66,18 +66,18 @@ export function TimesheetsSchedule({
 	}
 
 	useMountEffect(() => {
-		if (scrollRef.current) {
-			const currentHour = new Date().getHours()
+		if (!scrollRef.current) return
 
-			if (currentHour >= 12) {
-				scrollRef.current.scrollTo({
-					top: scrollRef.current.scrollHeight,
-				})
-			} else {
-				scrollRef.current.scrollTo({
-					top: CALENDARY_DAY_ROW_HEIGHT * 6,
-				})
-			}
+		const currentHour = new Date().getHours()
+
+		if (currentHour >= 12) {
+			scrollRef.current.scrollTo({
+				top: scrollRef.current.scrollHeight,
+			})
+		} else {
+			scrollRef.current.scrollTo({
+				top: CALENDARY_DAY_ROW_HEIGHT * 6,
+			})
 		}
 	})
 

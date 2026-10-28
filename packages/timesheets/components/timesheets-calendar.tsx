@@ -272,9 +272,9 @@ export function TimesheetsCalendar({
 					{format(day, 'EEE').toUpperCase()}
 				</div>
 			))}
-			{calendarDays.map((date, index) => (
+			{calendarDays.map((date) => (
 				<TimesheetsCalendarDay
-					key={index.toString()}
+					key={date.toISOString()}
 					date={date}
 					data={timesheets}
 					localRange={localRange}

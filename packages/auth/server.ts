@@ -2,7 +2,7 @@ import 'server-only'
 
 import { isAuthEnabled } from './enabled'
 
-const devUser = {
+const DEV_USER = {
 	id: 'dev-user',
 	firstName: 'Dev',
 	lastName: 'User',
@@ -13,7 +13,7 @@ const devUser = {
 
 export async function auth() {
 	if (!isAuthEnabled()) {
-		return { userId: devUser.id, redirectToSignIn: () => null }
+		return { userId: DEV_USER.id, redirectToSignIn: () => null }
 	}
 
 	const { auth: clerkAuth } = await import('@clerk/nextjs/server')
@@ -22,7 +22,7 @@ export async function auth() {
 
 export async function currentUser() {
 	if (!isAuthEnabled()) {
-		return devUser
+		return DEV_USER
 	}
 
 	const { currentUser: clerkCurrentUser } = await import('@clerk/nextjs/server')

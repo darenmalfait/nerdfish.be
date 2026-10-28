@@ -4,7 +4,7 @@ type TableOfContentsProperties = {
 	data: string
 }
 
-export const TableOfContents = ({ data }: TableOfContentsProperties) => {
+export function TableOfContents({ data }: TableOfContentsProperties) {
 	const toc = getTableOfContents(data)
 
 	return (

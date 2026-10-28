@@ -20,6 +20,8 @@ import {
 import { WikiOverviewContentSearchable } from './wiki-overview-content-searchable'
 import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
+const SKELETON_KEYS = ['skeleton-1', 'skeleton-2']
+
 function isSameItem(item: PartialDeep<Wiki>, relatedTo?: PartialDeep<Wiki>) {
 	return item.slug === relatedTo?.slug
 }
@@ -92,8 +94,8 @@ export async function WikiOverview(props: WikiOverviewProps) {
 				fallback={
 					<WikiOverviewContent {...props} items={[]}>
 						<ArticleOverviewContentGrid>
-							{Array.from({ length: 2 }).map((_, i) => (
-								<li key={i} className="col-span-4">
+							{SKELETON_KEYS.map((key) => (
+								<li key={key} className="col-span-4">
 									<ArticleCard>
 										<ArticleCardContent>
 											<ArticleCardCategory className="w-16">

@@ -16,23 +16,23 @@ export function TimesheetsDaySelect({ className }: TimesheetsDaySelectProps) {
 	const currentDate = getTimesheetsDates(range, selectedDate)
 
 	const handleSelectPrevDay = () => {
-		if (currentDate[0]) {
-			const prevDay = new TZDate(subDays(currentDate[0], 1), TIMEZONE)
-			return setParams({
-				selectedDate: formatISO(prevDay, { representation: 'date' }),
-				range: null,
-			})
-		}
+		if (!currentDate[0]) return
+
+		const prevDay = new TZDate(subDays(currentDate[0], 1), TIMEZONE)
+		return setParams({
+			selectedDate: formatISO(prevDay, { representation: 'date' }),
+			range: null,
+		})
 	}
 
 	const handleSelectNextDay = () => {
-		if (currentDate[0]) {
-			const nextDay = new TZDate(addDays(currentDate[0], 1), TIMEZONE)
-			return setParams({
-				selectedDate: formatISO(nextDay, { representation: 'date' }),
-				range: null,
-			})
-		}
+		if (!currentDate[0]) return
+
+		const nextDay = new TZDate(addDays(currentDate[0], 1), TIMEZONE)
+		return setParams({
+			selectedDate: formatISO(nextDay, { representation: 'date' }),
+			range: null,
+		})
 	}
 
 	useHotkeys('arrowLeft', handleSelectPrevDay)

@@ -25,6 +25,7 @@ export function FaqItem({
 	icon,
 	id: idProp,
 	iconPosition,
+	className,
 	...props
 }: FaqItemProps) {
 	const id = useId()
@@ -35,6 +36,7 @@ export function FaqItem({
 			value={idProp ?? id}
 			className={cn(
 				'group/accordion-item border-border bg-background-muted rounded-container mx-auto p-0!',
+				className,
 			)}
 		>
 			<AccordionTrigger className={cn('p-acquaintances md:p-proximity-3!')}>

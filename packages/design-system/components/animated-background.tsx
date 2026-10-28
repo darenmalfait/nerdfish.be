@@ -141,8 +141,8 @@ export function AnimatedBackground({
 	if (!children) return null
 
 	// No DOM wrapper — must stay a transparent parent of <li> (ul > span breaks axe list rules).
-	// eslint-disable-next-line @nerdfish/conventions/map-transformer-name
-	return Children.map(children, (child: ReactElement, index) => {
+	// eslint-disable-next-line @nerdfish/conventions/map-transformer-name, react-x/no-children-map -- wraps arbitrary children
+	return Children.map(children, (child: ReactElement) => {
 		const id = (child as ReactElement<{ 'data-id': string }>).props['data-id']
 
 		const interactionProps = enableHover
@@ -160,10 +160,10 @@ export function AnimatedBackground({
 					onFocusCapture: handleIntent,
 				}
 
+		// eslint-disable-next-line react-x/no-clone-element -- injects hover handlers without a wrapper element
 		return cloneElement(
 			child,
 			{
-				key: index,
 				// @ts-expect-error - cloneElement className merge
 				className: cn(
 					'relative inline-flex',

@@ -1,1 +1,3 @@
-export const Toolbar = () => null
+export function Toolbar() {
+	return null
+}

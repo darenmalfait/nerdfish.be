@@ -2,10 +2,10 @@ import { stripPreSlash } from '@repo/lib/utils/string'
 import { ExternalLinkIcon } from 'lucide-react'
 import Link from 'next/link'
 
-const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
+const HREF_PARAMETERS = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
 
 function PortableLink({ href, children }: { href?: string; children: string }) {
-	const isExternal = hrefParameters.some((hrefParameter) =>
+	const isExternal = HREF_PARAMETERS.some((hrefParameter) =>
 		href?.startsWith(hrefParameter),
 	)
 	const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`

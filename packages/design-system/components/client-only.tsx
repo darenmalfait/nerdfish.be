@@ -1,5 +1,5 @@
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
-import { createElement, Fragment, type ReactNode, useState } from 'react'
+import { type ReactNode, useState } from 'react'
 
 /** React hook that returns true if the component has mounted client-side */
 export function useClientOnly() {
@@ -20,5 +20,5 @@ export function ClientOnly({ children }: { children: ReactNode }) {
 		return null
 	}
 
-	return createElement(Fragment, { children })
+	return children
 }

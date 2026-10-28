@@ -10,7 +10,7 @@ type LlmsEntry = {
 	href: string
 }
 
-const staticPages: LlmsEntry[] = [
+const STATIC_PAGES: LlmsEntry[] = [
 	{
 		title: 'Home',
 		summary:
@@ -86,7 +86,7 @@ export async function buildLlmsTxt(): Promise<string> {
 		'',
 		'## Pages',
 		'',
-		...staticPages.map((entry) => formatEntry(baseUrl, entry)),
+		...STATIC_PAGES.map((entry) => formatEntry(baseUrl, entry)),
 		'',
 		'## Blog',
 		'',

@@ -17,7 +17,7 @@ const CSVImporter = dynamic(
 	},
 )
 
-const template = {
+const TEMPLATE = {
 	columns: [
 		{
 			name: 'Started At',
@@ -122,7 +122,7 @@ export function ImportTimeEntriesButton() {
 				modalOnCloseTriggered={() => setImporting(false)}
 				className="w-full"
 				onComplete={handleComplete}
-				template={template}
+				template={TEMPLATE}
 			/>
 		</div>
 	)

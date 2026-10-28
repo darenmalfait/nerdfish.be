@@ -56,8 +56,11 @@ export function ImageGrid({ items, className, ref, ...props }: ImageGridProps) {
 				return (
 					<GridCard
 						style={{ animationDelay: `${i * 0.2}s` }}
-						key={`${item.image.alt} ${i}`}
-						className={cn(getGridItemClassName(i), 'animate-slide-left-in')}
+						key={item.image.src}
+						className={cn(
+							getGridItemClassName(i),
+							'animate-slide-left-in motion-reduce:animate-none',
+						)}
 					>
 						<ImageGridContent {...item} />
 					</GridCard>

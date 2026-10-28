@@ -21,6 +21,8 @@ import {
 import { WorkOverviewContentSearchable } from './work-overview-content-searchable'
 import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
+const SKELETON_KEYS = ['skeleton-1', 'skeleton-2']
+
 function isSameItem(
 	item: PartialDeep<Project>,
 	relatedTo?: PartialDeep<Project>,
@@ -101,8 +103,8 @@ export async function WorkOverview(props: WorkOverviewProps) {
 							<Skeleton className="mb-acquaintances rounded-container aspect-video h-full" />
 						) : null}
 						<ArticleOverviewContentGrid>
-							{Array.from({ length: 2 }).map((_, i) => (
-								<li key={i} className="col-span-4">
+							{SKELETON_KEYS.map((key) => (
+								<li key={key} className="col-span-4">
 									<ArticleCard>
 										<ArticleCardImage alt="" />
 										<ArticleCardContent>

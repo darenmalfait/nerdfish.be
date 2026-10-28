@@ -60,11 +60,11 @@ function TimeEntries({ timeEntries }: { timeEntries?: TimesheetsRecord[] }) {
 		<>
 			{Object.entries(groupedEntries).map(([project, entries], i) => {
 				return (
-					<div key={`${project}-${i}`}>
+					<div key={project}>
 						<div className="col-span-3">{project}</div>
-						{entries.map((entry, j) => (
+						{entries.map((entry) => (
 							<Row
-								key={`${entry.start}${i}-${j}}`}
+								key={entry.id ?? `${entry.start}-${entry.end}`}
 								day={new Date(entry.start).toLocaleDateString('nl-BE', {
 									day: '2-digit',
 									month: '2-digit',

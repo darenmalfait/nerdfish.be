@@ -35,7 +35,7 @@ type TagFilterContextValue = {
 	}
 }
 
-const noTags: string[] = []
+const NO_TAGS: string[] = []
 
 const TagFilterContext = createContext<TagFilterContextValue | null>(null)
 TagFilterContext.displayName = 'TagFilterContext'
@@ -112,12 +112,16 @@ export interface TagFilterTitleProps extends ComponentProps<'h5'> {
 export function TagFilterTitle({
 	children,
 	as,
+	className,
 	...props
 }: TagFilterTitleProps) {
 	const Element = as ?? 'h5'
 	return (
 		<Element
-			className="mb-friends gap-best-friends flex items-center justify-start"
+			className={cn(
+				'mb-friends gap-best-friends flex items-center justify-start',
+				className,
+			)}
 			{...props}
 		>
 			<span className="hidden lg:block">{children}</span>
@@ -155,7 +159,7 @@ export function TagFilter({
 	children,
 	tags,
 	enabledTags,
-	selectedTags = noTags,
+	selectedTags = NO_TAGS,
 	onToggleTag,
 	onClear,
 	clearLabel = 'Clear filter',

@@ -44,7 +44,11 @@ function MainNavigationSubItem({
 		<NavigationMenuItem className="w-full">
 			<NavigationMenuLink
 				render={
-					<Link className="p-0!" href={`/${stripPreSlash(href)}`} {...props}>
+					<Link
+						className={cn('p-0!', className)}
+						href={`/${stripPreSlash(href)}`}
+						{...props}
+					>
 						<Item className="p-best-friends!">
 							<ItemContent>
 								<ItemTitle>{label}</ItemTitle>

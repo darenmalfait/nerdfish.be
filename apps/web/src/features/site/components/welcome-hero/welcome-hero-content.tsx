@@ -19,7 +19,7 @@ export type WelcomeHeroContentProps = {
 	className?: string
 }
 
-const bars = [
+const BARS = [
 	{
 		className: 'top-0 h-[35%] bg-accent animate-welcome-hero-slice-right',
 	},
@@ -36,13 +36,13 @@ const bars = [
 function LogoWithBars() {
 	return (
 		<div className="relative w-full max-w-7xl overflow-hidden">
-			<div className="animate-welcome-hero-logo">
+			<div className="animate-welcome-hero-logo motion-reduce:animate-none">
 				<Logo className="text-foreground h-auto w-full" aria-hidden />
 			</div>
 
-			{bars.map((bar, i) => (
+			{BARS.map((bar) => (
 				<div
-					key={i}
+					key={bar.className}
 					aria-hidden
 					className={cn(
 						'pointer-events-none absolute inset-x-0 z-10 w-full',

@@ -4,7 +4,7 @@ import { cn } from '@repo/lib/utils/class'
 import { AnimatePresence, motion } from 'motion/react'
 import { type ReactNode } from 'react'
 
-const variants = {
+const VARIANTS = {
 	initial: { opacity: 0, y: '10%', scale: 0.1 },
 	animate: { opacity: 1, y: 0, scale: 1 },
 	exit: { opacity: 0, y: '10%', scale: 0.1 },
@@ -29,7 +29,7 @@ export function TestimonialsMotionFrame({
 				className={cn('flex w-full flex-col items-center justify-center', {
 					'min-h-[80vh]': variant !== 'secondary',
 				})}
-				variants={variants}
+				variants={VARIANTS}
 				transition={{
 					type: 'spring',
 					stiffness: 200,

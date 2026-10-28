@@ -57,7 +57,7 @@ export interface CalendarDayProps extends Omit<
 	onDeleteEvent?: (eventId: string) => void
 }
 
-const noEvents: CalendarEvent[] = []
+const NO_EVENTS: CalendarEvent[] = []
 
 export function CalendarDay({
 	timeFormat = 24,
@@ -65,7 +65,7 @@ export function CalendarDay({
 
 	// values,
 	value: valueProp,
-	defaultValue = noEvents,
+	defaultValue = NO_EVENTS,
 	selectedEvent: selectedEventProp,
 	defaultProject,
 
@@ -81,7 +81,7 @@ export function CalendarDay({
 	const hours = Array.from({ length: 24 }, (_, i) => i)
 
 	// values
-	const [value = [], setValue] = useControllableState({
+	const [value = NO_EVENTS, setValue] = useControllableState({
 		prop: valueProp,
 		defaultProp: defaultValue,
 		onChange,
@@ -239,13 +239,13 @@ export function CalendarDay({
 		event: CalendarEvent,
 		type: 'top' | 'bottom',
 	) => {
-		if (event.id !== NEW_EVENT_ID) {
-			e.stopPropagation()
-			setResizingEvent(event)
-			setResizeStartY(e.clientY)
-			setResizeType(type)
-			setSelectedEvent(event)
-		}
+		if (event.id === NEW_EVENT_ID) return
+
+		e.stopPropagation()
+		setResizingEvent(event)
+		setResizeStartY(e.clientY)
+		setResizeType(type)
+		setSelectedEvent(event)
 	}
 
 	const handleEventMoveStart = (
@@ -278,13 +278,13 @@ export function CalendarDay({
 				className="relative grow cursor-default border-none select-none"
 				onMouseMove={handleMouseMove}
 				onMouseDown={(e) => {
-					if (e.button === 0 && !isContextMenuOpen) {
-						// Check if left mouse button is pressed
-						const rect = e.currentTarget.getBoundingClientRect()
-						const y = e.clientY - rect.top
-						const slot = Math.floor(y / CALENDARY_DAY_SLOT_HEIGHT)
-						handleMouseDown(slot)
-					}
+					// Only left clicks start a selection
+					if (e.button !== 0 || isContextMenuOpen) return
+
+					const rect = e.currentTarget.getBoundingClientRect()
+					const y = e.clientY - rect.top
+					const slot = Math.floor(y / CALENDARY_DAY_SLOT_HEIGHT)
+					handleMouseDown(slot)
 				}}
 			>
 				{hours.map((hour) => (

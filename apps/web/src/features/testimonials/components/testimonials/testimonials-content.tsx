@@ -38,6 +38,7 @@ function TestimonialActions({
 	return (
 		<div className="gap-friends rounded-base p-friends md:hover:bg-background-inverted group flex transition duration-300 hover:scale-110">
 			<button
+				type="button"
 				aria-label="Previous testimonial"
 				onClick={onPrevious}
 				className="active:-translate-x-bff rounded-base focus-visible:outline-active group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!"
@@ -45,6 +46,7 @@ function TestimonialActions({
 				<ArrowLeftIcon className="size-8" />
 			</button>
 			<button
+				type="button"
 				aria-label="Next testimonial"
 				onClick={onNext}
 				className="rounded-base focus-visible:outline-active active:translate-x-bff group-hover:text-foreground-inverted transition duration-300 outline-none group-hover:opacity-25 hover:opacity-100!"

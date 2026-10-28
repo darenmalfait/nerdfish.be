@@ -19,7 +19,7 @@ function toAbsolute(pathname: string) {
 	return `${BASE_URL}${pathname}`
 }
 
-const sitemapPathPriority: Partial<Record<Pathnames, number>> = {
+const SITEMAP_PATH_PRIORITY: Partial<Record<Pathnames, number>> = {
 	'/wiki': 0.3,
 }
 
@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 				url,
 				lastModified: new Date(),
 				changeFrequency: 'monthly' as const,
-				priority: sitemapPathPriority[path] ?? 1,
+				priority: SITEMAP_PATH_PRIORITY[path] ?? 1,
 				alternates: { languages },
 			}
 		},

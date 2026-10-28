@@ -15,7 +15,7 @@ interface ResumeProviderProps {
 	children: ReactNode
 }
 
-const initialResume: Partial<Resume> = {
+const INITIAL_RESUME: Partial<Resume> = {
 	role: 'Software Engineer',
 	name: 'John Doe',
 	email: 'john.doe@example.com',
@@ -71,7 +71,7 @@ const initialResume: Partial<Resume> = {
 // import { ResumeProvider } from "path-to-context/ResumeContext"
 // use <ResumeProvider> as a wrapper around the part you need the context for
 function ResumeProvider({ children }: ResumeProviderProps) {
-	const [resume, setResume] = useState<Partial<Resume>>(initialResume)
+	const [resume, setResume] = useState<Partial<Resume>>(INITIAL_RESUME)
 
 	return (
 		<ResumeContext

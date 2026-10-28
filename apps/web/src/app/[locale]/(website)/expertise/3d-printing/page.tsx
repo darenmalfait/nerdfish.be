@@ -28,6 +28,8 @@ type PageProps = {
 	params: Promise<WithLocale>
 }
 
+const FAQ_ITEM_IDS = ['0', '1', '2', '3', '4', '5', '6'] as const
+
 export async function generateMetadata(
 	props: PageProps,
 ): Promise<Metadata | undefined> {
@@ -125,11 +127,11 @@ async function ThreeDPrintingFaqSection() {
 				<SectionHeaderSubtitle>{t('faq.subtitle')}</SectionHeaderSubtitle>
 			</SectionHeader>
 			<Faq>
-				{Array.from({ length: 7 }).map((_, i) => (
+				{FAQ_ITEM_IDS.map((id) => (
 					<FaqItem
-						key={i}
-						question={t(`faq.items.${i}.question`)}
-						answer={t(`faq.items.${i}.answer`)}
+						key={id}
+						question={t(`faq.items.${id}.question`)}
+						answer={t(`faq.items.${id}.answer`)}
 					/>
 				))}
 			</Faq>

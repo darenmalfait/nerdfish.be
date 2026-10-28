@@ -117,18 +117,18 @@ export function TimesheetsRecordForm({
 									form.setValue('start', value.start)
 									form.setValue('end', value.end)
 
-									if (value.start && value.end) {
-										const startDate = parse(value.start, 'HH:mm', new Date())
-										const endDate = parse(value.end, 'HH:mm', new Date())
+									if (!value.start || !value.end) return
 
-										const durationInSeconds = differenceInSeconds(
-											endDate,
-											startDate,
-										)
+									const startDate = parse(value.start, 'HH:mm', new Date())
+									const endDate = parse(value.end, 'HH:mm', new Date())
 
-										field.onChange(durationInSeconds)
-										onTimeChange?.(value.start, value.end)
-									}
+									const durationInSeconds = differenceInSeconds(
+										endDate,
+										startDate,
+									)
+
+									field.onChange(durationInSeconds)
+									onTimeChange?.(value.start, value.end)
 								}}
 							/>
 							{fieldState.invalid ? (

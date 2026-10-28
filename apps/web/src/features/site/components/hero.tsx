@@ -41,7 +41,7 @@ export function HeroTitle({
 	if (!title) return null
 
 	return (
-		<SectionHeaderTitle {...props} as={as ?? 'h1'}>
+		<SectionHeaderTitle {...props} as={as ?? 'h1'} className={className}>
 			{capitalize(title)}
 		</SectionHeaderTitle>
 	)

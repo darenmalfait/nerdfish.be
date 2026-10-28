@@ -82,13 +82,17 @@ export interface ArticleOverviewSearchImageProps extends ComponentProps<'div'> {
 export function ArticleOverviewSearchImage({
 	children,
 	image,
+	className,
 	...props
 }: ArticleOverviewSearchImageProps) {
 	if (!image?.src) return null
 
 	return (
 		<div
-			className="mb-casual px-casual col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0"
+			className={cn(
+				'mb-casual px-casual col-span-full lg:col-span-5 lg:col-start-7 lg:mb-0',
+				className,
+			)}
 			{...props}
 		>
 			<Image

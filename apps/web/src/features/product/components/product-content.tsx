@@ -101,7 +101,7 @@ export function ProductContent({
 					<Carousel opts={{ loop: true, align: 'center' }}>
 						<CarouselContent className="p-bff">
 							{product.images.map((image, index) => (
-								<CarouselItem index={index} key={index}>
+								<CarouselItem index={index} key={image.src}>
 									<div className="border-border/20 rounded-base relative aspect-3/4 w-full overflow-hidden border shadow-md">
 										<Image
 											src={image.src}

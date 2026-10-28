@@ -128,7 +128,7 @@ function BudgetRangeField({ control }: { control: Control<ContactFormData> }) {
 						<Slider
 							min={min}
 							max={max}
-							showTooltip={true}
+							showTooltip
 							tooltipContent={(value) => `€ ${numberFormatter.format(value)}`}
 							step={100}
 							aria-invalid={fieldState.invalid}

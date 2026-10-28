@@ -29,7 +29,7 @@ export function hasContactExtra(
 	})
 }
 
-const phoneRegex = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+const PHONE_REGEX = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 
 export const contactFormSchema = withRecaptcha(
 	z.object({
@@ -39,7 +39,7 @@ export const contactFormSchema = withRecaptcha(
 		contact: z
 			.object({
 				email: optionalField(z.string().email()),
-				phone: optionalField(z.string().regex(phoneRegex)),
+				phone: optionalField(z.string().regex(PHONE_REGEX)),
 			})
 			.partial()
 			.superRefine((data, ctx) => {

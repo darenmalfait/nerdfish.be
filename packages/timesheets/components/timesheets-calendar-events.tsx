@@ -11,7 +11,7 @@ import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
 import { type TimesheetsRecord } from '../schemas'
 
-const noRecords: TimesheetsRecord[] = []
+const NO_RECORDS: TimesheetsRecord[] = []
 
 function TimesheetsCalendarFirstEvent({
 	record,
@@ -63,7 +63,7 @@ function TimesheetsCalendarMoreEvents({ data }: { data: TimesheetsRecord[] }) {
 }
 
 export function TimesheetsCalendarEvents({
-	data = noRecords,
+	data = NO_RECORDS,
 	isToday,
 }: {
 	data?: TimesheetsRecord[]

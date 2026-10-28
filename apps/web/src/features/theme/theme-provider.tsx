@@ -12,11 +12,11 @@ import {
 	useState,
 } from 'react'
 
-const colorSchemes = new Set(['light', 'dark'])
-const defaultThemes = ['light', 'dark']
+const COLOR_SCHEMES = new Set(['light', 'dark'])
+const DEFAULT_THEMES = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
 const isServer = typeof window === 'undefined'
-const storageKey = 'theme'
+const STORAGE_KEY = 'theme'
 
 function getSystemTheme(e?: MediaQueryList | MediaQueryListEvent) {
 	const media: MediaQueryList | MediaQueryListEvent =
@@ -78,7 +78,7 @@ const ThemeScript = memo(
 		})()
 
 		const fallbackColorScheme = (() => {
-			const fallback = colorSchemes.has(defaultTheme) ? defaultTheme : null
+			const fallback = COLOR_SCHEMES.has(defaultTheme) ? defaultTheme : null
 
 			if (fallback) {
 				return `if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'${defaultTheme}'`
@@ -99,7 +99,7 @@ const ThemeScript = memo(
 			// MUCH faster to set colorScheme alongside HTML attribute/class
 			// as it only incurs 1 style recalculation rather than 2
 			// This can save over 250ms of work for pages with big DOM
-			if (setColorScheme && !literal && colorSchemes.has(name)) {
+			if (setColorScheme && !literal && COLOR_SCHEMES.has(name)) {
 				text += `d.style.colorScheme = '${name}';`
 			}
 
@@ -117,7 +117,7 @@ const ThemeScript = memo(
 				return `!function(){${optimization}${updateDom(forcedTheme)}}()`
 			}
 
-			return `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${isDefaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDom(
+			return `!function(){try{${optimization}var e=localStorage.getItem('${STORAGE_KEY}');if('system'===e||(!e&&${isDefaultSystem})){var t='${MEDIA}',m=window.matchMedia(t);if(m.media!==t||m.matches){${updateDom(
 				'dark',
 			)}}else{${updateDom('light')}}}else if(e)${updateDom('e', true)};${
 				isDefaultSystem ? '' : `else{${updateDom(defaultTheme, false, false)}}`
@@ -134,14 +134,16 @@ const ThemeScript = memo(
 // use <ThemeProvider> as a wrapper around the part you need the context for
 function ThemeProvider({
 	forcedTheme,
-	themes = defaultThemes,
+	themes = DEFAULT_THEMES,
 	defaultTheme = 'system',
 	children,
 }: ThemeProviderProps) {
 	const [theme, setThemeState] = useState(() =>
-		getTheme(storageKey, defaultTheme),
+		getTheme(STORAGE_KEY, defaultTheme),
 	)
-	const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey))
+	const [resolvedTheme, setResolvedTheme] = useState(() =>
+		getTheme(STORAGE_KEY),
+	)
 
 	const themeRef = useLatest(theme)
 	const forcedThemeRef = useLatest(forcedTheme)
@@ -166,7 +168,7 @@ function ThemeProvider({
 			setThemeState(newTheme)
 
 			try {
-				localStorage.setItem(storageKey, newTheme)
+				localStorage.setItem(STORAGE_KEY, newTheme)
 			} catch (e) {
 				if (e instanceof Error) console.error(e.message)
 			}
@@ -199,7 +201,7 @@ function ThemeProvider({
 		handleMediaQuery(media)
 
 		function handleStorage(e: StorageEvent) {
-			if (e.key !== storageKey) {
+			if (e.key !== STORAGE_KEY) {
 				return
 			}
 
@@ -232,7 +234,7 @@ function ThemeProvider({
 			<ThemeScript
 				{...{
 					forcedTheme,
-					storageKey,
+					storageKey: STORAGE_KEY,
 					themes,
 					defaultTheme,
 				}}

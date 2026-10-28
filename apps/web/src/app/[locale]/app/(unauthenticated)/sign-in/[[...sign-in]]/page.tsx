@@ -3,8 +3,8 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { SignInPageContent } from './content'
 
-const title = 'Welcome back'
-const description = 'Enter your details to sign in.'
+const TITLE = 'Welcome back'
+const DESCRIPTION = 'Enter your details to sign in.'
 
 type PageProps = {
 	params: Promise<WithLocale>
@@ -16,8 +16,8 @@ export async function generateMetadata(
 	const { locale } = await props.params
 
 	return createMetadata({
-		title,
-		description,
+		title: TITLE,
+		description: DESCRIPTION,
 		locale,
 	})
 }

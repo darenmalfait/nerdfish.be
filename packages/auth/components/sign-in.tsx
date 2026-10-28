@@ -9,7 +9,7 @@ const ClerkSignIn = isAuthEnabled()
 		(require('@clerk/nextjs') as typeof Clerk).SignIn
 	: null
 
-export const SignIn = () => {
+export function SignIn() {
 	if (!ClerkSignIn) {
 		return (
 			<p className="text-foreground text-center text-sm">

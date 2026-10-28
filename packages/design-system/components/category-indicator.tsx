@@ -7,7 +7,7 @@ type CategoryColors = {
 	ring?: string
 }
 
-const categoryColorMap: Record<string, CategoryColors> = {
+const CATEGORY_COLOR_MAP: Record<string, CategoryColors> = {
 	// Blog
 	unknown: {
 		background: 'bg-background-muted',
@@ -73,7 +73,7 @@ function getCategoryStyle(
 	category = 'unknown',
 	part: keyof CategoryColors,
 ): string {
-	return categoryColorMap[category.toLowerCase()]?.[part] ?? ''
+	return CATEGORY_COLOR_MAP[category.toLowerCase()]?.[part] ?? ''
 }
 
 export function getCategoryBackground(category = 'unknown'): string {

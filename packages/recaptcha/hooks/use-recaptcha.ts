@@ -46,27 +46,27 @@ export function useRecaptcha(): RecaptchaProps {
 		const loadScriptByUrl = (id: string, url: string) => {
 			const isScriptExist = document.getElementById(id)
 
-			if (!isScriptExist) {
-				const script = document.createElement('script')
-				script.type = 'text/javascript'
-				script.src = url
-				script.id = id
+			if (isScriptExist) return
 
-				document.body.appendChild(script)
+			const script = document.createElement('script')
+			script.type = 'text/javascript'
+			script.src = url
+			script.id = id
 
-				script.onload = () => {
-					if (!(window as any).grecaptcha) {
-						console.error('Error: grecaptcha is not defined')
+			document.body.appendChild(script)
 
-						return
-					}
+			script.onload = () => {
+				if (!(window as any).grecaptcha) {
+					console.error('Error: grecaptcha is not defined')
 
-					const grecaptcha = (window as any).grecaptcha
-
-					grecaptcha.ready(() => {
-						setGreCaptchaInstance(grecaptcha)
-					})
+					return
 				}
+
+				const grecaptcha = (window as any).grecaptcha
+
+				grecaptcha.ready(() => {
+					setGreCaptchaInstance(grecaptcha)
+				})
 			}
 		}
 

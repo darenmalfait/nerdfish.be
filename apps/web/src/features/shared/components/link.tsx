@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { routing, Link as RouteLink } from 'routing'
 
-const hrefParameters = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
+const HREF_PARAMETERS = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
 
 export type LinkProps = Omit<ComponentProps<'a'>, 'popover'>
 
@@ -13,7 +13,7 @@ export function Link({ href, children, ref, ...props }: LinkProps) {
 	const itemRef = useRef<HTMLAnchorElement>(null)
 	useImperativeHandle(ref, () => itemRef.current as HTMLAnchorElement)
 
-	const isExternal = hrefParameters.some((hrefParameter) =>
+	const isExternal = HREF_PARAMETERS.some((hrefParameter) =>
 		href?.startsWith(hrefParameter),
 	)
 	const slug = isExternal ? href : `/${stripPreSlash(href ?? '')}`

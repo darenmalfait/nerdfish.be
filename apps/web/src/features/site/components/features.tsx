@@ -70,13 +70,14 @@ function Feature({
 	href,
 	viewMoreLabel,
 	readMoreAriaLabel,
+	className,
 	...rest
 }: FeatureProps & {
 	viewMoreLabel: string
 	readMoreAriaLabel: string
 }) {
 	return (
-		<div className={featureCardVariants({ variant })} {...rest}>
+		<div className={featureCardVariants({ variant, className })} {...rest}>
 			{icon ? (
 				<div
 					className="mb-casual aspect-1 text-accent flex items-center justify-center [&>svg]:h-5 [&>svg]:shrink-0"
@@ -135,13 +136,16 @@ export async function Features({ items, layout: layoutProp }: FeaturesProps) {
 
 					return (
 						<li
-							key={`${item.title} ${i}`}
+							key={title}
 							style={{ animationDelay: `${i * 0.2}s` }}
-							className={cn('animate-slide-left-in bg-none lg:col-span-1', {
-								'col-span-4': maxCols === '4',
-								'col-span-3': maxCols === '3',
-								'col-span-2': maxCols === '2',
-							})}
+							className={cn(
+								'animate-slide-left-in bg-none motion-reduce:animate-none lg:col-span-1',
+								{
+									'col-span-4': maxCols === '4',
+									'col-span-3': maxCols === '3',
+									'col-span-2': maxCols === '2',
+								},
+							)}
 						>
 							<Feature
 								variant={variant}

@@ -165,9 +165,9 @@ function ResumeExperienceSection({
 		<div className={className}>
 			<h3 className="typography-title mb-friends">{section.title}</h3>
 			<div className={cn('flex flex-col', listClassName)}>
-				{section.items.map((item, index) => (
+				{section.items.map((item) => (
 					<ExperienceBlock
-						key={index}
+						key={`${item.when}-${item.where}`}
 						when={item.when}
 						where={item.where}
 						what={item.what}
@@ -186,8 +186,8 @@ function ResumeSkills({ skills }: Pick<ResumeProps, 'skills'>) {
 		<div>
 			<h3 className="typography-title mb-friends">{skills.title}</h3>
 			<div className="gap-best-friends flex flex-col">
-				{skills.items.map((item, index) => (
-					<SkillsBlock key={index} type={item.type} skills={item.skills} />
+				{skills.items.map((item) => (
+					<SkillsBlock key={item.type} type={item.type} skills={item.skills} />
 				))}
 			</div>
 		</div>
@@ -199,7 +199,7 @@ export function Resume() {
 
 	return (
 		<>
-			<ResumePageLayout {...resume} showHeader={true}>
+			<ResumePageLayout {...resume} showHeader>
 				<ResumeAbout about={resume.about} />
 				<div className="gap-friends mt-acquaintances print:mt-casual md:gap-casual flex flex-col md:flex-row print:flex-row">
 					<ResumeExperienceSection
@@ -226,9 +226,9 @@ export function Resume() {
 							{resume.projects.title}
 						</h3>
 						<ul className="gap-casual flex flex-col">
-							{resume.projects.items.map((item, index) => (
+							{resume.projects.items.map((item) => (
 								<ProjectsBlock
-									key={index}
+									key={item.title}
 									title={item.title}
 									description={item.description}
 									technologies={item.technologies}

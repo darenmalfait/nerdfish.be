@@ -3,14 +3,14 @@ import { keys as core } from '@repo/next-config/keys'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
 
-const applicationName = 'Nerdfish'
+const APPLICATION_NAME = 'Nerdfish'
 
 export const author: Author = {
 	name: 'Daren Malfait',
 	url: 'https://www.nerdfish.be',
 }
-const publisher = 'Daren Malfait'
-const twitterHandle = '@darenmalfait'
+const PUBLISHER = 'Daren Malfait'
+const TWITTER_HANDLE = '@darenmalfait'
 
 export const createMetadata = ({
 	title,
@@ -24,12 +24,12 @@ export const createMetadata = ({
 	image?: string
 	locale: string
 }): Metadata => {
-	const parsedTitle = `${title} | ${applicationName}`
+	const parsedTitle = `${title} | ${APPLICATION_NAME}`
 	const defaultMetadata: Metadata = {
 		metadataBase: new URL(core().NEXT_PUBLIC_URL),
 		title: parsedTitle,
 		description,
-		applicationName,
+		applicationName: APPLICATION_NAME,
 		authors: [author],
 		creator: author.name,
 		formatDetection: {
@@ -44,13 +44,13 @@ export const createMetadata = ({
 			title: parsedTitle,
 			description,
 			type: 'website',
-			siteName: applicationName,
+			siteName: APPLICATION_NAME,
 			locale,
 		},
-		publisher,
+		publisher: PUBLISHER,
 		twitter: {
 			card: 'summary_large_image',
-			creator: twitterHandle,
+			creator: TWITTER_HANDLE,
 		},
 	}
 
