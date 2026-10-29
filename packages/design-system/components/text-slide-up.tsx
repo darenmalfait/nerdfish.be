@@ -59,8 +59,8 @@ export function TextSlideUp({
 	useImperativeHandle(ref, () => componentRef.current as HTMLDivElement)
 
 	const Component = asChild ? Slot : 'div'
-	const inView = useInView(componentRef, { once: true })
-	const animate = eager ?? inView
+	const isInView = useInView(componentRef, { once: true })
+	const shouldAnimate = eager ?? isInView
 
 	return (
 		<Component ref={componentRef} className={className} {...props}>
@@ -72,7 +72,7 @@ export function TextSlideUp({
 				return (
 					<TextSlideUpItem
 						className={className}
-						animate={animate}
+						animate={shouldAnimate}
 						delay={itemDelay}
 					>
 						{child}

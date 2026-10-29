@@ -17,14 +17,12 @@ export async function GET(req: NextRequest) {
 	}
 	const props = parsed.data.input
 
-	let API = `https://fonts.googleapis.com/css2?family=${props.family}:wght@${props.weight}`
-	if (props.text) {
-		// allow font optimization if we pass text => only getting the characters we need
-		API += `&text=${encodeURIComponent(props.text)}`
-	}
+	// allow font optimization if we pass text => only getting the characters we need
+	const textParam = props.text ? `&text=${encodeURIComponent(props.text)}` : ''
+	const fontCssUrl = `https://fonts.googleapis.com/css2?family=${props.family}:wght@${props.weight}${textParam}`
 
 	const css = await (
-		await fetch(API, {
+		await fetch(fontCssUrl, {
 			headers: {
 				// Make sure it returns TTF.
 				'User-Agent':

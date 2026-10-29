@@ -55,7 +55,7 @@ export function TimesheetsSchedule({
 	const { selectedDate, range, setParams } = useTimesheetsParams()
 	const [selectedEvent, setSelectedEvent] = useState<
 		TimesheetsRecord | undefined
-	>(dataProp.length > 0 ? dataProp[dataProp.length - 1] : undefined)
+	>(dataProp.at(-1))
 	const [data, setData] = useState(dataProp)
 	const [prevDataProp, setPrevDataProp] = useState(dataProp)
 

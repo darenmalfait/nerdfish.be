@@ -98,7 +98,7 @@ export interface SkillItemProps extends React.ComponentProps<typeof Tilt> {
 
 export function SkillItem({ skill, className, ...props }: SkillItemProps) {
 	if (!skill) return null
-	if (!Object.keys(skillIconMap).includes(skill)) return null
+	if (!Object.hasOwn(skillIconMap, skill)) return null
 
 	const SkillIcon = skillIconMap[skill]
 

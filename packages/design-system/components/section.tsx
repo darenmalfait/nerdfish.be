@@ -96,9 +96,9 @@ export function SectionHeader({
 	skipAnimation,
 	...props
 }: SectionHeaderProps) {
-	const Element = as ?? 'header'
-
 	if (!children) return null
+
+	const Element = as ?? 'header'
 
 	if (skipAnimation) {
 		return (

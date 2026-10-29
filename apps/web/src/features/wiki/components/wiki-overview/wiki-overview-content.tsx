@@ -26,22 +26,16 @@ import {
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import { env } from 'env'
+import { usePathname } from 'next/navigation'
 import { type ComponentProps, type ReactNode } from 'react'
 import { Link } from '~/features/shared/components/link'
 import { type ImageType } from '~/features/shared/types'
 
 function Tag({ tag }: { tag: string }) {
-	const isClient = typeof window !== 'undefined'
-
-	// take url without query params
-	const currentUrl = new URL(
-		isClient ? window.location.href : env.NEXT_PUBLIC_URL,
-	)
-	const urlWithoutQueryParams = currentUrl.pathname
+	const pathname = usePathname()
 
 	return (
-		<Link href={`${urlWithoutQueryParams}?search=${tag}`}>
+		<Link href={`${pathname}?search=${tag}`}>
 			<Badge
 				className="hover:bg-foreground hover:text-background"
 				variant="muted"

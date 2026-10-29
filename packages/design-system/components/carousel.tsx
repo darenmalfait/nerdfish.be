@@ -38,7 +38,7 @@ type CarouselContextProps = {
 	scrollNext: () => void
 	canScrollPrev: boolean
 	canScrollNext: boolean
-	scaleActive: boolean
+	isScaleActive: boolean
 } & CarouselProps
 
 const CarouselContext = createContext<CarouselContextProps | null>(null)
@@ -136,7 +136,7 @@ function Carousel({
 		[scrollPrev, scrollNext],
 	)
 
-	const scaleActive = useMemo(() => {
+	const isScaleActive = useMemo(() => {
 		if (!api) return true
 
 		if (isXLarge) {
@@ -164,7 +164,7 @@ function Carousel({
 					scrollNext,
 					canScrollPrev,
 					canScrollNext,
-					scaleActive,
+					isScaleActive,
 				}),
 				[
 					carouselRef,
@@ -175,7 +175,7 @@ function Carousel({
 					scrollNext,
 					canScrollPrev,
 					canScrollNext,
-					scaleActive,
+					isScaleActive,
 				],
 			)}
 		>
@@ -227,7 +227,7 @@ function CarouselItem({
 	index,
 	...props
 }: ComponentProps<'div'> & { index?: number }) {
-	const { orientation, scaleActive } = useCarousel()
+	const { orientation, isScaleActive } = useCarousel()
 
 	return (
 		<div
@@ -237,7 +237,7 @@ function CarouselItem({
 			className={cn(
 				'min-w-0 shrink-0 grow-0 basis-(--slide-size)',
 				orientation === 'horizontal' ? 'pl-friends' : 'pt-friends',
-				scaleActive && '[&.is-snapped>div]:scale-105',
+				isScaleActive && '[&.is-snapped>div]:scale-105',
 				className,
 			)}
 			{...props}
