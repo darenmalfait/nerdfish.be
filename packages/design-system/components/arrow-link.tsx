@@ -1,49 +1,20 @@
 'use client'
 
-import {
-	type ComponentType,
-	type ElementType,
-	type ReactNode,
-	useState,
-} from 'react'
+import { type ComponentType, type ElementType, useState } from 'react'
 import Link from 'next/link'
 
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
 
-import { ArrowIcon, type ArrowIconProps } from '../icons'
+import { ArrowIcon } from '../icons'
 
-export interface ArrowLinkProps {
-	className?: string
-	direction?: ArrowIconProps['direction']
-	href?: string
-	children: ReactNode
-	as?: ElementType
-}
+import {
+	ArrowLinkLeadingLabel,
+	ArrowLinkTrailingLabel,
+	type ArrowLinkProps,
+} from './arrow-link-shared'
 
-type ArrowLinkLabelProps = Pick<ArrowLinkProps, 'children' | 'direction'>
-
-function isLeadingDirection(direction: ArrowLinkProps['direction'] = 'right') {
-	return direction === 'right' || direction === 'up'
-}
-
-export function ArrowLinkLeadingLabel({
-	children,
-	direction,
-}: ArrowLinkLabelProps) {
-	if (!children || !isLeadingDirection(direction)) return null
-
-	return <span className="mr-lg font-bold">{children}</span>
-}
-
-export function ArrowLinkTrailingLabel({
-	children,
-	direction,
-}: ArrowLinkLabelProps) {
-	if (!children || isLeadingDirection(direction)) return null
-
-	return <span className="ml-casual text-xl font-bold">{children}</span>
-}
+export type { ArrowLinkProps }
 
 type ArrowLinkImpl = ComponentType<ArrowLinkProps>
 type BackLinkImpl = ComponentType<

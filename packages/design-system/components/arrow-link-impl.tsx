@@ -21,7 +21,7 @@ import {
 	ArrowLinkLeadingLabel,
 	ArrowLinkTrailingLabel,
 	type ArrowLinkProps,
-} from './arrow-link'
+} from './arrow-link-shared'
 
 const arrowVariants: Record<
 	NonNullable<ArrowIconVariants['direction']>,
