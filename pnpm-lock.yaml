@@ -586,12 +586,6 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
 
-  packages/location:
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-
   packages/next-config:
     dependencies:
       '@next/bundle-analyzer':

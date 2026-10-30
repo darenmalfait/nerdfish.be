@@ -144,7 +144,6 @@ packages/
   global-settings/                # Company info, socials
   i18n/                           # next-intl wrappers + dictionaries
   lib/                            # Shared hooks + utils
-  location/                       # Location data
   next-config/                    # Shared Next config + env keys
   observability/                  # Error parsing
   og-utils/                       # OG image URL params
