@@ -2,6 +2,7 @@ import '~/styles/global.css'
 
 import { type ReactNode } from 'react'
 import { Toaster } from '@nerdfish/react/toast'
+
 import { fonts } from '@repo/design-system/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'

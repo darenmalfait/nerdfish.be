@@ -10,11 +10,12 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from '@nerdfish/react/drawer'
+import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
+import { usePathname } from 'routing'
+
 import { Logo } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
-import { usePathname } from 'routing'
 
 import { Link } from '~/components/link'
 import {

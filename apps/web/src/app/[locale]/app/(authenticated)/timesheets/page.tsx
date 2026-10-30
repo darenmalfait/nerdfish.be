@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
-import { Timesheets } from '@repo/timesheets/components/timesheets'
 import { type Metadata } from 'next'
+
+import { Timesheets } from '@repo/timesheets/components/timesheets'
 
 import { AppHeader } from '~/features/app-shell/components/app-header'
 

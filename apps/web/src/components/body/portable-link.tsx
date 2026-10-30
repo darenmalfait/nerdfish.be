@@ -1,6 +1,7 @@
-import { stripPreSlash } from '@repo/lib/utils/string'
 import { ExternalLinkIcon } from 'lucide-react'
 import Link from 'next/link'
+
+import { stripPreSlash } from '@repo/lib/utils/string'
 
 const HREF_PARAMETERS = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']
 

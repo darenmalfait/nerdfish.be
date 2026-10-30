@@ -3,6 +3,8 @@
 
 import { type ComponentProps, type ReactNode } from 'react'
 import { Badge } from '@nerdfish/react/badge'
+import { usePathname } from 'next/navigation'
+
 import {
 	ArticleCard,
 	ArticleCardDescription,
@@ -27,7 +29,6 @@ import {
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import { usePathname } from 'next/navigation'
 
 import { Link } from '~/components/link'
 import { type ImageType } from '~/types/image'

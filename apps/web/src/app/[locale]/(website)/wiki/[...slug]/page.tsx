@@ -1,7 +1,8 @@
+import { type Metadata } from 'next'
+
 import { i18n } from '@repo/i18n/config'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { type Metadata } from 'next'
 
 import { getWikis } from '~/features/wiki/api/get-wikis'
 import { WikiContent } from '~/features/wiki/components/wiki-content'

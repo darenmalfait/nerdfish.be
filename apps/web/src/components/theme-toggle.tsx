@@ -8,10 +8,11 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
+import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react'
+
 import { useTranslations } from '@repo/i18n/client'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn, cva, type VariantProps } from '@repo/lib/utils/class'
-import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react'
 
 import { useTheme } from '~/providers/theme-provider'
 

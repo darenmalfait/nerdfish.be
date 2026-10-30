@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
+
 import { getLocale } from '@repo/i18n/server'
 
 import { getProducts } from '../../api/get-products'

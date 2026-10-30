@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import NumberFlow from '@number-flow/react'
+
 import { useLatest } from '@repo/lib/hooks/use-latest'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'

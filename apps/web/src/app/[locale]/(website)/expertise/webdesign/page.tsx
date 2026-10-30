@@ -1,4 +1,8 @@
 import { Suspense } from 'react'
+import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
+import { type Metadata } from 'next'
+import { getAlternateLanguages, getPathname } from 'routing'
+
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
@@ -10,9 +14,6 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
-import { type Metadata } from 'next'
-import { getAlternateLanguages, getPathname } from 'routing'
 
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'

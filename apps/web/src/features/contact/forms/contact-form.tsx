@@ -25,12 +25,13 @@ import { Slider, SliderThumb } from '@nerdfish/react/slider'
 import { Spinner } from '@nerdfish/react/spinner'
 import { Textarea } from '@nerdfish/react/textarea'
 import { useNumberFormatter } from '@react-aria/i18n'
+import { ArrowRightIcon } from 'lucide-react'
+import { useAction } from 'next-safe-action/hooks'
+
 import { useLocale, useTranslations } from '@repo/i18n/client'
 import { useZodLocale } from '@repo/i18n/utils'
 import { parseError } from '@repo/observability/error'
 import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
-import { ArrowRightIcon } from 'lucide-react'
-import { useAction } from 'next-safe-action/hooks'
 
 import { submitContactFormAction } from './contact-form.actions'
 import {

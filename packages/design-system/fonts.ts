@@ -1,6 +1,7 @@
-import { cn } from '@repo/lib/utils/class'
 import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
+
+import { cn } from '@repo/lib/utils/class'
 
 // Font files can be colocated inside of `pages`
 const NebulaSans = localFont({

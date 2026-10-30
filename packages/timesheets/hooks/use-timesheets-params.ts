@@ -1,4 +1,3 @@
-import { formatISO } from '@repo/calendar/utils'
 import {
 	parseAsArrayOf,
 	parseAsBoolean,
@@ -6,6 +5,8 @@ import {
 	parseAsStringLiteral,
 	useQueryStates,
 } from 'nuqs'
+
+import { formatISO } from '@repo/calendar/utils'
 
 export function useTimesheetsParams(initialDate?: string) {
 	const [params, setParams] = useQueryStates({

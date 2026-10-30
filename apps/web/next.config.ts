@@ -1,7 +1,8 @@
+import { type NextConfig } from 'next'
+
 import { withContentCollections } from '@repo/content-collections/plugin'
 import { withTranslations } from '@repo/i18n/plugin'
 import { withAnalyzer, config } from '@repo/next-config'
-import { type NextConfig } from 'next'
 
 let nextConfig: NextConfig = {
 	...config,

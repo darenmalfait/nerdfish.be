@@ -1,4 +1,8 @@
 import { Suspense } from 'react'
+import { Layers, Palette, Users } from 'lucide-react'
+import { type Metadata } from 'next'
+import { getAlternateLanguages, getPathname } from 'routing'
+
 import {
 	Section,
 	SectionHeader,
@@ -9,9 +13,6 @@ import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { Layers, Palette, Users } from 'lucide-react'
-import { type Metadata } from 'next'
-import { getAlternateLanguages, getPathname } from 'routing'
 
 import { Features } from '~/features/site/components/features'
 import {

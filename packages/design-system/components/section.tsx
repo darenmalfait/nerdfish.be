@@ -1,4 +1,5 @@
 import { type ElementType, type ComponentProps } from 'react'
+
 import { cn } from '@repo/lib/utils/class'
 
 import { ArrowLink } from './arrow-link'

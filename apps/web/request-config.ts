@@ -1,8 +1,9 @@
+import { notFound } from 'next/navigation'
+
 import { IntlErrorCode } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
 import { getRequestConfig } from '@repo/i18n/server'
 import { type Locale } from '@repo/i18n/types'
-import { notFound } from 'next/navigation'
 
 const dictionaries = {
 	en: () => import('@repo/i18n/dictionaries/en.json'),

@@ -15,10 +15,11 @@ import {
 	InputGroupAddon,
 	InputGroupInput,
 } from '@nerdfish/react/input-group'
-import { nonNullable } from '@repo/lib/utils/array'
-import { cn } from '@repo/lib/utils/class'
 import { NewspaperIcon, SearchIcon } from 'lucide-react'
 import Image from 'next/image'
+
+import { nonNullable } from '@repo/lib/utils/array'
+import { cn } from '@repo/lib/utils/class'
 
 import {
 	ArticleCard,

@@ -3,8 +3,9 @@
 import { useMemo } from 'react'
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
 import { inputVariants } from '@nerdfish/react/input'
-import { cn } from '@repo/lib/utils/class'
 import { ArrowRightIcon, ClockIcon } from 'lucide-react'
+
+import { cn } from '@repo/lib/utils/class'
 
 import { differenceInMinutes, parse } from '../utils'
 

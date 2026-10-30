@@ -1,7 +1,8 @@
-import { merge } from '@repo/lib/utils/object'
-import { keys as core } from '@repo/next-config/keys'
 import { type Metadata } from 'next'
 import { type Author } from 'next/dist/lib/metadata/types/metadata-types'
+
+import { merge } from '@repo/lib/utils/object'
+import { keys as core } from '@repo/next-config/keys'
 
 const APPLICATION_NAME = 'Nerdfish'
 

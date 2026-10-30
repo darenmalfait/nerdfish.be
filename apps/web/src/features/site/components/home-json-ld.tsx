@@ -1,3 +1,5 @@
+import { env } from 'env'
+
 import { companyInfo } from '@repo/global-settings/company-info'
 import { socials } from '@repo/global-settings/socials'
 import { getTranslations } from '@repo/i18n/server'
@@ -8,7 +10,6 @@ import {
 	type WithContext,
 } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
-import { env } from 'env'
 
 const personId = `${env.NEXT_PUBLIC_URL}/#person`
 const organizationId = `${env.NEXT_PUBLIC_URL}/#organization`

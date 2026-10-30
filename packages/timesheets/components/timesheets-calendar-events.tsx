@@ -7,6 +7,7 @@ import {
 	TooltipTrigger,
 	TooltipContent,
 } from '@nerdfish/react/tooltip'
+
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
 

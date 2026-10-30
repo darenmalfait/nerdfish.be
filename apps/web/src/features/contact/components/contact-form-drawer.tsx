@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import { Drawer, DrawerContent, DrawerTitle } from '@nerdfish/react/drawer'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { ArrowRightIcon } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	SectionHeader,
@@ -10,8 +13,6 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { ArrowRightIcon } from 'lucide-react'
-import dynamic from 'next/dynamic'
 
 const ContactForm = dynamic(
 	() => import('../forms/contact-form').then((mod) => mod.ContactForm),

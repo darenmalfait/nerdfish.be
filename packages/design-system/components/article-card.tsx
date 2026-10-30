@@ -10,10 +10,11 @@ import {
 import { Badge } from '@nerdfish/react/badge'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
-import { cn } from '@repo/lib/utils/class'
 import { ArrowRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { cn } from '@repo/lib/utils/class'
 
 import {
 	getCategoryBackground,

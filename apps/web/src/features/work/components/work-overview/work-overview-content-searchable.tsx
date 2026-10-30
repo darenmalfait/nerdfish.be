@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback } from 'react'
+
 import { type Article } from '@repo/design-system/components/article-overview'
 
 import { filterWork } from '../../utils/filter-work'

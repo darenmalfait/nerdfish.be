@@ -1,8 +1,9 @@
+import { type Project } from 'content-collections'
+
 import { type Article } from '@repo/design-system/components/article-overview'
 import { type PartialDeep } from '@repo/lib/types'
 import { nonNullable } from '@repo/lib/utils/array'
 import { getCrypto } from '@repo/lib/utils/misc'
-import { type Project } from 'content-collections'
 
 import { getWorkPath } from './get-work-path'
 

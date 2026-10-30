@@ -1,5 +1,6 @@
-import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
+
+import { cn } from '@repo/lib/utils/class'
 
 import { type ImageCredit as ImageCreditType } from '~/types/image'
 

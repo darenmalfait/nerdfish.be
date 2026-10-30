@@ -1,9 +1,10 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { Logo } from '@repo/design-system/icons'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+
+import { Logo } from '@repo/design-system/icons'
 
 import { ThemeToggle } from '~/components/theme-toggle'
 

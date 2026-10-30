@@ -17,9 +17,11 @@ import {
 	CardTitle,
 } from '@nerdfish/react/card'
 import { Separator } from '@nerdfish/react/separator'
-import { cn } from '@repo/lib/utils/class'
 import { CheckIcon } from 'lucide-react'
 import Link from 'next/link'
+
+import { cn } from '@repo/lib/utils/class'
+
 interface PriceCardContextProps {
 	isPopular?: boolean
 	price?: string

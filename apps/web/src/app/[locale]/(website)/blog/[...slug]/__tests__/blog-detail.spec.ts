@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test'
-import { i18n } from '@repo/i18n/config'
 import { allPosts } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
+
+import { i18n } from '@repo/i18n/config'
 
 import { getBlogPath } from '~/features/blog/utils/get-blog-path'
 

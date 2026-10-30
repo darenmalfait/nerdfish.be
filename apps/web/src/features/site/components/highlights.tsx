@@ -1,4 +1,5 @@
 import { type ComponentProps } from 'react'
+
 import { type Article } from '@repo/design-system/components/article-overview'
 import {
 	HighlightCard,

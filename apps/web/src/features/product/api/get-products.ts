@@ -1,5 +1,6 @@
-import { type Locale } from '@repo/i18n/types'
 import { allProducts } from 'content-collections'
+
+import { type Locale } from '@repo/i18n/types'
 
 import { filterByLocale } from '~/utils/filter-by-locale'
 

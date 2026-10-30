@@ -1,5 +1,7 @@
 import { Button } from '@nerdfish/react/button'
 import { ButtonGroup } from '@nerdfish/react/button-group'
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+
 import {
 	TZDate,
 	addMonths,
@@ -7,7 +9,6 @@ import {
 	formatISO,
 	startOfMonth,
 } from '@repo/calendar/utils'
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { TIMEZONE } from '../utils'

@@ -1,9 +1,10 @@
+import { type NextRequest } from 'next/server'
+
 /**
  * Originally from Vercel's Satori project.
  * @link https://github.com/vercel/satori/blob/main/playground/pages/api/font.ts
  */
 import { fontParams } from '@repo/og-utils/zod-params'
-import { type NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 

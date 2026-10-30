@@ -1,7 +1,8 @@
 import { type ButtonProps } from '@nerdfish/react/button'
+import Link from 'next/link'
+
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import Link from 'next/link'
 
 function PortableButton({
 	text,

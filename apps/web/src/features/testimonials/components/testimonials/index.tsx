@@ -1,7 +1,8 @@
 import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
-import { getLocale } from '@repo/i18n/server'
 import { type Testimonial } from 'content-collections'
+
+import { getLocale } from '@repo/i18n/server'
 
 import { getTestimonials } from '../../api/get-testimonials'
 

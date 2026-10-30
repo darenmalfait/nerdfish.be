@@ -1,8 +1,9 @@
 'use client'
 
 import { Button } from '@nerdfish/react/button'
-import { useTranslations } from '@repo/i18n/client'
 import { ChevronLeftIcon } from 'lucide-react'
+
+import { useTranslations } from '@repo/i18n/client'
 
 import { Link } from '~/components/link'
 

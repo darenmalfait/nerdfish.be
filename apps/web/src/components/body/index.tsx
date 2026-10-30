@@ -1,4 +1,5 @@
 import { type ComponentType, type ComponentProps, type ReactNode } from 'react'
+
 import { Body as BaseBody } from '@repo/content-collections/components/body'
 
 import { PortableButton } from './portable-button'

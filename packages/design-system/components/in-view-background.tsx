@@ -6,6 +6,7 @@ import {
 	type ComponentProps,
 	type ReactNode,
 } from 'react'
+
 import { useInView } from '@repo/lib/hooks/use-in-view'
 import { cn } from '@repo/lib/utils/class'
 

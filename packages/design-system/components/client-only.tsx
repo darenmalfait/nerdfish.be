@@ -1,4 +1,5 @@
 import { type ReactNode, useState } from 'react'
+
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 
 /** React hook that returns true if the component has mounted client-side */

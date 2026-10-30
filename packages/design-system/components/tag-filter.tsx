@@ -18,8 +18,10 @@ import {
 } from '@nerdfish/react/drawer'
 import { Toggle } from '@nerdfish/react/toggle'
 import { ToggleGroup } from '@nerdfish/react/toggle-group'
-import { cn } from '@repo/lib/utils/class'
 import { FilterIcon } from 'lucide-react'
+
+import { cn } from '@repo/lib/utils/class'
+
 type TagFilterContextValue = {
 	state: {
 		tags: string[]

@@ -2,9 +2,10 @@
 
 import { type ComponentProps } from 'react'
 import { Button } from '@nerdfish/react/button'
+import dynamic from 'next/dynamic'
+
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import dynamic from 'next/dynamic'
 
 import { Link } from '~/components/link'
 import { ThemeToggle } from '~/components/theme-toggle'

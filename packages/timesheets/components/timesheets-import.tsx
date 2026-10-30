@@ -5,9 +5,10 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from '@nerdfish/react/tooltip'
-import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
 import { ImportIcon } from 'lucide-react'
 import dynamic from 'next/dynamic'
+
+import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
 
 import { useTimesheets } from '../providers/timesheets-provider'
 

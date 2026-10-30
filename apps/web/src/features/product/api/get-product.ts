@@ -1,5 +1,6 @@
-import { type Locale } from '@repo/i18n/types'
 import { allProducts } from 'content-collections'
+
+import { type Locale } from '@repo/i18n/types'
 
 export async function getProduct({
 	slug,

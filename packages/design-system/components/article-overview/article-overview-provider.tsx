@@ -8,8 +8,9 @@ import {
 	useMemo,
 	useState,
 } from 'react'
-import { nonNullable } from '@repo/lib/utils/array'
 import { parseAsString, useQueryStates } from 'nuqs'
+
+import { nonNullable } from '@repo/lib/utils/array'
 
 import { type Article } from './types'
 import { filterArticles } from './utils'

@@ -24,11 +24,12 @@ import {
 	SidebarMenuSubItem,
 	useSidebar,
 } from '@nerdfish/react/sidebar'
+import { ChevronRightIcon, SquareTerminalIcon } from 'lucide-react'
+import Link from 'next/link'
+
 import { UserButton } from '@repo/auth/client'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import { ChevronRightIcon, SquareTerminalIcon } from 'lucide-react'
-import Link from 'next/link'
 
 type AppSidebarProps = {
 	readonly children: ReactNode

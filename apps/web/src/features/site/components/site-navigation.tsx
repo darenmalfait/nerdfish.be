@@ -19,12 +19,13 @@ import {
 	NavigationMenuPositioner,
 	NavigationMenuTrigger,
 } from '@nerdfish/react/navigation-menu'
+import { usePathname } from 'routing'
+
 import { AnimatedBackground } from '@repo/design-system/components/animated-background'
 import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import { usePathname } from 'routing'
 
 import { Link } from '~/components/link'
 import { getActiveMainNavLabel } from '~/features/site/utils/navigation-active'

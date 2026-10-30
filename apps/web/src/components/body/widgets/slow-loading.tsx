@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader } from '@nerdfish/react/card'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { Spinner } from '@nerdfish/react/spinner'
+
 import { useTranslations } from '@repo/i18n/client'
 
 export function SlowLoading() {

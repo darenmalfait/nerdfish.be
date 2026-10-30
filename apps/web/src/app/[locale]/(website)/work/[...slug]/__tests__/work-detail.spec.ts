@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test'
-import { i18n } from '@repo/i18n/config'
 import { allProjects } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
+
+import { i18n } from '@repo/i18n/config'
 
 import { getWorkPath } from '~/features/work/utils/get-work-path'
 

@@ -2,6 +2,7 @@
 
 import { type ComponentProps, type ComponentType, useState } from 'react'
 import { Button } from '@nerdfish/react/button'
+
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 
 export type MagnetButtonProps = ComponentProps<typeof Button>

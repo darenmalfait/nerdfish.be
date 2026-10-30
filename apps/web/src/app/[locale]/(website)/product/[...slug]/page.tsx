@@ -1,10 +1,11 @@
 import { cache } from 'react'
+import { type Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
 import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { type Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 import { getProduct } from '~/features/product/api/get-product'
 import { ProductContent } from '~/features/product/components/product-content'

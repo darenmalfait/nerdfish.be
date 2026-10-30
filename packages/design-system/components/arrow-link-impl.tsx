@@ -6,13 +6,14 @@ import {
 	type ReactNode,
 	type Ref,
 } from 'react'
+import { type Variant, motion } from 'motion/react'
+import Link from 'next/link'
+
 import {
 	type ElementState,
 	useElementState,
 } from '@repo/lib/hooks/use-element-state'
 import { cn } from '@repo/lib/utils/class'
-import { type Variant, motion } from 'motion/react'
-import Link from 'next/link'
 
 import { ArrowIcon, type ArrowIconVariants } from '../icons'
 

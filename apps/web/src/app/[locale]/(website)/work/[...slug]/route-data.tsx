@@ -1,6 +1,7 @@
 import { cache } from 'react'
-import { type Locale } from '@repo/i18n/types'
 import { notFound } from 'next/navigation'
+
+import { type Locale } from '@repo/i18n/types'
 
 import { getProject } from '~/features/work/api/get-project'
 

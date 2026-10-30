@@ -1,5 +1,6 @@
-import { MagnetButton } from '@repo/design-system/components/magnet'
 import { ArrowRightIcon } from 'lucide-react'
+
+import { MagnetButton } from '@repo/design-system/components/magnet'
 
 import { Link } from '~/components/link'
 

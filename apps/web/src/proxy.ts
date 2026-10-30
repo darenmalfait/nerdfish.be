@@ -1,6 +1,7 @@
+import { pathnames } from 'routing'
+
 import { authMiddleware } from '@repo/auth/proxy'
 import { i18nMiddleware } from '@repo/i18n/middleware'
-import { pathnames } from 'routing'
 
 const languageMiddleware = i18nMiddleware(pathnames)
 

@@ -1,12 +1,13 @@
 import { Suspense } from 'react'
+import { type Metadata } from 'next'
+import { getAlternateLanguages, getPathname } from 'routing'
+
 import { Section } from '@repo/design-system/components/section'
 import { companyInfo } from '@repo/global-settings/company-info'
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { type Metadata } from 'next'
-import { getAlternateLanguages, getPathname } from 'routing'
 
 import { Link } from '~/components/link'
 import { ContactCopyEmailButton } from '~/features/contact/components/contact-copy-email-button'

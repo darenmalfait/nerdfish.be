@@ -1,7 +1,8 @@
 import { type ComponentProps } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
-import { cn } from '@repo/lib/utils/class'
 import Image from 'next/image'
+
+import { cn } from '@repo/lib/utils/class'
 
 export type SplitImageProps = ComponentProps<typeof Image>
 

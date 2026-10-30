@@ -2,6 +2,7 @@
 
 import { type ComponentProps } from 'react'
 import { Marquee } from '@nerdfish/react/marquee'
+
 import { cn } from '@repo/lib/utils/class'
 
 export interface KeywordProps extends Omit<ComponentProps<'span'>, 'children'> {

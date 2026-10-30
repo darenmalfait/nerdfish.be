@@ -1,8 +1,9 @@
 import { type ComponentProps } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@nerdfish/react/avatar'
 import { Skeleton } from '@nerdfish/react/skeleton'
-import { cn } from '@repo/lib/utils/class'
 import { type Product } from 'content-collections'
+
+import { cn } from '@repo/lib/utils/class'
 
 import { Link } from '~/components/link'
 

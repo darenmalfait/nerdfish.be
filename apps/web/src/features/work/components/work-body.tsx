@@ -1,4 +1,5 @@
 import { type ComponentProps, type ComponentType } from 'react'
+
 import {
 	Section,
 	SectionHeader,

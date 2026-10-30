@@ -1,16 +1,17 @@
 import type * as React from 'react'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { type Project } from 'content-collections'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import {
 	CategoryIndicator,
 	getCategoryForeground,
 } from '@repo/design-system/components/category-indicator'
 import { Section } from '@repo/design-system/components/section'
 import { cn } from '@repo/lib/utils/class'
-import { type Project } from 'content-collections'
-import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 import { getWorkLayout, type WorkLayout } from '../utils/get-work-layout'
 

@@ -28,8 +28,8 @@ importers:
         specifier: ^21.2.3
         version: 21.2.3
       '@nerdfish/config':
-        specifier: ^4.3.0
-        version: 4.3.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
+        specifier: ^4.3.1
+        version: 4.3.1(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
       '@next/eslint-plugin-next':
         specifier: ^16.3.5
         version: 16.3.5(eslint@10.11.0(jiti@2.7.0))
@@ -763,8 +763,8 @@ importers:
   packages/typescript-config:
     dependencies:
       '@nerdfish/config':
-        specifier: ^4.3.0
-        version: 4.3.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
+        specifier: ^4.3.1
+        version: 4.3.1(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
 
 packages:
 
@@ -2691,8 +2691,8 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@nerdfish/config@4.3.0':
-    resolution: {integrity: sha512-GFN51Ohy9Z7kVLFvytWCOQG0JFijup++caQmY536p2i0r7VrU6zDnbMirZ3kKtuXx83voCSSUgTsxLqju+kUgQ==}
+  '@nerdfish/config@4.3.1':
+    resolution: {integrity: sha512-QVapGSckcMlCeJnptl9lX3MVLVnLPItpHLQQlWLgmlZ6f++0NUaabVdASJ3+HmBHReCBCrN0M1iLhBpiu8Tp+g==}
 
   '@nerdfish/react@1.4.2':
     resolution: {integrity: sha512-zOuLRBhSZunvvdfYLHnUuWh4U0ldfJuDaOArC1H2WJIEoUjsOdttRpsP876rFlbWnBI563722iDAhFLHLL4v6g==}
@@ -9846,7 +9846,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@nerdfish/config@4.3.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)':
+  '@nerdfish/config@4.3.1(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)':
     dependencies:
       '@eslint/compat': 2.1.1(eslint@10.11.0(jiti@2.7.0))
       '@total-typescript/ts-reset': 0.6.1

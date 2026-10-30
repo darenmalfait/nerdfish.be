@@ -1,4 +1,7 @@
 import { type ComponentProps, Suspense } from 'react'
+import { type Project } from 'content-collections'
+import { type Metadata } from 'next'
+
 import {
 	Section,
 	SectionHeader,
@@ -9,8 +12,6 @@ import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { type Project } from 'content-collections'
-import { type Metadata } from 'next'
 
 import { Testimonials } from '~/features/testimonials/components/testimonials'
 import { getProjects } from '~/features/work/api/get-projects'

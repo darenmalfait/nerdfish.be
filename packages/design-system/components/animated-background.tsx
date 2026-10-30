@@ -11,9 +11,10 @@ import {
 	type ReactNode,
 } from 'react'
 import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
+import { type Transition } from 'motion/react'
+
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { type Transition } from 'motion/react'
 
 export interface AnimatedBackgroundProps {
 	children?:

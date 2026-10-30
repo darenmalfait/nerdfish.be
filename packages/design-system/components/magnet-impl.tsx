@@ -2,9 +2,10 @@
 
 import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { Button } from '@nerdfish/react/button'
+import { motion, useMotionValue, useSpring } from 'motion/react'
+
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { motion, useMotionValue, useSpring } from 'motion/react'
 
 const SPRING_CONFIG = { damping: 30, stiffness: 150, mass: 0.2 }
 const MAX_DISTANCE = 0.1

@@ -1,7 +1,6 @@
 'use client'
 
 import { inputVariants } from '@nerdfish/react/input'
-import { cn } from '@repo/lib/utils/class'
 import {
 	githubDarkTheme,
 	githubLightTheme,
@@ -17,6 +16,9 @@ import {
 	PlusIcon,
 	XIcon,
 } from 'lucide-react'
+
+import { cn } from '@repo/lib/utils/class'
+
 export function JsonEditor({
 	className,
 	theme: themeProp = 'light',

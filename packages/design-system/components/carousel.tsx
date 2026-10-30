@@ -10,13 +10,14 @@ import {
 	useState,
 } from 'react'
 import { Button } from '@nerdfish/react/button'
-import { useLatest } from '@repo/lib/hooks/use-latest'
-import { cn } from '@repo/lib/utils/class'
 import emblaClassName from 'embla-carousel-class-names'
 import useEmblaCarousel, {
 	type UseEmblaCarouselType,
 } from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+
+import { useLatest } from '@repo/lib/hooks/use-latest'
+import { cn } from '@repo/lib/utils/class'
 
 import { useMediaQuery } from '../hooks/use-media-query'
 

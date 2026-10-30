@@ -1,9 +1,10 @@
 'use client'
 
 import { type ComponentType, type ReactNode, useState } from 'react'
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 
 export type TestimonialCard = {
 	quote: string

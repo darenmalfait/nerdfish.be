@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import { SidebarProvider } from '@nerdfish/react/sidebar'
+
 import { auth, currentUser } from '@repo/auth/server'
 
 import { AppSidebar } from '~/features/app-shell/components/app-sidebar'

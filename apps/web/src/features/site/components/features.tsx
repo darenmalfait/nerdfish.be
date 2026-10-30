@@ -1,10 +1,11 @@
 import { type ComponentProps, type ReactNode } from 'react'
+import { ArrowRight } from 'lucide-react'
+
 import { Grid } from '@repo/design-system/components/grid'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { getTranslations } from '@repo/i18n/server'
 import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
-import { ArrowRight } from 'lucide-react'
 
 import { Link } from '~/components/link'
 

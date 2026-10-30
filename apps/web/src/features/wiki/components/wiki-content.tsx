@@ -8,12 +8,13 @@ import {
 	BreadcrumbPage,
 } from '@nerdfish/react/breadcrumb'
 import { Separator } from '@nerdfish/react/separator'
+import { type Wiki } from 'content-collections'
+import Link from 'next/link'
+
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
 import { TextBalancer } from '@repo/design-system/components/text-balancer'
 import { cn } from '@repo/lib/utils/class'
-import { type Wiki } from 'content-collections'
-import Link from 'next/link'
 
 import { Body } from '~/components/body'
 

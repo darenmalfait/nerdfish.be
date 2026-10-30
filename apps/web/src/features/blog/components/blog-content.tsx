@@ -9,16 +9,17 @@ import {
 	BreadcrumbPage,
 } from '@nerdfish/react/breadcrumb'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { type Post } from 'content-collections'
+import { env } from 'env'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import { DateFormatter } from '@repo/calendar/components/date-formatter'
 import { Section } from '@repo/design-system/components/section'
 import { type Locale } from '@repo/i18n/types'
 import { cn } from '@repo/lib/utils/class'
 import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld'
 import { author } from '@repo/seo/metadata'
-import { type Post } from 'content-collections'
-import { env } from 'env'
-import Image from 'next/image'
-import Link from 'next/link'
 
 import { Body } from '~/components/body'
 import { ImageCredit } from '~/components/image-credit'

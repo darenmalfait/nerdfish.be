@@ -1,5 +1,7 @@
 import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { type Post } from 'content-collections'
+
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -15,7 +17,6 @@ import {
 	JsonLd,
 	type WithContext,
 } from '@repo/seo/json-ld'
-import { type Post } from 'content-collections'
 
 import { NuqsProvider } from '~/providers/nuqs-provider'
 

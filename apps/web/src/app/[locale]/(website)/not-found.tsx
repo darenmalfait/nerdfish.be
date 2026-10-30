@@ -1,8 +1,9 @@
 import { Button } from '@nerdfish/react/button'
-import { Section } from '@repo/design-system/components/section'
 import { ChevronLeftIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { Section } from '@repo/design-system/components/section'
 
 const TITLE = "404 - Page doesn't exist"
 const SUBTITLE = "Sorry, we couldn't find the page you were looking for."

@@ -8,11 +8,12 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@nerdfish/react/dropdown-menu'
-import { i18n, supportedLanguages } from '@repo/i18n/config'
-import { cn } from '@repo/lib/utils/class'
 import { GlobeIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { basePathNames, usePathname, useRouter } from 'routing'
+
+import { i18n, supportedLanguages } from '@repo/i18n/config'
+import { cn } from '@repo/lib/utils/class'
 
 type SharedPathname = keyof typeof basePathNames
 

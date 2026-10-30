@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unknown-property */
-import { fetchFont } from '@repo/og-utils/fetch-font'
-import { blogParams } from '@repo/og-utils/zod-params'
 import { ImageResponse } from '@vercel/og'
 import { env } from 'env'
+
+import { fetchFont } from '@repo/og-utils/fetch-font'
+import { blogParams } from '@repo/og-utils/zod-params'
 
 export const runtime = 'edge'
 

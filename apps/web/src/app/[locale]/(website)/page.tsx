@@ -1,4 +1,13 @@
 import { Suspense } from 'react'
+import {
+	HandPlatterIcon,
+	LayoutDashboard,
+	MonitorSmartphone,
+	Paintbrush2Icon,
+} from 'lucide-react'
+import { type Metadata } from 'next'
+import { getAlternateLanguages, getPathname } from 'routing'
+
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
@@ -9,14 +18,6 @@ import {
 import { getTranslations } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
-import {
-	HandPlatterIcon,
-	LayoutDashboard,
-	MonitorSmartphone,
-	Paintbrush2Icon,
-} from 'lucide-react'
-import { type Metadata } from 'next'
-import { getAlternateLanguages, getPathname } from 'routing'
 
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'

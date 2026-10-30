@@ -7,6 +7,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@nerdfish/react/accordion'
+
 import { cn } from '@repo/lib/utils/class'
 
 export interface FaqItemProps extends Omit<

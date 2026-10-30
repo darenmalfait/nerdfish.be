@@ -1,5 +1,7 @@
 import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { type Project } from 'content-collections'
+
 import {
 	ArticleCard,
 	ArticleCardCategory,
@@ -10,7 +12,6 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { getLocale } from '@repo/i18n/server'
 import { type PartialDeep } from '@repo/lib/types'
-import { type Project } from 'content-collections'
 
 import { NuqsProvider } from '~/providers/nuqs-provider'
 

@@ -1,4 +1,5 @@
 import { Badge } from '@nerdfish/react/badge'
+
 import { cn } from '@repo/lib/utils/class'
 
 type CategoryColors = {

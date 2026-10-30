@@ -2,6 +2,11 @@ import { type ComponentProps, type ReactNode } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@nerdfish/react/avatar'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
+import { type Product } from 'content-collections'
+import { GlobeIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import {
 	Carousel,
 	CarouselContent,
@@ -12,10 +17,6 @@ import {
 import { Section } from '@repo/design-system/components/section'
 import { GithubIcon } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import { type Product } from 'content-collections'
-import { GlobeIcon } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 import { Body } from '~/components/body'
 

@@ -1,5 +1,6 @@
-import { type Locale } from '@repo/i18n/types'
 import { allPosts } from 'content-collections'
+
+import { type Locale } from '@repo/i18n/types'
 
 import { byDateDesc } from '~/utils/by-date-desc'
 import { filterByLocale } from '~/utils/filter-by-locale'

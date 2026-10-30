@@ -1,4 +1,8 @@
 import { cache, Suspense } from 'react'
+import { type Post } from 'content-collections'
+import { type Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
 import {
 	Section,
 	SectionHeader,
@@ -9,9 +13,6 @@ import { getTranslations } from '@repo/i18n/server'
 import { type Locale, type WithLocale } from '@repo/i18n/types'
 import { blogParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
-import { type Post } from 'content-collections'
-import { type Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 import { getPost } from '~/features/blog/api/get-post'
 import { getPosts } from '~/features/blog/api/get-posts'

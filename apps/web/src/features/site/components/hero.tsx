@@ -1,4 +1,7 @@
 import { type ComponentProps, type ElementType, type ReactNode } from 'react'
+import { ArrowRightIcon } from 'lucide-react'
+import Image from 'next/image'
+
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
@@ -8,8 +11,6 @@ import {
 } from '@repo/design-system/components/section'
 import { cn } from '@repo/lib/utils/class'
 import { capitalize } from '@repo/lib/utils/string'
-import { ArrowRightIcon } from 'lucide-react'
-import Image from 'next/image'
 
 import { Link } from '~/components/link'
 
