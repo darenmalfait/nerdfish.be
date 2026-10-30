@@ -15,8 +15,9 @@ import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cn } from '@repo/lib/utils/class'
 
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
-import { TIMEZONE, calendarDates } from '../utils'
+import { type TimesheetsData, type TimesheetsRecord } from '../types/timesheets'
+import { calendarDates } from '../utils/calendar-dates'
+import { TIMEZONE } from '../utils/timezone'
 
 import { TimesheetsCalendarEvents } from './timesheets-calendar-events'
 

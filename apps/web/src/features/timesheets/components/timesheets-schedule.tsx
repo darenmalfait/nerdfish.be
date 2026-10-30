@@ -7,43 +7,20 @@ import {
 	CALENDARY_DAY_ROW_HEIGHT,
 } from '@repo/calendar/components/calendar-day'
 import { NEW_EVENT_ID } from '@repo/calendar/utils'
+import { useTranslations } from '@repo/i18n/client'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
-import { type ActionResponse } from '@repo/lib/utils/form'
 
-import { TimesheetsRecordForm } from '../forms/timesheet-record-form/timesheets-record-form'
-import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
+import { TimesheetsRecordForm } from '../forms/timesheets-record-form'
+import { type TimesheetsRecordFormData } from '../forms/timesheets-record-form.schema'
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
-import { type TimesheetsRecord } from '../schemas'
-import {
-	toTimesheetsRecordFromCalendarEvent,
-	toCalendarEventFromTimesheetsRecord,
-	toTimesheetsRecordFormDataFromTimesheetsRecord,
-	toTimesheetsRecordFromTimesheetsRecordFormData,
-} from '../utils'
+import { type TimesheetsRecord } from '../types/timesheets'
+import { toCalendarEventFromTimesheetsRecord } from '../utils/to-calendar-event-from-timesheets-record'
+import { toTimesheetsRecordFormDataFromTimesheetsRecord } from '../utils/to-timesheets-record-form-data-from-timesheets-record'
+import { toTimesheetsRecordFromCalendarEvent } from '../utils/to-timesheets-record-from-calendar-event'
+import { toTimesheetsRecordFromTimesheetsRecordFormData } from '../utils/to-timesheets-record-from-timesheets-record-form-data'
 
 import { TimesheetsDaySelect } from './timesheets-day-select'
-
-export type TimesheetsScheduleCreateEvent = ({
-	values,
-	selectedDate,
-	range,
-}: {
-	values: TimesheetsRecordFormData
-	selectedDate: string | null
-	range: string[] | null
-}) => Promise<ActionResponse<void>>
-
-export type TimesheetsScheduleDeleteEvent = (
-	id: string,
-	selectedDate: string | null,
-) => Promise<ActionResponse<void>>
-
-export type TimesheetsScheduleUpdateEvent = (
-	id: string,
-	values: TimesheetsRecordFormData,
-	selectedDate: string | null,
-) => Promise<ActionResponse<void>>
 
 interface TimesheetsScheduleProps {
 	data: TimesheetsRecord[]
@@ -52,6 +29,7 @@ interface TimesheetsScheduleProps {
 export function TimesheetsSchedule({
 	data: dataProp,
 }: TimesheetsScheduleProps) {
+	const t = useTranslations('timesheets.schedule')
 	const { onCreateEvent, onDeleteEvent, onUpdateEvent } = useTimesheets()
 
 	const scrollRef = useRef<HTMLDivElement>(null)
@@ -96,20 +74,22 @@ export function TimesheetsSchedule({
 				range,
 			})
 
-			if (!result.success) return toast.error('Failed to create event')
+			if (!result.success) return toast.error(t('createFailed'))
 
 			await setParams({ selectedDate: null, range: null })
-			return toast.success('Event created')
+			return toast.success(t('created'))
 		} else {
 			if (!values.id)
-				throw new Error('something went wrong, could not update event')
+				throw new Error(
+					'Cannot update timesheet record: submitted values have no id',
+				)
 
 			const result = await onUpdateEvent(values.id, values, selectedDate)
 
-			if (!result.success) return toast.error('Failed to update event')
+			if (!result.success) return toast.error(t('updateFailed'))
 
 			await setParams({ selectedDate: null, range: null })
-			return toast.success('Event updated')
+			return toast.success(t('updated'))
 		}
 	}
 
@@ -118,7 +98,7 @@ export function TimesheetsSchedule({
 		await onDeleteEvent(id, selectedDate)
 		await setParams({ selectedDate: null, range: null })
 
-		return toast.success('Event deleted')
+		return toast.success(t('deleted'))
 	}
 
 	function handleFormTimeChange(start: string, end: string) {

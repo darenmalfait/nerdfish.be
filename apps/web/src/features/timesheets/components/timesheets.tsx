@@ -9,8 +9,9 @@ import {
 	TimesheetsProvider,
 	useTimesheets,
 } from '../providers/timesheets-provider'
-import { type TimesheetsData, type TimesheetsRecord } from '../schemas'
-import { TIMEZONE, calendarDates } from '../utils'
+import { type TimesheetsData, type TimesheetsRecord } from '../types/timesheets'
+import { calendarDates } from '../utils/calendar-dates'
+import { TIMEZONE } from '../utils/timezone'
 
 import { TimesheetsCalendar } from './timesheets-calendar'
 import { TimesheetsEventsSheet } from './timesheets-events-sheet'
@@ -21,10 +22,9 @@ import { TimesheetsToolbar } from './timesheets-toolbar'
 function TimesheetsContent() {
 	const { timesheets } = useTimesheets()
 	const { date } = useTimesheetsParams()
-	const { calendarDays } = calendarDates(new TZDate(date, TIMEZONE))
-
 	const filteredTimesheets = useMemo<TimesheetsData>(() => {
-		// only this month
+		const { calendarDays } = calendarDates(new TZDate(date, TIMEZONE))
+
 		return Object.fromEntries(
 			Object.entries(timesheets).filter(([key]) => {
 				return calendarDays.some((day) => {
@@ -32,7 +32,7 @@ function TimesheetsContent() {
 				})
 			}),
 		)
-	}, [timesheets, calendarDays])
+	}, [timesheets, date])
 
 	const timeEntries = useMemo<TimesheetsRecord[]>(() => {
 		// Only include entries from the actual month, not calendar padding days

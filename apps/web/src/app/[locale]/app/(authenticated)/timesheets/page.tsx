@@ -1,9 +1,8 @@
 import { Suspense } from 'react'
 import { type Metadata } from 'next'
 
-import { Timesheets } from '@repo/timesheets/components/timesheets'
-
 import { AppHeader } from '~/features/app-shell/components/app-header'
+import { Timesheets } from '~/features/timesheets/components/timesheets'
 
 export const metadata: Metadata = {
 	title: 'Timesheet Generator',

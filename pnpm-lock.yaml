@@ -203,9 +203,6 @@ importers:
       '@repo/seo':
         specifier: workspace:*
         version: link:../../packages/seo
-      '@repo/timesheets':
-        specifier: workspace:*
-        version: link:../../packages/timesheets
       '@t3-oss/env-nextjs':
         specifier: ^0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.6.5)
@@ -722,37 +719,6 @@ importers:
       eslint:
         specifier: ^10.11.0
         version: 10.11.0(jiti@2.7.0)
-
-  packages/timesheets:
-    dependencies:
-      '@hookform/resolvers':
-        specifier: ^5.9.1
-        version: 5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.88.0(react@19.3.0))(zod@4.6.5)
-      '@repo/calendar':
-        specifier: workspace:*
-        version: link:../calendar
-      '@repo/design-system':
-        specifier: workspace:*
-        version: link:../design-system
-      '@repo/lib':
-        specifier: workspace:*
-        version: link:../lib
-      '@repo/location':
-        specifier: workspace:*
-        version: link:../location
-      lucide-react:
-        specifier: ^1.47.0
-        version: 1.47.0(react@19.3.0)
-      nuqs:
-        specifier: ^2.10.1
-        version: 2.10.1(next@16.3.8(@babel/core@7.29.7)(@playwright/test@1.63.0)(@types/node@24.13.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
-      react-hook-form:
-        specifier: ^7.88.0
-        version: 7.88.0(react@19.3.0)
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
 
   packages/typescript-config:
     dependencies:

@@ -3,7 +3,7 @@
 import { format, TZDate } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
 
-import { TIMEZONE } from '../../utils'
+import { TIMEZONE } from '../../utils/timezone'
 
 export interface CalendarYearProps {
 	year: number

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	Tooltip,
@@ -9,6 +9,7 @@ import { ImportIcon } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
 import { differenceInSeconds, format, formatISO } from '@repo/calendar/utils'
+import { useTranslations } from '@repo/i18n/client'
 
 import { useTimesheets } from '../providers/timesheets-provider'
 
@@ -19,33 +20,36 @@ const CSVImporter = dynamic(
 	},
 )
 
-const TEMPLATE = {
-	columns: [
-		{
-			name: 'Started At',
-			key: 'started_at',
-			required: true,
-			suggested_mappings: ['started_at'],
-			description: 'The time the work started',
-		},
-		{
-			name: 'Ended At',
-			key: 'ended_at',
-			required: true,
-			suggested_mappings: ['ended_at'],
-			description: 'The time the work ended',
-		},
-		{
-			name: 'Project',
-			key: 'project',
-			description: 'The project name',
-			suggested_mappings: ['project'],
-		},
-	],
-}
-
 export function ImportTimeEntriesButton() {
+	const t = useTranslations('timesheets.import')
 	const { onImportEvents } = useTimesheets()
+	const template = useMemo(
+		() => ({
+			columns: [
+				{
+					name: t('columns.startedAt.name'),
+					key: 'started_at',
+					required: true,
+					suggested_mappings: ['started_at'],
+					description: t('columns.startedAt.description'),
+				},
+				{
+					name: t('columns.endedAt.name'),
+					key: 'ended_at',
+					required: true,
+					suggested_mappings: ['ended_at'],
+					description: t('columns.endedAt.description'),
+				},
+				{
+					name: t('columns.project.name'),
+					key: 'project',
+					description: t('columns.project.description'),
+					suggested_mappings: ['project'],
+				},
+			],
+		}),
+		[t],
+	)
 	const [importing, setImporting] = useState<boolean>(false)
 
 	const handleComplete = useCallback(
@@ -69,7 +73,6 @@ export function ImportTimeEntriesButton() {
 				const date = new Date(row.values.started_at).toISOString()
 				const selectedDate = formatISO(date, { representation: 'date' })
 
-				// get the time from the date in format HH:mm
 				const start = format(new Date(row.values.started_at), 'HH:mm')
 				const end = format(new Date(row.values.ended_at), 'HH:mm')
 
@@ -108,7 +111,7 @@ export function ImportTimeEntriesButton() {
 					variant="default"
 					onClick={() => setImporting(true)}
 					className="group rounded-[calc(var(--radius-container)-theme(padding.bff))]!"
-					aria-label="Import Time Entries"
+					aria-label={t('label')}
 					type="button"
 					icon
 					render={
@@ -117,14 +120,14 @@ export function ImportTimeEntriesButton() {
 						</TooltipTrigger>
 					}
 				/>
-				<TooltipContent>Import time entries</TooltipContent>
+				<TooltipContent>{t('label')}</TooltipContent>
 			</Tooltip>
 			<CSVImporter
 				modalIsOpen={importing}
 				modalOnCloseTriggered={() => setImporting(false)}
 				className="w-full"
 				onComplete={handleComplete}
-				template={TEMPLATE}
+				template={template}
 			/>
 		</div>
 	)

@@ -7,11 +7,14 @@ import {
 } from '@nerdfish/react/tooltip'
 import { PrinterIcon } from 'lucide-react'
 
+import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 
 import { ImportTimeEntriesButton } from './timesheets-import'
 
 export function TimesheetsToolbar() {
+	const t = useTranslations('timesheets.print')
+
 	return (
 		<div
 			className={cn(
@@ -33,7 +36,7 @@ export function TimesheetsToolbar() {
 								variant="ghost"
 								className="rounded-[calc(var(--radius-container)-theme(padding.bff))]"
 								icon
-								aria-label="Print"
+								aria-label={t('action')}
 								onClick={() => window.print()}
 								render={
 									<TooltipTrigger>
@@ -41,7 +44,7 @@ export function TimesheetsToolbar() {
 									</TooltipTrigger>
 								}
 							/>
-							<TooltipContent>Print</TooltipContent>
+							<TooltipContent>{t('action')}</TooltipContent>
 						</Tooltip>
 					</li>
 				</ul>

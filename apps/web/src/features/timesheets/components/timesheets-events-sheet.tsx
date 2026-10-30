@@ -15,6 +15,7 @@ import {
 
 import { formatISO } from '@repo/calendar/utils'
 import { useMediaQuery } from '@repo/design-system/hooks/use-media-query'
+import { useTranslations } from '@repo/i18n/client'
 
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
@@ -22,6 +23,7 @@ import { useTimesheets } from '../providers/timesheets-provider'
 import { TimesheetsSchedule } from './timesheets-schedule'
 
 export function TimesheetsEventsSheet() {
+	const t = useTranslations('timesheets.schedule')
 	const { timesheets } = useTimesheets()
 	const isDesktop = useMediaQuery('(min-width: 768px)')
 	const { setParams, project, range, selectedDate, update, create } =
@@ -46,7 +48,7 @@ export function TimesheetsEventsSheet() {
 			>
 				<SheetContent className="p-friends overflow-y-auto" variant="inset">
 					<SheetHeader className="mb-casual">
-						<SheetTitle>Schedule</SheetTitle>
+						<SheetTitle>{t('title')}</SheetTitle>
 					</SheetHeader>
 					<TimesheetsSchedule data={events} />
 				</SheetContent>
@@ -66,7 +68,7 @@ export function TimesheetsEventsSheet() {
 			<DrawerContent className="px-friends">
 				<div className="py-casual">
 					<DrawerHeader>
-						<DrawerTitle>Schedule</DrawerTitle>
+						<DrawerTitle>{t('title')}</DrawerTitle>
 					</DrawerHeader>
 					<TimesheetsSchedule data={events} />
 				</div>

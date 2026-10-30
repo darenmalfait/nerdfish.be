@@ -17,10 +17,12 @@ import { Separator } from '@nerdfish/react/separator'
 
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { Logo } from '@repo/design-system/icons'
+import { companyInfo } from '@repo/global-settings/company-info'
+import { useTranslations } from '@repo/i18n/client'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
 
-import { type TimesheetsRecord } from '../schemas'
+import { type TimesheetsRecord } from '../types/timesheets'
 
 function Row({
 	day,
@@ -100,7 +102,9 @@ export function TimesheetsContent({
 }: {
 	timeEntries: TimesheetsRecord[]
 }) {
+	const t = useTranslations('timesheets.print')
 	const [invoiceRef, setInvoiceRef] = useState<string>('')
+
 	return (
 		<div>
 			<div className="mb-casual gap-best-friends flex flex-col items-start justify-start">
@@ -108,7 +112,7 @@ export function TimesheetsContent({
 			</div>
 
 			<div className="mb-casual gap-bff flex flex-col items-start justify-start">
-				<h1 className="text-xl font-bold uppercase">Timesheets</h1>
+				<h1 className="text-xl font-bold uppercase">{t('title')}</h1>
 
 				<Dialog>
 					<DialogTrigger>
@@ -118,19 +122,21 @@ export function TimesheetsContent({
 									!invoiceRef,
 							})}
 						>
-							REF: {invoiceRef.length ? invoiceRef : 'SET INVOICE REFERENCE'}
+							{invoiceRef.length
+								? t('reference.value', { reference: invoiceRef })
+								: t('reference.empty')}
 						</div>
 					</DialogTrigger>
 					<DialogContent>
 						<DialogHeader>
-							<DialogTitle>Invoice Reference</DialogTitle>
+							<DialogTitle>{t('reference.label')}</DialogTitle>
 							<DialogDescription>
-								What invoice is this timesheet referring to?
+								{t('reference.description')}
 							</DialogDescription>
 						</DialogHeader>
 
 						<Field className="w-full">
-							<Label htmlFor="invoice-reference">Invoice Reference</Label>
+							<Label htmlFor="invoice-reference">{t('reference.label')}</Label>
 							<Input
 								id="invoice-reference"
 								value={invoiceRef}
@@ -142,14 +148,14 @@ export function TimesheetsContent({
 			</div>
 
 			<div className="mb-casual gap-bff flex flex-col">
-				<Row day="DAY" hours="HOURS" />
+				<Row day={t('day')} hours={t('hours')} />
 				<Spacer />
 
 				<TimeEntries timeEntries={timeEntries} />
 
 				<Spacer />
 				<Row
-					day="TOTAL HOURS"
+					day={t('totalHours')}
 					hours={
 						timeEntries.length > 0
 							? secondsToHoursAndMinutes(
@@ -161,21 +167,23 @@ export function TimesheetsContent({
 				/>
 
 				<Row
-					day="TOTAL DAYS"
+					day={t('totalDays')}
 					hours={timeEntries.length > 0 ? timeEntries.length.toString() : '0'}
 					className="font-bold"
 				/>
 			</div>
 
 			<div className="text-foreground-muted text-center text-sm">
-				*** END OF TIMESHEET ***
+				{t('end')}
 			</div>
 			<Separator className="my-casual" />
 			<div className="flex flex-col items-center">
 				<Logo className="mb-friends h-4 w-auto" />
-				<div className="text-foreground-muted text-sm">Daren Malfait BV</div>
-				<div className="text-foreground-muted text-sm">BE0794123756</div>
-				<div className="text-foreground-muted text-sm">daren@nerdfish.be</div>
+				<div className="text-foreground-muted text-sm">
+					{companyInfo.companyName}
+				</div>
+				<div className="text-foreground-muted text-sm">{companyInfo.vat}</div>
+				<div className="text-foreground-muted text-sm">{companyInfo.email}</div>
 			</div>
 		</div>
 	)

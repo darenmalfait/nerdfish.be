@@ -16,6 +16,7 @@ import { Textarea } from '@nerdfish/react/textarea'
 
 import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
 import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
+import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 
 import {
@@ -69,6 +70,7 @@ export function TimesheetsRecordForm({
 	onTimeChange,
 	className,
 }: TimesheetsRecordFormProps) {
+	const t = useTranslations('timesheets.recordForm')
 	// Sync when calendar selection/drag updates times (same NEW_EVENT_ID key won't remount)
 	const formValues = useMemo(
 		() => getFormDefaultValues(defaultValues),
@@ -112,7 +114,7 @@ export function TimesheetsRecordForm({
 					name="duration"
 					render={({ field, fieldState }) => (
 						<Field>
-							<FieldLabel>Duration</FieldLabel>
+							<FieldLabel>{t('duration')}</FieldLabel>
 							<TimeRangeInput
 								value={{ start, end }}
 								onChange={(value) => {
@@ -144,8 +146,8 @@ export function TimesheetsRecordForm({
 					name="project"
 					render={({ field, fieldState }) => (
 						<Field>
-							<FieldLabel>Project</FieldLabel>
-							<Input {...field} placeholder="Project" />
+							<FieldLabel>{t('project')}</FieldLabel>
+							<Input {...field} placeholder={t('project')} />
 							{fieldState.invalid ? (
 								<FieldError errors={[fieldState.error]} />
 							) : null}
@@ -157,9 +159,9 @@ export function TimesheetsRecordForm({
 					name="description"
 					render={({ field, fieldState }) => (
 						<Field>
-							<FieldLabel>Description</FieldLabel>
+							<FieldLabel>{t('description')}</FieldLabel>
 							<Textarea
-								placeholder="Description"
+								placeholder={t('description')}
 								{...field}
 								rows={3}
 								className="resize-none"
@@ -181,7 +183,7 @@ export function TimesheetsRecordForm({
 					{form.formState.isSubmitting ? (
 						<Spinner className="mr-best-friends size-4" />
 					) : null}
-					{isUpdate ? 'Update' : 'Add'}
+					{isUpdate ? t('update') : t('add')}
 				</Button>
 			</div>
 		</form>

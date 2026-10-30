@@ -840,6 +840,55 @@
 		"setTheme": "Wissel naar {theme} kleurschema",
 		"system": "Systeem"
 	},
+	"timesheets": {
+		"import": {
+			"columns": {
+				"endedAt": {
+					"description": "Het tijdstip waarop het werk eindigde",
+					"name": "Geëindigd om"
+				},
+				"project": {
+					"description": "De projectnaam",
+					"name": "Project"
+				},
+				"startedAt": {
+					"description": "Het tijdstip waarop het werk begon",
+					"name": "Gestart om"
+				}
+			},
+			"label": "Tijdregistraties importeren"
+		},
+		"print": {
+			"action": "Afdrukken",
+			"day": "DAG",
+			"end": "*** EINDE URENSTAAT ***",
+			"hours": "UREN",
+			"reference": {
+				"description": "Naar welke factuur verwijst deze urenstaat?",
+				"empty": "FACTUURREFERENTIE INSTELLEN",
+				"label": "Factuurreferentie",
+				"value": "REF: {reference}"
+			},
+			"title": "Urenstaat",
+			"totalDays": "TOTAAL DAGEN",
+			"totalHours": "TOTAAL UREN"
+		},
+		"recordForm": {
+			"add": "Toevoegen",
+			"description": "Beschrijving",
+			"duration": "Duur",
+			"project": "Project",
+			"update": "Bijwerken"
+		},
+		"schedule": {
+			"createFailed": "Registratie toevoegen mislukt",
+			"created": "Registratie toegevoegd",
+			"deleted": "Registratie verwijderd",
+			"title": "Planning",
+			"updateFailed": "Registratie bijwerken mislukt",
+			"updated": "Registratie bijgewerkt"
+		}
+	},
 	"widgets": {
 		"slowLoading": {
 			"caption": "Voorbeeld van laadanimatie"

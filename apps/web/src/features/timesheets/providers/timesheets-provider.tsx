@@ -15,9 +15,9 @@ import { useLocalStorage } from '@repo/lib/hooks/use-local-storage'
 import { type ActionResponse } from '@repo/lib/utils/form'
 import { getCrypto } from '@repo/lib/utils/misc'
 
-import { type TimesheetsRecordFormData } from '../forms/timesheet-record-form/timesheets-record-form.schema'
-import { type TimesheetsRecord, type TimesheetsData } from '../schemas'
-import { TIMEZONE } from '../utils'
+import { type TimesheetsRecordFormData } from '../forms/timesheets-record-form.schema'
+import { type TimesheetsRecord, type TimesheetsData } from '../types/timesheets'
+import { TIMEZONE } from '../utils/timezone'
 
 export type TimesheetsScheduleImportEvents = (
 	entries: {
@@ -49,7 +49,6 @@ export type TimesheetsScheduleUpdateEvent = (
 ) => Promise<ActionResponse<void>>
 
 interface TimesheetsContextProps {
-	// events
 	timesheets: TimesheetsData
 	onCreateEvent: TimesheetsScheduleCreateEvent
 	onImportEvents: TimesheetsScheduleImportEvents
@@ -64,8 +63,6 @@ interface TimesheetsProviderProps {
 	children: ReactNode
 }
 
-// import { TimesheetsProvider } from "path-to-context/TimesheetsContext"
-// use <TimesheetsProvider> as a wrapper around the part you need the context for
 export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 	const [timesheets, setTimesheets] = useLocalStorage<TimesheetsData>(
 		'timesheets',
@@ -102,7 +99,6 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 					end: new TZDate(newEvent.end, TIMEZONE).toISOString(),
 				}))
 
-				// Accumulate entries by date
 				eventEntries.forEach((eventEntry) => {
 					const key = formatISO(new Date(eventEntry.date), {
 						representation: 'date',
@@ -113,18 +109,15 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 				})
 			}
 
-			// Apply all changes at once
 			setTimesheets((currentTimesheets) => {
 				const updatedTimesheets = { ...currentTimesheets }
 
 				Object.entries(allNewEntries).forEach(([date, newEvents]) => {
-					// Get existing events for this date, filtering out NEW_EVENT_ID
 					const existingEvents =
 						updatedTimesheets[date]?.filter(
 							(e) => e.id && e.id !== NEW_EVENT_ID,
 						) ?? []
 
-					// Combine existing events with new events
 					updatedTimesheets[date] = [...existingEvents, ...newEvents]
 				})
 
@@ -165,12 +158,10 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 			setTimesheets({
 				...timesheets,
 				...entries.reduce<Record<string, TimesheetsRecord[]>>((acc, entry) => {
-					// key is date xxxx-xx-xx
 					const key = formatISO(new Date(entry.date), {
 						representation: 'date',
 					})
 
-					// append current timesheets and new entry
 					acc[key] = [
 						...(timesheets[key]?.filter((e) => e.id && e.id !== NEW_EVENT_ID) ??
 							[]),
@@ -244,7 +235,6 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 		<TimesheetsContext
 			value={useMemo(
 				() => ({
-					// events
 					timesheets,
 					onCreateEvent,
 					onImportEvents,
@@ -265,9 +255,6 @@ export function TimesheetsProvider({ children }: TimesheetsProviderProps) {
 	)
 }
 
-// import { useTimesheets } fron "path-to-context/TimesheetsContext"
-// within functional component
-// const { sessionToken, ...TimesheetsContext } = useTimesheets()
 export function useTimesheets(): TimesheetsContextProps {
 	const context = use(TimesheetsContext)
 

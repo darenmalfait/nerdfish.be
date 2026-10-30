@@ -1,9 +1,13 @@
 import { z } from 'zod'
 
-import { timesheetsRecordFormSchema } from './forms/timesheet-record-form/timesheets-record-form.schema'
-
-export const timesheetsRecordSchema = timesheetsRecordFormSchema.extend({
+export const timesheetsRecordSchema = z.object({
+	id: z.string().optional(),
 	date: z.string(),
+	duration: z.number().min(1),
+	project: z.string().optional(),
+	description: z.string().optional(),
+	start: z.string(),
+	end: z.string(),
 })
 
 export type TimesheetsRecord = z.infer<typeof timesheetsRecordSchema>

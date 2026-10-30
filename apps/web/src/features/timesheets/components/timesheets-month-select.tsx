@@ -11,7 +11,7 @@ import {
 } from '@repo/calendar/utils'
 
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { TIMEZONE } from '../utils'
+import { TIMEZONE } from '../utils/timezone'
 
 type TimesheetsMonthSelectProps = {
 	className?: string

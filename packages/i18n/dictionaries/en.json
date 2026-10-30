@@ -840,6 +840,55 @@
 		"setTheme": "Switch to {theme} theme",
 		"system": "System"
 	},
+	"timesheets": {
+		"import": {
+			"columns": {
+				"endedAt": {
+					"description": "The time the work ended",
+					"name": "Ended At"
+				},
+				"project": {
+					"description": "The project name",
+					"name": "Project"
+				},
+				"startedAt": {
+					"description": "The time the work started",
+					"name": "Started At"
+				}
+			},
+			"label": "Import time entries"
+		},
+		"print": {
+			"action": "Print",
+			"day": "DAY",
+			"end": "*** END OF TIMESHEET ***",
+			"hours": "HOURS",
+			"reference": {
+				"description": "What invoice is this timesheet referring to?",
+				"empty": "SET INVOICE REFERENCE",
+				"label": "Invoice Reference",
+				"value": "REF: {reference}"
+			},
+			"title": "Timesheets",
+			"totalDays": "TOTAL DAYS",
+			"totalHours": "TOTAL HOURS"
+		},
+		"recordForm": {
+			"add": "Add",
+			"description": "Description",
+			"duration": "Duration",
+			"project": "Project",
+			"update": "Update"
+		},
+		"schedule": {
+			"createFailed": "Failed to create event",
+			"created": "Event created",
+			"deleted": "Event deleted",
+			"title": "Schedule",
+			"updateFailed": "Failed to update event",
+			"updated": "Event updated"
+		}
+	},
 	"widgets": {
 		"slowLoading": {
 			"caption": "Loading animation example"

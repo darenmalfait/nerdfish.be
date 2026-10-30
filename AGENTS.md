@@ -125,7 +125,7 @@ apps/web/                         # Next.js 16 App Router site
   src/app/[locale]/app/           # Authenticated app routes (thin)
   src/features/                   # Domain blocks: api/ components/ utils/ … per feature
     site/  blog/  work/  wiki/  contact/  about/
-    product/  testimonials/  app-shell/  resume/
+    product/  testimonials/  app-shell/  resume/  timesheets/
   src/components/                 # App-wide UI (Body, Link, ImageGrid, ThemeToggle)
   src/providers/                  # AppProviders, ThemeProvider, NuqsProvider
   src/types/  src/utils/          # App-wide types + helpers
@@ -149,7 +149,6 @@ packages/
   og-utils/                       # OG image URL params
   recaptcha/                      # Recaptcha client/server
   seo/                            # createMetadata + JSON-LD
-  timesheets/                     # Timesheets feature
   typescript-config/              # Shared tsconfig
   github-actions/                 # CI install composite action
 ```

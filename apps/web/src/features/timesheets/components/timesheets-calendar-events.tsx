@@ -11,7 +11,7 @@ import {
 import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
 
-import { type TimesheetsRecord } from '../schemas'
+import { type TimesheetsRecord } from '../types/timesheets'
 
 const NO_RECORDS: TimesheetsRecord[] = []
 

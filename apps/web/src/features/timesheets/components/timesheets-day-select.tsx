@@ -7,7 +7,9 @@ import { useHotkeys } from '@repo/lib/hooks/use-hotkeys'
 import { cn } from '@repo/lib/utils/class'
 
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
-import { formatDateRange, getTimesheetsDates, TIMEZONE } from '../utils'
+import { formatDateRange } from '../utils/format-date-range'
+import { getTimesheetsDates } from '../utils/get-timesheets-dates'
+import { TIMEZONE } from '../utils/timezone'
 
 type TimesheetsDaySelectProps = {
 	className?: string
