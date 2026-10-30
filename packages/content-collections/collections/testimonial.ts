@@ -1,5 +1,6 @@
 import { defineCollection } from '@content-collections/core'
 import { z } from 'zod'
+
 import { getSlugAndLocale } from '../utils'
 
 export const testimonialTypes = ['colleague', 'project', 'client'] as const

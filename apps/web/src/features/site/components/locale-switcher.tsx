@@ -1,5 +1,6 @@
 'use client'
 
+import { type ComponentProps } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	DropdownMenu,
@@ -11,7 +12,6 @@ import { i18n, supportedLanguages } from '@repo/i18n/config'
 import { cn } from '@repo/lib/utils/class'
 import { GlobeIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
-import { type ComponentProps } from 'react'
 import { basePathNames, usePathname, useRouter } from 'routing'
 
 type SharedPathname = keyof typeof basePathNames

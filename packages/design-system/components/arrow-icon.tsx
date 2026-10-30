@@ -1,6 +1,6 @@
+import { type ComponentProps } from 'react'
 import { cva, cn, type VariantProps } from '@repo/lib/utils/class'
 import { ArrowRight } from 'lucide-react'
-import { type ComponentProps } from 'react'
 
 export const arrowIconVariants = cva('', {
 	variants: {

@@ -1,8 +1,10 @@
 'use client'
 
-import { type Article } from '@repo/design-system/components/article-overview'
 import { useCallback } from 'react'
+import { type Article } from '@repo/design-system/components/article-overview'
+
 import { filterWiki } from '../../filter'
+
 import {
 	WikiOverviewContent,
 	type WikiOverviewContentProps,

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -10,8 +11,8 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { Layers, Leaf, Palette, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
-import { Suspense } from 'react'
 import { getAlternateLanguages, getPathname } from 'routing'
+
 import { Cta } from '~/features/site/components/cta'
 import { Faq, FaqItem } from '~/features/site/components/faq'
 import { Features } from '~/features/site/components/features'

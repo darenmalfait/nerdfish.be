@@ -1,14 +1,14 @@
 'use client'
 
-import { Slot } from '@radix-ui/react-slot'
-import { useInView } from '@repo/lib/hooks/use-in-view'
-import { cn } from '@repo/lib/utils/class'
 import {
 	Children,
 	useImperativeHandle,
 	useRef,
 	type ComponentProps,
 } from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import { useInView } from '@repo/lib/hooks/use-in-view'
+import { cn } from '@repo/lib/utils/class'
 
 interface TextSlideUpItemProps extends ComponentProps<'div'> {
 	delay?: number

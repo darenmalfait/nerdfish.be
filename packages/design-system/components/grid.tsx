@@ -1,5 +1,6 @@
-import { cn } from '@nerdfish/utils/class'
 import { type ComponentProps } from 'react'
+import { cn } from '@nerdfish/utils/class'
+
 import { Slot } from './slot'
 
 export type GridProps = ComponentProps<'div'> & {

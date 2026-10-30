@@ -1,9 +1,11 @@
 import crypto from 'crypto'
+
 import { defineCollection } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import { remarkGfm } from 'fumadocs-core/mdx-plugins'
 import lqip from 'lqip-modern'
 import { z } from 'zod'
+
 import { getSlugAndLocale, image, seo } from '../utils'
 
 export const posts = defineCollection({

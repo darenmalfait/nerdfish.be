@@ -1,6 +1,7 @@
+import { type ReactNode } from 'react'
 import { Dialog, DialogContent } from '@nerdfish/react/dialog'
 import { Drawer, DrawerContent } from '@nerdfish/react/drawer'
-import { type ReactNode } from 'react'
+
 import { useMediaQuery } from '../hooks/use-media-query'
 export interface DrawerDialogProps {
 	open: boolean

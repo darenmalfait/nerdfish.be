@@ -1,3 +1,4 @@
+import { type ComponentProps } from 'react'
 import { type Article } from '@repo/design-system/components/article-overview'
 import {
 	HighlightCard,
@@ -9,7 +10,7 @@ import {
 	HighlightCardTitle,
 } from '@repo/design-system/components/highlight-card'
 import { getTranslations } from '@repo/i18n/server'
-import { type ComponentProps } from 'react'
+
 import { Link } from '~/features/shared/components/link'
 
 export interface HighlightsProps extends ComponentProps<'div'> {

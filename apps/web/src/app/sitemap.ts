@@ -2,6 +2,7 @@ import { i18n } from '@repo/i18n/config'
 import { env } from 'env'
 import { type MetadataRoute } from 'next'
 import { basePathNames, getAlternateLanguages, type Pathnames } from 'routing'
+
 import { blog } from '~/features/blog/api'
 import { getBlogPath } from '~/features/blog/utils'
 import { product } from '~/features/product/api'

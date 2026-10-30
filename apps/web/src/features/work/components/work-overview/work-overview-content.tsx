@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 'use client'
 
+import { type ReactNode } from 'react'
 import {
 	type Article,
 	ArticleOverview,
@@ -19,7 +20,7 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
-import { type ReactNode } from 'react'
+
 import { type ImageType } from '~/features/shared/types'
 
 export interface WorkOverviewContentProps {

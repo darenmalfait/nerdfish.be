@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import { Images } from './images'
-
 import './app.css'
+
+import Head from 'next/head'
+
+import { Images } from './images'
 
 export default function Page() {
 	return (

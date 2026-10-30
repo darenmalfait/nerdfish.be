@@ -1,8 +1,8 @@
 'use client'
 
+import { type ReactNode } from 'react'
 import { cn } from '@repo/lib/utils/class'
 import { AnimatePresence, motion } from 'motion/react'
-import { type ReactNode } from 'react'
 
 const VARIANTS = {
 	initial: { opacity: 0, y: '10%', scale: 0.1 },

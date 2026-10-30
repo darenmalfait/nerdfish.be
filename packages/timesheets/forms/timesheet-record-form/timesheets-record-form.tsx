@@ -1,5 +1,7 @@
 'use client'
 
+import { useMemo } from 'react'
+import { Controller, useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nerdfish/react/button'
 import {
@@ -14,8 +16,7 @@ import { Textarea } from '@nerdfish/react/textarea'
 import { TimeRangeInput } from '@repo/calendar/components/time-range-input'
 import { parse, differenceInSeconds, NEW_EVENT_ID } from '@repo/calendar/utils'
 import { cn } from '@repo/lib/utils/class'
-import { useMemo } from 'react'
-import { Controller, useForm, useWatch } from 'react-hook-form'
+
 import {
 	timesheetsRecordFormSchema,
 	type TimesheetsRecordFormData,

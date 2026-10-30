@@ -1,9 +1,5 @@
 'use client'
 
-import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
-import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
-import { cn } from '@repo/lib/utils/class'
-import { type Transition } from 'motion/react'
 import {
 	Children,
 	cloneElement,
@@ -14,6 +10,10 @@ import {
 	type ReactElement,
 	type ReactNode,
 } from 'react'
+import { useControllableState } from '@nerdfish/react/hooks/use-controllable-state'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+import { cn } from '@repo/lib/utils/class'
+import { type Transition } from 'motion/react'
 
 export interface AnimatedBackgroundProps {
 	children?:

@@ -1,4 +1,5 @@
 import { BasePage } from 'playwright/utils/page-object'
+
 import { INVALID_BLOG_POST_PATH } from './blog-detail.builders'
 
 export class BlogDetailPage extends BasePage {

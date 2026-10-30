@@ -1,5 +1,6 @@
 'use client'
 
+import { type ComponentProps, type HTMLAttributes, useState } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	Tooltip,
@@ -11,7 +12,7 @@ import { useTranslations } from '@repo/i18n/client'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn, cva, type VariantProps } from '@repo/lib/utils/class'
 import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react'
-import { type ComponentProps, type HTMLAttributes, useState } from 'react'
+
 import { useTheme } from '../theme-provider'
 
 function ThemeToggleItem({

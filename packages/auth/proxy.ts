@@ -3,6 +3,7 @@ import {
 	type NextProxy,
 	type NextRequest,
 } from 'next/server'
+
 import { isAuthEnabled } from './enabled'
 
 type AuthMiddlewareHandler = (

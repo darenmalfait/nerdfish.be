@@ -1,4 +1,5 @@
 import { getTranslations } from '@repo/i18n/server'
+
 import { WelcomeHeroContent } from './welcome-hero-content'
 
 export async function WelcomeHero() {

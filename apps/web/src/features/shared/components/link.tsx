@@ -1,8 +1,8 @@
 'use client'
 
+import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import NextLink from 'next/link'
-import { type ComponentProps, useImperativeHandle, useRef } from 'react'
 import { routing, Link as RouteLink } from 'routing'
 
 const HREF_PARAMETERS = ['mailto', 'tel', 'sms', 'http', 'https', 'whatsapp']

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	ArticleCard,
@@ -15,16 +16,18 @@ import {
 	type WithContext,
 } from '@repo/seo/json-ld'
 import { type Post } from 'content-collections'
-import { Suspense } from 'react'
+
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+
 import { blog } from '../../api'
 import { filterBlog } from '../../filter'
 import { toArticleFromBlog } from '../../utils'
+
 import {
 	BlogOverviewContent,
 	type BlogOverviewContentProps,
 } from './blog-overview-content'
 import { BlogOverviewContentSearchable } from './blog-overview-content-searchable'
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 const SKELETON_KEYS = ['skeleton-1', 'skeleton-2']
 

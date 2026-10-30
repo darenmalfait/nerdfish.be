@@ -1,6 +1,7 @@
 'use client'
 
 import { type RefObject, useState } from 'react'
+
 import { useMountEffect } from './use-mount-effect'
 
 type UseInViewOptions = {

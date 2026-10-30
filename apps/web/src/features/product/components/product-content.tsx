@@ -1,3 +1,4 @@
+import { type ComponentProps, type ReactNode } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@nerdfish/react/avatar'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
@@ -15,7 +16,7 @@ import { type Product } from 'content-collections'
 import { GlobeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { type ComponentProps, type ReactNode } from 'react'
+
 import { Body } from '~/features/site/components/body'
 
 type ProductContentLabels = {

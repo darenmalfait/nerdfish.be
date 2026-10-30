@@ -1,3 +1,4 @@
+import { cache, Suspense } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -11,7 +12,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Post } from 'content-collections'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { cache, Suspense } from 'react'
+
 import { blog } from '~/features/blog/api'
 import { BlogContent } from '~/features/blog/components/blog-content'
 import { BlogOverview } from '~/features/blog/components/blog-overview'

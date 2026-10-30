@@ -1,6 +1,7 @@
 'use client'
 
 import type * as Clerk from '@clerk/nextjs'
+
 import { isAuthEnabled } from './enabled'
 
 function EmptyUserButton() {

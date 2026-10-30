@@ -1,7 +1,5 @@
 'use client'
 
-import { useLatest } from '@repo/lib/hooks/use-latest'
-import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import {
 	createContext,
 	memo,
@@ -11,6 +9,8 @@ import {
 	useMemo,
 	useState,
 } from 'react'
+import { useLatest } from '@repo/lib/hooks/use-latest'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 
 const COLOR_SCHEMES = new Set(['light', 'dark'])
 const DEFAULT_THEMES = ['light', 'dark']

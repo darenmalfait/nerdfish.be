@@ -28,8 +28,8 @@ importers:
         specifier: ^21.2.3
         version: 21.2.3
       '@nerdfish/config':
-        specifier: ^4.0.0
-        version: 4.0.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
+        specifier: ^4.2.0
+        version: 4.2.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
       '@next/eslint-plugin-next':
         specifier: ^16.3.5
         version: 16.3.5(eslint@10.11.0(jiti@2.7.0))
@@ -763,8 +763,8 @@ importers:
   packages/typescript-config:
     dependencies:
       '@nerdfish/config':
-        specifier: ^4.0.0
-        version: 4.0.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
+        specifier: ^4.2.0
+        version: 4.2.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)
 
 packages:
 
@@ -2691,8 +2691,8 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@nerdfish/config@4.0.0':
-    resolution: {integrity: sha512-vS49Fwk1blru/T4K+B7G8O65GEgNl1eo7lJlz67MA0lBla32/B6BLdXOILEMuGNtPIcwrlkIbnDerJYNIM1sng==}
+  '@nerdfish/config@4.2.0':
+    resolution: {integrity: sha512-Du2c1uzo8sUYDPRJtHuWdciOGtbjF9PLibjqCAGT6zmvVb+hUYuBSj7uXFPRshpGSyiwe68PyBWxXm2glcp/pw==}
 
   '@nerdfish/react@1.4.2':
     resolution: {integrity: sha512-zOuLRBhSZunvvdfYLHnUuWh4U0ldfJuDaOArC1H2WJIEoUjsOdttRpsP876rFlbWnBI563722iDAhFLHLL4v6g==}
@@ -4983,6 +4983,15 @@ packages:
       '@testing-library/dom':
         optional: true
 
+  eslint-plugin-perfectionist@5.13.0:
+    resolution: {integrity: sha512-kPlqE2Kdh0njsad9S9xL/xnq+NNVUsga/uS3yf6axE0RddACM3Q+idJyethC7R+C9b73+NRhAWvKyXPrkl0nFA==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+
   eslint-plugin-react-hooks@7.1.1:
     resolution: {integrity: sha512-f2I7Gw6JbvCexzIInuSbZpfdQ44D7iqdWX01FKLvrPgqxoE7oMj8clOfto8U6vYiz4yd5oKu39rRSVOe1zRu0g==}
     engines: {node: '>=18'}
@@ -6326,6 +6335,10 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  natural-orderby@5.0.0:
+    resolution: {integrity: sha512-kKHJhxwpR/Okycz4HhQKKlhWe4ASEfPgkSWNmKFHd7+ezuQlxkA5cM3+XkBPvm1gmHen3w53qsYAv+8GwRrBlg==}
+    engines: {node: '>=18'}
 
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
@@ -9833,13 +9846,14 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@nerdfish/config@4.0.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)':
+  '@nerdfish/config@4.2.0(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(prettier@3.9.8)(typescript@5.9.3)':
     dependencies:
       '@eslint/compat': 2.1.1(eslint@10.11.0(jiti@2.7.0))
       '@total-typescript/ts-reset': 0.6.1
       '@vitest/eslint-plugin': 1.6.27(@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3)
       eslint-plugin-import-x: 4.17.1(@typescript-eslint/utils@8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.11.0(jiti@2.7.0))
       eslint-plugin-jest-dom: 5.10.1(eslint@10.11.0(jiti@2.7.0))
+      eslint-plugin-perfectionist: 5.13.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3)
       eslint-plugin-react: 7.37.5(patch_hash=4390ded9de6a208f1746653c0c0c9394f981bdeedbfaabce11677f8b77b8a0fb)(eslint@10.11.0(jiti@2.7.0))
       eslint-plugin-react-hooks: 7.1.1(eslint@10.11.0(jiti@2.7.0))
       eslint-plugin-react-x: 5.28.4(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3)
@@ -12128,6 +12142,17 @@ snapshots:
       eslint: 10.11.0(jiti@2.7.0)
       requireindex: 1.2.0
 
+  eslint-plugin-perfectionist@5.13.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3):
+    dependencies:
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.11.0(jiti@2.7.0))(typescript@5.9.3)
+      natural-orderby: 5.0.0
+    optionalDependencies:
+      eslint: 10.11.0(jiti@2.7.0)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   eslint-plugin-react-hooks@7.1.1(eslint@10.11.0(jiti@2.7.0)):
     dependencies:
       '@babel/core': 7.29.7
@@ -13737,6 +13762,8 @@ snapshots:
   napi-postinstall@0.3.4: {}
 
   natural-compare@1.4.0: {}
+
+  natural-orderby@5.0.0: {}
 
   negotiator@0.6.3: {}
 

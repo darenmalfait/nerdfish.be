@@ -14,8 +14,10 @@ import {
 } from '@nerdfish/react/sheet'
 import { formatISO } from '@repo/calendar/utils'
 import { useMediaQuery } from '@repo/design-system/hooks/use-media-query'
+
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { useTimesheets } from '../providers/timesheets-provider'
+
 import { TimesheetsSchedule } from './timesheets-schedule'
 
 export function TimesheetsEventsSheet() {

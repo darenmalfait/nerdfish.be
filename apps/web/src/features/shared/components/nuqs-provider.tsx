@@ -1,7 +1,7 @@
 'use client'
 
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense, type ReactNode } from 'react'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 /**
  * Isolates nuqs' useSearchParams() behind Suspense so static pages can

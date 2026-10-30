@@ -1,5 +1,6 @@
 'use client'
 
+import { useId, type ComponentProps, type ReactNode } from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -7,7 +8,6 @@ import {
 	AccordionTrigger,
 } from '@nerdfish/react/accordion'
 import { cn } from '@repo/lib/utils/class'
-import { useId, type ComponentProps, type ReactNode } from 'react'
 
 export interface FaqItemProps extends Omit<
 	ComponentProps<typeof AccordionItem>,

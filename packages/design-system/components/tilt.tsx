@@ -1,7 +1,8 @@
 'use client'
 
-import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { type ComponentType, type ElementType, useState } from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+
 import { type TiltProps } from './tilt-impl'
 
 export type { TiltProps } from './tilt-impl'

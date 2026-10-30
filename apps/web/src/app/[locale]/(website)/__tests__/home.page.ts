@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { type Page } from '@playwright/test'
 import { BaseComponent, BasePage } from 'playwright/utils/page-object'
+
 import { A11Y_TAGS, AXE_DISABLED_RULES } from './home.builders'
 
 class ThemeSwitcherComponent extends BaseComponent {

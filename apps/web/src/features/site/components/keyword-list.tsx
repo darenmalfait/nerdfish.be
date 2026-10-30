@@ -1,8 +1,8 @@
 'use client'
 
+import { type ComponentProps } from 'react'
 import { Marquee } from '@nerdfish/react/marquee'
 import { cn } from '@repo/lib/utils/class'
-import { type ComponentProps } from 'react'
 
 export interface KeywordProps extends Omit<ComponentProps<'span'>, 'children'> {
 	children: string

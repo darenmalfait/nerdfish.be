@@ -1,5 +1,6 @@
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import { ArrowRightIcon } from 'lucide-react'
+
 import { Link } from '~/features/shared/components/link'
 
 export interface CtaProps {

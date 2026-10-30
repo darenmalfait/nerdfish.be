@@ -1,7 +1,5 @@
 'use client'
 
-import { nonNullable } from '@repo/lib/utils/array'
-import { parseAsString, useQueryStates } from 'nuqs'
 import {
 	createContext,
 	type ReactNode,
@@ -10,6 +8,9 @@ import {
 	useMemo,
 	useState,
 } from 'react'
+import { nonNullable } from '@repo/lib/utils/array'
+import { parseAsString, useQueryStates } from 'nuqs'
+
 import { type Article } from './types'
 import { filterArticles } from './utils'
 

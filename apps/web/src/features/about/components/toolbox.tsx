@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
 import { useTranslations } from '@repo/i18n/client'
-import { useState } from 'react'
+
 import {
 	SkillsFilter,
 	skills,

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	Drawer,
@@ -13,15 +14,16 @@ import { Logo } from '@repo/design-system/icons'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
-import { useState } from 'react'
 import { usePathname } from 'routing'
-import { useNavigation, type Navigation } from '../hooks/use-navigation'
+
 import { Link } from '~/features/shared/components/link'
 import {
 	getTopLevelNavHrefs,
 	isSubNavItemActive,
 	isTopLevelNavItemActive,
 } from '~/features/site/utils/navigation-active'
+
+import { useNavigation, type Navigation } from '../hooks/use-navigation'
 
 interface NavigationItemProps {
 	item: Navigation['main'][number]

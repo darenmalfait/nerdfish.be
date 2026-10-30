@@ -1,10 +1,10 @@
 import { getTableOfContents } from 'fumadocs-core/content/toc'
 
-type TableOfContentsProperties = {
+type TableOfContentsProps = {
 	data: string
 }
 
-export function TableOfContents({ data }: TableOfContentsProperties) {
+export function TableOfContents({ data }: TableOfContentsProps) {
 	const toc = getTableOfContents(data)
 
 	return (

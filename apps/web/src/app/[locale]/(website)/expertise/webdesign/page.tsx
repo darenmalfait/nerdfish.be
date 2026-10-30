@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
@@ -11,8 +12,8 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { EyeIcon, MessageSquare, Smartphone, Zap } from 'lucide-react'
 import { type Metadata } from 'next'
-import { Suspense } from 'react'
 import { getAlternateLanguages, getPathname } from 'routing'
+
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Faq, FaqItem } from '~/features/site/components/faq'

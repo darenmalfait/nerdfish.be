@@ -1,16 +1,17 @@
+import '~/features/theme/styles/global.css'
+
+import { type ReactNode } from 'react'
 import { Toaster } from '@nerdfish/react/toast'
 import { fonts } from '@repo/design-system/fonts'
 import { NextIntlClientProvider } from '@repo/i18n/client'
 import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
-import { type ReactNode } from 'react'
+
 import { SiteFooter } from '~/features/site/components/site-footer'
 import { SiteHeader } from '~/features/site/components/site-header'
 import { SkipLink } from '~/features/site/components/skip-link'
 import { AppProviders } from '~/features/theme/app-providers'
-
-import '~/features/theme/styles/global.css'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

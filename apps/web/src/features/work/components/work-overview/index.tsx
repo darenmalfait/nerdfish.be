@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	ArticleCard,
@@ -10,16 +11,18 @@ import { ArticleOverviewContentGrid } from '@repo/design-system/components/artic
 import { getLocale } from '@repo/i18n/server'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
-import { Suspense } from 'react'
+
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+
 import { work } from '../../api'
 import { filterWork } from '../../filter'
 import { toArticleFromWork } from '../../utils'
+
 import {
 	WorkOverviewContent,
 	type WorkOverviewContentProps,
 } from './work-overview-content'
 import { WorkOverviewContentSearchable } from './work-overview-content-searchable'
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 const SKELETON_KEYS = ['skeleton-1', 'skeleton-2']
 

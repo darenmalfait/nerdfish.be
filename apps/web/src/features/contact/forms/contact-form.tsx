@@ -1,5 +1,13 @@
 'use client'
 
+import { type ReactNode, useState } from 'react'
+import {
+	Controller,
+	type Control,
+	type FieldError as RHFFieldError,
+	useForm,
+	useWatch,
+} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Alert, AlertDescription, AlertTitle } from '@nerdfish/react/alert'
 import { Button } from '@nerdfish/react/button'
@@ -23,14 +31,7 @@ import { parseError } from '@repo/observability/error'
 import { useRecaptcha } from '@repo/recaptcha/hooks/use-recaptcha'
 import { ArrowRightIcon } from 'lucide-react'
 import { useAction } from 'next-safe-action/hooks'
-import { type ReactNode, useState } from 'react'
-import {
-	Controller,
-	type Control,
-	type FieldError as RHFFieldError,
-	useForm,
-	useWatch,
-} from 'react-hook-form'
+
 import { submitContactFormAction } from './contact-form.actions'
 import {
 	type ContactFormData,

@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from 'react'
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -8,7 +9,6 @@ import {
 } from '@nerdfish/react/breadcrumb'
 import { Separator } from '@nerdfish/react/separator'
 import { SidebarTrigger } from '@nerdfish/react/sidebar'
-import { Fragment, type ReactNode } from 'react'
 
 type AppHeaderProps = {
 	pages: string[]

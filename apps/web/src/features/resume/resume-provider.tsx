@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, use, type ReactNode, useMemo, useState } from 'react'
+
 import { type Resume } from './types'
 
 interface ResumeContextProps {

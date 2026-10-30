@@ -2,6 +2,7 @@
 
 import type * as Clerk from '@clerk/nextjs'
 import Link from 'next/link'
+
 import { isAuthEnabled } from '../enabled'
 
 const ClerkSignUp = isAuthEnabled()

@@ -1,8 +1,10 @@
 'use client'
 
-import { type Article } from '@repo/design-system/components/article-overview'
 import { useCallback } from 'react'
+import { type Article } from '@repo/design-system/components/article-overview'
+
 import { filterBlog } from '../../filter'
+
 import {
 	BlogOverviewContent,
 	type BlogOverviewContentProps,

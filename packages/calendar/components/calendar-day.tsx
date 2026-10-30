@@ -1,5 +1,6 @@
 'use client'
 
+import { type MouseEvent, useState, type HTMLAttributes, Fragment } from 'react'
 import {
 	ContextMenu,
 	ContextMenuContent,
@@ -19,7 +20,7 @@ import {
 	setMinutes,
 	startOfDay,
 } from 'date-fns'
-import { type MouseEvent, useState, type HTMLAttributes, Fragment } from 'react'
+
 import { type CalendarEvent } from '../schemas'
 import {
 	createNewEvent,

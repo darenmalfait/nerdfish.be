@@ -1,13 +1,13 @@
 'use client'
 
-import { useInView } from '@repo/lib/hooks/use-in-view'
-import { cn } from '@repo/lib/utils/class'
 import {
 	useImperativeHandle,
 	useRef,
 	type ComponentProps,
 	type ReactNode,
 } from 'react'
+import { useInView } from '@repo/lib/hooks/use-in-view'
+import { cn } from '@repo/lib/utils/class'
 
 export interface InViewBackgroundProps extends ComponentProps<'div'> {
 	children: ReactNode

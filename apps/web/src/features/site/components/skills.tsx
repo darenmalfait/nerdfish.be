@@ -1,5 +1,6 @@
 'use client'
 
+import type * as React from 'react'
 import { TagFilter } from '@repo/design-system/components/tag-filter'
 import { Tilt } from '@repo/design-system/components/tilt'
 import {
@@ -18,7 +19,6 @@ import {
 	VSCodeIcon,
 } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import type * as React from 'react'
 
 export const skills = [
 	{

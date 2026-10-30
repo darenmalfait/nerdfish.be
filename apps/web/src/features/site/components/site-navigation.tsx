@@ -1,5 +1,6 @@
 'use client'
 
+import { type ComponentPropsWithoutRef, type ReactNode, useRef } from 'react'
 import { Button, buttonVariants } from '@nerdfish/react/button'
 import {
 	Item,
@@ -23,15 +24,16 @@ import { socials } from '@repo/global-settings/socials'
 import { useTranslations } from '@repo/i18n/client'
 import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
-import { type ComponentPropsWithoutRef, type ReactNode, useRef } from 'react'
 import { usePathname } from 'routing'
+
+import { Link } from '~/features/shared/components/link'
+import { getActiveMainNavLabel } from '~/features/site/utils/navigation-active'
+
 import {
 	useNavigation,
 	type Navigation,
 	type SubNavItem,
 } from '../hooks/use-navigation'
-import { Link } from '~/features/shared/components/link'
-import { getActiveMainNavLabel } from '~/features/site/utils/navigation-active'
 
 function MainNavigationSubItem({
 	href,

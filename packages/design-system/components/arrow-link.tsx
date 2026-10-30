@@ -1,14 +1,15 @@
 'use client'
 
-import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
-import { cn } from '@repo/lib/utils/class'
-import Link from 'next/link'
 import {
 	type ComponentType,
 	type ElementType,
 	type ReactNode,
 	useState,
 } from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
+import { cn } from '@repo/lib/utils/class'
+import Link from 'next/link'
+
 import { ArrowIcon, type ArrowIconProps } from '../icons'
 
 export interface ArrowLinkProps {

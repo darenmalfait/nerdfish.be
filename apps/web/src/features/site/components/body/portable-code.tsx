@@ -1,5 +1,5 @@
-import { CodeBlock } from '@nerdfish/react/code-block'
 import { type ComponentProps } from 'react'
+import { CodeBlock } from '@nerdfish/react/code-block'
 
 type PortableCodeProps = ComponentProps<'pre'>
 

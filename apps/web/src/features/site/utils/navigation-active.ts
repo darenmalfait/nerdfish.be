@@ -1,4 +1,5 @@
 import { stripPreSlash } from '@repo/lib/utils/string'
+
 import { type Navigation } from '~/features/site/hooks/use-navigation'
 
 /** Top-level nav targets (e.g. /about) — used to avoid double-active sub links. */

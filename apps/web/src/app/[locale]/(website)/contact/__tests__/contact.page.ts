@@ -1,5 +1,6 @@
 import { type Page } from '@playwright/test'
 import { BasePage } from 'playwright/utils/page-object'
+
 import { type ContactFormTestData } from './contact-form.builders'
 
 class ContactFormComponent {

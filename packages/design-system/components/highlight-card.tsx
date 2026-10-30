@@ -1,12 +1,12 @@
 'use client'
 
+import { type ElementType, type ReactNode, type ComponentProps } from 'react'
 import { Badge } from '@nerdfish/react/badge'
 import { Button } from '@nerdfish/react/button'
 import { cn } from '@repo/lib/utils/class'
 import { ArrowRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { type ElementType, type ReactNode, type ComponentProps } from 'react'
 export interface HighlightCardImageProps extends ComponentProps<'div'> {
 	src?: string | null
 	alt?: string

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Drawer, DrawerContent, DrawerTitle } from '@nerdfish/react/drawer'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { MagnetButton } from '@repo/design-system/components/magnet'
@@ -11,7 +12,6 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { ArrowRightIcon } from 'lucide-react'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
 
 const ContactForm = dynamic(
 	() => import('../forms/contact-form').then((mod) => mod.ContactForm),

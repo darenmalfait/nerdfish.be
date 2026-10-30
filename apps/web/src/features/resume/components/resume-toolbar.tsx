@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nerdfish/react/button'
 import {
@@ -8,7 +10,6 @@ import {
 	FieldGroup,
 	FieldLabel,
 } from '@nerdfish/react/field'
-
 import {
 	Sheet,
 	SheetTrigger,
@@ -25,12 +26,12 @@ import { JsonEditor } from '@repo/design-system/components/json-editor'
 import { cn } from '@repo/lib/utils/class'
 import { parseError } from '@repo/observability/error'
 import { PencilIcon, PrinterIcon } from 'lucide-react'
-import { useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
+
+import { useTheme } from '~/features/theme/theme-provider'
+
 import { useResume } from '../resume-provider'
 import { resumeSchema } from '../types'
-import { useTheme } from '~/features/theme/theme-provider'
 
 const resumeFormSchema = z.object({
 	schema: z.string(),

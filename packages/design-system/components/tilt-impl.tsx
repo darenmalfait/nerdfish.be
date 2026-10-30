@@ -1,14 +1,6 @@
 'use client'
 
 import {
-	type SpringOptions,
-	motion,
-	useMotionTemplate,
-	useMotionValue,
-	useSpring,
-	useTransform,
-} from 'motion/react'
-import {
 	useImperativeHandle,
 	useRef,
 	type ComponentProps,
@@ -17,6 +9,14 @@ import {
 	type MouseEvent,
 	type Ref,
 } from 'react'
+import {
+	type SpringOptions,
+	motion,
+	useMotionTemplate,
+	useMotionValue,
+	useSpring,
+	useTransform,
+} from 'motion/react'
 
 export interface TiltProps extends ComponentProps<typeof motion.div> {
 	rotationFactor?: number

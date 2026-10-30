@@ -1,3 +1,4 @@
+import type * as React from 'react'
 import { Button } from '@nerdfish/react/button'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import {
@@ -10,8 +11,9 @@ import { type Project } from 'content-collections'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type * as React from 'react'
+
 import { getWorkLayout, type WorkLayout } from '../utils'
+
 import { Body } from './work-body'
 
 type WorkContentProps = {

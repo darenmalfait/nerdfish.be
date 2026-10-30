@@ -1,5 +1,6 @@
 'use client'
 
+import { type ComponentProps, useCallback } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	Tooltip,
@@ -13,12 +14,14 @@ import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { kebabCase } from '@repo/lib/utils/string'
 import { ArrowRight, LibrarySquareIcon } from 'lucide-react'
-import { type ComponentProps, useCallback } from 'react'
-import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
-import { LocaleSwitcher } from './locale-switcher'
-import { SocialLinks } from './site-navigation'
+
 import { Link } from '~/features/shared/components/link'
 import { ThemeToggle } from '~/features/theme/components/theme-toggle'
+
+import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
+
+import { LocaleSwitcher } from './locale-switcher'
+import { SocialLinks } from './site-navigation'
 
 function Disclaimer() {
 	const { companyName, email, vat } = companyInfo
@@ -62,11 +65,11 @@ function SiteFooterHeading() {
 		<h2 className="typography-heading-lg mb-acquaintances py-lg text-foreground">
 			<Link
 				href="/contact"
-				className="!text-foreground group"
+				className="text-foreground! group"
 				aria-label="Let's work together"
 			>
 				<TextSlideUp>
-					<span className="!text-foreground">
+					<span className="text-foreground!">
 						Let&apos;s work
 						<ArrowRight className="ml-casual group-hover:translate-x-bff group-hover:text-accent inline size-8 transform duration-300 md:size-12 lg:size-16" />
 					</span>
@@ -219,9 +222,9 @@ function SiteFooterContent() {
 	)
 }
 
-export type FooterProps = ComponentProps<'footer'>
+export type SiteFooterProps = ComponentProps<'footer'>
 
-export function SiteFooter({ className, ...props }: FooterProps) {
+export function SiteFooter({ className, ...props }: SiteFooterProps) {
 	return (
 		<footer
 			className={cn('mt-casual py-lg pb-acquaintances print:hidden', className)}

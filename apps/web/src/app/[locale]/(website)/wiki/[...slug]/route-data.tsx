@@ -1,5 +1,6 @@
-import { notFound } from 'next/navigation'
 import { cache } from 'react'
+import { notFound } from 'next/navigation'
+
 import { wiki } from '~/features/wiki/api'
 
 export const getRouteData = cache(async function fetchRouteData(slug: string) {

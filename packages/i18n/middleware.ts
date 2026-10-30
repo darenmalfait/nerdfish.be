@@ -1,4 +1,5 @@
 import createMiddleware from 'next-intl/middleware'
+
 import { i18n, localeCookie } from './config'
 import { type BasePathNames } from './routing'
 

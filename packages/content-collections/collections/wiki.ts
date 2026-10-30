@@ -1,8 +1,10 @@
 import crypto from 'crypto'
+
 import { defineCollection } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
 import { remarkGfm } from 'fumadocs-core/mdx-plugins'
 import { z } from 'zod'
+
 import { seo } from '../utils'
 
 export const wiki = defineCollection({

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -10,13 +11,14 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
-import { Suspense } from 'react'
-import { getRouteData } from './route-data'
+
 import { getContentLanguageAlternates } from '~/features/shared/content/locale-alternates'
 import { work as workApi } from '~/features/work/api'
 import { WorkContent } from '~/features/work/components/work-content'
 import { WorkOverview } from '~/features/work/components/work-overview'
 import { getWorkPath } from '~/features/work/utils'
+
+import { getRouteData } from './route-data'
 
 export async function generateStaticParams({
 	params,

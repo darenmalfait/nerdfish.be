@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 'use client'
 
+import { type ComponentProps, type ReactNode } from 'react'
 import { Badge } from '@nerdfish/react/badge'
 import {
 	ArticleCard,
@@ -27,7 +28,7 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { usePathname } from 'next/navigation'
-import { type ComponentProps, type ReactNode } from 'react'
+
 import { Link } from '~/features/shared/components/link'
 import { type ImageType } from '~/features/shared/types'
 

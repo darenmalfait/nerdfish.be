@@ -1,5 +1,6 @@
 'use client'
 
+import type * as React from 'react'
 import {
 	PriceCard,
 	PriceCardAction,
@@ -12,7 +13,7 @@ import {
 } from '@repo/design-system/components/price-card'
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
-import type * as React from 'react'
+
 import { Link } from '~/features/shared/components/link'
 
 interface Price extends PriceCardProps {

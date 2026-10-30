@@ -1,6 +1,7 @@
 // Thanks to Rafaël Mindreau for the inspiration 🙏
 'use client'
 
+import { useMemo, useRef, useState } from 'react'
 import {
 	Dialog,
 	DialogTrigger,
@@ -17,7 +18,7 @@ import { secondsToHoursAndMinutes } from '@repo/calendar/utils'
 import { Logo } from '@repo/design-system/icons'
 import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { cn } from '@repo/lib/utils/class'
-import { useMemo, useRef, useState } from 'react'
+
 import { type TimesheetsRecord } from '../schemas'
 
 function Row({

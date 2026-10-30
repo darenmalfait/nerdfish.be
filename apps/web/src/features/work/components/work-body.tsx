@@ -1,10 +1,11 @@
+import { type ComponentProps } from 'react'
 import {
 	Section,
 	SectionHeader,
 	SectionHeaderSubtitle,
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
-import { type ComponentProps } from 'react'
+
 import { Body as BaseBody } from '~/features/site/components/body'
 import { ImageGrid } from '~/features/site/components/image-grid'
 import {

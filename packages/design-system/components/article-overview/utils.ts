@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js'
+
 import { type Article } from './types'
 
 export function filterArticles(articles: Article[], searchString: string) {

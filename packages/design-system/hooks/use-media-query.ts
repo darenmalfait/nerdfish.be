@@ -1,5 +1,5 @@
-import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 import { useState } from 'react'
+import { useMountEffect } from '@repo/lib/hooks/use-mount-effect'
 
 export function useMediaQuery(query: string) {
 	const [value, setValue] = useState(false)

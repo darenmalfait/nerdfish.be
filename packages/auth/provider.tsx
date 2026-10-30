@@ -1,10 +1,11 @@
 'use client'
 
-import type * as Clerk from '@clerk/nextjs'
 import { type ReactNode } from 'react'
+import type * as Clerk from '@clerk/nextjs'
+
 import { isAuthEnabled } from './enabled'
 
-type AuthProviderProperties = {
+type AuthProviderProps = {
 	readonly children: ReactNode
 	readonly privacyUrl?: string
 	readonly termsUrl?: string
@@ -22,7 +23,7 @@ export function AuthProvider({
 	helpUrl,
 	children,
 	...properties
-}: AuthProviderProperties) {
+}: AuthProviderProps) {
 	if (!ClerkProvider) {
 		return children
 	}

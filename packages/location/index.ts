@@ -1,4 +1,5 @@
 import { headers } from 'next/headers'
+
 import countries from './countries.json'
 import flags from './country-flags'
 import { currencies } from './currencies'

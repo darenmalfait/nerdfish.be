@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import {
 	ArticleCard,
@@ -9,16 +10,18 @@ import {
 import { ArticleOverviewContentGrid } from '@repo/design-system/components/article-overview'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
-import { Suspense } from 'react'
+
+import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+
 import { wiki } from '../../api'
 import { filterWiki } from '../../filter'
 import { toArticleFromWiki } from '../../utils'
+
 import {
 	WikiOverviewContent,
 	type WikiOverviewContentProps,
 } from './wiki-overview-content'
 import { WikiOverviewContentSearchable } from './wiki-overview-content-searchable'
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
 
 const SKELETON_KEYS = ['skeleton-1', 'skeleton-2']
 

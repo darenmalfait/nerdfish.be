@@ -1,4 +1,5 @@
 import { test as base } from '@playwright/test'
+
 import { BlogDetailPage } from './blog-detail.page'
 
 export * from '@playwright/test'

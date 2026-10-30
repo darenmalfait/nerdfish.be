@@ -1,5 +1,6 @@
 'use client'
 
+import { type ReactNode } from 'react'
 import { Button } from '@nerdfish/react/button'
 import {
 	Collapsible,
@@ -28,9 +29,8 @@ import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import { ChevronRightIcon, SquareTerminalIcon } from 'lucide-react'
 import Link from 'next/link'
-import { type ReactNode } from 'react'
 
-type AppSidebarProperties = {
+type AppSidebarProps = {
 	readonly children: ReactNode
 }
 
@@ -55,7 +55,7 @@ const data = {
 	],
 }
 
-export function AppSidebar({ children }: AppSidebarProperties) {
+export function AppSidebar({ children }: AppSidebarProps) {
 	const sidebar = useSidebar()
 
 	return (

@@ -1,6 +1,7 @@
 'use client'
 
 import { type Ref, useCallback, useRef, useState } from 'react'
+
 import { useMountEffect } from './use-mount-effect'
 export type ElementState = 'active' | 'focus' | 'hover' | 'initial'
 

@@ -1,3 +1,4 @@
+import type * as React from 'react'
 import { Badge } from '@nerdfish/react/badge'
 import {
 	Breadcrumb,
@@ -18,10 +19,11 @@ import { type Post } from 'content-collections'
 import { env } from 'env'
 import Image from 'next/image'
 import Link from 'next/link'
-import type * as React from 'react'
-import { getBlogPath } from '../utils'
+
 import { Body } from '~/features/site/components/body'
 import { ImageCredit } from '~/features/site/components/image-credit'
+
+import { getBlogPath } from '../utils'
 
 function BlogHeroImage({
 	heroImg,

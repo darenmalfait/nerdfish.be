@@ -1,5 +1,6 @@
 'use client'
 
+import { type ReactNode, type ComponentProps } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -8,10 +9,11 @@ import {
 } from '@repo/design-system/components/section'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
-import { type ReactNode, type ComponentProps } from 'react'
+
+import { Link } from '~/features/shared/components/link'
+
 import { useResume } from '../resume-provider'
 import { type Resume as ResumeProps } from '../types'
-import { Link } from '~/features/shared/components/link'
 
 function ResumePageHeaderInformationItem({
 	className,

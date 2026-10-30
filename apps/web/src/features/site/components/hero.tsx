@@ -1,3 +1,4 @@
+import { type ComponentProps, type ElementType, type ReactNode } from 'react'
 import { MagnetButton } from '@repo/design-system/components/magnet'
 import {
 	Section,
@@ -9,7 +10,7 @@ import { cn } from '@repo/lib/utils/class'
 import { capitalize } from '@repo/lib/utils/string'
 import { ArrowRightIcon } from 'lucide-react'
 import Image from 'next/image'
-import { type ComponentProps, type ElementType, type ReactNode } from 'react'
+
 import { Link } from '~/features/shared/components/link'
 
 export function HeroSubtitle({

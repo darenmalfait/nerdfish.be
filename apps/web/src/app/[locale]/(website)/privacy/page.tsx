@@ -5,6 +5,7 @@ import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getAlternateLanguages, getPathname } from 'routing'
+
 import { Link } from '~/features/shared/components/link'
 
 type PageProps = {

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { InViewBackground } from '@repo/design-system/components/in-view-background'
 import {
 	Section,
@@ -15,8 +16,8 @@ import {
 	Paintbrush2Icon,
 } from 'lucide-react'
 import { type Metadata } from 'next'
-import { Suspense } from 'react'
 import { getAlternateLanguages, getPathname } from 'routing'
+
 import { BlogOverview } from '~/features/blog/components/blog-overview'
 import { Cta } from '~/features/site/components/cta'
 import { Features } from '~/features/site/components/features'

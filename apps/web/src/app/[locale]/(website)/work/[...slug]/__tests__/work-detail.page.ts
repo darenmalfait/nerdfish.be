@@ -1,4 +1,5 @@
 import { BasePage } from 'playwright/utils/page-object'
+
 import { INVALID_WORK_PROJECT_PATH } from './work-detail.builders'
 
 export class WorkDetailPage extends BasePage {

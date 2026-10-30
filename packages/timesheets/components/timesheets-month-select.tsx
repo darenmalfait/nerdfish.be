@@ -8,6 +8,7 @@ import {
 	startOfMonth,
 } from '@repo/calendar/utils'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+
 import { useTimesheetsParams } from '../hooks/use-timesheets-params'
 import { TIMEZONE } from '../utils'
 

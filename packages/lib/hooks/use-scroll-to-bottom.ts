@@ -1,4 +1,5 @@
 import { type RefObject, useRef } from 'react'
+
 import { useMountEffect } from './use-mount-effect'
 
 export function useScrollToBottom<T extends HTMLElement>(): [

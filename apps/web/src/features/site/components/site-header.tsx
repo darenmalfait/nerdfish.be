@@ -1,15 +1,17 @@
 'use client'
 
+import { type ComponentProps } from 'react'
 import { Button } from '@nerdfish/react/button'
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 import dynamic from 'next/dynamic'
-import { type ComponentProps } from 'react'
+
+import { Link } from '~/features/shared/components/link'
+import { ThemeToggle } from '~/features/theme/components/theme-toggle'
+
 import { LocaleSwitcher } from './locale-switcher'
 import { MobileNavigation } from './mobile-navigation'
 import { SiteNavigation } from './site-navigation'
-import { Link } from '~/features/shared/components/link'
-import { ThemeToggle } from '~/features/theme/components/theme-toggle'
 
 const Particles = dynamic(
 	() =>

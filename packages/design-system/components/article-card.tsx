@@ -1,12 +1,5 @@
 'use client'
 
-import { Badge } from '@nerdfish/react/badge'
-import { Button } from '@nerdfish/react/button'
-import { Skeleton } from '@nerdfish/react/skeleton'
-import { cn } from '@repo/lib/utils/class'
-import { ArrowRightIcon } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 import {
 	type ComponentProps,
 	lazy,
@@ -14,6 +7,14 @@ import {
 	Suspense,
 	useState,
 } from 'react'
+import { Badge } from '@nerdfish/react/badge'
+import { Button } from '@nerdfish/react/button'
+import { Skeleton } from '@nerdfish/react/skeleton'
+import { cn } from '@repo/lib/utils/class'
+import { ArrowRightIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import {
 	getCategoryBackground,
 	getCategoryForeground,

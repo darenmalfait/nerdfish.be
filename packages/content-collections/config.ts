@@ -1,4 +1,5 @@
 import { defineConfig } from '@content-collections/core'
+
 import { posts } from './collections/blog'
 import { products } from './collections/products'
 import { projects } from './collections/projects'

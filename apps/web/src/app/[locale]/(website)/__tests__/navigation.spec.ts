@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test'
+
 import {
 	ABOUT_URL_PATTERN,
 	BLOG_URL_PATTERN,

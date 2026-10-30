@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+
 import { AppHeader } from '~/features/app-shell/components/app-header'
 import { Resume } from '~/features/resume/components/resume'
 import { ResumeToolbar } from '~/features/resume/components/resume-toolbar'

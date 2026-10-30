@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -9,8 +10,8 @@ import { type WithLocale } from '@repo/i18n/types'
 import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
-import { Suspense } from 'react'
 import { getAlternateLanguages, getPathname } from 'routing'
+
 import { ProductOverview } from '~/features/product/components/product-overview/product-overview'
 import { Cta } from '~/features/site/components/cta'
 import {

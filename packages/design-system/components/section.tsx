@@ -1,5 +1,6 @@
-import { cn } from '@repo/lib/utils/class'
 import { type ElementType, type ComponentProps } from 'react'
+import { cn } from '@repo/lib/utils/class'
+
 import { ArrowLink } from './arrow-link'
 import { Slot } from './slot'
 import { TextBalancer } from './text-balancer'

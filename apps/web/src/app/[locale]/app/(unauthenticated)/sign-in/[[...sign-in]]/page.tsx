@@ -1,6 +1,7 @@
 import { type WithLocale } from '@repo/i18n/types'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
+
 import { SignInPageContent } from './content'
 
 const TITLE = 'Welcome back'

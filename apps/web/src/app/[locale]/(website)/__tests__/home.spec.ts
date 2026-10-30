@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test'
+
 import { test } from './home.fixture'
 
 test.describe('User Story: The user wants to use the homepage without accessibility barriers', () => {
