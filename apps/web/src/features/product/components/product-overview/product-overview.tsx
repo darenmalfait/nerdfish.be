@@ -2,8 +2,8 @@ import { Suspense } from 'react'
 import { Skeleton } from '@nerdfish/react/skeleton'
 import { getLocale } from '@repo/i18n/server'
 
-import { product } from '../../api'
-import { getProductPath } from '../../utils'
+import { getProducts } from '../../api/get-products'
+import { getProductPath } from '../../utils/get-product-path'
 
 import {
 	ProductCard,
@@ -15,7 +15,7 @@ import {
 
 export async function ProductOverviewData() {
 	const locale = await getLocale()
-	const items = await product.getAll({ locale })
+	const items = await getProducts({ locale })
 
 	return (
 		<ul role="list" className="gap-friends flex flex-col">

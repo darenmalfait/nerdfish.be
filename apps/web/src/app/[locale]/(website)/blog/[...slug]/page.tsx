@@ -13,11 +13,12 @@ import { type Post } from 'content-collections'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { blog } from '~/features/blog/api'
+import { getPost } from '~/features/blog/api/get-post'
+import { getPosts } from '~/features/blog/api/get-posts'
 import { BlogContent } from '~/features/blog/components/blog-content'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
-import { getBlogPath } from '~/features/blog/utils'
-import { getContentLanguageAlternates } from '~/features/shared/content/locale-alternates'
+import { getBlogPath } from '~/features/blog/utils/get-blog-path'
+import { getContentLanguageAlternates } from '~/utils/get-content-language-alternates'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
@@ -28,7 +29,7 @@ export async function generateStaticParams({
 }: {
 	params: { locale: Locale }
 }) {
-	return (await blog.getAll({ locale: params.locale })).map((post) => ({
+	return (await getPosts({ locale: params.locale })).map((post) => ({
 		slug: post.slug.split('/'),
 	}))
 }
@@ -37,7 +38,7 @@ const getPageData = cache(async function fetchPageData(
 	slug: string,
 	locale?: Locale,
 ) {
-	const post = await blog.get({ slug: decodeURIComponent(slug), locale })
+	const post = await getPost({ slug: decodeURIComponent(slug), locale })
 
 	if (!post) return notFound()
 
@@ -52,7 +53,7 @@ export async function generateMetadata(
 	const { slug, locale } = await props.params
 	const [{ post }, posts] = await Promise.all([
 		getPageData(slug.join('/'), locale),
-		blog.getAll(),
+		getPosts(),
 	])
 	const title = post.seo.title
 	const languages = getContentLanguageAlternates(posts, post, getBlogPath)

@@ -8,9 +8,9 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getAlternateLanguages, getPathname } from 'routing'
 
+import { Link } from '~/components/link'
 import { ContactCopyEmailButton } from '~/features/contact/components/contact-copy-email-button'
 import { ContactFormViaButton } from '~/features/contact/components/contact-form-drawer'
-import { Link } from '~/features/shared/components/link'
 import {
 	Hero,
 	HeroContent,

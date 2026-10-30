@@ -3,7 +3,7 @@ import { Skeleton } from '@nerdfish/react/skeleton'
 import { getLocale } from '@repo/i18n/server'
 import { type Testimonial } from 'content-collections'
 
-import { testimonials as testimonialsApi } from '../../api'
+import { getTestimonials } from '../../api/get-testimonials'
 
 import {
 	TestimonialsContent,
@@ -25,7 +25,7 @@ async function TestimonialsData({
 	...testimonialsProps
 }: TestimonialsProps) {
 	const locale = await getLocale()
-	const allTestimonials = await testimonialsApi.getAll({ locale })
+	const allTestimonials = await getTestimonials({ locale })
 
 	const testimonials = allTestimonials
 		// filter by type

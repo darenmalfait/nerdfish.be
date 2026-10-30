@@ -1,74 +1,47 @@
 ---
-title: Enforce Feature Boundaries Through Leaf Modules
+title: Feature Folder Structure and Boundaries (nerdfish.be)
 impact: CRITICAL
 impactDescription: Prevents architectural erosion and maintains loose coupling
-tags: architecture, boundaries, imports, coupling
+tags: architecture, boundaries, imports, coupling, structure
 ---
 
-## Enforce Feature Boundaries Through Leaf Modules
+## Feature Folder Structure and Boundaries (nerdfish.be)
 
 **Impact: CRITICAL**
 
-Features expose stable **leaf modules** (`api.ts`, `utils.ts`, top-level
-components). Cross-feature and `app/` imports use those paths — never a
-feature-root barrel, and avoid deep internals when a leaf already exists.
+The general rules (feature folder shape, one function per file in `api/` and
+`utils/`, no cross-feature imports, import by file path, routes compose
+features) live in the `nerdfish-monorepo-architecture` skill
+(`rules/vertical-slices.md`, `rules/circular-dependencies.md`). This file only
+records where things live in this repo.
 
-**Incorrect:**
+**Shared code in `apps/web/src/`:**
 
-```typescript
-// Bad - feature-root barrel (do not create index.ts / server.ts / client.ts)
-import { BlogOverview, blog } from '~/features/blog'
+| Folder        | Holds                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| `components/` | MDX `Body`, `ImageGrid`, `ImageCredit`, `Skills`, `Link`, `ThemeToggle`                        |
+| `providers/`  | `AppProviders`, `ThemeProvider`, `NuqsProvider`                                                |
+| `types/`      | `image.ts`, `locale-alternates.ts`, `middleware.ts`                                            |
+| `utils/`      | One helper per file (`filter-by-locale`, `fuzzy-filter`, `get-content-language-alternates`, …) |
+| `styles/`     | `global.css`                                                                                   |
 
-// Bad - reaching past the public leaf into implementation details
-import { BlogOverviewContent } from '~/features/blog/components/blog-overview/blog-overview-content'
-import { filterBlog } from '~/features/blog/filter'
-```
+Domain-agnostic code that other apps could use goes in `@repo/lib` /
+`@repo/observability`; shared UI primitives in `@repo/design-system` /
+`@nerdfish/react`.
 
-**Correct:**
+**Repo examples:**
 
-```typescript
-// Good - import leaf modules
-import { BlogOverview } from '~/features/blog/components/blog-overview'
-import { blog } from '~/features/blog/api'
-import { getBlogPath } from '~/features/blog/utils'
-import { Link } from '~/features/shared/components/link'
-```
+- Content readers: `~/features/blog/api/get-posts`,
+  `~/features/blog/api/get-post`
+- Path helpers: `~/features/blog/utils/get-blog-path`
+- Search: `~/features/blog/utils/filter-blog` wraps `~/utils/fuzzy-filter` with
+  the blog's search keys
+- Route injecting another feature:
+  `app/[locale]/(website)/work/[...slug]/page.tsx` passes `Testimonials` to
+  `WorkContent` via `bodyComponents`
 
-**Public leaf convention** (`apps/web/src/features/<name>/`):
+**Enforcement:** ESLint, via `@nerdfish/conventions/feature-folder-structure`
+and `@nerdfish/conventions/no-cross-feature-imports` (`@nerdfish/config` ≥ 4.3).
 
-| Path                             | Role                                                   |
-| -------------------------------- | ------------------------------------------------------ |
-| `api.ts`                         | Content readers / data access used outside the feature |
-| `utils.ts`                       | Path helpers and pure utils used outside the feature   |
-| `components/<thing>`             | UI meant for composition by `app/` or other features   |
-| `*.schema.tsx` / `*.actions.tsx` | Forms (when web-only)                                  |
-
-Do **not** add `features/<name>/index.ts`, `server.ts`, or `client.ts` barrels.
-
-**Shared code placement:**
-
-- Domain-agnostic utilities: `packages/lib` / `@repo/lib`, `@repo/observability`
-- Shared UI primitives: `@repo/design-system`, `@nerdfish/react`
-- Marketing chrome shared across pages: `~/features/site/...`
-- Cross-feature primitives (Link, NuqsProvider): `~/features/shared/...`
-
-**Dependency rules:**
-
-- `app/` may import feature leaf modules and `@repo/*`
-- Features may import other features' **leaf** modules, `site` / `shared`, and
-  `@repo/*`
-- Features never import `~/app/**` or `apps/web/src/app/**`
-- Prefer not to import deep private files when a leaf module re-exports the
-  intended surface (e.g. use `blog-overview`, not `blog-overview-content`)
-
-**Enforcement:** Review-enforced until ESLint boundary rules land. Prefer leaf
-imports in code review; reject new feature barrels.
-
-**Benefits:**
-
-- Discoverability: blog logic lives under `apps/web/src/features/blog`
-- Clearer deps: `~/features/blog/api` names the dependency surface
-- Better tree-shaking than feature-root re-export barrels
-
-Reference: `AGENTS.md`, `architecture-features-modules.md`,
-`quality-avoid-barrel-imports.md`
+Reference: `nerdfish-monorepo-architecture` skill, `AGENTS.md`,
+`architecture-features-modules.md`, `quality-avoid-barrel-imports.md`

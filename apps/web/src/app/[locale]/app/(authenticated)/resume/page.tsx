@@ -3,7 +3,7 @@ import { type Metadata } from 'next'
 import { AppHeader } from '~/features/app-shell/components/app-header'
 import { Resume } from '~/features/resume/components/resume'
 import { ResumeToolbar } from '~/features/resume/components/resume-toolbar'
-import { ResumeProvider } from '~/features/resume/resume-provider'
+import { ResumeProvider } from '~/features/resume/providers/resume-provider'
 
 export const metadata: Metadata = {
 	title: 'Resume Generator',

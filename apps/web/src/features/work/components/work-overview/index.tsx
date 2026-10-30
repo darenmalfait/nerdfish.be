@@ -12,11 +12,11 @@ import { getLocale } from '@repo/i18n/server'
 import { type PartialDeep } from '@repo/lib/types'
 import { type Project } from 'content-collections'
 
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+import { NuqsProvider } from '~/providers/nuqs-provider'
 
-import { work } from '../../api'
-import { filterWork } from '../../filter'
-import { toArticleFromWork } from '../../utils'
+import { getProjects } from '../../api/get-projects'
+import { filterWork } from '../../utils/filter-work'
+import { toArticleFromWork } from '../../utils/to-article-from-work'
 
 import {
 	WorkOverviewContent,
@@ -49,7 +49,7 @@ export async function WorkOverviewData({
 	...props
 }: WorkOverviewProps) {
 	const locale = await getLocale()
-	const localizedItems = await work.getAll({ locale })
+	const localizedItems = await getProjects({ locale })
 
 	const relatedItems =
 		relatedTo &&

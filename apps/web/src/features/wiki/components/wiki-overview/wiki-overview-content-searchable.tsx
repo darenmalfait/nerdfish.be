@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 import { type Article } from '@repo/design-system/components/article-overview'
 
-import { filterWiki } from '../../filter'
+import { filterWiki } from '../../utils/filter-wiki'
 
 import {
 	WikiOverviewContent,

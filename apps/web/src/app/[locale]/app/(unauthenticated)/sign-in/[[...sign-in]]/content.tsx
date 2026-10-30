@@ -5,7 +5,7 @@ import { Logo } from '@repo/design-system/icons'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-import { ThemeToggle } from '~/features/theme/components/theme-toggle'
+import { ThemeToggle } from '~/components/theme-toggle'
 
 const SignIn = dynamic(() =>
 	import('@repo/auth/components/sign-in').then((mod) => mod.SignIn),

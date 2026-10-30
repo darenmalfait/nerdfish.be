@@ -1,10 +1,10 @@
 import { cache } from 'react'
 import { notFound } from 'next/navigation'
 
-import { wiki } from '~/features/wiki/api'
+import { getWiki } from '~/features/wiki/api/get-wiki'
 
 export const getRouteData = cache(async function fetchRouteData(slug: string) {
-	const result = await wiki.get({ slug: decodeURIComponent(slug) })
+	const result = await getWiki({ slug: decodeURIComponent(slug) })
 
 	if (!result) return notFound()
 

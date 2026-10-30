@@ -10,10 +10,10 @@ import {
 import { Logo } from '@repo/design-system/icons'
 import { cn } from '@repo/lib/utils/class'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 
-import { useResume } from '../resume-provider'
-import { type Resume as ResumeProps } from '../types'
+import { useResume } from '../providers/resume-provider'
+import { type Resume as ResumeProps } from '../types/resume'
 
 function ResumePageHeaderInformationItem({
 	className,

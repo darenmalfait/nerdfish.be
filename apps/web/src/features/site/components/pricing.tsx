@@ -14,7 +14,7 @@ import {
 import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 
 interface Price extends PriceCardProps {
 	description: string

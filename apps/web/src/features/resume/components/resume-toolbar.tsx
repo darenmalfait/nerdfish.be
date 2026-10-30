@@ -28,10 +28,10 @@ import { parseError } from '@repo/observability/error'
 import { PencilIcon, PrinterIcon } from 'lucide-react'
 import { z } from 'zod'
 
-import { useTheme } from '~/features/theme/theme-provider'
+import { useTheme } from '~/providers/theme-provider'
 
-import { useResume } from '../resume-provider'
-import { resumeSchema } from '../types'
+import { useResume } from '../providers/resume-provider'
+import { resumeSchema } from '../types/resume'
 
 const resumeFormSchema = z.object({
 	schema: z.string(),

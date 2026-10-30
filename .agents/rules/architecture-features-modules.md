@@ -23,8 +23,14 @@ tags: architecture, features, packages
 Web-specific **domain blocks** live in `apps/web/src/features/...`:
 
 - Feature UI embeds (`BlogOverview`, form drawers, …)
-- Content readers (`api.ts`) and path helpers (`utils.ts`)
-- Form schemas/actions when web-only
+- Content readers (`api/get-posts.ts`) and helpers (`utils/get-blog-path.ts`),
+  one per file
+- Form schemas/actions when web-only (`forms/`)
+
+App-wide code that several features use (`Body`, `Link`, providers, types,
+global styles) lives next to `features/` in `src/components`, `src/providers`,
+`src/types`, `src/utils` and `src/styles`. Folder shape and import rules:
+`architecture-feature-boundaries.md`.
 
 **Page composition** (wiring blocks + `Suspense` + route data) stays in
 `apps/web/src/app/.../page.tsx`. Do not put `*-page.tsx` composers in features.
@@ -43,8 +49,12 @@ packages/email/
 └── keys.ts
 
 apps/web/src/features/blog/
-├── api.ts                        # Content reader leaf
-├── utils.ts                      # Path helpers leaf
+├── api/
+│   ├── get-post.ts               # One content reader per file
+│   └── get-posts.ts
+├── utils/
+│   ├── get-blog-path.ts          # One helper per file
+│   └── filter-blog.ts
 └── components/
     └── blog-overview/            # Reusable block — OK here
 
@@ -54,7 +64,8 @@ apps/web/src/app/[locale]/(website)/blog/
     └── blog.spec.ts              # Page e2e — next to the page
 ```
 
-Import leaves as `~/features/blog/api`, `~/features/blog/utils`,
+Import by file: `~/features/blog/api/get-posts`,
+`~/features/blog/utils/get-blog-path`,
 `~/features/blog/components/blog-overview` — never `~/features/blog`.
 
 ## Why This Matters

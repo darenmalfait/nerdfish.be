@@ -48,14 +48,14 @@ Only rules that are **nerdfish.be-specific** (paths, ESLint packages, CI gate).
 ### Architecture
 
 - [architecture-feature-boundaries](rules/architecture-feature-boundaries.md) —
-  Cross-feature / app imports via feature leaf modules (no feature barrels)
+  Feature folder shape, one module per file, no cross-feature imports
 - [architecture-features-modules](rules/architecture-features-modules.md) —
   `@repo/*` vs `apps/web/src/features` placement
 
 ### Code Quality
 
 - [quality-avoid-barrel-imports](rules/quality-avoid-barrel-imports.md) —
-  Package and feature barrels; leaf / subpath imports
+  Package and feature barrels; subpath / per-file imports
 - [quality-naming-conventions](rules/quality-naming-conventions.md) — `is*` /
   `handle*` / `to*` / `by*` / `use*` (`@nerdfish/config`)
 

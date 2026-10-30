@@ -1,4 +1,4 @@
-import '~/features/theme/styles/global.css'
+import '~/styles/global.css'
 
 import { type ReactNode } from 'react'
 import { Toaster } from '@nerdfish/react/toast'
@@ -9,7 +9,7 @@ import { i18n } from '@repo/i18n/config'
 import { getMessages, setRequestLocale } from '@repo/i18n/server'
 import { type WithLocale } from '@repo/i18n/types'
 
-import { AppProviders } from '~/features/theme/app-providers'
+import { AppProviders } from '~/providers/app-providers'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

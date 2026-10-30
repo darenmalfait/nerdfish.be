@@ -20,10 +20,10 @@ import { env } from 'env'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Body } from '~/features/site/components/body'
-import { ImageCredit } from '~/features/site/components/image-credit'
+import { Body } from '~/components/body'
+import { ImageCredit } from '~/components/image-credit'
 
-import { getBlogPath } from '../utils'
+import { getBlogPath } from '../utils/get-blog-path'
 
 function BlogHeroImage({
 	heroImg,

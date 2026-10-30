@@ -1,4 +1,4 @@
-import '~/features/theme/styles/global.css'
+import '~/styles/global.css'
 
 import { type ReactNode } from 'react'
 import { Toaster } from '@nerdfish/react/toast'
@@ -11,7 +11,7 @@ import { type WithLocale } from '@repo/i18n/types'
 import { SiteFooter } from '~/features/site/components/site-footer'
 import { SiteHeader } from '~/features/site/components/site-header'
 import { SkipLink } from '~/features/site/components/skip-link'
-import { AppProviders } from '~/features/theme/app-providers'
+import { AppProviders } from '~/providers/app-providers'
 
 export async function generateStaticParams() {
 	return i18n.locales.map((locale) => ({ locale }))

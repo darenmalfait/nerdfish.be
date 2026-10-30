@@ -15,8 +15,8 @@ import { cn } from '@repo/lib/utils/class'
 import { kebabCase } from '@repo/lib/utils/string'
 import { ArrowRight, LibrarySquareIcon } from 'lucide-react'
 
-import { Link } from '~/features/shared/components/link'
-import { ThemeToggle } from '~/features/theme/components/theme-toggle'
+import { Link } from '~/components/link'
+import { ThemeToggle } from '~/components/theme-toggle'
 
 import { type NavigationItem, useNavigation } from '../hooks/use-navigation'
 

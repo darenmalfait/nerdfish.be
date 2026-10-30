@@ -15,8 +15,13 @@ diffs, and matching existing patterns.
 - Create PRs in draft mode by default
 - Import from subpaths, not package roots (e.g.
   `@repo/design-system/components/section`, `@nerdfish/react/button`)
-- Import features via leaf modules (e.g. `~/features/blog/api`,
+- Import features by file (e.g. `~/features/blog/api/get-posts`,
   `~/features/blog/components/blog-overview`) — never feature-root barrels
+- Keep features to `api/`, `components/`, `forms/`, `hooks/`, `providers/`,
+  `types/`, `utils/`, `assets/` folders, one function per file in `api/` and
+  `utils/` — no loose files
+- Compose features in `app/` routes; put code several features need in
+  `src/components`, `src/providers`, `src/types`, `src/utils`
 - Add UI strings to **both** `packages/i18n/dictionaries/en.json` and `nl.json`
 - When adding a public route, update `apps/web/src/routing.ts` pathnames
 - Use `date-fns` or native `Date` for dates
@@ -38,7 +43,8 @@ diffs, and matching existing patterns.
 - Never hardcode user-facing strings — use next-intl
 - Never import from package barrels (`@repo/design-system`, `@nerdfish/react`)
 - Never add feature-root barrels (`features/<name>/index.ts` / `server.ts` /
-  `client.ts`) — use leaf imports
+  `client.ts`) — import by file
+- Never import one feature from another — compose them in the route instead
 - Never skip typecheck / lint / format before pushing
 - Never create large PRs (>500 lines or >10 files) — split them instead
 - Never add comments that restate what the code does
@@ -117,9 +123,13 @@ Lint and typecheck need `pnpm build:content-collections` first.
 apps/web/                         # Next.js 16 App Router site
   src/app/[locale]/(website)/     # Routes + metadata + page __tests__/
   src/app/[locale]/app/           # Authenticated app routes (thin)
-  src/features/                   # Domain blocks (UI, api.ts, utils) — leaf imports
-    shared/  site/  theme/  blog/  work/  wiki/  contact/
-    about/  product/  testimonials/  app-shell/  resume/
+  src/features/                   # Domain blocks: api/ components/ utils/ … per feature
+    site/  blog/  work/  wiki/  contact/  about/
+    product/  testimonials/  app-shell/  resume/
+  src/components/                 # App-wide UI (Body, Link, ImageGrid, ThemeToggle)
+  src/providers/                  # AppProviders, ThemeProvider, NuqsProvider
+  src/types/  src/utils/          # App-wide types + helpers
+  src/styles/                     # global.css
   src/routing.ts                  # Localized pathnames (next-intl)
   content/                        # MDX/MD CMS source
     blog/  wiki/  projects/  products/  testimonials/
@@ -192,24 +202,24 @@ packages/
 ### Imports
 
 ```typescript
-// Good - type imports, package subpaths, feature leaf modules
+// Good - type imports, package subpaths, feature files by path
 import type { WithLocale } from '@repo/i18n/types'
 import { Button } from '@nerdfish/react/button'
 import { Section } from '@repo/design-system/components/section'
 import { cn } from '@repo/lib/utils/class'
 import { BlogOverview } from '~/features/blog/components/blog-overview'
-import { blog } from '~/features/blog/api'
-import { Link } from '~/features/shared/components/link'
+import { getPosts } from '~/features/blog/api/get-posts'
+import { Link } from '~/components/link'
 
 // Bad - value import for types, package-root / feature-root barrels
 import { WithLocale } from '@repo/i18n/types'
 import { Button } from '@nerdfish/react'
 import { Section } from '@repo/design-system'
-import { BlogOverview, blog } from '~/features/blog'
+import { BlogOverview, getPosts } from '~/features/blog'
 ```
 
 Exceptions with a real package entry: `@repo/email`, `@repo/next-config`. No
-exception for `apps/web/src/features/*/index.ts` — use leaf paths.
+exception for `apps/web/src/features/*/index.ts` — import by file.
 
 ### i18n
 
@@ -227,19 +237,27 @@ const t = useTranslations('contact.page')
 
 ### Content collections
 
-Read generated data through a feature `api.ts` leaf, not ad-hoc filters in
-pages. Import it as `~/features/<name>/api`.
+Read generated data through a feature `api/` function, one per file, not ad-hoc
+filters in pages. Import it as `~/features/<name>/api/<get-thing>`.
 
 ```typescript
+// apps/web/src/features/blog/api/get-post.ts
 import { type Locale } from '@repo/i18n/types'
 import { allPosts } from 'content-collections'
 
-export const blog = {
-	get: async ({ slug, locale }: { slug: string; locale?: Locale }) => {
-		return allPosts.find((item) => item.slug === slug && item.locale === locale)
-	},
+export async function getPost({
+	slug,
+	locale,
+}: {
+	slug: string
+	locale?: Locale
+}) {
+	return allPosts.find((item) => item.slug === slug && item.locale === locale)
 }
 ```
+
+Shared list helpers live one per file in `src/utils`
+(`~/utils/filter-by-locale`, `~/utils/by-date-desc`).
 
 Blog/projects/products/testimonials are locale-prefixed under
 `apps/web/content/<type>/<locale>/`. Wiki is not multilingual
@@ -358,6 +376,7 @@ test.describe('User Story: The user wants to browse the blog', () => {
 - Fix type errors before test failures — they're often the root cause
 - Run `pnpm build:content-collections` if `content-collections` types are
   missing
-- Match the nearest existing feature (`~/features/contact`, blog `api.ts`,
+- Match the nearest existing feature (`~/features/contact`, blog `api/`,
   Playwright `app/.../__tests__/`) instead of inventing a new pattern
-- Prefer leaf imports; see `.agents/rules/architecture-feature-boundaries.md`
+- Folder shape and import rules:
+  `.agents/rules/architecture-feature-boundaries.md`

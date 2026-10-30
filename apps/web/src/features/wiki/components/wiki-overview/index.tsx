@@ -11,11 +11,11 @@ import { ArticleOverviewContentGrid } from '@repo/design-system/components/artic
 import { type PartialDeep } from '@repo/lib/types'
 import { type Wiki } from 'content-collections'
 
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+import { NuqsProvider } from '~/providers/nuqs-provider'
 
-import { wiki } from '../../api'
-import { filterWiki } from '../../filter'
-import { toArticleFromWiki } from '../../utils'
+import { getWikis } from '../../api/get-wikis'
+import { filterWiki } from '../../utils/filter-wiki'
+import { toArticleFromWiki } from '../../utils/to-article-from-wiki'
 
 import {
 	WikiOverviewContent,
@@ -45,7 +45,7 @@ export async function WikiOverviewData({
 	tags,
 	...props
 }: WikiOverviewProps) {
-	const localizedItems = await wiki.getAll()
+	const localizedItems = await getWikis()
 
 	const relatedItems =
 		relatedTo &&

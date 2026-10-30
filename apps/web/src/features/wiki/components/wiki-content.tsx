@@ -15,7 +15,7 @@ import { cn } from '@repo/lib/utils/class'
 import { type Wiki } from 'content-collections'
 import Link from 'next/link'
 
-import { Body } from '~/features/site/components/body'
+import { Body } from '~/components/body'
 
 function WikiContent({ data }: { data: Wiki }) {
 	const { title, date, body } = data

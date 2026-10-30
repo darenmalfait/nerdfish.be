@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 import { type Article } from '@repo/design-system/components/article-overview'
 
-import { filterBlog } from '../../filter'
+import { filterBlog } from '../../utils/filter-blog'
 
 import {
 	BlogOverviewContent,

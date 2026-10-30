@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { type ComponentProps, Suspense } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -12,20 +12,29 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Project } from 'content-collections'
 import { type Metadata } from 'next'
 
-import { getContentLanguageAlternates } from '~/features/shared/content/locale-alternates'
-import { work as workApi } from '~/features/work/api'
+import { Testimonials } from '~/features/testimonials/components/testimonials'
+import { getProjects } from '~/features/work/api/get-projects'
 import { WorkContent } from '~/features/work/components/work-content'
 import { WorkOverview } from '~/features/work/components/work-overview'
-import { getWorkPath } from '~/features/work/utils'
+import { getWorkPath } from '~/features/work/utils/get-work-path'
+import { getContentLanguageAlternates } from '~/utils/get-content-language-alternates'
 
 import { getRouteData } from './route-data'
+
+const WORK_BODY_COMPONENTS = {
+	Testimonials: (props: ComponentProps<typeof Testimonials>) => (
+		<Section compact>
+			<Testimonials {...props} />
+		</Section>
+	),
+}
 
 export async function generateStaticParams({
 	params,
 }: {
 	params: { locale: Locale }
 }) {
-	return (await workApi.getAll({ locale: params.locale })).map((item) => ({
+	return (await getProjects({ locale: params.locale })).map((item) => ({
 		slug: item.slug.split('/'),
 	}))
 }
@@ -36,7 +45,7 @@ export async function generateMetadata(props: {
 	const params = await props.params
 	const [{ work }, works] = await Promise.all([
 		getRouteData(params.slug.join('/'), params.locale),
-		workApi.getAll(),
+		getProjects(),
 	])
 	const title = work.seo.title
 	const languages = getContentLanguageAlternates(works, work, getWorkPath)
@@ -78,7 +87,7 @@ export default async function WorkPage(props: {
 	const { work } = await getRouteData(params.slug.join('/'), params.locale)
 
 	return (
-		<WorkContent data={work}>
+		<WorkContent data={work} bodyComponents={WORK_BODY_COMPONENTS}>
 			<Suspense fallback={null}>
 				<RelatedWork work={work} />
 			</Suspense>

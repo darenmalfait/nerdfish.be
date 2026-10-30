@@ -6,7 +6,7 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { getAlternateLanguages, getPathname } from 'routing'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 
 type PageProps = {
 	params: Promise<WithLocale>

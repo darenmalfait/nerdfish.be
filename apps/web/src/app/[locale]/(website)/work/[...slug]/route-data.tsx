@@ -2,13 +2,13 @@ import { cache } from 'react'
 import { type Locale } from '@repo/i18n/types'
 import { notFound } from 'next/navigation'
 
-import { work as workApi } from '~/features/work/api'
+import { getProject } from '~/features/work/api/get-project'
 
 export const getRouteData = cache(async function fetchRouteData(
 	slug: string,
 	locale?: Locale,
 ) {
-	const work = await workApi.get({
+	const work = await getProject({
 		slug,
 		locale,
 	})

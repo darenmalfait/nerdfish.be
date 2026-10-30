@@ -28,10 +28,10 @@ import { Section } from '@repo/design-system'
 **Correct (importing directly from source):**
 
 ```typescript
-// Feature leaf modules
+// Feature modules and shared code, by their own path
 import { BlogOverview } from '~/features/blog/components/blog-overview'
-import { blog } from '~/features/blog/api'
-import { Body } from '~/features/site/components/body'
+import { getPosts } from '~/features/blog/api/get-posts'
+import { Body } from '~/components/body'
 
 // Package subpaths
 import { Button } from '@nerdfish/react/button'
@@ -39,8 +39,8 @@ import { Section } from '@repo/design-system/components/section'
 ```
 
 **Do not add** `apps/web/src/features/<name>/index.ts`, `server.ts`, or
-`client.ts` re-export barrels. Prefer stable leaf files (`api.ts`, `utils.ts`,
-`components/...`).
+`client.ts` re-export barrels. Import the file that defines the thing
+(`api/get-posts.ts`, `utils/get-blog-path.ts`, `components/...`).
 
 **Exceptions** — packages that actually ship a root entry:
 

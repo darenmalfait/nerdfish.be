@@ -13,9 +13,9 @@ The section ID (in parentheses) is the filename prefix used to group rules.
 
 **Impact:** CRITICAL
 
-**Description:** nerdfish.be-specific placement — feature leaf modules,
-`@repo/*` vs `apps/web/src/features`. Vertical slices / acyclic graphs are in
-`nerdfish-monorepo-architecture`.
+**Description:** nerdfish.be-specific placement — feature folder shape and
+boundaries, `@repo/*` vs `apps/web/src/features`. Vertical slices / acyclic
+graphs are in `nerdfish-monorepo-architecture`.
 
 ## 2. Code Quality (quality)
 
@@ -30,8 +30,8 @@ repo: `eslint-plugin-react-you-might-not-need-an-effect`, `useMountEffect` from
 
 **Impact:** HIGH
 
-**Description:** content-collections, MDX under `apps/web/content/`, colocated
-`api.ts` readers. (No dedicated rule files yet.)
+**Description:** content-collections, MDX under `apps/web/content/`, feature
+`api/` readers (one per file) (No dedicated rule files yet.)
 
 ## 4. API Design (api)
 

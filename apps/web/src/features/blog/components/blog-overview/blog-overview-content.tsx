@@ -21,7 +21,7 @@ import {
 } from '@repo/design-system/components/section'
 import { useTranslations } from '@repo/i18n/client'
 
-import { type ImageType } from '~/features/shared/types'
+import { type ImageType } from '~/types/image'
 
 export interface BlogOverviewContentProps {
 	searchEnabled?: boolean

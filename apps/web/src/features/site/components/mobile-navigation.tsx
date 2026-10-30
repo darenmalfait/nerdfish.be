@@ -16,7 +16,7 @@ import { cn } from '@repo/lib/utils/class'
 import { ArrowLeftIcon, MenuIcon, XIcon } from 'lucide-react'
 import { usePathname } from 'routing'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 import {
 	getTopLevelNavHrefs,
 	isSubNavItemActive,

@@ -3,16 +3,14 @@ import { env } from 'env'
 import { type MetadataRoute } from 'next'
 import { basePathNames, getAlternateLanguages, type Pathnames } from 'routing'
 
-import { blog } from '~/features/blog/api'
-import { getBlogPath } from '~/features/blog/utils'
-import { product } from '~/features/product/api'
-import { getProductPath } from '~/features/product/utils'
-import {
-	buildLocalizedSitemapEntries,
-	getSlugLanguageAlternates,
-} from '~/features/shared/content/locale-alternates'
-import { work } from '~/features/work/api'
-import { getWorkPath } from '~/features/work/utils'
+import { getPosts } from '~/features/blog/api/get-posts'
+import { getBlogPath } from '~/features/blog/utils/get-blog-path'
+import { getProducts } from '~/features/product/api/get-products'
+import { getProductPath } from '~/features/product/utils/get-product-path'
+import { getProjects } from '~/features/work/api/get-projects'
+import { getWorkPath } from '~/features/work/utils/get-work-path'
+import { buildLocalizedSitemapEntries } from '~/utils/build-localized-sitemap-entries'
+import { getSlugLanguageAlternates } from '~/utils/get-slug-language-alternates'
 
 const BASE_URL = env.NEXT_PUBLIC_URL
 
@@ -26,9 +24,9 @@ const SITEMAP_PATH_PRIORITY: Partial<Record<Pathnames, number>> = {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const [posts, works, products] = await Promise.all([
-		blog.getAll(),
-		work.getAll(),
-		product.getAll(),
+		getPosts(),
+		getProjects(),
+		getProducts(),
 	])
 
 	const baseEntries = (Object.keys(basePathNames) as Pathnames[]).map(

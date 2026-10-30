@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react'
+import { type ComponentProps, type ComponentType } from 'react'
 import {
 	Section,
 	SectionHeader,
@@ -6,14 +6,9 @@ import {
 	SectionHeaderTitle,
 } from '@repo/design-system/components/section'
 
-import { Body as BaseBody } from '~/features/site/components/body'
-import { ImageGrid } from '~/features/site/components/image-grid'
-import {
-	SkillItem,
-	Skills,
-	type SkillItemProps,
-} from '~/features/site/components/skills'
-import { Testimonials } from '~/features/testimonials/components/testimonials'
+import { Body as BaseBody } from '~/components/body'
+import { ImageGrid } from '~/components/image-grid'
+import { SkillItem, Skills, type SkillItemProps } from '~/components/skills'
 
 interface SkillsBlockProps extends ComponentProps<typeof Skills> {
 	title: string
@@ -42,22 +37,24 @@ function SkillsBlock({
 	)
 }
 
-export function Body(props: ComponentProps<typeof BaseBody>) {
+// never: accepts components with any props, so the route can pass any block
+export type WorkBodyComponents = Record<string, ComponentType<never>>
+
+export function Body({
+	components,
+	...props
+}: ComponentProps<typeof BaseBody> & { components?: WorkBodyComponents }) {
 	return (
 		<BaseBody
 			{...props}
 			components={{
-				Testimonials: (rest: ComponentProps<typeof Testimonials>) => (
-					<Section compact>
-						<Testimonials {...rest} />
-					</Section>
-				),
 				ImageGrid: (rest: ComponentProps<typeof ImageGrid>) => (
 					<Section compact>
 						<ImageGrid {...rest} />
 					</Section>
 				),
 				Skills: SkillsBlock,
+				...components,
 			}}
 		/>
 	)

@@ -17,11 +17,11 @@ import {
 } from '@repo/seo/json-ld'
 import { type Post } from 'content-collections'
 
-import { NuqsProvider } from '~/features/shared/components/nuqs-provider'
+import { NuqsProvider } from '~/providers/nuqs-provider'
 
-import { blog } from '../../api'
-import { filterBlog } from '../../filter'
-import { toArticleFromBlog } from '../../utils'
+import { getPosts } from '../../api/get-posts'
+import { filterBlog } from '../../utils/filter-blog'
+import { toArticleFromBlog } from '../../utils/to-article-from-blog'
 
 import {
 	BlogOverviewContent,
@@ -52,7 +52,7 @@ export async function BlogOverviewData({
 	...props
 }: BlogOverviewProps) {
 	const locale = await getLocale()
-	const localizedItems = await blog.getAll({ locale })
+	const localizedItems = await getPosts({ locale })
 
 	const jsonLd: WithContext<BlogJsonLd> = {
 		'@type': 'Blog',

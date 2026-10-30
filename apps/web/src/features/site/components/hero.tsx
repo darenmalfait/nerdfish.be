@@ -11,7 +11,7 @@ import { capitalize } from '@repo/lib/utils/string'
 import { ArrowRightIcon } from 'lucide-react'
 import Image from 'next/image'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 
 export function HeroSubtitle({
 	children,

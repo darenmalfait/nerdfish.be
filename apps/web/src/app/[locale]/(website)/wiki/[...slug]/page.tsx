@@ -3,14 +3,14 @@ import { pageParams } from '@repo/og-utils/zod-params'
 import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 
-import { wiki as wikiApi } from '~/features/wiki/api'
+import { getWikis } from '~/features/wiki/api/get-wikis'
 import { WikiContent } from '~/features/wiki/components/wiki-content'
-import { getWikiPath } from '~/features/wiki/utils'
+import { getWikiPath } from '~/features/wiki/utils/get-wiki-path'
 
 import { getRouteData } from './route-data'
 
 export async function generateStaticParams() {
-	return (await wikiApi.getAll()).map((post) => ({
+	return (await getWikis()).map((post) => ({
 		slug: post.slug.split('/'),
 	}))
 }

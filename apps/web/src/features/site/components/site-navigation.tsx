@@ -26,7 +26,7 @@ import { cva, cn } from '@repo/lib/utils/class'
 import { stripPreSlash } from '@repo/lib/utils/string'
 import { usePathname } from 'routing'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 import { getActiveMainNavLabel } from '~/features/site/utils/navigation-active'
 
 import {

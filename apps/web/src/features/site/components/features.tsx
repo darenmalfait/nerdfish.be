@@ -6,7 +6,7 @@ import { type VariantProps, cva, cn } from '@repo/lib/utils/class'
 import { merge } from '@repo/lib/utils/object'
 import { ArrowRight } from 'lucide-react'
 
-import { Link } from '~/features/shared/components/link'
+import { Link } from '~/components/link'
 
 function DetailLink({
 	href,

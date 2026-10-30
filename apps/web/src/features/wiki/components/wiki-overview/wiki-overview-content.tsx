@@ -29,8 +29,8 @@ import { useTranslations } from '@repo/i18n/client'
 import { cn } from '@repo/lib/utils/class'
 import { usePathname } from 'next/navigation'
 
-import { Link } from '~/features/shared/components/link'
-import { type ImageType } from '~/features/shared/types'
+import { Link } from '~/components/link'
+import { type ImageType } from '~/types/image'
 
 function Tag({ tag }: { tag: string }) {
 	const pathname = usePathname()

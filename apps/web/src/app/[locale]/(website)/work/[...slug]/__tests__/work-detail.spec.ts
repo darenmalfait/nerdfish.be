@@ -3,7 +3,7 @@ import { i18n } from '@repo/i18n/config'
 import { allProjects } from 'content-collections'
 import { expectedPageTitle } from 'playwright/utils/seo'
 
-import { getWorkPath } from '~/features/work/utils'
+import { getWorkPath } from '~/features/work/utils/get-work-path'
 
 import { RELATED_PROJECT_COUNT } from './work-detail.builders'
 import { test } from './work-detail.fixture'

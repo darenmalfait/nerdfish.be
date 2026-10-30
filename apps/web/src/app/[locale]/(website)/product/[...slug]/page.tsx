@@ -6,10 +6,10 @@ import { createMetadata } from '@repo/seo/metadata'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { product as productApi } from '~/features/product/api'
+import { getProduct } from '~/features/product/api/get-product'
 import { ProductContent } from '~/features/product/components/product-content'
-import { getProductPath } from '~/features/product/utils'
-import { getSlugLanguageAlternates } from '~/features/shared/content/locale-alternates'
+import { getProductPath } from '~/features/product/utils/get-product-path'
+import { getSlugLanguageAlternates } from '~/utils/get-slug-language-alternates'
 
 type PageProps = {
 	params: Promise<WithLocale<{ slug: string[] }>>
@@ -19,7 +19,7 @@ const getPageData = cache(async function fetchPageData(
 	slug: string,
 	locale?: Locale,
 ) {
-	const product = await productApi.get({
+	const product = await getProduct({
 		slug: decodeURIComponent(slug),
 		locale,
 	})

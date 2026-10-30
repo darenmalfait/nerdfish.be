@@ -12,12 +12,14 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { getWorkLayout, type WorkLayout } from '../utils'
+import { getWorkLayout, type WorkLayout } from '../utils/get-work-layout'
 
-import { Body } from './work-body'
+import { Body, type WorkBodyComponents as BodyComponents } from './work-body'
 
 type WorkContentProps = {
 	data: Project
+	/** Lets the route inject other features' MDX blocks (e.g. Testimonials) without a cross-feature import. */
+	bodyComponents?: BodyComponents
 	children?: React.ReactNode
 }
 
@@ -66,12 +68,18 @@ function WorkHeader({ data }: { data: Project }) {
 	)
 }
 
-function WorkSummary({ summary }: { summary?: string | null }) {
+function WorkSummary({
+	summary,
+	bodyComponents,
+}: {
+	summary?: string | null
+	bodyComponents?: BodyComponents
+}) {
 	if (!summary) return null
 
 	return (
 		<div className="typography mx-auto max-w-4xl">
-			<Body content={summary} />
+			<Body content={summary} components={bodyComponents} />
 		</div>
 	)
 }
@@ -97,7 +105,11 @@ function WorkHero({ heroImg }: { heroImg: Project['heroImg'] }) {
 	)
 }
 
-function SidebarWorkContent({ data, children }: WorkContentProps) {
+function SidebarWorkContent({
+	data,
+	bodyComponents,
+	children,
+}: WorkContentProps) {
 	const { body, summary } = data
 
 	return (
@@ -110,14 +122,14 @@ function SidebarWorkContent({ data, children }: WorkContentProps) {
 					<Section compact className="px-0 xl:max-w-125">
 						<div className="py-casual xl:top-acquaintances max-w-4xl xl:sticky">
 							<WorkHeader data={data} />
-							<WorkSummary summary={summary} />
+							<WorkSummary summary={summary} bodyComponents={bodyComponents} />
 						</div>
 					</Section>
 
 					{body.length ? (
 						<div className="flex flex-1 flex-col">
 							<div className="-mx-friends">
-								<Body content={body} />
+								<Body content={body} components={bodyComponents} />
 							</div>
 						</div>
 					) : null}
@@ -129,7 +141,7 @@ function SidebarWorkContent({ data, children }: WorkContentProps) {
 	)
 }
 
-function FullWorkContent({ data, children }: WorkContentProps) {
+function FullWorkContent({ data, bodyComponents, children }: WorkContentProps) {
 	const { summary, heroImg } = data
 
 	return (
@@ -143,7 +155,7 @@ function FullWorkContent({ data, children }: WorkContentProps) {
 						<div className="py-casual xl:top-acquaintances max-w-4xl xl:sticky">
 							<WorkHeader data={data} />
 							<WorkHero heroImg={heroImg} />
-							<WorkSummary summary={summary} />
+							<WorkSummary summary={summary} bodyComponents={bodyComponents} />
 						</div>
 					</Section>
 				</article>
@@ -162,9 +174,13 @@ const workContentByLayout: Record<
 	full: FullWorkContent,
 }
 
-function WorkContent({ data, children }: WorkContentProps) {
+function WorkContent({ data, bodyComponents, children }: WorkContentProps) {
 	const Content = workContentByLayout[getWorkLayout(data.category)]
-	return <Content data={data}>{children}</Content>
+	return (
+		<Content data={data} bodyComponents={bodyComponents}>
+			{children}
+		</Content>
+	)
 }
 
 export { WorkContent }

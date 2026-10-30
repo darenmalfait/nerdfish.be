@@ -17,7 +17,7 @@ import { GlobeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Body } from '~/features/site/components/body'
+import { Body } from '~/components/body'
 
 type ProductContentLabels = {
 	about: string

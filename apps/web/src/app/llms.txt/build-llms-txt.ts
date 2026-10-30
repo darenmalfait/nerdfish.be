@@ -1,9 +1,9 @@
 import { env } from 'env'
 
-import { blog } from '~/features/blog/api'
-import { getBlogPath } from '~/features/blog/utils'
-import { work } from '~/features/work/api'
-import { getWorkPath } from '~/features/work/utils'
+import { getPosts } from '~/features/blog/api/get-posts'
+import { getBlogPath } from '~/features/blog/utils/get-blog-path'
+import { getProjects } from '~/features/work/api/get-projects'
+import { getWorkPath } from '~/features/work/utils/get-work-path'
 
 type LlmsEntry = {
 	title: string
@@ -78,7 +78,7 @@ function formatEntry(baseUrl: string, { title, summary, href }: LlmsEntry) {
 
 export async function buildLlmsTxt(): Promise<string> {
 	const baseUrl = env.NEXT_PUBLIC_URL
-	const [posts, works] = await Promise.all([blog.getAll(), work.getAll()])
+	const [posts, works] = await Promise.all([getPosts(), getProjects()])
 
 	const lines = [
 		'# nerdfish.be',

@@ -4,12 +4,7 @@ import { useState } from 'react'
 import { TagFilterTitle } from '@repo/design-system/components/tag-filter'
 import { useTranslations } from '@repo/i18n/client'
 
-import {
-	SkillsFilter,
-	skills,
-	SkillItem,
-	Skills,
-} from '~/features/site/components/skills'
+import { SkillsFilter, skills, SkillItem, Skills } from '~/components/skills'
 
 export function Toolbox() {
 	const t = useTranslations('about.page.my-toolbox')
