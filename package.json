@@ -33,24 +33,24 @@
   },
   "prettier": "@nerdfish/config/prettier",
   "dependencies": {
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.3",
-    "@commitlint/config-conventional": "^21.2.3",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@nerdfish/config": "^4.4.0",
     "@next/eslint-plugin-next": "^16.3.5",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.11.2",
+    "@turbo/gen": "^2.11.10",
     "dotenv-cli": "^11.0.0",
     "eslint": "^10.11.0",
     "husky": "^9.1.7",
-    "minimatch": "^11.0.0",
-    "npm-run-all2": "^9.0.3",
-    "prettier": "^3.9.8",
-    "turbo": "^2.11.2"
+    "minimatch": "^11.0.5",
+    "npm-run-all2": "^9.0.4",
+    "prettier": "^3.9.10",
+    "turbo": "^2.11.10"
   },
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@10.34.9",
   "pnpm": {
     "overrides": {
       "@types/react": "19.3.0",
