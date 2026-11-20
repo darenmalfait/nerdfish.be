@@ -1,101 +1,117 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "gh-stack": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/gh-stack/SKILL.md",
-      "computedHash": "e54bf50370987f13ca2803b3be829f36350b68a79dc36ffd3b27350bc6d2fde1"
+      "computedHash": "4ff26e30a0103af77552e5eebbabfbf80734fd23b1485f0c513a0b35a3126613",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "improve-animations": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/improve-animations/SKILL.md",
-      "computedHash": "f6652a3bb94950baa33c684cc0966c838eb65cf22ebb5769a4f51ea205c254fe"
+      "computedHash": "197db8a2e4a2f009ad5aeef57fb9aafbec83f9023bfff269a4bf5ede1106584a",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "nerdfish-bdd-testing": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/nerdfish-bdd-testing/SKILL.md",
-      "computedHash": "42142e46db93ab9e7f09e78e712d32e27010f703d5e6914f8a5ad8f3153c95c9"
+      "computedHash": "e7b328101f8fb62ce0fdd04e9e89ecf43583095d4d5debb69de7a80709e7211f",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "nerdfish-code-quality": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/nerdfish-code-quality/SKILL.md",
-      "computedHash": "adb3d5b1d7de904d25cf248166a584a3f67f58fddb856de5d1dab2c282750076"
+      "computedHash": "b1c40ea8c71af016bd865b0943e6efcb6b105bc9a695e6ce2113c609f1f88540",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "nerdfish-monorepo-architecture": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/nerdfish-monorepo-architecture/SKILL.md",
-      "computedHash": "dd48b9630361c3eada5bd8cd4d143a3312b483a750e9dc680ac4bd0bb7d62605"
+      "computedHash": "f77351bd9f62d2345cc8e471416a41a0b56dfd2c9a64e94450499a0c656c5fb4",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "nerdfish-pr-discipline": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/nerdfish-pr-discipline/SKILL.md",
-      "computedHash": "d8c5b446bb65bd8848b3142fd129d5a71644310adc02bcae2ebbd07376ec96b9"
+      "computedHash": "5f6cf253e3ff646a40ba5c7b0edaef32a5bc23d5664e0691c0a1da123216c7ee",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "nerdfish-react-guidelines": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/nerdfish-react-guidelines/SKILL.md",
-      "computedHash": "13e51522b848f58322fc01818a179dfd2d485f97694958bb87d56dd6c02ed6f4"
+      "computedHash": "68c6b4f80dad5283dbda1e0ec2f9cf07f950712a7fec95e5b0f65df7a34eaf78",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "seo-audit": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/seo-audit/SKILL.md",
-      "computedHash": "9a94c66cb3098b03037f072b6f561cca75410c6d8611e50646baf9e8a5dabe8f"
+      "computedHash": "558ade4816b3d5ed50fc53330a497a2adc073768b8d3e55996e54d2aafc8de05",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "specification-website": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/specification-website/SKILL.md",
-      "computedHash": "227a5c9af01281114b62f098707f95f5f5d2bd52f1c08fa283a90bc0d65308a7"
+      "computedHash": "a39809930ccee8ff0d9d4b073cb92fe87525e6f6191f5479fe14f1a72569f727",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "typescript-discriminated-unions": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/typescript-discriminated-unions/SKILL.md",
-      "computedHash": "9d78f0a301706ba0becfa780ef9c6a80dee373340a240c4a5f5e59de1d75f370"
+      "computedHash": "a246ddf02c9335402f1f5fffc5aa17cebb6bca2726481a8f19cd5dfb80774c17",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "vercel-composition-patterns": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/vercel-composition-patterns/SKILL.md",
-      "computedHash": "94614590eb8d755279d38baf53f9fb48df06cb260e77e8fb626d24090f2a8c77"
+      "computedHash": "f711ed8b16162eaa712abbcdbbae6c926f86c57e60127735fecc3ad0dd85b3fa",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "vercel-optimize": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/vercel-optimize/SKILL.md",
-      "computedHash": "d9f0847fdc1d9c6cfb44d80b31e18dcfbc70cb09878e76b91c43ea3c00eea586"
+      "computedHash": "f69b2d70e9928eb4ae0b0acdaabb2ba2f42ba694aa33df52b4ee41e8fb9ced60",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "vercel-react-best-practices": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/vercel-react-best-practices/SKILL.md",
-      "computedHash": "451c3cb0e335a2a9a6a1beaa54c22decbdb942f4104ae3d7b6d1979114986d79"
+      "computedHash": "7991ed4fbecdac23f47c1a40c243e00a212a9e7f3604db93959b3ae11dffe299",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "vercel-react-native-skills": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/vercel-react-native-skills/SKILL.md",
-      "computedHash": "03b674ec40c1f5f38bb8f20fc19081844211b794b809089a96eb589d2d7f9767"
+      "computedHash": "4c160f1f4e623b989cadb71f42a0813be574d172acf5e32a6411c87f3e28c05a",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "vercel-react-view-transitions": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/vercel-react-view-transitions/SKILL.md",
-      "computedHash": "8225f482d41487ec0e3eabdc517df95ac7d4290d7dd74079637d3867b0bae5e0"
+      "computedHash": "d5bdffc1f132ae0d6d9260c260ae206d48cd83cb148e3e3b75fc1a3b94b249fa",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     },
     "web-design-guidelines": {
       "source": "darenmalfait/nerdfish-agent-skills",
       "sourceType": "github",
       "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+      "computedHash": "4f68ae07187fb0d1fb78c88b503d089da4cf5a9d9625d1f2e425b1590bf96d92",
+      "commit": "41e25590e0b68f989e691eee0e0340d25067e90b"
     }
   }
 }
