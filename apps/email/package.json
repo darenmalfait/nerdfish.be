@@ -17,12 +17,12 @@
     "next": "16.4.5",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-email": "^6.9.5"
+    "react-email": "^6.11.16"
   },
   "devDependencies": {
-    "@react-email/ui": "6.9.5",
+    "@react-email/ui": "6.11.16",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^24.13.6",
+    "@types/node": "^24.19.2",
     "@types/react": "19.3.0",
     "typescript": "^5.9.3"
   }
